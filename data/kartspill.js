@@ -923,7 +923,7 @@ window.LV.kartspill = [
      112
     ],
     "info": "Drapet på den østerrikske tronfølgeren utløser første verdenskrig.",
-    "tema": "sf10-mellomkrigstiden"
+    "tema": "sf9-forste-verdenskrig"
    },
    {
     "id": "hd:Den russiske revolusjonen (1917)",
@@ -934,7 +934,7 @@ window.LV.kartspill = [
      62
     ],
     "info": "Kommunistene tar makten i Petrograd (St. Petersburg).",
-    "tema": "sf10-mellomkrigstiden"
+    "tema": "sf9-russiske-revolusjonen"
    },
    {
     "id": "hd:Gandhis saltmarsj (1930)",

@@ -440,5 +440,173 @@ window.LV.temaer = [
       "Oslo-avtalen fra 1993 ble forhandlet fram i hemmelighet i Norge.",
       "Den norske fredsforskeren Johan Galtung skilte mellom negativ og positiv fred."
     ]
+  },
+  {
+    id: "sf9-arbeiderbevegelsen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Arbeiderbevegelsen",
+    kort: "Fra Marcus Thrane til åttetimersdagen – hvordan arbeiderne gikk sammen og fikk bedre kår.",
+    sted: { navn: "Arendal", lat: 58.46, lon: 8.77 },
+    bilde: "assets/bilder/sf9-arbeiderbevegelsen.svg",
+    bildeAlt: "Tegning av et 1. mai-tog med arbeidere som bærer en rød fane",
+    kreditt: "",
+    fakta: [
+      "Kravet om åttetimersdagen lød: «åtte timer arbeid, åtte timer hvile og åtte timer fritid».",
+      "Arbeiderpartiets første regjering i 1928 varte bare i 18 dager."
+    ]
+  },
+  {
+    id: "sf9-utvandringen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Utvandringen til Amerika",
+    kort: "Hvorfor 800 000 nordmenn reiste over Atlanterhavet – og hvordan livet ble i Amerika.",
+    sted: { navn: "Stavanger", lat: 58.97, lon: 5.73 },
+    bilde: "https://images.unsplash.com/photo-1605999358548-c8593e96cb83?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et gammelt seilskip med hvite seil på havet",
+    kreditt: "Michael Jerrard",
+    kredittUrl: "https://unsplash.com/@michaeljerrard?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Da sluppen Restauration kom fram til New York i 1825, var det én passasjer mer om bord enn da den dro – et barn ble født underveis.",
+      "Rundt 800 000 nordmenn utvandret til Amerika mellom 1825 og 1930."
+    ]
+  },
+  {
+    id: "sf9-kolonialisme",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Kolonialisme og imperialisme",
+    kort: "Hvordan europeiske land delte Afrika og Asia mellom seg – og sporene det har satt.",
+    sted: { navn: "Kongo (Kinshasa)", lat: -4.32, lon: 15.31 },
+    bilde: "https://images.unsplash.com/photo-1723306743407-cb6ac8f19941?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et gammelt verdenskart fra 1880",
+    kreditt: "The New York Public Library",
+    kredittUrl: "https://unsplash.com/@nypl?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Ingen afrikanere var invitert da europeiske stormakter møttes i Berlin i 1884–1885 for å bli enige om delingen av Afrika.",
+      "Etiopia slo en italiensk hær ved Adwa i 1896 og ble ikke kolonisert."
+    ]
+  },
+  {
+    id: "sf9-nasjonalisme",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Nasjonalisme og 1905",
+    kort: "Eventyr, bunader og unionsoppløsning – nasjonalismens lyse og mørke sider.",
+    sted: { navn: "Karlstad", lat: 59.38, lon: 13.5 },
+    bilde: "https://images.unsplash.com/photo-1616263674612-842b02a25dbe?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En norsk stavkirke",
+    kreditt: "Karo K.",
+    kredittUrl: "https://unsplash.com/@karo1504?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "I folkeavstemningen om unionsoppløsningen i 1905 stemte bare 184 nordmenn nei.",
+      "Asbjørnsen og Moe ga ut de første norske folkeeventyrene i 1841."
+    ]
+  },
+  {
+    id: "sf9-fornorskingen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Fornorskingen av samene",
+    kort: "Hvordan staten prøvde å gjøre samer og kvener norske – og veien mot forsoning.",
+    sted: { navn: "Karasjok", lat: 69.47, lon: 25.51 },
+    bilde: "https://images.unsplash.com/photo-1707550511844-a5d913deb20b?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "To reinsdyr i snøen",
+    kreditt: "Mylène Haudebourg",
+    kredittUrl: "https://unsplash.com/@mylenehaudebourg14?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Samefolkets dag 6. februar er til minne om det første samiske landsmøtet i Trondheim i 1917.",
+      "I 1997 ba kong Harald samene om unnskyldning for den uretten staten hadde gjort."
+    ]
+  },
+  {
+    id: "sf9-forste-verdenskrig",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Første verdenskrig",
+    kort: "Skuddene i Sarajevo, livet i skyttergravene og krigen som forandret Europa.",
+    sted: { navn: "Verdun", lat: 49.16, lon: 5.38 },
+    bilde: "https://images.unsplash.com/photo-1527615532814-540d0d97d938?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En åker full av røde valmuer",
+    kreditt: "Léonard Cotte",
+    kredittUrl: "https://unsplash.com/@ettocl?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Den røde valmuen er et minnesymbol for første verdenskrig, fordi valmuer vokste på slagmarkene i Flandern.",
+      "Våpenhvilen trådte i kraft den 11. dagen i den 11. måneden klokka 11 i 1918."
+    ]
+  },
+  {
+    id: "sf9-russiske-revolusjonen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Den russiske revolusjonen",
+    kort: "Fra tsar til kommunisme – revolusjonen i 1917 og fødselen av Sovjetunionen.",
+    sted: { navn: "St. Petersburg", lat: 59.94, lon: 30.31 },
+    bilde: "https://images.unsplash.com/photo-1609192604404-8574f77e5f5a?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Palassplassen i St. Petersburg om kvelden",
+    kreditt: "Klaus Wright",
+    kredittUrl: "https://unsplash.com/@klausswright?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Oktoberrevolusjonen skjedde i november etter vår kalender, fordi Russland brukte en eldre kalender.",
+      "Byen St. Petersburg har hatt tre navn: Petrograd fra 1914 og Leningrad fra 1924 til 1991."
+    ]
+  },
+  {
+    id: "en9-british-empire",
+    fag: "engelsk",
+    trinn: 9,
+    tittel: "The British Empire and the Spread of English",
+    kort: "How a small island ruled a quarter of the world – and why English became a world language.",
+    sted: { navn: "London", lat: 51.51, lon: -0.13 },
+    bilde: "https://images.unsplash.com/photo-1600907055749-d6cc7e75efd4?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et gammelt globus i gull og sølv",
+    kreditt: "CHUTTERSNAP",
+    kredittUrl: "https://unsplash.com/@chuttersnap?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    sprak: "en",
+    fakta: [
+      "Around 1920, the British Empire ruled about a quarter of the world’s land.",
+      "Most of the world’s English speakers today are not native speakers."
+    ]
+  },
+  {
+    id: "en9-australia",
+    fag: "engelsk",
+    trinn: 9,
+    tittel: "Australia and the Stolen Generations",
+    kort: "The First Australians, British colonization and the children who were taken from their families.",
+    sted: { navn: "Sydney", lat: -33.87, lon: 151.21 },
+    bilde: "https://images.unsplash.com/photo-1685362862102-1f9858423939?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Aboriginal helleristninger på en stor stein i Vest-Australia",
+    kreditt: "René Riegal",
+    kredittUrl: "https://unsplash.com/@riegal?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    sprak: "en",
+    fakta: [
+      "People have lived in Australia for more than 60,000 years.",
+      "Before the British arrived, more than 250 languages were spoken in Australia."
+    ]
   }
 ];

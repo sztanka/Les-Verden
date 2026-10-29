@@ -41,13 +41,13 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ### Samfunnsfag
 - [x] Industrialiseringen (`sf9-industrialiseringen`) ↔ *The Victorian Era*
-- [ ] Arbeiderbevegelsen (`sf9-arbeiderbevegelsen`) – Marcus Thrane
-- [ ] Utvandringen til Amerika (`sf9-utvandringen`) ↔ *The American Dream*
-- [ ] Kolonialisme og imperialisme (`sf9-kolonialisme`) – delingen av Afrika ↔ *The British Empire*
-- [ ] Nasjonalisme (`sf9-nasjonalisme`)
-- [ ] Fornorskingen av samene (`sf9-fornorskingen`) ↔ *Australia / Indigenous Peoples*
-- [ ] Første verdenskrig (`sf9-forste-verdenskrig`)
-- [ ] Den russiske revolusjonen (`sf9-russiske-revolusjonen`)
+- [x] Arbeiderbevegelsen (`sf9-arbeiderbevegelsen`) – Marcus Thrane
+- [x] Utvandringen til Amerika (`sf9-utvandringen`) ↔ *The American Dream*
+- [x] Kolonialisme og imperialisme (`sf9-kolonialisme`) – delingen av Afrika ↔ *The British Empire*
+- [x] Nasjonalisme (`sf9-nasjonalisme`)
+- [x] Fornorskingen av samene (`sf9-fornorskingen`) ↔ *Australia / Indigenous Peoples*
+- [x] Første verdenskrig (`sf9-forste-verdenskrig`)
+- [x] Den russiske revolusjonen (`sf9-russiske-revolusjonen`)
 - [ ] Næringsveier (`sf9-naeringsveier`)
 - [ ] Globalisering (`sf9-globalisering`)
 - [ ] Fattigdom og ulikhet (`sf9-fattigdom-ulikhet`)
@@ -60,8 +60,8 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ### Engelsk
 - [x] The Victorian Era and Charles Dickens (`en9-victorian-era`) ↔ *Industrialiseringen*
-- [ ] The British Empire and the Spread of English (`en9-british-empire`) ↔ *Kolonialisme*
-- [ ] Australia and the Stolen Generations (`en9-australia`) ↔ *Fornorskingen*
+- [x] The British Empire and the Spread of English (`en9-british-empire`) ↔ *Kolonialisme*
+- [x] Australia and the Stolen Generations (`en9-australia`) ↔ *Fornorskingen*
 - [ ] New Zealand and the Māori (`en9-new-zealand`)
 - [ ] India (`en9-india`)
 - [ ] British and American English (`en9-british-american-english`)

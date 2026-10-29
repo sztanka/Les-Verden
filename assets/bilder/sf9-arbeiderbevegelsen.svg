@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="t">
+  <title id="t">Tegning av et 1. mai-tog med arbeidere som bærer en rød fane</title>
+  <defs>
+    <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfdde6"/>
+      <stop offset=".6" stop-color="#e7ecef"/>
+      <stop offset="1" stop-color="#efe9df"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#himmel)"/>
+  <!-- Byen i bakgrunnen -->
+  <g fill="#a9b4bb">
+    <rect x="0" y="150" width="90" height="140"/>
+    <rect x="80" y="120" width="60" height="170"/>
+    <rect x="440" y="135" width="80" height="155"/>
+    <rect x="510" y="110" width="70" height="180"/>
+    <rect x="570" y="160" width="70" height="130"/>
+    <rect x="110" y="70" width="16" height="60"/>
+    <rect x="540" y="60" width="16" height="60"/>
+  </g>
+  <g fill="#c8d0d5" opacity=".9">
+    <circle cx="118" cy="55" r="14"/><circle cx="132" cy="40" r="11"/>
+    <circle cx="548" cy="45" r="13"/><circle cx="562" cy="30" r="10"/>
+  </g>
+  <g fill="#93a0a8">
+    <rect x="20" y="175" width="12" height="16"/><rect x="50" y="175" width="12" height="16"/>
+    <rect x="455" y="160" width="12" height="16"/><rect x="485" y="160" width="12" height="16"/>
+    <rect x="530" y="140" width="12" height="16"/><rect x="590" y="185" width="12" height="16"/>
+  </g>
+  <!-- Gate -->
+  <rect y="285" width="640" height="75" fill="#d6cbb8"/>
+  <rect y="285" width="640" height="6" fill="#c4b8a3"/>
+  <!-- Fane -->
+  <rect x="198" y="92" width="6" height="150" fill="#5a3e2b"/>
+  <rect x="436" y="92" width="6" height="150" fill="#5a3e2b"/>
+  <path d="M204 100 H436 V170 Q320 186 204 170 Z" fill="#c0392b"/>
+  <path d="M204 100 H436 V108 H204 Z" fill="#a93226"/>
+  <text x="320" y="136" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#fff6e8">8 TIMERS</text>
+  <text x="320" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#fff6e8">ARBEIDSDAG</text>
+  <!-- Arbeidere (silhuetter) -->
+  <g fill="#2f3a44">
+    <!-- person 1 -->
+    <circle cx="150" cy="205" r="13"/><rect x="136" y="218" width="28" height="48" rx="8"/><rect x="138" y="262" width="10" height="28"/><rect x="152" y="262" width="10" height="28"/>
+    <rect x="134" y="192" width="32" height="7" rx="3"/>
+    <!-- person 2 (holder stang) -->
+    <circle cx="200" cy="210" r="13"/><rect x="186" y="223" width="28" height="46" rx="8"/><rect x="188" y="265" width="10" height="25"/><rect x="202" y="265" width="10" height="25"/>
+    <!-- person 3 -->
+    <circle cx="255" cy="212" r="12"/><rect x="242" y="224" width="26" height="44" rx="8"/><rect x="244" y="264" width="9" height="26"/><rect x="257" y="264" width="9" height="26"/>
+    <path d="M240 236 L226 214" stroke="#2f3a44" stroke-width="7" stroke-linecap="round"/>
+    <!-- person 4 (kvinne med skjørt) -->
+    <circle cx="305" cy="208" r="12"/><path d="M292 222 h26 l10 50 h-46 z"/><rect x="298" y="270" width="8" height="20"/><rect x="310" y="270" width="8" height="20"/>
+    <!-- person 5 -->
+    <circle cx="360" cy="210" r="13"/><rect x="346" y="223" width="28" height="46" rx="8"/><rect x="348" y="265" width="10" height="25"/><rect x="362" y="265" width="10" height="25"/>
+    <rect x="344" y="197" width="32" height="7" rx="3"/>
+    <!-- person 6 (holder stang) -->
+    <circle cx="438" cy="210" r="13"/><rect x="424" y="223" width="28" height="46" rx="8"/><rect x="426" y="265" width="10" height="25"/><rect x="440" y="265" width="10" height="25"/>
+    <!-- person 7 -->
+    <circle cx="492" cy="206" r="12"/><path d="M479 220 h26 l10 52 h-46 z"/><rect x="485" y="270" width="8" height="20"/><rect x="497" y="270" width="8" height="20"/>
+  </g>
+  <!-- Små røde flagg -->
+  <g>
+    <rect x="224" y="186" width="3" height="40" fill="#5a3e2b"/><path d="M227 186 h22 v14 h-22 z" fill="#c0392b"/>
+    <rect x="508" y="178" width="3" height="44" fill="#5a3e2b"/><path d="M511 178 h22 v14 h-22 z" fill="#c0392b"/>
+  </g>
+</svg>
