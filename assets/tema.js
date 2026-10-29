@@ -20,6 +20,7 @@
       kobletTil: "Koblet til", kilder: "Les mer",
       innhold: "Innhold – trykk for å hoppe", del: "Del", tidslinje: "Tidslinje – de viktigste datoene",
       begrepsliste: "Begreper du skal kunne", tilToppen: "Til innholdslisten",
+      personer: "Personer i temaet", allePersoner: "Se alle personene",
       navn: "Navn", kopier: "Kopier mine svar", slett: "Slett alle svar",
       kopiert: "Kopiert! Lim inn i dokumentet ditt.", ingenSvar: "Du har ikke skrevet noen svar ennå.",
       bekreftSlett: "Vil du slette alle svarene dine? Dette kan ikke angres.",
@@ -38,6 +39,7 @@
       kobletTil: "Connected topics", kilder: "Read more",
       innhold: "Contents – click to jump", del: "Part", tidslinje: "Timeline – the key dates",
       begrepsliste: "Key terms", tilToppen: "Back to contents",
+      personer: "People in this topic", allePersoner: "See all the people",
       navn: "Name", kopier: "Copy my answers", slett: "Delete all answers",
       kopiert: "Copied! Paste it into your document.", ingenSvar: "You haven't written any answers yet.",
       bekreftSlett: "Do you want to delete all your answers? This cannot be undone.",
@@ -177,6 +179,13 @@
       h += '<section class="tidslinje" id="tidslinje" aria-labelledby="tidslinje-tittel"><h2 id="tidslinje-tittel">' + T.tidslinje + "</h2><ol>" +
         tema.tidslinje.map(t => '<li><span class="dato">' + LV.esc(t.dato) + '</span><span class="hendelse">' + formater(t.tekst) + "</span></li>").join("") +
         "</ol></section>";
+    }
+
+    // Personer
+    if (tema.personer && tema.personer.length) {
+      h += '<section class="personer-tema" aria-labelledby="personer-tittel"><h2 id="personer-tittel">' + T.personer + '</h2><div class="personkort-rad">' +
+        tema.personer.map(p => LV.personkort(p)).join("") +
+        '</div><p><a href="personer.html?fag=' + tema.fag + '" lang="nb">' + T.allePersoner + " →</a></p></section>";
     }
 
     // Begrepsliste

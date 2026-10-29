@@ -82,6 +82,11 @@ window.LV.tema = {
     { dato: "2018", tekst: "A study finds that false news spreads faster than true news on Twitter." }
   ],
 
+  personer: [
+    { navn: "Solomon Asch", levde: "1907–1996", rolle: "American psychologist", tekst: "In the 1950s he did a simple experiment that showed that many people will give an answer they know is wrong, just to fit in with the group. Just one person who disagreed made it much easier for others to stand up for themselves." },
+    { navn: "Irving Janis", levde: "1918–1990", rolle: "American psychologist", tekst: "He studied how groups make bad decisions because everyone wants to agree, and made the word “groupthink” known. One of his examples was the failed Bay of Pigs invasion of Cuba in 1961." }
+  ],
+
   ord: {
     "groupthink": "gruppetenkning – when a group wants to agree so much that it stops thinking critically.",
     "conformity": "konformitet / tilpasning – changing what you say or do to fit in with a group.",

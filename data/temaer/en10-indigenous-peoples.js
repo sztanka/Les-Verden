@@ -85,6 +85,10 @@ window.LV.tema = {
     { dato: "2016", tekst: "Protests at Standing Rock against an oil pipeline." }
   ],
 
+  personer: [
+    { navn: "Christopher Columbus", levde: "c. 1451–1506", rolle: "Italian explorer", tekst: "In 1492 he sailed across the Atlantic for the Spanish king and queen and arrived in the Americas, where millions of people already lived. His arrival started a European colonization that had terrible consequences for Indigenous peoples." }
+  ],
+
   ord: {
     "indigenous": "urfolk / urfolks- – the original people of an area, who lived there before others came and took control.",
     "colonize": "kolonisere – to take control of another people’s land and settle there.",

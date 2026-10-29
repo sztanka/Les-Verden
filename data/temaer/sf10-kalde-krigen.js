@@ -98,6 +98,16 @@ window.LV.tema = {
     { dato: "Desember 1991", tekst: "Sovjetunionen blir oppløst." }
   ],
 
+  personer: [
+    { navn: "Winston Churchill", levde: "1874–1965", rolle: "Britisk statsminister under andre verdenskrig", tekst: "Han ble statsminister i mai 1940 og nektet å gi opp da Storbritannia sto alene mot Hitler. Talene hans ga britene mot. Etter krigen advarte han mot at et «jernteppe» hadde senket seg over Europa." },
+    { navn: "Josef Stalin", levde: "1878–1953", rolle: "Sovjetunionens diktator", tekst: "Han styrte Sovjetunionen med jernhånd fra slutten av 1920-tallet til han døde. Millioner av mennesker ble sendt til arbeidsleirer, henrettet eller døde av sult under hans styre. I andre verdenskrig var han en av de tre store lederne på den allierte siden." },
+    { navn: "John F. Kennedy", levde: "1917–1963", rolle: "USAs president 1961–1963", tekst: "Han var president under Cubakrisen i 1962, da han krevde at Sovjetunionen fjernet atomrakettene fra Cuba. Han satte også målet om å sende et menneske til månen. Han ble skutt og drept i Dallas i 1963." },
+    { navn: "Nikita Khrusjtsjov", levde: "1894–1971", rolle: "Sovjetunionens leder 1953–1964", tekst: "Han ledet Sovjetunionen under Cubakrisen i 1962 og ga til slutt etter for kravet om å fjerne rakettene fra Cuba. Han kritiserte også forgjengeren Stalins forbrytelser." },
+    { navn: "Jurij Gagarin", levde: "1934–1968", rolle: "Sovjetisk kosmonaut", tekst: "12. april 1961 ble han det første mennesket i verdensrommet. Ferden gjorde ham til en helt i Sovjetunionen og var en stor seier i kappløpet mot USA." },
+    { navn: "Neil Armstrong", levde: "1930–2012", rolle: "Amerikansk astronaut", tekst: "20. juli 1969 ble han det første mennesket som gikk på månen. «Et lite skritt for et menneske, et stort sprang for menneskeheten», sa han." },
+    { navn: "Mikhail Gorbatsjov", levde: "1931–2022", rolle: "Sovjetunionens siste leder", tekst: "Han kom til makten i 1985 og ville reformere Sovjetunionen med mer åpenhet og frihet. Han inngikk nedrustningsavtaler med USA og grep ikke inn da folk i Øst-Europa gjorde opprør i 1989. Han fikk Nobels fredspris i 1990." }
+  ],
+
   ord: {
     "kapitalisme": "Et økonomisk system der privatpersoner og bedrifter eier det meste, og der priser bestemmes i et fritt marked.",
     "jernteppe": "Et bilde på grensen som delte Europa i en vestlig og en kommunistisk del.",

@@ -18,6 +18,7 @@ les-verden/
 ├── laerer.html             Informasjon for lærere
 ├── tidslinje.html          Felles tidslinje (lages automatisk fra temaene)
 ├── begreper.html           Begrepsbank (lages automatisk fra temaene)
+├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
@@ -27,6 +28,7 @@ les-verden/
 │   ├── samle.js            Henter innhold fra alle temaene
 │   ├── tidslinje.js        Felles tidslinje
 │   ├── begreper.js         Begrepsbank
+│   ├── personer.js         Personsiden og «Hvem er jeg?»
 │   ├── eksamen.js          Eksamenssonen (verktøyene)
 │   └── bilder/             Bilder til temakortene
 └── data/
@@ -148,6 +150,12 @@ Noen temaer trenger mer plass (se `sf10-andre-verdenskrig.js`). Da kan du bruke 
 - Begrepsbanken bruker feltet `ord`. Samme ord fra flere temaer vises én gang. Har
   temaene ulike forklaringer, vises alle.
 
+- Personsiden bruker feltet `personer`:
+  `{ navn: "Winston Churchill", levde: "1874–1965", rolle: "Britisk statsminister", tekst: "…" }`.
+  Skriv teksten uten personens navn (bruk «han/hun»), for teksten brukes også som
+  ledetråd i quizen «Hvem er jeg?». Samme person i flere temaer vises én gang.
+  Personene vises også nederst på temasiden.
+
 Du trenger altså ikke gjøre noe ekstra: Når et nytt tema legges inn i `oversikt.js`,
 dukker datoene og ordene opp automatisk.
 
@@ -162,7 +170,7 @@ oppgavene på nivå 2 og 3 i temaene.
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261029c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261029d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

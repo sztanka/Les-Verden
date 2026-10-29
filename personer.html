@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personer – Les verden</title>
+  <meta name="description" content="Viktige personer fra temaene i samfunnsfag og engelsk, samlet på ett sted.">
+  <link rel="stylesheet" href="assets/stil.css?v=20261029d">
+  <script src="data/innstillinger.js?v=20261029d"></script>
+  <script src="data/temaer/oversikt.js?v=20261029d"></script>
+  <script src="assets/felles.js?v=20261029d"></script>
+  <script src="assets/samle.js?v=20261029d"></script>
+  <script src="assets/personer.js?v=20261029d"></script>
+</head>
+<body data-side="personer">
+  <main id="innhold">
+    <header class="sidehode">
+      <h1>Personer</h1>
+      <p class="ingress">Viktige personer fra temaene i samfunnsfag og engelsk – hvem de var, når de levde, og hvorfor de er viktige. Trykk på et tema for å lese mer.</p>
+    </header>
+
+    <section class="hvem-er-jeg" id="hvem-er-jeg" aria-labelledby="hej-tittel">
+      <div class="hej-hode">
+        <h2 id="hej-tittel"><span aria-hidden="true">🕵️</span> Hvem er jeg?</h2>
+        <p class="hej-poeng" id="hej-poeng" aria-live="polite"></p>
+      </div>
+      <p class="hej-hjelp">Les beskrivelsen og velg riktig person. Filtrene under gjelder også for spørsmålene.</p>
+      <div id="hej-innhold"><p class="hej-tom">Henter personene …</p></div>
+    </section>
+
+    <div class="verktoy" role="search">
+      <label class="sok">
+        <span class="etikett">Søk</span>
+        <input type="search" id="sok" placeholder="Søk etter navn, rolle eller tekst" autocomplete="off">
+      </label>
+      <div class="filter" role="group" aria-label="Velg fag">
+        <span class="etikett">Fag:</span>
+        <button class="knapp" data-fag="">Begge</button>
+        <button class="knapp" data-fag="samfunnsfag">Samfunnsfag</button>
+        <button class="knapp" data-fag="engelsk">Engelsk</button>
+      </div>
+      <div class="filter" role="group" aria-label="Velg trinn">
+        <span class="etikett">Trinn:</span>
+        <button class="knapp" data-trinn="">Alle</button>
+        <button class="knapp" data-trinn="8">8.</button>
+        <button class="knapp" data-trinn="9">9.</button>
+        <button class="knapp" data-trinn="10">10.</button>
+      </div>
+      <div class="filter" role="group" aria-label="Sortering">
+        <span class="etikett">Sorter:</span>
+        <button class="knapp" data-sorter="tid">Etter tid</button>
+        <button class="knapp" data-sorter="navn">A–Å</button>
+      </div>
+    </div>
+
+    <p class="antall" id="antall" aria-live="polite">Henter temaene …</p>
+    <div id="personer" class="personkort-rad stor"></div>
+  </main>
+</body>
+</html>

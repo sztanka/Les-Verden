@@ -83,6 +83,12 @@ window.LV.tema = {
     { dato: "2017", tekst: "Angie Thomas publishes **The Hate U Give**." }
   ],
 
+  personer: [
+    { navn: "S. E. Hinton", levde: "b. 1948", rolle: "American writer", tekst: "She started writing The Outsiders (1967) when she was only fifteen. The book is about rival teenage gangs and is often called one of the first young adult novels." },
+    { navn: "Angie Thomas", levde: "b. 1988", rolle: "American writer", tekst: "She wrote The Hate U Give (2017), narrated by a 16-year-old girl who sees a police officer shoot her childhood friend. The novel is about racism, identity and finding your voice." },
+    { navn: "R. J. Palacio", levde: "b. 1963", rolle: "American writer", tekst: "She wrote Wonder (2012), about a boy with a facial difference starting school. The story is told by several different narrators, so the reader sees events from many points of view." }
+  ],
+
   ord: {
     "exposition": "innledning / presentasjon – the beginning of a story, where we meet the characters and the setting.",
     "climax": "høydepunkt / vendepunkt – the most exciting or important moment in a story.",

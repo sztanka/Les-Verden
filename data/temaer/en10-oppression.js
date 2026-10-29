@@ -89,6 +89,13 @@ window.LV.tema = {
     { dato: "2020", tekst: "The murder of George Floyd leads to protests all over the world." }
   ],
 
+  personer: [
+    { navn: "Rosa Parks", levde: "1913–2005", rolle: "American civil rights activist", tekst: "On 1 December 1955, she refused to give up her seat to a white passenger on a bus in Montgomery, Alabama, and was arrested. Her protest started a bus boycott that became a turning point in the Civil Rights Movement." },
+    { navn: "Martin Luther King Jr.", levde: "1929–1968", rolle: "American civil rights leader", tekst: "He was a Baptist minister who led the Civil Rights Movement with non-violent protests. In 1963 he gave the famous “I Have a Dream” speech in Washington, D.C. He won the Nobel Peace Prize in 1964 and was assassinated in 1968." },
+    { navn: "Malcolm X", levde: "1925–1965", rolle: "American civil rights leader", tekst: "He was a powerful speaker who fought for the rights and pride of Black Americans. For many years he did not believe that non-violence and integration were the right way. He was assassinated in 1965." },
+    { navn: "Nelson Mandela", levde: "1918–2013", rolle: "South African leader against apartheid", tekst: "He was a leader of the ANC and spent 27 years in prison for fighting apartheid. After he was released in 1990, he worked for peace and reconciliation, and in 1994 he became South Africa’s first Black president." }
+  ],
+
   ord: {
     "oppression": "undertrykkelse – when a group uses power to treat another group unfairly over a long time.",
     "racism": "rasisme – the idea that some people are worth more than others because of their skin colour or origin.",

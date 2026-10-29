@@ -75,6 +75,15 @@ window.LV.tema = {
     { dato: "2014", tekst: "Malala Yousafzai wins the Nobel Peace Prize, aged 17." }
   ],
 
+  personer: [
+    { navn: "Mahatma Gandhi", levde: "1869–1948", rolle: "Leader of India’s independence movement", tekst: "He led India’s struggle for independence from Britain through non-violent resistance, such as boycotts and peaceful marches. His methods inspired civil rights leaders all over the world." },
+    { navn: "Martin Luther King Jr.", levde: "1929–1968", rolle: "American civil rights leader", tekst: "He was a Baptist minister who led the Civil Rights Movement with non-violent protests. In 1963 he gave the famous “I Have a Dream” speech in Washington, D.C. He won the Nobel Peace Prize in 1964 and was assassinated in 1968." },
+    { navn: "Nelson Mandela", levde: "1918–2013", rolle: "South African leader against apartheid", tekst: "He was a leader of the ANC and spent 27 years in prison for fighting apartheid. After he was released in 1990, he worked for peace and reconciliation, and in 1994 he became South Africa’s first Black president." },
+    { navn: "Malala Yousafzai", levde: "b. 1997", rolle: "Pakistani activist for girls’ education", tekst: "As a schoolgirl she spoke out for girls’ right to education, and survived being shot by the Taliban. In 2014, at the age of 17, she became the youngest person ever to win the Nobel Peace Prize." },
+    { navn: "Stanley Milgram", levde: "1933–1984", rolle: "American psychologist", tekst: "In 1961 he carried out a famous experiment at Yale University, where many ordinary people were willing to give what they believed were painful electric shocks to another person – just because an authority told them to." },
+    { navn: "George Orwell", levde: "1903–1950", rolle: "English writer", tekst: "He wrote the novels Animal Farm and Nineteen Eighty-Four (1949), which warn against dictatorship, propaganda and surveillance. The expression “Big Brother is watching you” comes from his work." }
+  ],
+
   ord: {
     "leader": "leder – a person who guides, inspires or controls a group.",
     "belong": "høre til – to feel that you are part of a group.",

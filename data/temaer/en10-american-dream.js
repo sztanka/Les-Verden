@@ -86,6 +86,12 @@ window.LV.tema = {
     { dato: "1954", tekst: "Ellis Island closes." }
   ],
 
+  personer: [
+    { navn: "James Truslow Adams", levde: "1878–1949", rolle: "American historian", tekst: "He made the expression “the American Dream” popular in a book in 1931. He described it as the dream of a land where life should be better and richer for everyone." },
+    { navn: "F. Scott Fitzgerald", levde: "1896–1940", rolle: "American novelist", tekst: "He wrote The Great Gatsby (1925), a novel about a man who becomes rich but cannot buy what he really wants. The book is often read as a critical look at the American Dream." },
+    { navn: "John Steinbeck", levde: "1902–1968", rolle: "American novelist", tekst: "He wrote about poor workers during the Great Depression, for example in Of Mice and Men (1937), about two farm workers who dream of owning their own farm. He won the Nobel Prize in Literature in 1962." }
+  ],
+
   ord: {
     "American Dream": "den amerikanske drømmen – the idea that anyone in the USA can succeed through hard work.",
     "immigrant": "innvandrer – a person who moves to a country to live there.",

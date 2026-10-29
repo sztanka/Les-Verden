@@ -84,6 +84,11 @@ window.LV.tema = {
     { dato: "1948", tekst: "Kim-familien begynner å styre Nord-Korea." }
   ],
 
+  personer: [
+    { navn: "Montesquieu", levde: "1689–1755", rolle: "Fransk filosof", tekst: "Han mente at makten i en stat måtte deles mellom en lovgivende, en utøvende og en dømmende makt, slik at ingen fikk all makt. Ideen om maktfordeling er grunnlaget for mange grunnlover, også den norske fra 1814." },
+    { navn: "Adolf Hitler", levde: "1889–1945", rolle: "Tysklands nazistiske diktator", tekst: "Han ble leder for nazistene og kom til makten i Tyskland i 1933. Han gjorde landet til et diktatur, startet andre verdenskrig ved å angripe Polen i 1939 og sto bak Holocaust. Han tok sitt eget liv i Berlin i april 1945." }
+  ],
+
   ord: {
     "demokrati": "Folkestyre: en styreform der folket har den øverste makten, ofte gjennom frie valg.",
     "maktfordeling": "At makten i staten er delt mellom ulike institusjoner, slik at ingen får all makt.",

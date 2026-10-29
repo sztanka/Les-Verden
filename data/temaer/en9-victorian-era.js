@@ -92,6 +92,11 @@ window.LV.tema = {
     { dato: "1901", tekst: "Queen Victoria dies after almost 64 years on the throne." }
   ],
 
+  personer: [
+    { navn: "Queen Victoria", levde: "1819–1901", rolle: "Queen of the United Kingdom 1837–1901", tekst: "She became queen at the age of eighteen and reigned for almost 64 years. During her reign, Britain became the most powerful country in the world, and the whole period was named after her." },
+    { navn: "Charles Dickens", levde: "1812–1870", rolle: "English novelist", tekst: "He worked in a factory as a child, and later used his stories to show how poor people really lived in Victorian England. His most famous books include Oliver Twist, A Christmas Carol and Great Expectations." }
+  ],
+
   ord: {
     "reign": "regjere / regjeringstid – to rule as a king or queen; the time a king or queen rules.",
     "empire": "imperium / rike – a group of countries or areas ruled by one country.",

@@ -110,10 +110,14 @@ img { max-width: 100%; }
   background: linear-gradient(135deg, var(--samfunnsfag) 50%, var(--engelsk) 50%);
   color: #fff; font-size: .95rem; font-family: var(--font-ui);
 }
-.hovedmeny { display: flex; gap: .25rem; flex-wrap: wrap; margin-left: auto; }
+.hovedmeny { display: flex; gap: .15rem; flex-wrap: wrap; margin-left: auto; }
 .hovedmeny a {
-  text-decoration: none; color: var(--tekst); padding: .45rem .75rem; border-radius: 999px;
-  font-weight: 500; font-size: .95rem;
+  text-decoration: none; color: var(--tekst); padding: .45rem .6rem; border-radius: 999px;
+  font-weight: 500; font-size: .93rem; white-space: nowrap;
+}
+@media (max-width: 1240px) and (min-width: 641px) {
+  .hovedmeny { order: 3; width: 100%; margin-left: -.6rem; }
+  #lesestotte-knapp { margin-left: auto; }
 }
 .hovedmeny a:hover { background: var(--flate-2); }
 .hovedmeny a[aria-current="page"] { background: var(--tekst); color: var(--bakgrunn); }
@@ -218,7 +222,8 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 /* ---------- Verktøykort på forsiden ---------- */
 .verktoyseksjon { margin: .5rem 0 2.5rem; }
 .verktoyseksjon h2 { font-size: 1.5rem; margin: 0 0 .8rem; }
-.verktoykort-rad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.verktoykort-rad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+@media (max-width: 1100px) { .verktoykort-rad { grid-template-columns: repeat(2, 1fr); } }
 .verktoykort {
   --vk: var(--tekst); --vk-lys: var(--flate-2);
   display: flex; flex-direction: column; gap: .9rem; text-decoration: none; color: var(--tekst);
@@ -233,9 +238,10 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .vk-cta { margin-top: auto; padding-top: .4rem; font-weight: 700; color: var(--vk); }
 .vk-tidslinje { --vk: var(--gul); --vk-lys: var(--gul-lys); }
 .vk-begreper { --vk: var(--lilla); --vk-lys: var(--lilla-lys); }
+.vk-personer { --vk: var(--engelsk); --vk-lys: var(--engelsk-lys); }
 .vk-eksamen { --vk: #a3420e; --vk-lys: var(--aksent-lys); }
 :root[data-tema="mork"] .vk-eksamen { --vk: var(--aksent); }
-@media (max-width: 900px) { .verktoykort-rad { grid-template-columns: 1fr; } .verktoykort { flex-direction: row; align-items: flex-start; } }
+@media (max-width: 700px) { .verktoykort-rad { grid-template-columns: 1fr; } .verktoykort { flex-direction: row; align-items: flex-start; } }
 
 /* ---------- Tidslinje og begrepsbank ---------- */
 .sidehode { margin: 1.5rem 0 1rem; }
@@ -442,6 +448,54 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 
 .melding { padding: 2rem; text-align: center; color: var(--tekst-dempet); }
 
+
+
+/* ---------- Personer ---------- */
+.personkort-rad { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .8rem; margin: .5rem 0 1rem; }
+.personkort-wrap { display: flex; }
+.personkort {
+  display: flex; gap: .9rem; align-items: flex-start; width: 100%;
+  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1rem;
+}
+.initialer {
+  flex: none; width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--fag-lys); color: var(--fag); border: 2px solid var(--fag);
+  font-weight: 800; font-size: 1.05rem; font-family: var(--font-ui); letter-spacing: .02em;
+}
+.person-tekst { min-width: 0; }
+.person-tekst h3 { margin: 0; font-size: 1.12rem; }
+.person-tekst .levde { margin: .1rem 0 .4rem; color: var(--fag); font-weight: 600; font-size: .9rem; }
+.person-tekst p { margin: 0 0 .3rem; line-height: 1.5; }
+.personer-tema { margin: 2.5rem 0; }
+
+.hvem-er-jeg {
+  background: var(--lilla-lys); border: 2px solid var(--lilla); border-radius: var(--radius);
+  padding: 1.1rem 1.3rem 1.3rem; margin-bottom: 1.4rem;
+}
+.hej-hode { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem; }
+.hej-hode h2 { margin: 0; color: var(--lilla); font-size: 1.45rem; }
+.hej-poeng { margin: 0; font-weight: 700; color: var(--lilla); }
+.hej-hjelp { margin: .3rem 0 .8rem; color: var(--tekst-dempet); }
+.hej-ledetrad {
+  margin: 0 0 .7rem; padding: .9rem 1.1rem; background: var(--flate); border-radius: 10px; border-left: 5px solid var(--lilla);
+  font-family: var(--font-tekst); font-size: 1.15rem; line-height: 1.55;
+}
+.hej-hint { margin: 0 0 .8rem; }
+.knapp.liten { min-height: 36px; padding: .3rem .8rem; font-size: .88rem; }
+.hej-valg { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .5rem; }
+.hej-alternativ {
+  font: inherit; font-weight: 700; min-height: 52px; cursor: pointer; text-align: left; padding: .5rem 1rem;
+  background: var(--flate); color: var(--tekst); border: 2px solid var(--linje); border-radius: 12px;
+}
+.hej-alternativ:hover:not(:disabled) { border-color: var(--lilla); }
+.hej-alternativ:disabled { cursor: default; opacity: .75; }
+.hej-alternativ.riktig { border-color: #2e7d32; background: #e3f3e4; opacity: 1; color: #1b4d1e; }
+.hej-alternativ.feil { border-color: #b3261e; background: #f9e1df; opacity: 1; color: #7a1a14; }
+:root[data-tema="mork"] .hej-alternativ.riktig { background: #1f3a22; color: #b9e6bc; }
+:root[data-tema="mork"] .hej-alternativ.feil { background: #45201d; color: #ffb4ad; }
+.hej-svar { margin: .9rem 0 0; line-height: 1.6; }
+.hej-videre { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-top: .6rem; }
+.hej-tom { color: var(--tekst-dempet); margin: 0; }
 
 /* ---------- Eksamenssone ---------- */
 .eksamen-side { max-width: 980px; }

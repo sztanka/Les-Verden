@@ -88,6 +88,11 @@ window.LV.tema = {
     { dato: "2012", tekst: "Statsminister Stoltenberg ber om unnskyldning for nordmenns deltakelse i deportasjonene." }
   ],
 
+  personer: [
+    { navn: "Adolf Hitler", levde: "1889–1945", rolle: "Tysklands nazistiske diktator", tekst: "Han ble leder for nazistene og kom til makten i Tyskland i 1933. Han gjorde landet til et diktatur, startet andre verdenskrig ved å angripe Polen i 1939 og sto bak Holocaust. Han tok sitt eget liv i Berlin i april 1945." },
+    { navn: "Anne Frank", levde: "1929–1945", rolle: "Jødisk jente og dagbokforfatter", tekst: "Hun gjemte seg med familien sin i et hemmelig rom i Amsterdam i to år og skrev dagbok om livet i skjul. Familien ble oppdaget i 1944, og hun døde i konsentrasjonsleiren Bergen-Belsen i 1945, 15 år gammel. Dagboken hennes er lest av millioner over hele verden." }
+  ],
+
   ord: {
     "Holocaust": "Nazistenes forfølgelse og drap på rundt seks millioner jøder under andre verdenskrig.",
     "folkemord": "Handlinger som skal ødelegge en hel nasjonal, etnisk, religiøs eller annen folkegruppe.",

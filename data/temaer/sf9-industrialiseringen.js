@@ -98,6 +98,13 @@ window.LV.tema = {
     { dato: "1905", tekst: "Norsk Hydro blir stiftet." }
   ],
 
+  personer: [
+    { navn: "James Watt", levde: "1736–1819", rolle: "Skotsk oppfinner", tekst: "Han forbedret dampmaskinen på slutten av 1760-tallet, slik at den ble mye mer effektiv. Dampmaskinen ble selve motoren i den industrielle revolusjonen og drev fabrikker, gruver og etter hvert tog og skip." },
+    { navn: "Karl Marx", levde: "1818–1883", rolle: "Tysk filosof og samfunnstenker", tekst: "Han mente at historien handlet om kamp mellom klasser, og at arbeiderne ble utnyttet av dem som eide fabrikkene. Sammen med en venn skrev han «Det kommunistiske manifest» i 1848. Ideene hans ble grunnlaget for sosialismen og kommunismen." },
+    { navn: "Friedrich Engels", levde: "1820–1895", rolle: "Tysk samfunnstenker og fabrikkeier", tekst: "Han beskrev de elendige levekårene til arbeiderne i den engelske industribyen Manchester. Sammen med en annen tysk tenker skrev han «Det kommunistiske manifest» i 1848, og han støttet vennen økonomisk i mange år." },
+    { navn: "Marcus Thrane", levde: "1817–1890", rolle: "Norsk arbeiderleder", tekst: "Fra 1848 startet han arbeiderforeninger over hele Norge og krevde blant annet stemmerett for alle menn. Bevegelsen fikk tusenvis av medlemmer, men myndighetene slo den ned. Han satt flere år i fengsel og utvandret senere til Amerika." }
+  ],
+
   ord: {
     "fabrikk": "En stor bygning der mange arbeidere og maskiner lager varer.",
     "industrialisering": "Overgangen fra et samfunn bygd på jordbruk og håndverk til et samfunn bygd på industri og fabrikker.",

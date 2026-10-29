@@ -80,6 +80,10 @@ window.LV.tema = {
     { dato: "2016", tekst: "Fredsavtalen i Colombia avslutter over 50 år med borgerkrig." }
   ],
 
+  personer: [
+    { navn: "Johan Galtung", levde: "1930–2024", rolle: "Norsk fredsforsker", tekst: "Han regnes som grunnleggeren av fredsforskning som fag. Han skilte mellom negativ fred – at det ikke er krig – og positiv fred, der det også finnes rettferdighet og like muligheter for alle." }
+  ],
+
   ord: {
     "konflikt": "Når to eller flere parter har mål, behov eller verdier som støter mot hverandre.",
     "konflikttrapp": "En modell som viser hvordan konflikter kan trappes opp trinn for trinn hvis de ikke løses.",

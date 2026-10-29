@@ -39,9 +39,24 @@ window.LV = window.LV || {};
 
   // Laster en datafil (vanlig <script>), slik at siden også virker når
   // den åpnes direkte fra disken uten nettserver.
+  // Personkort (brukes på temasider og personsiden)
+  LV.initialer = function (navn) {
+    const deler = String(navn).replace(/\b(Jr|Dr|Queen|King)\.?/g, "").split(/[\s.]+/).filter(d => d && /[A-ZÆØÅ]/.test(d[0]));
+    if (!deler.length) return "?";
+    if (deler.length === 1) return deler[0].slice(0, 2);
+    return deler[0][0] + deler[deler.length - 1][0];
+  };
+  LV.personkort = function (p, ekstra) {
+    return '<article class="personkort">' +
+      '<span class="initialer" aria-hidden="true">' + LV.esc(LV.initialer(p.navn)) + "</span>" +
+      '<div class="person-tekst"><h3>' + LV.esc(p.navn) + "</h3>" +
+      '<p class="levde">' + LV.esc(p.levde || "") + (p.rolle ? " · " + LV.esc(p.rolle) : "") + "</p>" +
+      "<p>" + LV.esc(p.tekst || "") + "</p>" + (ekstra || "") + "</div></article>";
+  };
+
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261029c";
+  LV.versjon = "20261029d";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -79,6 +94,7 @@ window.LV = window.LV || {};
           lenke("index.html?fag=engelsk", "Engelsk", "engelsk") +
           lenke("tidslinje.html", "Tidslinje", "tidslinje") +
           lenke("begreper.html", "Begreper", "begreper") +
+          lenke("personer.html", "Personer", "personer") +
           lenke("eksamen.html", "Eksamen", "eksamen") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +

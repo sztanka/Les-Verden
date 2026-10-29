@@ -85,6 +85,11 @@ window.LV.tema = {
     { dato: "August 2021", tekst: "The last US soldiers leave Afghanistan, and the Taliban take power again." }
   ],
 
+  personer: [
+    { navn: "Osama bin Laden", levde: "1957–2011", rolle: "Leader of al-Qaeda", tekst: "He was a Saudi Arabian extremist who led the terrorist network that planned the attacks on 11 September 2001. He was found and killed by US special forces in Pakistan in May 2011." },
+    { navn: "George W. Bush", levde: "b. 1946", rolle: "US president 2001–2009", tekst: "He was president when the USA was attacked on 11 September 2001, and declared a “war on terror”. The USA attacked Afghanistan in 2001 and invaded Iraq in 2003." }
+  ],
+
   ord: {
     "hijack": "kapre – to take control of a plane or vehicle by force.",
     "terrorist": "terrorist – a person who uses violence against civilians to spread fear and reach political or religious goals.",

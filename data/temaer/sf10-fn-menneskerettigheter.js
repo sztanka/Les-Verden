@@ -85,6 +85,12 @@ window.LV.tema = {
     { dato: "2014", tekst: "Grunnloven får et eget kapittel om menneskerettigheter." }
   ],
 
+  personer: [
+    { navn: "Trygve Lie", levde: "1896–1968", rolle: "FNs første generalsekretær", tekst: "Han var norsk utenriksminister under andre verdenskrig og ble valgt til FNs første generalsekretær i 1946. Han ledet FN fram til 1952." },
+    { navn: "Eleanor Roosevelt", levde: "1884–1962", rolle: "Amerikansk menneskerettighetsforkjemper", tekst: "Hun var gift med president Franklin D. Roosevelt. Etter krigen ledet hun komiteen som skrev FNs verdenserklæring om menneskerettighetene, som ble vedtatt i 1948." },
+    { navn: "Dag Hammarskjöld", levde: "1905–1961", rolle: "Svensk diplomat, FNs generalsekretær", tekst: "Han var FNs andre generalsekretær fra 1953. Han omkom i en flyulykke i Afrika i 1961, mens han arbeidet for fred i Kongo, og fikk Nobels fredspris etter sin død." }
+  ],
+
   ord: {
     "medlemsland": "Et land som er medlem av en organisasjon.",
     "resolusjon": "Et vedtak eller en uttalelse fra en organisasjon som FN.",

@@ -87,6 +87,15 @@ window.LV.tema = {
     { dato: "September 1938", tekst: "Münchenavtalen." }
   ],
 
+  personer: [
+    { navn: "Fridtjof Nansen", levde: "1861–1930", rolle: "Norsk polfarer, forsker og humanist", tekst: "Etter at han ble verdenskjent som polfarer, arbeidet han for Folkeforbundet etter første verdenskrig. Han hjalp hundretusener av krigsfanger og flyktninger og fikk Nobels fredspris i 1922. Passet han innførte for statsløse flyktninger, ble oppkalt etter ham." },
+    { navn: "Benito Mussolini", levde: "1883–1945", rolle: "Italias fascistiske diktator", tekst: "Han grunnla den fascistiske bevegelsen og tok makten i Italia i 1922. Han styrte som diktator, forbød andre partier og gikk sammen med Hitler i andre verdenskrig. Han ble avsatt i 1943 og drept av italienske motstandsfolk i 1945." },
+    { navn: "Josef Stalin", levde: "1878–1953", rolle: "Sovjetunionens diktator", tekst: "Han styrte Sovjetunionen med jernhånd fra slutten av 1920-tallet til han døde. Millioner av mennesker ble sendt til arbeidsleirer, henrettet eller døde av sult under hans styre. I andre verdenskrig var han en av de tre store lederne på den allierte siden." },
+    { navn: "Adolf Hitler", levde: "1889–1945", rolle: "Tysklands nazistiske diktator", tekst: "Han ble leder for nazistene og kom til makten i Tyskland i 1933. Han gjorde landet til et diktatur, startet andre verdenskrig ved å angripe Polen i 1939 og sto bak Holocaust. Han tok sitt eget liv i Berlin i april 1945." },
+    { navn: "Vidkun Quisling", levde: "1887–1945", rolle: "Leder for Nasjonal Samling", tekst: "Han startet partiet Nasjonal Samling i 1933 og samarbeidet med tyskerne under okkupasjonen. 9. april 1940 erklærte han seg selv som statsminister på radio, og fra 1942 var han «ministerpresident». Etter krigen ble han dømt for landssvik og henrettet. Navnet hans brukes i dag om en forræder." },
+    { navn: "Johan Nygaardsvold", levde: "1879–1952", rolle: "Norsk statsminister 1935–1945", tekst: "Han ble statsminister for Arbeiderpartiet etter kriseforliket i 1935. Da Tyskland angrep Norge i 1940, flyktet han sammen med kongen til London, der regjeringen ledet Norges kamp under krigen." }
+  ],
+
   ord: {
     "krigserstatning": "Penger et land må betale til et annet land etter en krig, for å dekke skadene.",
     "arbeidsløshet": "At mange som vil og kan jobbe, ikke får noen jobb.",

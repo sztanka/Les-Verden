@@ -87,6 +87,15 @@ window.LV.tema = {
     { dato: "24.10.1945", tekst: "Quisling blir henrettet." }
   ],
 
+  personer: [
+    { navn: "Haakon 7.", levde: "1872–1957", rolle: "Norges konge 1905–1957", tekst: "Da Tyskland krevde at han skulle godta en regjering under Quisling i april 1940, sa han nei. «Kongens nei» ble et viktig symbol for motstanden. Han ledet kampen fra London og kom tilbake til Oslo 7. juni 1945." },
+    { navn: "Vidkun Quisling", levde: "1887–1945", rolle: "Leder for Nasjonal Samling", tekst: "Han startet partiet Nasjonal Samling i 1933 og samarbeidet med tyskerne under okkupasjonen. 9. april 1940 erklærte han seg selv som statsminister på radio, og fra 1942 var han «ministerpresident». Etter krigen ble han dømt for landssvik og henrettet. Navnet hans brukes i dag om en forræder." },
+    { navn: "Josef Terboven", levde: "1898–1945", rolle: "Tysk rikskommissær i Norge", tekst: "Han hadde den egentlige makten i Norge under okkupasjonen og styrte landet på vegne av Hitler. Han tok sitt eget liv i Oslo i mai 1945." },
+    { navn: "Max Manus", levde: "1914–1996", rolle: "Norsk motstandsmann", tekst: "Han var en av de mest kjente sabotørene i Oslo under krigen og sprengte flere tyske skip. Han ble tatt av tyskerne, men klarte å rømme." },
+    { navn: "Gunnar Sønsteby", levde: "1918–2012", rolle: "Norsk motstandsmann", tekst: "Han ledet flere sabotasjeaksjoner i Oslo under okkupasjonen og ble aldri tatt av tyskerne. Han er Norges høyest dekorerte krigshelt." },
+    { navn: "Johan Nygaardsvold", levde: "1879–1952", rolle: "Norsk statsminister 1935–1945", tekst: "Han ble statsminister for Arbeiderpartiet etter kriseforliket i 1935. Da Tyskland angrep Norge i 1940, flyktet han sammen med kongen til London, der regjeringen ledet Norges kamp under krigen." }
+  ],
+
   ord: {
     "rikskommissær": "Den tyske lederen som styrte Norge på vegne av Hitler under okkupasjonen.",
     "kollaborasjon": "Å samarbeide med en fiende som har okkupert landet ditt.",

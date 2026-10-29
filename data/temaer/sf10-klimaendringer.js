@@ -83,6 +83,10 @@ window.LV.tema = {
     { dato: "2023", tekst: "Uværet «Hans» gir store flommer på Østlandet." }
   ],
 
+  personer: [
+    { navn: "Greta Thunberg", levde: "f. 2003", rolle: "Svensk klimaaktivist", tekst: "I 2018, da hun var 15 år, begynte hun å skulke skolen hver fredag for å demonstrere for klimaet utenfor nasjonalforsamlingen i Stockholm. Skolestreiken hennes spredte seg til millioner av ungdommer over hele verden." }
+  ],
+
   ord: {
     "Klima": "Gjennomsnittet av været i et område over lang tid, vanligvis 30 år eller mer.",
     "drivhuseffekten": "At gasser i atmosfæren holder på varme, slik at jorda blir varmere enn den ellers ville vært.",

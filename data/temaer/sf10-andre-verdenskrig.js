@@ -325,6 +325,24 @@ window.LV.tema = {
 
   begrepsliste: true,
 
+  personer: [
+    { navn: "Adolf Hitler", levde: "1889–1945", rolle: "Tysklands nazistiske diktator", tekst: "Han ble leder for nazistene og kom til makten i Tyskland i 1933. Han gjorde landet til et diktatur, startet andre verdenskrig ved å angripe Polen i 1939 og sto bak Holocaust. Han tok sitt eget liv i Berlin i april 1945." },
+    { navn: "Benito Mussolini", levde: "1883–1945", rolle: "Italias fascistiske diktator", tekst: "Han grunnla den fascistiske bevegelsen og tok makten i Italia i 1922. Han styrte som diktator, forbød andre partier og gikk sammen med Hitler i andre verdenskrig. Han ble avsatt i 1943 og drept av italienske motstandsfolk i 1945." },
+    { navn: "Josef Stalin", levde: "1878–1953", rolle: "Sovjetunionens diktator", tekst: "Han styrte Sovjetunionen med jernhånd fra slutten av 1920-tallet til han døde. Millioner av mennesker ble sendt til arbeidsleirer, henrettet eller døde av sult under hans styre. I andre verdenskrig var han en av de tre store lederne på den allierte siden." },
+    { navn: "Winston Churchill", levde: "1874–1965", rolle: "Britisk statsminister under andre verdenskrig", tekst: "Han ble statsminister i mai 1940 og nektet å gi opp da Storbritannia sto alene mot Hitler. Talene hans ga britene mot. Etter krigen advarte han mot at et «jernteppe» hadde senket seg over Europa." },
+    { navn: "Franklin D. Roosevelt", levde: "1882–1945", rolle: "USAs president 1933–1945", tekst: "Han ledet USA gjennom den store depresjonen og andre verdenskrig. Etter angrepet på Pearl Harbor kalte han 7. desember 1941 «en dag som vil leve i vanære». Han døde i april 1945, få uker før Tyskland kapitulerte." },
+    { navn: "Hirohito", levde: "1901–1989", rolle: "Japans keiser 1926–1989", tekst: "Han var keiser i Japan da landet erobret store deler av Asia og angrep USA i 1941. I august 1945 kunngjorde han på radio at Japan ga opp. Han fikk sitte som keiser også etter krigen." },
+    { navn: "Neville Chamberlain", levde: "1869–1940", rolle: "Britisk statsminister 1937–1940", tekst: "Han førte ettergivenhetspolitikken overfor Hitler og godtok at Tyskland fikk Sudetenland på møtet i München i 1938. Han kom hjem og lovte «fred i vår tid». Året etter måtte han erklære krig mot Tyskland." },
+    { navn: "Francisco Franco", levde: "1892–1975", rolle: "Spansk general og diktator", tekst: "Han ledet opprøret mot den spanske regjeringen og vant borgerkrigen i 1939 med hjelp fra Hitler og Mussolini. Han styrte Spania som diktator til han døde i 1975." },
+    { navn: "Joseph Goebbels", levde: "1897–1945", rolle: "Nazistenes propagandaminister", tekst: "Han hadde ansvaret for nazistenes propaganda og kontrollerte aviser, radio, film og kunst i Tyskland. Han brukte løgner og massemøter for å dyrke Hitler og spre hat mot jøder. Han tok sitt eget liv i Berlin i 1945." },
+    { navn: "Hermann Göring", levde: "1893–1946", rolle: "Leder for det tyske flyvåpenet", tekst: "Han var en av Hitlers nærmeste menn og ledet Luftwaffe, som tapte slaget om Storbritannia i 1940. Etter krigen ble han dømt til døden i Nürnbergprosessen, men tok sitt eget liv før henrettelsen." },
+    { navn: "Charles de Gaulle", levde: "1890–1970", rolle: "Fransk general og statsleder", tekst: "Da Frankrike kapitulerte i 1940, flyktet han til London og ledet «Det frie Frankrike», som fortsatte kampen mot Tyskland. Senere ble han president i Frankrike." },
+    { navn: "Dwight D. Eisenhower", levde: "1890–1969", rolle: "Amerikansk general og senere president", tekst: "Han var øverstkommanderende for de allierte styrkene som gikk i land i Normandie på D-dagen 6. juni 1944. Senere var han USAs president fra 1953 til 1961." },
+    { navn: "Robert Oppenheimer", levde: "1904–1967", rolle: "Amerikansk fysiker", tekst: "Han ledet forskerne i Manhattanprosjektet, som utviklet atombomben under andre verdenskrig. Etter bombene over Hiroshima og Nagasaki ble han urolig over våpenet han hadde vært med på å lage." },
+    { navn: "Alan Turing", levde: "1912–1954", rolle: "Britisk matematiker", tekst: "Han var en av matematikerne som knakk tyskernes hemmelige kodemaskin Enigma under andre verdenskrig. Han regnes også som en av grunnleggerne av datavitenskapen." },
+    { navn: "Vidkun Quisling", levde: "1887–1945", rolle: "Leder for Nasjonal Samling", tekst: "Han startet partiet Nasjonal Samling i 1933 og samarbeidet med tyskerne under okkupasjonen. 9. april 1940 erklærte han seg selv som statsminister på radio, og fra 1942 var han «ministerpresident». Etter krigen ble han dømt for landssvik og henrettet. Navnet hans brukes i dag om en forræder." }
+  ],
+
   ord: {
     "Versaillestraktaten": "Fredsavtalen etter første verdenskrig (1919), som ga Tyskland skylden for krigen og harde straffer.",
     "krigserstatning": "Penger et land må betale til andre land etter en krig for å dekke skadene.",

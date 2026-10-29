@@ -94,6 +94,10 @@ window.LV.tema = {
     { dato: "2023", tekst: "**American Born Chinese** becomes a TV series." }
   ],
 
+  personer: [
+    { navn: "Gene Luen Yang", levde: "b. 1973", rolle: "American comic book author", tekst: "He is the son of Chinese immigrants and wrote the graphic novel American Born Chinese (2006). The book uses three stories to explore identity, stereotypes and what it means to fit in." }
+  ],
+
   ord: {
     "identity": "identitet – who you are; the things that make you you.",
     "stereotype": "stereotypi / stereotyp – a fixed and simple idea about what a whole group of people is like.",
