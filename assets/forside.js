@@ -189,11 +189,45 @@
   // ---------- Temakort og filter ----------
   let fag = "";
   let trinn = "";
+  let emne = "";
+
+  function oppdaterAdresse() {
+    const p = new URLSearchParams();
+    if (fag) p.set("fag", fag);
+    if (emne) p.set("emne", emne);
+    if (trinn) p.set("trinn", trinn);
+    history.replaceState(null, "", "index.html" + (p.toString() ? "?" + p : "") + "#temaer");
+  }
+
+  function tegnEmnevelger() {
+    const velger = document.getElementById("emnevelger");
+    const intro = document.getElementById("emne-intro");
+    velger.hidden = fag !== "samfunnsfag";
+    const e = emne && LV.emner[emne];
+    intro.hidden = !e || velger.hidden;
+    if (e) intro.textContent = e.tekst;
+    if (velger.hidden) return;
+    const sf = LV.temaer.filter(t => t.fag === "samfunnsfag");
+    velger.innerHTML = '<button class="emneknapp" data-emne=""><span class="ikon" aria-hidden="true">📚</span><span>Alle deler<small>' + sf.length + ' temaer</small></span></button>' +
+      Object.keys(LV.emner).map(k => {
+        const n = sf.filter(t => t.emne === k).length;
+        return '<button class="emneknapp" data-emne="' + k + '"><span class="ikon" aria-hidden="true">' + LV.emner[k].ikon + "</span><span>" +
+          LV.emner[k].navn + "<small>" + n + (n === 1 ? " tema" : " temaer") + "</small></span></button>";
+      }).join("");
+    velger.querySelectorAll("[data-emne]").forEach(b => {
+      b.setAttribute("aria-pressed", String(b.dataset.emne === emne));
+      b.addEventListener("click", function () {
+        emne = b.dataset.emne;
+        oppdaterAdresse();
+        tegnListe();
+      });
+    });
+  }
 
   function temakort(t) {
     return '<li><a class="temakort med-bilde fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' +
       (t.bilde ? '<span class="bilde"><img src="' + LV.esc(t.bilde) + '" alt="' + LV.esc(t.bildeAlt || "") + '" loading="lazy"></span>' : "") +
-      '<span class="innhold"><span class="merker"><span class="merke">' + LV.fagNavn[t.fag] + '</span><span class="merke">' + t.trinn + ". trinn</span></span>" +
+      '<span class="innhold">' + LV.merker(t) +
       "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p>" +
       (t.kreditt ? '<span class="kreditt">Foto: ' + LV.esc(t.kreditt) + (t.kilde ? " / " + LV.esc(t.kilde) : "") + "</span>" : "") +
       "</span></a></li>";
@@ -203,11 +237,13 @@
     const liste = document.getElementById("temaliste");
     const utvalg = LV.temaer
       .filter(t => !fag || t.fag === fag)
+      .filter(t => !emne || t.emne === emne)
       .filter(t => !trinn || String(t.trinn) === trinn)
       .sort((a, b) => a.trinn - b.trinn || a.fag.localeCompare(b.fag) || a.tittel.localeCompare(b.tittel, "nb"));
 
     document.getElementById("liste-tittel").textContent =
-      (fag ? LV.fagNavn[fag] : "Alle temaer") + (trinn ? " – " + trinn + ". trinn" : "");
+      (fag ? LV.fagNavn[fag] : "Alle temaer") + (emne && LV.emner[emne] ? ": " + LV.emner[emne].navn.toLowerCase() : "") + (trinn ? " – " + trinn + ". trinn" : "");
+    tegnEmnevelger();
     liste.innerHTML = utvalg.length ? utvalg.map(temakort).join("") : '<li class="tom">Ingen temaer her ennå.</li>';
 
     document.querySelectorAll("[data-trinn]").forEach(b =>
@@ -223,6 +259,8 @@
 
     fag = LV.param("fag") || "";
     trinn = LV.param("trinn") || "";
+    emne = LV.emner[LV.param("emne")] ? LV.param("emne") : "";
+    if (emne) fag = "samfunnsfag";
 
     ["samfunnsfag", "engelsk"].forEach(f => {
       const n = LV.temaer.filter(t => t.fag === f).length;
@@ -238,10 +276,7 @@
 
     document.querySelectorAll("[data-trinn]").forEach(b => b.addEventListener("click", function () {
       trinn = b.dataset.trinn;
-      const p = new URLSearchParams();
-      if (fag) p.set("fag", fag);
-      if (trinn) p.set("trinn", trinn);
-      history.replaceState(null, "", "index.html" + (p.toString() ? "?" + p : "") + "#temaer");
+      oppdaterAdresse();
       tegnListe();
     }));
 

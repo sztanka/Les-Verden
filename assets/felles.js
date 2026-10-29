@@ -22,6 +22,21 @@ window.LV = window.LV || {};
 
   LV.fagNavn = { samfunnsfag: "Samfunnsfag", engelsk: "Engelsk" };
 
+  // Delene av samfunnsfag. Feltet «emne» i oversikt.js bruker disse nøklene.
+  LV.emner = {
+    historie: { navn: "Historie", ikon: "🏛️", tekst: "Hvordan fortiden har formet verden vi lever i – kriger, revolusjoner og vanlige menneskers liv." },
+    geografi: { navn: "Geografi", ikon: "🗺️", tekst: "Klima, ressurser og samarbeid på tvers av grenser – hvordan mennesker og natur påvirker hverandre." },
+    samfunnskunnskap: { navn: "Samfunnskunnskap", ikon: "⚖️", tekst: "Demokrati, makt, konflikter og hvordan vi lever sammen i samfunnet i dag." }
+  };
+
+  // Merkelapper (fag · del · trinn) brukt på temakort og temasider.
+  LV.merker = function (t) {
+    const e = t.emne && LV.emner[t.emne];
+    return '<span class="merker"><span class="merke">' + LV.fagNavn[t.fag] + "</span>" +
+      (e ? '<span class="merke merke-emne">' + e.navn + "</span>" : "") +
+      '<span class="merke">' + t.trinn + ". trinn</span></span>";
+  };
+
   // Laster en datafil (vanlig <script>), slik at siden også virker når
   // den åpnes direkte fra disken uten nettserver.
   LV.lastSkript = function (src) {

@@ -12,6 +12,7 @@ window.LV.temaer = [
   {
     id: "sf9-industrialiseringen",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 9,
     tittel: "Industrialiseringen",
     kort: "Fra håndkraft til maskiner og fabrikker – og hvordan livet endret seg for vanlige folk.",
@@ -236,6 +237,7 @@ window.LV.temaer = [
   {
     id: "sf10-mellomkrigstiden",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "Mellomkrigstiden",
     kort: "Fra håp om fred til krise og diktatur: hvordan verden gikk fra én verdenskrig til den neste.",
@@ -254,6 +256,7 @@ window.LV.temaer = [
   {
     id: "sf10-andre-verdenskrig",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "Andre verdenskrig",
     kort: "Den største krigen i historien: fra angrepet på Polen i 1939 til atombombene i 1945.",
@@ -272,6 +275,7 @@ window.LV.temaer = [
   {
     id: "sf10-holocaust",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "Holocaust",
     kort: "Hvordan fordommer og hat endte i drapet på seks millioner jøder – og hva som skjedde i Norge.",
@@ -290,6 +294,7 @@ window.LV.temaer = [
   {
     id: "sf10-okkupasjonen",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "Norge under okkupasjonen",
     kort: "9. april, kongens nei, hverdagen under krigen, motstandskampen og oppgjøret etter 1945.",
@@ -308,6 +313,7 @@ window.LV.temaer = [
   {
     id: "sf10-fn-menneskerettigheter",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "FN og menneskerettighetene",
     kort: "Hvorfor FN ble opprettet, hvordan det fungerer, og hvilke rettigheter alle mennesker har.",
@@ -326,6 +332,7 @@ window.LV.temaer = [
   {
     id: "sf10-kalde-krigen",
     fag: "samfunnsfag",
+    emne: "historie",
     trinn: 10,
     tittel: "Den kalde krigen",
     kort: "USA mot Sovjetunionen: jernteppet, Berlinmuren, atomtrusselen og romkappløpet.",
@@ -339,6 +346,99 @@ window.LV.temaer = [
     fakta: [
       "Berlinmuren sto i 28 år, fra 1961 til 1989.",
       "Norge var det eneste NATO-landet i Nord-Europa med grense mot Sovjetunionen."
+    ]
+  },
+  {
+    id: "sf10-klimaendringer",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 10,
+    tittel: "Klimaendringer",
+    kort: "Drivhuseffekten, følgene for verden og Norge – og dilemmaene når klimaet skal reddes.",
+    sted: { navn: "Svalbard", lat: 78.22, lon: 15.65 },
+    bilde: "https://images.unsplash.com/photo-1550695319-209e0e343dc9?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Isblokker som brekker av en isbre",
+    kreditt: "Dominik Van Opdenbosch",
+    kredittUrl: "https://unsplash.com/@derobi?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Uten den naturlige drivhuseffekten ville gjennomsnittstemperaturen på jorda vært rundt 18 minusgrader.",
+      "Svalbard varmes opp flere ganger raskere enn gjennomsnittet for hele kloden."
+    ]
+  },
+  {
+    id: "sf10-internasjonalt-samarbeid",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 10,
+    tittel: "Internasjonalt samarbeid: EU, NATO og Norge",
+    kort: "Hvorfor land samarbeider, hva EU og NATO er – og hvorfor Norge står utenfor EU, men likevel er med.",
+    sted: { navn: "Brussel", lat: 50.85, lon: 4.35 },
+    bilde: "https://images.unsplash.com/photo-1594810205183-18a8b0ce6c13?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Rad med EU-flagg utenfor EU-kommisjonens bygning i Brussel",
+    kreditt: "Guillaume Périgois",
+    kredittUrl: "https://unsplash.com/@guillaumeperigois?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norge har sagt nei til EU-medlemskap to ganger, i 1972 og 1994.",
+      "NATOs artikkel 5 er bare brukt én gang – etter terrorangrepene mot USA i 2001."
+    ]
+  },
+  {
+    id: "sf10-demokrati-diktatur",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Demokrati og diktatur",
+    kort: "Hva skiller folkestyre fra diktatur, og hvordan kan et demokrati svekkes steg for steg?",
+    bilde: "https://images.unsplash.com/photo-1782998307726-f93ec14eda24?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "To stemmebåser klare til bruk i et valglokale",
+    kreditt: "Jesse Paul",
+    kredittUrl: "https://unsplash.com/@jesseapaul?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norges grunnlov fra 1814 er en av de eldste grunnlovene i verden som fortsatt er i bruk.",
+      "Ordet demokrati kommer fra gresk og betyr «folkestyre»."
+    ]
+  },
+  {
+    id: "sf10-polarisering",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Polarisering: når vi glir fra hverandre",
+    kort: "Uenighet, algoritmer og ekkokamre – og hvorfor det er viktig å kunne være uenig på en god måte.",
+    bilde: "https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Rad med hender som holder mobiltelefoner",
+    kreditt: "Robin Worrall",
+    kredittUrl: "https://unsplash.com/@robin_rednine?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Innlegg som vekker sinne, sprer seg ofte raskere på sosiale medier enn rolige og nyanserte innlegg.",
+      "Ordet polarisering kommer fra «pol», som i Nordpolen og Sydpolen."
+    ]
+  },
+  {
+    id: "sf10-konfliktlosning",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Konflikt og konfliktløsning",
+    kort: "Fra konflikttrappa og mekling i klasserommet til fredsforhandlinger mellom land.",
+    sted: { navn: "Oslo (Nobels fredssenter)", lat: 59.91, lon: 10.73 },
+    bilde: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "To personer som håndhilser",
+    kreditt: "Cytonn Photography",
+    kredittUrl: "https://unsplash.com/@cytonn_photography?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Oslo-avtalen fra 1993 ble forhandlet fram i hemmelighet i Norge.",
+      "Den norske fredsforskeren Johan Galtung skilte mellom negativ og positiv fred."
     ]
   }
 ];

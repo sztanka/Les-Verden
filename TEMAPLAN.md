@@ -85,11 +85,11 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [ ] Midtøsten-konflikten (`sf10-midtosten`)
 - [ ] Norge etter 1945 (`sf10-norge-etter-1945`) – velferdsstaten, oljen
 - [ ] Ekstremisme og terror (`sf10-ekstremisme-terror`) – 22. juli, 11. september, IS, Taliban ↔ *9/11*
-- [ ] Klimaendringer (`sf10-klimaendringer`)
-- [ ] Internasjonalt samarbeid (`sf10-internasjonalt-samarbeid`) – EU, NATO
-- [ ] Demokrati og diktatur (`sf10-demokrati-diktatur`) ↔ *Democracy and Citizenship*
-- [ ] Polarisering (`sf10-polarisering`) ↔ *Group Think*
-- [ ] Konflikt og konfliktløsning (`sf10-konfliktlosning`)
+- [x] Klimaendringer (`sf10-klimaendringer`)
+- [x] Internasjonalt samarbeid (`sf10-internasjonalt-samarbeid`) – EU, NATO
+- [x] Demokrati og diktatur (`sf10-demokrati-diktatur`) ↔ *Democracy and Citizenship*
+- [x] Polarisering (`sf10-polarisering`) ↔ *Group Think*
+- [x] Konflikt og konfliktløsning (`sf10-konfliktlosning`)
 - [ ] Utdanning og yrkesvalg (`sf10-utdanning-yrkesvalg`)
 
 ### Engelsk (eksamenstemaene først)

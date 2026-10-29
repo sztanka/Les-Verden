@@ -166,6 +166,27 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .fagkort h2 { margin: 0 0 .3rem; color: var(--fag); font-size: 1.5rem; }
 .fagkort p { margin: 0; color: var(--tekst-dempet); }
 
+.emnevelger {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .6rem; margin: .5rem 0 1rem;
+}
+.emneknapp {
+  display: flex; align-items: center; gap: .7rem; text-align: left; cursor: pointer;
+  font: inherit; font-weight: 700; color: var(--tekst);
+  background: var(--flate); border: 2px solid var(--linje); border-radius: var(--radius); padding: .7rem .9rem;
+}
+.emneknapp .ikon { font-size: 1.5rem; line-height: 1; }
+.emneknapp > span:last-child { min-width: 0; hyphens: auto; overflow-wrap: break-word; }
+@media (max-width: 480px) {
+  .emnevelger { grid-template-columns: 1fr 1fr; }
+  .emneknapp { padding: .6rem .7rem; gap: .5rem; font-size: .95rem; }
+  .emneknapp .ikon { font-size: 1.25rem; }
+}
+.emneknapp small { display: block; font-weight: 400; font-size: .82rem; color: var(--tekst-dempet); }
+.emneknapp:hover { border-color: var(--samfunnsfag); }
+.emneknapp[aria-pressed="true"] { border-color: var(--samfunnsfag); background: var(--samfunnsfag-lys); }
+.emne-intro { margin: -.25rem 0 1rem; color: var(--tekst-dempet); font-family: var(--font-tekst); font-size: 1.05rem; max-width: 60ch; }
+.merke-emne { background: transparent; border: 1.5px solid currentColor; padding: .1rem .55rem; }
+
 .filter { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .5rem 0 1.25rem; }
 .filter .etikett { font-weight: 600; margin-right: .25rem; }
 

@@ -66,6 +66,7 @@ Kryss av når et tema er ferdig.
    {
      id: "sf10-andre-verdenskrig",
      fag: "samfunnsfag",       // "samfunnsfag" eller "engelsk"
+     emne: "historie",         // bare samfunnsfag: "historie", "geografi" eller "samfunnskunnskap"
      trinn: 10,
      tittel: "Andre verdenskrig",
      kort: "Én setning som vises på temakortet.",
@@ -82,6 +83,11 @@ Kryss av når et tema er ferdig.
      ]
    },
    ```
+
+   `emne` bestemmer hvilken del av samfunnsfag temaet hører til. Når man velger
+   Samfunnsfag på forsiden, kan man filtrere på historie, geografi og
+   samfunnskunnskap, og man kan lenke direkte til en del, for eksempel
+   `index.html?fag=samfunnsfag&emne=geografi`.
 
    For engelske temaer legger du også til `sprak: "en"`, slik at
    «Did you know …?» vises på engelsk.

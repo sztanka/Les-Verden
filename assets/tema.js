@@ -80,17 +80,19 @@
     document.documentElement.lang = tema.sprak === "en" ? "en" : "nb";
     document.title = tema.tittel + " – " + (LV.config ? LV.config.navn : "Les verden");
 
+    const kat = LV.temaer.find(t => t.id === tema.id) || {};
+    const emne = kat.emne && LV.emner[kat.emne];
     let h = "";
     h += '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › ' +
-      '<a href="index.html?fag=' + tema.fag + '">' + LV.fagNavn[tema.fag] + "</a> › " +
-      '<a href="index.html?fag=' + tema.fag + "&trinn=" + tema.trinn + '">' + tema.trinn + ". trinn</a></nav>";
+      '<a href="index.html?fag=' + tema.fag + '#temaer">' + LV.fagNavn[tema.fag] + "</a> › " +
+      (emne ? '<a href="index.html?fag=' + tema.fag + "&emne=" + kat.emne + '#temaer">' + emne.navn + "</a> › " : "") +
+      '<a href="index.html?fag=' + tema.fag + (emne ? "&emne=" + kat.emne : "") + "&trinn=" + tema.trinn + '#temaer">' + tema.trinn + ". trinn</a></nav>";
 
     if (LV.param("laerer") === "1" && tema.kontroller && tema.kontroller.length) {
       h += '<aside class="laerer-boks" lang="nb"><h2>For læreren: kontroller disse opplysningene</h2><ul>' +
         tema.kontroller.map(k => "<li>" + LV.esc(k) + "</li>").join("") + "</ul></aside>";
     }
 
-    const kat = LV.temaer.find(t => t.id === tema.id) || {};
     if (kat.bilde) {
       let kreditt = "";
       if (kat.kreditt) {
@@ -100,7 +102,7 @@
       }
       h += '<figure class="temabilde"><img src="' + LV.esc(kat.bilde) + '" alt="' + LV.esc(kat.bildeAlt || "") + '">' + kreditt + "</figure>";
     }
-    h += '<header class="temahode"><div class="merker"><span class="merke">' + LV.fagNavn[tema.fag] + '</span><span class="merke">' + tema.trinn + '. trinn</span></div>' +
+    h += '<header class="temahode">' + LV.merker({ fag: tema.fag, emne: kat.emne, trinn: tema.trinn }) +
       "<h1>" + LV.esc(tema.tittel) + '</h1><p class="ingress">' + formater(tema.ingress) + "</p></header>";
 
     // Før du leser
@@ -179,7 +181,7 @@
     if (koblet.length) {
       h += "<section><h2>" + T.kobletTil + '</h2><ul class="temaliste">' +
         koblet.map(t => '<li><a class="temakort fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' +
-          '<span class="merker"><span class="merke">' + LV.fagNavn[t.fag] + '</span><span class="merke">' + t.trinn + '. trinn</span></span>' +
+          LV.merker(t) +
           "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p></a></li>").join("") + "</ul></section>";
     }
 
