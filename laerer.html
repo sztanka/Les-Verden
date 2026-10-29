@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/stil.css">
   <script src="data/innstillinger.js"></script>
   <script src="data/temaer/oversikt.js"></script>
+  <script src="data/kart.js"></script>
   <script src="assets/felles.js"></script>
 </head>
 <body data-side="laerer">
@@ -33,6 +34,10 @@
     <p>Legg til <code>&amp;laerer=1</code> på slutten av adressen til en temaside, så vises en gul boks med årstall og opplysninger som bør sjekkes før elevene bruker siden.</p>
     <ul id="kontrollenker"></ul>
 
+    <h2>Kartsjekk</h2>
+    <p>Siden sjekker automatisk at hvert tema har et sted, og at stedet ligger på land på kartet. Bruk lenken «Vis på kart» for å se at stedet er riktig.</p>
+    <div id="kartsjekk"></div>
+
     <h2>Lesestøtte</h2>
     <p>Knappen <strong>Lesestøtte</strong> øverst gir større tekst, lesevennlig skrift og mørk modus. På temasidene kan teksten leses opp, enten hele teksten eller ett avsnitt om gangen. Opplesingen bruker stemmene som finnes i nettleseren, og kvaliteten varierer derfor mellom maskiner.</p>
 
@@ -47,6 +52,38 @@
   <script>
     document.getElementById("kontrollenker").innerHTML = window.LV.temaer.map(t =>
       '<li><a href="tema.html?id=' + encodeURIComponent(t.id) + '&laerer=1">' + window.LV.esc(t.tittel) + '</a> (' + window.LV.fagNavn[t.fag] + ', ' + t.trinn + '. trinn)</li>').join("");
+
+    (function () {
+      const LV = window.LV, k = LV.kart;
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 " + k.bredde + " " + k.hoyde);
+      svg.style.cssText = "position:absolute;width:1px;height:1px;opacity:0;pointer-events:none";
+      const sti = document.createElementNS(ns, "path");
+      sti.setAttribute("d", k.sti);
+      svg.appendChild(sti);
+      document.body.appendChild(svg);
+
+      const rader = LV.temaer.map(t => {
+        let status;
+        if (!t.sted || typeof t.sted.lat !== "number" || typeof t.sted.lon !== "number") {
+          status = "⚠️ Mangler sted – temaet vises ikke på kartet";
+        } else if (Math.abs(t.sted.lat) > 90 || Math.abs(t.sted.lon) > 180) {
+          status = "⚠️ Ugyldige tall – sjekk at breddegrad og lengdegrad ikke er byttet om";
+        } else {
+          const x = (t.sted.lon + 180) * k.bredde / 360, y = (k.nord - t.sted.lat) * k.bredde / 360;
+          let paLand = true;
+          try { paLand = sti.isPointInFill(new DOMPoint(x, y)); } catch (e) {}
+          status = paLand ? "✅ OK" : "⚠️ Ligger i havet – sjekk koordinatene (kan være riktig for byer helt ved kysten)";
+        }
+        const lenke = t.sted ? '<a href="https://www.openstreetmap.org/?mlat=' + t.sted.lat + "&mlon=" + t.sted.lon + "#map=6/" + t.sted.lat + "/" + t.sted.lon + '" target="_blank" rel="noopener">Vis på kart</a>' : "";
+        return "<tr><td>" + LV.esc(t.tittel) + "</td><td>" + (t.sted ? LV.esc(t.sted.navn) : "–") + "</td><td>" + status + "</td><td>" + lenke + "</td></tr>";
+      }).join("");
+      document.getElementById("kartsjekk").innerHTML =
+        '<div style="overflow-x:auto"><table style="border-collapse:collapse;width:100%;font-size:.95rem">' +
+        '<thead><tr style="text-align:left;border-bottom:2px solid var(--linje)"><th style="padding:.4rem">Tema</th><th style="padding:.4rem">Sted</th><th style="padding:.4rem">Status</th><th style="padding:.4rem"></th></tr></thead>' +
+        "<tbody>" + rader.replace(/<td>/g, '<td style="padding:.4rem;border-bottom:1px solid var(--linje)">') + "</tbody></table></div>";
+    })();
   </script>
 </body>
 </html>

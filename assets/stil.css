@@ -360,11 +360,14 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .kart .ekvator { stroke: var(--kart-kant); stroke-width: 1; stroke-dasharray: 3 5; fill: none; }
 
 .nal {
+  /* Bare prikken bestemmer plasseringen. Navnelappen ligger utenfor, så den
+     aldri flytter prikken bort fra riktig sted på kartet. */
   position: absolute; transform: translate(-50%, -50%); z-index: 2;
-  display: flex; align-items: center; gap: .4rem;
+  display: block; line-height: 0;
   text-decoration: none; color: var(--tekst); font: inherit; background: none; border: 0; padding: 0; cursor: pointer;
 }
 .nal .prikk {
+  display: block;
   width: 18px; height: 18px; border-radius: 50%; flex: none;
   background: var(--fag); border: 3px solid var(--flate); box-shadow: 0 2px 6px rgba(0,0,0,.25);
   position: relative;
@@ -379,9 +382,15 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 }
 .nal.klynge .prikk::after { border-color: var(--tekst); }
 .nal .navnelapp {
-  background: var(--flate); border-radius: 999px; padding: .2rem .6rem; font-size: .85rem; font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap;
+  position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%);
+  background: var(--flate); border-radius: 999px; padding: .2rem .6rem; font-size: .85rem; font-weight: 600; line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap; pointer-events: none;
 }
+.nal.lapp-venstre .navnelapp { left: auto; right: calc(100% + 6px); }
+/* Når kartet får mange prikker, vises navnet bare når man peker på prikken */
+.kart.mange .nal .navnelapp { display: none; }
+.kart.mange .nal:hover .navnelapp, .kart.mange .nal:focus-visible .navnelapp { display: block; z-index: 3; }
+.nal:hover, .nal:focus-visible { z-index: 4; }
 .nal:hover .prikk, .nal:focus-visible .prikk { transform: scale(1.15); }
 @keyframes puls {
   0% { transform: scale(.6); opacity: .8; }

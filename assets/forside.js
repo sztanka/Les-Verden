@@ -100,20 +100,22 @@
 
     klynger.forEach((kl, i) => {
       const venstre = (kl.x / k.bredde * 100) + "%";
+      const lappKlasse = kl.x > k.bredde * 0.78 ? " lapp-venstre" : "";
       const topp = (kl.y / k.hoyde * 100) + "%";
       if (kl.temaer.length === 1) {
         const t = kl.temaer[0];
-        h += '<a class="nal fag-' + t.fag + '" style="left:' + venstre + ";top:" + topp + '" href="tema.html?id=' + encodeURIComponent(t.id) + '"' +
+        h += '<a class="nal fag-' + t.fag + lappKlasse + '" style="left:' + venstre + ";top:" + topp + '" href="tema.html?id=' + encodeURIComponent(t.id) + '"' +
           ' aria-label="' + LV.esc(t.tittel + " (" + t.sted.navn + ")") + '">' +
           '<span class="prikk"></span><span class="navnelapp" aria-hidden="true">' + LV.esc(t.sted.navn) + "</span></a>";
       } else {
-        h += '<button type="button" class="nal klynge" id="klynge-' + i + '" data-klynge="' + i + '" aria-expanded="false"' +
+        h += '<button type="button" class="nal klynge' + lappKlasse + '" id="klynge-' + i + '" data-klynge="' + i + '" aria-expanded="false"' +
           ' style="left:' + venstre + ";top:" + topp + '"' +
           ' aria-label="' + kl.temaer.length + " temaer: " + LV.esc(steder(kl.temaer)) + '">' +
           '<span class="prikk">' + kl.temaer.length + '</span><span class="navnelapp" aria-hidden="true">' + LV.esc(steder(kl.temaer)) + "</span></button>";
       }
     });
     kart.innerHTML = h;
+    kart.classList.toggle("mange", klynger.length > 8);
 
     kart.querySelectorAll("[data-klynge]").forEach(b =>
       b.addEventListener("click", e => {
