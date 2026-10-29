@@ -18,6 +18,7 @@ les-verden/
 ├── laerer.html             Informasjon for lærere
 ├── tidslinje.html          Felles tidslinje (lages automatisk fra temaene)
 ├── begreper.html           Begrepsbank (lages automatisk fra temaene)
+├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
 │   ├── felles.js           Toppmeny, lesestøtte, bunntekst
@@ -26,10 +27,12 @@ les-verden/
 │   ├── samle.js            Henter innhold fra alle temaene
 │   ├── tidslinje.js        Felles tidslinje
 │   ├── begreper.js         Begrepsbank
+│   ├── eksamen.js          Eksamenssonen (verktøyene)
 │   └── bilder/             Bilder til temakortene
 └── data/
     ├── innstillinger.js    Navnet på nettstedet m.m.
     ├── kart.js             Verdenskartet (generert – ikke rediger)
+    ├── eksamen.js          Tekstene i eksamenssonen (rediger fritt)
     └── temaer/
         ├── oversikt.js     Liste over alle temaer
         └── <id>.js         Ett tema per fil, f.eks. sf10-andre-verdenskrig.js
@@ -147,6 +150,23 @@ Noen temaer trenger mer plass (se `sf10-andre-verdenskrig.js`). Da kan du bruke 
 
 Du trenger altså ikke gjøre noe ekstra: Når et nytt tema legges inn i `oversikt.js`,
 dukker datoene og ordene opp automatisk.
+
+### Eksamenssonen
+
+Tekstene i eksamenssonen ligger i `data/eksamen.js`: hvordan eksamen foregår,
+forberedelsesplanen, eksempler på problemstillinger, struktur, fraser, sjekkliste og
+vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig eksamen
+gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
+oppgavene på nivå 2 og 3 i temaene.
+
+### Versjonsnummer (når endringer ikke vises)
+
+Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
+`assets/stil.css?v=20261029c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
+kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
+**Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
+GitHub Pages kan dessuten bruke et par minutter på å publisere en ny versjon.
 
 ### Formatering i tekstene
 

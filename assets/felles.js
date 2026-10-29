@@ -39,10 +39,14 @@ window.LV = window.LV || {};
 
   // Laster en datafil (vanlig <script>), slik at siden også virker når
   // den åpnes direkte fra disken uten nettserver.
+  // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
+  // nettleseren henter nye filer i stedet for gamle kopier.
+  LV.versjon = "20261029c";
+
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
       const s = document.createElement("script");
-      s.src = src;
+      s.src = src + (src.indexOf("?") < 0 ? "?v=" : "&v=") + LV.versjon;
       s.onload = ok;
       s.onerror = function () { feil(new Error("Fant ikke " + src)); };
       document.head.appendChild(s);
@@ -75,6 +79,7 @@ window.LV = window.LV || {};
           lenke("index.html?fag=engelsk", "Engelsk", "engelsk") +
           lenke("tidslinje.html", "Tidslinje", "tidslinje") +
           lenke("begreper.html", "Begreper", "begreper") +
+          lenke("eksamen.html", "Eksamen", "eksamen") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +
         '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte">' +

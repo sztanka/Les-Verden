@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Les verden – samfunnsfag og engelsk</title>
   <meta name="description" content="Fagtekster med lese- og diskusjonsoppgaver i samfunnsfag og engelsk for 8.–10. trinn.">
-  <link rel="stylesheet" href="assets/stil.css">
-  <script src="data/innstillinger.js"></script>
-  <script src="data/temaer/oversikt.js"></script>
-  <script src="data/kart.js"></script>
-  <script src="assets/felles.js"></script>
-  <script src="assets/forside.js"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261029c">
+  <script src="data/innstillinger.js?v=20261029c"></script>
+  <script src="data/temaer/oversikt.js?v=20261029c"></script>
+  <script src="data/kart.js?v=20261029c"></script>
+  <script src="assets/felles.js?v=20261029c"></script>
+  <script src="assets/forside.js?v=20261029c"></script>
 </head>
 <body data-side="forside">
   <main id="innhold">
@@ -51,10 +51,41 @@
       <section class="visste" id="visste" aria-live="polite"></section>
     </div>
 
-    <div class="snarveier">
-      <a class="snarvei" href="tidslinje.html"><span class="ikon" aria-hidden="true">📅</span><span><strong>Tidslinje</strong><small>Alle de viktige datoene fra temaene, i riktig rekkefølge</small></span></a>
-      <a class="snarvei" href="begreper.html"><span class="ikon" aria-hidden="true">📖</span><span><strong>Begrepsbank</strong><small>Slå opp alle ordene og begrepene fra temaene</small></span></a>
-    </div>
+    <section class="verktoyseksjon" aria-labelledby="verktoy-tittel">
+      <h2 id="verktoy-tittel">Les, repeter og øv</h2>
+      <div class="verktoykort-rad">
+        <a class="verktoykort vk-tidslinje" href="tidslinje.html">
+          <span class="vk-ikon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><line x1="8" y1="32" x2="56" y2="32" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="14" cy="32" r="6" fill="currentColor"/><circle cx="32" cy="32" r="6" fill="currentColor"/><circle cx="50" cy="32" r="6" fill="currentColor"/><line x1="14" y1="20" x2="14" y2="26" stroke="currentColor" stroke-width="3"/><line x1="32" y1="38" x2="32" y2="44" stroke="currentColor" stroke-width="3"/><line x1="50" y1="20" x2="50" y2="26" stroke="currentColor" stroke-width="3"/></svg>
+          </span>
+          <span class="vk-tekst">
+            <strong>Tidslinje</strong>
+            <span>Alle de viktige datoene fra temaene i riktig rekkefølge – fra antikken til i dag. Søk og filtrer på fag og trinn.</span>
+            <span class="vk-cta">Åpne tidslinjen →</span>
+          </span>
+        </a>
+        <a class="verktoykort vk-begreper" href="begreper.html">
+          <span class="vk-ikon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><path d="M8 14c8-3 16-3 24 2v36c-8-5-16-5-24-2z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M56 14c-8-3-16-3-24 2v36c8-5 16-5 24-2z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><text x="20" y="38" font-size="13" font-weight="700" fill="currentColor" font-family="sans-serif" text-anchor="middle">A</text><text x="44" y="38" font-size="13" font-weight="700" fill="currentColor" font-family="sans-serif" text-anchor="middle">Å</text></svg>
+          </span>
+          <span class="vk-tekst">
+            <strong>Begrepsbank</strong>
+            <span>Slå opp alle ordene og begrepene fra temaene – med forklaring og lenke til teksten de står i.</span>
+            <span class="vk-cta">Åpne begrepsbanken →</span>
+          </span>
+        </a>
+        <a class="verktoykort vk-eksamen" href="eksamen.html">
+          <span class="vk-ikon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><rect x="22" y="8" width="20" height="30" rx="10" fill="none" stroke="currentColor" stroke-width="4"/><path d="M14 30c0 10 8 18 18 18s18-8 18-18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="32" y1="48" x2="32" y2="57" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="22" y1="57" x2="42" y2="57" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+          </span>
+          <span class="vk-tekst">
+            <strong>Eksamenssone</strong>
+            <span>Forbered deg til muntlig eksamen: problemstilling, presentasjon, samtale, nyttige fraser og øvingsspørsmål.</span>
+            <span class="vk-cta">Gå til eksamenssonen →</span>
+          </span>
+        </a>
+      </div>
+    </section>
 
     <h2 id="temaer"><span id="liste-tittel">Alle temaer</span></h2>
     <div class="emnevelger" id="emnevelger" role="group" aria-label="Velg del av samfunnsfag" hidden></div>
@@ -73,7 +104,6 @@
       <ul>
         <li>Flere temaer for alle tre trinn – og flere steder på kartet</li>
         <li>Personer: kjente personer fra temaene</li>
-        <li>Eksamenssone for muntlig eksamen</li>
         <li>Spill: begrepsmemory, tidslinjesortering, «Hvem er jeg?»</li>
       </ul>
     </section>

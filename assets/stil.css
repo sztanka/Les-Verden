@@ -19,6 +19,8 @@
   --aksent-lys: #fbe9dd;
   --gul-lys: #fdf3d3;
   --gul: #8a6a00;
+  --lilla: #6a3d9a;
+  --lilla-lys: #efe7f7;
 
   --skala: 1;
   --font-tekst: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
@@ -47,6 +49,8 @@
   --aksent-lys: #3b2619;
   --gul-lys: #3a3218;
   --gul: #f1cf68;
+  --lilla: #c9a6f0;
+  --lilla-lys: #2e2340;
   --skygge: 0 1px 2px rgba(0,0,0,.3);
 }
 
@@ -211,16 +215,27 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .kommer h2 { margin-top: 0; font-size: 1.2rem; }
 .kommer ul { margin: .3rem 0 0; padding-left: 1.2rem; color: var(--tekst-dempet); }
 
-/* ---------- Snarveier på forsiden ---------- */
-.snarveier { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .8rem; margin: 1.5rem 0 .5rem; }
-.snarvei {
-  display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--tekst);
-  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1.1rem;
-  box-shadow: var(--skygge);
+/* ---------- Verktøykort på forsiden ---------- */
+.verktoyseksjon { margin: .5rem 0 2.5rem; }
+.verktoyseksjon h2 { font-size: 1.5rem; margin: 0 0 .8rem; }
+.verktoykort-rad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.verktoykort {
+  --vk: var(--tekst); --vk-lys: var(--flate-2);
+  display: flex; flex-direction: column; gap: .9rem; text-decoration: none; color: var(--tekst);
+  background: var(--vk-lys); border: 2px solid transparent; border-radius: var(--radius);
+  padding: 1.4rem 1.5rem; transition: border-color .15s, transform .15s; min-height: 100%;
 }
-.snarvei:hover { border-color: var(--tekst-dempet); }
-.snarvei .ikon { font-size: 1.7rem; line-height: 1; }
-.snarvei small { display: block; color: var(--tekst-dempet); font-size: .9rem; margin-top: .1rem; }
+.verktoykort:hover, .verktoykort:focus-visible { border-color: var(--vk); transform: translateY(-2px); }
+.vk-ikon { color: var(--vk); display: block; line-height: 0; }
+.vk-tekst { display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.vk-tekst strong { font-family: var(--font-tekst); font-size: 1.45rem; color: var(--vk); }
+.vk-tekst > span:not(.vk-cta) { color: var(--tekst-dempet); line-height: 1.5; }
+.vk-cta { margin-top: auto; padding-top: .4rem; font-weight: 700; color: var(--vk); }
+.vk-tidslinje { --vk: var(--gul); --vk-lys: var(--gul-lys); }
+.vk-begreper { --vk: var(--lilla); --vk-lys: var(--lilla-lys); }
+.vk-eksamen { --vk: #a3420e; --vk-lys: var(--aksent-lys); }
+:root[data-tema="mork"] .vk-eksamen { --vk: var(--aksent); }
+@media (max-width: 900px) { .verktoykort-rad { grid-template-columns: 1fr; } .verktoykort { flex-direction: row; align-items: flex-start; } }
 
 /* ---------- Tidslinje og begrepsbank ---------- */
 .sidehode { margin: 1.5rem 0 1rem; }
@@ -426,6 +441,139 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .laerer-boks h2 { margin-top: 0; font-size: 1.1rem; color: var(--gul); font-family: var(--font-ui); }
 
 .melding { padding: 2rem; text-align: center; color: var(--tekst-dempet); }
+
+
+/* ---------- Eksamenssone ---------- */
+.eksamen-side { max-width: 980px; }
+.eksamen-side .overlinje { text-transform: uppercase; letter-spacing: .08em; font-weight: 700; font-size: .85rem; color: var(--fag); margin: 0 0 .2rem; }
+.fagvelger { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; max-width: 520px; margin: 1rem 0; }
+.fagknapp {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  font: inherit; font-weight: 700; font-size: 1.1rem; cursor: pointer; min-height: 56px;
+  background: var(--flate); color: var(--fag); border: 2px solid var(--linje); border-radius: var(--radius);
+}
+.fagknapp[aria-pressed="true"] { background: var(--fag-lys); border-color: var(--fag); }
+.seksjonsmeny {
+  display: flex; flex-wrap: wrap; gap: .4rem; padding: .8rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--linje);
+}
+.seksjonsmeny a {
+  text-decoration: none; color: var(--tekst); background: var(--flate); border: 1px solid var(--linje);
+  border-radius: 999px; padding: .4rem .85rem; font-size: .92rem; min-height: 40px; display: inline-flex; align-items: center;
+}
+.seksjonsmeny a:hover { border-color: var(--fag); color: var(--fag); }
+
+.eks-seksjon { scroll-margin-top: 5.5rem; margin: 2.2rem 0 3rem; }
+.eks-seksjon > h2 { display: flex; align-items: center; gap: .7rem; font-size: 1.65rem; margin-bottom: .8rem; }
+.eks-seksjon > h2 .nr {
+  flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--fag); color: var(--flate); font-family: var(--font-ui); font-size: 1rem;
+}
+.eks-seksjon > p { max-width: 70ch; font-family: var(--font-tekst); font-size: 1.1rem; line-height: 1.65; }
+.eks-seksjon h3 { font-size: 1.15rem; margin: 1.4rem 0 .5rem; }
+
+.plankort { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; }
+.plankort > li { background: var(--flate); border: 1px solid var(--linje); border-top: 5px solid var(--fag); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.plankort .steg { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--fag); }
+.plankort h3 { margin: .2rem 0 .5rem; }
+.plankort ul { padding-left: 1.1rem; margin: 0; }
+.plankort li li { margin: .35rem 0; line-height: 1.45; }
+
+.to-kol { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; }
+@media (max-width: 720px) { .to-kol { grid-template-columns: 1fr; } }
+.hakeliste { list-style: none; padding: 0; }
+.hakeliste li { position: relative; padding-left: 1.7rem; margin: .5rem 0; line-height: 1.5; }
+.hakeliste li::before { content: "✓"; position: absolute; left: 0; color: var(--fag); font-weight: 700; }
+.startord { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.startord li { background: var(--fag-lys); color: var(--fag); font-weight: 700; border-radius: 8px; padding: .35rem .7rem; }
+
+.eksempler { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .8rem; }
+.eksempel { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1rem; }
+.eksempel p { margin: .3rem 0; line-height: 1.45; }
+.eksempel .svak { color: var(--tekst-dempet); text-decoration: line-through; text-decoration-color: rgba(179,38,30,.5); }
+.eksempel .bedre { font-weight: 600; }
+.eksempel .hvorfor { font-size: .92rem; color: var(--tekst-dempet); border-top: 1px dashed var(--linje); padding-top: .4rem; margin-top: .5rem; }
+.merkelapp {
+  display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  border-radius: 4px; padding: .05rem .4rem; margin-right: .45rem; text-decoration: none; vertical-align: middle;
+}
+.svak .merkelapp { background: #f6dcda; color: #8c1d16; }
+.bedre .merkelapp { background: var(--fag-lys); color: var(--fag); }
+:root[data-tema="mork"] .svak .merkelapp { background: #4a2523; color: #ffb4ad; }
+
+.verktoyboks {
+  background: var(--fag-lys); border: 2px solid var(--fag); border-radius: var(--radius);
+  padding: 1rem 1.2rem 1.2rem; margin-top: 1.6rem;
+}
+.verktoyboks h3 { margin-top: 0; }
+.verktoyboks p { margin: .3rem 0 .8rem; }
+.verktoyboks label { font-weight: 600; }
+.verktoyboks textarea {
+  display: block; width: 100%; margin-top: .4rem; font: inherit; font-size: 1.05rem; padding: .7rem .8rem;
+  border: 1px solid var(--linje); border-radius: 10px; background: var(--flate); color: var(--tekst); resize: vertical;
+}
+.verktoyboks select {
+  font: inherit; min-height: 44px; padding: .3rem .6rem; border-radius: 10px; border: 1px solid var(--linje);
+  background: var(--flate); color: var(--tekst); max-width: 100%;
+}
+.ps-tilbakemelding { list-style: none; padding: 0; margin: .8rem 0 0; }
+.ps-tilbakemelding li { padding: .45rem .7rem; border-radius: 8px; margin: .35rem 0; background: var(--flate); }
+.ps-tilbakemelding li.tips { border-left: 4px solid var(--gul); }
+.ps-tilbakemelding li.ok { border-left: 4px solid var(--fag); }
+
+.strukturlinje { display: flex; border-radius: 10px; overflow: hidden; margin: .5rem 0 1rem; font-weight: 700; font-size: .9rem; }
+.strukturlinje span { padding: .55rem .7rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.strukturlinje .del-0, .strukturkort .del-0 { --del: #6b7f2a; }
+.strukturlinje .del-1, .strukturkort .del-1 { --del: var(--fag); }
+.strukturlinje .del-2, .strukturkort .del-2 { --del: #8a4b9a; }
+.strukturlinje span { background: var(--del); }
+:root[data-tema="mork"] .strukturlinje span { color: #10141a; }
+:root[data-tema="mork"] .strukturlinje .del-0, :root[data-tema="mork"] .strukturkort .del-0 { --del: #b7cc6e; }
+:root[data-tema="mork"] .strukturlinje .del-2, :root[data-tema="mork"] .strukturkort .del-2 { --del: #d3a3e0; }
+.strukturkort { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: .8rem; }
+@media (max-width: 760px) { .strukturkort { grid-template-columns: 1fr; } }
+.strukturkort > div { background: var(--flate); border: 1px solid var(--linje); border-top: 5px solid var(--del); border-radius: var(--radius); padding: .8rem 1rem; }
+.strukturkort h3 { margin: 0 0 .4rem; color: var(--del); }
+.strukturkort h3 small { font-weight: 400; color: var(--tekst-dempet); font-size: .85rem; }
+.strukturkort ul { padding-left: 1.1rem; margin: 0; }
+.strukturkort li { margin: .3rem 0; line-height: 1.45; }
+
+.tt-rad { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.tt-visning { display: flex; align-items: baseline; gap: 1rem; margin: 1rem 0 .5rem; flex-wrap: wrap; }
+.tt-tid { font-size: 2.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tt-fase { font-size: 1.15rem; font-weight: 700; color: var(--fag); }
+.tt-bar { position: relative; height: 18px; background: var(--flate); border: 1px solid var(--linje); border-radius: 999px; overflow: hidden; }
+.tt-bar #tt-fyll { display: block; height: 100%; width: 0; background: var(--fag); transition: width .25s linear; }
+.tt-bar.over #tt-fyll { background: #b3261e; }
+.tt-bar i { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--tekst); opacity: .5; }
+
+.ov-kort { background: var(--flate); border-radius: var(--radius); padding: 1rem 1.1rem; margin-top: 1rem; min-height: 4rem; }
+.ov-tom { color: var(--tekst-dempet); margin: 0; }
+.ov-sporsmal { font-family: var(--font-tekst); font-size: 1.3rem; line-height: 1.45; margin: 0 0 .5rem; }
+.ov-fra { color: var(--tekst-dempet); margin: 0 0 .8rem; font-size: .95rem; }
+.ov-nedtelling { font-weight: 700; color: var(--fag); font-variant-numeric: tabular-nums; }
+
+.fraser { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: .8rem; }
+.frasegruppe { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; }
+.frasegruppe h3 { margin: 0 0 .4rem; color: var(--fag); font-size: 1.05rem; }
+.frasegruppe ul { margin: 0; padding-left: 1.1rem; }
+.frasegruppe li { margin: .3rem 0; font-family: var(--font-tekst); font-size: 1.05rem; }
+
+.feilliste { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: .8rem; }
+.feilliste > div { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; }
+.feilliste p { margin: .25rem 0; line-height: 1.45; }
+.feil-tekst { color: #8c1d16; font-weight: 600; }
+:root[data-tema="mork"] .feil-tekst { color: #ffb4ad; }
+.gjor-tekst span { color: var(--fag); font-weight: 700; }
+
+.sjekkliste { list-style: none; padding: 0; columns: 2 320px; column-gap: 1.5rem; }
+.sjekkliste li { break-inside: avoid; display: flex; gap: .6rem; align-items: flex-start; padding: .45rem 0; }
+.sjekkliste input { width: 1.4rem; height: 1.4rem; margin-top: .1rem; accent-color: var(--fag); flex: none; }
+.sjekkliste label { line-height: 1.45; cursor: pointer; }
+.sj-status { font-weight: 700; color: var(--fag); }
+
+@media print {
+  .fagvelger, .seksjonsmeny, .verktoyboks { display: none !important; }
+}
 
 @media (max-width: 640px) {
   .topp { position: static; }
