@@ -222,8 +222,7 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 /* ---------- Verktøykort på forsiden ---------- */
 .verktoyseksjon { margin: .5rem 0 2.5rem; }
 .verktoyseksjon h2 { font-size: 1.5rem; margin: 0 0 .8rem; }
-.verktoykort-rad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-@media (max-width: 1100px) { .verktoykort-rad { grid-template-columns: repeat(2, 1fr); } }
+.verktoykort-rad { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
 .verktoykort {
   --vk: var(--tekst); --vk-lys: var(--flate-2);
   display: flex; flex-direction: column; gap: .9rem; text-decoration: none; color: var(--tekst);
@@ -239,6 +238,7 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .vk-tidslinje { --vk: var(--gul); --vk-lys: var(--gul-lys); }
 .vk-begreper { --vk: var(--lilla); --vk-lys: var(--lilla-lys); }
 .vk-personer { --vk: var(--engelsk); --vk-lys: var(--engelsk-lys); }
+.vk-kart { --vk: var(--samfunnsfag); --vk-lys: var(--samfunnsfag-lys); }
 .vk-eksamen { --vk: #a3420e; --vk-lys: var(--aksent-lys); }
 :root[data-tema="mork"] .vk-eksamen { --vk: var(--aksent); }
 @media (max-width: 700px) { .verktoykort-rad { grid-template-columns: 1fr; } .verktoykort { flex-direction: row; align-items: flex-start; } }
@@ -496,6 +496,119 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .hej-svar { margin: .9rem 0 0; line-height: 1.6; }
 .hej-videre { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-top: .6rem; }
 .hej-tom { color: var(--tekst-dempet); margin: 0; }
+
+
+/* ---------- Kartspill ---------- */
+:root {
+  --ks-hav: #dbe8f0; --ks-land: #efe9dc; --ks-grense: #b9ae98; --ks-el: #fbf8f1; --ks-el-hover: #f3e3b8;
+  --ks-r1: #3f9a5c; --ks-r2: #e0b13a; --ks-r3: #e07b39; --ks-feil: #c9483d; --ks-elv: #3b7dc4; --ks-punkt: #2b3a55;
+}
+:root[data-tema="mork"] {
+  --ks-hav: #1a2633; --ks-land: #2b2f36; --ks-grense: #4b5260; --ks-el: #3a3f48; --ks-el-hover: #5a5236;
+  --ks-r1: #52b873; --ks-r2: #e8c35a; --ks-r3: #f09455; --ks-feil: #e86a5f; --ks-elv: #7ab3f0; --ks-punkt: #e9e6df;
+}
+.kartspill-side { max-width: 1200px; }
+.ks-moduser-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .7rem; margin: 1rem 0 1.5rem; }
+.ks-moduser-info > div { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; display: grid; grid-template-columns: auto 1fr; column-gap: .7rem; align-items: center; }
+.ks-moduser-info span { font-size: 1.6rem; grid-row: span 2; }
+.ks-moduser-info small { color: var(--tekst-dempet); }
+.ks-gruppe { margin: 1.8rem 0; }
+.ks-gruppe h2 { margin: 0 0 .2rem; font-size: 1.5rem; }
+.ks-gruppe-tekst { margin: 0 0 .8rem; color: var(--tekst-dempet); }
+.ks-settliste { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .8rem; }
+.ks-settkort {
+  display: flex; flex-direction: column; gap: .3rem; height: 100%; text-decoration: none; color: var(--tekst);
+  background: var(--flate); border: 1px solid var(--linje); border-top: 5px solid var(--fag); border-radius: var(--radius);
+  padding: .9rem 1.1rem; box-shadow: var(--skygge);
+}
+.ks-settkort:hover { border-color: var(--fag); }
+.ks-settkort h3 { margin: .3rem 0 0; font-size: 1.2rem; }
+.ks-settkort p { margin: 0; color: var(--tekst-dempet); font-size: .95rem; }
+.ks-spill { margin-top: auto; padding-top: .4rem; font-weight: 700; color: var(--fag); }
+
+.ks-hode { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; margin: 1rem 0 .6rem; }
+.ks-hode h1 { margin: 0; font-size: 1.8rem; flex: 1 1 auto; }
+.ks-tilbake { width: 100%; font-size: .95rem; }
+.ks-moduser { display: flex; flex-wrap: wrap; gap: .4rem; }
+.ks-moduser .knapp[aria-selected="true"] { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+
+.ks-status {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem 1rem;
+  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius) var(--radius) 0 0;
+  padding: .7rem 1rem; min-height: 60px;
+}
+.ks-sporsmal { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-size: 1.15rem; }
+.ks-ledetekst { color: var(--tekst-dempet); }
+.ks-navn { font-size: 1.45rem; font-family: var(--font-tekst); }
+.ks-hinttekst { font-style: italic; color: var(--tekst-dempet); }
+.ks-tall { display: flex; gap: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--tekst-dempet); }
+.ks-valg { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .45rem; width: 100%; margin-top: .3rem; }
+.ks-alternativ {
+  font: inherit; font-weight: 700; font-size: 1rem; min-height: 48px; padding: .4rem .8rem; cursor: pointer; text-align: left;
+  background: var(--bakgrunn); color: var(--tekst); border: 2px solid var(--linje); border-radius: 10px;
+}
+.ks-alternativ:hover:not(:disabled) { border-color: var(--tekst-dempet); }
+.ks-alternativ.riktig { border-color: var(--ks-r1); background: color-mix(in srgb, var(--ks-r1) 18%, var(--flate)); }
+.ks-alternativ.feil { border-color: var(--ks-feil); background: color-mix(in srgb, var(--ks-feil) 15%, var(--flate)); }
+
+.ks-kartramme { position: relative; border: 1px solid var(--linje); border-top: 0; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; background: var(--ks-hav); }
+.ks-kart { display: block; width: 100%; height: auto; max-height: 78vh; touch-action: none; cursor: crosshair; user-select: none; -webkit-user-select: none; }
+.ks-kart.drar { cursor: grabbing; }
+.ks-hav { fill: var(--ks-hav); }
+.ks-bakgrunn path { fill: var(--ks-land); stroke: var(--ks-grense); stroke-width: .6; vector-effect: non-scaling-stroke; }
+.ks-omrader path { fill: var(--ks-el); stroke: var(--ks-grense); stroke-width: .8; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .15s; }
+.ks-omrader path:hover { fill: var(--ks-el-hover); }
+.ks-ring { fill: transparent; stroke: var(--ks-punkt); stroke-width: 1.5; stroke-dasharray: 3 2; vector-effect: non-scaling-stroke; cursor: pointer; }
+.ks-linje { fill: none; stroke: var(--ks-elv); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.ks-linje-treff { fill: none; stroke: transparent; stroke-width: 16; vector-effect: non-scaling-stroke; cursor: pointer; pointer-events: stroke; }
+.ks-punkt { fill: var(--ks-punkt); stroke: var(--flate); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.ks-punkt-treff { fill: transparent; cursor: pointer; }
+.ks-kart .ks-el.r1 { fill: var(--ks-r1); } .ks-kart .ks-el.r2 { fill: var(--ks-r2); } .ks-kart .ks-el.r3 { fill: var(--ks-r3); } .ks-kart .ks-el.feil { fill: var(--ks-feil); }
+.ks-kart .ks-linje.r1 { stroke: var(--ks-r1); fill: none; } .ks-kart .ks-linje.r2 { stroke: var(--ks-r2); fill: none; } .ks-kart .ks-linje.r3 { stroke: var(--ks-r3); fill: none; } .ks-kart .ks-linje.feil { stroke: var(--ks-feil); fill: none; }
+.ks-kart .ks-linje.r1, .ks-kart .ks-linje.r2, .ks-kart .ks-linje.r3, .ks-kart .ks-linje.feil, .ks-kart .ks-linje.markert { stroke-width: 4; }
+.ks-kart .ks-ring.r1, .ks-kart .ks-ring.r2, .ks-kart .ks-ring.r3, .ks-kart .ks-ring.feil { fill-opacity: .5; }
+.ks-kart .ks-el.markert { fill: #f2c94c; stroke: #8a6a00; stroke-width: 2.5; animation: ks-puls 1.1s ease-in-out infinite; }
+.ks-kart .ks-linje.markert { stroke: #e0a100; fill: none; }
+.ks-kart .ks-punkt.markert { fill: #f2c94c; stroke: #5a4500; stroke-width: 3; }
+.ks-kart .ks-el.avslort { fill: var(--ks-feil); animation: ks-puls .45s ease-in-out infinite; }
+.ks-kart .ks-linje.avslort { stroke: var(--ks-feil); fill: none; stroke-width: 4; }
+.ks-kart .ks-el.blink-feil { fill: var(--ks-feil) !important; opacity: .7; }
+.ks-kart .ks-linje.blink-feil { stroke: var(--ks-feil) !important; }
+.ks-kart .ks-el.blink-vis { fill: #f2c94c !important; animation: ks-puls .5s ease-in-out infinite; }
+.ks-kart .ks-linje.blink-vis { stroke: #e0a100 !important; stroke-width: 5; }
+@keyframes ks-puls { 50% { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { .ks-el.markert, .ks-kart .ks-el.avslort, .ks-kart .ks-el.blink-vis { animation: none; } }
+.ks-etiketter text {
+  fill: var(--tekst); paint-order: stroke; stroke: var(--flate); stroke-width: 3px; stroke-linejoin: round;
+  text-anchor: middle; dominant-baseline: middle; font-family: var(--font-ui); font-weight: 600; pointer-events: none;
+}
+.ks-zoom { position: absolute; right: .6rem; top: .6rem; display: flex; flex-direction: column; gap: .3rem; z-index: 2; }
+.ks-zoom .knapp { width: 44px; height: 44px; padding: 0; justify-content: center; font-size: 1.3rem; font-weight: 700; box-shadow: var(--skygge); }
+.ks-boble {
+  position: absolute; transform: translate(-50%, -100%); background: var(--tekst); color: var(--bakgrunn);
+  padding: .3rem .7rem; border-radius: 8px; font-weight: 700; font-size: .95rem; pointer-events: none; white-space: nowrap; z-index: 3;
+}
+.ks-tilbakemelding { min-height: 2.5rem; margin: .7rem 0; }
+.ks-tilbakemelding > p { margin: 0; padding: .6rem .9rem; border-radius: 10px; background: var(--flate); border-left: 5px solid var(--ks-r1); line-height: 1.5; }
+.ks-tilbakemelding > p.ikke { border-left-color: var(--ks-feil); }
+.ks-kilde { font-size: .85rem; color: var(--tekst-dempet); }
+.ks-bryter { display: inline-flex; align-items: center; gap: .4rem; font-size: 1rem; cursor: pointer; }
+.ks-bryter input { width: 1.2rem; height: 1.2rem; }
+.ks-navneliste h2 { font-size: 1.15rem; margin: 1rem 0 .5rem; }
+.ks-navneliste ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.ks-navneknapp { font: inherit; font-size: .92rem; cursor: pointer; padding: .3rem .7rem; min-height: 36px; border-radius: 999px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.ks-navneknapp:hover { border-color: var(--tekst-dempet); }
+.ks-resultat { width: 100%; }
+.ks-resultat h2 { margin: 0 0 .2rem; font-size: 1.6rem; }
+.ks-resultat p { margin: .2rem 0; }
+.ks-resultat-knapper { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .7rem; }
+.ks-kopistatus { font-weight: 700; color: var(--ks-r1); }
+@media (max-width: 640px) {
+  .ks-hode h1 { font-size: 1.4rem; }
+  .ks-moduser .knapp { font-size: .85rem; padding: .35rem .6rem; }
+  .ks-navn { font-size: 1.25rem; }
+  .ks-tall { font-size: .9rem; gap: .7rem; }
+}
 
 /* ---------- Eksamenssone ---------- */
 .eksamen-side { max-width: 980px; }

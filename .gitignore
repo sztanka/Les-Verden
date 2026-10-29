@@ -1,0 +1,4 @@
+# Verktøy for å lage kart (trengs ikke på nettsiden)
+verktoy/node_modules/
+verktoy/kilder/
+.DS_Store

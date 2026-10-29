@@ -56,7 +56,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261029d";
+  LV.versjon = "20261029e";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -89,12 +89,12 @@ window.LV = window.LV || {};
       '<div class="topp-indre">' +
         '<a class="logo" href="index.html"><span class="logo-merke" aria-hidden="true">' + LV.esc(k.forkortelse || "LV") + "</span>" + LV.esc(k.navn) + "</a>" +
         '<nav class="hovedmeny" aria-label="Hovedmeny">' +
-          lenke("index.html", "Forside", "forside") +
           lenke("index.html?fag=samfunnsfag", "Samfunnsfag", "samfunnsfag") +
           lenke("index.html?fag=engelsk", "Engelsk", "engelsk") +
           lenke("tidslinje.html", "Tidslinje", "tidslinje") +
           lenke("begreper.html", "Begreper", "begreper") +
           lenke("personer.html", "Personer", "personer") +
+          lenke("kartspill.html", "Kartspill", "kartspill") +
           lenke("eksamen.html", "Eksamen", "eksamen") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +

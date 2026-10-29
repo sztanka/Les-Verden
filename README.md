@@ -20,6 +20,8 @@ les-verden/
 ├── begreper.html           Begrepsbank (lages automatisk fra temaene)
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
+├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── verktoy/                Verktøy som lager kartene (trengs ikke på nettsiden)
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
 │   ├── felles.js           Toppmeny, lesestøtte, bunntekst
@@ -30,11 +32,14 @@ les-verden/
 │   ├── begreper.js         Begrepsbank
 │   ├── personer.js         Personsiden og «Hvem er jeg?»
 │   ├── eksamen.js          Eksamenssonen (verktøyene)
+│   ├── kartspill.js        Kartspillet
 │   └── bilder/             Bilder til temakortene
 └── data/
     ├── innstillinger.js    Navnet på nettstedet m.m.
     ├── kart.js             Verdenskartet (generert – ikke rediger)
     ├── eksamen.js          Tekstene i eksamenssonen (rediger fritt)
+    ├── kartspill.js        Spillsettene i kartspillet (generert)
+    ├── kart/               Kartene til kartspillet (generert)
     └── temaer/
         ├── oversikt.js     Liste over alle temaer
         └── <id>.js         Ett tema per fil, f.eks. sf10-andre-verdenskrig.js
@@ -167,10 +172,34 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Kartspillet
+
+Kartspillet har tre spillmåter: **Finn på kartet**, **Hva heter det?** og **Øv og utforsk**.
+Lenk direkte til et spill med `kartspill.html?sett=europa-land` (og eventuelt `&modus=hva`).
+
+Kartene i `data/kart/` og spillsettene i `data/kartspill.js` er **generert** – ikke rediger dem
+for hånd. Innholdet (hvilke land, elver, landemerker, hendelser, byer og dialekter som er med,
+med navn og infotekst) står i `verktoy/kartsett.mjs`. Slik lager du kartene på nytt etter en endring
+(krever at Node.js er installert):
+
+```
+cd verktoy
+npm install
+node lag-kart.mjs
+```
+
+Skriptet laster ned kartdata fra Natural Earth første gang (til `verktoy/kilder/`, som ikke
+lastes opp til GitHub). Kartdata: [Natural Earth](https://www.naturalearthdata.com/)
+(offentlig eiendom) og US Census Bureau via us-atlas.
+
+**Legge til en ny verdensdel eller et nytt land:** Lag en ny blokk i `lag-kart.mjs` etter
+mønster av «EUROPA» (projeksjon og utsnitt), og legg innholdet i `kartsett.mjs`. Spør gjerne
+Claude om hjelp – det er dette verktøyet er laget for.
+
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261029d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261029e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

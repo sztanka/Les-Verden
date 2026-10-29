@@ -1,0 +1,13 @@
+{
+  "name": "les-verden-verktoy",
+  "private": true,
+  "type": "module",
+  "description": "Lager kartene og spillsettene til kartspillet i Les verden.",
+  "scripts": { "kart": "node lag-kart.mjs" },
+  "dependencies": {
+    "d3-geo": "^3.1.0",
+    "topojson-client": "^3.1.0",
+    "us-atlas": "^3.0.1",
+    "world-atlas": "^2.0.2"
+  }
+}
