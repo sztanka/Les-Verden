@@ -74,12 +74,12 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 ## 10. trinn – 1900-tallet og i dag
 
 ### Samfunnsfag
-- [ ] Mellomkrigstiden (`sf10-mellomkrigstiden`)
-- [ ] Andre verdenskrig (`sf10-andre-verdenskrig`) – Hitler, Churchill
-- [ ] Holocaust (`sf10-holocaust`)
-- [ ] Norge under okkupasjonen (`sf10-okkupasjonen`) – Quisling, Max Manus
-- [ ] FN og menneskerettighetene (`sf10-fn-menneskerettigheter`) ↔ *Oppression*
-- [ ] Den kalde krigen (`sf10-kalde-krigen`) – Berlinmuren, Cubakrisen
+- [x] Mellomkrigstiden (`sf10-mellomkrigstiden`)
+- [x] Andre verdenskrig (`sf10-andre-verdenskrig`) – Hitler, Churchill
+- [x] Holocaust (`sf10-holocaust`)
+- [x] Norge under okkupasjonen (`sf10-okkupasjonen`) – Quisling, Max Manus
+- [x] FN og menneskerettighetene (`sf10-fn-menneskerettigheter`) ↔ *Oppression*
+- [x] Den kalde krigen (`sf10-kalde-krigen`) – Berlinmuren, Cubakrisen
 - [ ] Avkolonisering (`sf10-avkolonisering`) – Gandhi
 - [ ] Apartheid (`sf10-apartheid`) – Mandela ↔ *Oppression*
 - [ ] Midtøsten-konflikten (`sf10-midtosten`)
@@ -101,8 +101,8 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Narrated Stories (`en10-narrated-stories`)
 - [x] The English-Speaking World (`en10-english-speaking-world`)
 - [x] Identity and Stereotypes – *American Born Chinese* (`en10-identity-stereotypes`) ↔ *Identitet og sosialisering*
-- [ ] The American Dream and Immigration (`en10-american-dream`) ↔ *Utvandringen*
-- [ ] 9/11 and the War on Terror (`en10-9-11`) ↔ *Ekstremisme og terror*
+- [x] The American Dream and Immigration (`en10-american-dream`) ↔ *Utvandringen*
+- [x] 9/11 and the War on Terror (`en10-9-11`) ↔ *Ekstremisme og terror*
 
 ---
 

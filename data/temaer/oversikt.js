@@ -193,5 +193,152 @@ window.LV.temaer = [
       "Pilots and air traffic controllers all over the world use English to talk to each other.",
       "South Africa has twelve official languages – English is only one of them."
     ]
+  },
+  {
+    id: "en10-american-dream",
+    fag: "engelsk",
+    trinn: 10,
+    tittel: "The American Dream and Immigration",
+    kort: "Ellis Island, 800,000 Norwegian emigrants and today’s immigration debate – is the American Dream real for everyone?",
+    sted: { navn: "Minnesota", lat: 45.5, lon: -94.5 },
+    bilde: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Frihetsgudinnen foran skylinen på Manhattan under klar blå himmel",
+    kreditt: "Pierre Blaché",
+    kredittUrl: "https://unsplash.com/@pierre9x6?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    sprak: "en",
+    fakta: [
+      "Around 800,000 Norwegians emigrated to America between 1825 and 1930. Only Ireland lost a larger share of its population.",
+      "Around 12 million immigrants passed through Ellis Island in New York between 1892 and 1954.",
+      "More than four million Americans today say they have Norwegian ancestors."
+    ]
+  },
+  {
+    id: "en10-9-11",
+    fag: "engelsk",
+    trinn: 10,
+    tittel: "9/11 and the War on Terror",
+    kort: "What happened on 11 September 2001, the wars that followed – and the debate about freedom and security.",
+    sted: { navn: "New York", lat: 40.71, lon: -74.01 },
+    bilde: "https://images.unsplash.com/photo-1536799097017-5b57f1a7e56e?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "New York om kvelden på minnedagen 11. september, med lys over byen",
+    kreditt: "Jesse Mills",
+    kredittUrl: "https://unsplash.com/@photographybyjrmills?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    sprak: "en",
+    fakta: [
+      "The day after 9/11, NATO used Article 5 for the first time in its history: an attack on one member is an attack on all.",
+      "One World Trade Center is 1,776 feet tall – a reference to 1776, the year of the Declaration of Independence."
+    ]
+  },
+  {
+    id: "sf10-mellomkrigstiden",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "Mellomkrigstiden",
+    kort: "Fra håp om fred til krise og diktatur: hvordan verden gikk fra én verdenskrig til den neste.",
+    sted: { navn: "München", lat: 48.14, lon: 11.58 },
+    bilde: "https://images.unsplash.com/photo-1703381132774-caeab4f6a9db?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Gamle aviser stablet oppå hverandre",
+    kreditt: "Jonathan Gong",
+    kredittUrl: "https://unsplash.com/@jonathangongphotography?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Under krakket på børsen i New York 29. oktober 1929 – «svarte tirsdag» – ble det solgt rundt 16 millioner aksjer på én dag.",
+      "I 1923 var inflasjonen i Tyskland så høy at et brød kunne koste 200 milliarder mark."
+    ]
+  },
+  {
+    id: "sf10-andre-verdenskrig",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "Andre verdenskrig",
+    kort: "Den største krigen i historien: fra angrepet på Polen i 1939 til atombombene i 1945.",
+    sted: { navn: "Normandie", lat: 49.25, lon: -0.6 },
+    bilde: "https://images.unsplash.com/photo-1633595917024-52104bc2b730?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Rader med hvite kors på en krigskirkegård",
+    kreditt: "Diane Picchiottino",
+    kredittUrl: "https://unsplash.com/@diane_soko?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Over 150 000 allierte soldater gikk i land i Normandie på D-dagen 6. juni 1944.",
+      "Sovjetunionen mistet rundt 27 millioner mennesker i krigen – flere enn noe annet land."
+    ]
+  },
+  {
+    id: "sf10-holocaust",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "Holocaust",
+    kort: "Hvordan fordommer og hat endte i drapet på seks millioner jøder – og hva som skjedde i Norge.",
+    sted: { navn: "Auschwitz (Oświęcim)", lat: 50.03, lon: 19.18 },
+    bilde: "https://images.unsplash.com/photo-1747197948501-539caea4f54f?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Betongblokkene i minnesmerket over de myrdede jødene i Europa, Berlin",
+    kreditt: "Yoav Aziz",
+    kredittUrl: "https://unsplash.com/@yoavaziz?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Av de 773 jødene som ble deportert fra Norge, overlevde bare 34.",
+      "27. januar, dagen Auschwitz ble befridd i 1945, er den internasjonale minnedagen for Holocaust."
+    ]
+  },
+  {
+    id: "sf10-okkupasjonen",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "Norge under okkupasjonen",
+    kort: "9. april, kongens nei, hverdagen under krigen, motstandskampen og oppgjøret etter 1945.",
+    sted: { navn: "Oslo", lat: 59.91, lon: 10.75 },
+    bilde: "https://images.unsplash.com/photo-1599999268882-78ef52790bd6?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Norges flagg som vaier mot blå himmel",
+    kreditt: "Mark König",
+    kredittUrl: "https://unsplash.com/@markkoenig?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Over 10 000 norske lærere nektet å melde seg inn i NS sitt lærersamband i 1942 – og vant.",
+      "Navnet Quisling brukes på mange språk som et ord for «forræder»."
+    ]
+  },
+  {
+    id: "sf10-fn-menneskerettigheter",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "FN og menneskerettighetene",
+    kort: "Hvorfor FN ble opprettet, hvordan det fungerer, og hvilke rettigheter alle mennesker har.",
+    sted: { navn: "New York (FN)", lat: 40.75, lon: -73.97 },
+    bilde: "https://images.unsplash.com/photo-1727221167365-d365e63e7ebc?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "FNs hovedkvarter i New York med flagg foran",
+    kreditt: "Nils Huenerfuerst",
+    kredittUrl: "https://unsplash.com/@nhuenerfuerst?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "FNs første generalsekretær var nordmannen Trygve Lie.",
+      "Barnekonvensjonen er den menneskerettighetskonvensjonen som flest land i verden har sluttet seg til."
+    ]
+  },
+  {
+    id: "sf10-kalde-krigen",
+    fag: "samfunnsfag",
+    trinn: 10,
+    tittel: "Den kalde krigen",
+    kort: "USA mot Sovjetunionen: jernteppet, Berlinmuren, atomtrusselen og romkappløpet.",
+    sted: { navn: "Berlin", lat: 52.52, lon: 13.4 },
+    bilde: "https://images.unsplash.com/photo-1772132823993-e0cb98edf929?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Fargerik graffiti på en rest av Berlinmuren",
+    kreditt: "Daria K",
+    kredittUrl: "https://unsplash.com/@amberfoxfilm?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Berlinmuren sto i 28 år, fra 1961 til 1989.",
+      "Norge var det eneste NATO-landet i Nord-Europa med grense mot Sovjetunionen."
+    ]
   }
 ];
