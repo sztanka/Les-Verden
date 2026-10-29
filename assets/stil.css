@@ -231,6 +231,41 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .fagtekst { font-family: var(--font-tekst); font-size: 1.15rem; line-height: 1.75; }
 .fagtekst p { margin: 0 0 1em; max-width: 68ch; }
 .fagtekst h2 { display: flex; align-items: center; gap: .6rem; font-size: 1.45rem; }
+.fagtekst.med-deler h3 { display: flex; align-items: center; gap: .6rem; font-size: 1.3rem; margin-top: 1.8rem; }
+.fagtekst h2.del-tittel {
+  display: block; font-size: 1.7rem; margin: 3rem 0 .5rem; padding-top: 1rem; border-top: 3px solid var(--fag);
+}
+.fagtekst h2.del-tittel:first-child { margin-top: 1rem; }
+.del-nr { display: block; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--fag); font-family: var(--font-ui, inherit); }
+.til-toppen { display: block; font-size: .85rem; font-weight: 400; margin-top: .3rem; color: var(--tekst-dempet); }
+.avsnitt, .del-tittel, #tidslinje, #innholdsliste { scroll-margin-top: 5.5rem; }
+
+details.innholdsliste {
+  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1.2rem; margin: 1.5rem 0;
+}
+details.innholdsliste summary { cursor: pointer; font-weight: 700; }
+.innholdsliste ol { margin: .4rem 0 0; padding-left: 1.3rem; }
+.innholdsliste ol.deler { list-style: none; padding-left: 0; }
+.innholdsliste ol.deler > li { margin-top: .7rem; }
+.innholdsliste li { margin: .15rem 0; }
+.innholdsliste a { text-decoration: none; }
+.innholdsliste a:hover { text-decoration: underline; }
+.innholdsliste .snarvei { margin: .8rem 0 0; }
+
+.tidslinje { margin: 2.5rem 0; }
+.tidslinje ol { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--fag); }
+.tidslinje li { position: relative; padding: .45rem 0 .45rem 1.3rem; display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem; }
+.tidslinje li::before {
+  content: ""; position: absolute; left: -.5rem; top: .85rem; width: .7rem; height: .7rem; border-radius: 50%;
+  background: var(--flate); border: 3px solid var(--fag);
+}
+.tidslinje .dato { font-weight: 700; color: var(--fag); }
+@media (max-width: 560px) { .tidslinje li { grid-template-columns: 1fr; gap: .1rem; } }
+
+.begrepsliste dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .6rem; margin: 0; }
+.begrepsliste dl > div { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .7rem .9rem; }
+.begrepsliste dt { font-weight: 700; color: var(--fag); }
+.begrepsliste dd { margin: .2rem 0 0; }
 .les-avsnitt {
   font: inherit; font-family: var(--font-ui); font-size: .8rem; cursor: pointer;
   border: 1px solid var(--linje); background: var(--flate); color: var(--tekst-dempet);
@@ -343,6 +378,7 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
   .topp, .svarlinje, .opplesing, .les-avsnitt, .nivafaner, .fot { display: none !important; }
   .nivapanel[hidden] { display: block !important; }
   details.sammendrag { display: block; }
+  .til-toppen, details.innholdsliste { display: none !important; }
   body { background: #fff; color: #000; }
 }
 

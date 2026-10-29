@@ -18,6 +18,8 @@
       typer: { finn: "Finn svar i teksten", forsta: "Forstå og forklar", diskuter: "Diskuter og reflekter" },
       partner: "Snakk med læringspartner", dittSvar: "Ditt svar",
       kobletTil: "Koblet til", kilder: "Les mer",
+      innhold: "Innhold – trykk for å hoppe", del: "Del", tidslinje: "Tidslinje – de viktigste datoene",
+      begrepsliste: "Begreper du skal kunne", tilToppen: "Til innholdslisten",
       navn: "Navn", kopier: "Kopier mine svar", slett: "Slett alle svar",
       kopiert: "Kopiert! Lim inn i dokumentet ditt.", ingenSvar: "Du har ikke skrevet noen svar ennå.",
       bekreftSlett: "Vil du slette alle svarene dine? Dette kan ikke angres.",
@@ -34,6 +36,8 @@
       typer: { finn: "Find the answer in the text", forsta: "Understand and explain", diskuter: "Discuss and reflect" },
       partner: "Talk to a learning partner", dittSvar: "Your answer",
       kobletTil: "Connected topics", kilder: "Read more",
+      innhold: "Contents – click to jump", del: "Part", tidslinje: "Timeline – the key dates",
+      begrepsliste: "Key terms", tilToppen: "Back to contents",
       navn: "Name", kopier: "Copy my answers", slett: "Delete all answers",
       kopiert: "Copied! Paste it into your document.", ingenSvar: "You haven't written any answers yet.",
       bekreftSlett: "Do you want to delete all your answers? This cannot be undone.",
@@ -122,13 +126,42 @@
         '<button class="knapp" id="stopp-lesing" hidden>■ ' + T.stopp + '</button><span class="info" id="stemme-info"></span></div>';
     }
 
+    // Innholdsliste (vises når teksten er lang eller delt i deler)
+    const harDeler = tema.avsnitt.some(a => a.del);
+    const delNr = {};
+    let delTeller = 0;
+    tema.avsnitt.forEach(a => { if (a.del && !(a.del in delNr)) delNr[a.del] = ++delTeller; });
+    if (harDeler || tema.avsnitt.length >= 10) {
+      h += '<details class="innholdsliste" id="innholdsliste" open><summary>' + T.innhold + "</summary>";
+      let forrige = null, apen = false;
+      h += harDeler ? "" : "<ol>";
+      tema.avsnitt.forEach(function (a, i) {
+        if (harDeler && a.del !== forrige) {
+          if (apen) h += "</ol></li>";
+          h += (forrige === null ? "<ol class=\"deler\">" : "") + '<li><a href="#del-' + delNr[a.del] + '"><strong>' + T.del + " " + delNr[a.del] + ":</strong> " + LV.esc(a.del) + "</a><ol>";
+          apen = true; forrige = a.del;
+        }
+        h += '<li><a href="#avsnitt-' + i + '">' + LV.esc(a.tittel) + "</a></li>";
+      });
+      h += harDeler ? "</ol></li></ol>" : "</ol>";
+      if (tema.tidslinje && tema.tidslinje.length) h += '<p class="snarvei"><a href="#tidslinje">→ ' + T.tidslinje + "</a></p>";
+      h += "</details>";
+    }
+
     // Fagtekst
     let stoppNr = 0;
-    h += '<article class="fagtekst" id="fagtekst">';
+    let forrigeDel = null;
+    const htag = harDeler ? "h3" : "h2";
+    h += '<article class="fagtekst' + (harDeler ? " med-deler" : "") + '" id="fagtekst">';
     tema.avsnitt.forEach(function (a, i) {
-      h += '<section class="avsnitt" data-avsnitt="' + i + '"><h2>' + LV.esc(a.tittel) +
+      if (harDeler && a.del && a.del !== forrigeDel) {
+        forrigeDel = a.del;
+        h += '<h2 class="del-tittel" id="del-' + delNr[a.del] + '"><span class="del-nr">' + T.del + " " + delNr[a.del] + "</span>" + LV.esc(a.del) +
+          (delNr[a.del] > 1 ? ' <a class="til-toppen" href="#innholdsliste">↑ ' + T.tilToppen + "</a>" : "") + "</h2>";
+      }
+      h += '<section class="avsnitt" id="avsnitt-' + i + '" data-avsnitt="' + i + '"><' + htag + ">" + LV.esc(a.tittel) +
         ("speechSynthesis" in window ? ' <button type="button" class="les-avsnitt" data-les="' + i + '" aria-label="' + T.lesAvsnitt + ": " + LV.esc(a.tittel) + '">▶ ' + T.lesAvsnitt + "</button>" : "") +
-        "</h2>";
+        "</" + htag + ">";
       a.tekst.forEach(p => { h += "<p>" + formater(p) + "</p>"; });
       h += "</section>";
       if (a.stoppOgTenk) {
@@ -138,6 +171,20 @@
       }
     });
     h += "</article>";
+
+    // Tidslinje
+    if (tema.tidslinje && tema.tidslinje.length) {
+      h += '<section class="tidslinje" id="tidslinje" aria-labelledby="tidslinje-tittel"><h2 id="tidslinje-tittel">' + T.tidslinje + "</h2><ol>" +
+        tema.tidslinje.map(t => '<li><span class="dato">' + LV.esc(t.dato) + '</span><span class="hendelse">' + formater(t.tekst) + "</span></li>").join("") +
+        "</ol></section>";
+    }
+
+    // Begrepsliste
+    if (tema.begrepsliste && tema.ord) {
+      const nokler = Object.keys(tema.ord).sort((a, b) => a.localeCompare(b, "nb"));
+      h += '<section class="begrepsliste" aria-labelledby="begreper-tittel"><h2 id="begreper-tittel">' + T.begrepsliste + "</h2><dl>" +
+        nokler.map(k => "<div><dt>" + LV.esc(k) + "</dt><dd>" + LV.esc(tema.ord[k]) + "</dd></div>").join("") + "</dl></section>";
+    }
 
     // Sammendrag
     if (tema.sammendrag && tema.sammendrag.length) {

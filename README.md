@@ -120,6 +120,15 @@ Kryss av når et tema er ferdig.
 | `kilder` | Lenker: `{ tittel, url }` |
 | `kontroller` | Opplysninger læreren bør sjekke. Vises bare med `&laerer=1` i adressen |
 
+### Lange temaer: deler, tidslinje og begrepsliste
+
+Noen temaer trenger mer plass (se `sf10-andre-verdenskrig.js`). Da kan du bruke tre valgfrie felt:
+
+- `del: "Veien til krig"` på hvert avsnitt deler teksten i nummererte deler. Siden får da en
+  innholdsliste øverst. (Innholdslisten kommer også automatisk når et tema har 10 avsnitt eller flere.)
+- `tidslinje: [{ dato: "1.9.1939", tekst: "Tyskland angriper Polen." }, …]` viser en tidslinje etter teksten.
+- `begrepsliste: true` viser alle ordene fra `ord` som en begrepsliste etter teksten.
+
 ### Formatering i tekstene
 
 | Skriv | Resultat |

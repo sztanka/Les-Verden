@@ -259,7 +259,7 @@ window.LV.temaer = [
     emne: "historie",
     trinn: 10,
     tittel: "Andre verdenskrig",
-    kort: "Den største krigen i historien: fra angrepet på Polen i 1939 til atombombene i 1945.",
+    kort: "Hele krigen fra Hitlers vei til makten til atombombene i 1945 – utvidet tema med tidslinje og begrepsliste.",
     sted: { navn: "Normandie", lat: 49.25, lon: -0.6 },
     bilde: "https://images.unsplash.com/photo-1633595917024-52104bc2b730?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
     bildeAlt: "Rader med hvite kors på en krigskirkegård",
