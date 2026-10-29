@@ -328,3 +328,127 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* =========================================================
+   Forside: kart, «Visste du at …?» og temakort med bilde
+   ========================================================= */
+:root {
+  --kart-hav: #dfe8ef;
+  --kart-land: #f7f4ee;
+  --kart-kant: #c9d3db;
+}
+:root[data-tema="mork"] {
+  --kart-hav: #1a2433;
+  --kart-land: #2a3240;
+  --kart-kant: #3a4556;
+}
+
+.helt-ny { padding: 1.8rem 0 .5rem; }
+.helt-ny .overlinje {
+  font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--aksent); margin: 0;
+}
+.helt-ny h1 { margin: .15em 0 .2em; }
+.helt-ny .hilsen { font-family: var(--font-tekst); font-size: 1.3rem; margin: 0 0 1.1rem; max-width: 42rem; }
+
+.kartramme {
+  position: relative; background: var(--kart-hav); border-radius: 20px;
+  box-shadow: inset 0 0 0 1px var(--kart-kant);
+}
+.kart { position: relative; width: 100%; aspect-ratio: 1000 / 392; border-radius: 20px 20px 0 0; overflow: hidden; }
+.kart svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.kart .land { fill: var(--kart-land); stroke: var(--kart-kant); stroke-width: .6; }
+.kart .ekvator { stroke: var(--kart-kant); stroke-width: 1; stroke-dasharray: 3 5; fill: none; }
+
+.nal {
+  position: absolute; transform: translate(-50%, -50%); z-index: 2;
+  display: flex; align-items: center; gap: .4rem;
+  text-decoration: none; color: var(--tekst); font: inherit; background: none; border: 0; padding: 0; cursor: pointer;
+}
+.nal .prikk {
+  width: 18px; height: 18px; border-radius: 50%; flex: none;
+  background: var(--fag); border: 3px solid var(--flate); box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  position: relative;
+}
+.nal .prikk::after {
+  content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid var(--fag);
+  opacity: 0; animation: puls 2.4s ease-out infinite;
+}
+.nal.klynge .prikk {
+  width: 30px; height: 30px; display: grid; place-items: center;
+  background: var(--tekst); color: var(--bakgrunn); font-weight: 700; font-size: .9rem;
+}
+.nal.klynge .prikk::after { border-color: var(--tekst); }
+.nal .navnelapp {
+  background: var(--flate); border-radius: 999px; padding: .2rem .6rem; font-size: .85rem; font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap;
+}
+.nal:hover .prikk, .nal:focus-visible .prikk { transform: scale(1.15); }
+@keyframes puls {
+  0% { transform: scale(.6); opacity: .8; }
+  80%, 100% { transform: scale(1.5); opacity: 0; }
+}
+
+.kartboble {
+  position: absolute; z-index: 5; width: min(19rem, 86%);
+  background: var(--flate); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  padding: .9rem 1rem;
+}
+.kartboble h3 { margin: 0 0 .5rem; font-family: var(--font-ui); font-size: .95rem; color: var(--tekst-dempet); }
+.kartboble ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.kartboble a {
+  display: block; text-decoration: none; color: var(--tekst); padding: .5rem .65rem; border-radius: 10px;
+  background: var(--fag-lys); border-left: 4px solid var(--fag); font-weight: 600;
+}
+.kartboble a small { display: block; font-weight: 400; color: var(--tekst-dempet); }
+.kartboble .lukk {
+  position: absolute; top: .35rem; right: .45rem; border: 0; background: none; color: var(--tekst-dempet);
+  font-size: 1.3rem; cursor: pointer; width: 32px; height: 32px; border-radius: 50%;
+}
+.kartboble .lukk:hover { background: var(--flate-2); }
+
+.kart-under { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: .7rem 1rem; font-size: .9rem; color: var(--tekst-dempet); }
+.forklaring { display: flex; gap: 1rem; flex-wrap: wrap; }
+.forklaring span { display: inline-flex; align-items: center; gap: .4rem; }
+.forklaring i { width: 12px; height: 12px; border-radius: 50%; background: var(--fag); display: inline-block; }
+
+.forside-rad { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 1rem; margin: 1.5rem 0 2.2rem; }
+.forside-rad .fagkort { display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; }
+.fagkort .ikon { font-size: 1.8rem; line-height: 1; }
+.fagkort .antall { font-size: .9rem; font-weight: 600; color: var(--fag); }
+
+.visste {
+  position: relative; background: var(--aksent-lys); border-radius: var(--radius); padding: 1.3rem 1.4rem 1.1rem;
+  display: flex; flex-direction: column; gap: .6rem; overflow: hidden;
+}
+.visste::before {
+  content: "?"; position: absolute; right: -.1em; bottom: -.32em; font-family: var(--font-tekst); font-weight: 700;
+  font-size: 9rem; line-height: 1; color: var(--aksent); opacity: .12; pointer-events: none;
+}
+.visste h2 { margin: 0; font-size: 1.15rem; font-family: var(--font-ui); color: var(--aksent); }
+.visste p { margin: 0; font-family: var(--font-tekst); font-size: 1.15rem; line-height: 1.5; position: relative; }
+.visste .visste-bunn { display: flex; gap: .6rem; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: auto; position: relative; }
+.visste a { font-weight: 600; color: var(--aksent); }
+.visste .knapp { min-height: 38px; padding: .35rem .8rem; font-size: .88rem; }
+
+.temakort.med-bilde { padding: 0; overflow: hidden; border-top: 0; }
+.temakort .bilde { aspect-ratio: 16 / 9; background: var(--fag-lys); position: relative; }
+.temakort .bilde img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.temakort .bilde::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--fag); }
+.temakort .innhold { padding: 1rem 1.2rem 1.2rem; display: flex; flex-direction: column; gap: .2rem; }
+.temakort .kreditt { font-size: .75rem; color: var(--tekst-dempet); margin-top: .5rem; }
+.temakort.med-bilde { transition: transform .15s, box-shadow .15s; }
+.temakort.med-bilde:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.1); }
+
+@media (max-width: 900px) {
+  .forside-rad { grid-template-columns: 1fr 1fr; }
+  .forside-rad .visste { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .forside-rad { grid-template-columns: 1fr; }
+  .nal .navnelapp { display: none; }
+  .nal .prikk { width: 16px; height: 16px; }
+  .nal.klynge .prikk { width: 26px; height: 26px; font-size: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nal .prikk::after { animation: none; }
+}

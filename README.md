@@ -19,9 +19,12 @@ les-verden/
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
 │   ├── felles.js           Toppmeny, lesestøtte, bunntekst
-│   └── tema.js             Bygger temasiden fra datafila
+│   ├── forside.js          Verdenskart, «Visste du at …?» og temakort
+│   ├── tema.js             Bygger temasiden fra datafila
+│   └── bilder/             Bilder til temakortene
 └── data/
     ├── innstillinger.js    Navnet på nettstedet m.m.
+    ├── kart.js             Verdenskartet (generert – ikke rediger)
     └── temaer/
         ├── oversikt.js     Liste over alle temaer
         ├── sf9-industrialiseringen.js
@@ -58,9 +61,24 @@ Datafilene er `.js` og ikke `.json`. Da virker siden også når du åpner
      fag: "samfunnsfag",       // "samfunnsfag" eller "engelsk"
      trinn: 10,
      tittel: "Andre verdenskrig",
-     kort: "Én setning som vises på temakortet."
+     kort: "Én setning som vises på temakortet.",
+     sted: { navn: "Berlin", lat: 52.52, lon: 13.40 },   // prikken på kartet
+     bilde: "assets/bilder/sf10-andre-verdenskrig.jpg",  // bilde på temakortet
+     bildeAlt: "Kort beskrivelse av hva bildet viser",
+     kreditt: "Fotograf/kunstner, år. Wikimedia Commons, offentlig eiendom",
+     fakta: [                                            // til «Visste du at …?»
+       "En kort og overraskende faktasetning.",
+       "En til."
+     ]
    },
    ```
+
+   For engelske temaer legger du også til `sprak: "en"`, slik at
+   «Did you know …?» vises på engelsk.
+
+   **Finne breddegrad og lengdegrad:** høyreklikk på stedet i Google Maps.
+   Det øverste tallet i menyen er breddegrad (`lat`), det andre lengdegrad (`lon`).
+   Temaer som ligger tett, slås automatisk sammen til én prikk med et tall.
 
 4. Åpne `index.html` og sjekk at temaet vises og fungerer.
 
@@ -104,6 +122,24 @@ En oppgave kan merkes som samtaleoppgave:
 - Korte avsnitt med mellomtitler. Én hovedidé per avsnitt.
 - 2–3 «Stopp og tenk» fordelt i teksten.
 - Les alltid gjennom faktaopplysningene før elevene får teksten.
+
+---
+
+## Bilder på temakortene
+
+Temakortene har tegnede illustrasjoner (SVG) som er laget for nettstedet.
+Du kan bytte dem ut med ekte bilder:
+
+1. Finn et bilde som er fritt å bruke, for eksempel på
+   [Wikimedia Commons](https://commons.wikimedia.org) (se etter «Public domain»
+   eller «CC BY») eller hos [Nasjonalbiblioteket](https://www.nb.no).
+2. Last ned bildet, gi det et enkelt navn (for eksempel `sf9-industrialiseringen.jpg`)
+   og legg det i `assets/bilder/`. Bredde rundt 800 piksler holder, og det gjør siden rask.
+3. Endre `bilde`, `bildeAlt` og `kreditt` for temaet i `data/temaer/oversikt.js`.
+
+Forslag til ekte bilder for de to første temaene:
+- **Industrialiseringen:** maleriet *Coalbrookdale by Night* av Philip James de Loutherbourg (1801)
+- **The Victorian Era:** et fotografi av Charles Dickens fra 1860-tallet
 
 ---
 

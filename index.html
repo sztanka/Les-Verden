@@ -8,27 +8,50 @@
   <link rel="stylesheet" href="assets/stil.css">
   <script src="data/innstillinger.js"></script>
   <script src="data/temaer/oversikt.js"></script>
+  <script src="data/kart.js"></script>
   <script src="assets/felles.js"></script>
+  <script src="assets/forside.js"></script>
 </head>
 <body data-side="forside">
   <main id="innhold">
-    <section class="helt">
+    <section class="helt-ny" aria-labelledby="sidetittel">
+      <p class="overlinje" id="undertittel"></p>
       <h1 id="sidetittel">Les verden</h1>
-      <p class="ingress" id="beskrivelse"></p>
+      <p class="hilsen">Hva vil du lese om i dag? Trykk på et sted på kartet, eller velg fag og tema lenger ned.</p>
+
+      <div class="kartramme">
+        <div class="kart" id="kart" role="group" aria-label="Verdenskart med temaer"></div>
+        <div class="kart-under">
+          <div class="forklaring" aria-hidden="true">
+            <span class="fag-samfunnsfag"><i></i>Samfunnsfag</span>
+            <span class="fag-engelsk"><i></i>Engelsk</span>
+          </div>
+          <span id="kart-antall"></span>
+        </div>
+      </div>
     </section>
 
-    <div class="fagvalg">
-      <a class="fagkort fag-samfunnsfag" href="index.html?fag=samfunnsfag" data-fag="samfunnsfag">
-        <h2>Samfunnsfag</h2>
-        <p>Historie, geografi og samfunnskunnskap</p>
+    <div class="forside-rad">
+      <a class="fagkort fag-samfunnsfag" href="index.html?fag=samfunnsfag#temaer" data-fag="samfunnsfag">
+        <span class="ikon" aria-hidden="true">🌍</span>
+        <span>
+          <h2>Samfunnsfag</h2>
+          <p>Historie, geografi og samfunnskunnskap</p>
+        </span>
+        <span class="antall" data-antall="samfunnsfag"></span>
       </a>
-      <a class="fagkort fag-engelsk" href="index.html?fag=engelsk" data-fag="engelsk">
-        <h2>Engelsk</h2>
-        <p>The English-speaking world, history and literature</p>
+      <a class="fagkort fag-engelsk" href="index.html?fag=engelsk#temaer" data-fag="engelsk">
+        <span class="ikon" aria-hidden="true">💬</span>
+        <span>
+          <h2>Engelsk</h2>
+          <p>The English-speaking world, history and literature</p>
+        </span>
+        <span class="antall" data-antall="engelsk"></span>
       </a>
+      <section class="visste" id="visste" aria-live="polite"></section>
     </div>
 
-    <h2 id="liste-tittel">Alle temaer</h2>
+    <h2 id="temaer"><span id="liste-tittel">Alle temaer</span></h2>
     <div class="filter" role="group" aria-label="Velg trinn">
       <span class="etikett">Trinn:</span>
       <button class="knapp" data-trinn="">Alle</button>
@@ -41,7 +64,7 @@
     <section class="kommer">
       <h2>Kommer etter hvert</h2>
       <ul>
-        <li>Flere temaer for alle tre trinn</li>
+        <li>Flere temaer for alle tre trinn – og flere steder på kartet</li>
         <li>Felles tidslinje for samfunnsfag og engelsk</li>
         <li>Begrepsbank og personer</li>
         <li>Eksamenssone for muntlig eksamen</li>
@@ -49,51 +72,5 @@
       </ul>
     </section>
   </main>
-
-  <script>
-  (function () {
-    const LV = window.LV;
-    const k = LV.config;
-    document.getElementById("sidetittel").textContent = k.navn;
-    document.getElementById("beskrivelse").textContent = k.beskrivelse;
-
-    let fag = LV.param("fag") || "";
-    let trinn = LV.param("trinn") || "";
-
-    function tegn() {
-      const liste = document.getElementById("temaliste");
-      const utvalg = LV.temaer
-        .filter(t => !fag || t.fag === fag)
-        .filter(t => !trinn || String(t.trinn) === trinn)
-        .sort((a, b) => a.trinn - b.trinn || a.fag.localeCompare(b.fag) || a.tittel.localeCompare(b.tittel, "nb"));
-
-      document.getElementById("liste-tittel").textContent =
-        (fag ? LV.fagNavn[fag] : "Alle temaer") + (trinn ? " – " + trinn + ". trinn" : "");
-
-      liste.innerHTML = utvalg.length
-        ? utvalg.map(t =>
-            '<li><a class="temakort fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' +
-              '<span class="merker"><span class="merke">' + LV.fagNavn[t.fag] + '</span><span class="merke">' + t.trinn + '. trinn</span></span>' +
-              '<h3>' + LV.esc(t.tittel) + '</h3><p>' + LV.esc(t.kort) + '</p></a></li>').join("")
-        : '<li class="tom">Ingen temaer her ennå.</li>';
-
-      document.querySelectorAll("[data-trinn]").forEach(b =>
-        b.setAttribute("aria-pressed", String(b.dataset.trinn === trinn)));
-      document.querySelectorAll(".fagkort").forEach(a =>
-        a.setAttribute("aria-current", String(a.dataset.fag === fag)));
-    }
-
-    document.querySelectorAll("[data-trinn]").forEach(b => b.addEventListener("click", function () {
-      trinn = b.dataset.trinn;
-      const p = new URLSearchParams();
-      if (fag) p.set("fag", fag);
-      if (trinn) p.set("trinn", trinn);
-      history.replaceState(null, "", "index.html" + (p.toString() ? "?" + p : ""));
-      tegn();
-    }));
-
-    tegn();
-  })();
-  </script>
 </body>
 </html>
