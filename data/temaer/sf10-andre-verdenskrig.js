@@ -317,7 +317,7 @@ window.LV.tema = {
     { dato: "2.2.1943", tekst: "Tyskland taper slaget om Stalingrad." },
     { dato: "6.6.1944", tekst: "D-dagen: de allierte går i land i Normandie." },
     { dato: "30.4.1945", tekst: "Hitler tar sitt eget liv i Berlin." },
-    { dato: "8.5.1945", tekst: "Tysklands kapitulasjon trer i kraft. **Freden kommer til Europa og Norge.**" },
+    { dato: "8.5.1945", tekst: "Tysklands kapitulasjon trer i kraft. **Freden kommer til Europa.**" },
     { dato: "6. og 9.8.1945", tekst: "Atombomber over Hiroshima og Nagasaki." },
     { dato: "2.9.1945", tekst: "Japan undertegner kapitulasjonen. **Andre verdenskrig er over.**" },
     { dato: "24.10.1945", tekst: "FN blir opprettet." }

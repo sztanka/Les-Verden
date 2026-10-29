@@ -81,6 +81,17 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1812", tekst: "Charles Dickens is born in Portsmouth." },
+    { dato: "1837", tekst: "Victoria becomes Queen of the United Kingdom, aged eighteen. Dickens begins **Oliver Twist**." },
+    { dato: "1840", tekst: "Britain introduces the world’s first postage stamp, the Penny Black." },
+    { dato: "1843", tekst: "Dickens publishes **A Christmas Carol**." },
+    { dato: "1851", tekst: "The Great Exhibition opens in the Crystal Palace in London." },
+    { dato: "1870", tekst: "Charles Dickens dies. A new law leads to many more schools in Britain." },
+    { dato: "1880", tekst: "School becomes compulsory for all children between five and ten in Britain." },
+    { dato: "1901", tekst: "Queen Victoria dies after almost 64 years on the throne." }
+  ],
+
   ord: {
     "reign": "regjere / regjeringstid – to rule as a king or queen; the time a king or queen rules.",
     "empire": "imperium / rike – a group of countries or areas ruled by one country.",

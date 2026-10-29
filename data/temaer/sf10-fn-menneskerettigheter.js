@@ -76,6 +76,15 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "24.10.1945", tekst: "FN blir opprettet." },
+    { dato: "1946", tekst: "Trygve Lie blir FNs første generalsekretær." },
+    { dato: "10.12.1948", tekst: "FN vedtar verdenserklæringen om menneskerettighetene." },
+    { dato: "1961", tekst: "Amnesty International blir grunnlagt." },
+    { dato: "1989", tekst: "FN vedtar barnekonvensjonen." },
+    { dato: "2014", tekst: "Grunnloven får et eget kapittel om menneskerettigheter." }
+  ],
+
   ord: {
     "medlemsland": "Et land som er medlem av en organisasjon.",
     "resolusjon": "Et vedtak eller en uttalelse fra en organisasjon som FN.",

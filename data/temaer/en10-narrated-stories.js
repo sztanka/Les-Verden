@@ -77,6 +77,12 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1967", tekst: "S. E. Hinton publishes **The Outsiders**." },
+    { dato: "2012", tekst: "R. J. Palacio publishes **Wonder**." },
+    { dato: "2017", tekst: "Angie Thomas publishes **The Hate U Give**." }
+  ],
+
   ord: {
     "exposition": "innledning / presentasjon – the beginning of a story, where we meet the characters and the setting.",
     "climax": "høydepunkt / vendepunkt – the most exciting or important moment in a story.",

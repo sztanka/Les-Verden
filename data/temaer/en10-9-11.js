@@ -76,6 +76,15 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "11 September 2001", tekst: "Terrorists attack New York and Washington. Almost 3,000 people are killed." },
+    { dato: "October 2001", tekst: "The USA and its allies attack Afghanistan." },
+    { dato: "2003", tekst: "The USA invades Iraq." },
+    { dato: "May 2011", tekst: "Osama bin Laden is killed in Pakistan." },
+    { dato: "22 July 2011", tekst: "Terror attacks in Oslo and on Utøya." },
+    { dato: "August 2021", tekst: "The last US soldiers leave Afghanistan, and the Taliban take power again." }
+  ],
+
   ord: {
     "hijack": "kapre – to take control of a plane or vehicle by force.",
     "terrorist": "terrorist – a person who uses violence against civilians to spread fear and reach political or religious goals.",

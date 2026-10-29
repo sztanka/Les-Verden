@@ -68,6 +68,13 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1949", tekst: "George Orwell publishes **Nineteen Eighty-Four**." },
+    { dato: "1961", tekst: "Stanley Milgram’s obedience experiment at Yale University." },
+    { dato: "2008", tekst: "Suzanne Collins publishes **The Hunger Games**." },
+    { dato: "2014", tekst: "Malala Yousafzai wins the Nobel Peace Prize, aged 17." }
+  ],
+
   ord: {
     "leader": "leder – a person who guides, inspires or controls a group.",
     "belong": "høre til – to feel that you are part of a group.",

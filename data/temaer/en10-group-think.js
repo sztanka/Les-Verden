@@ -77,6 +77,11 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1961", tekst: "The failed Bay of Pigs invasion of Cuba – a classic example of group think." },
+    { dato: "2018", tekst: "A study finds that false news spreads faster than true news on Twitter." }
+  ],
+
   ord: {
     "groupthink": "gruppetenkning – when a group wants to agree so much that it stops thinking critically.",
     "conformity": "konformitet / tilpasning – changing what you say or do to fit in with a group.",

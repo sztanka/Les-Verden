@@ -16,19 +16,23 @@ les-verden/
 ├── index.html              Forside med fag- og trinnvalg
 ├── tema.html               Temaside (samme fil for alle temaer)
 ├── laerer.html             Informasjon for lærere
+├── tidslinje.html          Felles tidslinje (lages automatisk fra temaene)
+├── begreper.html           Begrepsbank (lages automatisk fra temaene)
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
 │   ├── felles.js           Toppmeny, lesestøtte, bunntekst
 │   ├── forside.js          Verdenskart, «Visste du at …?» og temakort
 │   ├── tema.js             Bygger temasiden fra datafila
+│   ├── samle.js            Henter innhold fra alle temaene
+│   ├── tidslinje.js        Felles tidslinje
+│   ├── begreper.js         Begrepsbank
 │   └── bilder/             Bilder til temakortene
 └── data/
     ├── innstillinger.js    Navnet på nettstedet m.m.
     ├── kart.js             Verdenskartet (generert – ikke rediger)
     └── temaer/
         ├── oversikt.js     Liste over alle temaer
-        ├── sf9-industrialiseringen.js
-        └── en9-victorian-era.js
+        └── <id>.js         Ett tema per fil, f.eks. sf10-andre-verdenskrig.js
 ```
 
 Datafilene er `.js` og ikke `.json`. Da virker siden også når du åpner
@@ -128,6 +132,21 @@ Noen temaer trenger mer plass (se `sf10-andre-verdenskrig.js`). Da kan du bruke 
   innholdsliste øverst. (Innholdslisten kommer også automatisk når et tema har 10 avsnitt eller flere.)
 - `tidslinje: [{ dato: "1.9.1939", tekst: "Tyskland angriper Polen." }, …]` viser en tidslinje etter teksten.
 - `begrepsliste: true` viser alle ordene fra `ord` som en begrepsliste etter teksten.
+
+### Felles tidslinje og begrepsbank
+
+`tidslinje.html` og `begreper.html` henter innhold fra **alle** temafilene som står i
+`oversikt.js`:
+
+- Tidslinjen bruker feltet `tidslinje` i hvert tema. Skriv datoen slik den skal vises,
+  for eksempel `"1.9.1939"`, `"Mars 1938"`, `"1760-tallet"`, `"ca. 500 f.Kr."` eller
+  `"11 September 2001"`. Siden sorterer datoene selv. Like hendelser fra flere temaer
+  (samme dato og nesten samme tekst) slås sammen til én, med lenke til begge temaene.
+- Begrepsbanken bruker feltet `ord`. Samme ord fra flere temaer vises én gang. Har
+  temaene ulike forklaringer, vises alle.
+
+Du trenger altså ikke gjøre noe ekstra: Når et nytt tema legges inn i `oversikt.js`,
+dukker datoene og ordene opp automatisk.
 
 ### Formatering i tekstene
 

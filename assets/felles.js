@@ -73,6 +73,8 @@ window.LV = window.LV || {};
           lenke("index.html", "Forside", "forside") +
           lenke("index.html?fag=samfunnsfag", "Samfunnsfag", "samfunnsfag") +
           lenke("index.html?fag=engelsk", "Engelsk", "engelsk") +
+          lenke("tidslinje.html", "Tidslinje", "tidslinje") +
+          lenke("begreper.html", "Begreper", "begreper") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +
         '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte">' +
@@ -87,6 +89,13 @@ window.LV = window.LV || {};
         '<button class="knapp" id="tema-knapp" aria-pressed="false">Mørk modus</button>' +
       "</div>";
     document.body.prepend(topp);
+
+    // På mobil kan menyen rulles sidelengs: sørg for at aktiv side er synlig
+    const meny = topp.querySelector(".hovedmeny");
+    const aktivLenke = meny.querySelector('[aria-current="page"]');
+    if (aktivLenke && meny.scrollWidth > meny.clientWidth) {
+      meny.scrollLeft = aktivLenke.offsetLeft - (meny.clientWidth - aktivLenke.offsetWidth) / 2;
+    }
 
     // Lesestøtte (gjelder bare så lenge siden er åpen – ingenting lagres)
     const panel = topp.querySelector("#lesestotte");

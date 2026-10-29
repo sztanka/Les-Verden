@@ -74,6 +74,13 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1776", tekst: "The Declaration of Independence." },
+    { dato: "1787", tekst: "The US Constitution is signed." },
+    { dato: "2000", tekst: "A US presidential candidate wins without getting the most votes nationwide." },
+    { dato: "6 January 2021", tekst: "Supporters of the defeated president storm the Capitol in Washington, D.C." }
+  ],
+
   ord: {
     "democracy": "demokrati – rule by the people, where citizens elect their leaders.",
     "constitution": "grunnlov – the most important law of a country, which says how it should be governed.",

@@ -76,6 +76,17 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "4.4.1949", tekst: "NATO blir grunnlagt, med Norge som et av tolv medlemsland." },
+    { dato: "1951", tekst: "Kull- og stålunionen – starten på EU." },
+    { dato: "1952", tekst: "Nordisk råd blir opprettet." },
+    { dato: "1972", tekst: "Norge stemmer nei til medlemskap i EF." },
+    { dato: "1994", tekst: "Norge stemmer nei til EU igjen. EØS-avtalen trer i kraft." },
+    { dato: "12.9.2001", tekst: "NATOs artikkel 5 blir brukt for første gang." },
+    { dato: "2016", tekst: "Britene stemmer for å forlate EU (brexit)." },
+    { dato: "2023", tekst: "Finland blir medlem av NATO. Sverige følger i 2024." }
+  ],
+
   ord: {
     "suverenitet": "Et lands rett til å bestemme over seg selv uten innblanding fra andre.",
     "allianse": "Et forbund mellom land som har lovet å hjelpe hverandre.",

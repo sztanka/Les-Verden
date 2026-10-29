@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidslinje – Les verden</title>
+  <meta name="description" content="Felles tidslinje for alle temaene i samfunnsfag og engelsk.">
+  <link rel="stylesheet" href="assets/stil.css">
+  <script src="data/innstillinger.js"></script>
+  <script src="data/temaer/oversikt.js"></script>
+  <script src="assets/felles.js"></script>
+  <script src="assets/samle.js"></script>
+  <script src="assets/tidslinje.js"></script>
+</head>
+<body data-side="tidslinje">
+  <main id="innhold">
+    <header class="sidehode">
+      <h1>Tidslinje</h1>
+      <p class="ingress">Alle de viktigste datoene fra temaene i samfunnsfag og engelsk, samlet i én tidslinje. Trykk på et tema for å lese mer.</p>
+    </header>
+
+    <div class="verktoy" role="search">
+      <label class="sok">
+        <span class="etikett">Søk</span>
+        <input type="search" id="sok" placeholder="F.eks. Hitler, NATO eller 1945" autocomplete="off">
+      </label>
+      <div class="filter" role="group" aria-label="Velg fag">
+        <span class="etikett">Fag:</span>
+        <button class="knapp" data-fag="">Begge</button>
+        <button class="knapp" data-fag="samfunnsfag">Samfunnsfag</button>
+        <button class="knapp" data-fag="engelsk">Engelsk</button>
+      </div>
+      <div class="filter" role="group" aria-label="Velg trinn">
+        <span class="etikett">Trinn:</span>
+        <button class="knapp" data-trinn="">Alle</button>
+        <button class="knapp" data-trinn="8">8.</button>
+        <button class="knapp" data-trinn="9">9.</button>
+        <button class="knapp" data-trinn="10">10.</button>
+      </div>
+    </div>
+
+    <nav class="periodevelger" id="perioder" aria-label="Hopp til periode"></nav>
+    <p class="antall" id="antall" aria-live="polite">Henter temaene …</p>
+    <div id="tidslinje-alle" class="tidslinje-alle"></div>
+  </main>
+</body>
+</html>

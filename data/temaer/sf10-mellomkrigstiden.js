@@ -75,6 +75,18 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "11.11.1918", tekst: "Første verdenskrig slutter." },
+    { dato: "1919", tekst: "Versaillestraktaten blir undertegnet." },
+    { dato: "1920", tekst: "Folkeforbundet blir opprettet." },
+    { dato: "1922", tekst: "Mussolini tar makten i Italia. Fridtjof Nansen får Nobels fredspris." },
+    { dato: "Oktober 1929", tekst: "Krakket på børsen i New York – den store depresjonen begynner." },
+    { dato: "1931", tekst: "Menstadslaget ved Porsgrunn." },
+    { dato: "30.1.1933", tekst: "Hitler blir rikskansler. Quisling starter Nasjonal Samling samme år." },
+    { dato: "1935", tekst: "Kriseforliket i Norge. Nygaardsvold blir statsminister." },
+    { dato: "September 1938", tekst: "Münchenavtalen." }
+  ],
+
   ord: {
     "krigserstatning": "Penger et land må betale til et annet land etter en krig, for å dekke skadene.",
     "arbeidsløshet": "At mange som vil og kan jobbe, ikke får noen jobb.",

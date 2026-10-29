@@ -74,6 +74,10 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "6.1.2021", tekst: "Tilhengere av den tapende kandidaten i presidentvalget stormer Kongressen i USA." }
+  ],
+
   ord: {
     "polarisering": "At avstanden mellom grupper i samfunnet øker, slik at folk samler seg i motsatte leirer.",
     "algoritme": "En oppskrift som datamaskiner følger. På sosiale medier bestemmer algoritmer hva du får se.",

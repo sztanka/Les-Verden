@@ -87,6 +87,13 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1882", tekst: "The Chinese Exclusion Act stops Chinese workers from moving to the USA." },
+    { dato: "1943", tekst: "The Chinese Exclusion Act is finally removed." },
+    { dato: "2006", tekst: "Gene Luen Yang publishes **American Born Chinese**." },
+    { dato: "2023", tekst: "**American Born Chinese** becomes a TV series." }
+  ],
+
   ord: {
     "identity": "identitet – who you are; the things that make you you.",
     "stereotype": "stereotypi / stereotyp – a fixed and simple idea about what a whole group of people is like.",

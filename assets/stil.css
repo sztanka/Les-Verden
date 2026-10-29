@@ -211,6 +211,73 @@ h3 { font-size: 1.2rem; margin: 1.2em 0 .4em; }
 .kommer h2 { margin-top: 0; font-size: 1.2rem; }
 .kommer ul { margin: .3rem 0 0; padding-left: 1.2rem; color: var(--tekst-dempet); }
 
+/* ---------- Snarveier på forsiden ---------- */
+.snarveier { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .8rem; margin: 1.5rem 0 .5rem; }
+.snarvei {
+  display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--tekst);
+  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1.1rem;
+  box-shadow: var(--skygge);
+}
+.snarvei:hover { border-color: var(--tekst-dempet); }
+.snarvei .ikon { font-size: 1.7rem; line-height: 1; }
+.snarvei small { display: block; color: var(--tekst-dempet); font-size: .9rem; margin-top: .1rem; }
+
+/* ---------- Tidslinje og begrepsbank ---------- */
+.sidehode { margin: 1.5rem 0 1rem; }
+.sidehode h1 { margin-bottom: .3rem; }
+.sidehode .ingress { font-family: var(--font-tekst); font-size: 1.15rem; color: var(--tekst-dempet); max-width: 65ch; margin: 0; }
+.verktoy {
+  display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; align-items: center;
+  background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; margin-bottom: 1rem;
+}
+.verktoy .filter { margin: 0; }
+.verktoy .etikett { font-weight: 600; }
+.sok { display: flex; align-items: center; gap: .5rem; flex: 1 1 260px; }
+.sok input {
+  flex: 1; min-width: 0; font: inherit; min-height: 44px; padding: .4rem .9rem;
+  border: 1px solid var(--linje); border-radius: 999px; background: var(--bakgrunn); color: var(--tekst);
+}
+.antall { color: var(--tekst-dempet); margin: .4rem 0 1rem; }
+.periodevelger, .bokstaver { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: .3rem; }
+.periodevelger .etikett { font-weight: 600; margin-right: .2rem; }
+.periodevelger .knapp { text-decoration: none; }
+.bokstaver a {
+  display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; border-radius: 10px;
+  border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); text-decoration: none; font-weight: 700;
+}
+.bokstaver a:hover { background: var(--flate-2); }
+
+.tema-lenker { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .35rem; }
+.tema-lenke {
+  font-size: .8rem; font-weight: 600; text-decoration: none; color: var(--fag); background: var(--fag-lys);
+  border-radius: 999px; padding: .15rem .6rem; font-family: var(--font-ui);
+}
+.tema-lenke:hover { text-decoration: underline; }
+
+.periode { scroll-margin-top: 5.5rem; }
+.periode h2 { font-size: 1.5rem; margin: 2rem 0 .6rem; }
+.periode ol { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--linje); }
+.periode li { position: relative; padding: .55rem 0 .55rem 1.3rem; display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem; }
+.periode li::before {
+  content: ""; position: absolute; left: -.55rem; top: 1rem; width: .75rem; height: .75rem; border-radius: 50%;
+  background: var(--flate); border: 3px solid var(--fag);
+}
+.periode .dato { font-weight: 700; color: var(--fag); }
+.periode .hendelse { line-height: 1.5; }
+@media (max-width: 560px) { .periode li { grid-template-columns: 1fr; gap: .1rem; } }
+
+.bokstavgruppe { scroll-margin-top: 5.5rem; }
+.bokstavgruppe h2 { font-size: 1.6rem; margin: 1.8rem 0 .6rem; border-bottom: 2px solid var(--linje); padding-bottom: .2rem; }
+.begrepskort { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .7rem; margin: 0; }
+.begrep { background: var(--flate); border: 1px solid var(--linje); border-left: 4px solid var(--fag); border-radius: var(--radius); padding: .75rem .95rem; }
+.begrep dt { font-weight: 700; font-size: 1.08rem; }
+.begrep dd { margin: .3rem 0 0; }
+.begrep dd + dd { border-top: 1px dashed var(--linje); padding-top: .4rem; margin-top: .5rem; }
+.sprakmerke {
+  font-size: .7rem; font-weight: 700; vertical-align: middle; margin-left: .3rem; padding: .05rem .4rem;
+  border-radius: 4px; background: var(--engelsk-lys); color: var(--engelsk);
+}
+
 /* ---------- Temaside ---------- */
 .brodsmuler { font-size: .9rem; color: var(--tekst-dempet); margin-bottom: .5rem; }
 .brodsmuler a { color: var(--tekst-dempet); }

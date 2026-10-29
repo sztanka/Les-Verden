@@ -76,6 +76,18 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1933", tekst: "Boikott av jødiske butikker. Jøder kastes ut av statlige jobber." },
+    { dato: "1935", tekst: "Nürnberglovene tar fra jødene statsborgerskapet." },
+    { dato: "9.–10.11.1938", tekst: "Krystallnatten." },
+    { dato: "20.1.1942", tekst: "Wannsee-konferansen planlegger drapet på alle Europas jøder." },
+    { dato: "26.11.1942", tekst: "529 jøder sendes fra Oslo med skipet Donau." },
+    { dato: "April 1943", tekst: "Opprøret i Warszawa-ghettoen." },
+    { dato: "27.1.1945", tekst: "Auschwitz blir befridd. Dagen er i dag minnedag for Holocaust." },
+    { dato: "1948", tekst: "FN vedtar konvensjonen mot folkemord." },
+    { dato: "2012", tekst: "Statsminister Stoltenberg ber om unnskyldning for nordmenns deltakelse i deportasjonene." }
+  ],
+
   ord: {
     "Holocaust": "Nazistenes forfølgelse og drap på rundt seks millioner jøder under andre verdenskrig.",
     "folkemord": "Handlinger som skal ødelegge en hel nasjonal, etnisk, religiøs eller annen folkegruppe.",

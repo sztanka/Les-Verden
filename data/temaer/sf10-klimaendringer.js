@@ -76,6 +76,13 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1760-tallet", tekst: "Industrialiseringen begynner, og bruken av kull øker." },
+    { dato: "2015", tekst: "Parisavtalen." },
+    { dato: "2018", tekst: "Greta Thunberg starter skolestreik for klimaet." },
+    { dato: "2023", tekst: "Uværet «Hans» gir store flommer på Østlandet." }
+  ],
+
   ord: {
     "Klima": "Gjennomsnittet av været i et område over lang tid, vanligvis 30 år eller mer.",
     "drivhuseffekten": "At gasser i atmosfæren holder på varme, slik at jorda blir varmere enn den ellers ville vært.",

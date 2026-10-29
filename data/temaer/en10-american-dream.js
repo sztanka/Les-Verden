@@ -75,6 +75,17 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1825", tekst: "The first organized group of Norwegian emigrants leaves Stavanger on the Restauration." },
+    { dato: "1862", tekst: "The Homestead Act gives settlers free land." },
+    { dato: "1882", tekst: "The Chinese Exclusion Act." },
+    { dato: "1886", tekst: "The Statue of Liberty, a gift from France, is put up in New York." },
+    { dato: "1892", tekst: "Ellis Island immigration station opens." },
+    { dato: "1924", tekst: "New laws set strict quotas on immigration." },
+    { dato: "1931", tekst: "James Truslow Adams makes the expression “the American Dream” popular." },
+    { dato: "1954", tekst: "Ellis Island closes." }
+  ],
+
   ord: {
     "American Dream": "den amerikanske drømmen – the idea that anyone in the USA can succeed through hard work.",
     "immigrant": "innvandrer – a person who moves to a country to live there.",

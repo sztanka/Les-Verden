@@ -74,6 +74,17 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1492", tekst: "Christopher Columbus arrives in the Americas." },
+    { dato: "1830", tekst: "The Indian Removal Act is passed in the USA." },
+    { dato: "1890", tekst: "US soldiers kill hundreds of Lakota at Wounded Knee." },
+    { dato: "1989", tekst: "The Sámi Parliament opens in Karasjok." },
+    { dato: "1996", tekst: "The last residential school in Canada closes." },
+    { dato: "1997", tekst: "King Harald apologizes for how the Norwegian state treated the Sámi." },
+    { dato: "2007", tekst: "The UN adopts the Declaration on the Rights of Indigenous Peoples." },
+    { dato: "2016", tekst: "Protests at Standing Rock against an oil pipeline." }
+  ],
+
   ord: {
     "indigenous": "urfolk / urfolks- – the original people of an area, who lived there before others came and took control.",
     "colonize": "kolonisere – to take control of another people’s land and settle there.",

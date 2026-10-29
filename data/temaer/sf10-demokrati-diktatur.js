@@ -75,6 +75,15 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "ca. 500 f.Kr.", tekst: "Demokratiet oppstår i bystaten Athen." },
+    { dato: "17.5.1814", tekst: "Norges grunnlov." },
+    { dato: "1898", tekst: "Alle menn i Norge får stemmerett." },
+    { dato: "1913", tekst: "Kvinner i Norge får allmenn stemmerett." },
+    { dato: "1933", tekst: "Hitler kommer til makten og avskaffer demokratiet i Tyskland." },
+    { dato: "1948", tekst: "Kim-familien begynner å styre Nord-Korea." }
+  ],
+
   ord: {
     "demokrati": "Folkestyre: en styreform der folket har den øverste makten, ofte gjennom frie valg.",
     "maktfordeling": "At makten i staten er delt mellom ulike institusjoner, slik at ingen får all makt.",

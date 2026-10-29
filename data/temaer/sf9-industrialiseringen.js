@@ -88,6 +88,16 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1760-tallet", tekst: "Spinnemaskiner tas i bruk i Storbritannia. James Watt forbedrer dampmaskinen." },
+    { dato: "1825", tekst: "Den første jernbanen med damplokomotiv og passasjerer åpner i England." },
+    { dato: "1830", tekst: "Jernbanen mellom Liverpool og Manchester åpner." },
+    { dato: "1833", tekst: "Storbritannia forbyr barnearbeid for barn under ni år i tekstilfabrikker." },
+    { dato: "1848", tekst: "Marx og Engels skriver «Det kommunistiske manifest». Marcus Thrane starter arbeiderforeninger i Norge." },
+    { dato: "1887", tekst: "Det norske Arbeiderparti blir stiftet." },
+    { dato: "1905", tekst: "Norsk Hydro blir stiftet." }
+  ],
+
   ord: {
     "fabrikk": "En stor bygning der mange arbeidere og maskiner lager varer.",
     "industrialisering": "Overgangen fra et samfunn bygd på jordbruk og håndverk til et samfunn bygd på industri og fabrikker.",

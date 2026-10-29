@@ -81,6 +81,23 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1946", tekst: "Churchill sier at et «jernteppe» har senket seg over Europa." },
+    { dato: "1948", tekst: "Marshallhjelpen til Vest-Europa begynner." },
+    { dato: "4.4.1949", tekst: "NATO blir grunnlagt." },
+    { dato: "1949", tekst: "Tyskland deles i to stater: Vest-Tyskland og Øst-Tyskland." },
+    { dato: "1950–1953", tekst: "Koreakrigen." },
+    { dato: "1955", tekst: "Warszawapakten blir opprettet." },
+    { dato: "1957", tekst: "Sovjetunionen sender opp Sputnik." },
+    { dato: "13.8.1961", tekst: "Berlinmuren blir bygd." },
+    { dato: "Oktober 1962", tekst: "Cubakrisen." },
+    { dato: "20.7.1969", tekst: "Neil Armstrong går på månen." },
+    { dato: "1985", tekst: "Gorbatsjov kommer til makten i Sovjetunionen." },
+    { dato: "9.11.1989", tekst: "Berlinmuren faller." },
+    { dato: "3.10.1990", tekst: "Tyskland blir samlet igjen." },
+    { dato: "Desember 1991", tekst: "Sovjetunionen blir oppløst." }
+  ],
+
   ord: {
     "kapitalisme": "Et økonomisk system der privatpersoner og bedrifter eier det meste, og der priser bestemmes i et fritt marked.",
     "jernteppe": "Et bilde på grensen som delte Europa i en vestlig og en kommunistisk del.",

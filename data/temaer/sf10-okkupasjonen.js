@@ -74,6 +74,19 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "9.4.1940", tekst: "Tyskland angriper Danmark og Norge. Blücher blir senket i Oslofjorden." },
+    { dato: "10.4.1940", tekst: "Kongens nei." },
+    { dato: "7.6.1940", tekst: "Kongen og regjeringen drar til London." },
+    { dato: "1.2.1942", tekst: "Quisling blir «ministerpresident»." },
+    { dato: "1942", tekst: "Lærerstriden." },
+    { dato: "Februar 1943", tekst: "Tungtvannsaksjonen på Vemork." },
+    { dato: "Oktober 1944", tekst: "Sovjetiske styrker befrir Kirkenes. Finnmark og Nord-Troms brennes." },
+    { dato: "8.5.1945", tekst: "Frigjøringsdagen: De tyske styrkene i Norge overgir seg." },
+    { dato: "7.6.1945", tekst: "Kong Haakon kommer tilbake til Oslo." },
+    { dato: "24.10.1945", tekst: "Quisling blir henrettet." }
+  ],
+
   ord: {
     "rikskommissær": "Den tyske lederen som styrte Norge på vegne av Hitler under okkupasjonen.",
     "kollaborasjon": "Å samarbeide med en fiende som har okkupert landet ditt.",

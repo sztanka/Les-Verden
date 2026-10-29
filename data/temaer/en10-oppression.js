@@ -74,6 +74,21 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1619", tekst: "The first enslaved Africans arrive in the colony of Virginia." },
+    { dato: "1861–1865", tekst: "The American Civil War." },
+    { dato: "1865", tekst: "Slavery is abolished in the USA (the 13th Amendment)." },
+    { dato: "1948", tekst: "Apartheid is introduced in South Africa." },
+    { dato: "1954", tekst: "The Supreme Court rules that segregated schools are against the Constitution." },
+    { dato: "1 December 1955", tekst: "Rosa Parks refuses to give up her seat on a bus in Montgomery." },
+    { dato: "1963", tekst: "Martin Luther King Jr. gives his “I Have a Dream” speech." },
+    { dato: "1964", tekst: "The Civil Rights Act. Nelson Mandela is sentenced to life in prison." },
+    { dato: "1968", tekst: "Martin Luther King Jr. is assassinated." },
+    { dato: "1990", tekst: "Nelson Mandela is released." },
+    { dato: "1994", tekst: "South Africa holds its first election where everyone can vote." },
+    { dato: "2020", tekst: "The murder of George Floyd leads to protests all over the world." }
+  ],
+
   ord: {
     "oppression": "undertrykkelse – when a group uses power to treat another group unfairly over a long time.",
     "racism": "rasisme – the idea that some people are worth more than others because of their skin colour or origin.",

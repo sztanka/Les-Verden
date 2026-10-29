@@ -75,6 +75,11 @@ window.LV.tema = {
     }
   ],
 
+  tidslinje: [
+    { dato: "1993", tekst: "Oslo-avtalen mellom Israel og PLO." },
+    { dato: "2016", tekst: "Fredsavtalen i Colombia avslutter over 50 år med borgerkrig." }
+  ],
+
   ord: {
     "konflikt": "Når to eller flere parter har mål, behov eller verdier som støter mot hverandre.",
     "konflikttrapp": "En modell som viser hvordan konflikter kan trappes opp trinn for trinn hvis de ikke løses.",
