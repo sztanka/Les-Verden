@@ -41,5 +41,22 @@ window.LV.temaer = [
       "The world’s first postage stamp, the Penny Black, was introduced in Britain in 1840.",
       "Queen Victoria ruled the United Kingdom for almost 64 years."
     ]
+  },
+  {
+    id: "en10-identity-stereotypes",
+    fag: "engelsk",
+    trinn: 10,
+    tittel: "Identity and Stereotypes: American Born Chinese",
+    kort: "Who are you – and who do others think you are? Identity, stereotypes and Gene Luen Yang’s graphic novel.",
+    sted: { navn: "San Francisco", lat: 37.77, lon: -122.42 },
+    bilde: "assets/bilder/en10-identity-stereotypes.svg",
+    bildeAlt: "Tegning av tre tegneserieruter: en snakkeboble med «Who am I?», et speil og en gruppe ulike ansikter",
+    kreditt: "",
+    sprak: "en",
+    fakta: [
+      "American Born Chinese was the first graphic novel ever to be a finalist for the National Book Award in the USA.",
+      "In 1882, the USA passed a law that stopped Chinese workers from moving to the country. It was not fully removed until 1943.",
+      "The Monkey King comes from Journey to the West, a Chinese novel that is more than 400 years old."
+    ]
   }
 ];

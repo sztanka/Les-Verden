@@ -36,6 +36,13 @@ Datafilene er `.js` og ikke `.json`. Da virker siden også når du åpner
 
 ---
 
+## Temaplan
+
+`TEMAPLAN.md` viser alle planlagte temaer for 8.–10. trinn, med id og koblinger mellom fagene.
+Kryss av når et tema er ferdig.
+
+---
+
 ## Endre navnet på nettstedet
 
 Åpne `data/innstillinger.js` og endre `navn`, `forkortelse` (de to bokstavene i logoen),
