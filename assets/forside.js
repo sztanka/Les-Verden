@@ -33,6 +33,40 @@
     return klynger;
   }
 
+  // Kort navn på samlede prikker: «Washington, D.C. +2»
+  function kortLapp(liste) {
+    const navn = Array.from(new Set(liste.map(t => t.sted.navn)));
+    return navn.length === 1 ? navn[0] : navn[0] + " +" + (navn.length - 1);
+  }
+
+  // Skjuler navnelapper som ville overlappet andre lapper eller prikker.
+  // Lappen prøves først til høyre, så til venstre. Skjulte lapper vises
+  // når man peker på prikken.
+  function ryddLapper(kart) {
+    const naler = Array.from(kart.querySelectorAll(".nal"));
+    const prikker = naler.map(n => n.querySelector(".prikk").getBoundingClientRect());
+    const vist = [];
+    const kartR = kart.getBoundingClientRect();
+    const overlapper = (a, b) => !(a.right + 4 < b.left || b.right + 4 < a.left || a.bottom + 2 < b.top || b.bottom + 2 < a.top);
+    // Største klynger først, så de viktigste lappene får plass
+    naler.map((n, i) => ({ n, i, vekt: n.classList.contains("klynge") ? 1 : 0 }))
+      .sort((a, b) => b.vekt - a.vekt)
+      .forEach(({ n, i }) => {
+        const lapp = n.querySelector(".navnelapp");
+        n.classList.remove("lapp-skjult");
+        const proving = n.classList.contains("lapp-venstre") ? [true, false] : [false, true];
+        let ok = false;
+        for (const venstre of proving) {
+          n.classList.toggle("lapp-venstre", venstre);
+          const r = lapp.getBoundingClientRect();
+          const innenfor = r.left >= kartR.left && r.right <= kartR.right;
+          const kollisjon = vist.some(v => overlapper(r, v)) || prikker.some((p, j) => j !== i && overlapper(r, p));
+          if (innenfor && !kollisjon) { vist.push(r); ok = true; break; }
+        }
+        if (!ok) n.classList.add("lapp-skjult");
+      });
+  }
+
   function steder(liste) {
     return Array.from(new Set(liste.map(t => t.sted.navn))).join(", ");
   }
@@ -111,11 +145,12 @@
         h += '<button type="button" class="nal klynge' + lappKlasse + '" id="klynge-' + i + '" data-klynge="' + i + '" aria-expanded="false"' +
           ' style="left:' + venstre + ";top:" + topp + '"' +
           ' aria-label="' + kl.temaer.length + " temaer: " + LV.esc(steder(kl.temaer)) + '">' +
-          '<span class="prikk">' + kl.temaer.length + '</span><span class="navnelapp" aria-hidden="true">' + LV.esc(steder(kl.temaer)) + "</span></button>";
+          '<span class="prikk">' + kl.temaer.length + '</span><span class="navnelapp" aria-hidden="true">' + LV.esc(kortLapp(kl.temaer)) + "</span></button>";
       }
     });
     kart.innerHTML = h;
-    kart.classList.toggle("mange", klynger.length > 8);
+    kart.classList.toggle("mange", klynger.length > 12);
+    if (!kart.classList.contains("mange")) ryddLapper(kart);
 
     kart.querySelectorAll("[data-klynge]").forEach(b =>
       b.addEventListener("click", e => {
@@ -160,7 +195,7 @@
       (t.bilde ? '<span class="bilde"><img src="' + LV.esc(t.bilde) + '" alt="' + LV.esc(t.bildeAlt || "") + '" loading="lazy"></span>' : "") +
       '<span class="innhold"><span class="merker"><span class="merke">' + LV.fagNavn[t.fag] + '</span><span class="merke">' + t.trinn + ". trinn</span></span>" +
       "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p>" +
-      (t.kreditt ? '<span class="kreditt">Bilde: ' + LV.esc(t.kreditt) + "</span>" : "") +
+      (t.kreditt ? '<span class="kreditt">Foto: ' + LV.esc(t.kreditt) + (t.kilde ? " / " + LV.esc(t.kilde) : "") + "</span>" : "") +
       "</span></a></li>";
   }
 

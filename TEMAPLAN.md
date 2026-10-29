@@ -93,13 +93,13 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [ ] Utdanning og yrkesvalg (`sf10-utdanning-yrkesvalg`)
 
 ### Engelsk (eksamenstemaene først)
-- [ ] Indigenous Peoples (`en10-indigenous-peoples`) – sammenlignet med samene ↔ *Fornorskingen*
-- [ ] Democracy and Citizenship (`en10-democracy-citizenship`) ↔ *Demokrati og diktatur*
-- [ ] Oppression (`en10-oppression`) – slaveriet, borgerrettighetsbevegelsen, apartheid ↔ *Apartheid*
-- [ ] Leading and Following (`en10-leading-following`) – ledere og dystopier
-- [ ] Group Think (`en10-group-think`) – falske nyheter, ekkokamre ↔ *Polarisering*
-- [ ] Narrated Stories (`en10-narrated-stories`)
-- [ ] The English-Speaking World (`en10-english-speaking-world`)
+- [x] Indigenous Peoples (`en10-indigenous-peoples`) – sammenlignet med samene ↔ *Fornorskingen*
+- [x] Democracy and Citizenship (`en10-democracy-citizenship`) ↔ *Demokrati og diktatur*
+- [x] Oppression (`en10-oppression`) – slaveriet, borgerrettighetsbevegelsen, apartheid ↔ *Apartheid*
+- [x] Leading and Following (`en10-leading-following`) – ledere og dystopier
+- [x] Group Think (`en10-group-think`) – falske nyheter, ekkokamre ↔ *Polarisering*
+- [x] Narrated Stories (`en10-narrated-stories`)
+- [x] The English-Speaking World (`en10-english-speaking-world`)
 - [x] Identity and Stereotypes – *American Born Chinese* (`en10-identity-stereotypes`) ↔ *Identitet og sosialisering*
 - [ ] The American Dream and Immigration (`en10-american-dream`) ↔ *Utvandringen*
 - [ ] 9/11 and the War on Terror (`en10-9-11`) ↔ *Ekstremisme og terror*

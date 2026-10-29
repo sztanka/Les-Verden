@@ -72,7 +72,10 @@ Kryss av når et tema er ferdig.
      sted: { navn: "Berlin", lat: 52.52, lon: 13.40 },   // prikken på kartet
      bilde: "assets/bilder/sf10-andre-verdenskrig.jpg",  // bilde på temakortet
      bildeAlt: "Kort beskrivelse av hva bildet viser",
-     kreditt: "Fotograf/kunstner, år. Wikimedia Commons, offentlig eiendom",
+     kreditt: "Navn på fotografen",
+     kredittUrl: "https://unsplash.com/@brukernavn",           // valgfritt
+     kilde: "Unsplash",                                        // valgfritt
+     kildeUrl: "https://unsplash.com/",                        // valgfritt
      fakta: [                                            // til «Visste du at …?»
        "En kort og overraskende faktasetning.",
        "En til."
@@ -86,6 +89,8 @@ Kryss av når et tema er ferdig.
    **Finne breddegrad og lengdegrad:** høyreklikk på stedet i Google Maps.
    Det øverste tallet i menyen er breddegrad (`lat`), det andre lengdegrad (`lon`).
    Temaer som ligger tett, slås automatisk sammen til én prikk med et tall.
+   `sted` er valgfritt – temaer uten et naturlig sted vises bare i listen.
+   Siden **For lærere** sjekker automatisk at alle steder havner på land.
 
 4. Åpne `index.html` og sjekk at temaet vises og fungerer.
 
@@ -133,6 +138,9 @@ En oppgave kan merkes som samtaleoppgave:
 ---
 
 ## Bilder på temakortene
+
+Bilder fra Unsplash lenkes direkte fra Unsplash, med fotografens navn som kreditering
+både på kortet og øverst på temasiden. Unsplash-lisensen tillater dette uten kostnad.
 
 Temakortene har tegnede illustrasjoner (SVG) som er laget for nettstedet.
 Du kan bytte dem ut med ekte bilder:

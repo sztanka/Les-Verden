@@ -67,7 +67,7 @@
       const rader = LV.temaer.map(t => {
         let status;
         if (!t.sted || typeof t.sted.lat !== "number" || typeof t.sted.lon !== "number") {
-          status = "⚠️ Mangler sted – temaet vises ikke på kartet";
+          status = "– Ikke på kartet (valgfritt)";
         } else if (Math.abs(t.sted.lat) > 90 || Math.abs(t.sted.lon) > 180) {
           status = "⚠️ Ugyldige tall – sjekk at breddegrad og lengdegrad ikke er byttet om";
         } else {

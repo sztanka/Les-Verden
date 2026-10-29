@@ -461,3 +461,13 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 @media (prefers-reduced-motion: reduce) {
   .nal .prikk::after { animation: none; }
 }
+
+/* Bilde øverst på temasiden */
+.temabilde { margin: 0 0 1.2rem; }
+.temabilde img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius); display: block; background: var(--fag-lys); }
+.temabilde figcaption { font-size: .78rem; color: var(--tekst-dempet); margin-top: .35rem; text-align: right; }
+.temabilde figcaption a { color: inherit; }
+
+/* Lapper som ville overlappet, vises bare når man peker på prikken */
+.nal.lapp-skjult .navnelapp { display: none; }
+.nal.lapp-skjult:hover .navnelapp, .nal.lapp-skjult:focus-visible .navnelapp { display: block; z-index: 3; }

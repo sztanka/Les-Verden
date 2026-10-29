@@ -90,6 +90,16 @@
         tema.kontroller.map(k => "<li>" + LV.esc(k) + "</li>").join("") + "</ul></aside>";
     }
 
+    const kat = LV.temaer.find(t => t.id === tema.id) || {};
+    if (kat.bilde) {
+      let kreditt = "";
+      if (kat.kreditt) {
+        const navn = kat.kredittUrl ? '<a href="' + LV.esc(kat.kredittUrl) + '" target="_blank" rel="noopener">' + LV.esc(kat.kreditt) + "</a>" : LV.esc(kat.kreditt);
+        const kilde = kat.kilde ? " / " + (kat.kildeUrl ? '<a href="' + LV.esc(kat.kildeUrl) + '" target="_blank" rel="noopener">' + LV.esc(kat.kilde) + "</a>" : LV.esc(kat.kilde)) : "";
+        kreditt = '<figcaption lang="nb">Foto: ' + navn + kilde + "</figcaption>";
+      }
+      h += '<figure class="temabilde"><img src="' + LV.esc(kat.bilde) + '" alt="' + LV.esc(kat.bildeAlt || "") + '">' + kreditt + "</figure>";
+    }
     h += '<header class="temahode"><div class="merker"><span class="merke">' + LV.fagNavn[tema.fag] + '</span><span class="merke">' + tema.trinn + '. trinn</span></div>' +
       "<h1>" + LV.esc(tema.tittel) + '</h1><p class="ingress">' + formater(tema.ingress) + "</p></header>";
 
