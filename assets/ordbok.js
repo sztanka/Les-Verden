@@ -87,10 +87,14 @@
   }
   async function finnEngelsk(ord) {
     const lav = ord.toLowerCase().replace(/[’']/g, "'");
-    for (const f of engelskeFormer(lav)) {
+    const kandidater = engelskeFormer(lav);
+    // Uregelrette former fra WordNet (f.eks. «went» → «go», «mice» → «mouse»)
+    const d0 = await delFor("en", lav);
+    ((d0.f || {})[lav] || []).forEach(f => { if (!kandidater.includes(f)) kandidater.splice(1, 0, f); });
+    for (const f of kandidater) {
       const del = await delFor("en", f);
-      const t = (del.w || {})[f];
-      if (t && t.length) return { ord: f, form: f !== lav ? lav : null, liste: t };
+      const w = (del.w || {})[f], t = (del.t || {})[f];
+      if ((w && w.length) || (t && t.length)) return { ord: f, form: f !== lav ? lav : null, liste: w || [], tes: t || [] };
     }
     return null;
   }
@@ -151,10 +155,23 @@
       no += "</section>";
     }
     if (r.en) {
-      en += '<section class="ob-del"><h3 class="ob-overskrift">Engelsk → norsk</h3><article class="ob-oppslag"><h4><span class="ob-lemma" lang="en">' + esc(r.en.ord) + "</span>" +
-        (r.en.form ? ' <span class="ob-form">(grunnformen av «' + esc(r.en.form) + "»)</span>" : "") + '</h4><ul class="ob-oversatt">' +
-        r.en.liste.slice(0, kort ? 4 : 10).map(([nb, pos, hint]) => '<li><strong lang="nb">' + (kort ? esc(nb) : lenkeOrd(nb)) + "</strong>" +
-          (hint ? ' <span class="ob-hint" lang="en">' + esc(hint) + "</span>" : pos ? ' <span class="ob-hint">' + esc(pos) + "</span>" : "") + "</li>").join("") + "</ul></article></section>";
+      const e = r.en;
+      en += '<section class="ob-del"><h3 class="ob-overskrift">Engelsk</h3><article class="ob-oppslag"><h4><span class="ob-lemma" lang="en">' + esc(e.ord) + "</span>" +
+        (e.form ? ' <span class="ob-form">(grunnformen av «' + esc(e.form) + "»)</span>" : "") + "</h4>";
+      if (e.liste.length) {
+        en += '<p class="ob-klasse">På norsk</p><ul class="ob-oversatt">' +
+          e.liste.slice(0, kort ? 4 : 10).map(([nb, pos, hint]) => '<li><strong lang="nb">' + lenkeOrd(nb) + "</strong>" +
+            (hint ? ' <span class="ob-hint" lang="en">' + esc(hint) + "</span>" : pos ? ' <span class="ob-hint">' + esc(pos) + "</span>" : "") + "</li>").join("") + "</ul>";
+      }
+      if (e.tes.length) {
+        en += '<div class="ob-wordnet" lang="en"><p class="ob-klasse" lang="nb">Engelsk forklaring og synonymer</p><ol class="ob-sanser">' +
+          e.tes.slice(0, kort ? 3 : 7).map(([pos, def, syn, ant, ex]) => '<li><span class="ob-pos">' + esc(pos) + ":</span> " + esc(def) +
+            (ex && !kort ? ' <em class="ob-eks-en">«' + esc(ex) + "»</em>" : "") +
+            (syn && syn.length ? '<span class="ob-syn"><span class="ob-synetikett" lang="nb">Synonymer:</span> ' + syn.slice(0, kort ? 5 : 8).map(x => lenkeOrd(x)).join(", ") + "</span>" : "") +
+            (ant && ant.length ? '<span class="ob-syn ob-ant"><span class="ob-synetikett" lang="nb">Motsatt:</span> ' + ant.map(x => lenkeOrd(x)).join(", ") + "</span>" : "") + "</li>").join("") + "</ol>" +
+          (kort && e.tes.length > 3 ? '<p class="ob-mer" lang="nb">' + (e.tes.length - 3) + " betydninger til i ordboka</p>" : "") + "</div>";
+      }
+      en += "</article></section>";
     }
     if (!no && !en) return '<p class="ob-ingen">Fant ikke «' + esc(r.ord) + '» i ordboka. Prøv grunnformen av ordet, eller søk i <a href="' + lenkeOrdboken(r.ord) + '" target="_blank" rel="noopener">ordbøkene.no ↗</a>.</p>';
     return forst === "en" ? en + no : no + en;
@@ -162,7 +179,8 @@
 
   LV.ordbok.kilder = '<p class="ob-kilder">Kilder: <a href="https://ordbokene.no" target="_blank" rel="noopener">Bokmålsordboka</a>, Universitetet i Bergen og Språkrådet, ordbøkene.no, ' +
     '<a href="https://creativecommons.org/licenses/by/4.0/deed.no" target="_blank" rel="noopener">CC BY 4.0</a> (forkortet) · Engelsk: <a href="https://www.wiktionary.org" target="_blank" rel="noopener">Wiktionary</a> via kaikki.org og FreeDict/WikDict, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.no" target="_blank" rel="noopener">CC BY-SA 3.0</a></p>';
+    '<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.no" target="_blank" rel="noopener">CC BY-SA 3.0</a> · Engelske forklaringer og synonymer: <a href="https://en-word.net" target="_blank" rel="noopener">Open English WordNet</a> (bygger på Princeton WordNet), ' +
+    '<a href="https://creativecommons.org/licenses/by/4.0/deed.no" target="_blank" rel="noopener">CC BY 4.0</a></p>';
 
   // =========================================================
   // Boble: dobbeltklikk eller merk et ord
@@ -196,6 +214,12 @@
       '<p class="ob-bunn"><a href="ordbok.html?q=' + encodeURIComponent(ord) + '">Åpne i ordboka →</a></p>';
     plasser(rekt);
     boble.querySelector(".ob-lukk").focus({ preventScroll: true });
+    boble.querySelector(".ob-innhold").addEventListener("click", e => {
+      const a = e.target.closest("[data-ordbok-ord]");
+      if (!a) return;
+      e.preventDefault();
+      visBoble(a.dataset.ordbokOrd, rekt, /[æøå]/i.test(a.dataset.ordbokOrd) || a.closest('[lang="nb"]') ? "no" : "en");
+    });
   }
   function plasser(rekt) {
     if (!boble) return;

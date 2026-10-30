@@ -20,6 +20,11 @@ Lager ordboka på nettstedet (data/ordbok/) fra to åpne kilder:
    Hentes fra Debian/Ubuntu-pakken dict-freedict-eng-nor (mappen usr/share/dictd/),
    eller fra https://freedict.org/downloads/
 
+4. Open English WordNet (engelske forklaringer, synonymer og antonymer), CC BY 4.0
+   (bygger på Princeton WordNet, WordNet-lisensen):
+   verktoy/kilder/oewn/*.yaml  – mappen src/yaml fra https://github.com/globalwordnet/english-wordnet
+   (krever Python-pakken pyyaml)
+
 Kjør:  python3 verktoy/lag-ordbok.py
 Resultatet er mange små .js-filer i data/ordbok/ som lastes ved behov,
 så ordboka virker både på GitHub Pages og når filene åpnes lokalt.
@@ -127,7 +132,8 @@ def les_bm():
         if not sanser:
             continue
         klasse = KLASSE.get(tags[0], "") if tags else ""
-        kjonn = " / ".join(dict.fromkeys(KJONN[t] for p in l0.get("paradigm_info", []) for t in p.get("tags", []) if t in KJONN))
+        kj = set(t for p in l0.get("paradigm_info", []) for t in p.get("tags", []) if t in KJONN)
+        kjonn = " / ".join(([] if "Fem" not in kj else ["ei/en"] if "Masc" in kj or True else []) + (["en"] if "Masc" in kj and "Fem" not in kj else []) + (["et"] if "Neuter" in kj else []))
         # bøyning: formene fra første paradigme
         boy = []
         for p in l0.get("paradigm_info", [])[:1]:
@@ -265,6 +271,65 @@ def snu(wikt, bm, fd):
     return resultat
 
 # ---------------------------------------------------------------
+# Open English WordNet: engelske forklaringer og synonymer
+# ---------------------------------------------------------------
+ORDKL = {"n": "noun", "v": "verb", "a": "adjective", "s": "adjective", "r": "adverb"}
+
+def les_wordnet():
+    mappe = os.path.join(KILDER, "oewn")
+    if not os.path.isdir(mappe):
+        print("   (fant ikke Open English WordNet – hopper over)")
+        return {}, {}
+    import yaml
+    laster = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+    synset = {}
+    for fil in sorted(os.listdir(mappe)):
+        if fil.endswith(".yaml") and not fil.startswith(("entries-", "frames")):
+            synset.update(yaml.load(open(os.path.join(mappe, fil), encoding="utf-8"), Loader=laster) or {})
+    sansnokkel = {}   # sense-id -> lemma (for antonymer)
+    oppslag = {}
+    for fil in sorted(os.listdir(mappe)):
+        if fil.startswith("entries-"):
+            oppslag.update(yaml.load(open(os.path.join(mappe, fil), encoding="utf-8"), Loader=laster) or {})
+    for lemma, poser in oppslag.items():
+        for pos, e in poser.items():
+            for sn in e.get("sense", []):
+                sansnokkel[sn["id"]] = lemma
+    tes, former = {}, defaultdict(set)
+    for lemma, poser in oppslag.items():
+        if lemma[:1].isupper() or len(lemma.split()) > 3 or len(lemma) > 30:
+            continue  # egennavn og lange uttrykk tas ikke med
+        grupper = []
+        for pos, e in poser.items():
+            for f in e.get("form", []) or []:
+                if f.lower() != lemma.lower():
+                    former[f.lower()].add(lemma)
+            sanser = []
+            for sn in e.get("sense", []):
+                ss = synset.get(sn["synset"])
+                if not ss:
+                    continue
+                syn = [m for m in ss.get("members", []) if m.lower() != lemma.lower()]
+                if ss.get("partOfSpeech") == "a":  # adjektiv: ta med lignende ord
+                    for sid in ss.get("similar", [])[:6]:
+                        syn += [m for m in synset.get(sid, {}).get("members", []) if m.lower() != lemma.lower()]
+                syn = [m for m in dict.fromkeys(syn) if not m[:1].isupper()][:8]
+                ant = [sansnokkel[a] for a in sn.get("antonym", []) if a in sansnokkel][:4]
+                d = (ss.get("definition") or [""])[0]
+                ex = (ss.get("example") or [""])[0]
+                if isinstance(ex, dict):
+                    ex = ex.get("text", "")
+                sanser.append([ORDKL.get(pos, pos), kort(d, 160), syn, ant, kort(str(ex), 100)])
+            if sanser:
+                grupper.append(sanser)
+        if not grupper:
+            continue
+        grupper.sort(key=lambda g: -len(g))
+        valgt = grupper[0][:4] + [s for g in grupper[1:] for s in g[:2]]
+        tes[lemma.lower()] = [[*x[:4], x[4]] if x[4] else x[:4] for x in valgt[:7]]
+    return tes, former
+
+# ---------------------------------------------------------------
 # Del opp i små filer
 # ---------------------------------------------------------------
 def del_opp(oppforinger, storrelse):
@@ -294,6 +359,20 @@ def skriv(mappe, sprak, deler, lag_innhold):
         total += len(tekst.encode("utf-8"))
     return total
 
+LISENS = """# Lisens for ordboksdataene
+
+Filene i denne mappen er laget av `verktoy/lag-ordbok.py` fra disse kildene:
+
+- **Bokmålsordboka**: Universitetet i Bergen og Språkrådet, ordbøkene.no, CC BY 4.0
+  (https://creativecommons.org/licenses/by/4.0/). Endringer: Artiklene er forkortet (inntil fem betydninger og tre eksempler), forkortelser er skrevet ut, og faste uttrykk er utelatt.
+- **Norsk–engelsk fra Wiktionary** via kaikki.org/wiktextract og https://github.com/Vuizur/Wiktionary-Dictionaries, CC BY-SA 3.0 / GFDL.
+- **Engelsk–norsk fra FreeDict/WikDict** (Wiktionary via DBnary), CC BY-SA 3.0.
+- **Open English WordNet** (engelske forklaringer, eksempler, synonymer og antonymer), https://en-word.net og https://github.com/globalwordnet/english-wordnet, CC BY 4.0. Bygger på Princeton WordNet (WordNet-lisensen, https://wordnet.princeton.edu/license-and-commercial-use). Endringer: inntil sju betydninger per ord, og egennavn er utelatt.
+
+Wiktionary-dataene er bearbeidet: de er forkortet, og engelsk → norsk er delvis laget ved å snu norsk → engelsk. Bearbeidingen deles under samme lisens, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/).
+Lisensene gjelder bare ordboksdataene, ikke resten av nettstedet.
+"""
+
 def main():
     print("Leser Bokmålsordboka …")
     bm, bm_former = les_bm()
@@ -305,7 +384,11 @@ def main():
     fd = les_freedict()
     print("  ", len(fd), "engelske oppslagsord")
     en = snu(wikt, bm, fd)
-    print("  ", len(en), "engelske oppslagsord")
+    print("  ", len(en), "engelske oppslagsord med norsk oversettelse")
+    print("Leser Open English WordNet …")
+    tes, en_former = les_wordnet()
+    print("  ", len(tes), "engelske oppslagsord med forklaring og synonymer")
+    en_nokler = set(en) | set(tes) | {f for f in en_former if f not in tes}
 
     # Norsk: alt som slås opp på små bokstaver
     no = defaultdict(lambda: {"o": {}, "f": set()})
@@ -331,17 +414,21 @@ def main():
                 ff[o] = sorted(no[o]["f"])
         return {"o": oo, "f": ff}
     def str_en(o):
-        return len(json.dumps(en[o], ensure_ascii=False).encode()) + len(o) + 4
+        return len(json.dumps([en.get(o), tes.get(o), sorted(en_former.get(o, []))], ensure_ascii=False).encode()) + len(o) + 4
     def inn_en(ordene):
-        return {"w": {o: en[o] for o in ordene}}
+        ut = {"w": {o: en[o] for o in ordene if o in en}, "t": {o: tes[o] for o in ordene if o in tes},
+              "f": {o: sorted(en_former[o]) for o in ordene if o in en_former and o not in tes}}
+        return ut
 
     if os.path.isdir(UT):
         shutil.rmtree(UT)
     deler_no = del_opp(no, str_no)
-    deler_en = del_opp(en, str_en)
+    deler_en = del_opp(en_nokler, str_en)
     b1 = skriv(os.path.join(UT, "no"), "no", deler_no, inn_no)
     b2 = skriv(os.path.join(UT, "en"), "en", deler_en, inn_en)
-    indeks = {"no": [d[0] for d in deler_no], "en": [d[0] for d in deler_en], "antall": {"bm": len(bm), "wikt": len(wikt), "en": len(en)}}
+    indeks = {"no": [d[0] for d in deler_no], "en": [d[0] for d in deler_en], "antall": {"bm": len(bm), "wikt": len(wikt), "en": len(en), "wordnet": len(tes)}}
+    with open(os.path.join(UT, "LISENS.md"), "w", encoding="utf-8") as f:
+        f.write(LISENS)
     with open(os.path.join(UT, "indeks.js"), "w", encoding="utf-8") as f:
         f.write("/* Laget av verktoy/lag-ordbok.py – ikke rediger for hånd */\nwindow.LV = window.LV || {};\nLV.ordbokIndeks = " +
                 json.dumps(indeks, ensure_ascii=False, separators=(",", ":")) + ";\n")

@@ -193,8 +193,8 @@ oppgavene på nivå 2 og 3 i temaene.
 `ordbok.html` + `assets/ordbok.js`. På temasidene, landsidene, tidslinjen, begrepsbanken, personsiden og eksamenssonen kan elevene dobbeltklikke på et ord (eller merke det på mobil og trykke «Slå opp») for å få det forklart i en boble.
 
 - Norske ord: forklaring fra **Bokmålsordboka** (UiB og Språkrådet, CC BY 4.0) og engelsk oversettelse fra **Wiktionary**. Bøyningsformer finnes også («gikk» → «gå»).
-- Engelske ord: norsk oversettelse fra **Wiktionary** og **FreeDict/WikDict** (CC BY-SA 3.0). Vanlige bøyningsformer gjenkjennes («went» → «go», «settlers» → «settler»).
-- Alt ligger i `data/ordbok/` (ca. 25 MB fordelt på ca. 250 filer). Bare filen som trengs lastes ned (ca. 100 kB). Ingenting sendes til andre nettsteder.
+- Engelske ord: norsk oversettelse fra **Wiktionary** og **FreeDict/WikDict** (CC BY-SA 3.0), og engelsk forklaring, eksempel, synonymer og motsatte ord fra **Open English WordNet** (CC BY 4.0, ca. 110 000 oppslagsord). Bøyningsformer gjenkjennes («went» → «go», «mice» → «mouse», «settlers» → «settler»). Alle synonymer og oversettelser er lenker, så eleven kan slå videre opp.
+- Alt ligger i `data/ordbok/` (ca. 43 MB fordelt på ca. 420 filer). Bare filen som trengs lastes ned (ca. 100 kB). Ingenting sendes til andre nettsteder.
 - Kildehenvisning står i ordboka og i `data/ordbok/LISENS.md`. Ikke fjern den.
 
 Lage ordboka på nytt (f.eks. når Bokmålsordboka er oppdatert): Legg kildefilene i `verktoy/kilder/` (se toppen av `verktoy/lag-ordbok.py` for hvor de hentes) og kjør `python3 verktoy/lag-ordbok.py`.
@@ -260,7 +260,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030g`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261030i`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

@@ -1248,3 +1248,16 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 @media (max-width: 480px) { .wl-gjett li { grid-template-columns: 1fr 4.6rem 2rem 3.3rem; font-size: .88rem; } }
 .wl-gjett .wl-km { white-space: nowrap; }
 @media (max-width: 480px) { .wl-gjett li { grid-template-columns: 1fr 5rem 2rem 3.3rem; } .wl-gjett .wl-km { font-size: .82rem; padding: .2rem; } }
+.ob-wordnet { border-top: 1px dashed var(--linje); padding-top: .4rem; margin-top: .4rem; }
+.ob-wordnet .ob-sanser li { margin-bottom: .45rem; }
+.ob-syn { display: block; font-size: .9rem; margin-top: .1rem; }
+.ob-synetikett { font-family: var(--font-ui); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); margin-right: .2rem; }
+.ob-eks-en { color: var(--tekst-dempet); }
+.ob-oversatt + .ob-wordnet { margin-top: .5rem; }
+
+/* Ordbok-søk på forsiden */
+.forside-ordbok { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .7rem; margin: 1.2rem 0 1.4rem; padding: .8rem 1rem; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); box-shadow: var(--skygge); }
+.forside-ordbok label { font-family: var(--font-ui); font-weight: 700; white-space: nowrap; }
+.forside-ordbok input { flex: 1 1 260px; min-width: 0; font: inherit; font-family: var(--font-ui); font-size: 1.05rem; padding: .6rem .9rem; border-radius: 999px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); }
+.forside-ordbok input:focus { border-color: var(--aksent); outline: none; }
+@media (max-width: 600px) { .forside-ordbok label { width: 100%; } .forside-ordbok input { flex: 1 1 0; font-size: 1rem; } .forside-ordbok .knapp { flex: none; } }
