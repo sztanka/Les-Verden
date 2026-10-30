@@ -48,26 +48,26 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Fornorskingen av samene (`sf9-fornorskingen`) ↔ *Australia / Indigenous Peoples*
 - [x] Første verdenskrig (`sf9-forste-verdenskrig`)
 - [x] Den russiske revolusjonen (`sf9-russiske-revolusjonen`)
-- [ ] Næringsveier (`sf9-naeringsveier`)
-- [ ] Globalisering (`sf9-globalisering`)
-- [ ] Fattigdom og ulikhet (`sf9-fattigdom-ulikhet`)
-- [ ] Migrasjon og flyktninger (`sf9-migrasjon-flyktninger`)
-- [ ] FNs bærekraftsmål (`sf9-baerekraftsmaal`)
-- [ ] Økonomi og personlig økonomi (`sf9-okonomi`)
-- [ ] Arbeidsliv (`sf9-arbeidsliv`)
-- [ ] Kriminalitet og straff (`sf9-kriminalitet-straff`)
-- [ ] Medier og påvirkning (`sf9-medier-pavirkning`) ↔ *Media and Advertising*
+- [x] Næringsveier (`sf9-naeringsveier`)
+- [x] Globalisering (`sf9-globalisering`)
+- [x] Fattigdom og ulikhet (`sf9-fattigdom-ulikhet`)
+- [x] Migrasjon og flyktninger (`sf9-migrasjon-flyktninger`)
+- [x] FNs bærekraftsmål (`sf9-baerekraftsmaal`)
+- [x] Økonomi og personlig økonomi (`sf9-okonomi`)
+- [x] Arbeidsliv (`sf9-arbeidsliv`)
+- [x] Kriminalitet og straff (`sf9-kriminalitet-straff`)
+- [x] Medier og påvirkning (`sf9-medier-pavirkning`) ↔ *Media and Advertising*
 
 ### Engelsk
 - [x] The Victorian Era and Charles Dickens (`en9-victorian-era`) ↔ *Industrialiseringen*
 - [x] The British Empire and the Spread of English (`en9-british-empire`) ↔ *Kolonialisme*
 - [x] Australia and the Stolen Generations (`en9-australia`) ↔ *Fornorskingen*
-- [ ] New Zealand and the Māori (`en9-new-zealand`)
-- [ ] India (`en9-india`)
-- [ ] British and American English (`en9-british-american-english`)
-- [ ] Media and Advertising (`en9-media-advertising`) ↔ *Medier og påvirkning*
-- [ ] Reading *Holes* (`en9-holes`)
-- [ ] Poetry (`en9-poetry`)
+- [x] New Zealand and the Māori (`en9-new-zealand`)
+- [x] India (`en9-india`)
+- [x] British and American English (`en9-british-american-english`)
+- [x] Media and Advertising (`en9-media-advertising`) ↔ *Medier og påvirkning*
+- [x] Reading *Holes* (`en9-holes`)
+- [x] Poetry (`en9-poetry`)
 
 ---
 

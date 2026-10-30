@@ -910,3 +910,11 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 /* Lapper som ville overlappet, vises bare når man peker på prikken */
 .nal.lapp-skjult .navnelapp { display: none; }
 .nal.lapp-skjult:hover .navnelapp, .nal.lapp-skjult:focus-visible .navnelapp { display: block; z-index: 3; }
+
+/* Dikt i tematekster */
+.dikt { margin: 1.4rem 0; padding: 1rem 1.25rem; border-left: 4px solid var(--lilla, #6b4fa0); background: var(--lilla-lys, #f3effa); border-radius: 0 10px 10px 0; }
+.dikt blockquote { margin: 0; font-family: Georgia, "Times New Roman", serif; font-style: italic; line-height: 1.7; }
+.dikt blockquote p { margin: 0 0 .8rem; }
+.dikt blockquote p:last-child { margin-bottom: 0; }
+.dikt figcaption { margin-top: .6rem; font-size: .9rem; font-style: normal; opacity: .8; }
+:root[data-skrift="lesevennlig"] .dikt blockquote { font-family: var(--font-tekst); font-style: normal; }

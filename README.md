@@ -143,6 +143,20 @@ Noen temaer trenger mer plass (se `sf10-andre-verdenskrig.js`). Da kan du bruke 
 - `tidslinje: [{ dato: "1.9.1939", tekst: "Tyskland angriper Polen." }, …]` viser en tidslinje etter teksten.
 - `begrepsliste: true` viser alle ordene fra `ord` som en begrepsliste etter teksten.
 
+### Dikt i teksten
+
+Et avsnitt kan inneholde et dikt i stedet for en vanlig tekstbit. Skriv det som et objekt i `tekst`-lista. `\n` gir linjeskift, og en tom linje (`\n\n`) gir ny strofe:
+
+```js
+tekst: [
+  "Vanlig tekst før diktet.",
+  { dikt: "Tyger Tyger, burning bright,\nIn the forests of the night;", kilde: "William Blake, «The Tyger»" },
+  "Vanlig tekst etter diktet."
+]
+```
+
+Bruk bare dikt som er falt i det fri: Forfatteren må ha vært død i over 70 år (i Norge og EU). Nyere dikt kan gjenfortelles med egne ord, men ikke siteres.
+
 ### Felles tidslinje og begrepsbank
 
 `tidslinje.html` og `begreper.html` henter innhold fra **alle** temafilene som står i
@@ -199,7 +213,7 @@ Claude om hjelp – det er dette verktøyet er laget for.
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261029f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261029g`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

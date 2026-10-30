@@ -608,5 +608,287 @@ window.LV.temaer = [
       "People have lived in Australia for more than 60,000 years.",
       "Before the British arrived, more than 250 languages were spoken in Australia."
     ]
+  },
+  {
+    id: "sf9-naeringsveier",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 9,
+    tittel: "Næringsveier – hva lever vi av?",
+    kort: "Fra fiske og jordbruk til olje, havbruk og IT – hvordan næringslivet i Norge har forandret seg.",
+    sted: { navn: "Lofoten", lat: 68.2, lon: 13.8 },
+    bilde: "https://images.unsplash.com/photo-1681027100002-0cd58c68b4f2?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Fiskebåter i havna i Henningsvær i Lofoten, med snødekte fjell i bakgrunnen",
+    kreditt: "Daniel Diemer",
+    kredittUrl: "https://unsplash.com/@danieldiemer?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Rundt 1850 jobbet omtrent tre av fire nordmenn i jordbruk, skogbruk og fiske. I dag er det bare rundt 2–3 prosent.",
+      "Norge er verdens største produsent av atlantisk oppdrettslaks."
+    ]
+  },
+  {
+    id: "sf9-globalisering",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 9,
+    tittel: "Globalisering – en verden som henger sammen",
+    kort: "Containerskip, internett og frihandel har knyttet verden sammen. Hvem vinner, og hvem taper?",
+    sted: { navn: "Shanghai", lat: 31.23, lon: 121.47 },
+    bilde: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et stort containerskip lastet med fargerike containere ved kai",
+    kreditt: "Andy Li",
+    kredittUrl: "https://unsplash.com/@andylid0?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Rundt 80 prosent av verdens varer fraktes sjøveien.",
+      "Det første containerskipet seilte fra USA i 1956 – og gjorde frakt mye billigere."
+    ]
+  },
+  {
+    id: "sf9-fattigdom-ulikhet",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 9,
+    tittel: "Fattigdom og ulikhet",
+    kort: "Hvorfor er noen land rike og andre fattige? Og hva betyr det å være fattig i Norge?",
+    sted: { navn: "Recife", lat: -8.07, lon: -34.95 },
+    bilde: "https://images.unsplash.com/photo-1584289488698-6f7b099c9ae0?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Tett bebyggelse med enkle murhus i en brasiliansk by",
+    kreditt: "thiago japyassu",
+    kredittUrl: "https://unsplash.com/@thiagojapyassu?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "I 1990 levde over en tredel av verdens befolkning i ekstrem fattigdom. I dag er det under en tidel.",
+      "Norge er et av landene i verden med minst økonomiske forskjeller."
+    ]
+  },
+  {
+    id: "sf9-migrasjon-flyktninger",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 9,
+    tittel: "Migrasjon og flyktninger",
+    kort: "Hvorfor flytter folk? Om push og pull, flyktninger, asylsøkere og integrering i Norge.",
+    sted: { navn: "Sinjar", lat: 36.32, lon: 41.87 },
+    bilde: "https://images.unsplash.com/photo-1619569124496-4f35021bdbf1?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Hvite telt i en leir for internt fordrevne i Sinjar i Irak",
+    kreditt: "Levi Meir Clancy",
+    kredittUrl: "https://unsplash.com/@levimeirclancy?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Rundt sju av ti flyktninger bor i et naboland til landet de flyktet fra.",
+      "Rundt 300 millioner mennesker bor i et annet land enn der de ble født."
+    ]
+  },
+  {
+    id: "sf9-baerekraftsmaal",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 9,
+    tittel: "FNs bærekraftsmål",
+    kort: "17 mål for en bedre verden innen 2030 – hva betyr bærekraft, og er vi i rute?",
+    sted: { navn: "New York (FN)", lat: 40.75, lon: -73.97 },
+    bilde: "https://images.unsplash.com/photo-1562519990-50eb51e282b2?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Hvite vindturbiner på en grønn mark under blå himmel",
+    kreditt: "Thomas Réaubourg",
+    kredittUrl: "https://unsplash.com/@thomasreaubourg?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Begrepet bærekraftig utvikling ble kjent gjennom en FN-rapport ledet av Gro Harlem Brundtland i 1987.",
+      "Hvis alle i verden levde som nordmenn, ville vi trengt rundt tre jordkloder."
+    ]
+  },
+  {
+    id: "sf9-okonomi",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Økonomi – fra lommepenger til statsbudsjett",
+    kort: "Tilbud og etterspørsel, skatt, inflasjon og rente – og hvordan du styrer din egen økonomi.",
+    sted: { navn: "Oslo (Norges Bank)", lat: 59.91, lon: 10.74 },
+    bilde: "https://images.unsplash.com/photo-1516570161787-2fd917215a3d?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Mynter og sedler i en haug",
+    kreditt: "Mathieu Turle",
+    kredittUrl: "https://unsplash.com/@nbmat?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norges Bank ble opprettet i 1816, og kronen ble innført i 1875.",
+      "Ordet økonomi kommer fra gresk og betyr «husholdning»."
+    ]
+  },
+  {
+    id: "sf9-arbeidsliv",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Arbeidslivet – rettigheter, plikter og samarbeid",
+    kort: "Hva har du krav på i din første jobb? Om arbeidsmiljøloven, fagforeninger og den norske modellen.",
+    bilde: "https://images.unsplash.com/photo-1552879890-3a06dd3a06c2?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Mange gule vernehjelmer hengt opp i rader",
+    kreditt: "Pop & Zebra",
+    kredittUrl: "https://unsplash.com/@popandzebra?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Åtte timers arbeidsdag ble innført ved lov i Norge i 1919.",
+      "Fra du er 13 år, kan du gjøre lett arbeid, som å bære ut aviser."
+    ]
+  },
+  {
+    id: "sf9-kriminalitet-straff",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Kriminalitet og straff",
+    kort: "Hvorfor bryter noen loven, og hva skal straff være godt for? Om rettsstaten og norske fengsler.",
+    sted: { navn: "Halden", lat: 59.12, lon: 11.39 },
+    bilde: "https://images.unsplash.com/photo-1568092806323-8ec13dfa9b92?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En tom rettssal med dommerbord, vitneboks og trebenker",
+    kreditt: "David Veksler",
+    kredittUrl: "https://unsplash.com/@davidveksler?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Den kriminelle lavalderen i Norge er 15 år.",
+      "Omtrent én av fem som slippes ut av fengsel i Norge, blir dømt for ny kriminalitet innen to år – et av de laveste tallene i verden."
+    ]
+  },
+  {
+    id: "sf9-medier-pavirkning",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Medier og påvirkning",
+    kort: "Den fjerde statsmakt, algoritmer, ekkokamre, falske nyheter og reklame – og hvordan du kan være kildekritisk.",
+    bilde: "https://images.unsplash.com/photo-1651465531201-7e430660fd82?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et TV-studio med kamera og lys rettet mot nyhetsdesken",
+    kreditt: "Brad Weaver",
+    kredittUrl: "https://unsplash.com/@bweaver?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norge har i mange år ligget øverst på listen over land med størst pressefrihet.",
+      "Fra 2022 må reklame med retusjerte kropper merkes i Norge."
+    ]
+  },
+  {
+    id: "en9-new-zealand",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "New Zealand and the Māori",
+    kort: "The Treaty of Waitangi, the haka and a language that came back to life.",
+    sted: { navn: "Taupō", lat: -38.69, lon: 176.07 },
+    bilde: "https://images.unsplash.com/photo-1604995384335-6b5ca07aee5a?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A red sailboat beside a huge Māori rock carving at Lake Taupō in New Zealand",
+    kreditt: "Aaron Mickan",
+    kredittUrl: "https://unsplash.com/@aaronmickan?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The Māori name for New Zealand, Aotearoa, is often translated as “the land of the long white cloud”.",
+      "In 1893, New Zealand became the first self-governing country where women could vote."
+    ]
+  },
+  {
+    id: "en9-india",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "India – the World’s Largest Democracy",
+    kort: "1.4 billion people, hundreds of languages, the road to independence – and the role of English.",
+    sted: { navn: "Mumbai", lat: 19.08, lon: 72.88 },
+    bilde: "https://images.unsplash.com/photo-1728325444513-f6f7bdd0950a?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A busy street with shops and a mosque in Mumbai, India",
+    kreditt: "Zoshua Colah",
+    kredittUrl: "https://unsplash.com/@zoshuacolah?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "In 2023, India passed China as the country with the most people in the world.",
+      "Gandhi’s Salt March in 1930 was about 385 kilometres long."
+    ]
+  },
+  {
+    id: "en9-british-american-english",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "British and American English",
+    kort: "Flat or apartment? Colour or color? Differences in spelling, words, grammar and pronunciation.",
+    bilde: "https://images.unsplash.com/photo-1675518482021-19ad136762d4?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A red telephone box in front of a clock tower in London",
+    kreditt: "Chloe Christine",
+    kredittUrl: "https://unsplash.com/@chloechristinemarketing?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Noah Webster’s dictionary from 1828 gave Americans spellings like color and center.",
+      "In Britain, pants are underwear – in the USA, pants are trousers!"
+    ]
+  },
+  {
+    id: "en9-media-advertising",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "Media and Advertising",
+    kort: "Ethos, pathos and logos, influencers and targeted ads – how advertisers try to persuade you.",
+    sted: { navn: "New York (Times Square)", lat: 40.758, lon: -73.985 },
+    bilde: "https://images.unsplash.com/photo-1652998060272-313862d0a145?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A city street lined with tall buildings covered in bright digital billboards",
+    kreditt: "Amelia",
+    kredittUrl: "https://unsplash.com/@redtulipsky?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The first official TV commercial was shown in the USA in 1941.",
+      "The first clickable banner ad appeared on the internet in 1994."
+    ]
+  },
+  {
+    id: "en9-holes",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "Reading Holes by Louis Sachar",
+    kort: "A camp with no lake, a hole every day and a family curse – help before, during and after reading.",
+    sted: { navn: "Texas", lat: 31.5, lon: -100.0 },
+    bilde: "https://images.unsplash.com/photo-1451418280345-67a6b4d10bba?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Dry, cracked earth in a desert",
+    kreditt: "Brad Helmink",
+    kredittUrl: "https://unsplash.com/@bradhelmink?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Holes won both the National Book Award and the Newbery Medal.",
+      "The main character’s name, Stanley Yelnats, is a palindrome – it is spelled the same backwards."
+    ]
+  },
+  {
+    id: "en9-poetry",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "Poetry – Reading and Writing Poems",
+    kort: "Rhyme, rhythm, metaphors and sonnets – read famous poems and write your own.",
+    sted: { navn: "Lake District", lat: 54.46, lon: -3.02 },
+    bilde: "https://images.unsplash.com/photo-1506513083865-434a8a207e11?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "An old open book with handwritten text",
+    kreditt: "Kiwihug",
+    kredittUrl: "https://unsplash.com/@kiwihug?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Shakespeare wrote 154 sonnets.",
+      "Emily Dickinson wrote almost 1,800 poems, but only about ten were published while she was alive."
+    ]
   }
 ];

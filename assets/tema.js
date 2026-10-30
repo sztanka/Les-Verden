@@ -164,7 +164,16 @@
       h += '<section class="avsnitt" id="avsnitt-' + i + '" data-avsnitt="' + i + '"><' + htag + ">" + LV.esc(a.tittel) +
         ("speechSynthesis" in window ? ' <button type="button" class="les-avsnitt" data-les="' + i + '" aria-label="' + T.lesAvsnitt + ": " + LV.esc(a.tittel) + '">▶ ' + T.lesAvsnitt + "</button>" : "") +
         "</" + htag + ">";
-      a.tekst.forEach(p => { h += "<p>" + formater(p) + "</p>"; });
+      a.tekst.forEach(p => {
+        // Et dikt skrives som { dikt: "linje 1\nlinje 2", kilde: "Forfatter, «Tittel» (år)" }
+        if (p && typeof p === "object" && p.dikt) {
+          h += '<figure class="dikt"><blockquote' + (tema.sprak === "en" ? ' lang="en"' : "") + ">" +
+            p.dikt.split(/\n\n+/).map(strofe => "<p>" + strofe.split("\n").map(LV.esc).join("<br>") + "</p>").join("") +
+            "</blockquote>" + (p.kilde ? "<figcaption>" + LV.esc(p.kilde) + "</figcaption>" : "") + "</figure>";
+        } else {
+          h += "<p>" + formater(p) + "</p>";
+        }
+      });
       h += "</section>";
       if (a.stoppOgTenk) {
         stoppNr++;
@@ -437,7 +446,7 @@
         const a = tema.avsnitt[i];
         const seksjon = document.querySelector('[data-avsnitt="' + i + '"]');
         ko.push({ tekst: a.tittel, el: seksjon });
-        a.tekst.forEach(p => ko.push({ tekst: rentekst(p), el: seksjon }));
+        a.tekst.forEach(p => ko.push({ tekst: (p && p.dikt) ? p.dikt.replace(/\n+/g, " ") : rentekst(p), el: seksjon }));
       });
       // Hvert avsnitt leses for seg – lange tekster kuttes ellers av enkelte nettlesere
       ko.forEach((del, n) => {
