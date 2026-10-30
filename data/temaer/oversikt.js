@@ -616,7 +616,7 @@ window.LV.temaer = [
     trinn: 9,
     tittel: "Næringsveier – hva lever vi av?",
     kort: "Fra fiske og jordbruk til olje, havbruk og IT – hvordan næringslivet i Norge har forandret seg.",
-    sted: { navn: "Lofoten", lat: 68.2, lon: 13.8 },
+    sted: { navn: "Lofoten", lat: 68.15, lon: 13.61 },
     bilde: "https://images.unsplash.com/photo-1681027100002-0cd58c68b4f2?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
     bildeAlt: "Fiskebåter i havna i Henningsvær i Lofoten, med snødekte fjell i bakgrunnen",
     kreditt: "Daniel Diemer",
@@ -889,6 +889,158 @@ window.LV.temaer = [
     fakta: [
       "Shakespeare wrote 154 sonnets.",
       "Emily Dickinson wrote almost 1,800 poems, but only about ten were published while she was alive."
+    ]
+  },
+  {
+    id: "sf8-opplysningstiden",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 8,
+    tittel: "Opplysningstiden – fornuften tar over",
+    kort: "Locke, Montesquieu, Rousseau og Voltaire utfordret kongene og kirken – og la grunnlaget for demokratiet.",
+    sted: { navn: "Paris", lat: 48.86, lon: 2.35 },
+    bilde: "https://images.unsplash.com/photo-1625053376622-e462848c453f?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Høye bokhyller av tre fulle av gamle bøker i et bibliotek",
+    kreditt: "Peter Herrmann",
+    kredittUrl: "https://unsplash.com/@tama66?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Det franske leksikonet Encyclopédie fikk 28 bind og skulle samle all kunnskap i verden.",
+      "Montesquieus idé om å dele makten i tre brukes i Norge i dag: Stortinget, regjeringen og domstolene."
+    ]
+  },
+  {
+    id: "sf8-amerikanske-revolusjonen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 8,
+    tittel: "Den amerikanske revolusjonen",
+    kort: "Ingen skatt uten representasjon! Hvordan tretten kolonier gjorde opprør og ble USA.",
+    sted: { navn: "Philadelphia", lat: 39.95, lon: -75.15 },
+    bilde: "https://images.unsplash.com/photo-1665888382663-74a86f3ceb32?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Independence Hall i Philadelphia, en bygning i rød murstein med klokketårn",
+    kreditt: "Ernie Journeys",
+    kredittUrl: "https://unsplash.com/@erniejourneys?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "I 1773 kastet kolonister i Boston 342 kister med britisk te i sjøen.",
+      "USAs grunnlov fra 1787 er den eldste skrevne grunnloven som fortsatt er i bruk."
+    ]
+  },
+  {
+    id: "sf8-franske-revolusjonen",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 8,
+    tittel: "Den franske revolusjonen og Napoleon",
+    kort: "Frihet, likhet, brorskap – fra stormen på Bastillen til terroren og Napoleons fall.",
+    sted: { navn: "Versailles", lat: 48.8, lon: 2.12 },
+    bilde: "https://images.unsplash.com/photo-1591828353335-197466da2a4e?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Slottet i Versailles med gullforgylte detaljer",
+    kreditt: "Mathias Reding",
+    kredittUrl: "https://unsplash.com/@matreding?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "14. juli, dagen Bastillen ble stormet i 1789, er Frankrikes nasjonaldag.",
+      "Napoleons nederlag førte til at Danmark måtte gi Norge til Sverige i 1814."
+    ]
+  },
+  {
+    id: "sf8-1814-grunnloven",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 8,
+    tittel: "1814 og Grunnloven",
+    kort: "Fra Kielfreden til Eidsvoll – hvordan Norge fikk en av verdens mest demokratiske grunnlover.",
+    sted: { navn: "Eidsvoll", lat: 60.33, lon: 11.26 },
+    bilde: "https://images.unsplash.com/photo-1780339500471-88f7f17f6e5d?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Barnetog med norske flagg og bunader på 17. mai i Oslo",
+    kreditt: "Ingeborg Korme",
+    kredittUrl: "https://unsplash.com/@ingeborgkorme?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Grunnloven ble skrevet på bare fem uker av 112 eidsvollsmenn.",
+      "Den norske Grunnloven fra 1814 er en av verdens eldste skrevne grunnlover som fortsatt er i bruk."
+    ]
+  },
+  {
+    id: "sf8-unionen-1905",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 8,
+    tittel: "Unionen med Sverige og 1905",
+    kort: "Felles konge i 91 år, kampen om parlamentarismen og et fredelig brudd i 1905.",
+    sted: { navn: "Oslo (Slottet)", lat: 59.917, lon: 10.727 },
+    bilde: "https://images.unsplash.com/photo-1568381548317-727088be22c4?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Rytterstatuen av Karl Johan foran Slottet i Oslo",
+    kreditt: "Delia Giandeini",
+    kredittUrl: "https://unsplash.com/@dels?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "I folkeavstemningen i 1905 stemte over 368 000 for å oppløse unionen – og bare 184 imot.",
+      "Kvinnene hadde ikke stemmerett i 1905, men samlet inn rundt 280 000 underskrifter for bruddet."
+    ]
+  },
+  {
+    id: "en8-democracy-britain",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Democracy in Britain: from Magna Carta to Parliament",
+    kort: "From a king forced to follow the law in 1215 to votes for women – how power moved to the people.",
+    sted: { navn: "Runnymede", lat: 51.44, lon: -0.565 },
+    bilde: "https://images.unsplash.com/photo-1624651030272-d38c3d8bb9fe?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "The Houses of Parliament and Big Ben in London at sunset",
+    kreditt: "Peter Kostov",
+    kredittUrl: "https://unsplash.com/@strippedlight?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Magna Carta was sealed in a meadow called Runnymede in 1215.",
+      "The word “parliament” comes from the French word parler – “to talk”."
+    ]
+  },
+  {
+    id: "en8-united-kingdom",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "The United Kingdom – Four Nations in One",
+    kort: "England, Scotland, Wales and Northern Ireland – capitals, symbols, languages and history.",
+    sted: { navn: "Loch Awe, Scotland", lat: 56.4, lon: -5.03 },
+    bilde: "https://images.unsplash.com/photo-1589489873423-d1745278a8f4?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Kilchurn Castle ruins reflected in the calm water of Loch Awe, Scotland",
+    kreditt: "Connor Mollison",
+    kredittUrl: "https://unsplash.com/@connormollison?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The Union Jack combines the crosses of England, Scotland and Ireland.",
+      "Orkney and Shetland in Scotland belonged to Norway until the 1460s."
+    ]
+  },
+  {
+    id: "en8-ireland",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Ireland – the Emerald Isle",
+    kort: "Vikings, the Great Famine, the fight for independence and modern Ireland.",
+    sted: { navn: "Cliffs of Moher", lat: 52.95, lon: -9.33 },
+    bilde: "https://images.unsplash.com/photo-1602354817989-b9664561ae84?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Green cliffs above the Atlantic Ocean at the Cliffs of Moher in Ireland",
+    kreditt: "Sean Kuriyan",
+    kredittUrl: "https://unsplash.com/@sean189?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Dublin was founded by Vikings in the 800s.",
+      "More than 30 million Americans say they have Irish ancestors."
     ]
   }
 ];

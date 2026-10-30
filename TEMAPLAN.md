@@ -10,11 +10,11 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 ## 8. trinn – Grunnlaget: demokrati, revolusjoner og Norge blir til
 
 ### Samfunnsfag
-- [ ] Opplysningstiden (`sf8-opplysningstiden`) – Locke, Montesquieu, Rousseau
-- [ ] Den amerikanske revolusjonen (`sf8-amerikanske-revolusjonen`) – Jefferson, 1776
-- [ ] Den franske revolusjonen og Napoleon (`sf8-franske-revolusjonen`)
-- [ ] 1814 og Grunnloven (`sf8-1814-grunnloven`) – Christian Frederik, Eidsvoll ↔ *Democracy in Britain*
-- [ ] Unionen med Sverige og 1905 (`sf8-unionen-1905`)
+- [x] Opplysningstiden (`sf8-opplysningstiden`) – Locke, Montesquieu, Rousseau
+- [x] Den amerikanske revolusjonen (`sf8-amerikanske-revolusjonen`) – Jefferson, 1776
+- [x] Den franske revolusjonen og Napoleon (`sf8-franske-revolusjonen`)
+- [x] 1814 og Grunnloven (`sf8-1814-grunnloven`) – Christian Frederik, Eidsvoll ↔ *Democracy in Britain*
+- [x] Unionen med Sverige og 1905 (`sf8-unionen-1905`)
 - [ ] Kart og kartlesing (`sf8-kart-og-kartlesing`)
 - [ ] Klima- og vegetasjonssoner (`sf8-klima-og-vegetasjon`)
 - [ ] Naturressurser (`sf8-naturressurser`)
@@ -29,9 +29,9 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [ ] School and Youth Culture (`en8-school-youth-culture`)
 - [ ] Sports in the English-Speaking World (`en8-sports`)
 - [ ] Food and Travel (`en8-food-travel`)
-- [ ] The United Kingdom (`en8-united-kingdom`)
-- [ ] Ireland (`en8-ireland`)
-- [ ] Democracy in Britain: from Magna Carta to Parliament (`en8-democracy-britain`) ↔ *1814 og Grunnloven*
+- [x] The United Kingdom (`en8-united-kingdom`)
+- [x] Ireland (`en8-ireland`)
+- [x] Democracy in Britain: from Magna Carta to Parliament (`en8-democracy-britain`) ↔ *1814 og Grunnloven*
 - [ ] English Around the World (`en8-english-around-the-world`)
 - [ ] Reading *Wonder* (`en8-wonder`)
 
