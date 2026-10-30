@@ -16,16 +16,23 @@
     { navn: "Verden", ikon: "🌍", tekst: "Land, elver, fjellkjeder, landemerker og historiske hendelser." },
     { navn: "Europa", ikon: "🇪🇺", tekst: "Alle landene og hovedstedene i Europa." },
     { navn: "USA", ikon: "🇺🇸", tekst: "The 50 states and their capitals – for engelskfaget." },
-    { navn: "Storbritannia", ikon: "🇬🇧", tekst: "Countries, cities, accents and famous places – for engelskfaget." }
+    { navn: "Storbritannia", ikon: "🇬🇧", tekst: "Countries, cities, accents and famous places – for engelskfaget." },
+    { navn: "Irland", ikon: "🇮🇪", tekst: "Counties, cities and famous places – for engelskfaget." },
+    { navn: "Australia", ikon: "🇦🇺", tekst: "States, cities and famous places – for engelskfaget." },
+    { navn: "New Zealand", ikon: "🇳🇿", tekst: "Regions, cities and famous places – for engelskfaget." },
+    { navn: "Sør-Afrika", ikon: "🇿🇦", tekst: "Provinces, cities and famous places – for engelskfaget." },
+    { navn: "India", ikon: "🇮🇳", tekst: "States, cities and famous places – for engelskfaget." },
+    { navn: "Singapore", ikon: "🇸🇬", tekst: "Famous places in the city-state – for engelskfaget." }
   ];
   const MODUSER = [
     { id: "finn", navn: "Finn på kartet", ikon: "🎯", tekst: "Et navn vises – trykk på riktig sted." },
     { id: "hva", navn: "Hva heter det?", ikon: "🔤", tekst: "Et sted er markert – velg riktig navn." },
     { id: "ov", navn: "Øv og utforsk", ikon: "🧭", tekst: "Utforsk kartet og lær navnene i ditt eget tempo." }
   ];
-  const POLITISK = /^(land|stat|nasjon):/;
+  const POLITISK = /^(land|stat|nasjon|fylke|region|provins):/;
 
-  const main = () => document.getElementById("innhold");
+  let ROT = null; // satt når kartspillet er bygd inn på en annen side (landsidene)
+  const main = () => ROT || document.getElementById("innhold");
   const el = (tag, attr) => { const e = document.createElementNS(SVGNS, tag); for (const k in attr || {}) e.setAttribute(k, attr[k]); return e; };
   const bland = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const tid = ms => { const s = Math.floor(ms / 1000); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
@@ -57,11 +64,23 @@
   // =========================================================
   let S = null; // spilltilstand
 
-  function startSett(sett) {
-    document.title = sett.tittel + " – Kartspill";
+  // Valg av kartsett når spillet er bygd inn på en landside
+  let INNEBYGDE = [];
+  function innebygdeValg(aktiv) {
+    return '<div class="ks-settvalg" role="tablist" aria-label="Velg kart">' + INNEBYGDE.map(x =>
+      '<button class="knapp" role="tab" data-ks-sett="' + x.id + '" aria-selected="' + (x === aktiv) + '" lang="en">' + LV.esc(x.tittel) + "</button>").join("") + "</div>";
+  }
+  LV.startKartquiz = function (beholder, ids) {
+    ROT = beholder;
+    INNEBYGDE = ids.map(id => LV.kartspill.find(x => x.id === id)).filter(Boolean);
+    if (INNEBYGDE.length) startSett(INNEBYGDE[0]);
+  };
+
+  function startSett(sett, startModus) {
+    if (!ROT) document.title = sett.tittel + " – Kartspill";
     main().innerHTML = '<p class="melding">Laster kartet …</p>';
     LV.lastSkript("data/kart/" + sett.kart + ".js").then(() => {
-      S = { sett: sett, kart: LV.kartdata[sett.kart], modus: LV.param("modus") || "finn", utvalg: null };
+      S = { sett: sett, kart: LV.kartdata[sett.kart], modus: startModus || (ROT ? "finn" : LV.param("modus")) || "finn", utvalg: null };
       if (!MODUSER.some(m => m.id === S.modus)) S.modus = "finn";
       byggSkall();
       tegnKart();
@@ -72,8 +91,9 @@
   function byggSkall() {
     const s = S.sett;
     main().innerHTML =
-      '<div class="ks-hode"><a class="ks-tilbake" href="kartspill.html">← Alle kartspill</a>' +
-      "<h1" + (s.sprak === "en" ? ' lang="en"' : "") + ">" + LV.esc(s.tittel) + "</h1>" +
+      '<div class="ks-hode">' + (ROT ? innebygdeValg(s) :
+      '<a class="ks-tilbake" href="kartspill.html">← Alle kartspill</a>' +
+      "<h1" + (s.sprak === "en" ? ' lang="en"' : "") + ">" + LV.esc(s.tittel) + "</h1>") +
       '<div class="ks-moduser" role="tablist" aria-label="Spillmåte">' + MODUSER.map(m =>
         '<button class="knapp" role="tab" data-modus="' + m.id + '"><span aria-hidden="true">' + m.ikon + "</span> " + m.navn + "</button>").join("") + "</div></div>" +
       '<div class="ks-status" id="ks-status"></div>' +
@@ -85,9 +105,15 @@
       '<p class="ks-kilde">Kartdata: Natural Earth og US Census Bureau. Zoom med knappene, musehjulet eller to fingre, og dra for å flytte kartet.</p>';
     document.querySelectorAll("[data-modus]").forEach(b => b.addEventListener("click", () => {
       S.modus = b.dataset.modus; S.utvalg = null;
-      const p = new URLSearchParams(location.search); p.set("modus", S.modus);
-      history.replaceState(null, "", "kartspill.html?" + p);
+      if (!ROT) {
+        const p = new URLSearchParams(location.search); p.set("modus", S.modus);
+        history.replaceState(null, "", "kartspill.html?" + p);
+      }
       nyRunde();
+    }));
+    main().querySelectorAll("[data-ks-sett]").forEach(b => b.addEventListener("click", () => {
+      const ny = LV.kartspill.find(x => x.id === b.dataset.ksSett);
+      if (ny && ny !== S.sett) { const modus = S.modus; startSett(ny, modus); }
     }));
   }
 
@@ -455,6 +481,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("innhold") || document.body.dataset.side !== "kartspill") return;
     const id = LV.param("sett");
     const sett = id && LV.kartspill.find(s => s.id === id);
     if (sett) startSett(sett); else oversikt();

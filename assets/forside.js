@@ -203,6 +203,13 @@
     const velger = document.getElementById("emnevelger");
     const intro = document.getElementById("emne-intro");
     velger.hidden = fag !== "samfunnsfag";
+    const stripe = document.getElementById("landstripe");
+    if (stripe && LV.landliste) {
+      stripe.hidden = fag !== "engelsk";
+      stripe.innerHTML = '<h3>Landsider – fakta, kartquiz og quiz om engelskspråklige land</h3><ul>' +
+        LV.landliste.map(l => '<li><a href="land.html?id=' + encodeURIComponent(l.id) + '"><span aria-hidden="true">' + l.flagg + "</span>" + LV.esc(l.norsk) + "</a></li>").join("") +
+        '<li><a href="land.html">Alle landsidene →</a></li></ul>';
+    }
     const e = emne && LV.emner[emne];
     intro.hidden = !e || velger.hidden;
     if (e) intro.textContent = e.tekst;

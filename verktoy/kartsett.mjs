@@ -210,3 +210,235 @@ export const UK_LANDEMERKER = [
   ["Windsor Castle", 51.48, -0.60, "One of the homes of the royal family, west of London."],
   ["Land’s End", 50.07, -5.72, "The most western point of England, in Cornwall."]
 ];
+
+// =========================================================
+// Landsidene (engelsk): byer og landemerker
+// [navn, breddegrad, lengdegrad, info]
+// =========================================================
+export const USA_BYER = [
+  ["New York City", 40.71, -74.01, "The largest city in the USA, with more than 8 million people."],
+  ["Los Angeles", 34.05, -118.24, "The second largest city, home of Hollywood."],
+  ["Chicago", 41.88, -87.63, "The largest city in the Midwest, on Lake Michigan."],
+  ["Houston", 29.76, -95.37, "The largest city in Texas, known for oil and NASA’s mission control."],
+  ["Phoenix", 33.45, -112.07, "The capital of Arizona, one of the hottest big cities in the USA."],
+  ["Philadelphia", 39.95, -75.17, "Where the Declaration of Independence was signed in 1776."],
+  ["San Francisco", 37.77, -122.42, "Famous for the Golden Gate Bridge and cable cars."],
+  ["Seattle", 47.61, -122.33, "A city in the Pacific Northwest, home of big tech companies."],
+  ["Boston", 42.36, -71.06, "One of the oldest cities in the USA, where the Boston Tea Party took place."],
+  ["Miami", 25.76, -80.19, "A city in Florida with many Spanish speakers and beaches."],
+  ["Atlanta", 33.75, -84.39, "The capital of Georgia and home city of Martin Luther King Jr."],
+  ["Detroit", 42.33, -83.05, "“Motor City”, the centre of the American car industry."],
+  ["Denver", 39.74, -104.99, "“The Mile High City”, close to the Rocky Mountains."],
+  ["New Orleans", 29.95, -90.07, "A city in Louisiana, famous as the birthplace of jazz."],
+  ["Las Vegas", 36.17, -115.14, "A city in the Nevada desert, famous for casinos and shows."],
+  ["Nashville", 36.16, -86.78, "The capital of Tennessee and of country music."],
+  ["Dallas", 32.78, -96.80, "A big city in Texas, where President Kennedy was shot in 1963."],
+  ["Anchorage", 61.22, -149.90, "The largest city in Alaska."],
+  ["Honolulu", 21.31, -157.86, "The capital of Hawaii, on the island of Oʻahu."],
+  ["Washington, D.C.", 38.90, -77.04, "The capital of the USA, not part of any state."]
+];
+export const USA_LANDEMERKER = [
+  ["The Statue of Liberty", 40.69, -74.04, "A gift from France in 1886 that welcomed millions of immigrants to New York."],
+  ["The Grand Canyon", 36.10, -112.11, "A canyon in Arizona that is up to 1.8 km deep, carved by the Colorado River."],
+  ["The Golden Gate Bridge", 37.82, -122.48, "The famous red suspension bridge in San Francisco, opened in 1937."],
+  ["Mount Rushmore", 43.88, -103.46, "Four presidents carved into a mountain in South Dakota – on land sacred to the Lakota."],
+  ["Yellowstone National Park", 44.43, -110.59, "The world’s first national park (1872), famous for geysers and bison."],
+  ["Niagara Falls", 43.08, -79.07, "Huge waterfalls on the border between the USA and Canada."],
+  ["The White House", 38.90, -77.04, "The home and office of the President in Washington, D.C."],
+  ["Hollywood", 34.10, -118.33, "The centre of the American film industry, in Los Angeles."],
+  ["Kennedy Space Center", 28.57, -80.65, "In Florida – where the Apollo missions to the Moon were launched."],
+  ["Yosemite National Park", 37.86, -119.54, "Granite cliffs, waterfalls and giant sequoia trees in California."],
+  ["The Everglades", 25.29, -80.90, "A huge wetland in Florida, home to alligators."],
+  ["The Gateway Arch", 38.62, -90.18, "A 192-metre arch in St. Louis – the “gateway to the West”."],
+  ["Pearl Harbor", 21.36, -157.95, "In Hawaii – Japan’s attack here in 1941 brought the USA into the Second World War."],
+  ["Denali", 63.07, -151.00, "The highest mountain in North America (6,190 m), in Alaska."],
+  ["Monument Valley", 36.98, -110.10, "Red rock towers on Navajo Nation land – seen in many Western films."],
+  ["Montgomery", 32.38, -86.30, "In Alabama – where Rosa Parks refused to give up her seat on a bus in 1955."],
+  ["Plymouth Rock", 41.96, -70.66, "Where the Pilgrims on the Mayflower landed in 1620, according to tradition."],
+  ["The Alamo", 29.43, -98.49, "A mission in San Antonio, Texas, famous for a battle in 1836."],
+  ["Death Valley", 36.50, -117.00, "One of the hottest and driest places on Earth, in California."],
+  ["The Hoover Dam", 36.02, -114.74, "A giant dam on the Colorado River, built in the 1930s."]
+];
+
+export const IRL_FYLKER_SLÅ_SAMMEN = { "Dún Laoghaire–Rathdown": "Dublin", "Fingal": "Dublin", "South Dublin": "Dublin", "North Tipperary": "Tipperary", "South Tipperary": "Tipperary", "Laoighis": "Laois" };
+export const IRL_PROVINS = {
+  Dublin: "Leinster", Wicklow: "Leinster", Wexford: "Leinster", Kilkenny: "Leinster", Carlow: "Leinster", Kildare: "Leinster", Meath: "Leinster",
+  Louth: "Leinster", Laois: "Leinster", Offaly: "Leinster", Westmeath: "Leinster", Longford: "Leinster",
+  Cork: "Munster", Kerry: "Munster", Limerick: "Munster", Clare: "Munster", Tipperary: "Munster", Waterford: "Munster",
+  Galway: "Connacht", Mayo: "Connacht", Sligo: "Connacht", Leitrim: "Connacht", Roscommon: "Connacht",
+  Donegal: "Ulster", Cavan: "Ulster", Monaghan: "Ulster"
+};
+export const IRL_BYER = [
+  ["Dublin", 53.35, -6.26, "The capital and largest city of Ireland."],
+  ["Cork", 51.90, -8.47, "Ireland’s second city, in the south."],
+  ["Limerick", 52.66, -8.63, "A city on the River Shannon."],
+  ["Galway", 53.27, -9.05, "A lively city on the west coast, known for music and the Irish language."],
+  ["Waterford", 52.26, -7.11, "Ireland’s oldest city, founded by Vikings in 914."],
+  ["Kilkenny", 52.65, -7.25, "A medieval city with a famous castle."],
+  ["Sligo", 54.27, -8.47, "A town in the north-west, linked to the poet W. B. Yeats."],
+  ["Killarney", 52.06, -9.51, "A town near lakes and mountains in County Kerry."],
+  ["Athlone", 53.42, -7.94, "A town in the middle of Ireland, on the River Shannon."],
+  ["Belfast", 54.60, -5.93, "The capital of Northern Ireland (UK), where the Titanic was built."],
+  ["Derry/Londonderry", 55.00, -7.32, "A walled city in Northern Ireland."],
+  ["Letterkenny", 54.95, -7.73, "The largest town in County Donegal."],
+  ["Wexford", 52.34, -6.46, "A town in the south-east, founded by Vikings."],
+  ["Tralee", 52.27, -9.70, "A town in County Kerry."]
+];
+export const IRL_LANDEMERKER = [
+  ["The Cliffs of Moher", 52.97, -9.43, "Cliffs up to 214 metres high above the Atlantic, in County Clare."],
+  ["The Giant’s Causeway", 55.24, -6.51, "About 40,000 basalt columns on the coast of Northern Ireland."],
+  ["Newgrange", 53.69, -6.48, "A passage tomb more than 5,000 years old – older than the pyramids."],
+  ["Skellig Michael", 51.77, -10.54, "A rocky island with an old monastery – used in Star Wars films."],
+  ["The Rock of Cashel", 52.52, -7.89, "A medieval castle and church on a hill in County Tipperary."],
+  ["Blarney Castle", 51.93, -8.57, "Kiss the Blarney Stone, and you get “the gift of the gab”, according to legend."],
+  ["The Burren", 53.05, -9.10, "A strange limestone landscape in County Clare."],
+  ["Glendalough", 53.01, -6.33, "A valley with a monastery founded by St Kevin in the 500s."],
+  ["The Aran Islands", 53.12, -9.70, "Islands off Galway where many people speak Irish."],
+  ["Carrauntoohil", 52.00, -9.74, "The highest mountain in Ireland (1,038 m), in County Kerry."],
+  ["Croagh Patrick", 53.76, -9.66, "A holy mountain in County Mayo that pilgrims climb every year."],
+  ["Lough Neagh", 54.62, -6.40, "The largest lake in the British Isles, in Northern Ireland."],
+  ["Connemara", 53.45, -9.80, "A wild landscape of bogs, lakes and mountains in the west."]
+];
+
+export const AUS_BYER = [
+  ["Canberra", -35.28, 149.13, "The capital of Australia, built as a planned city."],
+  ["Sydney", -33.87, 151.21, "The largest city in Australia, famous for its Opera House."],
+  ["Melbourne", -37.81, 144.96, "Australia’s second city, known for sport, coffee and culture."],
+  ["Brisbane", -27.47, 153.03, "The capital of Queensland."],
+  ["Perth", -31.95, 115.86, "The capital of Western Australia – one of the most isolated big cities in the world."],
+  ["Adelaide", -34.93, 138.60, "The capital of South Australia."],
+  ["Hobart", -42.88, 147.33, "The capital of Tasmania."],
+  ["Darwin", -12.46, 130.84, "The capital of the Northern Territory, in the tropical north."],
+  ["Alice Springs", -23.70, 133.88, "A town in the middle of the Outback."],
+  ["Cairns", -16.92, 145.77, "A city in the tropics, close to the Great Barrier Reef."],
+  ["Gold Coast", -28.02, 153.40, "A coastal city famous for surfing beaches."],
+  ["Broome", -17.96, 122.24, "A town in the north-west, known for pearls and red cliffs."],
+  ["Townsville", -19.26, 146.82, "A city in northern Queensland."]
+];
+export const AUS_LANDEMERKER = [
+  ["Uluru", -25.34, 131.04, "A huge red rock in the Outback, sacred to the Anangu people."],
+  ["The Great Barrier Reef", -18.29, 147.70, "The world’s largest coral reef system, over 2,300 km long."],
+  ["The Sydney Opera House", -33.86, 151.22, "A famous concert hall with roofs shaped like sails, opened in 1973."],
+  ["Kakadu National Park", -12.84, 132.39, "A national park with wetlands and Aboriginal rock art thousands of years old."],
+  ["The Twelve Apostles", -38.66, 143.10, "Limestone towers in the sea along the Great Ocean Road."],
+  ["The Blue Mountains", -33.60, 150.30, "Forested mountains west of Sydney with a blue haze from eucalyptus trees."],
+  ["The Daintree Rainforest", -16.17, 145.42, "One of the oldest rainforests in the world, in Queensland."],
+  ["K’gari (Fraser Island)", -25.27, 153.13, "The world’s largest sand island."],
+  ["Mount Kosciuszko", -36.46, 148.26, "The highest mountain on mainland Australia (2,228 m)."],
+  ["Port Arthur", -43.15, 147.85, "A former prison for convicts in Tasmania."],
+  ["Cradle Mountain", -41.68, 145.95, "A mountain in the wilderness of Tasmania."],
+  ["The Nullarbor Plain", -31.00, 129.00, "A flat, dry plain with almost no trees – “null arbor” means “no tree”."],
+  ["Shark Bay", -25.90, 113.60, "A World Heritage area in Western Australia with dolphins and dugongs."],
+  ["Kangaroo Island", -35.80, 137.20, "An island full of wildlife off South Australia."]
+];
+
+export const NZL_BYER = [
+  ["Wellington", -41.29, 174.78, "The capital of New Zealand, at the southern tip of the North Island."],
+  ["Auckland", -36.85, 174.76, "The largest city, often called the “City of Sails”."],
+  ["Christchurch", -43.53, 172.64, "The largest city on the South Island."],
+  ["Hamilton", -37.79, 175.28, "A city on the Waikato River."],
+  ["Dunedin", -45.87, 170.50, "A city with Scottish roots – its name comes from the old name for Edinburgh."],
+  ["Tauranga", -37.69, 176.17, "A city in the Bay of Plenty."],
+  ["Napier", -39.49, 176.91, "Rebuilt in Art Deco style after an earthquake in 1931."],
+  ["Nelson", -41.27, 173.28, "One of the sunniest places in New Zealand."],
+  ["Rotorua", -38.14, 176.25, "Famous for geysers, hot mud pools and Māori culture."],
+  ["Queenstown", -45.03, 168.66, "The “adventure capital of the world”, known for bungy jumping."],
+  ["Invercargill", -46.41, 168.35, "The southernmost city in New Zealand."],
+  ["Gisborne", -38.66, 178.02, "One of the first cities in the world to see the sunrise each day."],
+  ["Whangārei", -35.73, 174.32, "The northernmost city in New Zealand."]
+];
+export const NZL_LANDEMERKER = [
+  ["Aoraki / Mount Cook", -43.60, 170.14, "The highest mountain in New Zealand (3,724 m)."],
+  ["Milford Sound / Piopiotahi", -44.67, 167.93, "A spectacular fiord in Fiordland National Park."],
+  ["Tongariro National Park", -39.20, 175.60, "Active volcanoes and sacred Māori land – New Zealand’s first national park."],
+  ["The Waitangi Treaty Grounds", -35.27, 174.08, "Where the Treaty of Waitangi was signed in 1840."],
+  ["Hobbiton", -37.87, 175.68, "The film set from The Lord of the Rings and The Hobbit."],
+  ["Lake Taupō", -38.80, 175.90, "The largest lake in New Zealand, in the crater of a supervolcano."],
+  ["Franz Josef Glacier", -43.47, 170.18, "A glacier that comes down almost to the rainforest near the sea."],
+  ["Abel Tasman National Park", -40.90, 173.00, "Golden beaches and coastal walks."],
+  ["Cape Reinga / Te Rerenga Wairua", -34.43, 172.68, "The northern tip, where Māori believe spirits leave for the afterlife."],
+  ["Waitomo Caves", -38.26, 175.10, "Caves lit up by thousands of glow-worms."],
+  ["Kaikōura", -42.40, 173.68, "A place where you can watch whales and dolphins."],
+  ["Stewart Island / Rakiura", -47.00, 167.85, "New Zealand’s third largest island, a home for kiwi birds."]
+];
+
+export const ZAF_BYER = [
+  ["Pretoria", -25.75, 28.19, "The executive capital – where the government sits."],
+  ["Cape Town", -33.92, 18.42, "The legislative capital – where Parliament sits."],
+  ["Bloemfontein", -29.12, 26.21, "The judicial capital – home of the Supreme Court of Appeal."],
+  ["Johannesburg", -26.20, 28.05, "The largest city, built on gold mining."],
+  ["Durban", -29.86, 31.03, "A port city on the Indian Ocean with a large Indian community."],
+  ["Gqeberha (Port Elizabeth)", -33.96, 25.60, "A port city in the Eastern Cape."],
+  ["East London", -33.02, 27.91, "A port city in the Eastern Cape."],
+  ["Polokwane", -23.90, 29.45, "The capital of Limpopo province."],
+  ["Kimberley", -28.74, 24.77, "A city built around a huge diamond mine – the “Big Hole”."],
+  ["Mbombela (Nelspruit)", -25.47, 30.97, "The capital of Mpumalanga, close to Kruger National Park."],
+  ["Pietermaritzburg", -29.60, 30.38, "Where Gandhi was thrown off a train in 1893."],
+  ["Stellenbosch", -33.93, 18.86, "A university town known for wine."],
+  ["Upington", -28.45, 21.26, "A town on the Orange River, close to the Kalahari."]
+];
+export const ZAF_LANDEMERKER = [
+  ["Table Mountain", -33.96, 18.40, "A flat-topped mountain above Cape Town."],
+  ["Robben Island", -33.81, 18.37, "The prison island where Nelson Mandela was held for 18 years."],
+  ["The Cape of Good Hope", -34.36, 18.47, "A famous headland that sailors had to pass on the way to Asia."],
+  ["Kruger National Park", -24.00, 31.50, "One of Africa’s largest game reserves – home of the “Big Five”."],
+  ["The Drakensberg", -29.00, 29.40, "The highest mountains in Southern Africa, with San rock art."],
+  ["Blyde River Canyon", -24.57, 30.83, "One of the largest canyons in the world."],
+  ["The Garden Route", -34.04, 23.05, "A beautiful stretch of coast with forests, lagoons and beaches."],
+  ["The Kalahari", -26.00, 20.60, "A large semi-desert shared with Botswana and Namibia."],
+  ["Soweto", -26.27, 27.86, "A township near Johannesburg, centre of the 1976 student uprising."],
+  ["The Cradle of Humankind", -25.92, 27.78, "Caves where some of the oldest human fossils have been found."],
+  ["Cape Agulhas", -34.83, 20.00, "The southernmost point of Africa, where two oceans meet."],
+  ["Augrabies Falls", -28.59, 20.34, "A powerful waterfall on the Orange River."],
+  ["iSimangaliso Wetland Park", -27.90, 32.50, "A coastal wetland with hippos, crocodiles and coral reefs."]
+];
+
+export const IND_BYER = [
+  ["New Delhi", 28.61, 77.21, "The capital of India."],
+  ["Mumbai", 19.08, 72.88, "India’s largest city and financial centre, home of Bollywood."],
+  ["Kolkata", 22.57, 88.36, "The capital of British India until 1911."],
+  ["Chennai", 13.08, 80.27, "A large city on the east coast, centre of Tamil culture."],
+  ["Bengaluru", 12.97, 77.59, "India’s “Silicon Valley”, centre of the IT industry."],
+  ["Hyderabad", 17.39, 78.49, "A big city known for technology and biryani."],
+  ["Ahmedabad", 23.02, 72.57, "A large city in Gujarat, where Gandhi had his ashram."],
+  ["Jaipur", 26.91, 75.79, "The “Pink City”, capital of Rajasthan."],
+  ["Varanasi", 25.32, 82.97, "One of the oldest living cities in the world, holy to Hindus, on the Ganges."],
+  ["Agra", 27.18, 78.01, "The city of the Taj Mahal."],
+  ["Amritsar", 31.63, 74.87, "Home of the Golden Temple, the holiest place for Sikhs."],
+  ["Kochi", 9.93, 76.27, "A port city in Kerala with a long history of trade."],
+  ["Srinagar", 34.08, 74.80, "A city of lakes and houseboats in the Kashmir valley."],
+  ["Guwahati", 26.14, 91.74, "The largest city in the north-east, on the Brahmaputra River."],
+  ["Panaji", 15.50, 73.83, "The capital of Goa, a former Portuguese colony."]
+];
+export const IND_LANDEMERKER = [
+  ["The Taj Mahal", 27.17, 78.04, "A white marble tomb built by Shah Jahan for his wife, finished around 1653."],
+  ["The Golden Temple", 31.62, 74.88, "The holiest site of Sikhism, in Amritsar."],
+  ["The Gateway of India", 18.92, 72.83, "A great arch in Mumbai, built to welcome King George V in 1911."],
+  ["The Red Fort", 28.66, 77.24, "A huge fort in Delhi where the Prime Minister speaks on Independence Day."],
+  ["The Kerala backwaters", 9.50, 76.34, "A network of lakes, canals and rivers – explored by houseboat."],
+  ["Hampi", 15.34, 76.46, "The ruins of a great medieval Hindu empire."],
+  ["The Ajanta Caves", 20.55, 75.70, "Buddhist cave temples with paintings about 2,000 years old."],
+  ["Kangchenjunga", 27.70, 88.15, "The highest mountain in India (8,586 m), in the Himalayas."],
+  ["The Sundarbans", 21.95, 88.90, "The world’s largest mangrove forest – home of the Bengal tiger."],
+  ["The Thar Desert", 27.00, 71.00, "The Great Indian Desert in Rajasthan."],
+  ["The Konark Sun Temple", 19.89, 86.09, "A temple shaped like a giant chariot for the sun god."],
+  ["The Victoria Memorial", 22.54, 88.34, "A white marble building in Kolkata from British times."],
+  ["Dandi", 21.33, 72.62, "Where Gandhi’s Salt March ended in 1930."]
+];
+
+export const SGP_LANDEMERKER = [
+  ["Marina Bay Sands", 1.2834, 103.8607, "A hotel with three towers and a huge “ship” on top."],
+  ["Gardens by the Bay", 1.2816, 103.8636, "A park with giant metal “supertrees” and glass domes."],
+  ["The Merlion", 1.2868, 103.8545, "A statue with the head of a lion and the body of a fish – the symbol of Singapore."],
+  ["Changi Airport", 1.3644, 103.9915, "One of the world’s best airports, with an indoor waterfall."],
+  ["Sentosa", 1.2494, 103.8303, "A holiday island with beaches and theme parks."],
+  ["Chinatown", 1.2836, 103.8443, "A historic district with Chinese temples, shops and food."],
+  ["Little India", 1.3066, 103.8518, "A colourful district with Indian shops, temples and restaurants."],
+  ["Kampong Glam", 1.3023, 103.8590, "A Malay and Muslim district around the Sultan Mosque."],
+  ["The Botanic Gardens", 1.3138, 103.8159, "A UNESCO World Heritage garden, famous for orchids."],
+  ["Singapore Zoo", 1.4043, 103.7930, "A zoo in the rainforest where animals live without cages."],
+  ["Bukit Timah Hill", 1.3541, 103.7764, "Singapore’s highest point – only 164 metres."],
+  ["Pulau Ubin", 1.4044, 103.9625, "A small island where you can see how Singapore looked in the 1960s."],
+  ["The Causeway", 1.4508, 103.7695, "The road and railway bridge to Malaysia."],
+  ["Raffles Hotel", 1.2949, 103.8545, "A famous colonial hotel from 1887, named after Stamford Raffles."]
+];

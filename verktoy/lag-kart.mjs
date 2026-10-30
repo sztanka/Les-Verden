@@ -3,7 +3,7 @@
 //
 // Bruk (krever Node.js 18+):
 //   cd verktoy
-//   npm install d3-geo topojson-client world-atlas us-atlas
+//   npm install   (d3-geo, topojson-client/-server/-simplify, world-atlas, us-atlas)
 //   node lag-kart.mjs
 //
 // Kartdata: Natural Earth (offentlig eiendom, naturalearthdata.com)
@@ -18,6 +18,8 @@ import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import * as d3 from "d3-geo";
 import * as topojson from "topojson-client";
+import * as topoServer from "topojson-server";
+import * as topoSimp from "topojson-simplify";
 import * as S from "./kartsett.mjs";
 
 const require = createRequire(import.meta.url);
@@ -255,6 +257,127 @@ const SETT = [];
     elementer: S.UK_LANDEMERKER.map(([n, la, lo, info]) => ({ id: "lm:" + n, navn: n, form: "punkt", xy: punkt(proj, la, lo), info: info }))
   });
   skrivKart("storbritannia", kart);
+}
+
+// =========================================================
+// USA: byer og landemerker (samme kart som delstatene)
+// =========================================================
+{
+  const proj = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+  const pk = ([n, la, lo, info], pre) => ({ id: pre + n, navn: n, form: "punkt", xy: punkt(proj, la, lo), info: info });
+  SETT.push({ id: "usa-byer", kart: "usa", gruppe: "USA", tittel: "Big cities in the USA", fag: "engelsk", sprak: "en", beskrivelse: "New York, Los Angeles, Chicago og 17 andre byer.", elementer: S.USA_BYER.map(b => pk(b, "by:")) });
+  SETT.push({ id: "usa-landemerker", kart: "usa", gruppe: "USA", tittel: "Famous places in the USA", fag: "engelsk", sprak: "en", beskrivelse: "Grand Canyon, Statue of Liberty, Yellowstone og andre kjente steder.", elementer: S.USA_LANDEMERKER.map(b => pk(b, "lm:")) });
+}
+
+// =========================================================
+// Landsidene: Irland, Australia, New Zealand, Sør-Afrika, India, Singapore
+// =========================================================
+{
+  const sub = await hentNE("ne_10m_admin_0_map_subunits");
+  const adm1 = await hentNE("ne_10m_admin_1_states_provinces");
+  const overlapp = (b, r) => !(b[1][0] < r[0] || b[0][0] > r[2] || b[1][1] < r[1] || b[0][1] > r[3]);
+
+  // Forenkler geometrien (beholder omtrent andelen «fjern» av punktene) så filene ikke blir for store.
+  function forenkle(features, fjern) {
+    if (!fjern || !features.length) return features;
+    let topo = topoServer.topology({ o: { type: "FeatureCollection", features: features } }, 1e6);
+    topo = topoSimp.presimplify(topo);
+    topo = topoSimp.simplify(topo, topoSimp.quantile(topo, fjern));
+    return topojson.feature(topo, topo.objects.o).features;
+  }
+
+  function lagLand(o) {
+    const [v, sør, ø, n] = o.boks;
+    const ramme = { type: "Polygon", coordinates: [[[v, sør], [v, n], [ø, n], [ø, sør], [v, sør]]] };
+    const proj = o.proj().fitExtent([[10, 10], [o.W - 10, o.H - 10]], ramme);
+    proj.clipExtent([[-0.3 * o.W, -0.3 * o.H], [1.3 * o.W, 1.3 * o.H]]);
+    const sti = lagSti(proj);
+    const kart = { id: o.id, bredde: o.W, hoyde: o.H, bakgrunn: [], omrader: {}, linjer: {} };
+    const stor = [v - 6, sør - 6, ø + 6, n + 6];
+    const naboer = forenkle(sub.features.filter(f => overlapp(d3.geoBounds(f), stor)), o.forenkle);
+    naboer.forEach(f => {
+      if (o.utenOmriss && o.utenOmriss.includes(f.properties.ADM0_A3) && (o.omrader || o.bakgrunnAdm1)) return;
+      const d = sti(f);
+      if (d) kart.bakgrunn.push({ d: d, n: o.navnPaa ? o.navnPaa(f.properties) : f.properties.SUBUNIT });
+    });
+    const egne = forenkle(adm1.features.filter(f => f.properties.adm0_a3 === o.adm0), o.forenkle);
+    if (o.bakgrunnAdm1) egne.forEach(f => { const d = sti(f); if (d) kart.bakgrunn.push({ d: d, n: f.properties.name + " (" + o.landNavn + ")" }); });
+    // Områder (delstater, provinser, fylker)
+    if (o.omrader) {
+      const grupper = {};
+      egne.forEach(f => {
+        let navn = f.properties.name;
+        if (o.slaSammen && o.slaSammen[navn]) navn = o.slaSammen[navn];
+        if (o.ikke && o.ikke.includes(navn)) return;
+        (grupper[navn] = grupper[navn] || []).push(f);
+      });
+      const el = [];
+      Object.entries(grupper).forEach(([navn, fs]) => {
+        const fc = { type: "FeatureCollection", features: fs };
+        const om = omrade(sti, fc, o.terskel || 25);
+        if (!om) return ADVARSLER.push("Tomt område: " + navn);
+        const visNavn = (o.navn && o.navn[navn]) || navn;
+        kart.omrader[o.pre + navn] = om;
+        el.push({ id: o.pre + navn, navn: visNavn, form: "omrade", hint: o.hint ? o.hint(navn) : undefined, info: o.info ? o.info(navn) : undefined });
+      });
+      el.sort((a, b) => a.navn.localeCompare(b.navn));
+      SETT.push({ id: o.id + "-omrader", kart: o.id, gruppe: o.gruppe, tittel: o.omrader, fag: "engelsk", sprak: "en", beskrivelse: o.omrBeskr, elementer: el });
+    }
+    const pk = ([nv, la, lo, info], pre) => ({ id: pre + nv, navn: nv, form: "punkt", xy: punkt(proj, la, lo), info: info });
+    if (o.byer) SETT.push({ id: o.id + "-byer", kart: o.id, gruppe: o.gruppe, tittel: o.byTittel, fag: "engelsk", sprak: "en", beskrivelse: o.byBeskr, elementer: o.byer.map(b => pk(b, "by:")) });
+    if (o.landemerker) SETT.push({ id: o.id + "-landemerker", kart: o.id, gruppe: o.gruppe, tittel: o.lmTittel, fag: "engelsk", sprak: "en", beskrivelse: o.lmBeskr, elementer: o.landemerker.map(b => pk(b, "lm:")) });
+    skrivKart(o.id, kart);
+  }
+
+  lagLand({
+    id: "irland", gruppe: "Irland", W: 700, H: 880, boks: [-10.7, 51.3, -5.3, 55.5],
+    proj: () => d3.geoTransverseMercator().rotate([8, 0]),
+    adm0: "IRL", forenkle: 0.5, pre: "fylke:", omrader: "The counties of Ireland", omrBeskr: "Finn de 26 fylkene (counties) i Republikken Irland.",
+    slaSammen: S.IRL_FYLKER_SLÅ_SAMMEN, terskel: 30, utenOmriss: ["IRL"],
+    navn: Object.fromEntries(Object.keys(S.IRL_PROVINS).map(k => [k, "County " + k])),
+    hint: n => "In the province of " + S.IRL_PROVINS[n], info: n => "A county in the province of " + S.IRL_PROVINS[n] + ".",
+    navnPaa: p => p.ADM0_A3 === "GBR" && p.SU_A3 === "NIR" ? "Northern Ireland (UK)" : p.SUBUNIT,
+    byer: S.IRL_BYER, byTittel: "Cities and towns in Ireland", byBeskr: "Dublin, Cork, Galway, Belfast og andre byer på øya Irland.",
+    landemerker: S.IRL_LANDEMERKER, lmTittel: "Famous places in Ireland", lmBeskr: "Cliffs of Moher, Newgrange, Giant’s Causeway og andre kjente steder."
+  });
+  lagLand({
+    id: "australia", gruppe: "Australia", W: 1000, H: 860, boks: [112.5, -44, 154, -10],
+    proj: () => d3.geoConicConformal().parallels([-18, -36]).rotate([-133, 0]),
+    adm0: "AUS", forenkle: 0.12, pre: "stat:", omrader: "States and territories", omrBeskr: "Finn de seks delstatene og to territoriene i Australia.",
+    ikke: ["Jervis Bay Territory", "Macquarie Island", "Lord Howe Island"], terskel: 40, utenOmriss: ["AUS"],
+    byer: S.AUS_BYER, byTittel: "Cities in Australia", byBeskr: "Canberra, Sydney, Melbourne og andre byer.",
+    landemerker: S.AUS_LANDEMERKER, lmTittel: "Famous places in Australia", lmBeskr: "Uluru, Great Barrier Reef, Sydney Opera House og andre kjente steder."
+  });
+  lagLand({
+    id: "newzealand", gruppe: "New Zealand", W: 700, H: 1000, boks: [166, -47.6, 178.8, -34.2],
+    proj: () => d3.geoTransverseMercator().rotate([-173, 0]),
+    adm0: "NZL", forenkle: 0.5, pre: "region:", omrader: "The regions of New Zealand", omrBeskr: "Finn de 16 regionene i New Zealand.",
+    ikke: ["Auckland Islands", "Campbell Islands", "Antipodes Islands", "Chatham Islands Territory", "Kermadec Islands", "Tokelau", "The Snares", "Three Kings Islands"],
+    navn: { "Manawatu-Wanganui": "Manawatū-Whanganui", "Gisborne District": "Gisborne", "Tasman District": "Tasman", "Marlborough District": "Marlborough", "Nelson City": "Nelson", "Hawke's Bay": "Hawke’s Bay" }, terskel: 30, utenOmriss: ["NZL"],
+    byer: S.NZL_BYER, byTittel: "Cities in New Zealand", byBeskr: "Wellington, Auckland, Christchurch og andre byer.",
+    landemerker: S.NZL_LANDEMERKER, lmTittel: "Famous places in New Zealand", lmBeskr: "Aoraki, Milford Sound, Waitangi og andre kjente steder."
+  });
+  lagLand({
+    id: "sorafrika", gruppe: "Sør-Afrika", W: 1000, H: 820, boks: [16, -35, 33.2, -22],
+    proj: () => d3.geoMercator(),
+    adm0: "ZAF", forenkle: 0.3, pre: "provins:", omrader: "The provinces of South Africa", omrBeskr: "Finn de ni provinsene i Sør-Afrika.", terskel: 40, utenOmriss: ["ZAF"],
+    byer: S.ZAF_BYER, byTittel: "Cities in South Africa", byBeskr: "De tre hovedstedene, Johannesburg, Durban og andre byer.",
+    landemerker: S.ZAF_LANDEMERKER, lmTittel: "Famous places in South Africa", lmBeskr: "Table Mountain, Robben Island, Kruger og andre kjente steder."
+  });
+  lagLand({
+    id: "india", gruppe: "India", W: 900, H: 1000, boks: [68, 6.5, 97.5, 37.2],
+    proj: () => d3.geoMercator(),
+    adm0: "IND", forenkle: 0.1, pre: "stat:", omrader: "States and union territories", omrBeskr: "Finn delstatene og unionsterritoriene i India.", terskel: 40, utenOmriss: ["IND"],
+    navn: { "Andaman and Nicobar": "Andaman and Nicobar Islands", "Orissa": "Odisha" },
+    byer: S.IND_BYER, byTittel: "Cities in India", byBeskr: "New Delhi, Mumbai, Kolkata og andre byer.",
+    landemerker: S.IND_LANDEMERKER, lmTittel: "Famous places in India", lmBeskr: "Taj Mahal, Golden Temple, Kerala og andre kjente steder."
+  });
+  lagLand({
+    id: "singapore", gruppe: "Singapore", W: 1000, H: 640, boks: [103.6, 1.2, 104.08, 1.48],
+    proj: () => d3.geoMercator(),
+    adm0: "SGP", bakgrunnAdm1: true, landNavn: "Singapore", utenOmriss: ["SGP"],
+    landemerker: S.SGP_LANDEMERKER, lmTittel: "Famous places in Singapore", lmBeskr: "Marina Bay Sands, the Merlion, Changi og andre kjente steder."
+  });
 }
 
 // =========================================================

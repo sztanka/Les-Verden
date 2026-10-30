@@ -250,6 +250,13 @@
           "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p></a></li>").join("") + "</ul></section>";
     }
 
+    // Landsider som hører til temaet
+    const landsider = (LV.landliste || []).filter(l => (l.temaer || []).includes(tema.id));
+    if (landsider.length) {
+      h += '<section class="landstripe"><h3>' + (tema.sprak === "en" ? "Country pages" : "Landsider") + "</h3><ul>" +
+        landsider.map(l => '<li><a href="land.html?id=' + encodeURIComponent(l.id) + '" lang="en"><span aria-hidden="true">' + l.flagg + "</span>" + LV.esc(l.navn) + " →</a></li>").join("") + "</ul></section>";
+    }
+
     // Kilder
     if (tema.kilder && tema.kilder.length) {
       h += "<section><h2>" + T.kilder + '</h2><ul class="kilder">' +

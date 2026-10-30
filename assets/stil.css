@@ -918,3 +918,65 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .dikt blockquote p:last-child { margin-bottom: 0; }
 .dikt figcaption { margin-top: .6rem; font-size: .9rem; font-style: normal; opacity: .8; }
 :root[data-skrift="lesevennlig"] .dikt blockquote { font-family: var(--font-tekst); font-style: normal; }
+
+/* =========================================================
+   Landsider (engelsk)
+   ========================================================= */
+.land-side { max-width: 1000px; }
+.land-side .flagg { font-size: 1.1em; }
+.land-norsk { color: var(--tekst-dempet); margin: .2rem 0 .6rem; }
+.land-hode h1 { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.landkort-rad { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.landkort { display: flex; flex-direction: column; height: 100%; border: 2px solid var(--linje); border-radius: 14px; overflow: hidden; background: var(--flate); color: inherit; text-decoration: none; transition: transform .15s, border-color .15s; }
+.landkort:hover, .landkort:focus-visible { transform: translateY(-2px); border-color: var(--engelsk); }
+.landkort img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.landkort-tekst { display: flex; flex-direction: column; gap: .3rem; padding: .9rem 1rem 1rem; flex: 1; }
+.landkort-navn { font-family: var(--font-tekst); font-size: 1.3rem; font-weight: 700; color: var(--engelsk); display: flex; gap: .4rem; align-items: center; }
+.landkort-norsk { font-size: .9rem; color: var(--tekst-dempet); }
+.landkort .vk-cta { color: var(--engelsk); margin-top: auto; }
+.land-kartlenke, .land-andre { margin-top: 1.5rem; }
+.land-andre a { white-space: nowrap; }
+.land-snarveier ul { list-style: none; padding: 0; margin: 1rem 0 1.5rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.land-snarveier a { display: inline-block; padding: .3rem .8rem; border-radius: 999px; background: var(--engelsk-lys); color: inherit; text-decoration: none; font-size: .95rem; border: 1px solid transparent; }
+.land-snarveier a:hover, .land-snarveier a:focus-visible { border-color: var(--engelsk); }
+.faktaboks { border: 2px solid var(--engelsk); border-radius: 14px; padding: 1rem 1.25rem; background: var(--engelsk-lys); margin: 1.5rem 0; }
+.faktaboks h2 { margin-top: 0; }
+.faktaboks dl, .nasjonkort dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem 1.2rem; margin: 0; }
+.faktaboks dt, .nasjonkort dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); font-weight: 700; }
+.faktaboks dd, .nasjonkort dd { margin: .1rem 0 0; font-weight: 600; }
+.nasjonkort-rad, .severdighet-rad { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.nasjonkort, .severdighet { border: 1px solid var(--linje); border-radius: 12px; padding: .9rem 1rem; background: var(--flate); }
+.nasjonkort h3, .severdighet h3 { margin: 0 0 .5rem; }
+.nasjonkort dl { grid-template-columns: 1fr 1fr; margin-bottom: .6rem; }
+.nasjonkort p, .severdighet p { margin: .3rem 0 0; line-height: 1.55; }
+.sev-sted { color: var(--tekst-dempet); font-size: .9rem; }
+.land-ikon { font-size: .9em; }
+.land-kartquiz { margin: 2rem 0; }
+.ks-innebygd { border: 1px solid var(--linje); border-radius: 14px; padding: .6rem .8rem 1rem; background: var(--flate); }
+.ks-innebygd .ks-hode { margin-top: .3rem; }
+.ks-settvalg { display: flex; flex-wrap: wrap; gap: .4rem; flex: 1 1 100%; }
+.ks-settvalg .knapp[aria-selected="true"] { background: var(--engelsk); color: #fff; border-color: var(--engelsk); }
+:root[data-tema="mork"] .ks-settvalg .knapp[aria-selected="true"] { color: #10151f; }
+.ks-innebygd .ks-kart { max-height: 68vh; }
+.land-quiz { margin: 2rem 0; }
+.quizliste { padding-left: 1.4rem; }
+.quizspm { margin-bottom: 1.2rem; }
+.quiz-s { font-weight: 600; margin-bottom: .4rem; }
+.quiz-valg { display: flex; flex-wrap: wrap; gap: .4rem; }
+.quizknapp.riktig { background: #d6efdc; border-color: #2e7d46; color: #14351f; }
+.quizknapp.feil { background: #f8d9d6; border-color: #b3261e; color: #4a0f0b; }
+.quizknapp:disabled { opacity: 1; cursor: default; }
+.quizknapp:disabled:not(.riktig):not(.feil) { opacity: .55; }
+.quiz-forklaring { margin: .5rem 0 0; padding: .5rem .8rem; border-left: 4px solid var(--engelsk); background: var(--engelsk-lys); border-radius: 0 8px 8px 0; }
+.svart-feil .quiz-forklaring { border-left-color: #b3261e; }
+.quiz-poeng { font-size: 1.05rem; }
+.oppgave-lenker { font-size: .9rem; margin: .2rem 0 .4rem; }
+.vk-land { --vk: #1c6e8c; --vk-lys: var(--engelsk-lys); }
+:root[data-tema="mork"] .vk-land { --vk: var(--engelsk); }
+.landstripe { margin: .4rem 0 1rem; padding: .8rem 1rem; border-radius: 12px; background: var(--engelsk-lys); }
+.landstripe h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.landstripe ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.landstripe a { display: inline-flex; gap: .35rem; align-items: center; padding: .35rem .75rem; border-radius: 999px; background: var(--flate); border: 1px solid var(--linje); color: inherit; text-decoration: none; }
+.landstripe a:hover, .landstripe a:focus-visible { border-color: var(--engelsk); }
+@media (max-width: 640px) { .nasjonkort dl { grid-template-columns: 1fr; } .faktaboks dl { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .verktoykort-rad { grid-template-columns: repeat(3, 1fr); } }

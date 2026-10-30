@@ -206,14 +206,35 @@ Skriptet laster ned kartdata fra Natural Earth første gang (til `verktoy/kilder
 lastes opp til GitHub). Kartdata: [Natural Earth](https://www.naturalearthdata.com/)
 (offentlig eiendom) og US Census Bureau via us-atlas.
 
-**Legge til en ny verdensdel eller et nytt land:** Lag en ny blokk i `lag-kart.mjs` etter
-mønster av «EUROPA» (projeksjon og utsnitt), og legg innholdet i `kartsett.mjs`. Spør gjerne
+**Legge til en ny verdensdel eller et nytt land:** For et enkelt land (som Irland, Australia
+eller India) kan du bruke funksjonen `lagLand({...})` nederst i `lag-kart.mjs`: Den lager kart med
+delstater/fylker fra Natural Earth, byer og landemerker. For en hel verdensdel lager du en blokk etter
+mønster av «EUROPA» (projeksjon og utsnitt). Legg innholdet i `kartsett.mjs`. Spør gjerne
 Claude om hjelp – det er dette verktøyet er laget for.
+
+### Landsidene (engelsk)
+
+`land.html` viser alle landsidene, og `land.html?id=uk` viser én side. Hvert land har:
+fact file, fagtekster (geografi, historie, politikk, språk, urfolk der det er relevant, kultur),
+severdigheter, tidslinje, **kartquiz** (kartspillet bygd inn på siden), flervalgsquiz og oppgaver
+(«Find facts» og «Explore more») med «Copy my answers». Ingenting lagres.
+
+- Listen over land, bilder og hvilke kartspill og temaer som hører til, står i `data/land/oversikt.js`.
+- Innholdet for hvert land står i `data/land/<id>.js` (`uk`, `ireland`, `usa`, `australia`,
+  `newzealand`, `southafrica`, `india`, `singapore`).
+- Quizspørsmål skrives slik: `{ s: "Spørsmål?", valg: ["Riktig", "Feil", "Feil", "Feil"], riktig: 0, forklaring: "…" }`.
+  Svaralternativene stokkes automatisk, så det riktige kan gjerne stå først.
+- Legg til `&laerer=1` i adressen for å se opplysninger som bør kontrolleres.
+- Tekstene nevner med vilje ikke hvem som er statsminister eller president akkurat nå –
+  det er en «Explore more»-oppgave, slik at sidene ikke blir utdaterte.
+
+Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet inn i
+`data/land/oversikt.js` og lag eventuelt kartspill for landet (se over).
 
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030b`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261030c`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

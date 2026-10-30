@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Les verden – samfunnsfag og engelsk</title>
   <meta name="description" content="Fagtekster med lese- og diskusjonsoppgaver i samfunnsfag og engelsk for 8.–10. trinn.">
-  <link rel="stylesheet" href="assets/stil.css?v=20261030b">
-  <script src="data/innstillinger.js?v=20261030b"></script>
-  <script src="data/temaer/oversikt.js?v=20261030b"></script>
-  <script src="data/kart.js?v=20261030b"></script>
-  <script src="assets/felles.js?v=20261030b"></script>
-  <script src="assets/forside.js?v=20261030b"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261030c">
+  <script src="data/innstillinger.js?v=20261030c"></script>
+  <script src="data/temaer/oversikt.js?v=20261030c"></script>
+  <script src="data/land/oversikt.js?v=20261030c"></script>
+  <script src="data/kart.js?v=20261030c"></script>
+  <script src="assets/felles.js?v=20261030c"></script>
+  <script src="assets/forside.js?v=20261030c"></script>
 </head>
 <body data-side="forside">
   <main id="innhold">
@@ -94,6 +95,16 @@
             <span class="vk-cta">Spill på kartet →</span>
           </span>
         </a>
+        <a class="verktoykort vk-land" href="land.html">
+          <span class="vk-ikon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="4"/><ellipse cx="32" cy="32" rx="10" ry="24" fill="none" stroke="currentColor" stroke-width="3"/><line x1="8" y1="32" x2="56" y2="32" stroke="currentColor" stroke-width="3"/><path d="M13 20h38M13 44h38" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+          </span>
+          <span class="vk-tekst">
+            <strong>Landsider</strong>
+            <span>Storbritannia, Irland, USA, Australia, New Zealand, Sør-Afrika, India og Singapore – fakta, kartquiz og quiz på engelsk.</span>
+            <span class="vk-cta">Utforsk landene →</span>
+          </span>
+        </a>
         <a class="verktoykort vk-eksamen" href="eksamen.html">
           <span class="vk-ikon" aria-hidden="true">
             <svg viewBox="0 0 64 64" width="56" height="56"><rect x="22" y="8" width="20" height="30" rx="10" fill="none" stroke="currentColor" stroke-width="4"/><path d="M14 30c0 10 8 18 18 18s18-8 18-18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="32" y1="48" x2="32" y2="57" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="22" y1="57" x2="42" y2="57" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
@@ -110,6 +121,7 @@
     <h2 id="temaer"><span id="liste-tittel">Alle temaer</span></h2>
     <div class="emnevelger" id="emnevelger" role="group" aria-label="Velg del av samfunnsfag" hidden></div>
     <p class="emne-intro" id="emne-intro" hidden></p>
+    <div class="landstripe" id="landstripe" lang="nb" hidden></div>
     <div class="filter" role="group" aria-label="Velg trinn">
       <span class="etikett">Trinn:</span>
       <button class="knapp" data-trinn="">Alle</button>

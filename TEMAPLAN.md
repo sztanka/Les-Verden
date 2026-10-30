@@ -107,3 +107,19 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 ---
 
 Totalt: 75 temasider (13 + 9 + 17 + 9 + 17 + 10).
+
+---
+
+## Landsider i engelsk (`land.html`)
+
+- [x] The United Kingdom (`uk`)
+- [x] Ireland (`ireland`)
+- [x] The USA (`usa`)
+- [x] Australia (`australia`)
+- [x] New Zealand (`newzealand`)
+- [x] South Africa (`southafrica`)
+- [x] India (`india`)
+- [x] Singapore (`singapore`)
+- [ ] Canada (`canada`) – forslag
+- [ ] Jamaica / Karibia (`jamaica`) – forslag
+- [ ] Nigeria / Kenya (`nigeria`) – forslag
