@@ -246,9 +246,13 @@
     {
       const en = tema.sprak === "en";
       const antOrd = Object.keys(tema.ord || {}).length, antPar = antOrd + (tema.personer || []).length + (tema.tidslinje || []).length;
+      const enkelt = (k, min, maks) => !/[\s\-.'’]/.test(k) && k.length >= min && k.length <= maks;
+      const enkle = Object.keys(tema.ord || {}).filter(k => enkelt(k, 4, 9)).length, enkle3 = Object.keys(tema.ord || {}).filter(k => enkelt(k, 3, 10)).length;
+      const navn = (tema.personer || []).filter(p => { const d = p.navn.split(/\s+/), e = d[d.length - 1]; return e.length >= 4 && e.length <= 9 && !/[\-.'’]/.test(e); }).length;
       const spill = [
         ["memory", "🃏", "Memory", antPar >= 4], ["koble", "🔗", en ? "Match up" : "Koble sammen", antPar >= 4],
         ["hangman", "🔤", en ? "Hangman" : "Gjett ordet", antOrd >= 3], ["ordsok", "🔍", en ? "Word search" : "Ordsøk", antOrd >= 3],
+        ["ordle", "🟩", "Ordle", enkle + navn >= 2], ["ordmiks", "🔀", en ? "Word mix" : "Ordmiks", enkle3 + navn >= 3],
         ["rekkefolge", "⏳", en ? "Timeline" : "Tidslinje", (tema.tidslinje || []).length >= 4]
       ].filter(x => x[3]);
       if (spill.length) {

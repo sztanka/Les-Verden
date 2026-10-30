@@ -20,6 +20,8 @@
     { id: "koble", ikon: "🔗", navn: "Koble sammen", tekst: "Alle kortene ligger synlige. Koble hvert begrep med riktig forklaring – god lesetrening!", krever: "par" },
     { id: "hangman", ikon: "🔤", navn: "Gjett ordet (hangman)", tekst: "Gjett begrepet bokstav for bokstav. Forklaringen er hintet ditt.", krever: "ord" },
     { id: "ordsok", ikon: "🔍", navn: "Ordsøk", tekst: "Finn begrepene som er gjemt i rutenettet – vannrett, loddrett og på skrå.", krever: "ord" },
+    { id: "ordle", ikon: "🟩", navn: "Ordle", tekst: "Som Wordle: gjett et ord fra temaet på seks forsøk. Grønn = riktig plass, gul = feil plass.", krever: "enkeltord1" },
+    { id: "ordmiks", ikon: "🔀", navn: "Ordmiks", tekst: "Som Smartle: bytt om bokstavene til hver rad blir et ord fra temaet. Forklaringene er ledetråder.", krever: "enkeltord3" },
     { id: "rekkefolge", ikon: "⏳", navn: "Tidslinje", tekst: "Sett hendelsene i riktig rekkefølge – fra eldst til nyest.", krever: "hendelser" }
   ];
 
@@ -130,6 +132,8 @@
     if (!DATA) return true;
     if (s.krever === "par") return DATA.par.length >= 4;
     if (s.krever === "ord") return DATA.ord.length >= 3;
+    if (s.krever === "enkeltord1") return enkeltord(4, 9, false).length + enkeltord(4, 9, true).filter(x => x.type === "person").length >= 2;
+    if (s.krever === "enkeltord3") return enkeltord(3, 10, false).length + enkeltord(4, 10, true).filter(x => x.type === "person").length >= 3;
     if (s.krever === "hendelser") return DATA.hendelser.filter(h => h.nokkel != null).length >= 4;
     return true;
   }
@@ -494,6 +498,276 @@
   }
 
   // =========================================================
+  // Felles for Ordle og Ordmiks: enkeltord fra temaet
+  // =========================================================
+  function enkeltord(minL, maksL, medNavn) {
+    const alfabet = ALFABET[KILDE.sprak === "en" ? "en" : "nb"];
+    const ok = w => w.length >= minL && w.length <= maksL && [...w].every(b => alfabet.includes(b));
+    const ut = [], sett = new Set();
+    DATA.ord.forEach(o => {
+      const ordet = o.type === "person" ? (medNavn ? o.sok : null) : o.ord;
+      if (!ordet || /[\s\-.'’]/.test(ordet)) return;
+      const w = [...ordet].map(grunn).join("");
+      if (!ok(w) || sett.has(w)) return;
+      sett.add(w);
+      ut.push({ w: w, vis: ordet, forklaring: o.forklaring, norsk: o.norsk, type: o.type, navn: o.ord });
+    });
+    return ut;
+  }
+
+  // =========================================================
+  // ORDLE (som Wordle)
+  // =========================================================
+  function ordle() {
+    const en = KILDE.sprak === "en";
+    const alfabet = ALFABET[en ? "en" : "nb"];
+    const FORSOK = 6;
+    let liste = bland(enkeltord(4, 9, false));
+    if (liste.length < 3) liste = liste.concat(bland(enkeltord(4, 9, true).filter(x => x.type === "person")));
+    let nr = -1, S, alleOrd = false, vunnet = 0, spilt = 0;
+    const tastRader = en ? ["QWERTYUIOP", "ASDFGHJKL", "↵ZXCVBNM⌫"] : ["QWERTYUIOPÅ", "ASDFGHJKLØÆ", "↵ZXCVBNM⌫"];
+    const tx = en ?
+      { ukjent: "is not in the dictionary. Try another word.", forKort: "Too short", hint: "Show the explanation (hint)", ordet: "The word was", neste: "Next word", gjettet: "You got it in", av: "of", forsok: "tries" } :
+      { ukjent: "står ikke i ordboka. Prøv et annet ord.", forKort: "For kort ord", hint: "Vis forklaringen (hint)", ordet: "Ordet var", neste: "Neste ord", gjettet: "Du klarte det på", av: "av", forsok: "forsøk" };
+    ramme("ordle",
+      '<div class="spill-valg"><label class="spill-sjekk" lang="nb"><input type="checkbox" id="ol-alle"> Godta alle ord (ikke sjekk mot ordboka)</label></div>' +
+      '<div class="spill-status" id="spill-status" aria-live="polite"></div>' +
+      '<div class="ordle"><div class="ol-brett" id="ol-brett" aria-live="off"></div><div class="ol-melding" id="ol-melding" role="status" aria-live="polite"></div>' +
+      '<details class="ol-hint" id="ol-hint"><summary>' + tx.hint + '</summary><p id="ol-hinttekst"></p></details>' +
+      '<div class="ol-tastatur" id="ol-tast">' + tastRader.map(r => '<div class="ol-rad">' + [...r].map(b =>
+        '<button type="button" class="ol-tast' + (b === "↵" || b === "⌫" ? " bred" : "") + '" data-t="' + b + '" aria-label="' + (b === "↵" ? (en ? "Enter" : "Gjett") : b === "⌫" ? (en ? "Delete" : "Slett") : b) + '">' + (b === "↵" ? (en ? "ENTER" : "GJETT") : b) + "</button>").join("") + "</div>").join("") + "</div>" +
+      '<div id="spill-slutt"></div></div>');
+    $("ol-alle").addEventListener("change", e => { alleOrd = e.target.checked; });
+    document.querySelectorAll(".ol-tast").forEach(b => b.addEventListener("click", () => trykk(b.dataset.t)));
+    document.addEventListener("keydown", e => {
+      if (e.ctrlKey || e.metaKey || e.altKey || e.target.closest("input, textarea, select")) return;
+      if (e.key === "Enter") { e.preventDefault(); trykk("↵"); }
+      else if (e.key === "Backspace") trykk("⌫");
+      else if (e.key.length === 1 && alfabet.includes(e.key.toUpperCase())) trykk(e.key.toUpperCase());
+    });
+
+    function neste() {
+      nr = (nr + 1) % liste.length;
+      const o = liste[nr];
+      S = { o: o, rader: [], na: "", ferdig: false, tastfarge: {}, sjekker: false };
+      $("ol-hinttekst").textContent = o.forklaring;
+      $("ol-hint").open = false;
+      $("spill-slutt").innerHTML = ""; melding("");
+      document.querySelectorAll(".ol-tast").forEach(b => b.classList.remove("riktig", "finnes", "ikke"));
+      tegn(); status();
+    }
+    function status() {
+      $("spill-status").innerHTML = "<span>" + (en ? "Letters" : "Bokstaver") + ": <strong>" + S.o.w.length + "</strong></span><span>" + (en ? "Solved" : "Riktige ord") + ": <strong>" + vunnet + " / " + spilt + "</strong></span>";
+    }
+    function melding(t, varig) {
+      $("ol-melding").textContent = t;
+      if (t && !varig) setTimeout(() => { if ($("ol-melding") && $("ol-melding").textContent === t) $("ol-melding").textContent = ""; }, 2600);
+    }
+    function vurder(gjett, fasit) {
+      const res = Array(fasit.length).fill("ikke"), rest = {};
+      [...fasit].forEach((b, i) => { if (gjett[i] === b) res[i] = "riktig"; else rest[b] = (rest[b] || 0) + 1; });
+      [...gjett].forEach((b, i) => { if (res[i] !== "riktig" && rest[b]) { res[i] = "finnes"; rest[b]--; } });
+      return res;
+    }
+    function tegn(animer) {
+      const L = S.o.w.length;
+      $("ol-brett").style.setProperty("--l", L);
+      const navn = { riktig: en ? "correct" : "riktig plass", finnes: en ? "wrong place" : "feil plass", ikke: en ? "not in the word" : "ikke i ordet" };
+      let h = "";
+      for (let r = 0; r < FORSOK; r++) {
+        const rad = S.rader[r], aktiv = r === S.rader.length && !S.ferdig;
+        h += '<div class="ol-rad-brett' + (aktiv ? " aktiv" : "") + '" role="group" aria-label="' + (en ? "Guess " : "Forsøk ") + (r + 1) + '">';
+        for (let i = 0; i < L; i++) {
+          const b = rad ? rad.ord[i] : aktiv ? (S.na[i] || "") : "";
+          const kl = rad ? rad.res[i] : b ? "fylt" : "";
+          h += '<span class="ol-rute ' + kl + (animer && r === S.rader.length - 1 ? " snu" : "") + '" style="--i:' + i + '"' + (rad ? ' aria-label="' + b + ": " + navn[rad.res[i]] + '"' : "") + ">" + b + "</span>";
+        }
+        h += "</div>";
+      }
+      $("ol-brett").innerHTML = h;
+    }
+    async function trykk(t) {
+      if (!S || S.ferdig || S.sjekker) { if (S && S.ferdig && t === "↵") neste(); return; }
+      const L = S.o.w.length;
+      if (t === "⌫") { S.na = S.na.slice(0, -1); return tegn(); }
+      if (t !== "↵") { if (S.na.length < L) { S.na += t; tegn(); } return; }
+      if (S.na.length < L) { melding(tx.forKort); rist(); return; }
+      const gjett = S.na;
+      if (!alleOrd && gjett !== S.o.w && !liste.some(x => x.w === gjett) && LV.ordbok) {
+        S.sjekker = true;
+        let finnes = true;
+        try { finnes = await LV.ordbok.erOrd(gjett.toLowerCase(), en ? "en" : "no"); } catch (e) { finnes = true; }
+        S.sjekker = false;
+        if (!finnes) { melding("«" + gjett + "» " + tx.ukjent); rist(); return; }
+      }
+      const res = vurder(gjett, S.o.w);
+      S.rader.push({ ord: gjett, res: res });
+      S.na = "";
+      const rang = { ikke: 1, finnes: 2, riktig: 3 };
+      [...gjett].forEach((b, i) => { if (!S.tastfarge[b] || rang[res[i]] > rang[S.tastfarge[b]]) S.tastfarge[b] = res[i]; });
+      document.querySelectorAll(".ol-tast").forEach(k => { k.classList.remove("riktig", "finnes", "ikke"); if (S.tastfarge[k.dataset.t]) k.classList.add(S.tastfarge[k.dataset.t]); });
+      const vant = gjett === S.o.w;
+      if (vant || S.rader.length >= FORSOK) {
+        S.ferdig = true; spilt++; if (vant) vunnet++;
+        tegn(true); status(); slutt(vant);
+      } else tegn(true);
+    }
+    function rist() {
+      const rad = document.querySelector(".ol-rad-brett.aktiv");
+      if (rad) { rad.classList.remove("rist"); void rad.offsetWidth; rad.classList.add("rist"); }
+    }
+    function slutt(vant) {
+      const ruter = S.rader.map(r => r.res.map(x => x === "riktig" ? "🟩" : x === "finnes" ? "🟨" : "⬜").join("")).join("\n");
+      const linje = (vant ? S.rader.length : "X") + "/" + FORSOK;
+      $("spill-slutt").innerHTML = '<div class="spill-resultat"><h2>' + (vant ? T.bra + " 🎉" : T.tapt) + "</h2>" +
+        "<p>" + (vant ? tx.gjettet + " " + S.rader.length + " " + tx.forsok + "." : tx.ordet + ": <strong>" + LV.esc(S.o.vis) + "</strong>") + "</p>" +
+        '<p class="ol-forklaring"><strong>' + LV.esc(S.o.vis) + "</strong>" + (S.o.norsk ? ' <span lang="nb">(' + LV.esc(S.o.norsk) + ")</span>" : "") + ": " + LV.esc(S.o.forklaring) + "</p>" +
+        '<div class="spill-knapper"><button class="knapp hoved" id="ol-neste">' + tx.neste + ' →</button><button class="knapp" id="kopier">' + T.kopier + '</button><span id="kopistatus" aria-live="polite"></span></div></div>';
+      $("ol-neste").addEventListener("click", neste);
+      $("kopier").addEventListener("click", () => kopier(resultatTekst("ordle", linje + " (" + S.o.vis + ")\n" + ruter + "\nTotalt: " + vunnet + " av " + spilt + " ord"), $("kopistatus")));
+      $("ol-neste").focus({ preventScroll: true });
+    }
+    neste();
+  }
+
+  // =========================================================
+  // ORDMIKS (som Smartle): bytt bokstaver til hver rad blir et ord
+  // =========================================================
+  function ordmiks() {
+    const en = KILDE.sprak === "en";
+    const tx = en ?
+      { tips: "Tap two letters to swap them – or drag one letter onto another. Each row must become one of the words. The explanations below are your clues.", hint: "Hint: place a letter", bytter: "Swaps", ord: "Words", hintBrukt: "Hints", ledetrader: "Clues", ny: "New puzzle", valgt: "selected" } :
+      { tips: "Trykk på to bokstaver for å bytte dem – eller dra en bokstav over en annen. Hver rad skal bli ett av ordene. Forklaringene under er ledetrådene dine.", hint: "Hint: sett en bokstav på plass", bytter: "Bytter", ord: "Ord", hintBrukt: "Hint", ledetrader: "Ledetråder", ny: "Ny oppgave", valgt: "valgt" };
+    let S;
+    ramme("ordmiks",
+      '<p class="om-tips">' + tx.tips + "</p>" +
+      '<div class="spill-status" id="spill-status" aria-live="polite"></div>' +
+      '<div class="ordmiks"><div class="om-brett" id="om-brett"></div><div class="om-side"><h2>' + tx.ledetrader + '</h2><ol class="om-ledetrader" id="om-led"></ol>' +
+      '<div class="spill-knapper"><button class="knapp" id="om-hint">💡 ' + tx.hint + '</button><button class="knapp" id="om-ny">↻ ' + tx.ny + "</button></div></div></div><div id=\"spill-slutt\"></div>");
+    $("om-hint").addEventListener("click", hint);
+    $("om-ny").addEventListener("click", start);
+
+    function start() {
+      // Velg 4–5 ord, gjerne med samme lengde, maks 8 bokstaver
+      let pool = bland(enkeltord(3, 10, false));
+      if (pool.length < 4) pool = pool.concat(bland(enkeltord(4, 10, true).filter(x => x.type === "person")));
+      const ordene = pool.slice(0, Math.min(5, pool.length)).sort((a, b) => a.w.length - b.w.length);
+      const rader = ordene.map(o => o.w.length);
+      let bokstaver;
+      for (let f = 0; f < 50; f++) {
+        bokstaver = bland(ordene.flatMap(o => [...o.w]));
+        if (!radTekster(bokstaver, rader).some((t, r) => ordene.some(o => o.w === t))) break;
+      }
+      S = { ordene: ordene, rader: rader, b: bokstaver, laast: new Set(), valgt: null, bytter: 0, hint: 0, losning: new Array(rader.length).fill(null), start: Date.now(), ferdig: false };
+      $("spill-slutt").innerHTML = "";
+      sjekk(); tegn();
+    }
+    function radTekster(b, rader) {
+      const ut = []; let i = 0;
+      rader.forEach(L => { ut.push(b.slice(i, i + L).join("")); i += L; });
+      return ut;
+    }
+    function radStart(r) { return S.rader.slice(0, r).reduce((a, b) => a + b, 0); }
+    // Hvilke rader er løst? Hver rad må bli et ulikt ord med riktig lengde.
+    function sjekk() {
+      const tekster = radTekster(S.b, S.rader);
+      const brukt = new Set();
+      S.losning = tekster.map(t => {
+        const o = S.ordene.findIndex((x, i) => !brukt.has(i) && x.w === t);
+        if (o >= 0) { brukt.add(o); return o; }
+        return null;
+      });
+    }
+    function tegn() {
+      let h = "", i = 0;
+      S.rader.forEach((L, r) => {
+        const lost = S.losning[r] != null;
+        h += '<div class="om-rad' + (lost ? " lost" : "") + '" role="group" aria-label="' + (en ? "Row " : "Rad ") + (r + 1) + (lost ? " – " + S.ordene[S.losning[r]].vis : "") + '">';
+        for (let k = 0; k < L; k++, i++) {
+          h += '<button type="button" class="om-flis' + (S.valgt === i ? " valgt" : "") + (S.laast.has(i) ? " laast" : "") + '" data-i="' + i + '"' +
+            (S.laast.has(i) || S.ferdig ? " disabled" : "") + ' aria-label="' + S.b[i] + (S.valgt === i ? ", " + tx.valgt : "") + '">' + S.b[i] + "</button>";
+        }
+        h += "</div>";
+      });
+      $("om-brett").innerHTML = h;
+      $("om-led").innerHTML = S.ordene.map((o, oi) => {
+        const lost = S.losning.includes(oi);
+        return '<li class="' + (lost ? "lost" : "") + '"><span class="om-lengde">' + o.w.length + (en ? " letters" : " bokstaver") + (o.type === "person" ? (en ? " · surname" : " · etternavn") : "") + "</span>" +
+          (lost ? "<strong>" + LV.esc(o.vis) + "</strong>" + (o.norsk ? ' <span lang="nb">(' + LV.esc(o.norsk) + ")</span>" : "") + " – " : "") + LV.esc(forkort(o.forklaring, 140)) + "</li>";
+      }).join("");
+      $("spill-status").innerHTML = "<span>" + tx.ord + ": <strong>" + S.losning.filter(x => x != null).length + " / " + S.ordene.length + "</strong></span><span>" + tx.bytter + ": <strong>" + S.bytter + "</strong></span>" +
+        (S.hint ? "<span>" + tx.hintBrukt + ": <strong>" + S.hint + "</strong></span>" : "");
+      $("om-brett").querySelectorAll(".om-flis").forEach(b => {
+        b.addEventListener("click", () => velg(+b.dataset.i));
+        b.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse" || e.button === 0) dra = { fra: +b.dataset.i, x: e.clientX, y: e.clientY, flyttet: false }; });
+      });
+    }
+    // Dra og slipp med pekeren (mus og berøring)
+    let dra = null;
+    document.addEventListener("pointermove", e => { if (dra && Math.hypot(e.clientX - dra.x, e.clientY - dra.y) > 8) dra.flyttet = true; });
+    document.addEventListener("pointerup", e => {
+      if (!dra) return;
+      const d = dra; dra = null;
+      if (!d.flyttet) return;
+      const m = document.elementFromPoint(e.clientX, e.clientY);
+      const b = m && m.closest(".om-flis");
+      if (b && +b.dataset.i !== d.fra && !b.disabled) { S.valgt = null; bytt(d.fra, +b.dataset.i); }
+      sperrKlikk = true; setTimeout(() => { sperrKlikk = false; }, 50);
+    });
+    let sperrKlikk = false;
+    function velg(i) {
+      if (sperrKlikk || S.ferdig || S.laast.has(i)) return;
+      if (S.valgt == null) { S.valgt = i; tegn(); fokus(i); return; }
+      if (S.valgt === i) { S.valgt = null; tegn(); fokus(i); return; }
+      const a = S.valgt; S.valgt = null; bytt(a, i); fokus(i);
+    }
+    function fokus(i) { const b = $("om-brett").querySelector('[data-i="' + i + '"]'); if (b && !b.disabled) b.focus({ preventScroll: true }); }
+    function bytt(a, b) {
+      if (S.laast.has(a) || S.laast.has(b)) return;
+      if (S.b[a] !== S.b[b]) S.bytter++;
+      [S.b[a], S.b[b]] = [S.b[b], S.b[a]];
+      sjekk(); tegn();
+      if (S.losning.every(x => x != null)) ferdig();
+    }
+    function hint() {
+      if (S.ferdig) return;
+      // Finn en rad som ikke er løst, og ordet som passer best (samme lengde, ikke brukt)
+      const brukt = new Set(S.losning.filter(x => x != null));
+      for (let r = 0; r < S.rader.length; r++) {
+        if (S.losning[r] != null) continue;
+        const start = radStart(r), L = S.rader[r];
+        const oi = S.ordene.findIndex((o, k) => !brukt.has(k) && o.w.length === L && ![...Array(L).keys()].some(j => S.laast.has(start + j) && S.b[start + j] !== o.w[j]));
+        if (oi < 0) continue;
+        const o = S.ordene[oi];
+        for (let j = 0; j < L; j++) {
+          const p = start + j;
+          if (S.laast.has(p) || S.b[p] === o.w[j]) { if (S.b[p] === o.w[j]) S.laast.add(p); continue; }
+          // finn bokstaven et sted som ikke er låst og ikke i en løst rad
+          const losteRuter = new Set();
+          S.losning.forEach((x, rr) => { if (x != null) for (let q = 0; q < S.rader[rr]; q++) losteRuter.add(radStart(rr) + q); });
+          let fra = S.b.findIndex((ch, q) => ch === o.w[j] && !S.laast.has(q) && !losteRuter.has(q) && q !== p);
+          if (fra < 0) fra = S.b.findIndex((ch, q) => ch === o.w[j] && !S.laast.has(q) && q !== p);
+          if (fra < 0) continue;
+          [S.b[p], S.b[fra]] = [S.b[fra], S.b[p]];
+          S.laast.add(p); S.hint++; S.valgt = null;
+          sjekk(); tegn();
+          if (S.losning.every(x => x != null)) ferdig();
+          return;
+        }
+      }
+    }
+    function ferdig() {
+      S.ferdig = true; tegn();
+      const linje = S.ordene.length + " ord, " + S.bytter + " bytter" + (S.hint ? ", " + S.hint + " hint" : "") + ", tid " + tid(Date.now() - S.start) + " (" + S.ordene.map(o => o.vis).join(", ") + ")";
+      $("spill-slutt").innerHTML = '<div class="spill-resultat"><h2>' + T.ferdig + ' 🎉</h2><p lang="nb">' + LV.esc(linje) + '</p><div class="spill-knapper"><button class="knapp hoved" id="igjen">' + tx.ny +
+        '</button><button class="knapp" id="kopier">' + T.kopier + '</button><span id="kopistatus" aria-live="polite"></span></div></div>';
+      $("igjen").addEventListener("click", start);
+      $("kopier").addEventListener("click", () => kopier(resultatTekst("ordmiks", linje), $("kopistatus")));
+    }
+    start();
+  }
+
+  // =========================================================
   // Oversikt
   // =========================================================
   function oversikt() {
@@ -503,7 +777,7 @@
       return t.length ? '<optgroup label="' + LV.fagNavn[fag] + " – " + tr + '. trinn">' + t.map(x => '<option value="tema=' + x.id + '">' + LV.esc(x.tittel) + "</option>").join("") +
         '<option value="fag=' + fag + "&trinn=" + tr + '">★ Bland alle temaene i ' + LV.fagNavn[fag].toLowerCase() + ", " + tr + ". trinn</option></optgroup>" : "";
     }).join("");
-    let h = '<header class="sidehode"><h1>Spill</h1><p class="ingress">Øv på begreper, personer og hendelser fra temaene – med memory, gjett ordet, ordsøk og tidslinje. Spillene lages automatisk fra hvert tema. Ingenting lagres.</p></header>' +
+    let h = '<header class="sidehode"><h1>Spill</h1><p class="ingress">Øv på begreper, personer og hendelser fra temaene – med memory, gjett ordet, ordsøk, Ordle, Ordmiks og tidslinje. Spillene lages automatisk fra hvert tema. Ingenting lagres.</p></header>' +
       '<section class="spill-velger"><label for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema">' + valg("samfunnsfag") + valg("engelsk") + "</select></section>" +
       '<h2 class="spill-steg">2. Velg spill</h2><ul class="spillkort-rad">' + SPILL.map(s =>
         '<li><a class="spillkort" data-spill="' + s.id + '" href="#"><span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
@@ -536,6 +810,6 @@
       ramme(spill, '<p class="melding" lang="nb">Dette temaet har for lite innhold til dette spillet. Prøv et annet spill eller et annet tema.</p>');
       return;
     }
-    ({ memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, rekkefolge: rekkefolge })[spill]();
+    ({ memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, ordle: ordle, ordmiks: ordmiks, rekkefolge: rekkefolge })[spill]();
   });
 })();

@@ -1145,3 +1145,52 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .ordbok-boble .ob-oppslag h4 { font-size: 1.05rem; }
 .ordbok-knapp { position: absolute; z-index: 59; font-family: var(--font-ui); font-size: .9rem; padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--aksent); background: var(--aksent); color: #fff; box-shadow: var(--skygge); cursor: pointer; min-height: 40px; }
 @media print { .ordbok-boble, .ordbok-knapp { display: none; } }
+
+/* Ordle */
+.ordle { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+.ol-brett { --l: 5; display: grid; gap: 6px; width: min(100%, calc(var(--l) * 3.6rem)); }
+.ol-rad-brett { display: grid; grid-template-columns: repeat(var(--l), 1fr); gap: 6px; }
+.ol-rute { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 2px solid var(--linje); border-radius: 6px; font: 800 clamp(1.1rem, 6vw, 1.8rem) var(--font-ui); text-transform: uppercase; background: var(--flate); color: var(--tekst); }
+.ol-rute.fylt { border-color: var(--tekst-dempet); }
+.ol-rute.riktig { background: #2e7d46; border-color: #2e7d46; color: #fff; }
+.ol-rute.finnes { background: #c9a227; border-color: #c9a227; color: #1f1a05; }
+.ol-rute.ikke { background: #7a7f87; border-color: #7a7f87; color: #fff; }
+.ol-rute.snu { animation: ol-snu .45s ease both; animation-delay: calc(var(--i) * 90ms); }
+@keyframes ol-snu { 0% { transform: rotateX(0); } 50% { transform: rotateX(90deg); } 100% { transform: rotateX(0); } }
+.ol-rad-brett.rist { animation: rist .35s; }
+.ol-melding { min-height: 1.4em; font-weight: 600; text-align: center; }
+.ol-hint { width: min(100%, 560px); background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .8rem; }
+.ol-hint summary { cursor: pointer; font-weight: 600; }
+.ol-hint p { margin: .4rem 0 0; font-family: var(--font-tekst); }
+.ol-tastatur { display: flex; flex-direction: column; gap: 6px; width: min(100%, 560px); }
+.ol-rad { display: flex; gap: 5px; justify-content: center; }
+.ol-tast { flex: 1 1 0; min-width: 0; height: 3.1rem; border: 0; border-radius: 6px; background: var(--flate-2); color: var(--tekst); font: 700 1rem var(--font-ui); cursor: pointer; padding: 0; }
+.ol-tast.bred { flex: 1.6 1 0; font-size: .75rem; }
+.ol-tast.riktig { background: #2e7d46; color: #fff; }
+.ol-tast.finnes { background: #c9a227; color: #1f1a05; }
+.ol-tast.ikke { background: #7a7f87; color: #fff; opacity: .75; }
+.ol-forklaring { font-family: var(--font-tekst); }
+.ordle .spill-resultat { width: min(100%, 560px); box-sizing: border-box; }
+:root[data-tema="mork"] .ol-rute.ikke, :root[data-tema="mork"] .ol-tast.ikke { background: #3d424a; border-color: #3d424a; }
+
+/* Ordmiks */
+.om-tips { margin: 0 0 .5rem; color: var(--tekst-dempet); }
+.ordmiks { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+.om-brett { display: flex; flex-direction: column; gap: 8px; touch-action: none; user-select: none; -webkit-user-select: none; }
+.om-rad { display: flex; gap: 6px; padding: 4px; border-radius: 10px; }
+.om-rad.lost { background: #d6efdc; }
+.om-flis { width: clamp(1.9rem, calc((100vw - 100px) / 10), 3.1rem); aspect-ratio: 1; border: 2px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); font: 800 clamp(1rem, 4.6vw, 1.45rem) var(--font-ui); cursor: grab; padding: 0; box-shadow: 0 2px 0 var(--linje); }
+.om-flis.valgt { border-color: var(--aksent); background: var(--aksent-lys); transform: translateY(-3px); }
+.om-rad.lost .om-flis { border-color: #2e7d46; background: #2e7d46; color: #fff; box-shadow: none; }
+.om-flis.laast { outline: 2px dashed #c9a227; outline-offset: -5px; cursor: default; }
+.om-flis:disabled { cursor: default; opacity: 1; }
+.om-side { flex: 1 1 260px; }
+.om-side h2 { font-size: 1.05rem; margin-top: 0; }
+.om-ledetrader { padding-left: 1.2rem; margin: 0 0 .8rem; display: grid; gap: .4rem; font-family: var(--font-tekst); }
+.om-ledetrader li.lost { color: var(--tekst-dempet); }
+.om-ledetrader li.lost strong { color: #2e7d46; }
+.om-lengde { display: inline-block; font: 600 .72rem var(--font-ui); text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); margin-right: .4rem; }
+:root[data-tema="mork"] .om-rad.lost { background: #1f3a31; }
+:root[data-tema="mork"] .om-ledetrader li.lost strong { color: #6cc3a5; }
+@media (max-width: 600px) { .om-rad { gap: 4px; padding: 3px; } .om-brett { gap: 6px; } .om-flis { width: clamp(1.9rem, calc((100vw - 82px) / 10), 3.1rem); } }
+@media (prefers-reduced-motion: reduce) { .ol-rute.snu, .ol-rad-brett.rist { animation: none; } }

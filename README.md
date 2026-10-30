@@ -205,9 +205,10 @@ Lage ordboka på nytt (f.eks. når Bokmålsordboka er oppdatert): Legg kildefile
 
 - **Memory / Koble sammen:** par fra `ord` (begrep ↔ forklaring), `personer` (navn ↔ rolle + levetid) og `tidslinje` (dato ↔ hendelse). I engelske temaer deles `ord`-verdien ved « – », så «norsk – English explanation» blir kortet «term (norsk)» ↔ «English explanation». Skriv derfor alltid engelske begreper på formen `"norsk – forklaring"`.
 - **Gjett ordet** og **Ordsøk:** bruker begrepene og personnavnene (i ordsøk bare etternavnet). Ord over 12 bokstaver kommer ikke med i ordsøket.
+- **Ordle** (som Wordle) og **Ordmiks** (som Smartle): bruker begreper som er ett ord (3–10 bokstaver, ingen mellomrom eller bindestrek), og etternavn hvis det er for få begreper. Ordle sjekker gjettene mot ordboka (`LV.ordbok.erOrd`), så `assets/ordbok.js` må lastes i `spill.html`.
 - **Tidslinje:** seks hendelser fra `tidslinje`, sortert med `LV.tidsnokkel`. Krever minst fire datoer i temaet.
 
-Adresser: `spill.html?spill=memory|koble|hangman|ordsok|rekkefolge&tema=<id>`, eller `&fag=<fag>&trinn=<n>` for å blande alle temaene på et trinn. Spill som et tema har for lite innhold til, vises ikke i «Spill og øv»-boksen. Jo flere begreper (`[[ord]]`) et tema har, jo bedre blir spillene – sikt på minst 6–8.
+Adresser: `spill.html?spill=memory|koble|hangman|ordsok|ordle|ordmiks|rekkefolge&tema=<id>`, eller `&fag=<fag>&trinn=<n>` for å blande alle temaene på et trinn. Spill som et tema har for lite innhold til, vises ikke i «Spill og øv»-boksen. Jo flere begreper (`[[ord]]`) et tema har, jo bedre blir spillene – sikt på minst 6–8.
 
 ### Kartspillet
 
@@ -257,7 +258,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030e`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261030f`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

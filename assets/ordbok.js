@@ -106,6 +106,14 @@
       const [no, en] = await Promise.all([finnNorsk(ord), finnEngelsk(ord)]);
       // Prøv også uten stor forbokstav/med små bokstaver i norsk (står først i setningen)
       return { ord: ord, no: no, en: en };
+    },
+    // Finnes ordet (eller en bøyningsform av det) i ordboka? Brukes av Ordle.
+    erOrd: async function (ord, sprak) {
+      ord = LV.ordbok.rens(ord);
+      if (!ord) return false;
+      await lastIndeks();
+      if (sprak === "en") return !!(await finnEngelsk(ord));
+      return (await finnNorsk(ord)).length > 0;
     }
   };
 
@@ -272,7 +280,8 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    if (document.body.dataset.side === "ordbok") ordbokside();
-    else LV.ordbok.aktiver();
+    const side = document.body.dataset.side;
+    if (side === "ordbok") ordbokside();
+    else if (side !== "spill" && side !== "kartspill") LV.ordbok.aktiver();
   });
 })();
