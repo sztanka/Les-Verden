@@ -1042,5 +1042,265 @@ window.LV.temaer = [
       "Dublin was founded by Vikings in the 800s.",
       "More than 30 million Americans say they have Irish ancestors."
     ]
+  },
+  {
+    id: "sf8-kart-og-kartlesing",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 8,
+    tittel: "Kart og kartlesing",
+    kort: "Målestokk, koordinater og kartprojeksjoner – og hvorfor ingen kart er nøytrale.",
+    sted: { navn: "Greenwich", lat: 51.477, lon: 0.0 },
+    bilde: "https://images.unsplash.com/photo-1516503424803-708327384b90?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et gammelt kompass i nærbilde",
+    kreditt: "Aaron Burden",
+    kredittUrl: "https://unsplash.com/@aaronburden?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "På et Mercator-kart ser Grønland nesten like stort ut som Afrika – men Afrika er omtrent 14 ganger større.",
+      "Nullmeridianen går gjennom Greenwich i London."
+    ]
+  },
+  {
+    id: "sf8-klima-og-vegetasjon",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 8,
+    tittel: "Klima- og vegetasjonssoner",
+    kort: "Fra regnskog ved ekvator til tundra og is ved polene – hva bestemmer klimaet?",
+    sted: { navn: "Ubud, Bali", lat: -8.51, lon: 115.26 },
+    bilde: "https://images.unsplash.com/photo-1646928234724-ddfac30993e6?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Tett, grønn regnskog sett ovenfra",
+    kreditt: "Geio Tischler",
+    kredittUrl: "https://unsplash.com/@oww?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Regnskogen dekker bare rundt 6 prosent av landjorda, men er hjem for over halvparten av alle arter.",
+      "Den laveste temperaturen som er målt på en værstasjon, er −89,2 °C i Antarktis."
+    ]
+  },
+  {
+    id: "sf8-naturressurser",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 8,
+    tittel: "Naturressurser – det naturen gir oss",
+    kort: "Fornybare og ikke-fornybare ressurser, vannkraft, metaller i mobilen og ressurskonflikter.",
+    bilde: "https://images.unsplash.com/photo-1495061055503-66bcc351a9b0?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En innsjø omgitt av fjell under en hvit himmel",
+    kreditt: "Wolf Vandierendonck",
+    kredittUrl: "https://unsplash.com/@wolf_?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Rundt 90 prosent av strømmen i Norge kommer fra vannkraft.",
+      "En vanlig mobiltelefon inneholder mer enn 30 ulike grunnstoffer."
+    ]
+  },
+  {
+    id: "sf8-befolkning-urbanisering",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 8,
+    tittel: "Befolkning og urbanisering",
+    kort: "Fra én til åtte milliarder mennesker – og hvorfor stadig flere bor i byer.",
+    sted: { navn: "Tokyo", lat: 35.68, lon: 139.69 },
+    bilde: "https://images.unsplash.com/photo-1639037179118-d1a475030792?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et travelt gatekryss i en storby sett ovenfra",
+    kreditt: "Michael Myers",
+    kredittUrl: "https://unsplash.com/@myers2021?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Jordas befolkning passerte åtte milliarder i 2022.",
+      "Siden 2007 har over halvparten av verdens befolkning bodd i byer."
+    ]
+  },
+  {
+    id: "sf8-identitet-sosialisering",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 8,
+    tittel: "Identitet og sosialisering – hvem er jeg?",
+    kort: "Familie, venner, skole og sosiale medier former hvem vi blir. Om normer, roller og kjønnsroller.",
+    bilde: "https://images.unsplash.com/photo-1509029032154-54ba8b3216d4?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En person med briller som ser ut gjennom et vindu",
+    kreditt: "Laurenz Kleinheider",
+    kredittUrl: "https://unsplash.com/@laurlenz?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Sosialiseringen starter den dagen vi blir født, og varer hele livet.",
+      "Normer er uskrevne regler – som at man står i kø og sier takk for maten."
+    ]
+  },
+  {
+    id: "sf8-demokratiet-i-norge",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 8,
+    tittel: "Demokratiet i Norge – Storting, regjering og kommune",
+    kort: "Hvem bestemmer hva? Om maktfordeling, valg, partier, kommunen – og hvordan du kan påvirke.",
+    sted: { navn: "Oslo (Stortinget)", lat: 59.913, lon: 10.74 },
+    bilde: "https://images.unsplash.com/photo-1759065456198-4d404f4cb495?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En utsmykket bygning i gul murstein med buede vinduer",
+    kreditt: "paws and prints",
+    kredittUrl: "https://unsplash.com/@paws_and_prints?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Stortinget har 169 representanter.",
+      "Ordet demokrati kommer fra gresk og betyr «folkestyre»."
+    ]
+  },
+  {
+    id: "sf8-rettsstaten",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 8,
+    tittel: "Rettsstaten – ingen står over loven",
+    kort: "Likhet for loven, uavhengige domstoler og dine rettigheter – grunnlaget for et trygt samfunn.",
+    bilde: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En statue av rettferdighetsgudinnen med vekt og sverd",
+    kreditt: "Tingey Injury Law Firm",
+    kredittUrl: "https://unsplash.com/@tingeyinjurylawfirm?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norge har tre nivåer av domstoler: tingretten, lagmannsretten og Høyesterett.",
+      "FNs barnekonvensjon er en del av norsk lov og gir barn rett til å si sin mening."
+    ]
+  },
+  {
+    id: "sf8-kildekritikk",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 8,
+    tittel: "Kildekritikk og kritisk tenkning",
+    kort: "Hvem står bak, hvorfor og når? Verktøy for å skille sant fra usant – også når KI er med.",
+    bilde: "https://images.unsplash.com/photo-1786840506907-f4911c1ee3b0?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Et forstørrelsesglass som ligger på en side med trykt tekst",
+    kreditt: "Spencer Liao",
+    kredittUrl: "https://unsplash.com/@spencerliao?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "En propagandaplakat er en dårlig kilde til hva som skjedde, men en god kilde til hvordan makthaverne ville påvirke folk.",
+      "Chatboter kan finne opp kilder som ikke finnes."
+    ]
+  },
+  {
+    id: "en8-identity-friendship",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Identity and Friendship",
+    kort: "Who are you, and what makes a good friend? Words and ideas for talking about yourself.",
+    bilde: "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Silhouettes of six friends on top of a mountain at sunset",
+    kreditt: "Chang Duong",
+    kredittUrl: "https://unsplash.com/@iamchang?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Your identity has many layers, and it often changes most in your teenage years.",
+      "Empathy means imagining how another person feels."
+    ]
+  },
+  {
+    id: "en8-school-youth-culture",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "School and Youth Culture",
+    kort: "Uniforms, GCSEs, high school and prom – school and youth culture in Britain, the USA and Norway.",
+    sted: { navn: "Eton", lat: 51.49, lon: -0.61 },
+    bilde: "https://images.unsplash.com/photo-1580188911874-f95af62924ee?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A blue metal school locker with a padlock",
+    kreditt: "Joshua Hoehne",
+    kredittUrl: "https://unsplash.com/@joshua_hoehne?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "In England, children start school the year they turn five.",
+      "Eton College was founded in 1440."
+    ]
+  },
+  {
+    id: "en8-sports",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Sports in the English-Speaking World",
+    kort: "Football, cricket, rugby, basketball and baseball – and how sport has changed society.",
+    sted: { navn: "Wembley, London", lat: 51.556, lon: -0.279 },
+    bilde: "https://images.unsplash.com/photo-1629217855633-79a6925d6c47?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Fans watching a football match in a huge stadium",
+    kreditt: "Krzysztof Dubiel",
+    kredittUrl: "https://unsplash.com/@kris1902?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The first official rules of football were written in London in 1863.",
+      "Basketball was invented by a teacher in 1891 who needed an indoor game for winter."
+    ]
+  },
+  {
+    id: "en8-food-travel",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Food and Travel",
+    kort: "Fish and chips, Thanksgiving turkey and curry – plus the English you need when you travel.",
+    bilde: "https://images.unsplash.com/photo-1579208030886-b937da0925dc?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Fish and chips with calamari in a paper tray",
+    kreditt: "Meelan Bawjee",
+    kredittUrl: "https://unsplash.com/@milodude?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Britons drink around 100 million cups of tea every day.",
+      "Fish and chips was not rationed during the Second World War."
+    ]
+  },
+  {
+    id: "en8-english-around-the-world",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "English Around the World",
+    kort: "From Old English and the Vikings to a global lingua franca spoken by 1.5 billion people.",
+    sted: { navn: "Hastings", lat: 50.91, lon: 0.49 },
+    bilde: "https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "A world map with coloured pins marking locations",
+    kreditt: "Andrew Stutesman",
+    kredittUrl: "https://unsplash.com/@drwmrk?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The English words sky, egg, knife and they all come from the Vikings.",
+      "Most conversations in English today are between people who are not native speakers."
+    ]
+  },
+  {
+    id: "en8-wonder",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Reading Wonder by R. J. Palacio",
+    kort: "A boy with a facial difference starts school for the first time – a novel about kindness and courage.",
+    sted: { navn: "New York", lat: 40.81, lon: -73.95 },
+    bilde: "https://images.unsplash.com/photo-1515705576963-95cad62945b6?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "The Milky Way over dark mountains",
+    kreditt: "Dns Dgn",
+    kredittUrl: "https://unsplash.com/@dnsdgn?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Wonder is told by six different narrators.",
+      "The book was made into a film in 2017."
+    ]
   }
 ];

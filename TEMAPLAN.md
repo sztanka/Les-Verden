@@ -15,25 +15,25 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Den franske revolusjonen og Napoleon (`sf8-franske-revolusjonen`)
 - [x] 1814 og Grunnloven (`sf8-1814-grunnloven`) – Christian Frederik, Eidsvoll ↔ *Democracy in Britain*
 - [x] Unionen med Sverige og 1905 (`sf8-unionen-1905`)
-- [ ] Kart og kartlesing (`sf8-kart-og-kartlesing`)
-- [ ] Klima- og vegetasjonssoner (`sf8-klima-og-vegetasjon`)
-- [ ] Naturressurser (`sf8-naturressurser`)
-- [ ] Befolkning og urbanisering (`sf8-befolkning-urbanisering`)
-- [ ] Identitet og sosialisering (`sf8-identitet-sosialisering`) – inkl. kjønnsroller ↔ *Identity and Friendship*
-- [ ] Demokratiet i Norge (`sf8-demokratiet-i-norge`) – Storting, regjering, kommune, valg
-- [ ] Rettsstaten (`sf8-rettsstaten`)
-- [ ] Kildekritikk og kritisk tenkning (`sf8-kildekritikk`) ↔ *Group Think*
+- [x] Kart og kartlesing (`sf8-kart-og-kartlesing`)
+- [x] Klima- og vegetasjonssoner (`sf8-klima-og-vegetasjon`)
+- [x] Naturressurser (`sf8-naturressurser`)
+- [x] Befolkning og urbanisering (`sf8-befolkning-urbanisering`)
+- [x] Identitet og sosialisering (`sf8-identitet-sosialisering`) – inkl. kjønnsroller ↔ *Identity and Friendship*
+- [x] Demokratiet i Norge (`sf8-demokratiet-i-norge`) – Storting, regjering, kommune, valg
+- [x] Rettsstaten (`sf8-rettsstaten`)
+- [x] Kildekritikk og kritisk tenkning (`sf8-kildekritikk`) ↔ *Group Think*
 
 ### Engelsk
-- [ ] Identity and Friendship (`en8-identity-friendship`) ↔ *Identitet og sosialisering*
-- [ ] School and Youth Culture (`en8-school-youth-culture`)
-- [ ] Sports in the English-Speaking World (`en8-sports`)
-- [ ] Food and Travel (`en8-food-travel`)
+- [x] Identity and Friendship (`en8-identity-friendship`) ↔ *Identitet og sosialisering*
+- [x] School and Youth Culture (`en8-school-youth-culture`)
+- [x] Sports in the English-Speaking World (`en8-sports`)
+- [x] Food and Travel (`en8-food-travel`)
 - [x] The United Kingdom (`en8-united-kingdom`)
 - [x] Ireland (`en8-ireland`)
 - [x] Democracy in Britain: from Magna Carta to Parliament (`en8-democracy-britain`) ↔ *1814 og Grunnloven*
-- [ ] English Around the World (`en8-english-around-the-world`)
-- [ ] Reading *Wonder* (`en8-wonder`)
+- [x] English Around the World (`en8-english-around-the-world`)
+- [x] Reading *Wonder* (`en8-wonder`)
 
 ---
 
