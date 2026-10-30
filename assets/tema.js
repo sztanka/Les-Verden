@@ -241,6 +241,22 @@
     });
     h += "</section>";
 
+    // Spill og øv
+    {
+      const en = tema.sprak === "en";
+      const antOrd = Object.keys(tema.ord || {}).length, antPar = antOrd + (tema.personer || []).length + (tema.tidslinje || []).length;
+      const spill = [
+        ["memory", "🃏", "Memory", antPar >= 4], ["koble", "🔗", en ? "Match up" : "Koble sammen", antPar >= 4],
+        ["hangman", "🔤", en ? "Hangman" : "Gjett ordet", antOrd >= 3], ["ordsok", "🔍", en ? "Word search" : "Ordsøk", antOrd >= 3],
+        ["rekkefolge", "⏳", en ? "Timeline" : "Tidslinje", (tema.tidslinje || []).length >= 4]
+      ].filter(x => x[3]);
+      if (spill.length) {
+        h += '<section class="spill-og-ov" aria-labelledby="spill-tittel"><h2 id="spill-tittel">' + (en ? "Play and practise" : "Spill og øv") + "</h2><p>" +
+          (en ? "Practise the terms, people and events from this topic." : "Øv på begrepene, personene og hendelsene fra dette temaet.") + '</p><ul class="spillknapper">' +
+          spill.map(x => '<li><a class="knapp" href="spill.html?spill=' + x[0] + "&tema=" + encodeURIComponent(tema.id) + '"><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a></li>").join("") + "</ul></section>";
+      }
+    }
+
     // Koblet til
     const koblet = (tema.kobletTil || []).map(id => LV.temaer.find(t => t.id === id)).filter(Boolean);
     if (koblet.length) {

@@ -56,7 +56,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261030c";
+  LV.versjon = "20261030d";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -76,6 +76,7 @@ window.LV = window.LV || {};
     const aktiv = function (navn) {
       if (navn === "forside") return side === "forside" && !fag;
       if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn);
+      if (navn === "spill") return side === "spill" || side === "kartspill";
       return side === navn;
     };
     const lenke = function (href, tekst, navn) {
@@ -94,7 +95,7 @@ window.LV = window.LV || {};
           lenke("tidslinje.html", "Tidslinje", "tidslinje") +
           lenke("begreper.html", "Begreper", "begreper") +
           lenke("personer.html", "Personer", "personer") +
-          lenke("kartspill.html", "Kartspill", "kartspill") +
+          lenke("spill.html", "Spill", "spill") +
           lenke("eksamen.html", "Eksamen", "eksamen") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +

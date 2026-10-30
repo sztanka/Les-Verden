@@ -980,3 +980,124 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .landstripe a:hover, .landstripe a:focus-visible { border-color: var(--engelsk); }
 @media (max-width: 640px) { .nasjonkort dl { grid-template-columns: 1fr; } .faktaboks dl { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 900px) { .verktoykort-rad { grid-template-columns: repeat(3, 1fr); } }
+
+/* =========================================================
+   Læringsspill (spill.html)
+   ========================================================= */
+.spill-side { max-width: 1100px; }
+.spill-velger { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; }
+.spill-velger select { font: inherit; font-family: var(--font-ui); padding: .5rem .6rem; border-radius: 10px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); max-width: 100%; flex: 1 1 260px; }
+.spill-steg { margin-top: 1.6rem; font-size: 1.15rem; }
+.spillkort-rad { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .9rem; }
+.spillkort { display: flex; flex-direction: column; gap: .3rem; height: 100%; box-sizing: border-box; padding: 1rem 1.1rem; background: var(--flate); border: 2px solid var(--linje); border-radius: var(--radius); color: var(--tekst); text-decoration: none; font-family: var(--font-ui); transition: border-color .15s, transform .15s; }
+.spillkort:hover, .spillkort:focus-visible { border-color: var(--aksent); transform: translateY(-2px); }
+.spillkort strong { font-size: 1.1rem; }
+.spillkort span:last-child { color: var(--tekst-dempet); font-size: .93rem; }
+.spillkort-ikon { font-size: 2rem; line-height: 1; }
+.spill-hode h1 { margin-bottom: .2rem; }
+.spill-kilde { margin: 0 0 .6rem; color: var(--tekst-dempet); font-family: var(--font-ui); }
+.spill-andre { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.spill-andre a { font-family: var(--font-ui); font-size: .88rem; padding: .3rem .7rem; border-radius: 999px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); text-decoration: none; }
+.spill-andre a:hover { background: var(--flate-2); }
+.spillflate { font-family: var(--font-ui); }
+.spill-valg { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; align-items: center; margin-bottom: .8rem; }
+.spill-valggruppe { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.spill-sjekk { display: inline-flex; gap: .35rem; align-items: center; cursor: pointer; }
+.knapp.liten { padding: .3rem .65rem; font-size: .9rem; }
+.spill-status { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: .4rem 0 .9rem; color: var(--tekst-dempet); }
+.spill-status strong { color: var(--tekst); }
+.spill-resultat { margin-top: 1.2rem; background: var(--gul-lys); border-radius: var(--radius); padding: 1rem 1.2rem; }
+.spill-resultat h2 { margin-top: 0; }
+.spill-knapper { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0; }
+.spill-parliste { display: grid; gap: .4rem; margin: .6rem 0 0; }
+.spill-parliste div { background: var(--flate); border-radius: 10px; padding: .45rem .7rem; }
+.spill-parliste dt { font-weight: 700; }
+.spill-parliste dd { margin: 0; }
+
+/* Memory / koble sammen */
+.memorybrett { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .6rem; }
+.mkort { position: relative; min-height: 130px; padding: 0; border: 0; background: none; cursor: pointer; perspective: 800px; font: inherit; color: inherit; text-align: left; }
+.mkort-indre { position: absolute; inset: 0; transition: transform .4s; transform-style: preserve-3d; }
+.mkort.snudd .mkort-indre { transform: rotateY(180deg); }
+.mkort-bak, .mkort-front { position: absolute; inset: 0; border-radius: 12px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-sizing: border-box; }
+.mkort-bak { background: var(--fag); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.12) 0 10px, transparent 10px 20px); border: 2px solid var(--fag); }
+.mkort-front { transform: rotateY(180deg); background: var(--flate); border: 2px solid var(--linje); padding: .55rem .65rem; display: flex; flex-direction: column; gap: .25rem; overflow: auto; font-size: .9rem; line-height: 1.3; }
+.mkort.side-a .mkort-front { background: var(--fag-lys); }
+.kort-type { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tekst-dempet); }
+.kort-hoved { font-size: 1.02rem; }
+.kort-norsk { color: var(--tekst-dempet); font-size: .85rem; }
+.mkort.valgt .mkort-front { border-color: var(--aksent); box-shadow: 0 0 0 3px var(--aksent-lys); }
+.mkort.funnet .mkort-front { border-color: #2e7d46; background: #d6efdc; color: #14351f; }
+.mkort.funnet .kort-type, .mkort.funnet .kort-norsk { color: #2b5a3a; }
+.mkort.funnet { cursor: default; opacity: .85; }
+.mkort.bom .mkort-front { border-color: #b3261e; animation: rist .35s; }
+.memorybrett.synlig .mkort { min-height: 0; }
+.memorybrett.synlig .mkort-indre { position: static; transform: none; }
+.memorybrett.synlig .mkort-bak { display: none; }
+.memorybrett.synlig .mkort-front { position: static; transform: none; min-height: 100px; height: 100%; }
+@keyframes rist { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.memorybrett.synlig .mkort.bom .mkort-front { animation: rist .35s; }
+.mkort:not(.snudd) .mkort-indre { transform: none; }
+.memorybrett:not(.synlig) .mkort.snudd .mkort-indre { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) { .mkort-indre { transition: none; } .mkort.bom .mkort-front { animation: none; } }
+
+/* Gjett ordet */
+.hangman { display: flex; gap: 1.2rem; align-items: flex-start; flex-wrap: wrap; }
+.hm-tegning { width: 130px; height: 140px; flex: none; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); }
+.hm-strek { stroke: var(--tekst); stroke-width: 4; stroke-linecap: round; fill: none; }
+.hm-hoved { flex: 1 1 280px; }
+.hm-ord { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-bottom: .8rem; }
+.hm-del { display: inline-flex; gap: .3rem; flex-wrap: wrap; }
+.hm-boks { width: 1.9rem; height: 2.3rem; border-bottom: 3px solid var(--tekst); display: inline-flex; align-items: flex-end; justify-content: center; font-size: 1.4rem; font-weight: 700; }
+.hm-boks.mistet { color: #b3261e; }
+.hm-mellomrom { width: 1rem; }
+.hm-tegn { font-size: 1.4rem; align-self: flex-end; }
+.hm-hint { background: var(--flate); border-left: 4px solid var(--fag); padding: .6rem .8rem; border-radius: 8px; font-family: var(--font-tekst); }
+.hm-tilbakemelding .ok { color: var(--samfunnsfag); }
+.hm-tilbakemelding .ikke-ok { color: #b3261e; }
+:root[data-tema="mork"] .hm-tilbakemelding .ikke-ok, :root[data-tema="mork"] .hm-boks.mistet { color: #ff8a80; }
+.hm-tastatur { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1rem; max-width: 640px; }
+.hm-tast { width: 2.6rem; height: 2.6rem; padding: 0; font-weight: 700; justify-content: center; }
+.hm-tast.riktig { background: #d6efdc; border-color: #2e7d46; color: #14351f; }
+.hm-tast.feil { background: var(--flate-2); color: var(--tekst-dempet); text-decoration: line-through; }
+
+/* Ordsøk */
+.ordsok { display: flex; gap: 1.4rem; flex-wrap: wrap; align-items: flex-start; }
+.os-rutenett { --n: 12; display: grid; gap: 2px; width: min(100%, calc(var(--n) * 2.6rem)); touch-action: none; user-select: none; -webkit-user-select: none; }
+.os-rad { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 2px; }
+.os-celle { aspect-ratio: 1; padding: 0; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); font: 700 clamp(.75rem, 3.2vw, 1.1rem) var(--font-ui); border-radius: 5px; cursor: pointer; }
+.os-celle.start { background: var(--aksent); color: #fff; border-color: var(--aksent); }
+.os-celle.funnet { background: #d6efdc; border-color: #2e7d46; color: #14351f; }
+.os-celle.bom { background: #f9d6d3; }
+.os-liste { flex: 1 1 240px; }
+.os-liste h2 { font-size: 1.05rem; margin-top: 0; }
+.os-liste ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.os-liste li { background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; padding: .4rem .6rem; display: flex; flex-direction: column; }
+.os-liste li.funnet { border-color: #2e7d46; }
+.os-liste li.funnet strong { text-decoration: line-through; text-decoration-color: #2e7d46; }
+.os-forkl { font-size: .88rem; color: var(--tekst-dempet); }
+.os-tips { font-size: .88rem; }
+
+/* Tidslinje-rekkefølge */
+.rf-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; counter-reset: rf; }
+.rf-kort { display: flex; gap: .6rem; align-items: center; background: var(--flate); border: 2px solid var(--linje); border-radius: 10px; padding: .55rem .7rem; cursor: grab; counter-increment: rf; }
+.rf-kort::before { content: counter(rf); font-weight: 700; color: var(--tekst-dempet); min-width: 1.2rem; }
+.rf-kort.drar { opacity: .5; }
+.rf-kort.ok { border-color: #2e7d46; background: #d6efdc; color: #14351f; }
+.rf-kort.ikke-ok { border-color: #b3261e; }
+.rf-tekst { flex: 1; font-family: var(--font-tekst); }
+.rf-dato { font-family: var(--font-ui); }
+.rf-tema { display: block; color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .8rem; }
+.rf-kort.ok .rf-tema { color: #2b5a3a; }
+.rf-piler { display: flex; gap: .3rem; flex: none; }
+.rf-retning { margin: .3rem 0; color: var(--tekst-dempet); font-weight: 600; }
+
+/* Spill og øv-boks på temasiden */
+.spill-og-ov { background: var(--fag-lys); border-radius: var(--radius); padding: 1rem 1.2rem; margin: 2rem 0; }
+.spill-og-ov h2 { margin-top: 0; }
+.spillknapper { list-style: none; padding: 0; margin: .5rem 0 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+@media (max-width: 600px) { .memorybrett { grid-template-columns: repeat(2, 1fr); } .hm-tast { width: 2.3rem; height: 2.4rem; } .hm-tegning { width: 90px; height: 98px; } .hm-boks { width: 1.45rem; height: 2rem; font-size: 1.15rem; } .hm-del { gap: .2rem; } }
+.spillknapper .knapp { text-decoration: none; display: inline-flex; align-items: center; gap: .35rem; }
+:root[data-tema="mork"] .mkort.funnet .mkort-front, :root[data-tema="mork"] .os-celle.funnet, :root[data-tema="mork"] .rf-kort.ok, :root[data-tema="mork"] .hm-tast.riktig { background: #1f3a31; border-color: #6cc3a5; color: var(--tekst); }
+:root[data-tema="mork"] .mkort.funnet .kort-type, :root[data-tema="mork"] .mkort.funnet .kort-norsk, :root[data-tema="mork"] .rf-kort.ok .rf-tema { color: #a9d9c6; }
+:root[data-tema="mork"] .os-celle.bom { background: #4a2420; }

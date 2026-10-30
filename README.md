@@ -21,6 +21,7 @@ les-verden/
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
 ├── verktoy/                Verktøy som lager kartene (trengs ikke på nettsiden)
 ├── assets/
 │   ├── stil.css            All styling (farger øverst i fila)
@@ -186,6 +187,16 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Læringsspillene
+
+`spill.html` + `assets/spill.js` lager spill automatisk fra temafilene – det trengs ingen egne spilldata:
+
+- **Memory / Koble sammen:** par fra `ord` (begrep ↔ forklaring), `personer` (navn ↔ rolle + levetid) og `tidslinje` (dato ↔ hendelse). I engelske temaer deles `ord`-verdien ved « – », så «norsk – English explanation» blir kortet «term (norsk)» ↔ «English explanation». Skriv derfor alltid engelske begreper på formen `"norsk – forklaring"`.
+- **Gjett ordet** og **Ordsøk:** bruker begrepene og personnavnene (i ordsøk bare etternavnet). Ord over 12 bokstaver kommer ikke med i ordsøket.
+- **Tidslinje:** seks hendelser fra `tidslinje`, sortert med `LV.tidsnokkel`. Krever minst fire datoer i temaet.
+
+Adresser: `spill.html?spill=memory|koble|hangman|ordsok|rekkefolge&tema=<id>`, eller `&fag=<fag>&trinn=<n>` for å blande alle temaene på et trinn. Spill som et tema har for lite innhold til, vises ikke i «Spill og øv»-boksen. Jo flere begreper (`[[ord]]`) et tema har, jo bedre blir spillene – sikt på minst 6–8.
+
 ### Kartspillet
 
 Kartspillet har tre spillmåter: **Finn på kartet**, **Hva heter det?** og **Øv og utforsk**.
@@ -234,7 +245,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261030d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

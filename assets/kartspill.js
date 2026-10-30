@@ -42,7 +42,7 @@
   // =========================================================
   function oversikt() {
     document.title = "Kartspill – " + (LV.config ? LV.config.navn : "Les verden");
-    let h = '<header class="sidehode"><h1>Kartspill</h1><p class="ingress">Lær deg kartet! Finn land, hovedsteder, elver, fjellkjeder, landemerker og historiske hendelser. Velg et kart, og velg om du vil finne stedene, gjette navnene eller bare utforske.</p></header>';
+    let h = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="spill.html">Spill</a> › Kartspill</nav><header class="sidehode"><h1>Kartspill</h1><p class="ingress">Lær deg kartet! Finn land, hovedsteder, elver, fjellkjeder, landemerker og historiske hendelser. Velg et kart, og velg om du vil finne stedene, gjette navnene eller bare utforske.</p></header>';
     h += '<div class="ks-moduser-info">' + MODUSER.map(m => '<div><span aria-hidden="true">' + m.ikon + "</span><strong>" + m.navn + "</strong><small>" + m.tekst + "</small></div>").join("") + "</div>";
     GRUPPER.forEach(g => {
       const sett = LV.kartspill.filter(s => s.gruppe === g.navn);
