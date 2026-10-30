@@ -21,6 +21,7 @@ les-verden/
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
 ├── verktoy/                Verktøy som lager kartene (trengs ikke på nettsiden)
 ├── assets/
@@ -187,6 +188,17 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Ordboka
+
+`ordbok.html` + `assets/ordbok.js`. På temasidene, landsidene, tidslinjen, begrepsbanken, personsiden og eksamenssonen kan elevene dobbeltklikke på et ord (eller merke det på mobil og trykke «Slå opp») for å få det forklart i en boble.
+
+- Norske ord: forklaring fra **Bokmålsordboka** (UiB og Språkrådet, CC BY 4.0) og engelsk oversettelse fra **Wiktionary**. Bøyningsformer finnes også («gikk» → «gå»).
+- Engelske ord: norsk oversettelse fra **Wiktionary** og **FreeDict/WikDict** (CC BY-SA 3.0). Vanlige bøyningsformer gjenkjennes («went» → «go», «settlers» → «settler»).
+- Alt ligger i `data/ordbok/` (ca. 25 MB fordelt på ca. 250 filer). Bare filen som trengs lastes ned (ca. 100 kB). Ingenting sendes til andre nettsteder.
+- Kildehenvisning står i ordboka og i `data/ordbok/LISENS.md`. Ikke fjern den.
+
+Lage ordboka på nytt (f.eks. når Bokmålsordboka er oppdatert): Legg kildefilene i `verktoy/kilder/` (se toppen av `verktoy/lag-ordbok.py` for hvor de hentes) og kjør `python3 verktoy/lag-ordbok.py`.
+
 ### Læringsspillene
 
 `spill.html` + `assets/spill.js` lager spill automatisk fra temafilene – det trengs ingen egne spilldata:
@@ -245,7 +257,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261030e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

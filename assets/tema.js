@@ -120,6 +120,7 @@
       h += "<h3>" + T.startsporsmal + "</h3><p>" + formater(tema.startsporsmal) + "</p>" +
         svarfelt("start", rentekst(tema.startsporsmal), T.startsporsmal);
     }
+    h += '<p class="ordbok-tips" lang="nb"><span aria-hidden="true">📖</span> Ukjent ord? Dobbeltklikk på ordet (eller hold fingeren på det på mobil) for å slå det opp i <a href="ordbok.html">ordboka</a>.</p>';
     h += "</section>";
 
     // Opplesing

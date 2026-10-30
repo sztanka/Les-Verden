@@ -1101,3 +1101,47 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 :root[data-tema="mork"] .mkort.funnet .mkort-front, :root[data-tema="mork"] .os-celle.funnet, :root[data-tema="mork"] .rf-kort.ok, :root[data-tema="mork"] .hm-tast.riktig { background: #1f3a31; border-color: #6cc3a5; color: var(--tekst); }
 :root[data-tema="mork"] .mkort.funnet .kort-type, :root[data-tema="mork"] .mkort.funnet .kort-norsk, :root[data-tema="mork"] .rf-kort.ok .rf-tema { color: #a9d9c6; }
 :root[data-tema="mork"] .os-celle.bom { background: #4a2420; }
+
+/* =========================================================
+   Ordbok
+   ========================================================= */
+.ordbok-side { max-width: 820px; }
+.ob-sok { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0 1.4rem; }
+.ob-sok input { flex: 1 1 240px; font: inherit; font-family: var(--font-ui); font-size: 1.1rem; padding: .65rem .9rem; border-radius: 999px; border: 2px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.ob-sok input:focus { border-color: var(--aksent); outline: none; }
+.ob-tittel { margin: 0 0 .6rem; font-size: 1.8rem; }
+.ob-del { margin-bottom: 1.2rem; }
+.ob-overskrift { font-family: var(--font-ui); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--tekst-dempet); margin: 0 0 .5rem; }
+.ob-oppslag { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; margin-bottom: .7rem; }
+.ob-oppslag h4 { margin: 0 0 .3rem; font-size: 1.25rem; }
+.ob-form { font-family: var(--font-ui); font-weight: 400; font-size: .85rem; color: var(--tekst-dempet); }
+.ob-artikkel { position: relative; padding: .4rem 0 .4rem 0; border-top: 1px dashed var(--linje); }
+.ob-artikkel:first-of-type { border-top: 0; }
+.ob-nr { float: left; margin-right: .45rem; font-family: var(--font-ui); font-weight: 700; color: var(--aksent); }
+.ob-klasse { margin: 0 0 .2rem; font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); font-style: italic; }
+.ob-boy { font-style: normal; }
+.ob-sanser { margin: .2rem 0 .3rem; padding-left: 1.3rem; }
+.ob-sanser li { margin-bottom: .2rem; }
+.ob-eks { margin: .2rem 0; font-size: .92rem; color: var(--tekst-dempet); }
+.ob-mer, .ob-bunn { margin: .3rem 0 0; font-family: var(--font-ui); font-size: .88rem; }
+.ob-engelsk { border-top: 1px dashed var(--linje); padding-top: .4rem; }
+.ob-engelsk ul, .ob-oversatt { list-style: none; padding: 0; margin: 0; }
+.ob-engelsk li, .ob-oversatt li { margin-bottom: .25rem; }
+.ob-pos { font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); }
+.ob-hint { color: var(--tekst-dempet); font-size: .9rem; }
+.ob-hint::before { content: "– "; }
+.ob-ingen, .ob-laster { color: var(--tekst-dempet); }
+.ob-kilder { margin-top: 2rem; font-family: var(--font-ui); font-size: .8rem; color: var(--tekst-dempet); }
+.ordbok-tips { margin: .8rem 0 0; font-family: var(--font-ui); font-size: .92rem; color: var(--tekst-dempet); }
+
+.ordbok-boble { position: absolute; z-index: 60; width: min(380px, calc(100vw - 16px)); max-height: min(60vh, 460px); overflow: auto;
+  background: var(--bakgrunn); border: 1px solid var(--linje); border-radius: var(--radius); box-shadow: 0 8px 30px rgba(0,0,0,.18); font-size: .95rem; }
+.ordbok-boble.ark { position: fixed; left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; max-height: 60vh; border-radius: var(--radius) var(--radius) 0 0; }
+.ob-topp { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .5rem .5rem .5rem .9rem; background: var(--flate); border-bottom: 1px solid var(--linje); font-family: var(--font-ui); }
+.ob-lukk { border: 0; background: none; color: var(--tekst); font-size: 1.6rem; line-height: 1; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; }
+.ob-lukk:hover { background: var(--flate-2); }
+.ob-innhold { padding: .6rem .8rem .8rem; }
+.ordbok-boble .ob-oppslag { padding: .55rem .7rem; }
+.ordbok-boble .ob-oppslag h4 { font-size: 1.05rem; }
+.ordbok-knapp { position: absolute; z-index: 59; font-family: var(--font-ui); font-size: .9rem; padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--aksent); background: var(--aksent); color: #fff; box-shadow: var(--skygge); cursor: pointer; min-height: 40px; }
+@media print { .ordbok-boble, .ordbok-knapp { display: none; } }
