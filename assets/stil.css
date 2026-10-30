@@ -1194,3 +1194,57 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 :root[data-tema="mork"] .om-ledetrader li.lost strong { color: #6cc3a5; }
 @media (max-width: 600px) { .om-rad { gap: 4px; padding: 3px; } .om-brett { gap: 6px; } .om-flis { width: clamp(1.9rem, calc((100vw - 82px) / 10), 3.1rem); } }
 @media (prefers-reduced-motion: reduce) { .ol-rute.snu, .ol-rad-brett.rist { animation: none; } }
+
+/* Kryssord */
+.kryssord { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+.ko-nett { --kol: 12; display: grid; grid-template-columns: repeat(var(--kol), var(--ko-str)); --ko-str: clamp(1.55rem, calc((100vw - 40px) / var(--kol)), 2.5rem); gap: 0; flex: none; max-width: 100%; }
+.ko-tom { width: var(--ko-str); height: var(--ko-str); }
+.ko-celle { position: relative; width: var(--ko-str); height: var(--ko-str); box-sizing: border-box; border: 1px solid var(--tekst-dempet); background: var(--flate); margin: 0 -1px -1px 0; }
+.ko-celle.ord { background: var(--fag-lys); }
+.ko-celle.aktiv { background: var(--aksent-lys); outline: 2px solid var(--aksent); outline-offset: -2px; z-index: 1; }
+.ko-celle.feil .ko-inn { color: #b3261e; }
+.ko-celle.feil { background: #f9d6d3; }
+.ko-celle.vist .ko-inn { color: #1f5fa8; }
+:root[data-tema="mork"] .ko-celle.feil { background: #4a2420; }
+:root[data-tema="mork"] .ko-celle.feil .ko-inn { color: #ff8a80; }
+:root[data-tema="mork"] .ko-celle.vist .ko-inn { color: #8fb0ef; }
+.ko-nr { position: absolute; top: 1px; left: 2px; font: 600 clamp(.5rem, 1.6vw, .62rem) var(--font-ui); color: var(--tekst-dempet); pointer-events: none; line-height: 1; }
+.ko-inn { width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background: transparent; text-align: center; font: 700 max(16px, calc(var(--ko-str) * .5)) var(--font-ui); text-transform: uppercase; color: var(--tekst); caret-color: transparent; }
+.ko-inn:focus { outline: none; }
+.ko-ledetrader { flex: 1 1 300px; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.ko-ledetrader h2 { font-size: 1.05rem; margin: 0 0 .4rem; }
+.ko-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; }
+.ko-led { display: block; width: 100%; text-align: left; border: 0; background: none; padding: .3rem .45rem; border-radius: 8px; font: inherit; font-family: var(--font-tekst); color: var(--tekst); cursor: pointer; line-height: 1.4; }
+.ko-led:hover { background: var(--flate-2); }
+.ko-liste li.aktiv .ko-led { background: var(--fag-lys); }
+.ko-len { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .85rem; }
+.ko-aktiv { min-height: 1.5em; margin: .2rem 0 .6rem; font-family: var(--font-tekst); }
+
+/* Worldle */
+.worldle { display: flex; flex-direction: column; align-items: center; gap: .6rem; max-width: 560px; margin: 0 auto; }
+.wl-form { margin: 0; width: min(100%, 300px); aspect-ratio: 1; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .5rem; box-sizing: border-box; }
+.wl-form svg { width: 100%; height: 100%; display: block; }
+.wl-form path { fill: var(--tekst); }
+.wl-sok { display: flex; gap: .5rem; width: 100%; }
+.wl-feltboks { position: relative; flex: 1; }
+.wl-feltboks input { width: 100%; box-sizing: border-box; font: inherit; font-size: 1.05rem; padding: .6rem .9rem; border-radius: 999px; border: 2px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.wl-feltboks input:focus { border-color: var(--aksent); outline: none; }
+.wl-forslag { position: absolute; z-index: 20; left: 0; right: 0; top: calc(100% + 4px); list-style: none; margin: 0; padding: .3rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+.wl-forslag li { padding: .45rem .7rem; border-radius: 8px; cursor: pointer; }
+.wl-forslag li[aria-selected="true"], .wl-forslag li:hover { background: var(--fag-lys); }
+.wl-gjett { list-style: none; padding: 0; margin: 0; width: 100%; display: grid; gap: 5px; }
+.wl-gjett li { display: grid; grid-template-columns: 1fr 5.5rem 2.2rem 4rem; gap: 5px; min-height: 2.4rem; }
+.wl-gjett li.wl-tom { background: var(--flate-2); border-radius: 8px; }
+.wl-gjett li > span { display: flex; align-items: center; justify-content: center; background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; padding: .2rem .4rem; font-weight: 600; }
+.wl-gjett .wl-navn { justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wl-gjett .wl-pst { background: linear-gradient(90deg, #d6efdc calc(var(--p) * 1%), var(--flate) 0); color: var(--tekst); }
+.wl-gjett li.riktig > span { background: #2e7d46; border-color: #2e7d46; color: #fff; }
+:root[data-tema="mork"] .wl-gjett .wl-pst { background: linear-gradient(90deg, #1f3a31 calc(var(--p) * 1%), var(--flate) 0); }
+.wl-hinttekst { min-height: 1.2em; margin: 0; font-weight: 600; text-align: center; }
+.wl-fasit { font-size: 1.15rem; }
+.wl-flagg { font-size: 1.6rem; vertical-align: middle; }
+.worldle .spill-resultat { width: 100%; box-sizing: border-box; }
+#wl-utvalg { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+@media (max-width: 480px) { .wl-gjett li { grid-template-columns: 1fr 4.6rem 2rem 3.3rem; font-size: .88rem; } }
+.wl-gjett .wl-km { white-space: nowrap; }
+@media (max-width: 480px) { .wl-gjett li { grid-template-columns: 1fr 5rem 2rem 3.3rem; } .wl-gjett .wl-km { font-size: .82rem; padding: .2rem; } }

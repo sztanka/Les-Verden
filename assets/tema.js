@@ -253,6 +253,7 @@
         ["memory", "🃏", "Memory", antPar >= 4], ["koble", "🔗", en ? "Match up" : "Koble sammen", antPar >= 4],
         ["hangman", "🔤", en ? "Hangman" : "Gjett ordet", antOrd >= 3], ["ordsok", "🔍", en ? "Word search" : "Ordsøk", antOrd >= 3],
         ["ordle", "🟩", "Ordle", enkle + navn >= 2], ["ordmiks", "🔀", en ? "Word mix" : "Ordmiks", enkle3 + navn >= 3],
+        ["kryssord", "✏️", en ? "Crossword" : "Kryssord", antOrd + (tema.personer || []).length >= 4],
         ["rekkefolge", "⏳", en ? "Timeline" : "Tidslinje", (tema.tidslinje || []).length >= 4]
       ].filter(x => x[3]);
       if (spill.length) {

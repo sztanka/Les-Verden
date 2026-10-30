@@ -22,7 +22,9 @@
     { id: "ordsok", ikon: "🔍", navn: "Ordsøk", tekst: "Finn begrepene som er gjemt i rutenettet – vannrett, loddrett og på skrå.", krever: "ord" },
     { id: "ordle", ikon: "🟩", navn: "Ordle", tekst: "Som Wordle: gjett et ord fra temaet på seks forsøk. Grønn = riktig plass, gul = feil plass.", krever: "enkeltord1" },
     { id: "ordmiks", ikon: "🔀", navn: "Ordmiks", tekst: "Som Smartle: bytt om bokstavene til hver rad blir et ord fra temaet. Forklaringene er ledetråder.", krever: "enkeltord3" },
-    { id: "rekkefolge", ikon: "⏳", navn: "Tidslinje", tekst: "Sett hendelsene i riktig rekkefølge – fra eldst til nyest.", krever: "hendelser" }
+    { id: "kryssord", ikon: "✏️", navn: "Kryssord", tekst: "Løs et kryssord der ledetrådene er forklaringene til begrepene i temaet.", krever: "kryssord" },
+    { id: "rekkefolge", ikon: "⏳", navn: "Tidslinje", tekst: "Sett hendelsene i riktig rekkefølge – fra eldst til nyest.", krever: "hendelser" },
+    { id: "worldle", ikon: "🌍", navn: "Worldle", tekst: "Gjett landet ut fra omrisset. Du får avstand og retning for hvert forsøk.", uavhengig: true }
   ];
 
   // Tekster for norske og engelske temaer
@@ -121,8 +123,8 @@
       '<header class="spill-hode"><h1><span aria-hidden="true">' + s.ikon + "</span> " + LV.esc(s.navn) + "</h1>" +
       '<p class="spill-kilde"' + (KILDE.sprak === "en" ? ' lang="en"' : "") + ">" + LV.esc(KILDE.tittel) +
       (KILDE.blandet ? "" : ' · <a href="' + KILDE.lenke + '" lang="nb">← ' + TEKST.nb.tilTema + "</a>") + "</p>" +
-      '<nav class="spill-andre" aria-label="Andre spill" lang="nb">' + SPILL.filter(x => x.id !== spill && kanSpilles(x)).map(x =>
-        '<a href="spill.html?' + adresse(x.id) + '"><span aria-hidden="true">' + x.ikon + "</span> " + x.navn + "</a>").join("") + "</nav></header>" +
+      (s.uavhengig ? "</header>" : '<nav class="spill-andre" aria-label="Andre spill" lang="nb">' + SPILL.filter(x => x.id !== spill && !x.uavhengig && kanSpilles(x)).map(x =>
+        '<a href="spill.html?' + adresse(x.id) + '"><span aria-hidden="true">' + x.ikon + "</span> " + x.navn + "</a>").join("") + "</nav></header>") +
       '<div id="spillflate" class="spillflate"' + (KILDE.sprak === "en" ? ' lang="en"' : "") + ">" + innhold + "</div>";
   }
   function adresse(spill) {
@@ -134,6 +136,7 @@
     if (s.krever === "ord") return DATA.ord.length >= 3;
     if (s.krever === "enkeltord1") return enkeltord(4, 9, false).length + enkeltord(4, 9, true).filter(x => x.type === "person").length >= 2;
     if (s.krever === "enkeltord3") return enkeltord(3, 10, false).length + enkeltord(4, 10, true).filter(x => x.type === "person").length >= 3;
+    if (s.krever === "kryssord") return DATA.ord.length >= 4;
     if (s.krever === "hendelser") return DATA.hendelser.filter(h => h.nokkel != null).length >= 4;
     return true;
   }
@@ -768,6 +771,356 @@
   }
 
   // =========================================================
+  // KRYSSORD
+  // =========================================================
+  function kryssord() {
+    const en = KILDE.sprak === "en";
+    const alfabet = ALFABET[en ? "en" : "nb"];
+    const tx = en ?
+      { vannrett: "Across", loddrett: "Down", sjekk: "Check", bokstav: "Reveal letter", ordet: "Reveal word", fasit: "Show answers", ny: "New crossword",
+        tips: "Click a square or a clue and type. Click the same square again to switch between across and down.", feil: "wrong letters", riktig: "All correct!", ord: "words", toOrd: "words", etternavn: "surname" } :
+      { vannrett: "Vannrett", loddrett: "Loddrett", sjekk: "Sjekk", bokstav: "Vis bokstav", ordet: "Vis ordet", fasit: "Vis fasit", ny: "Nytt kryssord",
+        tips: "Trykk på en rute eller en ledetråd og skriv. Trykk på samme rute en gang til for å bytte mellom vannrett og loddrett.", feil: "feil bokstaver", riktig: "Alt riktig!", ord: "ord", toOrd: "ord", etternavn: "etternavn" };
+    let K, retning = "v", aktiv = null, start = 0, hjelp = 0;
+    ramme("kryssord",
+      '<p class="om-tips">' + tx.tips + "</p>" +
+      '<div class="spill-knapper"><button class="knapp" id="ko-sjekk">✓ ' + tx.sjekk + '</button><button class="knapp" id="ko-bokstav">' + tx.bokstav + '</button><button class="knapp" id="ko-ordet">' + tx.ordet +
+      '</button><button class="knapp" id="ko-fasit">' + tx.fasit + '</button><button class="knapp" id="ko-ny">↻ ' + tx.ny + "</button></div>" +
+      '<div class="spill-status" id="spill-status" aria-live="polite"></div><p class="ko-aktiv" id="ko-aktiv" aria-live="polite"></p>' +
+      '<div class="kryssord"><div class="ko-nett" id="ko-nett"></div><div class="ko-ledetrader" id="ko-led"></div></div><div id="spill-slutt"></div>');
+
+    // Ordene: begreper (uten mellomrom/bindestrek i fasiten) og etternavn
+    function kandidater() {
+      const ut = [], sett = new Set();
+      DATA.ord.forEach(o => {
+        const vis = o.type === "person" ? o.sok : o.ord;
+        const w = [...vis].filter(erBokstav).map(grunn).join("");
+        if (w.length < 3 || w.length > 13 || sett.has(w) || ![...w].every(b => alfabet.includes(b))) return;
+        sett.add(w);
+        const deler = vis.trim().split(/[\s-]+/).filter(Boolean).length;
+        ut.push({ w: w, vis: vis, type: o.type, norsk: o.norsk,
+          ledetrad: forkort(o.forklaring, 150) + (o.type === "person" ? " (" + tx.etternavn + ")" : "") + (deler > 1 ? " (" + deler + " " + tx.toOrd + ")" : "") });
+      });
+      return ut;
+    }
+    // Lag et kryssord: legg ordene inn ett og ett der de krysser flest bokstaver
+    function lag(ordene) {
+      const rute = new Map(), plassert = [];
+      const nok = (r, c) => r + "," + c;
+      const kan = (w, r, c, d) => {
+        const [dr, dc] = d === "v" ? [0, 1] : [1, 0];
+        let kryss = 0;
+        if (rute.has(nok(r - dr, c - dc)) || rute.has(nok(r + dr * w.length, c + dc * w.length))) return -1;
+        for (let i = 0; i < w.length; i++) {
+          const rr = r + dr * i, cc = c + dc * i, her = rute.get(nok(rr, cc));
+          if (her) { if (her.b !== w[i] || her[d]) return -1; kryss++; continue; }
+          // ingen naboer på sidene der ordet ikke krysser
+          if (rute.has(nok(rr + dc, cc + dr)) || rute.has(nok(rr - dc, cc - dr))) return -1;
+        }
+        return kryss;
+      };
+      const legg = (o, r, c, d) => {
+        const [dr, dc] = d === "v" ? [0, 1] : [1, 0];
+        for (let i = 0; i < o.w.length; i++) {
+          const k = nok(r + dr * i, c + dc * i);
+          const x = rute.get(k) || { b: o.w[i] };
+          x[d] = true; rute.set(k, x);
+        }
+        plassert.push(Object.assign({}, o, { r: r, c: c, d: d }));
+      };
+      legg(ordene[0], 0, 0, "v");
+      for (const o of ordene.slice(1)) {
+        if (plassert.length >= 12) break;
+        let best = null;
+        for (const [k, x] of rute) {
+          const [r0, c0] = k.split(",").map(Number);
+          for (let i = 0; i < o.w.length; i++) {
+            if (o.w[i] !== x.b) continue;
+            for (const d of ["v", "l"]) {
+              if (x[d]) continue;
+              const r = d === "v" ? r0 : r0 - i, c = d === "v" ? c0 - i : c0;
+              const kryss = kan(o.w, r, c, d);
+              if (kryss > 0) {
+                const p = kryss * 10 + Math.random() * 3;
+                if (!best || p > best.p) best = { p: p, r: r, c: c, d: d };
+              }
+            }
+          }
+        }
+        if (best) legg(o, best.r, best.c, best.d);
+      }
+      // Normaliser og regn ut størrelse
+      const rs = [...rute.keys()].map(k => +k.split(",")[0]), cs = [...rute.keys()].map(k => +k.split(",")[1]);
+      const r0 = Math.min(...rs), c0 = Math.min(...cs);
+      plassert.forEach(p => { p.r -= r0; p.c -= c0; });
+      return { ord: plassert, rader: Math.max(...rs) - r0 + 1, kol: Math.max(...cs) - c0 + 1 };
+    }
+    function nytt() {
+      const alle = kandidater();
+      let best = null;
+      for (let f = 0; f < 40; f++) {
+        const ordene = bland(alle).slice(0, 18).sort((a, b) => b.w.length - a.w.length + (Math.random() - .5) * 4);
+        const k = lag(ordene);
+        const poeng = k.ord.length * 100 - Math.max(k.rader, k.kol) * 4 - Math.abs(k.rader - k.kol) * 2 - (k.kol > 12 ? (k.kol - 12) * 60 : 0);
+        if (k.kol <= 15 && (!best || poeng > best.poeng)) { best = k; best.poeng = poeng; }
+      }
+      K = best;
+      // Nummerering
+      const startPos = new Map();
+      K.ord.sort((a, b) => a.r - b.r || a.c - b.c);
+      let n = 0;
+      K.ord.forEach(o => { const k = o.r + "," + o.c; if (!startPos.has(k)) startPos.set(k, ++n); o.nr = startPos.get(k); });
+      K.celler = new Map();
+      K.ord.forEach((o, oi) => {
+        for (let i = 0; i < o.w.length; i++) {
+          const r = o.d === "l" ? o.r + i : o.r, c = o.d === "v" ? o.c + i : o.c, k = r + "," + c;
+          const x = K.celler.get(k) || { r: r, c: c, b: o.w[i], ord: {} };
+          x.ord[o.d] = oi; K.celler.set(k, x);
+        }
+      });
+      K.celler.forEach((x, k) => { x.nr = startPos.get(k) || null; x.svar = ""; x.vist = false; });
+      aktiv = null; retning = "v"; start = Date.now(); hjelp = 0;
+      $("spill-slutt").innerHTML = "";
+      tegn();
+    }
+    function tegn() {
+      const nett = $("ko-nett");
+      nett.style.setProperty("--kol", K.kol);
+      let h = "";
+      for (let r = 0; r < K.rader; r++) for (let c = 0; c < K.kol; c++) {
+        const x = K.celler.get(r + "," + c);
+        if (!x) { h += '<span class="ko-tom" aria-hidden="true"></span>'; continue; }
+        h += '<span class="ko-celle" data-k="' + r + "," + c + '">' + (x.nr ? '<span class="ko-nr" aria-hidden="true">' + x.nr + "</span>" : "") +
+          '<input class="ko-inn" data-k="' + r + "," + c + '" maxlength="2" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="' +
+          (x.nr ? x.nr + " " : "") + (en ? "row " : "rad ") + (r + 1) + (en ? ", column " : ", kolonne ") + (c + 1) + '" value="' + x.svar + '"></span>';
+      }
+      nett.innerHTML = h;
+      const liste = d => K.ord.map((o, oi) => [o, oi]).filter(([o]) => o.d === d).map(([o, oi]) =>
+        '<li data-o="' + oi + '"><button type="button" class="ko-led" data-o="' + oi + '"><strong>' + o.nr + ".</strong> " + LV.esc(o.ledetrad) + ' <span class="ko-len">(' + o.w.length + ")</span></button></li>").join("");
+      $("ko-led").innerHTML = '<div><h2>' + tx.vannrett + '</h2><ol class="ko-liste">' + liste("v") + "</ol></div><div><h2>" + tx.loddrett + '</h2><ol class="ko-liste">' + liste("l") + "</ol></div>";
+      nett.querySelectorAll(".ko-inn").forEach(inp => {
+        inp.addEventListener("focus", () => { const k = inp.dataset.k; if (aktiv !== k) { aktiv = k; const x = K.celler.get(k); if (x.ord[retning] == null) retning = retning === "v" ? "l" : "v"; } marker(); });
+        inp.addEventListener("click", () => { const x = K.celler.get(inp.dataset.k); if (inp.dataset.klikket && x.ord.v != null && x.ord.l != null) { retning = retning === "v" ? "l" : "v"; marker(); } inp.dataset.klikket = "1"; });
+        inp.addEventListener("blur", () => { delete inp.dataset.klikket; });
+        inp.addEventListener("input", () => skriv(inp));
+        inp.addEventListener("keydown", e => tast(e, inp));
+      });
+      $("ko-led").querySelectorAll(".ko-led").forEach(b => b.addEventListener("click", () => { const o = K.ord[+b.dataset.o]; retning = o.d; gaTil(o.r + "," + o.c); }));
+      status();
+    }
+    function felt(k) { return $("ko-nett").querySelector('.ko-inn[data-k="' + k + '"]'); }
+    function gaTil(k) { const f = felt(k); if (f) { aktiv = k; f.focus(); marker(); } }
+    function marker() {
+      const x = aktiv && K.celler.get(aktiv);
+      document.querySelectorAll(".ko-celle").forEach(c => c.classList.remove("ord", "aktiv"));
+      document.querySelectorAll(".ko-liste li").forEach(l => l.classList.remove("aktiv"));
+      if (!x) return;
+      const oi = x.ord[retning]; const o = K.ord[oi];
+      for (let i = 0; i < o.w.length; i++) {
+        const k = (o.d === "l" ? o.r + i : o.r) + "," + (o.d === "v" ? o.c + i : o.c);
+        const c = document.querySelector('.ko-celle[data-k="' + k + '"]'); if (c) c.classList.add("ord");
+      }
+      document.querySelector('.ko-celle[data-k="' + aktiv + '"]').classList.add("aktiv");
+      const li = document.querySelector('.ko-liste li[data-o="' + oi + '"]'); if (li) li.classList.add("aktiv");
+      $("ko-aktiv").innerHTML = "<strong>" + o.nr + " " + (o.d === "v" ? tx.vannrett : tx.loddrett).toLowerCase() + ":</strong> " + LV.esc(o.ledetrad) + " (" + o.w.length + ")";
+    }
+    function nabo(k, steg) {
+      const [r, c] = k.split(",").map(Number);
+      const nk = retning === "v" ? r + "," + (c + steg) : (r + steg) + "," + c;
+      return K.celler.has(nk) ? nk : null;
+    }
+    function skriv(inp) {
+      const x = K.celler.get(inp.dataset.k);
+      const v = [...inp.value.toUpperCase()].filter(b => alfabet.includes(grunn(b))).map(grunn).pop() || "";
+      x.svar = v; inp.value = v; inp.parentElement.classList.remove("feil");
+      if (v) { const n = nabo(inp.dataset.k, 1); if (n) gaTil(n); }
+      status(); sjekkFerdig();
+    }
+    function tast(e, inp) {
+      const k = inp.dataset.k;
+      const flytt = (dr, dc, d) => { const [r, c] = k.split(",").map(Number); let rr = r + dr, cc = c + dc;
+        while (rr >= 0 && cc >= 0 && rr < K.rader && cc < K.kol) { if (K.celler.has(rr + "," + cc)) { if (K.celler.get(rr + "," + cc).ord[d] != null) retning = d; return gaTil(rr + "," + cc); } rr += dr; cc += dc; } };
+      if (e.key === "ArrowRight") { e.preventDefault(); flytt(0, 1, "v"); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); flytt(0, -1, "v"); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); flytt(1, 0, "l"); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); flytt(-1, 0, "l"); }
+      else if (e.key === "Backspace" && !inp.value) { e.preventDefault(); const p = nabo(k, -1); if (p) { gaTil(p); const x = K.celler.get(p); x.svar = ""; felt(p).value = ""; status(); } }
+      else if (e.key === " ") { e.preventDefault(); const x = K.celler.get(k); if (x.ord.v != null && x.ord.l != null) { retning = retning === "v" ? "l" : "v"; marker(); } }
+      else if (e.key === "Enter") { e.preventDefault(); const oi = K.celler.get(k).ord[retning]; const neste = K.ord[(oi + 1) % K.ord.length]; retning = neste.d; gaTil(neste.r + "," + neste.c); }
+    }
+    function status() {
+      const fylt = [...K.celler.values()].filter(x => x.svar).length;
+      $("spill-status").innerHTML = "<span>" + K.ord.length + " " + tx.ord + "</span><span>" + (en ? "Filled in" : "Fylt ut") + ": <strong>" + fylt + " / " + K.celler.size + "</strong></span>";
+    }
+    function sjekk() {
+      let feil = 0;
+      K.celler.forEach((x, k) => { const c = document.querySelector('.ko-celle[data-k="' + k + '"]'); if (x.svar && x.svar !== x.b) { feil++; c.classList.add("feil"); } });
+      $("ko-aktiv").innerHTML = feil ? "<strong>" + feil + " " + tx.feil + "</strong>" : (en ? "No wrong letters so far." : "Ingen feil så langt.");
+    }
+    function vis(k) { const x = K.celler.get(k); x.svar = x.b; x.vist = true; const f = felt(k); f.value = x.b; f.parentElement.classList.add("vist"); f.parentElement.classList.remove("feil"); }
+    function sjekkFerdig() {
+      if (![...K.celler.values()].every(x => x.svar === x.b)) return;
+      const linje = K.ord.length + " ord, tid " + tid(Date.now() - start) + (hjelp >= 100 ? ", fasiten ble vist" : hjelp ? ", brukte hjelp " + hjelp + " ganger" : "");
+      $("spill-slutt").innerHTML = '<div class="spill-resultat"><h2>' + tx.riktig + ' 🎉</h2><p lang="nb">' + LV.esc(linje) + '</p><dl class="spill-parliste">' +
+        K.ord.map(o => "<div><dt>" + LV.esc(o.vis) + (o.norsk ? ' <span lang="nb">(' + LV.esc(o.norsk) + ")</span>" : "") + "</dt><dd>" + LV.esc(o.ledetrad) + "</dd></div>").join("") +
+        '</dl><div class="spill-knapper"><button class="knapp hoved" id="igjen">' + tx.ny + '</button><button class="knapp" id="kopier">' + T.kopier + '</button><span id="kopistatus" aria-live="polite"></span></div></div>';
+      $("igjen").addEventListener("click", nytt);
+      $("kopier").addEventListener("click", () => kopier(resultatTekst("kryssord", linje), $("kopistatus")));
+    }
+    $("ko-sjekk").addEventListener("click", sjekk);
+    $("ko-bokstav").addEventListener("click", () => { if (aktiv) { hjelp++; vis(aktiv); const n = nabo(aktiv, 1); if (n) gaTil(n); status(); sjekkFerdig(); } });
+    $("ko-ordet").addEventListener("click", () => { if (!aktiv) return; hjelp++; const o = K.ord[K.celler.get(aktiv).ord[retning]];
+      for (let i = 0; i < o.w.length; i++) vis((o.d === "l" ? o.r + i : o.r) + "," + (o.d === "v" ? o.c + i : o.c)); status(); sjekkFerdig(); });
+    $("ko-fasit").addEventListener("click", () => { hjelp += 100; K.celler.forEach((x, k) => vis(k)); status(); sjekkFerdig(); });
+    $("ko-ny").addEventListener("click", nytt);
+    nytt();
+  }
+
+  // =========================================================
+  // WORLDLE: gjett landet ut fra omrisset
+  // =========================================================
+  async function worldle() {
+    let en = KILDE.sprak === "en";
+    $("innhold").innerHTML = '<p class="melding">Henter kartene …</p>';
+    await LV.lastSkript("data/worldle.js");
+    const ALLE = LV.worldle.map(x => ({ a2: x[0], nb: x[1], en: x[2], lat: x[3], lon: x[4], del: x[5], areal: x[6], mal: x[7], lett: x[8], engelsk: x[9], d: x[10] }));
+    const UTVALG = [
+      ["lett", "Kjente land (lett)", "Well-known countries (easy)", x => x.lett],
+      ["alle", "Alle land", "All countries", x => x.mal],
+      ["Europa", "Europa", "Europe", x => x.mal && x.del === "Europa"],
+      ["Afrika", "Afrika", "Africa", x => x.mal && x.del === "Afrika"],
+      ["Asia", "Asia", "Asia", x => x.mal && x.del === "Asia"],
+      ["Amerika", "Amerika", "The Americas", x => x.mal && /Amerika/.test(x.del)],
+      ["Oseania", "Oseania", "Oceania", x => x.mal && x.del === "Oseania"],
+      ["engelsk", "Engelskspråklige land", "English-speaking countries", x => x.mal && x.engelsk]
+    ];
+    const DELNAVN = { "Europa": "Europe", "Afrika": "Africa", "Asia": "Asia", "Nord-Amerika": "North America", "Sør-Amerika": "South America", "Oseania": "Oceania" };
+    let utvalg = LV.param("utvalg") || (en ? "engelsk" : "lett");
+    if (!UTVALG.some(u => u[0] === utvalg)) utvalg = "lett";
+    const FORSOK = 6;
+    let S, kø = [], vunnet = 0, spilt = 0;
+    const navn = x => en ? x.en : x.nb;
+    const flagg = a2 => a2.length === 2 ? [...a2.toUpperCase()].map(c => String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65)).join("") : "";
+    const enkel = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zæøå0-9]/g, "");
+
+    function lagSide() {
+      KILDE.sprak = en ? "en" : "nb"; T = TEKST[en ? "en" : "nb"];
+      KILDE.tittel = en ? "Guess the country from its shape" : "Gjett landet ut fra omrisset";
+      ramme("worldle",
+        '<div class="spill-valg"><div class="spill-valggruppe"><label for="wl-utvalg" class="etikett">' + (en ? "Countries" : "Land") + ':</label><select id="wl-utvalg">' +
+        UTVALG.map(u => '<option value="' + u[0] + '"' + (u[0] === utvalg ? " selected" : "") + ">" + (en ? u[2] : u[1]) + " (" + ALLE.filter(u[3]).length + ")</option>").join("") + "</select></div>" +
+        '<div class="spill-valggruppe" role="group" aria-label="Språk"><button class="knapp liten" data-sprak="nb" aria-pressed="' + !en + '">Norsk</button><button class="knapp liten" data-sprak="en" aria-pressed="' + en + '">English</button></div></div>' +
+        '<div class="spill-status" id="spill-status" aria-live="polite"></div>' +
+        '<div class="worldle"><figure class="wl-form"><svg viewBox="0 0 200 200" id="wl-svg" role="img" aria-label="' + (en ? "Outline of a country" : "Omrisset av et land") + '"></svg></figure>' +
+        '<form class="wl-sok" id="wl-form" autocomplete="off"><div class="wl-feltboks"><input id="wl-felt" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="wl-forslag" placeholder="' +
+        (en ? "Type a country …" : "Skriv et land …") + '" aria-label="' + (en ? "Country" : "Land") + '"><ul id="wl-forslag" class="wl-forslag" role="listbox" hidden></ul></div>' +
+        '<button class="knapp hoved" type="submit">' + (en ? "Guess" : "Gjett") + '</button></form><p class="ol-melding" id="wl-melding" role="status"></p>' +
+        '<ol class="wl-gjett" id="wl-gjett"></ol><div class="spill-knapper"><button class="knapp" id="wl-hint">💡 ' + (en ? "Hint" : "Hint") + '</button><button class="knapp" id="wl-gi">' + (en ? "Give up" : "Gi opp") + '</button></div>' +
+        '<p class="wl-hinttekst" id="wl-hinttekst" aria-live="polite"></p><div id="spill-slutt"></div></div>' +
+        '<p class="ob-kilder">Kart: Natural Earth (public domain). Avstand og retning måles mellom midtpunktene i landene.</p>');
+      $("wl-utvalg").addEventListener("change", e => { utvalg = e.target.value; kø = []; history.replaceState(null, "", "spill.html?spill=worldle&utvalg=" + utvalg + (en ? "&sprak=en" : "")); neste(); });
+      document.querySelectorAll("[data-sprak]").forEach(b => b.addEventListener("click", () => { en = b.dataset.sprak === "en"; const s = S; lagSide(); S = s; if (S) tegnSpill(); }));
+      const felt = $("wl-felt"), forslag = $("wl-forslag");
+      let valgt = -1, treff = [];
+      const visForslag = () => {
+        const q = enkel(felt.value);
+        treff = q ? ALLE.filter(x => enkel(navn(x)).includes(q) || enkel(x.nb).startsWith(q) || enkel(x.en).startsWith(q))
+          .sort((a, b) => (enkel(navn(b)).startsWith(q) - enkel(navn(a)).startsWith(q)) || (b.mal - a.mal) || navn(a).length - navn(b).length || navn(a).localeCompare(navn(b), "nb")).slice(0, 8) : [];
+        valgt = treff.length ? 0 : -1;
+        forslag.innerHTML = treff.map((x, i) => '<li role="option" id="wl-f' + i + '" data-i="' + i + '"' + (i === valgt ? ' aria-selected="true"' : "") + ">" + LV.esc(navn(x)) + "</li>").join("");
+        forslag.hidden = !treff.length; felt.setAttribute("aria-expanded", String(!!treff.length));
+        felt.setAttribute("aria-activedescendant", valgt >= 0 ? "wl-f" + valgt : "");
+      };
+      felt.addEventListener("input", visForslag);
+      felt.addEventListener("keydown", e => {
+        if (!treff.length) return;
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault(); valgt = (valgt + (e.key === "ArrowDown" ? 1 : -1) + treff.length) % treff.length;
+          forslag.querySelectorAll("li").forEach((li, i) => li.setAttribute("aria-selected", String(i === valgt)));
+          felt.setAttribute("aria-activedescendant", "wl-f" + valgt);
+        } else if (e.key === "Escape") { forslag.hidden = true; }
+      });
+      forslag.addEventListener("mousedown", e => { const li = e.target.closest("li"); if (li) { e.preventDefault(); gjett(treff[+li.dataset.i]); } });
+      $("wl-form").addEventListener("submit", e => {
+        e.preventDefault();
+        const q = enkel(felt.value);
+        const eksakt = ALLE.find(x => enkel(x.nb) === q || enkel(x.en) === q);
+        gjett(eksakt || (valgt >= 0 ? treff[valgt] : null));
+      });
+      $("wl-hint").addEventListener("click", hint);
+      $("wl-gi").addEventListener("click", () => { if (S && !S.ferdig) slutt(false); });
+    }
+    function neste() {
+      if (!kø.length) kø = bland(ALLE.filter(UTVALG.find(u => u[0] === utvalg)[3]));
+      S = { mal: kø.pop(), gjett: [], hint: 0, ferdig: false };
+      tegnSpill();
+      $("wl-felt").focus({ preventScroll: true });
+    }
+    function tegnSpill() {
+      $("wl-svg").innerHTML = '<path d="' + S.mal.d + '" fill-rule="evenodd"/>';
+      $("wl-melding").textContent = "";
+      $("wl-gjett").innerHTML = S.gjett.map(rad).join("") + Array(Math.max(0, FORSOK - S.gjett.length)).fill('<li class="wl-tom"></li>').join("");
+      $("spill-status").innerHTML = "<span>" + (en ? "Guesses" : "Forsøk") + ": <strong>" + S.gjett.length + " / " + FORSOK + "</strong></span><span>" + (en ? "Solved" : "Riktige") + ": <strong>" + vunnet + " / " + spilt + "</strong></span>";
+      visHint();
+      if (!S.ferdig) $("spill-slutt").innerHTML = "";
+    }
+    const rad = g => {
+      const x = g.land;
+      if (g.riktig) return '<li class="wl-rad riktig"><span class="wl-navn">' + flagg(x.a2) + " " + LV.esc(navn(x)) + '</span><span class="wl-km">0 km</span><span class="wl-pil">🎉</span><span class="wl-pst">100 %</span></li>';
+      return '<li class="wl-rad"><span class="wl-navn">' + LV.esc(navn(x)) + '</span><span class="wl-km">' + g.km.toLocaleString("nb-NO") + ' km</span><span class="wl-pil" aria-label="' +
+        (en ? "direction " : "retning ") + g.retning + '">' + g.pil + '</span><span class="wl-pst" style="--p:' + g.pst + '">' + g.pst + " %</span></li>";
+    };
+    // Avstand (storsirkel) og retning fra gjettet land til riktig land
+    function maal(a, b) {
+      const r = Math.PI / 180, f1 = a.lat * r, f2 = b.lat * r, dl = (b.lon - a.lon) * r;
+      const km = Math.round(6371 * Math.acos(Math.min(1, Math.sin(f1) * Math.sin(f2) + Math.cos(f1) * Math.cos(f2) * Math.cos(dl))));
+      const y = Math.sin(dl) * Math.cos(f2), x = Math.cos(f1) * Math.sin(f2) - Math.sin(f1) * Math.cos(f2) * Math.cos(dl);
+      const grader = (Math.atan2(y, x) / r + 360) % 360;
+      const i = Math.round(grader / 45) % 8;
+      const piler = ["⬆️", "↗️", "➡️", "↘️", "⬇️", "↙️", "⬅️", "↖️"];
+      const nb = ["nord", "nordøst", "øst", "sørøst", "sør", "sørvest", "vest", "nordvest"], eng = ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"];
+      return { km: km, pil: piler[i], retning: en ? eng[i] : nb[i], pst: Math.max(0, Math.round(100 - km / 200)) };
+    }
+    function gjett(x) {
+      if (!S || S.ferdig) return;
+      const felt = $("wl-felt");
+      if (!x) { $("wl-melding").textContent = en ? "Choose a country from the list." : "Velg et land fra lista."; return; }
+      if (S.gjett.some(g => g.land === x)) { $("wl-melding").textContent = (en ? "You have already guessed " : "Du har allerede gjettet ") + navn(x) + "."; return; }
+      felt.value = ""; $("wl-forslag").hidden = true; felt.setAttribute("aria-expanded", "false");
+      const riktig = x === S.mal;
+      S.gjett.push(Object.assign({ land: x, riktig: riktig }, riktig ? {} : maal(x, S.mal)));
+      tegnSpill();
+      if (riktig) slutt(true); else if (S.gjett.length >= FORSOK) slutt(false);
+      else $("wl-melding").textContent = navn(x) + ": " + S.gjett[S.gjett.length - 1].km.toLocaleString("nb-NO") + " km " + (en ? "away, towards the " : "unna, mot ") + S.gjett[S.gjett.length - 1].retning + ".";
+    }
+    function hint() { if (!S || S.ferdig || S.hint >= 3) return; S.hint++; visHint(); }
+    function visHint() {
+      const m = S.mal, h = [];
+      if (S.hint >= 1) h.push((en ? "Continent: " : "Verdensdel: ") + (en ? DELNAVN[m.del] || m.del : m.del));
+      if (S.hint >= 2) h.push((en ? "Area: about " : "Areal: ca. ") + (Math.round(m.areal / 1000) * 1000).toLocaleString("nb-NO") + " km²" + (en ? "" : " (Norge: ca. 323 000 km²)"));
+      if (S.hint >= 3) h.push((en ? "First letter: " : "Første bokstav: ") + navn(m)[0]);
+      $("wl-hinttekst").textContent = h.join(" · ");
+      $("wl-hint").disabled = S.ferdig || S.hint >= 3;
+    }
+    function slutt(vant) {
+      S.ferdig = true; spilt++; if (vant) vunnet++;
+      tegnSpill();
+      const m = S.mal;
+      const ruter = S.gjett.map(g => g.riktig ? "🟩🟩🟩🟩🟩 🎉" : "🟩".repeat(Math.floor(g.pst / 20)) + "⬜".repeat(5 - Math.floor(g.pst / 20)) + " " + g.pil).join("\n");
+      const linje = (vant ? S.gjett.length : "X") + "/" + FORSOK + (S.hint ? " (" + S.hint + " hint)" : "");
+      $("spill-slutt").innerHTML = '<div class="spill-resultat"><h2>' + (vant ? T.bra + " 🎉" : T.tapt) + '</h2><p class="wl-fasit"><span class="wl-flagg" aria-hidden="true">' + flagg(m.a2) + "</span> <strong>" + LV.esc(navn(m)) + "</strong>" +
+        (en ? "" : ' <span lang="en">(' + LV.esc(m.en) + ")</span>") + " – " + (en ? DELNAVN[m.del] || m.del : m.del) + ", " + (Math.round(m.areal / 1000) * 1000).toLocaleString("nb-NO") + " km²</p>" +
+        '<p><a href="ordbok.html?q=' + encodeURIComponent(m.nb) + '">' + (en ? "Look it up in the dictionary" : "Slå opp i ordboka") + '</a> · <a href="https://' + (en ? "en" : "no") + ".wikipedia.org/wiki/" + encodeURIComponent(navn(m)) + '" target="_blank" rel="noopener">Wikipedia ↗</a></p>' +
+        '<div class="spill-knapper"><button class="knapp hoved" id="wl-neste">' + (en ? "Next country" : "Neste land") + ' →</button><button class="knapp" id="kopier">' + T.kopier + '</button><span id="kopistatus" aria-live="polite"></span></div></div>';
+      $("wl-neste").addEventListener("click", neste);
+      $("kopier").addEventListener("click", () => kopier(resultatTekst("worldle", linje + " – " + m.nb + "\n" + ruter + "\nTotalt: " + vunnet + " av " + spilt), $("kopistatus")));
+      $("wl-neste").focus({ preventScroll: true });
+    }
+    lagSide();
+    neste();
+  }
+
+  // =========================================================
   // Oversikt
   // =========================================================
   function oversikt() {
@@ -780,7 +1133,7 @@
     let h = '<header class="sidehode"><h1>Spill</h1><p class="ingress">Øv på begreper, personer og hendelser fra temaene – med memory, gjett ordet, ordsøk, Ordle, Ordmiks og tidslinje. Spillene lages automatisk fra hvert tema. Ingenting lagres.</p></header>' +
       '<section class="spill-velger"><label for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema">' + valg("samfunnsfag") + valg("engelsk") + "</select></section>" +
       '<h2 class="spill-steg">2. Velg spill</h2><ul class="spillkort-rad">' + SPILL.map(s =>
-        '<li><a class="spillkort" data-spill="' + s.id + '" href="#"><span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
+        '<li><a class="spillkort"' + (s.uavhengig ? ' href="spill.html?spill=' + s.id + '">' : ' data-spill="' + s.id + '" href="#">') + '<span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
       '<li><a class="spillkort spillkort-kart" href="kartspill.html"><span class="spillkort-ikon" aria-hidden="true">🗺️</span><strong>Kartspill</strong><span>Finn land, hovedsteder, delstater, elver, landemerker og historiske hendelser på kartet.</span></a></li>' +
       '<li><a class="spillkort" href="personer.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Hvem er jeg?</strong><span>Gjett personen ut fra ledetråden – på personsiden.</span></a></li>' +
       '<li><a class="spillkort" href="land.html"><span class="spillkort-ikon" aria-hidden="true">🌍</span><strong>Country quiz</strong><span>Quiz og kartquiz om engelskspråklige land – på landsidene.</span></a></li></ul>';
@@ -801,6 +1154,12 @@
     const spill = LV.param("spill");
     const s = SPILL.find(x => x.id === spill);
     if (!s) return oversikt();
+    if (s.uavhengig) {
+      KILDE = { tittel: "", sprak: LV.param("sprak") === "en" || LV.param("fag") === "engelsk" ? "en" : "nb", blandet: true };
+      T = TEKST[KILDE.sprak];
+      document.title = s.navn + " – " + (LV.config ? LV.config.navn : "Les verden");
+      return worldle();
+    }
     try { DATA = await lastData(); }
     catch (e) { $("innhold").innerHTML = '<p class="melding">Fant ikke temaet. <a href="spill.html">Gå til spillene</a></p>'; return; }
     SPRAK = KILDE.sprak === "en" ? "en" : "nb";
@@ -810,6 +1169,6 @@
       ramme(spill, '<p class="melding" lang="nb">Dette temaet har for lite innhold til dette spillet. Prøv et annet spill eller et annet tema.</p>');
       return;
     }
-    ({ memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, ordle: ordle, ordmiks: ordmiks, rekkefolge: rekkefolge })[spill]();
+    ({ memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, ordle: ordle, ordmiks: ordmiks, kryssord: kryssord, rekkefolge: rekkefolge })[spill]();
   });
 })();

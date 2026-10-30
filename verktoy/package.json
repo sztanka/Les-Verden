@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "description": "Lager kartene og spillsettene til kartspillet i Les verden.",
-  "scripts": { "kart": "node lag-kart.mjs" },
+  "scripts": { "kart": "node lag-kart.mjs", "worldle": "node lag-worldle.mjs" },
   "dependencies": {
     "d3-geo": "^3.1.0",
+    "i18n-iso-countries": "^7.14.0",
     "topojson-client": "^3.1.0",
     "topojson-server": "^3.0.1",
     "topojson-simplify": "^3.0.3",
