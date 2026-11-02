@@ -158,18 +158,9 @@ window.LV.tema = {
   kobletTil: ["sf10-apartheid", "sf10-fn-menneskerettigheter", "en10-indigenous-peoples", "en10-identity-stereotypes"],
 
   kilder: [
+    { tittel: "History.com: Civil Rights Movement", url: "https://www.history.com/articles/civil-rights-movement" },
     { tittel: "National Museum of African American History and Culture", url: "https://nmaahc.si.edu/" },
     { tittel: "Nelson Mandela Foundation", url: "https://www.nelsonmandela.org/" },
     { tittel: "NDLA: søk på «civil rights movement»", url: "https://ndla.no/search?query=civil+rights+movement" }
-  ],
-
-  kontroller: [
-    "Rundt 12 millioner afrikanere fraktet over Atlanterhavet (ca. 12,5 millioner sendt avgårde, ca. 10,7 millioner overlevde reisen).",
-    "1619 Virginia; ca. fire millioner slaver i 1860; 13. grunnlovstillegg 1865.",
-    "Brown v. Board of Education 1954; Rosa Parks 1. desember 1955; busstreiken varte i 381 dager.",
-    "«I Have a Dream» 1963 med ca. 250 000 tilhørere; Civil Rights Act 1964; Voting Rights Act 1965; Malcolm X drept 1965, King drept 1968.",
-    "Apartheid 1948–1994; Sharpeville 1960 (69 drept); Soweto 1976; Mandela dømt 1964, 27 år i fengsel, løslatt 1990, president 1994.",
-    "Black Lives Matter 2013; George Floyd 2020.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

@@ -71,7 +71,7 @@ window.LV.tema = {
     {
       tittel: "A threat to other languages?",
       tekst: [
-        "Not everyone thinks the spread of English is only positive. Around 7,000 languages are spoken in the world today, and many of them are in danger of disappearing, often because younger generations switch to a bigger language. English is one of the languages that push smaller languages aside.",
+        "Not everyone thinks the spread of English is only positive. There are 7,170 living languages in the world today, and many of them are in danger of disappearing, often because younger generations switch to a bigger language. English is one of the languages that push smaller languages aside.",
         "In Norway, some people worry about **domain loss** (domenetap): that Norwegian is used less and less in certain areas, like research, universities and international companies, because English takes over. Many English words have also entered Norwegian, like “chill”, “cringe” and “deadline”.",
         "Others argue that Norwegians can easily be [[bilingual]] – using Norwegian at home and English when they need it – and that knowing English makes it easier to share Norwegian culture with the world."
       ]
@@ -143,14 +143,5 @@ window.LV.tema = {
     { tittel: "British Council: English as a global language", url: "https://www.britishcouncil.org/" },
     { tittel: "Språkrådet: om domenetap og engelsk", url: "https://www.sprakradet.no/" },
     { tittel: "NDLA: søk på «world English»", url: "https://ndla.no/search?query=world+english" }
-  ],
-
-  kontroller: [
-    "Ca. 1,5 milliarder engelsktalende totalt og ca. 400 millioner med engelsk som morsmål (tallene varierer mellom kilder).",
-    "Kachrus tre sirkler.",
-    "Sør-Afrika har tolv offisielle språk (tegnspråk ble lagt til i 2023).",
-    "Ca. 7000 språk i verden.",
-    "Engelsk fra 1. trinn (siden 1997).",
-    "Sjekk at kildelenkene fungerer og peker til gode artikler."
   ]
 };

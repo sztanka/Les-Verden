@@ -47,13 +47,13 @@ window.LV.tema = {
       tittel: "Boarding schools: “Kill the Indian, save the man”",
       tekst: [
         "In the late 1800s, both the USA and Canada decided that native children should become “like white people”. Many children were taken from their families and sent to [[boarding schools|boarding school]], often far away from home. The founder of one of the first schools in the USA said that the goal was to “kill the Indian in him, and save the man”.",
-        "At the schools, the children’s hair was cut, they had to wear uniforms and take English names, and they were punished for speaking their own language. Many were badly treated, and in Canada thousands of children died at the schools. The last residential school in Canada closed in 1996. This policy is an example of [[assimilation]]: forcing a group to give up its own culture and become part of the majority."
+        "At the schools, the children’s hair was cut, they had to wear uniforms and take English names, and they were punished for speaking their own language. Many were badly treated, and in Canada thousands of children died at the schools. The last residential school in Canada closed in 1997. This policy is an example of [[assimilation]]: forcing a group to give up its own culture and become part of the majority."
       ]
     },
     {
       tittel: "Native Americans and First Nations today",
       tekst: [
-        "Today, there are more than 570 Native American nations that are officially recognized by the US government, and more than 600 First Nations in Canada. Some people live on reservations, while many others live in cities. Many communities still struggle with poverty, poor health and unemployment – long-term effects of the history you have read about.",
+        "Today, there are 575 American Indian and Alaska Native tribes that are officially recognized by the US government, and 634 recognized First Nations governments or bands in Canada. Some people live on reservations, while many others live in cities. Many communities still struggle with poverty, poor health and unemployment – long-term effects of the history you have read about.",
         "At the same time, there is a strong movement to protect native rights and to bring languages and traditions back to life. In 2016, thousands of people protested at Standing Rock in North Dakota against an oil pipeline that the Standing Rock Sioux said threatened their water and sacred places. In Canada, a Truth and Reconciliation Commission spent several years listening to survivors of the residential schools, and published its report in 2015."
       ]
     },
@@ -79,7 +79,7 @@ window.LV.tema = {
     { dato: "1830", tekst: "The Indian Removal Act is passed in the USA." },
     { dato: "1890", tekst: "US soldiers kill hundreds of Lakota at Wounded Knee." },
     { dato: "1989", tekst: "The Sámi Parliament opens in Karasjok." },
-    { dato: "1996", tekst: "The last residential school in Canada closes." },
+    { dato: "1997", tekst: "The last residential school in Canada closes." },
     { dato: "1997", tekst: "King Harald apologizes for how the Norwegian state treated the Sámi." },
     { dato: "2007", tekst: "The UN adopts the Declaration on the Rights of Indigenous Peoples." },
     { dato: "2016", tekst: "Protests at Standing Rock against an oil pipeline." }
@@ -155,16 +155,5 @@ window.LV.tema = {
     { tittel: "United Nations: Indigenous Peoples", url: "https://www.un.org/development/desa/indigenouspeoples/" },
     { tittel: "National Museum of the American Indian", url: "https://americanindian.si.edu/" },
     { tittel: "NDLA: søk på «Native Americans»", url: "https://ndla.no/search?query=native+americans" }
-  ],
-
-  kontroller: [
-    "FN-tallet: over 470 millioner urfolk i rundt 90 land.",
-    "Indian Removal Act 1830 og Trail of Tears; Wounded Knee 1890.",
-    "Sitatet «kill the Indian in him, and save the man» (Richard Henry Pratt, Carlisle Indian Industrial School).",
-    "Siste residential school i Canada stengt 1996; TRC-rapport 2015.",
-    "Over 570 føderalt anerkjente stammer i USA og over 600 First Nations i Canada.",
-    "Standing Rock-protestene 2016.",
-    "Sametinget åpnet 1989; Kong Haralds unnskyldning 1997; Sannhets- og forsoningskommisjonens rapport 2023.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

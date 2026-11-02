@@ -150,13 +150,5 @@ window.LV.tema = {
     { tittel: "Simply Psychology: the Milgram experiment", url: "https://www.simplypsychology.org/milgram.html" },
     { tittel: "The Nobel Prize: Malala Yousafzai", url: "https://www.nobelprize.org/prizes/peace/2014/yousafzai/facts/" },
     { tittel: "NDLA: søk på «dystopia»", url: "https://ndla.no/search?query=dystopia" }
-  ],
-
-  kontroller: [
-    "Lewins tre lederstiler (autoritær, demokratisk, laissez-faire).",
-    "Malala: Nobels fredspris 2014, 17 år gammel.",
-    "Milgram 1961, Yale; ca. 65 prosent (26 av 40) gikk til 450 volt i grunnversjonen.",
-    "Nineteen Eighty-Four (1949); The Hunger Games (2008).",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

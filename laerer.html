@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For lærere – Les verden</title>
-  <link rel="stylesheet" href="assets/stil.css?v=20261102b">
-  <script src="data/innstillinger.js?v=20261102b"></script>
-  <script src="data/temaer/oversikt.js?v=20261102b"></script>
-  <script src="data/kart.js?v=20261102b"></script>
-  <script src="assets/felles.js?v=20261102b"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261102c">
+  <script src="data/innstillinger.js?v=20261102c"></script>
+  <script src="data/temaer/oversikt.js?v=20261102c"></script>
+  <script src="data/kart.js?v=20261102c"></script>
+  <script src="assets/felles.js?v=20261102c"></script>
 </head>
 <body data-side="laerer">
   <main id="innhold" class="smal">
@@ -119,7 +119,7 @@
           const x = (t.sted.lon + 180) * k.bredde / 360, y = (k.nord - t.sted.lat) * k.bredde / 360;
           let paLand = true;
           try { paLand = sti.isPointInFill(new DOMPoint(x, y)); } catch (e) {}
-          status = paLand ? "✅ OK" : "⚠️ Ligger i havet – sjekk koordinatene (kan være riktig for byer helt ved kysten)";
+          status = paLand ? "✅ OK" : t.sted.sjekket ? "✅ OK (ligger ved kysten – sjekket)" : "⚠️ Ligger i havet – sjekk koordinatene (kan være riktig for byer helt ved kysten). Er det riktig, legg til <code>sjekket: true</code> i «sted» i oversikt.js.";
         }
         const lenke = t.sted ? '<a href="https://www.openstreetmap.org/?mlat=' + t.sted.lat + "&mlon=" + t.sted.lon + "#map=6/" + t.sted.lat + "/" + t.sted.lon + '" target="_blank" rel="noopener">Vis på kart</a>' : "";
         return "<tr><td>" + LV.esc(t.tittel) + "</td><td>" + (t.sted ? LV.esc(t.sted.navn) : "–") + "</td><td>" + status + "</td><td>" + lenke + "</td></tr>";

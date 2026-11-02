@@ -39,7 +39,7 @@ window.LV.tema = {
       tittel: "Two different worlds",
       tekst: [
         "Victorian Britain was a country of big differences between rich and poor. The [[middle class]] grew quickly. Doctors, lawyers, factory owners and shopkeepers could afford large houses, good food and servants. For them, it was important to be [[respectable]]: to work hard, have good manners, go to church and keep the family’s reputation clean.",
-        "For the poor, life was very different. London grew from about one million people in 1800 to more than six million by 1900. Many lived in [[slums|slum]], where whole families shared one small, damp room. There was little clean water and no proper toilets. Diseases like [[cholera]] spread quickly, and many people died young."
+        "For the poor, life was very different. London grew from about one million people in 1800 to about 6.5 million by 1900. Many lived in [[slums|slum]], where whole families shared one small, damp room. There was little clean water and no proper toilets. Diseases like [[cholera]] spread quickly, and many people died young."
       ]
     },
     {
@@ -171,14 +171,5 @@ window.LV.tema = {
     { tittel: "BBC Bitesize: search for “Victorians”", url: "https://www.bbc.co.uk/bitesize/search?q=victorians" },
     { tittel: "Charles Dickens Museum, London", url: "https://dickensmuseum.com/" },
     { tittel: "NDLA: søk på «Victorian»", url: "https://ndla.no/search?query=victorian" }
-  ],
-
-  kontroller: [
-    "Victorias regjeringstid 1837–1901 (hun ble dronning 18 år gammel).",
-    "Penny Black 1840; Verdensutstillingen (Great Exhibition) 1851 med rundt seks millioner besøkende.",
-    "Londons befolkning: ca. én million rundt 1800 og over seks millioner rundt 1900 (Stor-London).",
-    "Skolelovene 1870 og 1880 (obligatorisk skole for barn 5–10 år fra 1880).",
-    "Dickens: født i Portsmouth 1812, fabrikkarbeid som 12-åring, død 1870. Oliver Twist 1837–1839, A Christmas Carol 1843.",
-    "Sjekk at kildelenkene fungerer og peker til gode artikler."
   ]
 };

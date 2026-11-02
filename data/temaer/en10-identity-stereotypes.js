@@ -168,13 +168,5 @@ window.LV.tema = {
     { tittel: "Gene Luen Yang – the author’s website", url: "https://geneyang.com/" },
     { tittel: "NDLA: søk på «stereotypes»", url: "https://ndla.no/search?query=stereotypes" },
     { tittel: "Store norske leksikon: søk på «stereotypi»", url: "https://snl.no/.search?query=stereotypi" }
-  ],
-
-  kontroller: [
-    "American Born Chinese (2006): Michael L. Printz Award 2007 og finalist til National Book Award 2006 (første tegneserieroman).",
-    "Chinese Exclusion Act 1882, opphevet 1943.",
-    "Handlingen: Jin flytter til en ny skole; Wei-Chen er fra Taiwan; Chin-Kee-scenene har latterspor som i en sitcom; slutten der Danny er Jin, Chin-Kee er Apekongen og Wei-Chen er Apekongens sønn.",
-    "TV-serien (Disney+) kom i 2023.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

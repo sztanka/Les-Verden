@@ -156,13 +156,5 @@ window.LV.tema = {
     { tittel: "BBC Bitesize: search for “narrative”", url: "https://www.bbc.co.uk/bitesize/search?q=narrative" },
     { tittel: "NDLA: søk på «literary devices»", url: "https://ndla.no/search?query=literary+devices" },
     { tittel: "NDLA: søk på «short story»", url: "https://ndla.no/search?query=short+story" }
-  ],
-
-  kontroller: [
-    "The Outsiders (1967): S. E. Hinton begynte å skrive som 15-åring.",
-    "The Hate U Give (2017): Starr er 16 år.",
-    "Wonder (2012) fortalt av flere fortellere.",
-    "Spottesangeren (mockingjay) som symbol i The Hunger Games.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

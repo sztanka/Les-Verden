@@ -156,12 +156,5 @@ window.LV.tema = {
     { tittel: "Faktisk.no – Norwegian fact-checking", url: "https://www.faktisk.no/" },
     { tittel: "News Literacy Project", url: "https://newslit.org/" },
     { tittel: "NDLA: søk på «fake news»", url: "https://ndla.no/search?query=fake+news" }
-  ],
-
-  kontroller: [
-    "Irving Janis og «groupthink» (1972), Grisebukta 1961.",
-    "Asch-eksperimentet (1950-tallet): ca. 75 prosent fulgte flertallet minst én gang.",
-    "MIT-studien fra 2018 (Vosoughi m.fl. i Science) om at falske nyheter sprer seg raskere på Twitter.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };

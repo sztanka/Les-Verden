@@ -178,13 +178,5 @@ window.LV.tema = {
     { tittel: "Store norske leksikon: søk på «den industrielle revolusjon»", url: "https://snl.no/.search?query=den+industrielle+revolusjon" },
     { tittel: "NDLA: søk på «industrialisering»", url: "https://ndla.no/search?query=industrialisering" },
     { tittel: "Norsk Teknisk Museum", url: "https://www.tekniskmuseum.no/" }
-  ],
-
-  kontroller: [
-    "Spinnemaskiner på 1760-tallet og Watts forbedring av dampmaskinen på slutten av 1760-tallet (patent 1769).",
-    "Jernbanene 1825 (Stockton–Darlington) og 1830 (Liverpool–Manchester).",
-    "Fabrikkloven av 1833: forbud mot arbeid for barn under ni år i tekstilfabrikker.",
-    "Tekstilfabrikker langs Akerselva fra midten av 1800-tallet; Thranebevegelsen fra 1848; Norsk Hydro 1905; Arbeiderpartiet 1887.",
-    "Sjekk at kildelenkene fungerer og peker til gode artikler."
   ]
 };

@@ -60,6 +60,16 @@ window.LV.tema = {
       stoppOgTenk: "Can you think of an issue that people in Norway strongly disagree about? Do they still talk to each other?"
     },
     {
+      tittel: "The USA today: Donald Trump’s second term",
+      tekst: [
+        "In the presidential election in November 2024, the Republican Donald Trump beat the Democrat Kamala Harris. He won both the Electoral College and the most votes nationwide. On 20 January 2025, he became president for the second time – he had also been president from 2017 to 2021. Only one president before him, Grover Cleveland in the 1880s and 1890s, has served two terms that were not in a row. A president can only be elected twice, so Trump’s term ends in January 2029. As of 2026, he has about two years left.",
+        "During the campaign, Trump made many promises. The most important were to stop illegal immigration and deport (send out of the country) millions of people living in the USA without permission, to put [[tariffs|tariff]] – extra taxes – on goods from other countries to protect American jobs, to lower taxes, to cut the size and cost of the federal government, and to put «America First» in foreign policy, including ending the war in Ukraine quickly.",
+        "In his first year, Trump signed a record number of **executive orders** – instructions from the president that do not need a vote in Congress. In 2025, Congress passed a large law that extended tax cuts. He also introduced tariffs on goods from many countries, which led to trade conflicts and a debate about higher prices.",
+        "His presidency also shows how checks and balances work. Many of his decisions have been taken to court, and judges have stopped or delayed some of them. **Supporters** say that Trump is keeping his promises: protecting the border, standing up for American workers and changing a system they think has failed ordinary people. **Critics** say that he is taking too much power as president, that his tariffs make life more expensive, and that his immigration policy is harsh. On 3 November 2026, Americans vote in the **midterm elections**, which decide who will control Congress for the last two years of his term."
+      ],
+      stoppOgTenk: "Find one promise Trump made in the 2024 campaign. Search for news: Has he kept it so far? Use at least two different sources."
+    },
+    {
       tittel: "Comparing with Norway",
       tekst: [
         "Norway is also a representative democracy, but the system is different. Norway is a [[constitutional monarchy]] with a king, but the real power lies with the Storting and the government. Seats in the Storting are divided according to how many votes each party gets, so many different parties are represented, and they often have to cooperate.",
@@ -78,7 +88,10 @@ window.LV.tema = {
     { dato: "1776", tekst: "The Declaration of Independence." },
     { dato: "1787", tekst: "The US Constitution is signed." },
     { dato: "2000", tekst: "A US presidential candidate wins without getting the most votes nationwide." },
-    { dato: "6 January 2021", tekst: "Supporters of the defeated president storm the Capitol in Washington, D.C." }
+    { dato: "6 January 2021", tekst: "Supporters of the defeated president storm the Capitol in Washington, D.C." },
+    { dato: "5 November 2024", tekst: "Donald Trump wins the presidential election against Kamala Harris." },
+    { dato: "20 January 2025", tekst: "Donald Trump becomes president for the second time." },
+    { dato: "3 November 2026", tekst: "Midterm elections for Congress." }
   ],
 
   ord: {
@@ -88,6 +101,7 @@ window.LV.tema = {
     "citizen": "borger / statsborger – a member of a country, with rights and duties.",
     "polarization": "polarisering – when groups in society move further apart and see each other as enemies.",
     "echo chamber": "ekkokammer – a place, often online, where you only hear opinions you already agree with.",
+    "tariff": "toll – an extra tax on goods that are imported from other countries.",
     "constitutional monarchy": "konstitusjonelt monarki – a country with a king or queen, where the real power lies with an elected parliament."
   },
 
@@ -96,6 +110,7 @@ window.LV.tema = {
     "In the USA, power is divided between Congress, the President and the Supreme Court.",
     "The USA has two big parties: the Democrats and the Republicans.",
     "Citizens have rights, like freedom of speech, and duties, like following the law.",
+    "Donald Trump became president for the second time in 2025. His term ends in January 2029.",
     "Many Americans are very divided along party lines. This is called polarization.",
     "Democracy only works if citizens take part and talk to each other."
   ],
@@ -118,14 +133,16 @@ window.LV.tema = {
     2: {
       finn: [
         "Find three reasons why the USA has become more polarized.",
-        "Find two differences between the political systems in Norway and the USA."
+        "Find two differences between the political systems in Norway and the USA.",
+        "Find three promises Donald Trump made in the 2024 election campaign."
       ],
       forsta: [
         "Explain what checks and balances means, and give an example.",
         "Explain how a candidate can become president without getting the most votes."
       ],
       diskuter: [
-        { tekst: "Do you think social media makes people more polarized? Give examples.", partner: true }
+        { tekst: "Do you think social media makes people more polarized? Give examples.", partner: true },
+        { tekst: "Supporters and critics see Trump’s presidency very differently. Choose one of his policies (for example immigration or tariffs) and present the arguments on both sides.", partner: true }
       ]
     },
     3: {
@@ -148,14 +165,5 @@ window.LV.tema = {
     { tittel: "USA.gov: Branches of the U.S. government", url: "https://www.usa.gov/branches-of-government" },
     { tittel: "BBC Bitesize: search for “democracy”", url: "https://www.bbc.co.uk/bitesize/search?q=democracy" },
     { tittel: "NDLA: søk på «American politics»", url: "https://ndla.no/search?query=american+politics" }
-  ],
-
-  kontroller: [
-    "Grunnloven signert 1787; Senatet 100, Representantenes hus 435, Høyesterett 9 dommere; 538 valgmenn, 270 for å vinne.",
-    "Valgene i 2000 og 2016 der vinneren ikke fikk flest stemmer totalt.",
-    "Valgdeltakelse rundt 60 prosent i presidentvalg (lavere ved mellomvalg).",
-    "Stormingen av Kongressen 6. januar 2021.",
-    "Teksten nevner ikke hvem som er president nå. Sjekk om det bør legges til etter siste valg.",
-    "Sjekk at kildelenkene fungerer."
   ]
 };
