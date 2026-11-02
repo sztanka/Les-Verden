@@ -210,6 +210,13 @@
         LV.landliste.map(l => '<li><a href="land.html?id=' + encodeURIComponent(l.id) + '"><span aria-hidden="true">' + l.flagg + "</span>" + LV.esc(l.norsk) + "</a></li>").join("") +
         '<li><a href="land.html">Alle landsidene →</a></li></ul>';
     }
+    const gstripe = document.getElementById("grammatikkstripe");
+    if (gstripe && LV.grammatikkListe) {
+      gstripe.hidden = fag !== "engelsk";
+      gstripe.innerHTML = '<h3><a href="grammatikk.html" lang="en">Grammar and vocabulary</a> – forklaringer, ordlister og øvelser</h3><ul>' +
+        LV.grammatikkListe.map(e => '<li><a href="grammatikk.html?id=' + encodeURIComponent(e.id) + '" lang="en"><span aria-hidden="true">' + e.ikon + "</span>" + LV.esc(e.tittel) + "</a></li>").join("") +
+        '<li><a href="grammatikk.html">Alle emnene →</a></li></ul>';
+    }
     const e = emne && LV.emner[emne];
     intro.hidden = !e || velger.hidden;
     if (e) intro.textContent = e.tekst;

@@ -21,6 +21,7 @@ les-verden/
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
 ├── verktoy/                Verktøy som lager kartene (trengs ikke på nettsiden)
@@ -188,6 +189,16 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Grammar and vocabulary
+
+`grammatikk.html` + `assets/grammatikk.js`. Oversikten og emnegruppene ligger i `data/grammatikk/oversikt.js` (`LV.grammatikkGrupper` og `LV.grammatikkListe`). Hvert emne har en egen fil `data/grammatikk/<id>.js` som setter `LV.grammatikk`:
+
+- `id, tittel, ikon, ingress, opphav, forklaring[], norsk, husk[]`
+- `grupper[{tittel, tekst?, ord: [[{ord, uttale?, betyr, norsk, eks}, …], …]}]` – hvert indre array er et sett ord som hører sammen (f.eks. their/there/they're)
+- `obs{tittel, tekst[]}` (valgfri boks), `ovelser[{s, valg[], riktig: 0, forklaring}]` (rett svar står først, rekkefølgen blandes), `oppgaver[]`, `se[]` (id-er til beslektede emner)
+
+Nytt emne: lag fila, og legg emnet inn i `LV.grammatikkListe` og i `emner` i riktig gruppe. Formatering: `**fet**` og `*kursiv*`.
+
 ### Ordboka
 
 `ordbok.html` + `assets/ordbok.js`. På temasidene, landsidene, tidslinjen, begrepsbanken, personsiden og eksamenssonen kan elevene dobbeltklikke på et ord (eller merke det på mobil og trykke «Slå opp») for å få det forklart i en boble.
@@ -260,7 +271,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261030i`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261102a`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

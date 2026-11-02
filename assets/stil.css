@@ -1261,3 +1261,68 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .forside-ordbok input { flex: 1 1 260px; min-width: 0; font: inherit; font-family: var(--font-ui); font-size: 1.05rem; padding: .6rem .9rem; border-radius: 999px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); }
 .forside-ordbok input:focus { border-color: var(--aksent); outline: none; }
 @media (max-width: 600px) { .forside-ordbok label { width: 100%; } .forside-ordbok input { flex: 1 1 0; font-size: 1rem; } .forside-ordbok .knapp { flex: none; } }
+
+/* =========================================================
+   Grammar and vocabulary
+   ========================================================= */
+.grammatikk-side { max-width: 900px; }
+.gr-norsk-ingress { color: var(--tekst-dempet); font-family: var(--font-ui); }
+.gr-gruppe h2 small { display: block; font-family: var(--font-ui); font-size: .9rem; font-weight: 400; color: var(--tekst-dempet); }
+.gr-kortliste { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.gr-kort { display: flex; flex-direction: column; gap: .25rem; height: 100%; box-sizing: border-box; padding: .9rem 1rem; background: var(--flate); border: 2px solid var(--linje); border-top: 5px solid var(--engelsk); border-radius: var(--radius); color: var(--tekst); text-decoration: none; font-family: var(--font-ui); transition: transform .15s, border-color .15s; }
+.gr-kort:hover, .gr-kort:focus-visible { border-color: var(--engelsk); transform: translateY(-2px); }
+.gr-kort strong { font-size: 1.15rem; }
+.gr-kort small { color: var(--tekst-dempet); }
+.gr-kort-ikon { font-size: 1.8rem; line-height: 1; }
+.gr-diagram { margin: 1.5rem 0; }
+.gr-diagram table { width: 100%; border-collapse: separate; border-spacing: 6px; font-family: var(--font-ui); table-layout: fixed; }
+.gr-diagram caption { text-align: left; font-weight: 700; margin-bottom: .3rem; }
+.gr-diagram th { font-size: .88rem; color: var(--tekst-dempet); text-align: center; vertical-align: middle; padding: .3rem; }
+.gr-diagram thead td { width: 24%; }
+.gr-diagram th.markert { color: var(--engelsk); background: var(--engelsk-lys); border-radius: 10px; }
+.gr-celle { background: var(--flate); border: 2px solid var(--linje); border-radius: 12px; padding: 0; vertical-align: top; }
+.gr-celle > a, .gr-celle { color: var(--tekst); text-decoration: none; }
+.gr-celle > a, .gr-celle > div { display: flex; flex-direction: column; gap: .15rem; padding: .7rem .8rem; height: 100%; box-sizing: border-box; }
+.gr-celle > div { color: var(--tekst-dempet); }
+.gr-celle strong { font-size: 1.05rem; }
+.gr-celle span { font-style: italic; }
+.gr-celle small { color: var(--tekst-dempet); }
+.gr-celle.markert { border-color: var(--engelsk); background: var(--engelsk-lys); }
+.gr-celle a:hover strong { text-decoration: underline; }
+.gr-diagram figcaption { font-family: var(--font-ui); font-size: .9rem; color: var(--tekst-dempet); margin-top: .3rem; }
+.gr-opphav { font-family: var(--font-ui); font-size: .92rem; color: var(--tekst-dempet); }
+.gr-opphav span { font-weight: 700; }
+.gr-snarvei { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1.2rem; }
+.gr-snarvei a { font-family: var(--font-ui); font-size: .9rem; padding: .3rem .75rem; border-radius: 999px; background: var(--flate); border: 1px solid var(--linje); color: var(--tekst); text-decoration: none; }
+.gr-norsk { background: var(--flate-2); border-radius: 12px; padding: .6rem .9rem; margin: 1rem 0; }
+.gr-norsk summary { cursor: pointer; font-family: var(--font-ui); font-weight: 600; }
+.gr-norsk p { margin: .5rem 0 0; }
+.gr-husk { background: var(--gul-lys); border-radius: var(--radius); padding: .8rem 1.1rem; margin: 1rem 0; }
+.gr-husk h3 { margin: 0 0 .4rem; }
+.gr-husk ul { margin: 0; padding-left: 1.2rem; }
+.gr-gruppetittel { margin-top: 1.5rem; }
+.gr-gruppetekst, .gr-hint { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .93rem; }
+.gr-ordsett { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+@media (max-width: 500px) { .gr-ordsett { grid-template-columns: 1fr; } }
+.gr-sett { background: var(--flate); border: 1px solid var(--linje); border-left: 4px solid var(--engelsk); border-radius: 12px; padding: .7rem .9rem; }
+.gr-settord { margin: 0 0 .4rem; font-family: var(--font-ui); font-size: 1.15rem; }
+.gr-sett dl { margin: 0; display: grid; gap: .45rem; }
+.gr-ord dt { font-family: var(--font-ui); }
+.gr-ord dd { margin: 0 0 0 .1rem; }
+.gr-uttale { font-weight: 400; color: var(--engelsk); font-size: .9rem; }
+.gr-oversatt { color: var(--tekst-dempet); }
+.gr-eks { display: flex; align-items: center; gap: .3rem; margin-top: .15rem; color: var(--tekst-dempet); }
+.gr-les { flex: none; border: 1px solid var(--linje); background: var(--flate); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: .85rem; padding: 0; }
+.gr-les:hover { background: var(--engelsk-lys); }
+.gr-obs { background: var(--engelsk-lys); border-radius: var(--radius); padding: .9rem 1.1rem; margin: 1.6rem 0; }
+.gr-obs h2 { margin-top: 0; font-size: 1.2rem; }
+.gr-quiz { padding-left: 1.4rem; display: grid; gap: .9rem; }
+.gr-sp p { margin: 0 0 .4rem; }
+.gr-valg { display: flex; flex-wrap: wrap; gap: .4rem; }
+.gr-tilbake { min-height: 1em; font-family: var(--font-ui); font-size: .93rem; margin-top: .3rem !important; }
+.gr-poeng { font-family: var(--font-ui); font-weight: 700; }
+.gr-oppgaver ol { padding-left: 1.4rem; display: grid; gap: .8rem; }
+.gr-oppgaver textarea { width: 100%; box-sizing: border-box; }
+.gr-kommer { margin-top: 2rem; color: var(--tekst-dempet); font-family: var(--font-ui); }
+.gr-stripe { background: var(--engelsk-lys); }
+@media (max-width: 560px) { .gr-diagram table { border-spacing: 3px; font-size: .85rem; } .gr-celle > a, .gr-celle > div { padding: .5rem; } .gr-diagram thead td { width: 22%; } }
