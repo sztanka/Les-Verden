@@ -21,6 +21,7 @@ les-verden/
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── film.html               Film i undervisningen + skriveguider for filmanmeldelse (data i data/film/)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
@@ -189,6 +190,16 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Film i undervisningen
+
+`film.html` + `assets/film.js`. Oversikten ligger i `data/film/oversikt.js` (`LV.filmer` og `LV.filmGuider`), og hver film har en egen fil `data/film/<id>.js` (`LV.film`) med `fakta`, `sammendrag`, `handling` (spoilere), `bakgrunn`, `sporsmal[{s, svar}]`, `diskusjon`, `refleksjon`, `fordypning`, `advarsel` og `kontroller`.
+
+- **Trailer:** Legg YouTube-ID-en inn som `youtube: "…"` i `oversikt.js` (det som står etter `v=` i lenken, f.eks. `https://www.youtube.com/watch?v=mfmrPu43DF8` → `mfmrPu43DF8`). Traileren lastes fra youtube-nocookie.com først når eleven trykker «Spill av». Uten ID vises en lenke til søk på YouTube.
+- **Omslag:** Filmene har tegnede «omslag» laget med farger og emoji (`farger`, `ikon`, `stil`), fordi ekte DVD-omslag og plakater er beskyttet av opphavsrett. Vil du likevel bruke et bilde, kan du legge inn `omslag: "lenke"` – men sjekk at du har lov.
+- **Koblinger:** `temaer` (tema-id-er) gir lenker fra filmen til temaene og en «Film om temaet»-boks på temasidene. `landsider` gir lenker til landsidene.
+- `&laerer=1` viser fasit til faktaspørsmålene og lærerkontrollen.
+- Skriveguidene ligger i `data/film/guide-review.js` og `data/film/guide-anmeldelse.js`.
+
 ### Grammar and vocabulary
 
 `grammatikk.html` + `assets/grammatikk.js`. Oversikten og emnegruppene ligger i `data/grammatikk/oversikt.js` (`LV.grammatikkGrupper` og `LV.grammatikkListe`). Hvert emne har en egen fil `data/grammatikk/<id>.js` som setter `LV.grammatikk`:
@@ -278,7 +289,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261102c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261102d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

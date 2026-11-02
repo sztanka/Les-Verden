@@ -242,6 +242,16 @@
     });
     h += "</section>";
 
+    // Film
+    {
+      const en = tema.sprak === "en";
+      const filmer = (LV.filmer || []).filter(f => (f.temaer || []).includes(tema.id));
+      if (filmer.length) {
+        h += '<section class="fo-temaboks" aria-labelledby="film-tittel"><h2 id="film-tittel">🎬 ' + (en ? "Films about the topic" : "Film om temaet") + '</h2><ul class="fo-temaliste">' +
+          filmer.map(f => '<li><a href="film.html?id=' + encodeURIComponent(f.id) + '"><span class="fo-mini" style="--a:' + f.farger[0] + ";--b:" + f.farger[1] + '" aria-hidden="true">' + f.ikon + "</span><span><strong>" + LV.esc(f.tittel) + " (" + f.ar + ")</strong><small>" + LV.esc(f.kort) + "</small></span></a></li>").join("") + "</ul></section>";
+      }
+    }
+
     // Spill og øv
     {
       const en = tema.sprak === "en";

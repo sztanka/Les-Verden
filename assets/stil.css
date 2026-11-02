@@ -1411,3 +1411,120 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .gr-naboer p { margin: 0 0 .4rem; font-family: var(--font-ui); color: var(--tekst-dempet); }
 .gr-naboer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
 .gr-naboer a { display: inline-block; padding: .35rem .8rem; border-radius: 999px; background: var(--gr-farge); color: var(--gr-tekst); text-decoration: none; font: 600 .9rem var(--font-ui); }
+
+/* =========================================================
+   Film i undervisningen
+   ========================================================= */
+.vk-film { --vk: #8a2d6b; --vk-lys: #f6e4ef; }
+.vk-grammatikk { --vk: var(--engelsk); --vk-lys: var(--engelsk-lys); }
+.vk-ordbok { --vk: #6a4a12; --vk-lys: var(--gul-lys); }
+:root[data-tema="mork"] .vk-film { --vk: #e59acb; --vk-lys: #3a1f31; }
+:root[data-tema="mork"] .vk-ordbok { --vk: var(--gul); }
+.film-side { max-width: 1100px; }
+.fo-guider { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 0 0 1.4rem; }
+.fo-guide { display: flex; gap: .8rem; align-items: center; padding: .9rem 1.1rem; background: var(--flate); border: 2px solid var(--linje); border-radius: var(--radius); color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.fo-guide:hover, .fo-guide:focus-visible { border-color: var(--aksent); }
+.fo-guide-ikon { font-size: 2rem; }
+.fo-guide strong { display: block; font-size: 1.05rem; }
+.fo-guide span span { color: var(--tekst-dempet); font-size: .9rem; }
+.fo-filter { display: grid; gap: .5rem; margin-bottom: .6rem; }
+.fo-filter-rad { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.fo-antall { color: var(--tekst-dempet); font-family: var(--font-ui); margin: .3rem 0 .8rem; }
+.fo-hylle { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.3rem 1rem; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.fo-hylle.liten { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: .6rem; }
+.fo-kort { display: flex; flex-direction: column; gap: .5rem; color: var(--tekst); text-decoration: none; height: 100%; }
+.fo-kort:hover .fo-omslag, .fo-kort:focus-visible .fo-omslag { transform: translateY(-4px) rotate(-1deg); box-shadow: 0 14px 28px rgba(0,0,0,.35); }
+.fo-kort-tekst { display: flex; flex-direction: column; gap: .25rem; font-family: var(--font-ui); font-size: .9rem; }
+.fo-kort-tekst > span:first-of-type { color: var(--tekst-dempet); }
+.fo-merker { display: flex; flex-wrap: wrap; gap: .25rem; }
+.fo-fag, .fo-tag { font: 600 .7rem var(--font-ui); padding: .12rem .45rem; border-radius: 999px; background: var(--flate-2); color: var(--tekst-dempet); }
+.fo-fag.fag-engelsk { background: var(--engelsk-lys); color: var(--engelsk); }
+.fo-fag.fag-samfunnsfag { background: var(--samfunnsfag-lys); color: var(--samfunnsfag); }
+.fo-merk { margin-top: 2rem; padding: .8rem 1rem; background: var(--gul-lys); border-radius: 12px; font-family: var(--font-ui); font-size: .92rem; }
+
+/* Tegnet filmomslag */
+.fo-omslag { position: relative; display: flex; flex-direction: column; justify-content: flex-end; aspect-ratio: 2 / 3; border-radius: 6px 10px 10px 6px; overflow: hidden; color: #fff; padding: 1rem .8rem; box-sizing: border-box;
+  background: radial-gradient(circle at 50% 30%, var(--b), transparent 70%), linear-gradient(170deg, var(--b), var(--a) 65%);
+  box-shadow: inset 6px 0 0 rgba(255,255,255,.08), inset 7px 0 0 rgba(0,0,0,.35), 0 6px 14px rgba(0,0,0,.25); transition: transform .2s, box-shadow .2s; text-align: center; }
+.fo-omslag::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,.18) 0%, transparent 30%); pointer-events: none; }
+.fo-omslag.bilde { padding: 0; background: #111; }
+.fo-omslag.bilde img { width: 100%; height: 100%; object-fit: cover; }
+.fo-ikon { position: absolute; top: 18%; left: 0; right: 0; font-size: clamp(2.5rem, 9vw, 4.2rem); filter: drop-shadow(0 6px 12px rgba(0,0,0,.5)); }
+.fo-tittel { position: relative; font: 900 clamp(1.05rem, 3.2vw, 1.5rem)/1.05 var(--font-tekst); text-transform: uppercase; letter-spacing: .04em; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+.fo-ar { position: relative; font: 600 .75rem var(--font-ui); letter-spacing: .3em; opacity: .85; margin-top: .3rem; }
+.fo-tagline { position: absolute; top: .6rem; left: .6rem; right: .6rem; font: italic .68rem/1.25 var(--font-tekst); opacity: .9; }
+.fo-hylle.liten .fo-tagline, .fo-hylle.liten .fo-ar { display: none; }
+.fo-hylle.liten .fo-tittel { font-size: .72rem; }
+.fo-hylle.liten .fo-ikon { font-size: 1.8rem; }
+.fo-hylle.liten .fo-omslag { padding: .5rem .3rem; }
+.stil-kode .fo-tittel { font-family: "Courier New", monospace; color: #8cff9e; text-shadow: 0 0 8px #1aff5a; }
+.stil-kode { background: repeating-linear-gradient(90deg, rgba(26,255,90,.12) 0 2px, transparent 2px 14px), linear-gradient(170deg, var(--b), var(--a) 65%); }
+.stil-ild .fo-tittel { color: #ffd27a; text-shadow: 0 0 12px #ff6a00; }
+.stil-is .fo-tittel { color: #e9f6ff; letter-spacing: .12em; }
+.stil-svarthvitt { filter: grayscale(1); }
+.stil-svarthvitt .fo-ikon { filter: drop-shadow(0 0 14px rgba(255,255,255,.5)); }
+.stil-militaer .fo-tittel { font-family: "Stencil", "Impact", var(--font-ui); letter-spacing: .1em; }
+.stil-graffiti .fo-tittel { font-family: "Impact", "Arial Black", var(--font-ui); transform: rotate(-4deg); }
+.stil-lys .fo-tittel { text-transform: none; font-family: var(--font-ui); }
+.fo-omslag.stor { width: min(260px, 70vw); flex: none; font-size: 1.2rem; }
+.fo-omslag.stor .fo-tittel { font-size: clamp(1.4rem, 5vw, 2rem); }
+.fo-omslag.stor .fo-tagline { font-size: .85rem; }
+
+/* Filmside */
+.fo-topp { display: flex; gap: 1.6rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.fo-topp-tekst { flex: 1 1 320px; }
+.fo-topp h1 { margin: .2rem 0 .3rem; }
+.fo-h1-ar { font-weight: 400; color: var(--tekst-dempet); }
+.fo-fakta { margin-top: 1rem; }
+.fo-fakta div { grid-template-columns: 9.5rem 1fr; }
+.fo-innhold { max-width: 780px; }
+.fo-video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, var(--a), var(--b)); display: flex; align-items: center; justify-content: center; }
+.fo-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.fo-spill { font: 700 1.1rem var(--font-ui); padding: .9rem 1.5rem; border-radius: 999px; border: 0; background: #fff; color: #111; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,.4); }
+.fo-spill span { color: #c62828; }
+.fo-personvern { font-family: var(--font-ui); font-size: .82rem; color: var(--tekst-dempet); }
+.fo-spoiler { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .9rem; margin: 1rem 0; }
+.fo-spoiler summary { cursor: pointer; font-family: var(--font-ui); font-weight: 600; }
+.fo-bakgrunn { background: var(--flate-2); border-radius: var(--radius); padding: .9rem 1.2rem; margin: 1.6rem 0; }
+.fo-bakgrunn h2 { margin-top: 0; }
+.fo-oppg { margin: 1.6rem 0; }
+.fo-oppg-tekst { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .93rem; }
+.fo-oppg ol { padding-left: 1.3rem; display: grid; gap: .8rem; }
+.fo-oppg li p { margin: 0 0 .3rem; }
+.fo-oppg textarea { width: 100%; box-sizing: border-box; }
+.fo-fasit { background: var(--gul-lys); border-radius: 8px; padding: .3rem .6rem; font-family: var(--font-ui); font-size: .9rem; }
+.fo-anmeld { margin: 1.5rem 0; }
+.fo-laerer { background: var(--gul-lys); border-radius: var(--radius); padding: .7rem 1rem; margin: 1.5rem 0; font-family: var(--font-ui); }
+.fo-laerer summary { cursor: pointer; font-weight: 700; }
+.fo-hint { font-size: .85rem; color: var(--tekst-dempet); }
+.fo-andre { margin-top: 2rem; }
+/* Temaboks */
+.fo-temaboks { background: #f6e4ef; border-radius: var(--radius); padding: 1rem 1.2rem; margin: 2rem 0; }
+:root[data-tema="mork"] .fo-temaboks { background: #3a1f31; }
+.fo-temaboks h2 { margin-top: 0; }
+.fo-temaliste { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.fo-temaliste a { display: flex; gap: .7rem; align-items: center; padding: .5rem .6rem; background: var(--flate); border-radius: 10px; color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.fo-temaliste a:hover { outline: 2px solid #8a2d6b; }
+.fo-temaliste small { display: block; color: var(--tekst-dempet); }
+.fo-mini { flex: none; width: 44px; height: 62px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: linear-gradient(170deg, var(--b), var(--a)); }
+/* Guide */
+.fo-annen { font-family: var(--font-ui); }
+.fo-gdel ul { padding-left: 1.3rem; }
+.fo-gdel li { margin-bottom: .35rem; }
+.fo-fraser { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.fo-frase { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .7rem .9rem; }
+.fo-frase h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.fo-frase ul { margin: 0; padding-left: 1.1rem; font-size: .93rem; }
+.fo-ordtabell, .fo-vurdering { width: 100%; border-collapse: collapse; }
+.fo-ordtabell td, .fo-vurdering td, .fo-vurdering th { padding: .45rem .7rem; border-bottom: 1px solid var(--linje); text-align: left; vertical-align: top; }
+.fo-ordtabell th, .fo-vurdering thead th { padding: .45rem .7rem; background: var(--flate-2); text-align: left; font-family: var(--font-ui); font-size: .85rem; }
+.fo-eksempel article { background: var(--flate); border: 1px solid var(--linje); border-left: 5px solid #8a2d6b; border-radius: 12px; padding: .9rem 1.2rem; font-family: var(--font-tekst); }
+.fo-eksempel h3 { margin-top: 0; }
+.fo-sjekk { list-style: none; padding: 0; display: grid; gap: .35rem; }
+.fo-sjekk label { display: flex; gap: .5rem; align-items: flex-start; cursor: pointer; }
+.fo-sjekk input { margin-top: .3rem; width: 1.1rem; height: 1.1rem; }
+.fo-ramme h3 { font-size: 1rem; margin: 1rem 0 .3rem; }
+.fo-ramme textarea { width: 100%; box-sizing: border-box; }
+#fo-velg { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+@media (max-width: 600px) { .fo-hylle { grid-template-columns: repeat(2, 1fr); } .fo-topp { justify-content: center; } .fo-fakta div { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .fo-omslag { transition: none; } }
