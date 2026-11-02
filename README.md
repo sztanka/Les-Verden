@@ -195,9 +195,16 @@ oppgavene på nivå 2 og 3 i temaene.
 
 - `id, tittel, ikon, ingress, opphav, forklaring[], norsk, husk[]`
 - `grupper[{tittel, tekst?, ord: [[{ord, uttale?, betyr, norsk, eks}, …], …]}]` – hvert indre array er et sett ord som hører sammen (f.eks. their/there/they're)
-- `obs{tittel, tekst[]}` (valgfri boks), `ovelser[{s, valg[], riktig: 0, forklaring}]` (rett svar står først, rekkefølgen blandes), `oppgaver[]`, `se[]` (id-er til beslektede emner)
+- `tabeller[{tittel, tekst?, kolonner[], rader[[]], note?}]` (valgfri), `sammenlign[{tittel, tekst, eks?: [[norsk, engelsk]]}]` (valgfri, «Sammenlignet med norsk»)
+- `obs{tittel, tekst[]}` (valgfri boks), `oppgaver[]`, `se[]` (id-er til beslektede emner)
+- `ovelser`: enten en liste med flervalg `{s, valg[], forklaring}` (rett svar står først – rekkefølgen blandes), eller en liste med øvelsessett `{type, tittel, instruks, oppgaver}`:
+  - `type: "mc"` – flervalg som over
+  - `type: "finn"` – `{s: "The [boy] kicked the [ball]."}`: eleven trykker på ordene i [hakeparenteser]
+  - `type: "fyll"` – `{s: "Two ___ (child).", hint: "child", svar: ["children"]}`: alle svar i `svar` godtas
+  - `type: "sorter"` – `{kategorier: ["Countable", "Uncountable"], ord: [["chair", 0], ["water", 1]]}`
+- Ordklassene har farge i `LV.grammatikkListe` (`farge`, `morkTekst` for lys bakgrunn, `entall`, `eks`). En gruppe med `plakat: true` vises som plakat, med valgfri fargelagt `setning` og `quiz`.
 
-Nytt emne: lag fila, og legg emnet inn i `LV.grammatikkListe` og i `emner` i riktig gruppe. Formatering: `**fet**` og `*kursiv*`.
+Nytt emne: lag fila, og legg emnet inn i `LV.grammatikkListe` og i `emner` i riktig gruppe. Formatering: `**fet**`, `*kursiv*` og `~~gjennomstreket~~` (feil form).
 
 ### Ordboka
 
@@ -271,7 +278,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261102a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261102b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

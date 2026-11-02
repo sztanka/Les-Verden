@@ -1326,3 +1326,88 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .gr-kommer { margin-top: 2rem; color: var(--tekst-dempet); font-family: var(--font-ui); }
 .gr-stripe { background: var(--engelsk-lys); }
 @media (max-width: 560px) { .gr-diagram table { border-spacing: 3px; font-size: .85rem; } .gr-celle > a, .gr-celle > div { padding: .5rem; } .gr-diagram thead td { width: 22%; } }
+
+/* Ordklasse-plakat */
+.gr-plakat { background: #1f2326; background-image: radial-gradient(circle at 20% 10%, rgba(255,255,255,.05), transparent 40%), radial-gradient(circle at 80% 90%, rgba(255,255,255,.04), transparent 45%); border-radius: 18px; padding: 1.2rem; margin: 1rem 0 1.5rem; box-shadow: var(--skygge); }
+.gr-plakat-tittel { margin: 0 0 1rem; text-align: center; color: #f3f1ea; font: 800 clamp(1.5rem, 5vw, 2.4rem)/1.1 var(--font-tekst); letter-spacing: .08em; text-transform: uppercase; border: 2px solid rgba(255,255,255,.55); border-radius: 12px; padding: .5rem; }
+.gr-plakat-kort { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 800px) { .gr-plakat-kort { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .gr-plakat-kort { grid-template-columns: 1fr; } }
+.gr-pkort { display: flex; flex-direction: column; height: 100%; text-decoration: none; border-radius: 6px; overflow: hidden; background: var(--gr-farge); color: var(--gr-tekst); transition: transform .15s, box-shadow .15s; font-family: var(--font-ui); }
+.gr-pkort:hover, .gr-pkort:focus-visible { transform: translateY(-3px) rotate(-.4deg); box-shadow: 0 8px 20px rgba(0,0,0,.45); }
+.gr-pkort-navn { background: #e9e7e1; color: #2a2a2a; text-align: center; font: 800 1.45rem/1.2 var(--font-tekst); padding: .45rem .5rem; border-bottom: 3px solid rgba(0,0,0,.2); }
+.gr-pkort-kropp { display: flex; flex-direction: column; gap: .55rem; padding: .7rem .8rem .8rem; flex: 1; }
+.gr-pkort-def { font-weight: 600; line-height: 1.35; }
+.gr-pkort-eks { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; font-size: .85rem; }
+.gr-pkort-eks > span { display: flex; flex-direction: column; }
+.gr-pkort-eks u { text-underline-offset: 2px; font-weight: 700; margin-bottom: .1rem; }
+.gr-pkort-eks i { font-style: normal; }
+.gr-pkort-norsk { margin-top: auto; font-size: .8rem; opacity: .9; }
+.gr-plakat-setning { margin: 1.2rem 0 .3rem; text-align: center; line-height: 1.9; font: 800 clamp(1.1rem, 3.6vw, 1.7rem) var(--font-tekst); }
+.gr-sord { border: 0; background: none; padding: 0 .05em; font: inherit; color: var(--gr-farge); cursor: pointer; border-radius: 4px; filter: brightness(1.35) saturate(1.1); }
+.gr-sord:hover, .gr-sord.valgt { background: var(--gr-farge); color: var(--gr-tekst); filter: none; }
+.gr-plakat-forklaring { text-align: center; color: #d7d4cb; font-family: var(--font-ui); margin: 0; min-height: 1.5em; }
+.gr-plakat-forklaring strong { color: #fff; }
+
+/* Farget emnehode */
+.gr-hode.farget { background: var(--gr-farge); color: var(--gr-tekst); border-radius: var(--radius); padding: 1.1rem 1.3rem; }
+.gr-hode.farget .overlinje, .gr-hode.farget .ingress, .gr-hode.farget h1, .gr-hode.farget .gr-opphav { color: var(--gr-tekst); }
+.gr-hode.farget h1 small { font-size: .55em; font-weight: 400; opacity: .9; }
+.gr-hode.farget .ingress { opacity: .95; }
+.gr-kort.farget { border-top-color: var(--gr-farge); }
+
+/* Tabeller */
+.gr-tabell { margin: 1.2rem 0 1.6rem; }
+.gr-tabell figcaption { font: 700 1.1rem var(--font-ui); margin-bottom: .4rem; }
+.gr-tabell-rull { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--linje); border-radius: 12px; background: var(--flate); }
+.gr-tabell table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.gr-tabell th, .gr-tabell td { padding: .5rem .7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linje); }
+.gr-tabell thead th { background: var(--engelsk-lys); font-family: var(--font-ui); font-size: .85rem; white-space: nowrap; }
+.gr-tabell tbody th { font-weight: 600; font-family: var(--font-ui); }
+.gr-tabell tbody tr:last-child > * { border-bottom: 0; }
+.gr-tabell tbody tr:nth-child(even) { background: color-mix(in srgb, var(--flate-2) 45%, transparent); }
+.gr-tabell s { color: #b3261e; }
+.gr-tabell-note { font-size: .9rem; color: var(--tekst-dempet); margin: .4rem 0 0; }
+
+/* Sammenlignet med norsk */
+.gr-sml-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.gr-sml-liste > li { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .8rem 1rem; }
+.gr-sml-liste h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+.gr-sml-liste p { margin: 0 0 .5rem; }
+.gr-sml-eks { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.gr-sml-eks th { text-align: left; font: 600 .75rem var(--font-ui); text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); padding: .2rem .3rem; }
+.gr-sml-eks td { padding: .3rem; border-top: 1px dashed var(--linje); vertical-align: top; width: 50%; }
+.gr-sml-liste s { color: #b3261e; }
+
+/* Øvelsessett */
+.gr-sett-boks { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .9rem 1.1rem; margin: 1rem 0; }
+.gr-sett-tittel { margin: 0 0 .2rem; }
+.gr-instruks { margin: 0 0 .6rem; color: var(--tekst-dempet); }
+.gr-finn { padding-left: 1.4rem; display: grid; gap: .5rem; }
+.gr-finn-setning { margin: 0; line-height: 2.1; }
+.gr-ordknapp { font: inherit; border: 1px solid transparent; background: var(--flate-2); color: var(--tekst); border-radius: 6px; padding: .05rem .3rem; cursor: pointer; }
+.gr-ordknapp[aria-pressed="true"] { background: var(--aksent-lys); border-color: var(--aksent); font-weight: 600; }
+.gr-ordknapp.riktig { background: #d6efdc; border-color: #2e7d46; color: #14351f; }
+.gr-ordknapp.feil { background: #f8d9d6; border-color: #b3261e; color: #4a0f0b; text-decoration: line-through; }
+.gr-ordknapp.mangler { border: 2px dashed #2e7d46; }
+.gr-ordknapp:disabled { cursor: default; }
+.gr-fyll { padding-left: 1.4rem; display: grid; gap: .55rem; }
+.gr-fyll label { display: inline; }
+.gr-felt { font: inherit; padding: .2rem .4rem; border: 2px solid var(--linje); border-radius: 6px; background: var(--bakgrunn); color: var(--tekst); margin: 0 .25rem; max-width: 60vw; }
+.gr-felt:focus { outline: none; border-color: var(--aksent); }
+.gr-felt.riktig { border-color: #2e7d46; background: #d6efdc; color: #14351f; }
+.gr-felt.feil { border-color: #b3261e; background: #f8d9d6; color: #4a0f0b; }
+.gr-fyll-hint { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .9rem; }
+.gr-sorter { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
+.gr-sorter li { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; padding: .35rem .5rem; border-radius: 10px; }
+.gr-sorter li.ferdig { background: color-mix(in srgb, #2e7d46 10%, transparent); }
+.gr-sorter-ord { font-weight: 700; min-width: 9rem; font-family: var(--font-ui); }
+.gr-sorter-valg { display: flex; flex-wrap: wrap; gap: .3rem; }
+.gr-sorter .knapp.riktig { background: #d6efdc; border-color: #2e7d46; color: #14351f; }
+.gr-sorter .knapp.feil { background: #f8d9d6; border-color: #b3261e; color: #4a0f0b; }
+:root[data-tema="mork"] .gr-ordknapp.riktig, :root[data-tema="mork"] .gr-felt.riktig, :root[data-tema="mork"] .gr-sorter .knapp.riktig { background: #1f3a31; color: var(--tekst); }
+:root[data-tema="mork"] .gr-ordknapp.feil, :root[data-tema="mork"] .gr-felt.feil, :root[data-tema="mork"] .gr-sorter .knapp.feil { background: #4a2420; color: var(--tekst); }
+.gr-naboer { margin: 1.5rem 0; }
+.gr-naboer p { margin: 0 0 .4rem; font-family: var(--font-ui); color: var(--tekst-dempet); }
+.gr-naboer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.gr-naboer a { display: inline-block; padding: .35rem .8rem; border-radius: 999px; background: var(--gr-farge); color: var(--gr-tekst); text-decoration: none; font: 600 .9rem var(--font-ui); }
