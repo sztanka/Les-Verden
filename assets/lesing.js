@@ -35,7 +35,7 @@
       "<li><strong>Mens du leser:</strong> velg <em lang=\"en\">Original text</em> eller <em lang=\"en\">Easier version</em>. Trykk på ord med prikkete strek for forklaring, og stopp ved hver ✋.</li>" +
       "<li><strong>Etter at du har lest:</strong> svar på spørsmålene, se nærmere på teksten, diskuter og skriv.</li></ol></div>" +
       '<div class="fo-filter" role="group" aria-label="Filtrer tekstene"><div class="fo-filter-rad"><span class="etikett">Type:</span>' +
-      [["", "Alle"], ["fiction", "Short stories"], ["true", "True stories"]].map(([v, t]) => '<button class="knapp liten" data-type="' + v + '"' + (v ? ' lang="en"' : "") + ">" + t + "</button>").join("") +
+      [["", "Alle"], ["fiction", "Short stories"], ["speech", "Speeches"], ["true", "Non-fiction"]].map(([v, t]) => '<button class="knapp liten" data-type="' + v + '"' + (v ? ' lang="en"' : "") + ">" + t + "</button>").join("") +
       '</div><div class="fo-filter-rad"><span class="etikett">Nivå:</span><button class="knapp liten" data-niva="">Alle</button>' +
       [1, 2, 3].map(n => '<button class="knapp liten" data-niva="' + n + '" lang="en">' + LV.lesenivaer[n] + "</button>").join("") + "</div></div>" +
       '<p class="fo-antall" id="lr-antall" aria-live="polite"></p><ul class="lr-hylle" id="lr-hylle"></ul>' +
@@ -43,11 +43,11 @@
     function tegn() {
       document.querySelectorAll("[data-type]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.type === type)));
       document.querySelectorAll("[data-niva]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.niva === niva)));
-      const liste = LV.lesetekster.filter(t => (!type || (type === "fiction") === (t.sjanger === "Short story")) && (!niva || String(t.nivaa) === niva));
+      const liste = LV.lesetekster.filter(t => (!type || type === (t.sjanger === "Short story" ? "fiction" : t.sjanger === "Speech" ? "speech" : "true")) && (!niva || String(t.nivaa) === niva));
       $("lr-antall").textContent = liste.length + (liste.length === 1 ? " tekst" : " tekster");
       $("lr-hylle").innerHTML = liste.map(t => '<li><a class="lr-kort" href="lesing.html?id=' + t.id + '">' + omslag(t) +
         '<span class="lr-kort-tekst" lang="en"><strong>' + esc(t.tittel) + "</strong><span class=\"lr-kort-forf\">" + esc(t.forfatter) + " · " + t.ar + "</span><span>" + esc(t.kort) + "</span>" +
-        '<span class="lr-kort-meta">' + stjerner(t.nivaa) + (t.kontekst ? '<span class="lr-merke lr-merke-kontekst" title="Har en boks om historisk kontekst">🕰️ Context</span>' : "") + '<span class="lr-merke">' + esc(t.sjanger) + '</span><span class="lr-merke" lang="nb">' + t.trinn + ". trinn</span><span class=\"lr-merke\" lang=\"nb\">ca. " + lesetid(t.ord) + " min</span></span></span></a></li>").join("");
+        '<span class="lr-kort-meta">' + stjerner(t.nivaa) + (t.kontekst ? '<span class="lr-merke lr-merke-kontekst" title="Har en boks om historisk kontekst">🕰️ Context</span>' : "") + (t.utenTekst ? '<span class="lr-merke lr-merke-uten" title="Teksten deles ut av læreren">📕 Text from teacher</span>' : "") + '<span class="lr-merke">' + esc(t.sjanger) + '</span><span class="lr-merke" lang="nb">' + t.trinn + ". trinn</span><span class=\"lr-merke\" lang=\"nb\">ca. " + lesetid(t.ord) + " min</span></span></span></a></li>").join("");
       const p = new URLSearchParams(); if (type) p.set("type", type); if (niva) p.set("niva", niva);
       history.replaceState(null, "", "lesing.html" + (p.toString() ? "?" + p : ""));
     }
@@ -210,15 +210,23 @@
       if (p && p.vers) { pnr++; origHtml += '<figure class="lr-vers" data-p="' + pnr + '">' + nr(pnr) + p.vers.split(/\n\n+/).map(st => "<p>" + st.split("\n").map(fmt).join("<br>") + "</p>").join("") + "</figure>"; }
       else if (typeof p !== "string") origHtml += '<h3 class="lr-deltittel">' + esc(p.h) + "</h3>";
       else { pnr++; origHtml += '<p data-p="' + pnr + '">' + nr(pnr) + orig[i] + "</p>"; }
-      if (d.stopp[i]) {
+      if (d.stopp && d.stopp[i]) {
         stoppNr++;
         origHtml += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think</div><p>' + fmt(d.stopp[i]) + "</p>" + svarfelt("stopp" + stoppNr, d.stopp[i], "Stop and think") + "</aside>";
       }
     });
     let lnr = 0;
-    const lettHtml = d.lett.map(p => typeof p !== "string" ? '<h3 class="lr-deltittel">' + esc(p.h) + "</h3>" :
+    const lettHtml = (d.lett || []).map(p => typeof p !== "string" ? '<h3 class="lr-deltittel">' + esc(p.h) + "</h3>" :
       '<p data-p="' + (++lnr) + '">' + nr(lnr) + fmt(p) + "</p>").join("");
     const lett = LV.param("versjon") === "lett";
+    if (d.utenTekst) {
+      h += '<section class="lr-del" id="les" lang="en"><h2><span class="lr-steg">2</span> Read</h2>' +
+        '<div class="lr-uten"><h3><span aria-hidden="true">📕</span> ' + esc(d.utenTekst.tittel) + "</h3>" + d.utenTekst.tekst.map(p => "<p>" + fmt(p) + "</p>").join("") +
+        '<p class="lr-uten-norsk" lang="nb">Teksten er vernet av opphavsrett og ligger derfor ikke på nettsiden. Læreren deler den ut.</p></div>' +
+        '<ol class="lr-deler">' + d.deler.map((x, i) => '<li class="lr-delkort"><h3>' + esc(x.tittel) + '</h3><p class="lr-delsted">📍 ' + esc(x.sted) + "</p>" +
+          '<details class="lr-delsammendrag"><summary>🌱 Short summary of this part</summary><p>' + fmt(x.sammendrag) + "</p></details>" +
+          '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think</div><p>' + fmt(x.stopp) + "</p>" + svarfelt("del" + i, x.stopp, "Stop and think") + "</aside></li>").join("") + "</ol></section>";
+    } else
     h += '<section class="lr-del" id="les" lang="en"><h2><span class="lr-steg">2</span> Read</h2>' +
       '<div class="lr-faner" role="tablist" aria-label="Choose version">' +
       '<button role="tab" id="fane-orig" aria-controls="panel-orig" aria-selected="' + !lett + '"' + (lett ? ' tabindex="-1"' : "") + '>📜 Original text</button>' +
@@ -234,7 +242,7 @@
     const blokk = (nokkel, ikon, tittel, tekst, liste, gruppe) => '<section class="fo-oppg lr-' + nokkel + '"><h3><span aria-hidden="true">' + ikon + "</span> " + tittel + '</h3><p class="fo-oppg-tekst">' + tekst + "</p><ol class=\"lr-oppg\">" +
       liste.map((x, i) => { const s = typeof x === "string" ? x : x.s; return "<li><p>" + fmt(s) + "</p>" + (laerer && x.svar ? '<p class="fo-fasit"><strong lang="nb">Fasit:</strong> ' + fmt(x.svar) + "</p>" : "") + svarfelt(nokkel + i, (i + 1) + ". " + s, gruppe) + "</li>"; }).join("") + "</ol></section>";
     h += '<section class="lr-del" id="etter" lang="en"><h2><span class="lr-steg">3</span> After reading</h2>' +
-      blokk("sporsmal", "❓", "Questions about the text", "Answer in full sentences. You can answer after reading the original or the easier version.", d.sporsmal, "Questions") +
+      blokk("sporsmal", "❓", "Questions about the text", (d.utenTekst ? "Answer in full sentences." : "Answer in full sentences. You can answer after reading the original or the easier version."), d.sporsmal, "Questions") +
       blokk("analyse", "🔍", "Look closer", "These questions are about how the text is written. Use quotes from the original text.", d.analyse, "Look closer") +
       blokk("diskusjon", "💬", "Discuss", "Talk in pairs or groups. Write down your most important points.", d.diskusjon, "Discuss") +
       blokk("skriv", "✍️", "Write", "Choose one task.", d.skriv, "Write") + "</section>";
@@ -244,7 +252,7 @@
     // Lærer
     h += '<details class="fo-laerer"' + (laerer ? " open" : "") + "><summary>👩‍🏫 For læreren</summary><p><strong>Innhold og alder:</strong> " + esc(d.laerer.innhold) + "</p>" +
       "<ul>" + d.laerer.tips.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
-      "<p><strong>Kilde og rettigheter:</strong> Originalteksten er hentet fra <a href=\"https://standardebooks.org\" target=\"_blank\" rel=\"noopener\">Standard Ebooks</a> (korrekturlest utgave, CC0). " + esc(info.forfatter) + " døde for over 70 år siden, så teksten er i det fri i Norge. Den lette versjonen, ordlista og oppgavene er skrevet for Les verden.</p>" +
+      (d.utenTekst ? "" : "<p><strong>Kilde og rettigheter:</strong> Originalteksten er hentet fra " + (info.kilde === "gutenberg" ? '<a href="https://www.gutenberg.org" target="_blank" rel="noopener">Project Gutenberg</a> (via GITenberg)' : '<a href="https://standardebooks.org" target="_blank" rel="noopener">Standard Ebooks</a> (korrekturlest utgave, CC0)') + ". " + esc(info.forfatter) + " døde for over 70 år siden, så teksten er i det fri i Norge. Den lette versjonen, ordlista og oppgavene er skrevet for Les verden.</p>") +
       (laerer ? "" : '<p class="fo-hint">Legg til <code>&amp;laerer=1</code> i adressen for å se fasit til spørsmålene.</p>') + "</details>";
     const andre = LV.lesetekster.filter(x => x.id !== info.id);
     h += '<section class="lr-andre"><h2>Flere tekster i Reading Room</h2><ul class="lr-hylle liten">' + andre.map(x => '<li><a class="lr-kort" href="lesing.html?id=' + x.id + '" aria-label="' + esc(x.tittel + " – " + x.forfatter) + '">' + omslag(x) + "</a></li>").join("") + "</ul></section>";

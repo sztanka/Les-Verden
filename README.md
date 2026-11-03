@@ -213,6 +213,9 @@ oppgavene på nivå 2 og 3 i temaene.
 - **Originalteksten** ligger nederst i hver fil, etter et merke, og lages med `verktoy/lag-lesing.py` fra Standard Ebooks (korrekturleste utgaver, CC0). Klon repoet fra `github.com/standardebooks/…` til `verktoy/kilder/` og kjør skriptet. Det sjekker også at hvert ord i ordlista finnes i teksten og at «stopp»-indeksene finnes. Alt over merket er skrevet for hånd og blir ikke endret. Redaksjonelle endringer i originalteksten (f.eks. et rasistisk ord byttet med [klammer]) legges i `ERSTATT` i skriptet og forklares i lærerdelen.
 - Første forekomst av hvert ord i ordlista blir en knapp med forklaring i originalteksten.
 - `temaer` gir en «Read a story»-boks på temasidene.
+- **Tekster fra Project Gutenberg:** `("txt", [(fil, fra-linje, til-linje), …])` i `KILDER` henter avsnitt fra ren tekst (klonet fra github.com/GITenberg). Flere utdrag skilles med «[…]». Sett `kilde: "gutenberg"` i oversikten.
+- **Vernede tekster (f.eks. Carver):** Sett `utenTekst: true` i oversikten og `utenTekst: {tittel, tekst}` + `deler: [{tittel, sted, sammendrag, stopp}]` i datafilen, og `tekst: []`. Da vises ingen originaltekst – bare gjenfortelling med egne ord, «Stop and think» per del og oppgavene. Ikke legg inn sitater eller PDF-er av vernede tekster i repoet.
+- `sjanger` styrer filteret i oversikten: «Short story», «Speech», ellers sakprosa.
 
 ### Film i undervisningen
 
@@ -313,7 +316,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261103h`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261103j`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

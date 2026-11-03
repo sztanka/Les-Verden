@@ -1874,3 +1874,14 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .lr-merke-kontekst { background: #f3e8d6; }
 :root[data-tema="mork"] .lr-merke-kontekst { background: #3a2e1d; }
 .lr-vers em { font-style: normal; }
+.lr-uten { background: var(--engelsk-lys); border-radius: var(--radius); padding: .4rem 1.2rem .8rem; font-family: var(--font-tekst); line-height: 1.6; }
+.lr-uten h3 { font-family: var(--font-ui); }
+.lr-uten-norsk { font-family: var(--font-ui); font-size: .9rem; color: var(--tekst-dempet); }
+.lr-deler { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 1rem; counter-reset: del; }
+.lr-delkort { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1.2rem 1rem; }
+.lr-delkort h3 { margin: .6rem 0 .2rem; }
+.lr-delsted { margin: 0 0 .6rem; color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .92rem; }
+.lr-delsammendrag summary { cursor: pointer; font-family: var(--font-ui); font-weight: 600; }
+.lr-delsammendrag p { font-family: var(--font-tekst); line-height: 1.65; }
+.lr-delkort .stopp { margin: .8rem 0 0; }
+.lr-merke-uten { background: var(--engelsk-lys); }
