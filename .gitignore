@@ -2,3 +2,6 @@
 verktoy/node_modules/
 verktoy/kilder/
 .DS_Store
+
+# Python-mellomlager
+__pycache__/

@@ -4,7 +4,7 @@ En lese- og læringsressurs i **samfunnsfag** og **engelsk** for 8.–10. trinn 
 Hver temaside er bygd rundt en fagtekst med ordforklaringer, «Stopp og tenk»-spørsmål,
 lettlest sammendrag og oppgaver på tre nivåer.
 
-Nettstedet er helt statisk: ren HTML, CSS og JavaScript. Det trenger ingen server,
+Nettstedet er helt statisk: ren HTML, CSS og JavaScript. Filen `.nojekyll` i rotmappa gjør at GitHub Pages publiserer filene direkte uten å kjøre Jekyll (raskere og færre byggefeil). Det trenger ingen server,
 ingen byggesteg og lagrer **ingenting** om elevene.
 
 ---
