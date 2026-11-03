@@ -21,6 +21,7 @@ les-verden/
 ├── personer.html           Personer og quizen «Hvem er jeg?» (lages automatisk)
 ├── eksamen.html            Eksamenssone for muntlig eksamen
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
+├── mysterium.html          Kalde spor i historien + Cold Case Mysteries (logikkgåter), data i data/mysterium/
 ├── film.html               Film i undervisningen + skriveguider for filmanmeldelse (data i data/film/)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
@@ -190,6 +191,14 @@ vanlige feil. **Tilpass gjerne «slikForegar» og «plan» til hvordan muntlig e
 gjøres på deres skole.** Øvingsspørsmålene i «Øv på samtalen» hentes automatisk fra
 oppgavene på nivå 2 og 3 i temaene.
 
+### Kalde spor i historien og Cold Case Mysteries (logikkgåter)
+
+`mysterium.html` + `assets/mysterium.js`. Eleven løser en logikkgåte med ledetråder og et avkrysningsrutenett (hvem – med hva – hvor – og på vanskelig nivå: hvorfor).
+
+- **Kalde spor i historien** (historiske gåter) ligger i `data/mysterium/saker.js`. Personene er ekte, gåtene oppdiktet. Hver ledetråd har en `tekst` og en `regel` som maskinen kan sjekke: `["med", ["p:falsen"], ["t:penn"]]` (hører sammen) eller `["ikke", ["p:cf"], ["s:hagen"]]` (hører ikke sammen). Flere id-er i en liste betyr «en av disse». `losning` er fasiten, og `svar.element` er opplysningen som avslører hvem det var. Med `utsagn: [{person, tekst, regel}]` blir det en løgnergåte: den skyldige sitt utsagn er falskt, alle andres er sanne. Lager du en ny sak, sjekk at den har nøyaktig én løsning (løseren `LV.mysterium.alleLosninger` + `oppfyller` kan brukes i konsollen).
+- **Cold Case Mysteries** (generatoren, engelsk) bruker `data/mysterium/database.js`: fire «verdener» med personer (høyde, øyne, hår, venstre-/høyrehendt), gjenstander (vekt, materiale) og steder (inne/ute), og en liste med motiver. Nivåene: Easy 3×3×3, Medium 4×4×4, Hard 4×4×4 + motiv, Expert 5×5×5, Master 4×4×4 med utsagn der den skyldige lyver. Generatoren legger til ledetråder til det bare finnes én løsning, og fjerner så overflødige. Samme `seed` i adressen gir samme gåte, så en lenke kan deles med hele klassen.
+- Nye personer, gjenstander og steder kan legges rett inn i databasen.
+
 ### Film i undervisningen
 
 `film.html` + `assets/film.js`. Oversikten ligger i `data/film/oversikt.js` (`LV.filmer` og `LV.filmGuider`), og hver film har en egen fil `data/film/<id>.js` (`LV.film`) med `fakta`, `sammendrag`, `handling` (spoilere), `bakgrunn`, `sporsmal[{s, svar}]`, `diskusjon`, `refleksjon`, `fordypning`, `advarsel` og `kontroller`.
@@ -289,7 +298,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261102d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261103c`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

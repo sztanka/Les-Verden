@@ -1528,3 +1528,97 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 #fo-velg { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
 @media (max-width: 600px) { .fo-hylle { grid-template-columns: repeat(2, 1fr); } .fo-topp { justify-content: center; } .fo-fakta div { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .fo-omslag { transition: none; } }
+
+/* =========================================================
+   Mysterier (logikkgåter)
+   ========================================================= */
+.mysterium-side { max-width: 1150px; }
+.my-seksjon { margin: 1.5rem 0; }
+.my-saker { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.my-sak { display: flex; flex-direction: column; gap: .3rem; height: 100%; box-sizing: border-box; padding: 1rem 1.1rem; border-radius: var(--radius); background: #1e1b2e; color: #f1ecdf; text-decoration: none; font-family: var(--font-ui);
+  background-image: radial-gradient(circle at 85% 15%, rgba(255,214,120,.18), transparent 45%); border: 2px solid #2d2945; transition: transform .15s; }
+.my-sak:hover, .my-sak:focus-visible { transform: translateY(-3px); border-color: #e2b007; }
+.my-sak-ikon { font-size: 2rem; }
+.my-sak strong { font-family: var(--font-tekst); font-size: 1.15rem; }
+.my-sak-info { font-size: .85rem; color: #c9c2ae; }
+.my-gen { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.2rem; }
+.my-velg { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 1rem; }
+.my-velg fieldset { border: 0; padding: 0; margin: 0; }
+.my-velg legend { font: 700 1rem var(--font-ui); margin-bottom: .4rem; }
+.my-valg { display: grid; gap: .35rem; }
+.my-radio { display: flex; gap: .45rem; align-items: baseline; padding: .45rem .6rem; border: 1px solid var(--linje); border-radius: 10px; cursor: pointer; font-family: var(--font-ui); flex-wrap: wrap; }
+.my-radio:has(input:checked) { border-color: var(--aksent); background: var(--aksent-lys); }
+.my-radio small { flex-basis: 100%; color: var(--tekst-dempet); padding-left: 1.4rem; }
+.my-hjelp { background: var(--gul-lys); border-radius: 12px; padding: .7rem 1rem; font-family: var(--font-ui); }
+.my-hjelp summary { cursor: pointer; font-weight: 700; }
+.my-hode .ingress { max-width: 60rem; }
+.my-sporsmal { font-family: var(--font-ui); font-size: 1.05rem; background: #1e1b2e; color: #f1ecdf; display: inline-block; padding: .5rem .9rem; border-radius: 10px; }
+.my-tema { font-family: var(--font-ui); }
+.my-kortseksjon { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 1rem 0 1.5rem; }
+.my-kategori h2 { font-size: 1.05rem; margin: 0 0 .4rem; }
+.my-kort { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
+.my-element { display: flex; gap: .6rem; align-items: flex-start; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .6rem; font-family: var(--font-ui); font-size: .92rem; }
+.my-element > span:last-child { display: flex; flex-direction: column; gap: .1rem; }
+.my-ikon { font-size: 1.6rem; line-height: 1; }
+.my-egen { color: var(--tekst-dempet); font-size: .82rem; }
+.my-info { font-size: .82rem; font-style: italic; }
+.my-tipsknapp { align-self: flex-start; margin-top: .2rem; font: 600 .78rem var(--font-ui); border: 1px solid var(--linje); background: var(--flate-2); color: var(--tekst); border-radius: 999px; padding: .15rem .55rem; cursor: pointer; }
+.my-tips { font-size: .84rem; background: var(--gul-lys); border-radius: 6px; padding: .25rem .45rem; margin-top: .2rem; }
+.kat-p { border-left: 4px solid #8a2d6b; } .kat-t { border-left: 4px solid #1a4a9c; } .kat-s { border-left: 4px solid #3d7f2f; } .kat-m { border-left: 4px solid #c0520f; }
+.my-arbeid { display: grid; gap: 1.5rem; grid-template-columns: minmax(260px, 1fr) minmax(0, 1.6fr); align-items: start; }
+@media (max-width: 900px) { .my-arbeid { grid-template-columns: 1fr; } }
+.my-ledetrader { position: sticky; top: .5rem; background: #fdf8ec; color: #2b2416; border: 1px solid #e3d7b8; border-radius: var(--radius); padding: .8rem 1rem; box-shadow: var(--skygge); }
+:root[data-tema="mork"] .my-ledetrader { background: #2b2618; color: #f1e9d2; border-color: #4a4029; }
+@media (max-width: 900px) { .my-ledetrader { position: static; } }
+.my-ledetrader h2 { margin-top: 0; font-size: 1.1rem; }
+.my-ledetrader ol { padding-left: 1.3rem; margin: 0; display: grid; gap: .35rem; }
+.my-led { text-align: left; border: 0; background: none; padding: .15rem .2rem; font: inherit; font-family: var(--font-tekst); color: inherit; cursor: pointer; border-radius: 4px; line-height: 1.4; }
+.my-led:hover { background: rgba(0,0,0,.05); }
+.my-led[aria-pressed="true"] { text-decoration: line-through; opacity: .55; }
+.my-svarledetrad { border-top: 1px dashed #c9b88d; padding-top: .5rem; margin-top: .7rem; font-family: var(--font-tekst); }
+.my-notatlabel { display: block; font: 600 .85rem var(--font-ui); margin-top: .6rem; }
+.my-ledetrader textarea { width: 100%; box-sizing: border-box; }
+.my-forklaring { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .9rem; margin: 0 0 .3rem; }
+.my-rutenett-rull { overflow-x: auto; margin: .6rem 0; -webkit-overflow-scrolling: touch; }
+.my-rutenett { border-collapse: collapse; font-family: var(--font-ui); font-size: .82rem; }
+.my-rutenett td, .my-rutenett th { padding: 0; }
+.my-kathode { text-align: center; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); padding: .2rem; border-left: 2px solid var(--tekst-dempet); }
+.my-kolhode { vertical-align: bottom; height: 7.5rem; width: 2.2rem; }
+.my-loddrett { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; display: inline-block; padding: .2rem 0; margin: 0 auto; }
+.my-radhode { text-align: left; white-space: nowrap; padding: 0 .5rem 0 0 !important; font-weight: 600; }
+.my-celle { width: 2.2rem; height: 2.2rem; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); font: 700 1.05rem var(--font-ui); cursor: pointer; padding: 0; display: block; margin: 0; border-radius: 0; }
+.my-celle:hover { background: var(--flate-2); }
+.my-celle.x { color: #b3261e; }
+.my-celle.v { background: #d6efdc; color: #14351f; }
+.my-celle.galt { outline: 3px solid #b3261e; outline-offset: -3px; }
+.my-celle.hintet { box-shadow: inset 0 0 0 3px #e2b007; }
+:root[data-tema="mork"] .my-celle.v { background: #1f3a31; color: var(--tekst); }
+:root[data-tema="mork"] .my-celle.x { color: #ff8a80; }
+.my-rutenett .blokkstart { border-left: 2px solid var(--tekst-dempet); }
+.my-rutenett tr.blokktopp td, .my-rutenett tr.blokktopp th { border-top: 2px solid var(--tekst-dempet); }
+.my-tomcelle { background: transparent; }
+.my-status { font-family: var(--font-ui); font-weight: 600; min-height: 1.2em; }
+.my-anklag { margin-top: 2rem; background: #1e1b2e; color: #f1ecdf; border-radius: var(--radius); padding: 1rem 1.2rem; }
+.my-anklag h2 { margin-top: 0; color: #f1ecdf; }
+.my-anklag-valg { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin: .6rem 0; }
+.my-anklag-valg label { display: flex; flex-direction: column; gap: .2rem; font: 600 .85rem var(--font-ui); }
+.my-anklag select { font: inherit; font-weight: 400; padding: .4rem .5rem; border-radius: 8px; border: 1px solid #4a4566; background: #fff; color: #1e1b2e; min-width: 11rem; }
+.my-anklag .knapp:not(.hoved) { background: #2d2945; color: #f1ecdf; border-color: #4a4566; }
+.my-feil { color: #ffb4a8; font-family: var(--font-ui); font-weight: 600; }
+.my-losning { color: var(--tekst); }
+.my-fasitlinje { display: flex; flex-wrap: wrap; gap: .5rem; font: 700 1.05rem var(--font-ui); }
+.my-fasitlinje > span { background: var(--flate); border: 1px solid var(--linje); border-radius: 999px; padding: .3rem .8rem; }
+.my-historie { background: var(--flate); border-radius: 10px; padding: .6rem .9rem; margin-top: .6rem; }
+.my-historie h3 { margin-top: 0; }
+@media (max-width: 600px) { .my-celle { width: 1.9rem; height: 1.9rem; } .my-kolhode { width: 1.9rem; height: 6rem; } .my-rutenett { font-size: .72rem; } }
+.my-arbeid > * { min-width: 0; }
+.my-anklag select { max-width: 100%; }
+@media (max-width: 600px) { .my-anklag-valg label, .my-anklag select { width: 100%; } }
+.my-utsagn { border-top: 1px dashed #c9b88d; margin-top: .7rem; padding-top: .5rem; }
+.my-utsagn h3 { margin: 0 0 .2rem; font-size: 1rem; }
+.my-loggregel { margin: 0 0 .4rem; font: 600 .85rem var(--font-ui); color: #8a2d2d; }
+:root[data-tema="mork"] .my-loggregel { color: #ff9e8a; }
+.my-utsagn ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.my-utsagn li { font-family: var(--font-tekst); }
+.my-taler { font: 700 .88rem var(--font-ui); }
+.my-utsagn q { font-style: italic; }

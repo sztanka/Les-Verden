@@ -1134,6 +1134,7 @@
       '<section class="spill-velger"><label for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema">' + valg("samfunnsfag") + valg("engelsk") + "</select></section>" +
       '<h2 class="spill-steg">2. Velg spill</h2><ul class="spillkort-rad">' + SPILL.map(s =>
         '<li><a class="spillkort"' + (s.uavhengig ? ' href="spill.html?spill=' + s.id + '">' : ' data-spill="' + s.id + '" href="#">') + '<span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
+      '<li><a class="spillkort" href="mysterium.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Kalde spor i historien</strong><span>Logikkgåter for detektiver med ekte personer fra historien – og Cold Case Mysteries: nye engelske gåter hver gang.</span></a></li>' +
       '<li><a class="spillkort spillkort-kart" href="kartspill.html"><span class="spillkort-ikon" aria-hidden="true">🗺️</span><strong>Kartspill</strong><span>Finn land, hovedsteder, delstater, elver, landemerker og historiske hendelser på kartet.</span></a></li>' +
       '<li><a class="spillkort" href="personer.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Hvem er jeg?</strong><span>Gjett personen ut fra ledetråden – på personsiden.</span></a></li>' +
       '<li><a class="spillkort" href="land.html"><span class="spillkort-ikon" aria-hidden="true">🌍</span><strong>Country quiz</strong><span>Quiz og kartquiz om engelskspråklige land – på landsidene.</span></a></li></ul>';
