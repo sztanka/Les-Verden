@@ -72,6 +72,7 @@
         '<span class="landkort-norsk" lang="nb">' + LV.esc(l.norsk) + "</span>" +
         "<span>" + LV.esc(l.kort) + "</span>" +
         '<span class="vk-cta">Explore →</span></span></a></li>').join("") + "</ul>";
+    h += '<a class="sp-banner" href="sport.html"><span class="sp-banner-ikon" aria-hidden="true">⚽🏏🏉🏈</span><span><strong>Sports in the English-speaking world</strong><span>Football or soccer? Cricket, rugby, baseball, Aussie rules and hurling – which sports are big where, and why?</span></span><span class="vk-cta">Explore →</span></a>';
     h += '<p class="land-kartlenke" lang="nb">Vil du bare øve på kartet? <a href="kartspill.html">Gå til kartspillet →</a></p>';
     document.getElementById("innhold").innerHTML = h;
     document.querySelectorAll(".hovedmeny a").forEach(a => { if (a.getAttribute("href") === "index.html?fag=engelsk") a.setAttribute("aria-current", "page"); });
@@ -104,6 +105,8 @@
     deler.push(["fakta", T.fakta]);
     if (land.nasjoner) deler.push(["nasjoner", land.nasjonerTittel || T.nasjoner]);
     land.seksjoner.forEach(s => deler.push([s.id, s.tittel]));
+    const sport = LV.sport && LV.sport.land[info.id];
+    if (sport) deler.push(["sport", "Sport"]);
     if (land.severdigheter) deler.push(["severdigheter", T.severdigheter]);
     if (land.tidslinje) deler.push(["tidslinje", T.tidslinje]);
     if (info.kartsett && info.kartsett.length) deler.push(["kartquiz", T.kartquiz]);
@@ -136,6 +139,17 @@
       }
     });
     h += "</article>";
+
+    // Sport (fra data/sport.js)
+    if (sport) {
+      const idr = sport.idretter.map(id => LV.sport.idretter.find(x => x.id === id)).filter(Boolean);
+      h += '<section class="land-sport" id="sport" aria-labelledby="sport-t"><h2 id="sport-t"><span class="land-ikon" aria-hidden="true">🏆</span> ' + LV.esc(sport.tittel) + "</h2>" +
+        '<p class="sp-idrettsmerker">' + idr.map(x => '<a class="sp-landmerke" href="sport.html#sport-' + x.id + '"><span aria-hidden="true">' + x.ikon + "</span> " + LV.esc(x.navn) + "</a>").join("") + "</p>" +
+        '<div class="fagtekst">' + sport.tekst.map(p => "<p>" + formater(p) + "</p>").join("") + "</div>" +
+        '<div class="land-sport-to"><div><h3>Big events</h3><ul>' + sport.store.map(x => "<li>" + LV.esc(x) + "</li>").join("") + "</ul></div>" +
+        '<p class="sp-visste"><strong>Did you know?</strong> ' + formater(sport.visste) + "</p></div>" +
+        '<p><a class="knapp hoved" href="sport.html#land-' + info.id + '">🏆 Sports in the English-speaking world →</a></p></section>';
+    }
 
     // Severdigheter
     if (land.severdigheter) {

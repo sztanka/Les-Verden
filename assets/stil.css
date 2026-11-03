@@ -1763,3 +1763,103 @@ button.lr-nr:hover { background: var(--engelsk-lys); color: var(--tekst); }
 }
 .lr-stripe { background: #f3e8d6; }
 :root[data-tema="mork"] .lr-stripe { background: #3a2e1d; }
+
+/* =========================================================
+   Sports in the English-speaking world (sport.html)
+   ========================================================= */
+.sp-side { max-width: 1100px; }
+.sp-del { margin: 2.2rem 0; scroll-margin-top: 5rem; }
+.sp-forklar { color: var(--tekst-dempet); font-family: var(--font-ui); }
+.sp-historie { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.sp-historie li { display: flex; gap: .8rem; background: var(--engelsk-lys); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.sp-historie h3 { margin: 0 0 .3rem; }
+.sp-historie p { margin: 0; font-family: var(--font-tekst); line-height: 1.6; }
+.sp-hnr { font-size: 2rem; line-height: 1; }
+/* Matrise */
+.sp-matrise { border-collapse: separate; border-spacing: 3px; font-family: var(--font-ui); min-width: 640px; width: 100%; }
+.sp-matrise th, .sp-matrise td { padding: .35rem .4rem; }
+.sp-matrise thead th { vertical-align: bottom; font-weight: 600; font-size: .78rem; text-align: center; }
+.sp-matrise thead a { display: flex; flex-direction: column; align-items: center; gap: .15rem; color: var(--tekst); text-decoration: none; }
+.sp-flagg { font-size: 1.5rem; line-height: 1; }
+.sp-matrise tbody th { text-align: left; white-space: nowrap; font-weight: 600; }
+.sp-matrise tbody th a { color: var(--tekst); text-decoration: none; }
+.sp-matrise tbody th a:hover, .sp-matrise thead a:hover { text-decoration: underline; }
+.sp-matrise td { text-align: center; border-radius: 8px; background: var(--flate); font-size: 1.1rem; width: 9%; }
+.sp-matrise td.s2 { background: var(--engelsk); color: #fff; }
+.sp-matrise td.s1 { background: var(--engelsk-lys); color: var(--engelsk); }
+:root[data-tema="mork"] .sp-matrise td.s2 { color: #10141a; }
+.sp-tegn { display: inline-block; width: 1.4rem; text-align: center; border-radius: 6px; }
+.sp-tegn.s2 { background: var(--engelsk); color: #fff; }
+.sp-tegn.s1 { background: var(--engelsk-lys); color: var(--engelsk); }
+/* Idrettskort */
+.sp-kortrad { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
+.sp-kort { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.2rem; scroll-margin-top: 5rem; font-family: var(--font-ui); }
+.sp-kort header { display: flex; gap: .8rem; align-items: flex-start; }
+.sp-kort h3 { margin: 0 0 .2rem; font-size: 1.3rem; }
+.sp-kort header p { margin: 0; color: var(--tekst-dempet); }
+.sp-ikon { font-size: 2.4rem; line-height: 1; }
+.sp-kort h4 { margin: 1rem 0 .3rem; font-size: .95rem; color: var(--engelsk); }
+.sp-kort > p, .sp-kort li { line-height: 1.55; }
+.sp-kort ul { margin: 0; padding-left: 1.2rem; }
+.sp-hvor { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; margin: .8rem 0 0; }
+.sp-landmerke { display: inline-flex; gap: .25rem; align-items: center; font-size: .82rem; padding: .15rem .55rem; border-radius: 999px; background: var(--flate-2); color: var(--tekst); text-decoration: none; }
+.sp-landmerke.stor { background: var(--engelsk-lys); font-weight: 600; }
+a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
+.sp-ord { margin: 0; display: grid; gap: .25rem; }
+.sp-ord div { display: grid; grid-template-columns: minmax(7rem, auto) 1fr; gap: .6rem; }
+.sp-ord dt { font-weight: 700; }
+.sp-ord dd { margin: 0; }
+.sp-visste { background: var(--gul-lys); border-radius: 10px; padding: .55rem .8rem; margin: 1rem 0 0; font-family: var(--font-ui); line-height: 1.5; }
+/* Land */
+.sp-landrad { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.sp-land { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--engelsk); border-radius: var(--radius); padding: 1rem 1.2rem; scroll-margin-top: 5rem; }
+.sp-land h3 { margin: 0 0 .5rem; font-size: 1.3rem; }
+.sp-land > p { font-family: var(--font-tekst); line-height: 1.65; }
+.sp-land h4 { margin: .6rem 0 .3rem; font-family: var(--font-ui); color: var(--engelsk); }
+.sp-land ul { margin: 0; padding-left: 1.2rem; font-family: var(--font-ui); }
+.sp-idrettsmerker { display: flex; flex-wrap: wrap; gap: .3rem; font-family: var(--font-ui) !important; margin: 0 0 .5rem; }
+/* Ord og idiomer */
+.sp-ordtabell { border-collapse: collapse; width: 100%; font-family: var(--font-ui); }
+.sp-ordtabell th, .sp-ordtabell td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--linje); }
+.sp-tips { background: var(--engelsk-lys); border-radius: 10px; padding: .6rem .9rem; font-family: var(--font-ui); }
+.sp-idiomer { padding-left: 1.4rem; display: grid; gap: .7rem; font-family: var(--font-ui); }
+.sp-idiomer label { display: block; margin-bottom: .25rem; }
+.sp-fra { color: var(--tekst-dempet); font-size: .85rem; }
+.sp-idiomer select { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 2px solid var(--linje); background: var(--flate); color: var(--tekst); max-width: 100%; }
+.sp-idiomer select.riktig { border-color: #2e7d32; }
+.sp-idiomer select.feil { border-color: #b3261e; }
+.sp-idiom-svar { margin-left: .4rem; font-weight: 700; }
+.sp-poeng { font-family: var(--font-ui); font-weight: 700; }
+/* Quiz */
+.sp-quizliste { padding-left: 1.4rem; display: grid; gap: 1rem; font-family: var(--font-ui); }
+.sp-quizliste p { margin: 0 0 .4rem; }
+.sp-quizliste .quiz-valg { display: flex; flex-wrap: wrap; gap: .4rem; }
+.sp-quizliste .knapp:disabled { opacity: .65; cursor: default; }
+.sp-quizliste .knapp.riktig { border-color: #2e7d32; background: #e3f3e4; color: #1b4d1e; opacity: 1; }
+.sp-quizliste .knapp.feil { border-color: #b3261e; background: #f9e1df; color: #7a1a14; opacity: 1; }
+:root[data-tema="mork"] .sp-quizliste .knapp.riktig { background: #1f3a22; color: #b9e6bc; }
+:root[data-tema="mork"] .sp-quizliste .knapp.feil { background: #45201d; color: #ffb4ad; }
+.sp-quizliste .quiz-forklaring { color: var(--tekst-dempet); font-size: .93rem; }
+/* Banner på landoversikten og sport på landsiden */
+.sp-banner { display: flex; align-items: center; gap: 1.2rem; margin: 1.6rem 0; padding: 1.2rem 1.5rem; border-radius: var(--radius); background: var(--engelsk); color: #fff; text-decoration: none; font-family: var(--font-ui); border: 2px solid transparent; transition: transform .15s; }
+.sp-banner:hover, .sp-banner:focus-visible { transform: translateY(-2px); border-color: var(--tekst); }
+.sp-banner > span:nth-child(2) { display: flex; flex-direction: column; gap: .2rem; flex: 1; }
+.sp-banner strong { font-family: var(--font-tekst); font-size: 1.35rem; }
+.sp-banner .vk-cta { color: #fff; margin: 0; white-space: nowrap; }
+.sp-banner-ikon { font-size: 1.8rem; letter-spacing: .1em; }
+:root[data-tema="mork"] .sp-banner, :root[data-tema="mork"] .sp-banner .vk-cta { color: #10141a; }
+.land-sport { background: var(--engelsk-lys); border-radius: var(--radius); padding: .4rem 1.3rem 1rem; margin: 2rem 0; scroll-margin-top: 5rem; }
+.land-sport-to { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); align-items: start; font-family: var(--font-ui); }
+.land-sport-to h3 { margin: .2rem 0 .3rem; }
+.land-sport-to .sp-visste { margin-top: .4rem; }
+.land-sport .sp-landmerke { background: var(--flate); }
+@media (max-width: 700px) {
+  .sp-banner { flex-direction: column; align-items: flex-start; gap: .6rem; }
+  .sp-ord div { grid-template-columns: 1fr; gap: 0; }
+}
+.sp-idiomer li { min-width: 0; }
+.sp-idiomer select { width: min(100%, 26rem); }
+.sp-idiom-svar { display: inline-block; }
+.sp-matrise th, .sp-matrise td { position: relative; }
+#kart .gr-tabell-rull { position: relative; }
+.sp-land .knapp, .land-sport .knapp { font-family: var(--font-ui); text-decoration: none; }

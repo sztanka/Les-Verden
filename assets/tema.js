@@ -252,6 +252,11 @@
       }
     }
 
+    // Sportssiden
+    if (["en8-sports", "en8-united-kingdom"].includes(tema.id)) {
+      h += '<a class="sp-banner" href="sport.html" lang="en"><span class="sp-banner-ikon" aria-hidden="true">⚽🏏🏉🏈</span><span><strong>Sports in the English-speaking world</strong><span>Which sports are big where, and why? Rules, key words, idioms, a quiz – and a section for every country.</span></span><span class="vk-cta">Explore →</span></a>';
+    }
+
     // Reading Room
     {
       const en = tema.sprak === "en";

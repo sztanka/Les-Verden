@@ -208,7 +208,7 @@
       stripe.hidden = fag !== "engelsk";
       stripe.innerHTML = '<h3>Landsider – fakta, kartquiz og quiz om engelskspråklige land</h3><ul>' +
         LV.landliste.map(l => '<li><a href="land.html?id=' + encodeURIComponent(l.id) + '"><span aria-hidden="true">' + l.flagg + "</span>" + LV.esc(l.norsk) + "</a></li>").join("") +
-        '<li><a href="land.html">Alle landsidene →</a></li></ul>';
+        '<li><a href="sport.html" lang="en"><span aria-hidden="true">🏆</span>Sport</a></li><li><a href="land.html">Alle landsidene →</a></li></ul>';
     }
     const gstripe = document.getElementById("grammatikkstripe");
     if (gstripe && LV.grammatikkListe) {

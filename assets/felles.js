@@ -56,7 +56,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261103e";
+  LV.versjon = "20261103f";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -75,7 +75,7 @@ window.LV = window.LV || {};
     const fag = LV.param("fag");
     const aktiv = function (navn) {
       if (navn === "forside") return side === "forside" && !fag;
-      if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && side === "lesing");
+      if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && (side === "lesing" || side === "sport"));
       if (navn === "spill") return side === "spill" || side === "kartspill";
       return side === navn;
     };
