@@ -23,6 +23,7 @@ les-verden/
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
 ├── mysterium.html          Kalde spor i historien + Cold Case Mysteries (logikkgåter), data i data/mysterium/
 ├── film.html               Film i undervisningen + skriveguider for filmanmeldelse (data i data/film/)
+├── lesing.html             Reading Room: tekster i det fri med lett versjon og oppgaver (data i data/lesing/)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
@@ -199,6 +200,15 @@ oppgavene på nivå 2 og 3 i temaene.
 - **Cold Case Mysteries** (generatoren, engelsk) bruker `data/mysterium/database.js`: fire «verdener» med personer (høyde, øyne, hår, venstre-/høyrehendt), gjenstander (vekt, materiale) og steder (inne/ute), og en liste med motiver. Nivåene: Easy 3×3×3, Medium 4×4×4, Hard 4×4×4 + motiv, Expert 5×5×5, Master 4×4×4 med utsagn der den skyldige lyver. Generatoren legger til ledetråder til det bare finnes én løsning, og fjerner så overflødige. Samme `seed` i adressen gir samme gåte, så en lenke kan deles med hele klassen.
 - Nye personer, gjenstander og steder kan legges rett inn i databasen.
 
+### Reading Room
+
+`lesing.html` + `assets/lesing.js`. Oversikten ligger i `data/lesing/oversikt.js` (`LV.lesetekster`: tittel, forfatter, år, sjanger, `nivaa` 1–3, trinn, antall ord, `ikon` og `farger` til det tegnede bokomslaget, `tags` og `temaer`). Hver tekst har en egen fil `data/lesing/<id>.js` som setter `LV.lesetekst` med `forfatter.om`, `bakgrunn`, `forLesing`, `ord` (`["ord slik det står i teksten", "forklaring på engelsk", "norsk"]`), `stopp` (`{avsnittsindeks: "spørsmål"}`), `lett` (den lettere versjonen, `{h: "..."}` er en mellomtittel), `sporsmal[{s, svar}]`, `analyse`, `diskusjon`, `skriv` og `laerer`.
+
+- **Rettigheter:** Bruk bare tekster der forfatteren døde for mer enn 70 år siden (i Norge gjelder vernet til og med 70 år etter dødsåret). Oversettelser har egen opphavsrett. Den lette versjonen og oppgavene skriver vi selv.
+- **Originalteksten** ligger nederst i hver fil, etter et merke, og lages med `verktoy/lag-lesing.py` fra Standard Ebooks (korrekturleste utgaver, CC0). Klon repoet fra `github.com/standardebooks/…` til `verktoy/kilder/` og kjør skriptet. Det sjekker også at hvert ord i ordlista finnes i teksten og at «stopp»-indeksene finnes. Alt over merket er skrevet for hånd og blir ikke endret.
+- Første forekomst av hvert ord i ordlista blir en knapp med forklaring i originalteksten.
+- `temaer` gir en «Read a story»-boks på temasidene.
+
 ### Film i undervisningen
 
 `film.html` + `assets/film.js`. Oversikten ligger i `data/film/oversikt.js` (`LV.filmer` og `LV.filmGuider`), og hver film har en egen fil `data/film/<id>.js` (`LV.film`) med `fakta`, `sammendrag`, `handling` (spoilere), `bakgrunn`, `sporsmal[{s, svar}]`, `diskusjon`, `refleksjon`, `fordypning`, `advarsel` og `kontroller`.
@@ -298,7 +308,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261103d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261103e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

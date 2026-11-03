@@ -217,6 +217,13 @@
         LV.grammatikkListe.map(e => '<li><a href="grammatikk.html?id=' + encodeURIComponent(e.id) + '" lang="en"><span aria-hidden="true">' + e.ikon + "</span>" + LV.esc(e.tittel) + "</a></li>").join("") +
         '<li><a href="grammatikk.html">Alle emnene →</a></li></ul>';
     }
+    const lstripe = document.getElementById("lesestripe");
+    if (lstripe && LV.lesetekster) {
+      lstripe.hidden = fag !== "engelsk";
+      lstripe.innerHTML = '<h3><a href="lesing.html" lang="en">Reading Room</a> – noveller og sanne historier med lett versjon og oppgaver</h3><ul>' +
+        LV.lesetekster.map(t => '<li><a href="lesing.html?id=' + encodeURIComponent(t.id) + '" lang="en"><span aria-hidden="true">' + t.ikon + "</span>" + LV.esc(t.tittel) + "</a></li>").join("") +
+        '<li><a href="lesing.html">Alle tekstene →</a></li></ul>';
+    }
     const e = emne && LV.emner[emne];
     intro.hidden = !e || velger.hidden;
     if (e) intro.textContent = e.tekst;

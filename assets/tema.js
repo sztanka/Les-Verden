@@ -252,6 +252,16 @@
       }
     }
 
+    // Reading Room
+    {
+      const en = tema.sprak === "en";
+      const tekster = (LV.lesetekster || []).filter(t => (t.temaer || []).includes(tema.id));
+      if (tekster.length) {
+        h += '<section class="fo-temaboks lr-temaboks" aria-labelledby="lr-tittel"><h2 id="lr-tittel">📚 ' + (en ? "Read a story – Reading Room" : "Les en tekst – Reading Room") + '</h2><ul class="fo-temaliste">' +
+          tekster.map(t => '<li><a href="lesing.html?id=' + encodeURIComponent(t.id) + '" lang="en"><span class="fo-mini" style="--a:' + t.farger[0] + ";--b:" + t.farger[0] + '" aria-hidden="true">' + t.ikon + "</span><span><strong>" + LV.esc(t.tittel) + "</strong> – " + LV.esc(t.forfatter) + " (" + t.ar + ")<small>" + LV.esc(t.kort) + "</small></span></a></li>").join("") + "</ul></section>";
+      }
+    }
+
     // Spill og øv
     {
       const en = tema.sprak === "en";

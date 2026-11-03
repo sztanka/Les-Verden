@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Les verden – samfunnsfag og engelsk</title>
   <meta name="description" content="Fagtekster med lese- og diskusjonsoppgaver i samfunnsfag og engelsk for 8.–10. trinn.">
-  <link rel="stylesheet" href="assets/stil.css?v=20261103d">
-  <script src="data/innstillinger.js?v=20261103d"></script>
-  <script src="data/temaer/oversikt.js?v=20261103d"></script>
-  <script src="data/land/oversikt.js?v=20261103d"></script>
-  <script src="data/grammatikk/oversikt.js?v=20261103d"></script>
-  <script src="data/kart.js?v=20261103d"></script>
-  <script src="assets/felles.js?v=20261103d"></script>
-  <script src="assets/forside.js?v=20261103d"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261103e">
+  <script src="data/innstillinger.js?v=20261103e"></script>
+  <script src="data/temaer/oversikt.js?v=20261103e"></script>
+  <script src="data/land/oversikt.js?v=20261103e"></script>
+  <script src="data/grammatikk/oversikt.js?v=20261103e"></script>
+  <script src="data/lesing/oversikt.js?v=20261103e"></script>
+  <script src="data/kart.js?v=20261103e"></script>
+  <script src="assets/felles.js?v=20261103e"></script>
+  <script src="assets/forside.js?v=20261103e"></script>
 </head>
 <body data-side="forside">
   <main id="innhold">
@@ -132,6 +133,16 @@
             <span class="vk-cta">Se filmene →</span>
           </span>
         </a>
+        <a class="verktoykort vk-lesing" href="lesing.html">
+          <span class="vk-ikon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><path d="M32 16c-6-5-15-6-24-4v38c9-2 18-1 24 4 6-5 15-6 24-4V12c-9-2-18-1-24 4z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M32 16v38" stroke="currentColor" stroke-width="3"/><path d="M15 22c4-.6 8-.3 11 1M15 30c4-.6 8-.3 11 1M38 23c3-1.3 7-1.6 11-1M38 31c3-1.3 7-1.6 11-1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="vk-tekst">
+            <strong lang="en">Reading Room</strong>
+            <span>Klassiske noveller og sanne historier på engelsk – originaltekst, lettere versjon, ordliste og oppgaver.</span>
+            <span class="vk-cta">Begynn å lese →</span>
+          </span>
+        </a>
         <a class="verktoykort vk-grammatikk" href="grammatikk.html">
           <span class="vk-ikon" aria-hidden="true">
             <svg viewBox="0 0 64 64" width="56" height="56"><rect x="6" y="10" width="22" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="4"/><rect x="36" y="10" width="22" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="4"/><rect x="6" y="36" width="22" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="4"/><rect x="36" y="36" width="22" height="20" rx="3" fill="currentColor"/></svg>
@@ -160,6 +171,7 @@
     <p class="emne-intro" id="emne-intro" hidden></p>
     <div class="landstripe" id="landstripe" lang="nb" hidden></div>
     <div class="landstripe gr-stripe" id="grammatikkstripe" lang="nb" hidden></div>
+    <div class="landstripe lr-stripe" id="lesestripe" lang="nb" hidden></div>
     <div class="filter" role="group" aria-label="Velg trinn">
       <span class="etikett">Trinn:</span>
       <button class="knapp" data-trinn="">Alle</button>
