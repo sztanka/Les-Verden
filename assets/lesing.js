@@ -20,7 +20,7 @@
   function omslag(t, stor) {
     const [a, b] = t.farger;
     return '<span class="lr-omslag' + (stor ? " stor" : "") + '" style="--a:' + a + ";--b:" + b + '" aria-hidden="true"><span class="lr-ramme">' +
-      '<span class="lr-o-tittel' + (t.tittel.length > 22 ? " lang" : "") + '">' + esc(t.tittel) + '</span><span class="lr-o-ikon">' + t.ikon + '</span><span class="lr-o-forf">' + esc(t.forfatter) + "</span></span></span>";
+      '<span class="lr-o-tittel' + (t.tittel.length > 22 || t.tittel.split(/\s+/).some(w => w.length > 9) ? " lang" : "") + '">' + esc(t.tittel) + '</span><span class="lr-o-ikon">' + t.ikon + '</span><span class="lr-o-forf">' + esc(t.forfatter) + "</span></span></span>";
   }
 
   // ---------- Oversikt ----------
@@ -47,7 +47,7 @@
       $("lr-antall").textContent = liste.length + (liste.length === 1 ? " tekst" : " tekster");
       $("lr-hylle").innerHTML = liste.map(t => '<li><a class="lr-kort" href="lesing.html?id=' + t.id + '">' + omslag(t) +
         '<span class="lr-kort-tekst" lang="en"><strong>' + esc(t.tittel) + "</strong><span class=\"lr-kort-forf\">" + esc(t.forfatter) + " · " + t.ar + "</span><span>" + esc(t.kort) + "</span>" +
-        '<span class="lr-kort-meta">' + stjerner(t.nivaa) + '<span class="lr-merke">' + esc(t.sjanger) + '</span><span class="lr-merke" lang="nb">' + t.trinn + ". trinn</span><span class=\"lr-merke\" lang=\"nb\">ca. " + lesetid(t.ord) + " min</span></span></span></a></li>").join("");
+        '<span class="lr-kort-meta">' + stjerner(t.nivaa) + (t.kontekst ? '<span class="lr-merke lr-merke-kontekst" title="Har en boks om historisk kontekst">🕰️ Context</span>' : "") + '<span class="lr-merke">' + esc(t.sjanger) + '</span><span class="lr-merke" lang="nb">' + t.trinn + ". trinn</span><span class=\"lr-merke\" lang=\"nb\">ca. " + lesetid(t.ord) + " min</span></span></span></a></li>").join("");
       const p = new URLSearchParams(); if (type) p.set("type", type); if (niva) p.set("niva", niva);
       history.replaceState(null, "", "lesing.html" + (p.toString() ? "?" + p : ""));
     }
@@ -196,6 +196,7 @@
     h += '<section class="lr-del" id="for" lang="en"><h2><span class="lr-steg">1</span> Before you read</h2>' +
       '<div class="lr-to"><div class="lr-boks"><h3>About the author</h3>' + d.forfatter.om.map(p => "<p>" + fmt(p) + "</p>").join("") + "</div>" +
       '<div class="lr-boks"><h3>' + esc(d.bakgrunn.tittel) + "</h3>" + d.bakgrunn.tekst.map(p => "<p>" + fmt(p) + "</p>").join("") + "</div></div>" +
+      (d.historisk ? '<aside class="lr-historisk" id="kontekst"><h3><span aria-hidden="true">🕰️</span> ' + esc(d.historisk.tittel) + "</h3>" + d.historisk.tekst.map(p => "<p>" + fmt(p) + "</p>").join("") + "</aside>" : "") +
       '<h3>Think before you read</h3><ol class="lr-oppg">' + d.forLesing.map((s, i) => "<li><p>" + fmt(s) + "</p>" + svarfelt("for" + i, s, "Before you read") + "</li>").join("") + "</ol>" +
       '<details class="lr-ordliste"><summary>📖 Word list – ' + d.ord.length + " words to know</summary>" +
       '<div class="gr-tabell-rull"><table><thead><tr><th scope="col">Word</th><th scope="col">Meaning</th><th scope="col" lang="nb">Norsk</th></tr></thead><tbody>' +
@@ -206,7 +207,8 @@
     let pnr = 0, stoppNr = 0;
     let origHtml = "";
     d.tekst.forEach((p, i) => {
-      if (typeof p !== "string") origHtml += '<h3 class="lr-deltittel">' + esc(p.h) + "</h3>";
+      if (p && p.vers) { pnr++; origHtml += '<figure class="lr-vers" data-p="' + pnr + '">' + nr(pnr) + p.vers.split(/\n\n+/).map(st => "<p>" + st.split("\n").map(fmt).join("<br>") + "</p>").join("") + "</figure>"; }
+      else if (typeof p !== "string") origHtml += '<h3 class="lr-deltittel">' + esc(p.h) + "</h3>";
       else { pnr++; origHtml += '<p data-p="' + pnr + '">' + nr(pnr) + orig[i] + "</p>"; }
       if (d.stopp[i]) {
         stoppNr++;

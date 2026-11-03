@@ -26,6 +26,18 @@ KILDER = {
     "tell-tale-heart": ("edgar-allan-poe_short-fiction", "the-telltale-heart", None),
     "douglass": ("frederick-douglass_narrative-of-the-life-of-frederick-douglass", "chapter-7", None),
     "zitkala-sa": ("zitkala-sa_american-indian-stories", "the-school-days-of-an-indian-girl", 2),
+    "whitewasher": ("mark-twain_the-adventures-of-tom-sawyer", "chapter-2", None),
+    "rikki-tikki-tavi": ("rudyard-kipling_the-jungle-book", "rikki-tikki-tavi", None),
+    "speckled-band": ("arthur-conan-doyle_the-adventures-of-sherlock-holmes", "the-adventure-of-the-speckled-band", None),
+    "christmas-carol": ("charles-dickens_a-christmas-carol", "chapter-1", None),
+    "to-build-a-fire": ("jack-london_lost-face", "to-build-a-fire", None),
+    "araby": ("james-joyce_dubliners", "araby", None),
+    "model-millionaire": ("oscar-wilde_lord-arthur-saviles-crime-and-other-stories", "the-model-millionaire", None),
+}
+
+# Redaksjonelle endringer i originalteksten (vises i [klammer] og forklares i lærerdelen)
+ERSTATT = {
+    "to-build-a-fire": [("a wide flat of nigger-heads", "a wide flat of [tussocks]")],
 }
 MERKE = "// --- Originaltekst: generert av verktoy/lag-lesing.py fra Standard Ebooks. Ikke rediger for hånd. ---"
 ROT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,32 +52,70 @@ def ren(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def vers(blokk):
+    """Et dikt eller en sang (<blockquote>) blir {"vers": "linje\nlinje\n\nny strofe"} – med ev. tittel først."""
+    ut = []
+    if "<br" not in blokk:  # et sitert brev e.l. – vanlige avsnitt
+        return [ren(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", blokk, re.S) if ren(p)]
+    hode = re.search(r"<header[^>]*>(.*?)</header>", blokk, re.S)
+    if hode:
+        titler = [ren(t) for t in re.findall(r"<p[^>]*>(.*?)</p>", hode.group(1), re.S)]
+        ut.append({"h": " ".join(t for t in titler if t)})
+        blokk = blokk.replace(hode.group(0), "")
+    strofer = []
+    for p in re.findall(r"<p[^>]*>(.*?)</p>", blokk, re.S):
+        linjer = [ren(x) for x in re.findall(r"<span[^>]*>(.*?)</span>", p, re.S)] or [ren(p)]
+        strofer.append("\n".join(l for l in linjer if l))
+    ut.append({"vers": "\n\n".join(strofer)})
+    return ut
+
+
 def les(repo, fil, maks):
     x = open(os.path.join(KILDEMAPPE, repo, "src", "epub", "text", fil + ".xhtml"), encoding="utf8").read()
     body = x.split("<body", 1)[1]
+    # Overskriftsgrupper (f.eks. «Stave I» + «Marley’s Ghost») blir én mellomtittel
+    def gruppe(m):
+        deler = [ren(t) for (tag, attr, t) in re.findall(r"<(h\d|p)([^>]*)>(.*?)</\1>", m.group(1), re.S) if not (tag == "h2" and 'epub:type="title"' in attr)]
+        return "<h6>" + ". ".join(t for t in deler if t) + "</h6>"
+    body = re.sub(r"<hgroup>(.*?)</hgroup>", gruppe, body, flags=re.S)
+    # Dikt og sanger
+    versliste = []
+    def lagre(m):
+        versliste.append(vers(m.group(0)))
+        return '<p data-vers="%d">x</p>' % (len(versliste) - 1)
+    body = re.sub(r"<blockquote[^>]*>.*?</blockquote>", lagre, body, flags=re.S)
     ut, sek = [], 0
-    for m in re.finditer(r'<section[^>]*epub:type="chapter"|<h3[^>]*>(.*?)</h3>\s*<p epub:type="title">(.*?)</p>|<p(?![^>]*epub:type="title")[^>]*>(.*?)</p>|<h[356][^>]*>(.*?)</h[356]>', body, re.S):
+    for m in re.finditer(r'<section[^>]*epub:type="chapter"|<p(?![^>]*epub:type="title")([^>]*)>(.*?)</p>|<h[3456][^>]*>(.*?)</h[3456]>', body, re.S):
         if m.group(0).startswith("<section"):
             sek += 1
             if maks and sek > maks:
                 break
             continue
-        if m.group(1):
-            ut.append({"h": ren(m.group(1)) + ". " + ren(m.group(2))})
-        elif m.group(3) is not None:
-            t = ren(m.group(3))
+        if m.group(3) is not None:
+            ut.append({"h": ren(m.group(3))})
+            continue
+        attr = m.group(1) or ""
+        v = re.search(r'data-vers="(\d+)"', attr)
+        if v:
+            ut.extend(versliste[int(v.group(1))])
+        elif "subtitle" in attr:
+            ut.append({"h": ren(m.group(2))})
+        else:
+            t = ren(m.group(2))
             if t:
                 ut.append(t)
-        elif m.group(4):
-            ut.append({"h": ren(m.group(4))})
     return ut
 
 
 feil = 0
 for id_, (repo, fil, maks) in KILDER.items():
     sti = os.path.join(ROT, "data", "lesing", id_ + ".js")
+    if not os.path.exists(sti):
+        print("  (hopper over %s – ingen datafil ennå)" % id_); continue
     tekst = les(repo, fil, maks)
-    hel = " ".join(p for p in tekst if isinstance(p, str)).lower()
+    for fra, til in ERSTATT.get(id_, []):
+        tekst = [p.replace(fra, til) if isinstance(p, str) else p for p in tekst]
+    hel = " ".join(p if isinstance(p, str) else p.get("vers", "") for p in tekst).lower()
     data = open(sti, encoding="utf8").read().split(MERKE)[0].rstrip() + "\n"
     # Kontroll: ordlista
     for o in re.findall(r'^\s*\["([^"]+)",', data, re.M):

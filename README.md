@@ -207,10 +207,10 @@ oppgavene på nivå 2 og 3 i temaene.
 
 ### Reading Room
 
-`lesing.html` + `assets/lesing.js`. Oversikten ligger i `data/lesing/oversikt.js` (`LV.lesetekster`: tittel, forfatter, år, sjanger, `nivaa` 1–3, trinn, antall ord, `ikon` og `farger` til det tegnede bokomslaget, `tags` og `temaer`). Hver tekst har en egen fil `data/lesing/<id>.js` som setter `LV.lesetekst` med `forfatter.om`, `bakgrunn`, `forLesing`, `ord` (`["ord slik det står i teksten", "forklaring på engelsk", "norsk"]`), `stopp` (`{avsnittsindeks: "spørsmål"}`), `lett` (den lettere versjonen, `{h: "..."}` er en mellomtittel), `sporsmal[{s, svar}]`, `analyse`, `diskusjon`, `skriv` og `laerer`.
+`lesing.html` + `assets/lesing.js`. Oversikten ligger i `data/lesing/oversikt.js` (`LV.lesetekster`: tittel, forfatter, år, sjanger, `nivaa` 1–3, trinn, antall ord, `ikon` og `farger` til det tegnede bokomslaget, `tags` og `temaer`). Hver tekst har en egen fil `data/lesing/<id>.js` som setter `LV.lesetekst` med `forfatter.om`, `bakgrunn`, `forLesing`, `ord` (`["ord slik det står i teksten", "forklaring på engelsk", "norsk"]`), `stopp` (`{avsnittsindeks: "spørsmål"}`), `lett` (den lettere versjonen, `{h: "..."}` er en mellomtittel), `sporsmal[{s, svar}]`, `analyse`, `diskusjon`, `skriv` og `laerer`. Valgfritt: `historisk` (`{tittel, tekst}`) – en boks om historisk kontekst under «Before you read»; sett da `kontekst: true` i oversikten, så vises merket «Context». Dikt og sanger i teksten lagres som `{vers: "linje\nlinje\n\nny strofe"}`.
 
 - **Rettigheter:** Bruk bare tekster der forfatteren døde for mer enn 70 år siden (i Norge gjelder vernet til og med 70 år etter dødsåret). Oversettelser har egen opphavsrett. Den lette versjonen og oppgavene skriver vi selv.
-- **Originalteksten** ligger nederst i hver fil, etter et merke, og lages med `verktoy/lag-lesing.py` fra Standard Ebooks (korrekturleste utgaver, CC0). Klon repoet fra `github.com/standardebooks/…` til `verktoy/kilder/` og kjør skriptet. Det sjekker også at hvert ord i ordlista finnes i teksten og at «stopp»-indeksene finnes. Alt over merket er skrevet for hånd og blir ikke endret.
+- **Originalteksten** ligger nederst i hver fil, etter et merke, og lages med `verktoy/lag-lesing.py` fra Standard Ebooks (korrekturleste utgaver, CC0). Klon repoet fra `github.com/standardebooks/…` til `verktoy/kilder/` og kjør skriptet. Det sjekker også at hvert ord i ordlista finnes i teksten og at «stopp»-indeksene finnes. Alt over merket er skrevet for hånd og blir ikke endret. Redaksjonelle endringer i originalteksten (f.eks. et rasistisk ord byttet med [klammer]) legges i `ERSTATT` i skriptet og forklares i lærerdelen.
 - Første forekomst av hvert ord i ordlista blir en knapp med forklaring i originalteksten.
 - `temaer` gir en «Read a story»-boks på temasidene.
 
@@ -313,7 +313,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261103f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261103h`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

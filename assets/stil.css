@@ -1739,7 +1739,7 @@ button.lr-nr:hover { background: var(--engelsk-lys); color: var(--tekst); }
   .lr-tekst { padding-left: 2.2rem; padding-right: 1rem; font-size: 1.08rem; }
   .lr-nr { left: -2.1rem; width: 1.7rem; }
 }
-.lr-o-tittel.lang { font-size: .85rem; }
+.lr-o-tittel.lang { font-size: .76rem; letter-spacing: 0; }
 .lr-omslag.stor .lr-o-tittel.lang { font-size: 1.1rem; }
 .lr-hylle.liten .lr-o-tittel.lang { font-size: .5rem; }
 @media (max-width: 700px) { .lr-kort .lr-o-tittel.lang { font-size: .6rem; } }
@@ -1863,3 +1863,14 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .sp-matrise th, .sp-matrise td { position: relative; }
 #kart .gr-tabell-rull { position: relative; }
 .sp-land .knapp, .land-sport .knapp { font-family: var(--font-ui); text-decoration: none; }
+.lr-vers { position: relative; margin: 1.2rem 0 1.4rem 1.5rem; font-style: italic; }
+.lr-vers p { margin: 0 0 .8em; }
+.lr-tekst .lr-vers .lr-nr { left: -4.1rem; }
+@media (max-width: 700px) { .lr-vers { margin-left: .6rem; } .lr-tekst .lr-vers .lr-nr { left: -2.7rem; } }
+.lr-historisk { margin: 1rem 0; background: #f3e8d6; border-left: 6px solid #8a5a1f; border-radius: var(--radius); padding: .5rem 1.2rem .7rem; font-family: var(--font-tekst); font-size: 1.02rem; line-height: 1.6; }
+.lr-historisk h3 { font-family: var(--font-ui); font-size: 1.05rem; color: #6b4a1f; }
+:root[data-tema="mork"] .lr-historisk { background: #3a2e1d; border-left-color: #e2c08d; }
+:root[data-tema="mork"] .lr-historisk h3 { color: #e2c08d; }
+.lr-merke-kontekst { background: #f3e8d6; }
+:root[data-tema="mork"] .lr-merke-kontekst { background: #3a2e1d; }
+.lr-vers em { font-style: normal; }
