@@ -23,6 +23,7 @@ les-verden/
 ├── kartspill.html          Kartspill (verden, Europa, USA, Storbritannia)
 ├── mysterium.html          Kalde spor i historien + Cold Case Mysteries (logikkgåter), data i data/mysterium/
 ├── film.html               Film i undervisningen + skriveguider for filmanmeldelse (data i data/film/)
+├── skriving.html           Skriveverksted: skriveguider med setningsstartere og skriverammer (data i data/skriving/)
 ├── sport.html              Sports in the English-speaking world (data i data/sport.js, brukes også av landsidene)
 ├── lesing.html             Reading Room: tekster i det fri med lett versjon og oppgaver (data i data/lesing/)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
@@ -201,6 +202,16 @@ oppgavene på nivå 2 og 3 i temaene.
 - **Cold Case Mysteries** (generatoren, engelsk) bruker `data/mysterium/database.js`: fire «verdener» med personer (høyde, øyne, hår, venstre-/høyrehendt), gjenstander (vekt, materiale) og steder (inne/ute), og en liste med motiver. Nivåene: Easy 3×3×3, Medium 4×4×4, Hard 4×4×4 + motiv, Expert 5×5×5, Master 4×4×4 med utsagn der den skyldige lyver. Generatoren legger til ledetråder til det bare finnes én løsning, og fjerner så overflødige. Samme `seed` i adressen gir samme gåte, så en lenke kan deles med hele klassen.
 - Nye personer, gjenstander og steder kan legges rett inn i databasen.
 
+### Skriveverksted
+
+`skriving.html` + `assets/skriving.js`. Oversikten ligger i `data/skriving/oversikt.js` (`LV.skriveguider`: `id`, `sprak` «en»/«nb», `ikon`, `farge`, `tittel`, `kort`, `fag`, ev. `par` (samme guide på det andre språket) og `lenke` (guiden ligger et annet sted, f.eks. filmsiden)). Hver guide er en fil `data/skriving/<id>.js` som setter `LV.skriveguide`:
+
+- `ingress`, `hva` (avsnitt), `fakta` (`[[nøkkel, verdi]]`), `forarbeid` (liste), `oppbyggingTekst`
+- `deler`: `{navn, kort, storrelse (høyde i figuren, 1–3), hva, tips, startere, eksempel, ramme, utenRamme}` – hver del blir et kort, en blokk i figuren og et felt i skriverammen (unntatt `utenRamme: true`). Setningsstarterne blir knapper som setter teksten inn i feltet.
+- `sprak` (språktips), `bindeord` (`[{tittel, liste}]`), ev. `ordliste` (`[[engelsk, norsk]]`)
+- `eksempel`: `{tittel, tekst: [{del, t}], kommentar}` – `del` er indeksen i `deler`, slik at eleven kan slå på merking av delene.
+- `sjekkliste` og `vurdering` (`[kriterium, lav, middels, høy]`).
+
 ### Sports in the English-speaking world
 
 `sport.html` + `assets/sport.js`, data i `data/sport.js` (`LV.sport`): `innledning`, `idretter` (hver med `land: {landId: 2|1}` – 2 = en av de største, 1 = populær – samt `spilles`, `ord`, `store`, `visste`), `land` (én del per land-id med `tekst`, `store`, `visste`, `idretter`), `ordpar` (britisk/amerikansk), `idiomer`, `quiz`, `oppgaver`, `kilder` og `kontroller` (vises med `?laerer=1`). `land.html` laster også `data/sport.js` og viser `LV.sport.land[id]` som en egen «Sport»-del på landsiden. Legger du til et nytt land, gi det en del i `LV.sport.land` og fyll inn landet i `land` på idrettene.
@@ -316,7 +327,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261103j`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261103k`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

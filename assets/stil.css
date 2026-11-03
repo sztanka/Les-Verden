@@ -1885,3 +1885,106 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .lr-delsammendrag p { font-family: var(--font-tekst); line-height: 1.65; }
 .lr-delkort .stopp { margin: .8rem 0 0; }
 .lr-merke-uten { background: var(--engelsk-lys); }
+
+/* =========================================================
+   Skriveverksted (skriving.html)
+   ========================================================= */
+.sk-hovedside { max-width: 1100px; }
+.sk-steg-rad { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.6rem; font-family: var(--font-ui); }
+.sk-steg-rad span { background: var(--flate); border: 1px solid var(--linje); border-radius: 999px; padding: .35rem .8rem .35rem .4rem; font-size: .92rem; }
+.sk-steg-rad b { display: inline-flex; width: 1.5rem; height: 1.5rem; align-items: center; justify-content: center; border-radius: 50%; background: var(--tekst); color: var(--bakgrunn); margin-right: .35rem; font-size: .8rem; }
+.sk-gruppe { margin: 1.6rem 0 2rem; }
+.sk-gruppe-tekst { color: var(--tekst-dempet); font-family: var(--font-ui); margin-top: -.4rem; }
+.sk-kortrad { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.sk-kort { display: flex; gap: .9rem; align-items: flex-start; height: 100%; box-sizing: border-box; padding: 1rem 1.1rem; background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--sk); border-radius: var(--radius); color: var(--tekst); text-decoration: none; font-family: var(--font-ui); transition: transform .15s, box-shadow .15s; }
+.sk-kort:hover, .sk-kort:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
+.sk-ikon { font-size: 2rem; line-height: 1; }
+.sk-kort-tekst { display: flex; flex-direction: column; gap: .25rem; }
+.sk-kort-tekst strong { font-family: var(--font-tekst); font-size: 1.15rem; color: var(--sk); }
+:root[data-tema="mork"] .sk-kort-tekst strong { color: var(--tekst); }
+.sk-kort-tekst > span:nth-child(2) { color: var(--tekst-dempet); font-size: .93rem; }
+.sk-merker { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: .2rem; }
+.sk-merke { font-size: .75rem; background: var(--flate-2); border-radius: 999px; padding: .05rem .5rem; }
+/* Guide */
+.sk-hode { display: flex; gap: 1.2rem; align-items: flex-start; margin: .5rem 0 1rem; padding: 1.2rem 1.4rem; border-radius: var(--radius); background: color-mix(in srgb, var(--sk) 12%, var(--flate)); border-left: 8px solid var(--sk); }
+.sk-hode h1 { margin: .1rem 0 .4rem; }
+.sk-hode .ingress { font-family: var(--font-tekst); font-size: 1.12rem; margin: 0; }
+.sk-hode-ikon { font-size: 3rem; line-height: 1; }
+.sk-annen { font-family: var(--font-ui); margin: .6rem 0 0; }
+.sk-del { margin: 2rem 0; scroll-margin-top: 5rem; }
+.sk-del > h2 { border-bottom: 3px solid color-mix(in srgb, var(--sk) 35%, transparent); padding-bottom: .3rem; }
+.sk-liten { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .93rem; }
+.sk-hva { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+.sk-hva-tekst p { font-family: var(--font-tekst); font-size: 1.08rem; line-height: 1.65; }
+.sk-fakta { margin: 0; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1rem; font-family: var(--font-ui); display: grid; gap: .45rem; }
+.sk-fakta-tittel { font-weight: 700; color: var(--sk); }
+:root[data-tema="mork"] .sk-fakta-tittel { color: var(--tekst); }
+.sk-fakta dt { font-size: .8rem; color: var(--tekst-dempet); }
+.sk-fakta dd { margin: 0; }
+.sk-forarbeid { font-family: var(--font-ui); line-height: 1.55; display: grid; gap: .45rem; padding-left: 1.4rem; }
+/* Blåkopi */
+.sk-blaakopi { list-style: none; padding: 0; margin: 1rem auto 1.6rem; max-width: 34rem; display: grid; gap: 5px; }
+.sk-blaakopi a { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: calc(var(--h) * 2.6rem); padding: .4rem .8rem; border-radius: 12px; background: var(--sk); color: #fff; text-decoration: none; font-family: var(--font-ui); }
+.sk-blaakopi li:nth-child(even) a { background: color-mix(in srgb, var(--sk) 72%, #fff); }
+.sk-blaakopi a:hover { outline: 3px solid var(--tekst); }
+.sk-bk-navn { font-weight: 700; }
+.sk-bk-kort { font-size: .85rem; opacity: .95; }
+:root[data-tema="mork"] .sk-blaakopi a { color: #10141a; }
+/* Delkort */
+.sk-delkort-rad { display: grid; gap: 1rem; }
+.sk-delkort { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--sk); border-radius: var(--radius); padding: .4rem 1.3rem 1rem; scroll-margin-top: 5rem; }
+.sk-delkort header { display: flex; align-items: center; gap: .6rem; }
+.sk-delkort h3 { margin: .6rem 0; }
+.sk-delkort > p { font-family: var(--font-tekst); font-size: 1.04rem; line-height: 1.6; }
+.sk-delkort h4 { margin: .9rem 0 .35rem; font-family: var(--font-ui); font-size: .95rem; color: var(--sk); }
+:root[data-tema="mork"] .sk-delkort h4 { color: var(--tekst); }
+.sk-delnr { display: inline-flex; flex: none; width: 1.8rem; height: 1.8rem; align-items: center; justify-content: center; border-radius: 50%; background: var(--sk); color: #fff; font: 700 .95rem var(--font-ui); margin-right: .4rem; }
+.sk-tips { font-family: var(--font-ui); line-height: 1.55; padding-left: 1.2rem; margin: 0; }
+.sk-tips li { margin-bottom: .3rem; }
+.sk-startere { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.sk-startere li { font-family: var(--font-tekst); font-style: italic; background: color-mix(in srgb, var(--sk) 10%, var(--flate)); border: 1px solid color-mix(in srgb, var(--sk) 30%, transparent); border-radius: 8px; padding: .2rem .55rem; }
+.sk-mini { margin-top: 1rem; background: var(--flate-2); border-radius: 10px; padding: .6rem .9rem; }
+.sk-mini-etikett { font: 700 .75rem var(--font-ui); text-transform: uppercase; letter-spacing: .06em; color: var(--tekst-dempet); }
+.sk-mini p { margin: .2rem 0 0; font-family: var(--font-tekst); line-height: 1.6; }
+.sk-spraktips { max-width: 70ch; }
+.sk-bindeord { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); margin-bottom: 1rem; }
+.sk-bo { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .5rem .8rem; }
+.sk-bo h4 { margin: .2rem 0 .3rem; font-family: var(--font-ui); font-size: .92rem; }
+.sk-bo p { margin: 0; font-family: var(--font-tekst); font-style: italic; line-height: 1.6; }
+/* Modelltekst */
+.sk-bryter { font-family: var(--font-ui); cursor: pointer; }
+.sk-modell { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1.2rem clamp(1rem, 4vw, 2.4rem); max-width: 48rem; font-family: var(--font-tekst); font-size: 1.08rem; line-height: 1.7; }
+.sk-modell h3 { text-align: center; margin: 0 0 1rem; }
+.sk-mdel { position: relative; }
+.sk-mdel p { margin: 0 0 1em; }
+.sk-metikett { display: none; font: 700 .72rem var(--font-ui); text-transform: uppercase; letter-spacing: .05em; color: var(--sk); }
+.vis-deler .sk-mdel[data-del] { border-left: 4px solid color-mix(in srgb, var(--sk) 55%, transparent); padding-left: .9rem; margin-bottom: .6rem; }
+.vis-deler .sk-mdel[data-del] .sk-metikett { display: block; }
+.vis-deler .sk-mdel[data-del] p { margin-bottom: .4rem; }
+:root[data-tema="mork"] .sk-metikett { color: var(--tekst-dempet); }
+.sk-kommentar { font-family: var(--font-ui); font-size: .95rem; background: var(--gul-lys); border-radius: 10px; padding: .5rem .8rem; }
+.sk-sjekk li { font-family: var(--font-ui); }
+/* Skriveramme */
+.sk-ramme { background: color-mix(in srgb, var(--sk) 7%, var(--flate)); border-radius: var(--radius); padding: .4rem 1.3rem 1rem; }
+.sk-tittel { width: 100%; box-sizing: border-box; font: inherit; font-size: 1.1rem; padding: .5rem .7rem; border: 2px solid var(--linje); border-radius: 10px; background: var(--flate); color: var(--tekst); margin-top: .3rem; }
+.sk-rammedel { margin: 1.2rem 0; }
+.sk-rammedel h3 { display: flex; align-items: center; font-size: 1.1rem; margin: 0 0 .3rem; }
+.sk-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .3rem 0 .5rem; }
+.sk-chip { font: italic .95rem var(--font-tekst); background: var(--flate); border: 1px solid color-mix(in srgb, var(--sk) 45%, transparent); color: var(--tekst); border-radius: 999px; padding: .25rem .7rem; cursor: pointer; }
+.sk-chip:hover, .sk-chip:focus-visible { background: color-mix(in srgb, var(--sk) 15%, var(--flate)); }
+.sk-felt { width: 100%; box-sizing: border-box; }
+.sk-teller { margin: .2rem 0 0; text-align: right; font: .8rem var(--font-ui); color: var(--tekst-dempet); }
+.sk-total { font: 700 .95rem var(--font-ui); }
+@media (max-width: 760px) {
+  .sk-hva { grid-template-columns: 1fr; }
+  .sk-hode { flex-direction: column; gap: .4rem; padding: 1rem; }
+  .sk-hode-ikon { font-size: 2.4rem; }
+}
+.vk-skriving { --vk: #b0462e; --vk-lys: #f8e6df; }
+:root[data-tema="mork"] .vk-skriving { --vk: #f0a58f; --vk-lys: #3d2620; }
+/* Verktøykort: 6-kolonners rutenett så siste rad alltid blir fylt */
+@media (min-width: 900px) {
+  .verktoykort-rad { grid-template-columns: repeat(6, 1fr); }
+  .verktoykort-rad > .verktoykort { grid-column: span 2; }
+  .verktoykort-rad > .verktoykort:nth-last-child(2):nth-child(3n+1), .verktoykort-rad > .verktoykort:last-child:nth-child(3n+2) { grid-column: span 3; }
+}
