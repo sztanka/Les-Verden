@@ -994,6 +994,20 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .spillkort strong { font-size: 1.1rem; }
 .spillkort span:last-child { color: var(--tekst-dempet); font-size: .93rem; }
 .spillkort-ikon { font-size: 2rem; line-height: 1; }
+.spillkort-mysterium { display: flex; align-items: center; gap: 1.4rem; margin-top: 1.6rem; padding: 1.5rem 1.8rem; background: linear-gradient(135deg, #1e1b2e 0%, #2d2945 100%); border: 2px solid #2d2945; border-radius: var(--radius); color: #f1ecdf; text-decoration: none; font-family: var(--font-ui); box-shadow: 0 6px 18px rgba(30, 27, 46, .25); transition: border-color .15s, transform .15s; }
+.spillkort-mysterium:hover, .spillkort-mysterium:focus-visible { border-color: #e2b007; transform: translateY(-2px); }
+.spm-ikon { font-size: 3.4rem; line-height: 1; flex: none; }
+.spm-tekst { display: flex; flex-direction: column; gap: .35rem; flex: 1; min-width: 0; }
+.spm-tekst > strong { font-size: 1.45rem; color: #fff; }
+.spm-tekst > span { color: #d6d0e4; font-size: .97rem; line-height: 1.45; }
+.spm-merke { color: #e2b007 !important; font-size: .8rem !important; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.spm-under { border-top: 1px solid #423c63; padding-top: .45rem; margin-top: .2rem; }
+.spm-under strong { color: #e2b007; }
+.spm-knapp { flex: none; padding: .6rem 1.1rem; background: #e2b007; color: #1e1b2e; border-radius: 999px; font-weight: 700; white-space: nowrap; }
+@media (max-width: 640px) {
+  .spillkort-mysterium { flex-direction: column; align-items: flex-start; gap: .8rem; padding: 1.2rem; }
+  .spm-ikon { font-size: 2.6rem; }
+}
 .spill-hode h1 { margin-bottom: .2rem; }
 .spill-kilde { margin: 0 0 .6rem; color: var(--tekst-dempet); font-family: var(--font-ui); }
 .spill-andre { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
