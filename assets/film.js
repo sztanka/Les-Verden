@@ -95,7 +95,9 @@
     if (!f) { $("innhold").innerHTML = '<p class="melding">Fant ikke filmen. <a href="film.html">Til alle filmene</a></p>'; return; }
     LV.film = null;
     await LV.lastSkript("data/film/" + encodeURIComponent(id) + ".js");
-    const d = LV.film, t = T[f.sprak === "en" ? "en" : "nb"], en = f.sprak === "en";
+    const d = LV.film, en = f.sprak === "en";
+    let t = T[en ? "en" : "nb"];
+    if (f.serie) t = Object.assign({}, t, en ? { fakta: "Facts about the series", handler: "What is the series about?", spoiler: "The whole story – contains spoilers!", sporsmal: "Questions about the series" } : { fakta: "Fakta om serien", handler: "Hva handler serien om?" });
     document.title = f.tittel + " (" + f.ar + ") – Film – " + (LV.config ? LV.config.navn : "Les verden");
     const temaer = (f.temaer || []).map(x => LV.temaer.find(y => y.id === x)).filter(Boolean);
     const land = (f.landsider || []).map(x => (LV.landliste || []).find(y => y.id === x)).filter(Boolean);

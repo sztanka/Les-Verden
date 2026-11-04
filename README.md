@@ -235,6 +235,7 @@ oppgavene på nivå 2 og 3 i temaene.
 - **Trailer:** Legg YouTube-ID-en inn som `youtube: "…"` i `oversikt.js` (det som står etter `v=` i lenken, f.eks. `https://www.youtube.com/watch?v=mfmrPu43DF8` → `mfmrPu43DF8`). Traileren lastes fra youtube-nocookie.com først når eleven trykker «Spill av». Uten ID vises en lenke til søk på YouTube.
 - **Omslag:** Filmene har tegnede «omslag» laget med farger og emoji (`farger`, `ikon`, `stil`), fordi ekte DVD-omslag og plakater er beskyttet av opphavsrett. Vil du likevel bruke et bilde, kan du legge inn `omslag: "lenke"` – men sjekk at du har lov.
 - **Koblinger:** `temaer` (tema-id-er) gir lenker fra filmen til temaene og en «Film om temaet»-boks på temasidene. `landsider` gir lenker til landsidene.
+- `serie: true` i oversikten gir overskrifter for TV-serie («Facts about the series»).
 - `&laerer=1` viser fasit til faktaspørsmålene og lærerkontrollen.
 - Skriveguidene ligger i `data/film/guide-review.js` og `data/film/guide-anmeldelse.js`.
 
@@ -327,7 +328,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261104a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261104b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
