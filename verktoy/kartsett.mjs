@@ -442,3 +442,31 @@ export const SGP_LANDEMERKER = [
   ["The Causeway", 1.4508, 103.7695, "The road and railway bridge to Malaysia."],
   ["Raffles Hotel", 1.2949, 103.8545, "A famous colonial hotel from 1887, named after Stamford Raffles."]
 ];
+
+// =========================================================
+// USA: regioner og divisjoner slik US Census Bureau bruker dem (siden 1950)
+// Delstatsnavnene må stå akkurat som i us-atlas.
+// =========================================================
+export const USA_REGIONER = [
+  { navn: "Northeast", hint: "The oldest part of the USA, by the Atlantic", info: "The Northeast includes the old colonies of New England and big cities like New York, Boston and Philadelphia.",
+    divisjoner: [
+      { navn: "New England", stater: ["Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont"] },
+      { navn: "Mid-Atlantic", stater: ["New Jersey", "New York", "Pennsylvania"] }
+    ] },
+  { navn: "Midwest", hint: "The farming heartland around the Great Lakes", info: "The Midwest is known as America’s heartland, with farmland, the Great Lakes and cities like Chicago and Detroit.",
+    divisjoner: [
+      { navn: "East North Central", stater: ["Illinois", "Indiana", "Michigan", "Ohio", "Wisconsin"] },
+      { navn: "West North Central", stater: ["Iowa", "Kansas", "Minnesota", "Missouri", "Nebraska", "North Dakota", "South Dakota"] }
+    ] },
+  { navn: "South", hint: "The largest region, from Delaware to Texas", info: "The South is the largest region by population. It includes the states of the old Confederacy, Florida and Texas.",
+    divisjoner: [
+      { navn: "South Atlantic", stater: ["Delaware", "District of Columbia", "Florida", "Georgia", "Maryland", "North Carolina", "South Carolina", "Virginia", "West Virginia"] },
+      { navn: "East South Central", stater: ["Alabama", "Kentucky", "Mississippi", "Tennessee"] },
+      { navn: "West South Central", stater: ["Arkansas", "Louisiana", "Oklahoma", "Texas"] }
+    ] },
+  { navn: "West", hint: "The Rocky Mountains, the Pacific coast, Alaska and Hawaii", info: "The West is the largest region by area, with the Rocky Mountains, deserts, the Pacific coast, Alaska and Hawaii.",
+    divisjoner: [
+      { navn: "Mountain", stater: ["Arizona", "Colorado", "Idaho", "Montana", "Nevada", "New Mexico", "Utah", "Wyoming"] },
+      { navn: "Pacific", stater: ["Alaska", "California", "Hawaii", "Oregon", "Washington"] }
+    ] }
+];

@@ -1988,3 +1988,5 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
   .verktoykort-rad > .verktoykort { grid-column: span 2; }
   .verktoykort-rad > .verktoykort:nth-last-child(2):nth-child(3n+1), .verktoykort-rad > .verktoykort:last-child:nth-child(3n+2) { grid-column: span 3; }
 }
+.ks-indre path { fill: none; stroke: rgba(80, 70, 50, .35); stroke-width: .6; pointer-events: none; vector-effect: non-scaling-stroke; stroke-dasharray: 2 2; }
+:root[data-tema="mork"] .ks-indre path { stroke: rgba(230, 225, 210, .35); }

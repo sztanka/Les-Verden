@@ -302,7 +302,7 @@ lastes opp til GitHub). Kartdata: [Natural Earth](https://www.naturalearthdata.c
 **Legge til en ny verdensdel eller et nytt land:** For et enkelt land (som Irland, Australia
 eller India) kan du bruke funksjonen `lagLand({...})` nederst i `lag-kart.mjs`: Den lager kart med
 delstater/fylker fra Natural Earth, byer og landemerker. For en hel verdensdel lager du en blokk etter
-mønster av «EUROPA» (projeksjon og utsnitt). Legg innholdet i `kartsett.mjs`. Spør gjerne
+mønster av «EUROPA» (projeksjon og utsnitt). Legg innholdet i `kartsett.mjs`. USAs regioner og divisjoner (`USA_REGIONER`) lages ved å slå sammen delstatene; `indreGrenser: "stat:"` på et sett tegner delstatsgrensene som tynne stiplede linjer oppå. Spør gjerne
 Claude om hjelp – det er dette verktøyet er laget for.
 
 ### Landsidene (engelsk)
@@ -327,7 +327,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261103k`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261104a`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

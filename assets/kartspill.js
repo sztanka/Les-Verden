@@ -152,7 +152,14 @@
       }
       S.elementNoder[e.id] = noder;
     });
-    svg.appendChild(gOmr); svg.appendChild(gLin); svg.appendChild(gRing); svg.appendChild(gPkt);
+    svg.appendChild(gOmr);
+    // Tynne grenser oppå store områder (f.eks. delstatene inni USAs regioner)
+    if (s.indreGrenser) {
+      const gIndre = el("g", { class: "ks-indre" });
+      Object.entries(k.omrader).forEach(([id, o]) => { if (id.startsWith(s.indreGrenser)) gIndre.appendChild(el("path", { d: o.d })); });
+      svg.appendChild(gIndre);
+    }
+    svg.appendChild(gLin); svg.appendChild(gRing); svg.appendChild(gPkt);
     svg.appendChild(el("g", { class: "ks-etiketter" }));
 
     const ramme = document.getElementById("ks-ramme");

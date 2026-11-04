@@ -2676,6 +2676,121 @@ window.LV.kartspill = [
   ]
  },
  {
+  "id": "usa-regioner",
+  "kart": "usa",
+  "gruppe": "USA",
+  "tittel": "The four regions",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn de fire regionene i USA: Northeast, Midwest, South og West (US Census Bureau).",
+  "indreGrenser": "stat:",
+  "elementer": [
+   {
+    "id": "censusreg:Northeast",
+    "navn": "Northeast",
+    "form": "omrade",
+    "hint": "The oldest part of the USA, by the Atlantic",
+    "info": "The Northeast includes the old colonies of New England and big cities like New York, Boston and Philadelphia. Divisions: New England, Mid-Atlantic."
+   },
+   {
+    "id": "censusreg:Midwest",
+    "navn": "Midwest",
+    "form": "omrade",
+    "hint": "The farming heartland around the Great Lakes",
+    "info": "The Midwest is known as America’s heartland, with farmland, the Great Lakes and cities like Chicago and Detroit. Divisions: East North Central, West North Central."
+   },
+   {
+    "id": "censusreg:South",
+    "navn": "South",
+    "form": "omrade",
+    "hint": "The largest region, from Delaware to Texas",
+    "info": "The South is the largest region by population. It includes the states of the old Confederacy, Florida and Texas. Divisions: South Atlantic, East South Central, West South Central."
+   },
+   {
+    "id": "censusreg:West",
+    "navn": "West",
+    "form": "omrade",
+    "hint": "The Rocky Mountains, the Pacific coast, Alaska and Hawaii",
+    "info": "The West is the largest region by area, with the Rocky Mountains, deserts, the Pacific coast, Alaska and Hawaii. Divisions: Mountain, Pacific."
+   }
+  ]
+ },
+ {
+  "id": "usa-divisjoner",
+  "kart": "usa",
+  "gruppe": "USA",
+  "tittel": "The nine divisions",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn de ni divisjonene, som New England, Mid-Atlantic og Pacific (US Census Bureau).",
+  "indreGrenser": "stat:",
+  "elementer": [
+   {
+    "id": "censusdiv:New England",
+    "navn": "New England",
+    "form": "omrade",
+    "hint": "Part of the Northeast",
+    "info": "Region: Northeast. States: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont."
+   },
+   {
+    "id": "censusdiv:Mid-Atlantic",
+    "navn": "Mid-Atlantic",
+    "form": "omrade",
+    "hint": "Part of the Northeast",
+    "info": "Region: Northeast. States: New Jersey, New York, Pennsylvania."
+   },
+   {
+    "id": "censusdiv:East North Central",
+    "navn": "East North Central",
+    "form": "omrade",
+    "hint": "Part of the Midwest",
+    "info": "Region: Midwest. States: Illinois, Indiana, Michigan, Ohio, Wisconsin."
+   },
+   {
+    "id": "censusdiv:West North Central",
+    "navn": "West North Central",
+    "form": "omrade",
+    "hint": "Part of the Midwest",
+    "info": "Region: Midwest. States: Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota."
+   },
+   {
+    "id": "censusdiv:South Atlantic",
+    "navn": "South Atlantic",
+    "form": "omrade",
+    "hint": "Part of the South",
+    "info": "Region: South. States: Delaware, District of Columbia, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, West Virginia."
+   },
+   {
+    "id": "censusdiv:East South Central",
+    "navn": "East South Central",
+    "form": "omrade",
+    "hint": "Part of the South",
+    "info": "Region: South. States: Alabama, Kentucky, Mississippi, Tennessee."
+   },
+   {
+    "id": "censusdiv:West South Central",
+    "navn": "West South Central",
+    "form": "omrade",
+    "hint": "Part of the South",
+    "info": "Region: South. States: Arkansas, Louisiana, Oklahoma, Texas."
+   },
+   {
+    "id": "censusdiv:Mountain",
+    "navn": "Mountain",
+    "form": "omrade",
+    "hint": "Part of the West",
+    "info": "Region: West. States: Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming."
+   },
+   {
+    "id": "censusdiv:Pacific",
+    "navn": "Pacific",
+    "form": "omrade",
+    "hint": "Part of the West",
+    "info": "Region: West. States: Alaska, California, Hawaii, Oregon, Washington."
+   }
+  ]
+ },
+ {
   "id": "uk-byer",
   "kart": "storbritannia",
   "gruppe": "Storbritannia",

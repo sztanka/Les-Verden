@@ -212,6 +212,25 @@ const SETT = [];
   }).filter(e => e.xy).sort((a, b) => a.navn.localeCompare(b.navn));
   hsSett.push({ id: "hs:Washington, D.C.", navn: "Washington, D.C.", form: "punkt", xy: punkt(proj, 38.90, -77.04), hint: "The capital of the USA", info: "The capital of the whole country – not part of any state." });
   SETT.push({ id: "usa-hovedsteder", kart: "usa", gruppe: "USA", tittel: "State capitals", fag: "engelsk", sprak: "en", beskrivelse: "Finn hovedstedene i de 50 delstatene – og Washington, D.C.", elementer: hsSett });
+
+  // Regioner og divisjoner (US Census Bureau): delstatene slås sammen til større områder
+  const slaSammenStater = navnene => {
+    const geo = us.objects.states.geometries.filter(g => navnene.includes(g.properties.name));
+    if (geo.length !== navnene.length) ADVARSLER.push("Fant ikke alle delstatene i: " + navnene.join(", "));
+    return { type: "Feature", properties: {}, geometry: topojson.merge(us, geo) };
+  };
+  const regSett = [], divSett = [];
+  S.USA_REGIONER.forEach(r => {
+    const alle = r.divisjoner.flatMap(d => d.stater);
+    kart.omrader["censusreg:" + r.navn] = omrade(sti, slaSammenStater(alle), 60);
+    regSett.push({ id: "censusreg:" + r.navn, navn: r.navn, form: "omrade", hint: r.hint, info: r.info + " Divisions: " + r.divisjoner.map(d => d.navn).join(", ") + "." });
+    r.divisjoner.forEach(d => {
+      kart.omrader["censusdiv:" + d.navn] = omrade(sti, slaSammenStater(d.stater), 60);
+      divSett.push({ id: "censusdiv:" + d.navn, navn: d.navn, form: "omrade", hint: "Part of the " + r.navn, info: "Region: " + r.navn + ". States: " + d.stater.join(", ") + "." });
+    });
+  });
+  SETT.push({ id: "usa-regioner", kart: "usa", gruppe: "USA", tittel: "The four regions", fag: "engelsk", sprak: "en", beskrivelse: "Finn de fire regionene i USA: Northeast, Midwest, South og West (US Census Bureau).", indreGrenser: "stat:", elementer: regSett });
+  SETT.push({ id: "usa-divisjoner", kart: "usa", gruppe: "USA", tittel: "The nine divisions", fag: "engelsk", sprak: "en", beskrivelse: "Finn de ni divisjonene, som New England, Mid-Atlantic og Pacific (US Census Bureau).", indreGrenser: "stat:", elementer: divSett });
   skrivKart("usa", kart);
 }
 

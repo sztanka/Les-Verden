@@ -63,6 +63,8 @@ window.LV.landliste = [
   "kildeUrl": "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
   "kartsett": [
    "usa-stater",
+   "usa-regioner",
+   "usa-divisjoner",
    "usa-hovedsteder",
    "usa-byer",
    "usa-landemerker"
