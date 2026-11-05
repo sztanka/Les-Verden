@@ -40,6 +40,10 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", "muntlig lytting speaking listening samtalekort diskusjon frasebank hot seat varme stolen"],
   ["Kildedetektiven", "kildedetektiv.html", "Spill: er innlegget sant eller falskt? Undersøk avsender, dato og bilde.", "kildekritikk falske nyheter fake news desinformasjon ki-bilder svindel phishing spill kildedetektiv"],
   ["Klassequiz på storskjerm", "klassequiz.html", "For læreren: vis quizspørsmål fra temaer, tekster og land stort på tavla.", "klassequiz quiz storskjerm tavle kahoot lærer spørsmål"],
+  ["Tidsreisen", "tidsreise.html", "Spill: gjett året for historiske hendelser.", "tidsreise gjett året årstall historie spill timeline guess the year"],
+  ["Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge.", "årsak virkning følger konsekvenser cause effect sammenheng rekkefølge spill"],
+  ["Debattduell", "debatt.html", "Sorter argumenter for og mot, finn argumentasjonsfeil og skriv ditt eget innlegg.", "debatt argumentasjon argumenter for mot hersketeknikk stråmann argumentasjonsfeil fallacy debate opinion drøfting"],
+  ["Lesebingo", "bingo.html", "5 × 5 leseoppgaver på norsk eller engelsk.", "lesebingo bingo reading bingo leseoppgaver lesing selvvalgte bøker reading room bingo"],
   ["Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for bøker du velger selv.", "lesedagbok leselogg reading log selvvalgte tekster bok bokpresentasjon book talk lesekort"],
   ["How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", "språklæring strategier learning strategies vocabulary false friends falske venner explain the word kommunikasjonsstrategier"],
   ["Pronunciation for Norwegians", "uttale.html", "Vanskelige engelske lyder, ordtrykk, stumme bokstaver og aksenter.", "uttale pronunciation th w v word stress ordtrykk silent letters stumme bokstaver accent aksent british american"],
@@ -48,7 +52,7 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
 
 // Temaer, begreper og personer
 last("data/temaer/oversikt.js");
-const begreper = new Map(), personer = new Map();
+const begreper = new Map(), personer = new Map(), hendelser = [];
 for (const kat of ctx.LV.temaer) {
   ctx.LV.tema = null;
   last("data/temaer/" + kat.id + ".js");
@@ -60,6 +64,10 @@ for (const kat of ctx.LV.temaer) {
     const n = o.toLowerCase();
     if (!begreper.has(n)) begreper.set(n, { o, forkl, temaer: [], temaId: kat.id, temaTittel: kat.tittel, fag: kat.fag, sprak: t.sprak || "nb" });
     begreper.get(n).temaer.push(kat.tittel);
+  });
+  (t.tidslinje || []).forEach(h => {
+    const ar = (String(h.dato).match(/\d{3,4}/) || [])[0];
+    if (ar && !/f\.\s*kr|\bbc\b/i.test(h.dato)) hendelser.push([String(h.dato), ren(h.tekst), Number(ar), kat.id, kat.tittel, (kat.sted && kat.sted.navn) || "", kat.fag === "engelsk" ? 1 : 0, kat.trinn]);
   });
   (t.personer || []).forEach(p => {
     const n = p.navn.toLowerCase();
@@ -107,5 +115,9 @@ fs.writeFileSync(path.join(ROT, "data", "sok.js"), ut);
 const dagens = [...begreper.values()].map(b => [b.o, ren(b.forkl), b.temaId, b.temaTittel, b.sprak === "en" ? 1 : 0]);
 fs.writeFileSync(path.join(ROT, "data", "dagens-begrep.js"), "/* Lages av verktoy/lag-sok.mjs – ikke rediger for hånd. [begrep, forklaring, temaId, temaTittel, engelsk] */\nwindow.LV = window.LV || {};\nLV.dagensBegrep = " + JSON.stringify(dagens) + ";\n");
 console.log("data/dagens-begrep.js", dagens.length, "begreper");
+
+// Tidsreisen: alle hendelser fra tidslinjene [dato, tekst, år, temaId, temaTittel, sted, engelsk, trinn]
+fs.writeFileSync(path.join(ROT, "data", "tidsreise.js"), "/* Lages av verktoy/lag-sok.mjs – ikke rediger for hånd. */\nwindow.LV = window.LV || {};\nLV.tidsreise = " + JSON.stringify(hendelser) + ";\n");
+console.log("data/tidsreise.js", hendelser.length, "hendelser");
 const teller = {}; I.forEach(e => { teller[e.k] = (teller[e.k] || 0) + 1; });
 console.log("data/sok.js", Math.round(ut.length / 1024) + " kB", JSON.stringify(teller));

@@ -33,6 +33,10 @@ les-verden/
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
 ├── lesedagbok.html         Lesedagbok for selvvalgte tekster (assets/lesedagbok.js)
 ├── kildedetektiv.html      Kildedetektiven: kildekritikk-spill (data i data/kildedetektiv.js)
+├── tidsreise.html          Tidsreisen: gjett året (data i data/tidsreise.js, lages av verktoy/lag-sok.mjs)
+├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
+├── debatt.html             Debattduell: argumenter og argumentasjonsfeil (data i data/debatt.js)
+├── bingo.html              Lesebingo / Reading Room Bingo (oppgavene ligger i assets/bingo.js)
 ├── klassequiz.html         Klassequiz på storskjerm (spørsmål lages fra temaer, Reading Room-quiz og landquiz)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
@@ -301,6 +305,13 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Kildedetektiven** (`kildedetektiv.html`, `assets/kildedetektiv.js`, data i `data/kildedetektiv.js`): 12 oppdiktede saker (8 norske, 4 engelske) med `spor` og `svar` («sann», «falsk» eller «usikker»). Bruk alltid oppdiktede kontoer og medier – ikke etterlign ekte personer eller organisasjoner.
 - **Dagens begrep** på forsiden: `verktoy/lag-sok.mjs` lager `data/dagens-begrep.js` med alle begrepene. Forsiden velger ett ut fra datoen, så alle ser det samme begrepet samme dag.
 
+### Spill (runde 2)
+
+- **Tidsreisen** (`tidsreise.html`, `assets/tidsreise.js`): Hendelsene hentes fra tidslinjene i alle temaene. `verktoy/lag-sok.mjs` lager `data/tidsreise.js`, så nye tidslinjepunkter kommer med automatisk. Bare hendelser fra 1500–2030 brukes, og årstall skjules i teksten. Filter: `?fag=samfunnsfag|engelsk&trinn=8|9|10`.
+- **Årsak og virkning** (`arsak.html`, data i `data/arsak.js`): Hver kjede har fem `ledd` i riktig rekkefølge. Spillet stokker dem. Legg gjerne til flere kjeder – `tema` er id-en til temaet som «Les mer» peker til.
+- **Debattduell** (`debatt.html`, data i `data/debatt.js`): Hver påstand har argumentkort med `side` («for», «mot» eller «svak»). Svake argumenter har `feil` (typen argumentasjonsfeil) og `hvorfor`. 6 påstander på norsk og 4 på engelsk.
+- **Lesebingo** (`bingo.html`, `assets/bingo.js`): 40 oppgaver per språk. `?id=nb-123456` eller `?id=en-123456` gir alltid det samme brettet, så læreren kan dele én lenke. Elevene bruker «Last ned svarene» for å fortsette senere.
+
 ### Søk
 
 `sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
@@ -405,7 +416,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105g`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
