@@ -38,6 +38,8 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Eksamenssone", "eksamen.html", "Forbered deg til muntlig eksamen.", "eksamen muntlig exam"],
   ["For lærere", "laerer.html", "Veiledning for lærere.", "lærer laerer teacher"],
   ["Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", "muntlig lytting speaking listening samtalekort diskusjon frasebank hot seat varme stolen"],
+  ["Kildedetektiven", "kildedetektiv.html", "Spill: er innlegget sant eller falskt? Undersøk avsender, dato og bilde.", "kildekritikk falske nyheter fake news desinformasjon ki-bilder svindel phishing spill kildedetektiv"],
+  ["Klassequiz på storskjerm", "klassequiz.html", "For læreren: vis quizspørsmål fra temaer, tekster og land stort på tavla.", "klassequiz quiz storskjerm tavle kahoot lærer spørsmål"],
   ["Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for bøker du velger selv.", "lesedagbok leselogg reading log selvvalgte tekster bok bokpresentasjon book talk lesekort"],
   ["How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", "språklæring strategier learning strategies vocabulary false friends falske venner explain the word kommunikasjonsstrategier"],
   ["Pronunciation for Norwegians", "uttale.html", "Vanskelige engelske lyder, ordtrykk, stumme bokstaver og aksenter.", "uttale pronunciation th w v word stress ordtrykk silent letters stumme bokstaver accent aksent british american"],
@@ -56,7 +58,7 @@ for (const kat of ctx.LV.temaer) {
   legg("tema", kat.tittel, "tema.html?id=" + kat.id, kat.kort, [kat.tittel, kat.kort, (t.avsnitt || []).map(a => a.tittel + " " + (a.del || "")).join(" "), Object.keys(t.ord || {}).join(" "), (t.personer || []).map(p => p.navn).join(" ")].join(" "), fagnavn + " · " + kat.trinn + ". trinn");
   Object.entries(t.ord || {}).forEach(([o, forkl]) => {
     const n = o.toLowerCase();
-    if (!begreper.has(n)) begreper.set(n, { o, forkl, temaer: [] });
+    if (!begreper.has(n)) begreper.set(n, { o, forkl, temaer: [], temaId: kat.id, temaTittel: kat.tittel, fag: kat.fag, sprak: t.sprak || "nb" });
     begreper.get(n).temaer.push(kat.tittel);
   });
   (t.personer || []).forEach(p => {
@@ -100,5 +102,10 @@ ctx.LV.kartspill.forEach(s => legg("kart", s.tittel, "kartspill.html?sett=" + s.
 
 const ut = "/* Generert av verktoy/lag-sok.mjs – ikke rediger for hånd. Kjør skriptet på nytt når innholdet endres. */\nwindow.LV = window.LV || {};\nLV.sokIndeks = " + JSON.stringify(I) + ";\n";
 fs.writeFileSync(path.join(ROT, "data", "sok.js"), ut);
+
+// Dagens begrep (forsiden): alle begrepene, i fast rekkefølge
+const dagens = [...begreper.values()].map(b => [b.o, ren(b.forkl), b.temaId, b.temaTittel, b.sprak === "en" ? 1 : 0]);
+fs.writeFileSync(path.join(ROT, "data", "dagens-begrep.js"), "/* Lages av verktoy/lag-sok.mjs – ikke rediger for hånd. [begrep, forklaring, temaId, temaTittel, engelsk] */\nwindow.LV = window.LV || {};\nLV.dagensBegrep = " + JSON.stringify(dagens) + ";\n");
+console.log("data/dagens-begrep.js", dagens.length, "begreper");
 const teller = {}; I.forEach(e => { teller[e.k] = (teller[e.k] || 0) + 1; });
 console.log("data/sok.js", Math.round(ut.length / 1024) + " kB", JSON.stringify(teller));

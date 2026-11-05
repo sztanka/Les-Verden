@@ -16,6 +16,7 @@
   const tid = ms => { const s = Math.floor(ms / 1000); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 
   const SPILL = [
+    { id: "ordkort", ikon: "🗂️", navn: "Ordkort", tekst: "Øv på begrepene med kort: se ordet, tenk svaret, snu kortet. Kortene du ikke kan, kommer igjen til du kan dem. Kan skrives ut.", krever: "par" },
     { id: "memory", ikon: "🃏", navn: "Memory", tekst: "Snu to og to kort og finn parene: begrep og forklaring, person og rolle, dato og hendelse.", krever: "par" },
     { id: "koble", ikon: "🔗", navn: "Koble sammen", tekst: "Alle kortene ligger synlige. Koble hvert begrep med riktig forklaring – god lesetrening!", krever: "par" },
     { id: "hangman", ikon: "🔤", navn: "Gjett ordet (hangman)", tekst: "Gjett begrepet bokstav for bokstav. Forklaringen er hintet ditt.", krever: "ord" },
@@ -248,6 +249,53 @@
   // GJETT ORDET (hangman)
   // =========================================================
   const ALFABET = { nb: "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ", en: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+  // =========================================================
+  // Ordkort: repetisjon i økta. Et kort er ferdig når du har svart riktig
+  // to ganger på rad. Kort du ikke kan, kommer tilbake etter noen få kort.
+  // =========================================================
+  function ordkort() {
+    const en = SPRAK === "en";
+    const O = en ? { retn: "Show first", ordForst: "the word", forklForst: "the explanation", ta: "Include", begr: "Terms", pers: "People", hend: "Dates", snu: "Turn the card", kan: "✓ I knew it", ikke: "↺ Practise more", ferdig: "All cards done! 🎉", igjen: "Start again", skriv: "🖨️ Print the cards", igjenTekst: "left", forsok: "answers", tips: "Say the answer to yourself (or write it down) before you turn the card." }
+      : { retn: "Vis først", ordForst: "ordet", forklForst: "forklaringen", ta: "Ta med", begr: "Begreper", pers: "Personer", hend: "Årstall", snu: "Snu kortet", kan: "✓ Jeg kunne det", ikke: "↺ Øv mer", ferdig: "Alle kortene er ferdige! 🎉", igjen: "Start på nytt", skriv: "🖨️ Skriv ut kortene", igjenTekst: "igjen", forsok: "svar", tips: "Si svaret for deg selv (eller skriv det ned) før du snur kortet." };
+    ramme("ordkort", '<div class="ok-valg"><label>' + O.retn + ' <select id="ok-retn"><option value="a">' + O.ordForst + '</option><option value="b">' + O.forklForst + "</option></select></label>" +
+      '<span>' + O.ta + ':</span><label><input type="checkbox" data-type="begrep" checked> ' + O.begr + '</label><label><input type="checkbox" data-type="person" checked> ' + O.pers + '</label><label><input type="checkbox" data-type="hendelse"> ' + O.hend + "</label>" +
+      '<button class="knapp liten" type="button" id="ok-skriv">' + O.skriv + '</button></div>' +
+      '<p class="ok-tips">' + O.tips + '</p><div class="ok-fremdrift"><div id="ok-bar"></div></div><p class="ok-status" id="ok-status" aria-live="polite"></p>' +
+      '<div class="ok-kort" id="ok-kort" tabindex="0" role="button" aria-label="' + O.snu + '"><div class="ok-side ok-forside" id="ok-forside"></div><div class="ok-side ok-bakside" id="ok-bakside" hidden></div></div>' +
+      '<div class="ok-knapper"><button class="knapp hoved" type="button" id="ok-snu">' + O.snu + '</button><button class="knapp" type="button" id="ok-ikke" hidden>' + O.ikke + '</button><button class="knapp hoved" type="button" id="ok-kan" hidden>' + O.kan + "</button></div>" +
+      '<div class="ok-utskrift" id="ok-utskrift" aria-hidden="true"></div>');
+    let ko = [], antall = 0, svar = 0;
+    const vis = () => {
+      const kort = ko[0];
+      if (!kort) { $("ok-forside").innerHTML = "<strong>" + O.ferdig + "</strong><small>" + svar + " " + O.forsok + "</small>"; $("ok-bakside").hidden = true; $("ok-snu").hidden = true; $("ok-kan").hidden = true; $("ok-ikke").textContent = O.igjen; $("ok-ikke").hidden = false; $("ok-bar").style.width = "100%"; $("ok-status").textContent = ""; return; }
+      const forran = $("ok-retn").value === "a";
+      const ord = "<strong>" + LV.esc(kort.a) + "</strong>" + (kort.a2 ? "<small>" + LV.esc(kort.a2) + "</small>" : "");
+      const fork = "<span>" + LV.esc(kort.b) + "</span>";
+      $("ok-forside").innerHTML = forran ? ord : fork;
+      $("ok-bakside").innerHTML = forran ? fork : ord;
+      $("ok-bakside").hidden = true; $("ok-forside").hidden = false;
+      $("ok-snu").hidden = false; $("ok-kan").hidden = true; $("ok-ikke").hidden = true; $("ok-ikke").textContent = O.ikke;
+      const ferdige = antall - ko.length;
+      $("ok-bar").style.width = Math.round(ferdige / antall * 100) + "%";
+      $("ok-status").textContent = ko.length + " " + O.igjenTekst;
+    };
+    const start = () => {
+      const typer = [...document.querySelectorAll(".ok-valg [data-type]:checked")].map(x => x.dataset.type);
+      ko = bland(DATA.par.filter(p => typer.includes(p.type))).map(p => Object.assign({ riktig: 0 }, p));
+      antall = ko.length; svar = 0; vis();
+      $("ok-utskrift").innerHTML = ko.map(k => '<div class="ok-ukort"><div><strong>' + LV.esc(k.a) + "</strong>" + (k.a2 ? "<br><small>" + LV.esc(k.a2) + "</small>" : "") + "</div><div>" + LV.esc(k.b) + "</div></div>").join("");
+    };
+    const snu = () => { if (!ko[0] || !$("ok-bakside").hidden) return; $("ok-bakside").hidden = false; $("ok-snu").hidden = true; $("ok-kan").hidden = false; $("ok-ikke").hidden = false; $("ok-kan").focus(); };
+    $("ok-snu").addEventListener("click", snu);
+    $("ok-kort").addEventListener("click", snu);
+    $("ok-kort").addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); snu(); } });
+    $("ok-kan").addEventListener("click", () => { const k = ko.shift(); svar++; k.riktig++; if (k.riktig < 2) ko.splice(Math.min(ko.length, 6 + Math.floor(Math.random() * 4)), 0, k); vis(); });
+    $("ok-ikke").addEventListener("click", () => { if (!ko[0]) { start(); return; } const k = ko.shift(); svar++; k.riktig = 0; ko.splice(Math.min(ko.length, 2 + Math.floor(Math.random() * 2)), 0, k); vis(); });
+    document.querySelectorAll(".ok-valg input, .ok-valg select").forEach(x => x.addEventListener("change", start));
+    $("ok-skriv").addEventListener("click", () => { document.body.classList.add("ok-skriver"); window.print(); setTimeout(() => document.body.classList.remove("ok-skriver"), 500); });
+    start();
+  }
+
   function grunn(ch) {
     const u = ch.toUpperCase();
     if ("ÆØÅ".includes(u)) return u;
@@ -1134,6 +1182,8 @@
       '<section class="spill-velger"><label for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema">' + valg("samfunnsfag") + valg("engelsk") + "</select></section>" +
       '<h2 class="spill-steg">2. Velg spill</h2><ul class="spillkort-rad">' + SPILL.map(s =>
         '<li><a class="spillkort"' + (s.uavhengig ? ' href="spill.html?spill=' + s.id + '">' : ' data-spill="' + s.id + '" href="#">') + '<span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
+      '<li><a class="spillkort" href="klassequiz.html"><span class="spillkort-ikon" aria-hidden="true">📺</span><strong>Klassequiz på storskjerm</strong><span>For læreren: vis spørsmål fra et tema, en tekst eller et land stort på tavla. Elevene svarer med fingrene.</span></a></li>' +
+      '<li><a class="spillkort" href="kildedetektiv.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Kildedetektiven</strong><span>Er innlegget sant eller falskt? Undersøk avsender, dato og bilde – og avslør falske nyheter.</span></a></li>' +
       '<li><a class="spillkort spillkort-kart" href="kartspill.html"><span class="spillkort-ikon" aria-hidden="true">🗺️</span><strong>Kartspill</strong><span>Finn land, hovedsteder, delstater, elver, landemerker og historiske hendelser på kartet.</span></a></li>' +
       '<li><a class="spillkort" href="personer.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Hvem er jeg?</strong><span>Gjett personen ut fra ledetråden – på personsiden.</span></a></li>' +
       '<li><a class="spillkort" href="land.html"><span class="spillkort-ikon" aria-hidden="true">🌍</span><strong>Country quiz</strong><span>Quiz og kartquiz om engelskspråklige land – på landsidene.</span></a></li></ul>' +
@@ -1176,6 +1226,6 @@
       ramme(spill, '<p class="melding" lang="nb">Dette temaet har for lite innhold til dette spillet. Prøv et annet spill eller et annet tema.</p>');
       return;
     }
-    ({ memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, ordle: ordle, ordmiks: ordmiks, kryssord: kryssord, rekkefolge: rekkefolge })[spill]();
+    ({ ordkort: ordkort, memory: () => memory(false), koble: () => memory(true), hangman: hangman, ordsok: ordsok, ordle: ordle, ordmiks: ordmiks, kryssord: kryssord, rekkefolge: rekkefolge })[spill]();
   });
 })();

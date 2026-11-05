@@ -164,6 +164,17 @@
       n + (n === 1 ? " tema" : " temaer") + " på kartet – og flere kommer";
   }
 
+  // ---------- Dagens begrep (samme begrep for alle hele dagen) ----------
+  function dagensBegrep(forskyv) {
+    const boks = document.getElementById("dagens-begrep"), L = LV.dagensBegrep;
+    if (!boks || !L || !L.length) return;
+    const dag = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
+    const i = (((dag * 37 + (forskyv || 0)) % L.length) + L.length) % L.length;
+    const [ord, forkl, id, tittel, en] = L[i];
+    boks.hidden = false;
+    boks.innerHTML = '<h2><span aria-hidden="true">💡</span> Dagens begrep</h2><p class="db-ord"' + (en ? ' lang="en"' : "") + ">" + LV.esc(ord) + '</p><p class="db-forkl"' + (en ? ' lang="en"' : "") + ">" + LV.esc(forkl) + '</p><p class="db-bunn"><a href="tema.html?id=' + encodeURIComponent(id) + '">Fra temaet: ' + LV.esc(tittel) + ' →</a> <a href="begreper.html?sok=' + encodeURIComponent(ord) + '">Alle begrepene</a></p>';
+  }
+
   // ---------- Visste du at …? ----------
   const alleFakta = [];
   let forrige = -1;
@@ -293,6 +304,7 @@
 
     tegnKart();
     visFakta();
+    dagensBegrep();
     tegnListe();
 
     document.querySelectorAll("[data-trinn]").forEach(b => b.addEventListener("click", function () {

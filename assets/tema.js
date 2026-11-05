@@ -328,7 +328,7 @@
       const enkle = Object.keys(tema.ord || {}).filter(k => enkelt(k, 4, 9)).length, enkle3 = Object.keys(tema.ord || {}).filter(k => enkelt(k, 3, 10)).length;
       const navn = (tema.personer || []).filter(p => { const d = p.navn.split(/\s+/), e = d[d.length - 1]; return e.length >= 4 && e.length <= 9 && !/[\-.'’]/.test(e); }).length;
       const spill = [
-        ["memory", "🃏", "Memory", antPar >= 4], ["koble", "🔗", en ? "Match up" : "Koble sammen", antPar >= 4],
+        ["ordkort", "🗂️", en ? "Flashcards" : "Ordkort", antPar >= 4], ["memory", "🃏", "Memory", antPar >= 4], ["koble", "🔗", en ? "Match up" : "Koble sammen", antPar >= 4],
         ["hangman", "🔤", en ? "Hangman" : "Gjett ordet", antOrd >= 3], ["ordsok", "🔍", en ? "Word search" : "Ordsøk", antOrd >= 3],
         ["ordle", "🟩", "Ordle", enkle + navn >= 2], ["ordmiks", "🔀", en ? "Word mix" : "Ordmiks", enkle3 + navn >= 3],
         ["kryssord", "✏️", en ? "Crossword" : "Kryssord", antOrd + (tema.personer || []).length >= 4],

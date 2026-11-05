@@ -23,6 +23,7 @@
   };
   const SIDER = [
     ["lesestrategier", "Lesestrategier", "lesestrategier.html", "Strategier før, under og etter lesing, med VØL-skjema.", ["samfunnsfag", "engelsk"]],
+    ["kildedetektiv", "Kildedetektiven", "kildedetektiv.html", "Spill i kildekritikk: er innlegget sant eller falskt?", ["samfunnsfag", "engelsk"]],
     ["lesedagbok", "Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for selvvalgte tekster.", ["samfunnsfag", "engelsk"]],
     ["laere", "How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", ["engelsk"]],
     ["uttale", "Pronunciation for Norwegians", "uttale.html", "Vanskelige lyder, ordtrykk og stumme bokstaver – lytt og ta opp deg selv.", ["engelsk"]],

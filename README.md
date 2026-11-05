@@ -32,6 +32,8 @@ les-verden/
 ├── laere-engelsk.html      How to learn English: strategier for språklæring (data i data/laere-engelsk.js)
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
 ├── lesedagbok.html         Lesedagbok for selvvalgte tekster (assets/lesedagbok.js)
+├── kildedetektiv.html      Kildedetektiven: kildekritikk-spill (data i data/kildedetektiv.js)
+├── klassequiz.html         Klassequiz på storskjerm (spørsmål lages fra temaer, Reading Room-quiz og landquiz)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
@@ -282,7 +284,7 @@ Alle temaer får automatisk «🎯 Hva har jeg lært?» etter oppgavene: én ege
 
 ### Bilder lokalt (personvern)
 
-Temabildene lå før som lenker til Unsplash, slik at elevenes nettlesere kontaktet Unsplash. GitHub-jobben **Hent bilder lokalt** (`.github/workflows/hent-bilder.yml`) kjører `verktoy/hent-bilder.mjs`, som laster ned bildene til `assets/bilder/` og bytter lenkene i `data/temaer/oversikt.js` og `data/land/oversikt.js`. Kjør den én gang: GitHub → Actions → «Hent bilder lokalt» → Run workflow. Hent deretter endringene i GitHub Desktop (Fetch/Pull) før du jobber videre. Nye bilder fra Unsplash kan hentes på samme måte senere. Krediteringen av fotografene beholdes.
+Temabildene lå før som lenker til Unsplash, slik at elevenes nettlesere kontaktet Unsplash. GitHub-jobben **Hent bilder lokalt** (`.github/workflows/hent-bilder.yml`) kjører `verktoy/hent-bilder.mjs`, som laster ned bildene til `assets/bilder/` og bytter lenkene i `data/temaer/oversikt.js` og `data/land/oversikt.js`. Kjør den én gang: GitHub → Actions → «Hent bilder lokalt» → Run workflow. Hent deretter endringene i GitHub Desktop (Fetch/Pull) før du jobber videre. Jobben er kjørt (november 2026), og datafilene peker nå på de lokale filene. Legger du til et nytt tema med en Unsplash-lenke, kjører du jobben på nytt – den henter bare bildene som mangler. Krediteringen av fotografene beholdes.
 
 ### Lenkesjekk
 
@@ -291,6 +293,13 @@ GitHub-jobben **Lenkesjekk** (`.github/workflows/lenkesjekk.yml`) sjekker alle e
 ### Universell utforming
 
 Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema uten funn (november 2026). Kontrastfargen `--aksent` og noen guide- og grammatikkfarger ble gjort mørkere. Når du legger til nye farger for tekst, bør kontrasten mot bakgrunnen være minst 4,5:1.
+
+### Spill og storskjerm (runde 1)
+
+- **Ordkort** (`spill.html?spill=ordkort&tema=…`) ligger i `assets/spill.js`. Kortene hentes fra begreper, personer og tidslinje. Et kort er ferdig etter to riktige svar på rad. «Skriv ut kortene» lager et ark med ordet til venstre og forklaringen til høyre, til å klippe og brette.
+- **Klassequiz** (`klassequiz.html`, `assets/klassequiz.js`): Spørsmål fra et tema lages automatisk av begreper («Hva betyr …?» og omvendt), personer («Hvem er dette?») og tidslinje («Når skjedde dette?»), med feilsvar fra samme tema. Reading Room og land bruker quizene som finnes. Tastatur: mellomrom viser svaret, pil høyre går videre. Valgene lagres i adressen.
+- **Kildedetektiven** (`kildedetektiv.html`, `assets/kildedetektiv.js`, data i `data/kildedetektiv.js`): 12 oppdiktede saker (8 norske, 4 engelske) med `spor` og `svar` («sann», «falsk» eller «usikker»). Bruk alltid oppdiktede kontoer og medier – ikke etterlign ekte personer eller organisasjoner.
+- **Dagens begrep** på forsiden: `verktoy/lag-sok.mjs` lager `data/dagens-begrep.js` med alle begrepene. Forsiden velger ett ut fra datoen, så alle ser det samme begrepet samme dag.
 
 ### Søk
 
@@ -396,7 +405,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105e`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105f`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
