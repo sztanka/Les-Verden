@@ -349,6 +349,82 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf10-avkolonisering",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 10,
+    tittel: "Avkolonisering",
+    kort: "Fra Gandhis saltmarsj til «Afrikas år» – hvordan koloniene ble selvstendige stater.",
+    sted: { navn: "New Delhi", lat: 28.61, lon: 77.21 },
+    bilde: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "India Gate i New Delhi under en rosa himmel",
+    kreditt: "shalender kumar",
+    kredittUrl: "https://unsplash.com/@shalender?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "I 1960 ble 17 afrikanske land selvstendige – året kalles «Afrikas år».",
+      "Da India og Pakistan ble delt i 1947, flyktet rundt 15 millioner mennesker."
+    ]
+  },
+  {
+    id: "sf10-apartheid",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 10,
+    tittel: "Apartheid i Sør-Afrika",
+    kort: "Raseskille ved lov, Soweto-opprøret og Nelson Mandelas vei fra fange til president.",
+    sted: { navn: "Robben Island", lat: -33.81, lon: 18.37 },
+    bilde: "https://images.unsplash.com/photo-1636212962845-da175a828551?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Cape Town og Taffelberget sett fra Robben Island",
+    kreditt: "katsuma tanaka",
+    kredittUrl: "https://unsplash.com/@kt2080?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Nelson Mandela satt 27 år i fengsel, 18 av dem på Robben Island.",
+      "Soweto-opprøret i 1976 ble startet av skoleelever."
+    ]
+  },
+  {
+    id: "sf10-midtosten",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 10,
+    tittel: "Midtøsten-konflikten",
+    kort: "Israelere og palestinere, fra 1948 og Oslo-avtalen til krigen i Gaza – sett fra begge sider.",
+    sted: { navn: "Jerusalem", lat: 31.78, lon: 35.23 },
+    bilde: "https://images.unsplash.com/photo-1549575483-14686a641c28?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Klagemuren og Klippedomen i Jerusalem",
+    kreditt: "Anton Mislawsky",
+    kredittUrl: "https://unsplash.com/@antonmislawsky?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Jerusalem er hellig for jøder, kristne og muslimer.",
+      "Oslo-avtalen fra 1993 ble forhandlet fram i hemmelighet i Norge."
+    ]
+  },
+  {
+    id: "sf10-norge-etter-1945",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 10,
+    tittel: "Norge etter 1945",
+    kort: "Gjenreisning, velferdsstaten og oljeeventyret – fra fattig etterkrigsland til et av verdens rikeste.",
+    sted: { navn: "Ekofisk", lat: 56.55, lon: 3.21 },
+    bilde: "https://images.unsplash.com/photo-1787770048282-ac20bd9452f1?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En oljeplattform i Nordsjøen i disig vær",
+    kreditt: "Paul Einerhand",
+    kredittUrl: "https://unsplash.com/@pauleinerhand?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Ekofisk-funnet ble kjent 23. desember 1969.",
+      "Folketrygden, som samlet pensjoner og trygder, kom i 1967."
+    ]
+  },
+  {
     id: "sf10-klimaendringer",
     fag: "samfunnsfag",
     emne: "geografi",
@@ -423,6 +499,25 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf10-ekstremisme-terror",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Ekstremisme og terror",
+    kort: "Hva er radikalisering? 22. juli, 11. september, IS og Taliban – og hvordan ekstremisme kan forebygges.",
+    sted: { navn: "Oslo (Regjeringskvartalet)", lat: 59.915, lon: 10.745 },
+    bilde: "https://images.unsplash.com/photo-1550015296-7fd664acc768?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "En rød rose",
+    kreditt: "Ricky Kharawala",
+    kredittUrl: "https://unsplash.com/@sweetmangostudios?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Etter 22. juli 2011 gikk hundretusener i rosetog over hele Norge.",
+      "PST melder at stadig yngre personer blir radikalisert på nettet."
+    ]
+  },
+  {
     id: "sf10-konfliktlosning",
     fag: "samfunnsfag",
     emne: "samfunnskunnskap",
@@ -439,6 +534,25 @@ window.LV.temaer = [
     fakta: [
       "Oslo-avtalen fra 1993 ble forhandlet fram i hemmelighet i Norge.",
       "Den norske fredsforskeren Johan Galtung skilte mellom negativ og positiv fred."
+    ]
+  },
+  {
+    id: "sf10-utdanning-yrkesvalg",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Utdanning og yrkesvalg",
+    kort: "Studieforberedende eller yrkesfag? Om videregående, arbeidslivet i endring og hva som påvirker valgene våre.",
+    sted: { navn: "Oslo", lat: 59.91, lon: 10.75 },
+    bilde: "https://images.unsplash.com/photo-1546964432-2ca7fcd08632?ixlib=rb-4.1.0&w=1200&q=75&fm=jpg&fit=max",
+    bildeAlt: "Svart-hvitt bilde av en ung person som sager i et verksted",
+    kreditt: "Vance Osterhout",
+    kredittUrl: "https://unsplash.com/@rankandfiledostoevsky?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Du søker videregående skole på vilbli.no innen 1. mars.",
+      "Norge mangler fagarbeidere i mange yrker, blant annet helsefagarbeidere og elektrikere."
     ]
   },
   {

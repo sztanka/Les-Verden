@@ -36,7 +36,9 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Kartspill", "kartspill.html", "Finn land, byer og steder på kartet.", "kart kartspill map quiz"],
   ["Kalde spor i historien", "mysterium.html", "Logikkgåter med ekte personer fra historien.", "mysterium murdle cold case mysteries detektiv gåter"],
   ["Eksamenssone", "eksamen.html", "Forbered deg til muntlig eksamen.", "eksamen muntlig exam"],
-  ["For lærere", "laerer.html", "Veiledning for lærere.", "lærer laerer teacher"]
+  ["For lærere", "laerer.html", "Veiledning for lærere.", "lærer laerer teacher"],
+  ["Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", "muntlig lytting speaking listening samtalekort diskusjon frasebank hot seat varme stolen"],
+  ["Planlegger for lærere", "planlegger.html", "Finn innhold etter fag, trinn og kompetansemål, og del en arbeidsplan med elevene.", "planlegger kompetansemål læreplan lk20 saf01-05 eng01-06 arbeidsplan ukeplan økt"]
 ].forEach(([t, u, s, x]) => legg("side", t, u, s, x));
 
 // Temaer, begreper og personer

@@ -72,9 +72,27 @@ window.LV = window.LV || {};
     return '<a class="stopp-strategi" href="lesestrategier.html#' + m[0] + '" title="Lesestrategi – les mer om strategien">' + (engelsk ? '<span lang="en">' + m[2] + "</span>" : m[1]) + "</a>";
   };
 
+  // Kompetansemål (data/kompetansemal.js må være lastet). nokkel = tema-id, «side:…» eller en liste med mål-id-er.
+  LV.kmFinn = function (id) {
+    const K = LV.kompetansemal; if (!K) return null;
+    for (const fag of ["samfunnsfag", "engelsk"]) { const m = K[fag].mal.find(x => x.id === id); if (m) return Object.assign({ fag: fag, plan: K[fag] }, m); }
+    return null;
+  };
+  LV.kmBoks = function (nokkel, tittel) {
+    const K = LV.kompetansemal; if (!K) return "";
+    const ids = Array.isArray(nokkel) ? nokkel : (K.kobling[nokkel] || []);
+    const mal = ids.map(LV.kmFinn).filter(Boolean);
+    if (!mal.length) return "";
+    const planer = [...new Set(mal.map(m => m.plan))];
+    return '<details class="km-boks" lang="nb"><summary>🎯 ' + LV.esc(tittel || "Kompetansemål") + " (" + mal.length + ")</summary>" +
+      '<p class="km-intro">Forslag til kompetansemål etter 10. trinn som dette arbeider særlig med:</p><ul class="km-liste">' +
+      mal.map(m => '<li><span class="km-kort">' + LV.esc(m.kort) + '</span> Eleven skal kunne ' + LV.esc(m.tekst) + ".</li>").join("") + "</ul>" +
+      '<p class="km-kilde">Kilde: ' + planer.map(p => '<a href="' + p.url + '" target="_blank" rel="noopener">Læreplan i ' + p.navn.toLowerCase() + " (" + p.kode + ")</a>").join(", ") + ', gjelder fra 1.8.2026. <a href="planlegger.html">Se alle målene i planleggeren →</a></p></details>';
+  };
+
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261105b";
+  LV.versjon = "20261105c";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -92,11 +110,12 @@ window.LV = window.LV || {};
     const side = document.body.dataset.side || "";
     const fag = LV.param("fag");
     const engelskSider = ["lesing", "sport", "grammatikk", "land"];
-    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "skriving", "sok"];
+    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "muntlig", "skriving", "sok"];
     const aktiv = function (navn) {
       if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && engelskSider.includes(side));
       if (navn === "verktoy") return verktoySider.includes(side);
       if (navn === "spill") return side === "spill" || side === "kartspill" || side === "mysterium";
+      if (navn === "laerer") return side === "laerer" || (side === "planlegger" && LV.param("elev") !== "1");
       return side === navn;
     };
     const lenke = function (href, tekst, navn) {
@@ -129,6 +148,7 @@ window.LV = window.LV || {};
       ] },
       verktoy: { navn: "Lese og skrive", lenker: [
         ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
+        ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
         ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
         ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
         ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For lærere – Les verden</title>
-  <link rel="stylesheet" href="assets/stil.css?v=20261105b">
-  <script src="data/innstillinger.js?v=20261105b"></script>
-  <script src="data/temaer/oversikt.js?v=20261105b"></script>
-  <script src="data/kart.js?v=20261105b"></script>
-  <script src="assets/felles.js?v=20261105b"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261105c">
+  <script src="data/innstillinger.js?v=20261105c"></script>
+  <script src="data/temaer/oversikt.js?v=20261105c"></script>
+  <script src="data/kart.js?v=20261105c"></script>
+  <script src="assets/felles.js?v=20261105c"></script>
 </head>
 <body data-side="laerer">
   <main id="innhold" class="smal">
@@ -40,6 +40,17 @@
     </ul>
     <p>Alle gåtene har nøyaktig én løsning. Eleven kan sjekke rutenettet, få hint eller se løsningen. Ingenting lagres.</p>
 
+    <div class="pl-laererbanner"><h2>🗓️ Planlegger og kompetansemål</h2>
+    <p><a href="planlegger.html">Planleggeren</a> viser alt innholdet på siden – temaer, Reading Room, filmer, skriveguider og verktøy – og lar deg filtrere på fag, trinn og <strong>kompetansemål etter 10. trinn</strong> fra de nye læreplanene i samfunnsfag (SAF01-05) og engelsk (ENG01-06), som gjelder fra 1.8.2026. Sett sammen en økt eller en periode, skriv en beskjed, og kopier en <strong>elevlenke</strong> som åpner en ryddig arbeidsplan for elevene. Ingenting lagres: valgene ligger i selve lenken. Nederst ser du hvor mange temaer og tekster som dekker hvert mål, slik at du ser hvor det er hull.</p>
+    <p>Hver temaside og hver tekst i Reading Room har også en sammenleggbar boks «🎯 Kompetansemål» nederst. Koblingene er forslag fra Les verden – du vurderer selv hvilke mål du arbeider med.</p></div>
+    <h2>Nye temaer på 10. trinn</h2>
+    <p>10. trinn i samfunnsfag har fått seks nye temaer: <a href="tema.html?id=sf10-avkolonisering">Avkolonisering</a>, <a href="tema.html?id=sf10-apartheid">Apartheid i Sør-Afrika</a>, <a href="tema.html?id=sf10-midtosten">Midtøsten-konflikten</a>, <a href="tema.html?id=sf10-norge-etter-1945">Norge etter 1945</a>, <a href="tema.html?id=sf10-ekstremisme-terror">Ekstremisme og terror</a> og <a href="tema.html?id=sf10-utdanning-yrkesvalg">Utdanning og yrkesvalg</a>. Midtøsten-konflikten og Ekstremisme og terror handler om pågående og sterke hendelser – se «kontroller disse opplysningene» med <code>?laerer=1</code>, og sjekk det siste avsnittet om Gaza mot nyhetene før bruk. Gjerningsmannen bak 22. juli er med vilje ikke navngitt.</p>
+    <h2>Lettere tekst</h2>
+    <p>Temaer med lettere tekst har knappene «📄 Vanlig tekst» og «🌱 Lettere tekst» over fagteksten. Den lettere teksten er kortere, med kortere setninger og færre fremmedord, mens oppgavene er de samme – slik kan hele klassen jobbe med samme tema. Lenken <code>tema.html?id=…&amp;tekst=lett</code> åpner den lettere teksten direkte. Foreløpig gjelder dette de seks nye 10.-trinnstemaene; flere kommer.</p>
+    <h2>Muntlig og lytting</h2>
+    <p><a href="muntlig.html">Muntlig og lytting</a> har en side til hvert tema (lenket fra temasiden): <strong>samtalekort</strong> med spørsmålene fra temaet, tidtaker (1–3 min) og frasebank, en <strong>lytteøvelse</strong> der sammendraget eller et avsnitt leses opp med teksten skjult mens elevene noterer stikkord, og <strong>den varme stolen</strong>, der en elev spiller en person fra temaet. Oversiktssiden har samtalemetoder (snakkepar, tenk–par–del, fire hjørner m.m.), frasebank på norsk og engelsk og lyttetips.</p>
+    <h2>Utskrift og arbeidsark</h2>
+    <p>På temasider, tekster i Reading Room og landsider finnes knappen <strong>🖨️ Skriv ut</strong> nederst. Velg hvilke deler og hvilke oppgavenivåer som skal med, og om svarfeltene skal bli <strong>tomme skrivelinjer</strong> (arbeidsark) eller vise <strong>elevens egne svar</strong>. Velg «Lagre som PDF» for å få en fil.</p>
     <h2>Menyen og søk</h2>
     <p>Toppmenyen har tre nedtrekksmenyer – <strong>Samfunnsfag</strong>, <strong>Engelsk</strong> og <strong>Lese og skrive</strong> – og direkte lenker til Spill, Eksamen og denne siden. <a href="sok.html">Søket</a> (feltet øverst til høyre) leter i temaer, tekster, filmer, skriveguider, lesestrategier, begreper, personer, landsider, grammatikk, sport og kartspill på én gang. Resultatene kan filtreres etter type. Finner søket ingenting, får eleven en lenke til ordboka. Søkeindeksen lages med <code>node verktoy/lag-sok.mjs</code> og må kjøres på nytt når innholdet endres (se README).</p>
     <h2>Lesestrategier</h2>

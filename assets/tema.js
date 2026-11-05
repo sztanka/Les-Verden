@@ -123,6 +123,17 @@
     h += '<p class="ordbok-tips" lang="nb"><span aria-hidden="true">📖</span> Ukjent ord? Dobbeltklikk på ordet (eller hold fingeren på det på mobil) for å slå det opp i <a href="ordbok.html">ordboka</a>.</p>';
     h += "</section>";
 
+    // Tekstnivå: vanlig eller lettere tekst (når temaet har «lett» i avsnittene)
+    const harLett = tema.avsnitt.some(a => a.lett && a.lett.length);
+    let lett = harLett && LV.param("tekst") === "lett";
+    if (harLett) {
+      const en = tema.sprak === "en";
+      h += '<div class="tekstniva" role="group" aria-label="' + (en ? "Text level" : "Tekstnivå") + '"><span class="etikett">' + (en ? "Text:" : "Tekst:") + "</span>" +
+        '<button type="button" class="knapp liten" data-tekstniva="vanlig" aria-pressed="' + !lett + '">📄 ' + (en ? "Standard text" : "Vanlig tekst") + "</button>" +
+        '<button type="button" class="knapp liten" data-tekstniva="lett" aria-pressed="' + lett + '">🌱 ' + (en ? "Easier text" : "Lettere tekst") + "</button>" +
+        '<span class="tekstniva-info">' + (en ? "The easier text is shorter and uses simpler words. The tasks are the same." : "Den lettere teksten er kortere og har enklere ord. Oppgavene er de samme.") + "</span></div>";
+    }
+
     // Opplesing
     if ("speechSynthesis" in window) {
       h += '<div class="opplesing"><button class="knapp hoved" id="les-alt">▶ ' + T.lesOpp + '</button>' +
@@ -165,6 +176,7 @@
       h += '<section class="avsnitt" id="avsnitt-' + i + '" data-avsnitt="' + i + '"><' + htag + ">" + LV.esc(a.tittel) +
         ("speechSynthesis" in window ? ' <button type="button" class="les-avsnitt" data-les="' + i + '" aria-label="' + T.lesAvsnitt + ": " + LV.esc(a.tittel) + '">▶ ' + T.lesAvsnitt + "</button>" : "") +
         "</" + htag + ">";
+      if (harLett && a.lett && a.lett.length) h += '<div class="tekst-lett"' + (lett ? "" : " hidden") + ">" + a.lett.map(p => "<p>" + formater(p) + "</p>").join("") + '</div><div class="tekst-vanlig"' + (lett ? " hidden" : "") + ">";
       a.tekst.forEach(p => {
         // Et dikt skrives som { dikt: "linje 1\nlinje 2", kilde: "Forfatter, «Tittel» (år)" }
         if (p && typeof p === "object" && p.dikt) {
@@ -175,6 +187,7 @@
           h += "<p>" + formater(p) + "</p>";
         }
       });
+      if (harLett && a.lett && a.lett.length) h += "</div>";
       h += "</section>";
       if (a.stoppOgTenk) {
         stoppNr++;
@@ -286,6 +299,8 @@
           (en ? "Practise the terms, people and events from this topic." : "Øv på begrepene, personene og hendelsene fra dette temaet.") + '</p><ul class="spillknapper">' +
           spill.map(x => '<li><a class="knapp" href="spill.html?spill=' + x[0] + "&tema=" + encodeURIComponent(tema.id) + '"><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a></li>").join("") + "</ul></section>";
       }
+      h += '<a class="mu-banner" href="muntlig.html?id=' + encodeURIComponent(tema.id) + '"><span class="mu-banner-ikon" aria-hidden="true">🗣️</span><span><strong>' + (en ? "Speaking and listening" : "Muntlig og lytting") + "</strong><span>" +
+        (en ? "Talk cards with a timer, a listening task and the hot seat for this topic." : "Samtalekort med tidtaker, lytteøvelse og «den varme stolen» til dette temaet.") + "</span></span><span aria-hidden=\"true\">→</span></a>";
     }
 
     // Koblet til
@@ -305,6 +320,7 @@
     }
 
     // Kilder
+    h += LV.kmBoks(tema.id);
     if (tema.kilder && tema.kilder.length) {
       h += "<section><h2>" + T.kilder + '</h2><ul class="kilder">' +
         tema.kilder.map(k => '<li><a href="' + LV.esc(k.url) + '" target="_blank" rel="noopener">' + LV.esc(k.tittel) + "</a></li>").join("") + "</ul></section>";
@@ -327,6 +343,17 @@
       '<span class="status" id="status" role="status" aria-live="polite"></span></div>';
     document.body.appendChild(linje);
 
+    // Bytt tekstnivå
+    document.body.classList.toggle("lett-tekst", lett);
+    document.querySelectorAll("[data-tekstniva]").forEach(b => b.addEventListener("click", () => {
+      lett = b.dataset.tekstniva === "lett";
+      document.body.classList.toggle("lett-tekst", lett);
+      document.querySelectorAll("[data-tekstniva]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      document.querySelectorAll(".tekst-lett").forEach(x => { x.hidden = !lett; });
+      document.querySelectorAll(".tekst-vanlig").forEach(x => { x.hidden = lett; });
+      const q = new URLSearchParams(location.search); if (lett) q.set("tekst", "lett"); else q.delete("tekst");
+      history.replaceState(null, "", "tema.html?" + q + location.hash);
+    }));
     kobleOrdforklaringer();
     kobleFaner();
     kobleSvar();
@@ -500,7 +527,8 @@
         const a = tema.avsnitt[i];
         const seksjon = document.querySelector('[data-avsnitt="' + i + '"]');
         ko.push({ tekst: a.tittel, el: seksjon });
-        a.tekst.forEach(p => ko.push({ tekst: (p && p.dikt) ? p.dikt.replace(/\n+/g, " ") : rentekst(p), el: seksjon }));
+        const lettNa = a.lett && a.lett.length && document.body.classList.contains("lett-tekst");
+        (lettNa ? a.lett : a.tekst).forEach(p => ko.push({ tekst: (p && p.dikt) ? p.dikt.replace(/\n+/g, " ") : rentekst(p), el: seksjon }));
       });
       // Hvert avsnitt leses for seg – lange tekster kuttes ellers av enkelte nettlesere
       ko.forEach((del, n) => {

@@ -27,6 +27,8 @@ les-verden/
 ├── sport.html              Sports in the English-speaking world (data i data/sport.js, brukes også av landsidene)
 ├── lesing.html             Reading Room: tekster i det fri med lett versjon og oppgaver (data i data/lesing/)
 ├── lesestrategier.html    Lesestrategier før, under og etter lesing (data i data/lesestrategier.js)
+├── planlegger.html         Planlegger for lærere: filtrer på kompetansemål og del elevlenker (data i data/kompetansemal.js)
+├── muntlig.html            Muntlig og lytting: samtalekort, lytteøvelse og den varme stolen per tema (data i data/muntlig.js)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
@@ -235,6 +237,24 @@ oppgavene på nivå 2 og 3 i temaene.
 
 `lesestrategier.html` + `assets/lesestrategier.js`, data i `data/lesestrategier.js` (`LV.lesestrategier`): `faser` (for/under/etter), `strategier` (`id`, `fase`, `ikon`, `navn`, `en`, `kort`, `hva`, `hvorfor`, `steg`, `eksempel`, `startere`, `prov` – lenker – og `skjema: true` for VØL-skjemaet) og `teksttyper` til «Hvilken strategi passer?». `id` blir ankeret (`lesestrategier.html#forutsi`). Merkelappen på «Stopp og tenk»-boksene lages av `LV.stoppMerke()` i `assets/felles.js`, som ser etter nøkkelord i spørsmålet (f.eks. «why/hvorfor» → lese mellom linjene, «have you ever/i Norge» → koble). Endre lista `STOPP_MERKER` der hvis en merkelapp bommer.
 
+### Kompetansemål og planleggeren
+
+`data/kompetansemal.js` (`LV.kompetansemal`) har kompetansemålene etter 10. trinn fra Læreplan i samfunnsfag (SAF01-05) og Læreplan i engelsk (ENG01-06), som gjelder fra 1.8.2026, med `id` (s1–s19, e1–e19), `kort` (merkelapp) og `tekst` (ordlyden fra Udir). `kobling` sier hvilke mål hvert tema arbeider med (`"sf10-apartheid": ["s5", "s9", "s3"]`) og noen sider (`"side:skriving"`). **Når du lager et nytt tema, legg det inn i `kobling`.** Reading Room-tekster og filmer får mål automatisk ut fra sjanger og temaene de er koblet til. `LV.kmBoks(id)` i felles.js lager boksen «🎯 Kompetansemål» nederst på temasidene og i lærerdelen i Reading Room.
+
+`planlegger.html` + `assets/planlegger.js`: filtrerer alt innhold og setter sammen en plan. Hele tilstanden ligger i adressen (`?fag=&trinn=&type=&mal=&q=&r=tema:id,lesing:id&t=tittel&m=beskjed`). `?elev=1&r=…` viser elevvisningen. Ingenting lagres.
+
+### Muntlig og lytting
+
+`muntlig.html` + `assets/muntlig.js`, frasebank, samtalemetoder og lyttetips i `data/muntlig.js` (nb og en). `muntlig.html?id=<tema>` bygger alt fra temafila: samtalekort (startspørsmål, «Stopp og tenk» og diskusjonsoppgavene), lytteøvelse (sammendraget og hvert avsnitt leses opp med nettleserens talesyntese mens teksten er skjult) og «den varme stolen» (personene i temaet). Temasidene lenker dit automatisk.
+
+### Utskrift og arbeidsark
+
+`assets/utskrift.js` (lastes på tema.html, lesing.html og land.html) legger knappen «🖨️ Skriv ut» i svarlinja nederst. Eleven velger hvilke deler og hvilke oppgavenivåer som skal med, og om svarfeltene skal bli tomme skrivelinjer eller vise svarene. Utskriften får linje for navn, klasse og dato og adressen nederst. Utskriftsreglene ligger under «Utskrift og arbeidsark» i stil.css.
+
+### Lettere tekst på temasidene
+
+Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. Foreløpig har de seks nye 10.-trinnstemaene lettere tekst.
+
 ### Søk
 
 `sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
@@ -339,7 +359,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105b`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105c`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

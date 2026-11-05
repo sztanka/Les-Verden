@@ -1,0 +1,158 @@
+/* =========================================================
+   Les verden – kompetansemål etter 10. trinn
+   Læreplan i samfunnsfag (SAF01-05) og Læreplan i engelsk (ENG01-06),
+   fastsatt 20. mai 2026, gjelder fra 1.8.2026. Ordlyden er hentet fra Udir.
+   «kort» er en forkortet merkelapp brukt på siden.
+   «kobling» sier hvilke mål hvert tema, hver tekst osv. særlig arbeider med.
+   Koblingene er et forslag – læreren vurderer selv.
+   ========================================================= */
+window.LV = window.LV || {};
+LV.kompetansemal = {
+  samfunnsfag: {
+    navn: "Samfunnsfag", kode: "SAF01-05", gjelder: "1.8.2026", url: "https://www.udir.no/lk20/SAF01-05",
+    kjerneelementer: ["Undring og utforsking", "Samfunnskritisk tenkning og sammenhenger", "Demokratiforståelse og deltakelse", "Bærekraftige samfunn", "Identitetsutvikling og fellesskap"],
+    mal: [
+      { id: "s1", kort: "Metoder og egne undersøkelser", tekst: "bruke samfunnsfaglige metoder og digitale ressurser i egne undersøkelser, presentere funn ved hjelp av digitale verktøy og drøfte hvor gyldige og relevante funnene er" },
+      { id: "s2", kort: "Kilder og algoritmer", tekst: "vurdere på hvilke måter ulike kilder gir informasjon om et samfunnsfaglig tema, og reflektere over hvordan algoritmer, ensrettede kilder eller mangel på kilder kan prege forståelsen vår" },
+      { id: "s3", kort: "Framstillinger av fortiden", tekst: "drøfte hvordan framstillinger av fortiden, hendelser og grupper har påvirket og påvirker folks holdninger og handlinger" },
+      { id: "s4", kort: "Teknologi som endringsfaktor", tekst: "utforske hvordan teknologi har vært og fremdeles er en endringsfaktor, og drøfte innvirkningen teknologien har hatt og har på enkeltmennesker, samfunn og natur" },
+      { id: "s5", kort: "Kamp for forandring", tekst: "reflektere over hvordan mennesker har kjempet og kjemper for forandringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst" },
+      { id: "s6", kort: "Levekår, bosetting og demografi", tekst: "sammenligne hvordan politiske, geografiske og historiske forhold påvirker levekår, bosettingsmønstre og demografi i forskjellige deler av verden i dag" },
+      { id: "s7", kort: "Konflikter: årsaker og konsekvenser", tekst: "gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene" },
+      { id: "s8", kort: "Terror, folkemord og forebygging", tekst: "gjøre rede for årsaker til og konsekvenser av terrorhandlinger og folkemord, som holocaust, og reflektere over hvordan ekstreme holdninger og ekstreme handlinger kan forebygges" },
+      { id: "s9", kort: "Menneske- og urfolksrettigheter", tekst: "utforske og beskrive hvordan menneske- og urfolksrettigheter og andre internasjonale avtaler og samarbeid har betydning for nasjonal politikk, menneskers liv og likestilling og likeverd" },
+      { id: "s10", kort: "Fornorskingen", tekst: "gjøre rede for fornorskningen av samene og de nasjonale minoritetene og urettferdigheten de har blitt utsatt for, og reflektere over hvilke konsekvenser det har hatt og har på individ- og samfunnsnivå" },
+      { id: "s11", kort: "Bærekraftig utvikling", tekst: "beskrive ulike dimensjoner ved bærekraftig utvikling og hvordan de påvirker hverandre, og presentere tiltak for mer bærekraftige samfunn" },
+      { id: "s12", kort: "Arbeid, inntekt og forbruk", tekst: "vurdere hvordan arbeid, inntekt og forbruk kan påvirke personlig økonomi, levestandard og livskvalitet" },
+      { id: "s13", kort: "Identiteter og mangfold", tekst: "reflektere over likheter og ulikheter i identiteter, levesett og kulturuttrykk og drøfte muligheter og utfordringer ved mangfold" },
+      { id: "s14", kort: "Digitale spor og personvern", tekst: "utforske og reflektere over egne digitale spor og muligheten for å få slettet sporene og verne om egen og andres rett til privatliv, personvern og opphavsrett" },
+      { id: "s15", kort: "Identitet, selvbilde og grenser", tekst: "reflektere over hvordan identitet, selvbilde og egne grenser utvikles og utfordres i ulike fellesskap, og presentere forslag til hvordan man kan håndtere påvirkning og uønskede hendelser" },
+      { id: "s16", kort: "Makt i samfunnet", tekst: "reflektere over hvilke aktører som har makt i samfunnet i dag, og hvordan de begrunner standpunktene sine" },
+      { id: "s17", kort: "Digital samhandling og samfunnsdebatt", tekst: "utforske ulike plattformer for digital samhandling og reflektere over hvordan digital deltakelse og samhandling påvirker formen på og innholdet i samfunnsdebatten" },
+      { id: "s18", kort: "Lover, regler og normer", tekst: "beskrive sentrale lover, regler og normer og drøfte hvilke konsekvenser brudd på disse kan ha for den enkelte og for samfunnet på kort og lang sikt" },
+      { id: "s19", kort: "Politisk system og velferdssamfunn", tekst: "beskrive trekk ved det politiske systemet og velferdssamfunnet i Norge i dag og reflektere over sentrale utfordringer" }
+    ]
+  },
+  engelsk: {
+    navn: "Engelsk", kode: "ENG01-06", gjelder: "1.8.2026", url: "https://www.udir.no/lk20/ENG01-06",
+    kjerneelementer: ["Kommunikasjon", "Språklæring", "Møte med engelskspråklige tekster"],
+    mal: [
+      { id: "e1", kort: "Strategier", tekst: "bruke varierte strategier i språklæring, tekstskaping og kommunikasjon" },
+      { id: "e2", kort: "Digitale ressurser og hjelpemidler", tekst: "bruke ulike digitale ressurser og andre hjelpemidler i språklæring, tekstskaping og samhandling" },
+      { id: "e3", kort: "Uttale", tekst: "bruke sentrale mønstre for uttale i kommunikasjon" },
+      { id: "e4", kort: "Lytte til varianter av engelsk", tekst: "lytte til og forstå ord og uttrykk i varianter av engelsk" },
+      { id: "e5", kort: "Flyt, ordforråd og idiomer", tekst: "uttrykke seg med flyt og sammenheng med et variert ordforråd og idiomatiske uttrykk tilpasset formål, mottaker og situasjon" },
+      { id: "e6", kort: "Samtaler", tekst: "stille spørsmål og følge opp innspill i samtaler om ulike emner tilpasset ulike formål, mottakere og situasjoner" },
+      { id: "e7", kort: "Engelsk og andre språk", tekst: "utforske og beskrive noen språklige likheter og ulikheter mellom engelsk og andre språk eleven kjenner til, og bruke dette i egen språklæring" },
+      { id: "e8", kort: "Ordklasser og setningsstruktur", tekst: "bruke kunnskap om ordklasser og setningsstruktur i arbeid med egne muntlige og skriftlige tekster" },
+      { id: "e9", kort: "Rettskriving og tekststruktur", tekst: "følge regler for rettskriving, ordbøying, setningsstruktur og tekststruktur" },
+      { id: "e10", kort: "Lese, diskutere og videreformidle", tekst: "lese, diskutere og videreformidle innhold fra ulike typer tekster, inkludert selvvalgte tekster" },
+      { id: "e11", kort: "Skjønnlitteratur", tekst: "lese, tolke og reflektere over engelskspråklig skjønnlitteratur, inkludert ungdomslitteratur" },
+      { id: "e12", kort: "Sakprosa og pålitelige kilder", tekst: "lese sakprosatekster og vurdere hvor pålitelige kildene er" },
+      { id: "e13", kort: "Kritisk og etterrettelig kildebruk", tekst: "bruke kilder på en kritisk og etterrettelig måte" },
+      { id: "e14", kort: "Skrive formelle og uformelle tekster", tekst: "skrive formelle og uformelle tekster, inkludert sammensatte, med struktur og sammenheng som beskriver, forteller og reflekterer tilpasset formål, mottaker og situasjon" },
+      { id: "e15", kort: "Bearbeide egne tekster", tekst: "bearbeide egne tekster ut fra tilbakemeldinger og kunnskap om språk" },
+      { id: "e16", kort: "Engelsk i Norge og verden", tekst: "beskrive og reflektere over rollen engelsk har i Norge og i verden" },
+      { id: "e17", kort: "Urfolk", tekst: "utforske og reflektere over situasjonen til urfolk i den engelskspråklige verden og i Norge" },
+      { id: "e18", kort: "Levemåter og mangfold", tekst: "utforske og beskrive levemåter, tenkesett, kommunikasjonsmønstre og mangfold i den engelskspråklige verden" },
+      { id: "e19", kort: "Kulturelle uttrykk fra ulike medier", tekst: "utforske og videreformidle innhold i engelskspråklige kulturelle uttrykksformer fra ulike medier knyttet til egne interesser" }
+    ]
+  },
+
+  // Forslag til koblinger. Nøkkelen er id-en til temaet (eller «lesing:», «film:», «side:» + id).
+  kobling: {
+    // Samfunnsfag 8. trinn
+    "sf8-opplysningstiden": ["s5", "s3", "s19"],
+    "sf8-amerikanske-revolusjonen": ["s5", "s7"],
+    "sf8-franske-revolusjonen": ["s5", "s7"],
+    "sf8-1814-grunnloven": ["s5", "s19"],
+    "sf8-unionen-1905": ["s5", "s7", "s19"],
+    "sf8-kart-og-kartlesing": ["s1", "s2"],
+    "sf8-klima-og-vegetasjon": ["s6", "s11"],
+    "sf8-naturressurser": ["s11", "s6", "s7"],
+    "sf8-befolkning-urbanisering": ["s6"],
+    "sf8-identitet-sosialisering": ["s15", "s13"],
+    "sf8-demokratiet-i-norge": ["s19", "s16"],
+    "sf8-rettsstaten": ["s18", "s19"],
+    "sf8-kildekritikk": ["s2", "s1", "s14"],
+    // Samfunnsfag 9. trinn
+    "sf9-industrialiseringen": ["s4", "s6", "s5"],
+    "sf9-arbeiderbevegelsen": ["s5", "s12", "s19"],
+    "sf9-utvandringen": ["s6", "s5"],
+    "sf9-kolonialisme": ["s7", "s3", "s9"],
+    "sf9-nasjonalisme": ["s3", "s5", "s10"],
+    "sf9-fornorskingen": ["s10", "s9"],
+    "sf9-forste-verdenskrig": ["s7", "s4"],
+    "sf9-russiske-revolusjonen": ["s5", "s7"],
+    "sf9-naeringsveier": ["s4", "s12", "s11"],
+    "sf9-globalisering": ["s4", "s6", "s11"],
+    "sf9-fattigdom-ulikhet": ["s6", "s12"],
+    "sf9-migrasjon-flyktninger": ["s6", "s13", "s9"],
+    "sf9-baerekraftsmaal": ["s11", "s9"],
+    "sf9-okonomi": ["s12", "s19"],
+    "sf9-arbeidsliv": ["s12", "s19", "s18"],
+    "sf9-kriminalitet-straff": ["s18"],
+    "sf9-medier-pavirkning": ["s2", "s17", "s14"],
+    // Samfunnsfag 10. trinn
+    "sf10-mellomkrigstiden": ["s7", "s3"],
+    "sf10-andre-verdenskrig": ["s7", "s4"],
+    "sf10-holocaust": ["s8", "s3"],
+    "sf10-okkupasjonen": ["s7", "s5", "s3"],
+    "sf10-fn-menneskerettigheter": ["s9"],
+    "sf10-kalde-krigen": ["s7", "s4"],
+    "sf10-avkolonisering": ["s5", "s7", "s9"],
+    "sf10-apartheid": ["s5", "s9", "s3"],
+    "sf10-midtosten": ["s7", "s2", "s3"],
+    "sf10-norge-etter-1945": ["s19", "s12", "s4"],
+    "sf10-klimaendringer": ["s11", "s4"],
+    "sf10-internasjonalt-samarbeid": ["s9", "s16"],
+    "sf10-demokrati-diktatur": ["s19", "s16", "s7"],
+    "sf10-polarisering": ["s17", "s2", "s16"],
+    "sf10-ekstremisme-terror": ["s8", "s17"],
+    "sf10-konfliktlosning": ["s7", "s18"],
+    "sf10-utdanning-yrkesvalg": ["s12", "s15"],
+    // Engelsk 8. trinn
+    "en8-democracy-britain": ["e10", "e18"],
+    "en8-united-kingdom": ["e10", "e18"],
+    "en8-ireland": ["e10", "e18"],
+    "en8-identity-friendship": ["e10", "e5", "e6"],
+    "en8-school-youth-culture": ["e10", "e18", "e6"],
+    "en8-sports": ["e10", "e18", "e19"],
+    "en8-food-travel": ["e10", "e5", "e6", "e18"],
+    "en8-english-around-the-world": ["e10", "e16", "e7", "e4"],
+    "en8-wonder": ["e11", "e10"],
+    // Engelsk 9. trinn
+    "en9-victorian-era": ["e10", "e11", "e18"],
+    "en9-british-empire": ["e10", "e16", "e18"],
+    "en9-australia": ["e10", "e17", "e18"],
+    "en9-new-zealand": ["e10", "e17", "e18"],
+    "en9-india": ["e10", "e16", "e18"],
+    "en9-british-american-english": ["e4", "e7", "e9"],
+    "en9-media-advertising": ["e12", "e13", "e19"],
+    "en9-holes": ["e11", "e10"],
+    "en9-poetry": ["e11", "e3", "e14"],
+    // Engelsk 10. trinn
+    "en10-identity-stereotypes": ["e11", "e18", "e10"],
+    "en10-indigenous-peoples": ["e17", "e10"],
+    "en10-democracy-citizenship": ["e10", "e18", "e12"],
+    "en10-oppression": ["e10", "e18", "e12"],
+    "en10-leading-following": ["e10", "e11", "e19"],
+    "en10-group-think": ["e12", "e13", "e2"],
+    "en10-narrated-stories": ["e11", "e14"],
+    "en10-english-speaking-world": ["e16", "e4", "e10"],
+    "en10-american-dream": ["e10", "e18", "e12"],
+    "en10-9-11": ["e10", "e12", "e18"],
+    // Andre sider
+    "side:lesestrategier": ["e1"],
+    "side:skriving": ["e14", "e15", "e13", "s1"],
+    "side:grammatikk": ["e8", "e9"],
+    "side:ordbok": ["e2", "e7"],
+    "side:land": ["e18", "e16"],
+    "side:sport": ["e18", "e19"],
+    "side:film": ["e19", "e11"],
+    "side:lesing": ["e10", "e11", "e12"],
+    "side:kartspill": ["s6"],
+    "side:tidslinje": ["s3"],
+    "side:eksamen": ["e6", "e5"]
+  }
+};

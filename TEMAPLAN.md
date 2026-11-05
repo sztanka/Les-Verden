@@ -80,17 +80,17 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Norge under okkupasjonen (`sf10-okkupasjonen`) – Quisling, Max Manus
 - [x] FN og menneskerettighetene (`sf10-fn-menneskerettigheter`) ↔ *Oppression*
 - [x] Den kalde krigen (`sf10-kalde-krigen`) – Berlinmuren, Cubakrisen
-- [ ] Avkolonisering (`sf10-avkolonisering`) – Gandhi
-- [ ] Apartheid (`sf10-apartheid`) – Mandela ↔ *Oppression*
-- [ ] Midtøsten-konflikten (`sf10-midtosten`)
-- [ ] Norge etter 1945 (`sf10-norge-etter-1945`) – velferdsstaten, oljen
-- [ ] Ekstremisme og terror (`sf10-ekstremisme-terror`) – 22. juli, 11. september, IS, Taliban ↔ *9/11*
+- [x] Avkolonisering (`sf10-avkolonisering`) – Gandhi
+- [x] Apartheid (`sf10-apartheid`) – Mandela ↔ *Oppression*
+- [x] Midtøsten-konflikten (`sf10-midtosten`)
+- [x] Norge etter 1945 (`sf10-norge-etter-1945`) – velferdsstaten, oljen
+- [x] Ekstremisme og terror (`sf10-ekstremisme-terror`) – 22. juli, 11. september, IS, Taliban ↔ *9/11*
 - [x] Klimaendringer (`sf10-klimaendringer`)
 - [x] Internasjonalt samarbeid (`sf10-internasjonalt-samarbeid`) – EU, NATO
 - [x] Demokrati og diktatur (`sf10-demokrati-diktatur`) ↔ *Democracy and Citizenship*
 - [x] Polarisering (`sf10-polarisering`) ↔ *Group Think*
 - [x] Konflikt og konfliktløsning (`sf10-konfliktlosning`)
-- [ ] Utdanning og yrkesvalg (`sf10-utdanning-yrkesvalg`)
+- [x] Utdanning og yrkesvalg (`sf10-utdanning-yrkesvalg`)
 
 ### Engelsk (eksamenstemaene først)
 - [x] Indigenous Peoples (`en10-indigenous-peoples`) – sammenlignet med samene ↔ *Fornorskingen*

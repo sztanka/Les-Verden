@@ -297,7 +297,8 @@
     h += '<details class="fo-laerer"' + (laerer ? " open" : "") + "><summary>👩‍🏫 For læreren</summary><p><strong>Innhold og alder:</strong> " + esc(d.laerer.innhold) + "</p>" +
       "<ul>" + d.laerer.tips.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
       (d.utenTekst ? "" : "<p><strong>Kilde og rettigheter:</strong> Originalteksten er hentet fra " + (info.kilde === "gutenberg" ? '<a href="https://www.gutenberg.org" target="_blank" rel="noopener">Project Gutenberg</a> (via GITenberg)' : '<a href="https://standardebooks.org" target="_blank" rel="noopener">Standard Ebooks</a> (korrekturlest utgave, CC0)') + ". " + esc(info.forfatter) + " døde for over 70 år siden, så teksten er i det fri i Norge. Den lette versjonen, ordlista og oppgavene er skrevet for Les verden.</p>") +
-      (laerer ? "" : '<p class="fo-hint">Legg til <code>&amp;laerer=1</code> i adressen for å se fasit til spørsmålene.</p>') + "</details>";
+      (laerer ? "" : '<p class="fo-hint">Legg til <code>&amp;laerer=1</code> i adressen for å se fasit til spørsmålene.</p>') + "</details>" +
+      LV.kmBoks(info.sjanger === "Short story" ? ["e11", "e10", "e14"] : ["e12", "e10", "e18"]);
     const andre = LV.lesetekster.filter(x => x.id !== info.id);
     h += '<section class="lr-andre"><h2>Flere tekster i Reading Room</h2><ul class="lr-hylle liten">' + andre.map(x => '<li><a class="lr-kort" href="lesing.html?id=' + x.id + '" aria-label="' + esc(x.tittel + " – " + x.forfatter) + '">' + omslag(x) + "</a></li>").join("") + "</ul></section>";
     $("innhold").innerHTML = h;
