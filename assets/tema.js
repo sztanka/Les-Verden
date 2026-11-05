@@ -178,7 +178,7 @@
       h += "</section>";
       if (a.stoppOgTenk) {
         stoppNr++;
-        h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> ' + T.stoppOgTenk + "</div><p>" + formater(a.stoppOgTenk) + "</p>" +
+        h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> ' + T.stoppOgTenk + LV.stoppMerke(a.stoppOgTenk, tema.sprak === "en") + "</div><p>" + formater(a.stoppOgTenk) + "</p>" +
           svarfelt("stopp-" + stoppNr, rentekst(a.stoppOgTenk), T.stoppOgTenk) + "</aside>";
       }
     });

@@ -26,6 +26,8 @@ les-verden/
 ├── skriving.html           Skriveverksted: skriveguider med setningsstartere og skriverammer (data i data/skriving/)
 ├── sport.html              Sports in the English-speaking world (data i data/sport.js, brukes også av landsidene)
 ├── lesing.html             Reading Room: tekster i det fri med lett versjon og oppgaver (data i data/lesing/)
+├── lesestrategier.html    Lesestrategier før, under og etter lesing (data i data/lesestrategier.js)
+├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
@@ -227,6 +229,15 @@ oppgavene på nivå 2 og 3 i temaene.
 - **Tekster fra Project Gutenberg:** `("txt", [(fil, fra-linje, til-linje), …])` i `KILDER` henter avsnitt fra ren tekst (klonet fra github.com/GITenberg). Flere utdrag skilles med «[…]». Sett `kilde: "gutenberg"` i oversikten.
 - **Vernede tekster (f.eks. Carver):** Sett `utenTekst: true` i oversikten og `utenTekst: {tittel, tekst}` + `deler: [{tittel, sted, sammendrag, stopp}]` i datafilen, og `tekst: []`. Da vises ingen originaltekst – bare gjenfortelling med egne ord, «Stop and think» per del og oppgavene. Ikke legg inn sitater eller PDF-er av vernede tekster i repoet.
 - `sjanger` styrer filteret i oversikten: «Short story», «Speech», ellers sakprosa.
+- **Quiz:** `data/lesing/quiz.js` (`LV.lesequiz[id]`) har flervalgsspørsmål til hver tekst: `{s, valg: [...], riktig: indeks i valg, forklaring, strategi}`. `strategi` er id-en til en lesestrategi (se under). Alternativene stokkes når siden lastes, så skriv gjerne det riktige svaret hvor som helst i lista. Teksten får quiz automatisk når den har en oppføring her.
+
+### Lesestrategier
+
+`lesestrategier.html` + `assets/lesestrategier.js`, data i `data/lesestrategier.js` (`LV.lesestrategier`): `faser` (for/under/etter), `strategier` (`id`, `fase`, `ikon`, `navn`, `en`, `kort`, `hva`, `hvorfor`, `steg`, `eksempel`, `startere`, `prov` – lenker – og `skjema: true` for VØL-skjemaet) og `teksttyper` til «Hvilken strategi passer?». `id` blir ankeret (`lesestrategier.html#forutsi`). Merkelappen på «Stopp og tenk»-boksene lages av `LV.stoppMerke()` i `assets/felles.js`, som ser etter nøkkelord i spørsmålet (f.eks. «why/hvorfor» → lese mellom linjene, «have you ever/i Norge» → koble). Endre lista `STOPP_MERKER` der hvis en merkelapp bommer.
+
+### Søk
+
+`sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
 
 ### Film i undervisningen
 
@@ -328,7 +339,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261104c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

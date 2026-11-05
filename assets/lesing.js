@@ -33,7 +33,7 @@
       '<div class="lr-hvordan"><h2>Slik jobber du med en tekst</h2><ol>' +
       "<li><strong>Før du leser:</strong> les om forfatteren og bakgrunnen, og svar på spørsmålene.</li>" +
       "<li><strong>Mens du leser:</strong> velg <em lang=\"en\">Original text</em> eller <em lang=\"en\">Easier version</em>. Trykk på ord med prikkete strek for forklaring, og stopp ved hver ✋.</li>" +
-      "<li><strong>Etter at du har lest:</strong> svar på spørsmålene, se nærmere på teksten, diskuter og skriv.</li></ol></div>" +
+      "<li><strong>Etter at du har lest:</strong> ta quizen, svar på spørsmålene, se nærmere på teksten, diskuter og skriv.</li></ol><p class=\"lr-strat-lenke\">🧠 Tips: Se <a href=\"lesestrategier.html\">lesestrategiene</a> – de hjelper deg før, under og etter lesingen.</p></div>" +
       '<div class="fo-filter" role="group" aria-label="Filtrer tekstene"><div class="fo-filter-rad"><span class="etikett">Type:</span>' +
       [["", "Alle"], ["fiction", "Short stories"], ["speech", "Speeches"], ["true", "Non-fiction"]].map(([v, t]) => '<button class="knapp liten" data-type="' + v + '"' + (v ? ' lang="en"' : "") + ">" + t + "</button>").join("") +
       '</div><div class="fo-filter-rad"><span class="etikett">Nivå:</span><button class="knapp liten" data-niva="">Alle</button>' +
@@ -132,6 +132,50 @@
     window.addEventListener("beforeunload", e => { if (!endret) return; e.preventDefault(); e.returnValue = ""; });
   }
 
+  // ---------- Quiz: flervalg som retter seg selv (ingenting lagres) ----------
+  const STRATEGINAVN = { vol: "KWL", skumlese: "Skimming", forutsi: "Predicting", stopp: "Check understanding", ord: "New words", visualisere: "Visualising", mellom: "Inferring", koble: "Connecting", notater: "Note-taking", sammendrag: "Summarising", lete: "Scanning", vurdere: "Evaluating", naerlese: "Close reading" };
+  let quizRekke = [];  // svaralternativene stokkes hver gang siden lastes
+  function stokk(n) { const a = [...Array(n).keys()]; for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  function quizHtml(id) {
+    const q = LV.lesequiz && LV.lesequiz[id];
+    if (!q || !q.length) return "";
+    quizRekke = q.map(x => stokk(x.valg.length));
+    return '<section class="fo-oppg lr-quiz" id="quiz"><h3><span aria-hidden="true">✅</span> Quick quiz</h3><p class="fo-oppg-tekst">Choose the best answer. You get the answer at once – nothing is saved.</p><ol class="lr-quiz-liste">' +
+      q.map((x, i) => '<li class="lr-qs" data-i="' + i + '"><fieldset><legend>' + fmt(x.s) + "</legend>" +
+        '<div class="lr-qvalg">' + quizRekke[i].map((j, pos) => '<button type="button" class="lr-qknapp" data-j="' + j + '"><span class="lr-qbokstav" aria-hidden="true">' + "ABCD"[pos] + "</span> " + fmt(x.valg[j]) + "</button>").join("") + "</div>" +
+        '<div class="lr-qsvar" role="status" aria-live="polite"></div></fieldset></li>').join("") +
+      '</ol><div class="lr-qresultat" aria-live="polite"></div></section>';
+  }
+  function kobleQuiz() {
+    const boks = document.querySelector(".lr-quiz");
+    if (!boks) return;
+    const q = LV.lesequiz[LV.param("id")];
+    const res = boks.querySelector(".lr-qresultat");
+    let poeng = 0, besvart = 0;
+    boks.addEventListener("click", e => {
+      const b = e.target.closest(".lr-qknapp");
+      if (b) {
+        const li = b.closest(".lr-qs"); if (li.classList.contains("ferdig")) return;
+        const x = q[+li.dataset.i], j = +b.dataset.j, rett = j === x.riktig;
+        li.classList.add("ferdig", rett ? "rett" : "feil");
+        li.querySelectorAll(".lr-qknapp").forEach(k => { const n = +k.dataset.j; k.disabled = true; if (n === x.riktig) k.classList.add("er-rett"); if (n === j && !rett) k.classList.add("er-feil"); if (n === j) k.setAttribute("aria-pressed", "true"); });
+        li.querySelector(".lr-qsvar").innerHTML = "<p><strong>" + (rett ? "✔ Correct!" : "✘ Not quite. The right answer is " + "ABCD"[quizRekke[+li.dataset.i].indexOf(x.riktig)] + ".") + "</strong> " + fmt(x.forklaring) + "</p>" +
+          (x.strategi ? '<p class="lr-qstrat"><a href="lesestrategier.html#' + x.strategi + '">🧠 Strategy: ' + (STRATEGINAVN[x.strategi] || x.strategi) + "</a></p>" : "");
+        if (rett) poeng++; besvart++;
+        if (besvart === q.length) {
+          const melding = poeng === q.length ? "Excellent – full score! 🎉" : poeng >= q.length - 1 ? "Very good!" : poeng >= q.length / 2 ? "Good work. Read the explanations and look at the text again." : "Read the easier version or the parts you missed, and try again.";
+          res.innerHTML = '<p><strong>You got ' + poeng + " of " + q.length + " right.</strong> " + melding + '</p><button type="button" class="knapp lr-qigjen">↺ Try again</button>';
+        }
+        return;
+      }
+      if (e.target.closest(".lr-qigjen")) {
+        poeng = 0; besvart = 0; res.innerHTML = "";
+        boks.querySelectorAll(".lr-qs").forEach(li => { li.classList.remove("ferdig", "rett", "feil"); li.querySelector(".lr-qsvar").innerHTML = ""; li.querySelectorAll(".lr-qknapp").forEach(k => { k.disabled = false; k.classList.remove("er-rett", "er-feil"); k.removeAttribute("aria-pressed"); }); });
+        boks.querySelector(".lr-qknapp").focus();
+      }
+    });
+  }
+
   // ---------- Opplesing ----------
   function kobleOpplesing() {
     if (!("speechSynthesis" in window)) return;
@@ -190,7 +234,7 @@
       '<p class="ingress">' + esc(info.kort) + "</p>" +
       '<dl class="lr-fakta"><div><dt>Published</dt><dd>' + info.ar + "</dd></div><div><dt>Level</dt><dd>" + stjerner(info.nivaa) + '</dd></div><div><dt>Length</dt><dd>' + info.ord.toLocaleString("en-GB") + " words · about " + lesetid(info.ord) + " min</dd></div>" +
       '<div><dt lang="nb">Trinn</dt><dd lang="nb">' + info.trinn + ". trinn</dd></div></dl>" +
-      '<nav class="lr-hopp" aria-label="Snarveier"><a href="#for">1. Before you read</a><a href="#les">2. Read</a><a href="#etter">3. After reading</a></nav></div></div>';
+      '<nav class="lr-hopp" aria-label="Snarveier"><a href="#for">1. Before you read</a><a href="#les">2. Read</a><a href="#etter">3. After reading</a>' + (LV.lesequiz && LV.lesequiz[d.id] ? '<a href="#quiz">✅ Quiz</a>' : "") + '</nav></div></div>';
 
     // 1. Før lesing
     h += '<section class="lr-del" id="for" lang="en"><h2><span class="lr-steg">1</span> Before you read</h2>' +
@@ -212,7 +256,7 @@
       else { pnr++; origHtml += '<p data-p="' + pnr + '">' + nr(pnr) + orig[i] + "</p>"; }
       if (d.stopp && d.stopp[i]) {
         stoppNr++;
-        origHtml += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think</div><p>' + fmt(d.stopp[i]) + "</p>" + svarfelt("stopp" + stoppNr, d.stopp[i], "Stop and think") + "</aside>";
+        origHtml += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think' + LV.stoppMerke(d.stopp[i], true) + '</div><p>' + fmt(d.stopp[i]) + "</p>" + svarfelt("stopp" + stoppNr, d.stopp[i], "Stop and think") + "</aside>";
       }
     });
     let lnr = 0;
@@ -225,7 +269,7 @@
         '<p class="lr-uten-norsk" lang="nb">Teksten er vernet av opphavsrett og ligger derfor ikke på nettsiden. Læreren deler den ut.</p></div>' +
         '<ol class="lr-deler">' + d.deler.map((x, i) => '<li class="lr-delkort"><h3>' + esc(x.tittel) + '</h3><p class="lr-delsted">📍 ' + esc(x.sted) + "</p>" +
           '<details class="lr-delsammendrag"><summary>🌱 Short summary of this part</summary><p>' + fmt(x.sammendrag) + "</p></details>" +
-          '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think</div><p>' + fmt(x.stopp) + "</p>" + svarfelt("del" + i, x.stopp, "Stop and think") + "</aside></li>").join("") + "</ol></section>";
+          '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think' + LV.stoppMerke(x.stopp, true) + '</div><p>' + fmt(x.stopp) + "</p>" + svarfelt("del" + i, x.stopp, "Stop and think") + "</aside></li>").join("") + "</ol></section>";
     } else
     h += '<section class="lr-del" id="les" lang="en"><h2><span class="lr-steg">2</span> Read</h2>' +
       '<div class="lr-faner" role="tablist" aria-label="Choose version">' +
@@ -241,7 +285,7 @@
     // 3. Etter lesing
     const blokk = (nokkel, ikon, tittel, tekst, liste, gruppe) => '<section class="fo-oppg lr-' + nokkel + '"><h3><span aria-hidden="true">' + ikon + "</span> " + tittel + '</h3><p class="fo-oppg-tekst">' + tekst + "</p><ol class=\"lr-oppg\">" +
       liste.map((x, i) => { const s = typeof x === "string" ? x : x.s; return "<li><p>" + fmt(s) + "</p>" + (laerer && x.svar ? '<p class="fo-fasit"><strong lang="nb">Fasit:</strong> ' + fmt(x.svar) + "</p>" : "") + svarfelt(nokkel + i, (i + 1) + ". " + s, gruppe) + "</li>"; }).join("") + "</ol></section>";
-    h += '<section class="lr-del" id="etter" lang="en"><h2><span class="lr-steg">3</span> After reading</h2>' +
+    h += '<section class="lr-del" id="etter" lang="en"><h2><span class="lr-steg">3</span> After reading</h2>' + quizHtml(info.id) +
       blokk("sporsmal", "❓", "Questions about the text", (d.utenTekst ? "Answer in full sentences." : "Answer in full sentences. You can answer after reading the original or the easier version."), d.sporsmal, "Questions") +
       blokk("analyse", "🔍", "Look closer", "These questions are about how the text is written. Use quotes from the original text.", d.analyse, "Look closer") +
       blokk("diskusjon", "💬", "Discuss", "Talk in pairs or groups. Write down your most important points.", d.diskusjon, "Discuss") +
@@ -276,6 +320,7 @@
     });
     kobleOrd();
     kobleOpplesing();
+    kobleQuiz();
     svarlinje(info.tittel + " – " + info.forfatter);
   }
 

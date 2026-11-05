@@ -54,9 +54,27 @@ window.LV = window.LV || {};
       "<p>" + LV.esc(p.tekst || "") + "</p>" + (ekstra || "") + "</div></article>";
   };
 
+  // Merkelapp på «Stopp og tenk»-bokser: hvilken lesestrategi trener spørsmålet?
+  // Første treff vinner. Lenken går til strategien på lesestrategier.html.
+  const STOPP_MERKER = [
+    ["forutsi", "Forutsi", "Predicting", /\b(predict|guess|will happen|happen next|what will|what do you think .{0,30}\bwill\b|hva tror du (skjer|vil skje|kommer til å)|skje[r]? videre|gjett|theory|solve the mystery|teori|løse mysteriet)/i],
+    ["visualisere", "Se for deg", "Visualising", /\b(imagine|picture|what do you see|what does .{0,40} look like|se for deg|forestill deg)/i],
+    ["ord", "Ukjente ord", "New words", /\b(what does the (word|phrase|expression)|meaning of the|hva betyr (ordet|uttrykket))/i],
+    ["lete", "Letelese", "Scanning", /(^\s*(find|look for|finn|let etter)\b|search for|søk etter)/i],
+    ["sammendrag", "Oppsummere", "Summarising", /\b(summari[sz]e|in your own words|sum up|in one sentence|oppsummer|med egne ord|med én setning)/i],
+    ["vurdere", "Vurdere", "Evaluating", /\b(do you agree|convince you|is it (a good|good|enough|right)|good thing or|should\b|bør\b|burde|synes du|hva tenker du|begrunn|ansvar|overbevisende|hva betyr mest|hvor går grensen|feig|er du enig|is it fair|(was|is) (it|that|this) (right|fair|wrong)|var det (riktig|rettferdig)|good or bad|bra eller dårlig|what do you think about|hva mener du)/i],
+    ["koble", "Koble", "Connecting", /\b(similarit|compare .{0,40}(with|to) (your|today|norway)|likheter|sammenlign|think of a|tenk på en|have you ever|your own|in your life|would you|if you were|can you think of|do you (belong|know|feel|use)|have you learned|you know|your (school|family|friends|country|class)|remind|norw|today\b|nowadays|i norge|nordmenn|i dag\b|ditt eget|hva ville du|om du var|hvis du var|kjenner du|kan du komme på|har du (noen gang|opplevd)|what could you|tenk deg|ville du|hos deg|påvirker deg|engasjert deg)/i],
+    ["mellom", "Lese mellom linjene", "Inferring", /\b(why|how do you know|what does (this|that|it) (tell|show|say|suggest)|what kind of|how does .{0,40} feel|clue|hvorfor|hva (forteller|viser|sier) (det|dette)|\bmean\b|really be|do you think|how do|how does|how is|how did|tror du|hvordan|hva gikk galt|til felles)/i]
+  ];
+  LV.stoppMerke = function (tekst, engelsk) {
+    const t = String(tekst || "");
+    const m = STOPP_MERKER.find(x => x[3].test(t)) || ["stopp", "Sjekk forståelsen", "Check understanding"];
+    return '<a class="stopp-strategi" href="lesestrategier.html#' + m[0] + '" title="Lesestrategi – les mer om strategien">' + (engelsk ? '<span lang="en">' + m[2] + "</span>" : m[1]) + "</a>";
+  };
+
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261104c";
+  LV.versjon = "20261105b";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -73,15 +91,55 @@ window.LV = window.LV || {};
     const k = LV.config || { navn: "Les verden" };
     const side = document.body.dataset.side || "";
     const fag = LV.param("fag");
+    const engelskSider = ["lesing", "sport", "grammatikk", "land"];
+    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "skriving", "sok"];
     const aktiv = function (navn) {
-      if (navn === "forside") return side === "forside" && !fag;
-      if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && (side === "lesing" || side === "sport"));
-      if (navn === "spill") return side === "spill" || side === "kartspill";
+      if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && engelskSider.includes(side));
+      if (navn === "verktoy") return verktoySider.includes(side);
+      if (navn === "spill") return side === "spill" || side === "kartspill" || side === "mysterium";
       return side === navn;
     };
     const lenke = function (href, tekst, navn) {
       return '<a href="' + href + '"' + (aktiv(navn) ? ' aria-current="page"' : "") + ">" + tekst + "</a>";
     };
+    // Menyer med undersider. [lenke, ikon, tittel, kort tekst, språk]
+    const MENYER = {
+      samfunnsfag: { navn: "Samfunnsfag", lenker: [
+        ["index.html?fag=samfunnsfag#temaer", "📚", "Alle temaer", "Historie, geografi og samfunnskunnskap"],
+        ["index.html?fag=samfunnsfag&trinn=8#temaer", "8️⃣", "8. trinn", "Revolusjoner, 1814 og Norge i dag"],
+        ["index.html?fag=samfunnsfag&trinn=9#temaer", "9️⃣", "9. trinn", "Verden i endring 1800–1918"],
+        ["index.html?fag=samfunnsfag&trinn=10#temaer", "🔟", "10. trinn", "Krig, fred og verden i dag"],
+        ["tidslinje.html?fag=samfunnsfag", "📅", "Tidslinje", "Alle hendelsene i rekkefølge"],
+        ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
+        ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"],
+        ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
+        ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter fra historien"],
+        ["skriving.html#nb", "✍️", "Skriveguider", "Fagtekst, drøfting, presentasjon"]
+      ] },
+      engelsk: { navn: "Engelsk", lenker: [
+        ["index.html?fag=engelsk#temaer", "📚", "Alle temaer", "Topics for 8th–10th grade", "en"],
+        ["lesing.html", "📖", "Reading Room", "Stories, speeches and non-fiction", "en"],
+        ["grammatikk.html", "🧩", "Grammar and vocabulary", "Parts of speech and more", "en"],
+        ["skriving.html", "✍️", "How to write", "Essays, short stories, presentations", "en"],
+        ["land.html", "🌍", "Landsider", "The English-speaking world"],
+        ["sport.html", "🏆", "Sport", "Sports in the English-speaking world", "en"],
+        ["film.html?fag=engelsk", "🎬", "Film", "Films and series with tasks"],
+        ["mysterium.html#cold-case", "🔎", "Cold Case Mysteries", "Logic puzzles in English", "en"],
+        ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"]
+      ] },
+      verktoy: { navn: "Lese og skrive", lenker: [
+        ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
+        ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
+        ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
+        ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],
+        ["tidslinje.html", "📅", "Tidslinje", "Alle hendelsene"],
+        ["personer.html", "👤", "Personer", "Alle personene"],
+        ["sok.html", "🔍", "Søk", "Søk i hele nettstedet"]
+      ] }
+    };
+    const menyKnapp = id => '<button type="button" class="meny-knapp" id="meny-' + id + '" aria-expanded="false" aria-controls="panel-' + id + '"' + (aktiv(id) ? ' aria-current="page"' : "") + ">" + MENYER[id].navn + ' <span class="meny-pil" aria-hidden="true">▾</span></button>';
+    const menyPanel = id => '<div class="meny-panel" id="panel-' + id + '" hidden><ul>' + MENYER[id].lenker.map(([h, ikon, t, kort, sp]) =>
+      '<li><a href="' + h + '"' + (sp ? ' lang="' + sp + '"' : "") + '><span class="mp-ikon" aria-hidden="true">' + ikon + '</span><span><strong>' + LV.esc(t) + "</strong><small>" + LV.esc(kort) + "</small></span></a></li>").join("") + "</ul></div>";
 
     const topp = document.createElement("header");
     topp.className = "topp";
@@ -90,19 +148,16 @@ window.LV = window.LV || {};
       '<div class="topp-indre">' +
         '<a class="logo" href="index.html"><span class="logo-merke" aria-hidden="true">' + LV.esc(k.forkortelse || "LV") + "</span>" + LV.esc(k.navn) + "</a>" +
         '<nav class="hovedmeny" aria-label="Hovedmeny">' +
-          lenke("index.html?fag=samfunnsfag", "Samfunnsfag", "samfunnsfag") +
-          lenke("index.html?fag=engelsk", "Engelsk", "engelsk") +
-          lenke("tidslinje.html", "Tidslinje", "tidslinje") +
-          lenke("begreper.html", "Begreper", "begreper") +
-          lenke("personer.html", "Personer", "personer") +
-          lenke("ordbok.html", "Ordbok", "ordbok") +
+          menyKnapp("samfunnsfag") + menyKnapp("engelsk") + menyKnapp("verktoy") +
           lenke("spill.html", "Spill", "spill") +
           lenke("eksamen.html", "Eksamen", "eksamen") +
           lenke("laerer.html", "For lærere", "laerer") +
         "</nav>" +
-        '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte">' +
-          '<span aria-hidden="true">Aa</span> Lesestøtte</button>' +
+        (side === "sok" ? "" : '<form class="topp-sok" action="sok.html" role="search"><label class="skjult-visuelt" for="topp-sok-felt">Søk på Les verden</label><input id="topp-sok-felt" name="q" type="search" placeholder="Søk …" autocomplete="off"><button type="submit" class="topp-sok-knapp" aria-label="Søk">🔍</button></form>') +
+        '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte" title="Lesestøtte: skrift, størrelse, farger og opplesing">' +
+          '<span aria-hidden="true">Aa</span> <span class="ls-knapp-tekst">Lesestøtte</span></button>' +
       "</div>" +
+      '<div class="meny-paneler">' + menyPanel("samfunnsfag") + menyPanel("engelsk") + menyPanel("verktoy") + "</div>" +
       '<div class="lesestotte" id="lesestotte" hidden>' +
         '<span class="etikett">Tekststørrelse:</span>' +
         '<button class="knapp" data-skala="-1" aria-label="Mindre tekst">A−</button>' +
@@ -112,6 +167,19 @@ window.LV = window.LV || {};
         '<button class="knapp" id="tema-knapp" aria-pressed="false">Mørk modus</button>' +
       "</div>";
     document.body.prepend(topp);
+
+    // Nedtrekksmenyer: én åpen om gangen, lukkes med Escape eller klikk utenfor
+    const knapper = Array.from(topp.querySelectorAll(".meny-knapp"));
+    const lukkMenyer = unntak => knapper.forEach(kn => { if (kn === unntak) return; kn.setAttribute("aria-expanded", "false"); document.getElementById(kn.getAttribute("aria-controls")).hidden = true; });
+    knapper.forEach(kn => kn.addEventListener("click", e => {
+      e.stopPropagation();
+      const apen = kn.getAttribute("aria-expanded") !== "true";
+      lukkMenyer(kn);
+      kn.setAttribute("aria-expanded", String(apen));
+      document.getElementById(kn.getAttribute("aria-controls")).hidden = !apen;
+    }));
+    document.addEventListener("click", e => { if (!e.target.closest(".meny-panel")) lukkMenyer(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { const apen = knapper.find(kn => kn.getAttribute("aria-expanded") === "true"); lukkMenyer(); if (apen) apen.focus(); } });
 
     // På mobil kan menyen rulles sidelengs: sørg for at aktiv side er synlig
     const meny = topp.querySelector(".hovedmeny");

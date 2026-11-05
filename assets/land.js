@@ -134,7 +134,7 @@
         s.tekst.map(p => "<p>" + formater(p) + "</p>").join("") + "</section>";
       if (s.stoppOgTenk) {
         stopp++;
-        h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think</div><p>' + formater(s.stoppOgTenk) + "</p>" +
+        h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think' + LV.stoppMerke(s.stoppOgTenk, true) + '</div><p>' + formater(s.stoppOgTenk) + "</p>" +
           svarfelt("stopp-" + stopp, ren(s.stoppOgTenk), "Stop and think") + "</aside>";
       }
     });

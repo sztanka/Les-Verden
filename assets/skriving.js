@@ -33,7 +33,7 @@
       '<header class="sidehode"><p class="overlinje" lang="en">How to …</p><h1>Skriveverksted</h1><p class="ingress">Steg-for-steg-guider for de vanligste teksttypene i engelsk og samfunnsfag. Hver guide forklarer delene i teksten, gir setningsstartere og eksempler, og har en skriveramme der du kan skrive din egen tekst.</p></header>' +
       '<div class="sk-steg-rad" aria-label="Slik bruker du en guide"><span><b>1</b> Les hva teksttypen er</span><span><b>2</b> Se på oppbyggingen og eksempelet</span><span><b>3</b> Skriv i skriverammen</span><span><b>4</b> Sjekk teksten med sjekklista</span></div>';
     grupper.forEach(([sp, tittel, tekst]) => {
-      h += '<section class="sk-gruppe"><h2' + (sp === "en" ? ' lang="en"' : "") + ">" + tittel + '</h2><p class="sk-gruppe-tekst">' + tekst + '</p><ul class="sk-kortrad">' + LV.skriveguider.filter(g => g.sprak === sp).map(kort).join("") + "</ul></section>";
+      h += '<section class="sk-gruppe" id="' + sp + '"><h2' + (sp === "en" ? ' lang="en"' : "") + ">" + tittel + '</h2><p class="sk-gruppe-tekst">' + tekst + '</p><ul class="sk-kortrad">' + LV.skriveguider.filter(g => g.sprak === sp).map(kort).join("") + "</ul></section>";
     });
     h += '<p class="fo-merk">Tips: Mange av guidene passer sammen med tekstene i <a href="lesing.html" lang="en">Reading Room</a>, filmene på <a href="film.html">filmsiden</a> og forberedelsene i <a href="eksamen.html">eksamenssonen</a>.</p>';
     $("innhold").innerHTML = h;
