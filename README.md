@@ -29,6 +29,8 @@ les-verden/
 ├── lesestrategier.html    Lesestrategier før, under og etter lesing (data i data/lesestrategier.js)
 ├── planlegger.html         Planlegger for lærere: filtrer på kompetansemål og del elevlenker (data i data/kompetansemal.js)
 ├── muntlig.html            Muntlig og lytting: samtalekort, lytteøvelse og den varme stolen per tema (data i data/muntlig.js)
+├── laere-engelsk.html      How to learn English: strategier for språklæring (data i data/laere-engelsk.js)
+├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
@@ -239,6 +241,8 @@ oppgavene på nivå 2 og 3 i temaene.
 
 ### Kompetansemål og planleggeren
 
+Grammatikken har fått gruppen **Sentence workshop** (`sentences` i `data/grammatikk/oversikt.js`): `sentence-parts`, `word-order`, `sentence-types`, `run-ons` og `editing`, i samme format som de andre emnene. Planleggeren viser alle grammatikkemnene og verktøysidene som egne ressurser.
+
 `data/kompetansemal.js` (`LV.kompetansemal`) har kompetansemålene etter 10. trinn fra Læreplan i samfunnsfag (SAF01-05) og Læreplan i engelsk (ENG01-06), som gjelder fra 1.8.2026, med `id` (s1–s19, e1–e19), `kort` (merkelapp) og `tekst` (ordlyden fra Udir). `kobling` sier hvilke mål hvert tema arbeider med (`"sf10-apartheid": ["s5", "s9", "s3"]`) og noen sider (`"side:skriving"`). **Når du lager et nytt tema, legg det inn i `kobling`.** Reading Room-tekster og filmer får mål automatisk ut fra sjanger og temaene de er koblet til. `LV.kmBoks(id)` i felles.js lager boksen «🎯 Kompetansemål» nederst på temasidene og i lærerdelen i Reading Room.
 
 `planlegger.html` + `assets/planlegger.js`: filtrerer alt innhold og setter sammen en plan. Hele tilstanden ligger i adressen (`?fag=&trinn=&type=&mal=&q=&r=tema:id,lesing:id&t=tittel&m=beskjed`). `?elev=1&r=…` viser elevvisningen. Ingenting lagres.
@@ -254,6 +258,14 @@ oppgavene på nivå 2 og 3 i temaene.
 ### Lettere tekst på temasidene
 
 Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. Foreløpig har de seks nye 10.-trinnstemaene lettere tekst.
+
+### How to learn English og Pronunciation
+
+`laere-engelsk.html` + `assets/laere-engelsk.js`, data i `data/laere-engelsk.js` (`deler` med strategier og fraser, `falske` – falske venner-quiz der første valg er riktig, `forklar` – ord til «Explain the word», `refleksjon`).
+
+`uttale.html` + `assets/uttale.js`, data i `data/uttale.js` (`lyder` med tips, eksempelord og minimale par til lyttequizen, `trykk` med stavelser og indeksen til trykkstavelsen, `trykkPar`, `stumme`, `vanskelige`, `aksentord`). Opplesingen bruker `LV.lesEngelsk(tekst, aksent)` i felles.js, og aksentlista viser bare stemmene nettleseren faktisk har (`LV.tilgjengeligeAksenter()`). «Ta opp deg selv» bruker mikrofonen og MediaRecorder; opptaket ligger bare i minnet og blir aldri lagret eller sendt. Merk: Mikrofonen virker bare på https (GitHub Pages) eller localhost, ikke når filen åpnes rett fra disken.
+
+Landsidene har en boks «🎧 Listen to the accent» med opplesing i landets aksent (hvis nettleseren har stemmen) og lenker til ekte opptak. Lenkene ligger i `LYTT` i `assets/land.js`. Lytteøvelsen på muntlig-sidene har aksentvalg for engelske temaer.
 
 ### Søk
 
@@ -359,7 +371,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

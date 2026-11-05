@@ -61,6 +61,7 @@
     // B. Lytteøvelse
     h += '<section class="mu-del" id="mu-lytt"><h2>🎧 ' + tx.lytt + '</h2><p class="mu-intro">' + tx.lyttTekst + "</p>" +
       '<div class="mu-lyttrad"><label>' + tx.velg + ' <select id="mu-velg">' + lytt.map((l, i) => '<option value="' + i + '">' + esc(l.navn) + "</option>").join("") + "</select></label>" +
+      (sp === "en" ? '<label>Accent: <select id="mu-aksent"><option value="en-GB">British English</option></select></label>' : "") +
       '<label>' + tx.fart + ' <select id="mu-fart"><option value="0.8">' + tx.sakte + '</option><option value="1" selected>' + tx.normal + "</option></select></label>" +
       '<button class="knapp hoved" id="mu-spill" type="button">' + tx.spill + '</button><button class="knapp" id="mu-stopp" type="button" hidden>' + tx.stopp + '</button></div><p class="mu-melding" id="mu-melding" role="status"></p>' +
       '<label class="mu-notat"><span>' + tx.notater + '</span><textarea id="mu-notater" rows="6"></textarea></label>' +
@@ -109,10 +110,11 @@
       const ferdig = () => { $("mu-spill").hidden = false; $("mu-stopp").hidden = true; };
       $("mu-spill").addEventListener("click", () => {
         synth.cancel();
-        const v = stemme(sp); $("mu-melding").textContent = v ? "" : tx.ingenStemme;
+        const ak = $("mu-aksent") ? $("mu-aksent").value : null;
+        const v = (ak && LV.aksentStemme(ak)) || stemme(sp); $("mu-melding").textContent = v ? "" : tx.ingenStemme;
         const l = lytt[+$("mu-velg").value];
         $("mu-spill").hidden = true; $("mu-stopp").hidden = false;
-        l.tekst.forEach((x, n) => { const u = new SpeechSynthesisUtterance(x); u.lang = sp === "en" ? "en-GB" : "nb-NO"; if (v) u.voice = v; u.rate = +$("mu-fart").value; if (n === l.tekst.length - 1) { u.onend = ferdig; u.onerror = ferdig; } synth.speak(u); });
+        l.tekst.forEach((x, n) => { const u = new SpeechSynthesisUtterance(x); u.lang = ak || (sp === "en" ? "en-GB" : "nb-NO"); if (v) u.voice = v; u.rate = +$("mu-fart").value; if (n === l.tekst.length - 1) { u.onend = ferdig; u.onerror = ferdig; } synth.speak(u); });
       });
       $("mu-stopp").addEventListener("click", () => { synth.cancel(); ferdig(); });
       window.addEventListener("beforeunload", () => synth.cancel());
@@ -125,6 +127,12 @@
       const reserve = () => { const x = document.createElement("textarea"); x.value = tekst; document.body.appendChild(x); x.select(); let lyktes = false; try { lyktes = document.execCommand("copy"); } catch (e) { lyktes = false; } x.remove(); if (lyktes) ok(); else window.prompt("Ctrl+C / Cmd+C", tekst); };
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(tekst).then(ok, reserve); else reserve();
     });
+
+    // Aksentvalg (engelske temaer): bare stemmene nettleseren har
+    if ($("mu-aksent")) {
+      const fyll = () => { const l = LV.tilgjengeligeAksenter(); if (!l.length) return; const valgt = $("mu-aksent").value; $("mu-aksent").innerHTML = l.map(([k, n]) => '<option value="' + k + '"' + (k === valgt ? " selected" : "") + ">" + n + "</option>").join(""); };
+      fyll(); if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", fyll);
+    }
 
     // Varm stol
     if (personer.length) {

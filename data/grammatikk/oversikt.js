@@ -31,6 +31,14 @@ LV.grammatikkGrupper = [
     ikon: "👯",
     ingress: "English has many words that are spelled the same or pronounced the same – but mean different things. Knowing the names of these word groups helps you talk about language, and knowing the words themselves helps you avoid common spelling mistakes.",
     emner: ["homophones", "homographs", "homonyms", "heteronyms", "heterographs"]
+  },
+  {
+    id: "sentences",
+    tittel: "Sentence workshop",
+    norsk: "Setningsbygning",
+    ikon: "🛠️",
+    ingress: "Good writing is built from good sentences. Here you learn the parts of a sentence, English **word order**, how to join ideas into longer sentences, and how to fix the most common sentence mistakes. At the end, you practise **editing** – checking and improving a text, just like you do with your own writing.",
+    emner: ["sentence-parts", "word-order", "sentence-types", "run-ons", "editing"]
   }
 ];
 LV.grammatikkListe = [
@@ -43,6 +51,11 @@ LV.grammatikkListe = [
   { id: "prepositions", tittel: "Prepositions", entall: "a preposition", ikon: "📍", farge: "#0277bd", kort: "A preposition shows how a noun or pronoun is related to other words – often in place or time.", norsk: "Preposisjoner", eks: [["Place", "in, on, under"], ["Time", "at, before, until"], ["Movement", "to, through, into"]] },
   { id: "conjunctions", tittel: "Conjunctions", entall: "a conjunction", ikon: "🔗", farge: "#c62828", kort: "A conjunction joins words, phrases or sentences together.", norsk: "Konjunksjoner og subjunksjoner", eks: [["Join equals", "and, but, or, so"], ["Give reasons", "because, since"], ["Time / condition", "when, if, although"]] },
   { id: "interjections", tittel: "Interjections", entall: "an interjection", ikon: "💥", farge: "#6a4fb3", kort: "An interjection shows a strong feeling or a sudden reaction.", norsk: "Interjeksjoner", eks: [["Pain / disgust", "Ouch! Yuck!"], ["Surprise / joy", "Wow! Hooray!"], ["Relief / mistakes", "Phew! Oops!"]] },
+  { id: "sentence-parts", tittel: "Parts of a sentence", ikon: "🧱", kort: "Subject, verb, object and adverbial – the building blocks of every sentence.", norsk: "Setningsledd" },
+  { id: "word-order", tittel: "Word order", ikon: "🔀", kort: "Subject before verb – always. The most common mistakes Norwegians make, and how to avoid them.", norsk: "Ordstilling" },
+  { id: "sentence-types", tittel: "Simple, compound and complex sentences", ikon: "🔗", kort: "Join short sentences into longer ones with and, but, because, although and who.", norsk: "Enkle og sammensatte setninger" },
+  { id: "run-ons", tittel: "Run-ons and fragments", ikon: "✂️", kort: "Sentences that go on too long, or stop too early – and how to fix them.", norsk: "Setninger som renner over, og halve setninger" },
+  { id: "editing", tittel: "Fix the text: editing your writing", ikon: "🔍", kort: "Check and improve a text step by step – and find the typical mistakes.", norsk: "Bearbeide og rette egen tekst" },
   { id: "homophones", tittel: "Homophones", ikon: "👂", kort: "Words that sound the same but have different meanings – like their, there and they're.", norsk: "Ord som uttales likt, men betyr noe forskjellig" },
   { id: "homographs", tittel: "Homographs", ikon: "✍️", kort: "Words that are spelled the same but have different meanings – like bat and lead.", norsk: "Ord som skrives likt, men betyr noe forskjellig" },
   { id: "homonyms", tittel: "Homonyms", ikon: "🦇", kort: "Words that are spelled and pronounced the same but have different meanings – like bank and bear.", norsk: "Ord som skrives og uttales likt, men betyr noe forskjellig" },

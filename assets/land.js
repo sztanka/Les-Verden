@@ -205,6 +205,27 @@
         '<li><a class="temakort fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' + LV.merker(t) +
         "<h3" + (t.sprak === "en" ? "" : ' lang="nb"') + ">" + LV.esc(t.tittel) + "</h3><p" + (t.sprak === "en" ? "" : ' lang="nb"') + ">" + LV.esc(t.kort) + "</p></a></li>").join("") + "</ul></section>";
     }
+    // Listen to the accent
+    const LYTT = {
+      uk: ["en-GB", "British English", "Received Pronunciation, Cockney, Scottish, Welsh and many more – the UK has a huge variety of accents.", [["BBC Learning English", "https://www.bbc.co.uk/learningenglish"], ["BBC Sounds", "https://www.bbc.co.uk/sounds"]]],
+      usa: ["en-US", "American English", "From New York to Texas and California – American accents vary a lot from region to region.", [["VOA Learning English", "https://learningenglish.voanews.com/"], ["StoryCorps – real Americans tell their stories", "https://storycorps.org/"]]],
+      ireland: ["en-IE", "Irish English", "Irish English has a soft, musical rhythm, and *th* often sounds like *t* or *d*.", [["RTÉ Radio", "https://www.rte.ie/radio/"]]],
+      australia: ["en-AU", "Australian English", "Australian English has its own vowels and many fun slang words, like *arvo* (afternoon) and *brekkie* (breakfast).", [["ABC Listen", "https://www.abc.net.au/listen"]]],
+      newzealand: ["en-NZ", "New Zealand English", "New Zealand English sounds a bit like Australian English, but the short *i* in *fish* sounds almost like *fush*. Many Māori words are used every day.", [["RNZ – Radio New Zealand", "https://www.rnz.co.nz/"]]],
+      india: ["en-IN", "Indian English", "Indian English is spoken by millions and is influenced by Hindi and many other Indian languages, for example in rhythm and in the *t* and *d* sounds.", [["All India Radio News", "https://newsonair.gov.in/"]]],
+      southafrica: ["en-ZA", "South African English", "South African English is influenced by Afrikaans and African languages like isiZulu and isiXhosa.", [["SABC News", "https://www.sabcnews.com/"]]],
+      singapore: ["en-SG", "Singapore English", "Singapore English, and the informal «Singlish», mixes English with Malay, Chinese and Tamil words, like *lah* at the end of sentences.", [["CNA – Channel NewsAsia", "https://www.channelnewsasia.com/"]]]
+    };
+    const ly = LYTT[info.id];
+    if (ly) {
+      const harTale = "speechSynthesis" in window;
+      h += '<section class="land-lytt"><h2>🎧 Listen to the accent</h2><p>' + formater(ly[2]) + "</p>" +
+        (harTale ? '<p><button type="button" class="knapp" id="land-lytt-knapp" data-k="' + ly[0] + '">🔊 Hear a computer voice in ' + ly[1] + '</button> <span class="land-lytt-info" id="land-lytt-info"></span></p>' : "") +
+        '<p>Real voices are much better than computer voices. Listen to people from the country:</p><ul class="kilder">' + ly[3].map(([t, u]) => '<li><a href="' + u + '" target="_blank" rel="noopener">' + LV.esc(t) + "</a></li>").join("") +
+        '<li><a href="https://www.dialectsarchive.com/" target="_blank" rel="noopener">IDEA – International Dialects of English Archive</a> (choose the country)</li></ul>' +
+        '<p lang="nb" class="land-lytt-tips">Lytteoppgave: Hør på et opptak i ett minutt. Skriv ned tre ord som uttales annerledes enn du er vant til. Se også <a href="uttale.html#aksenter">uttalesiden</a>.</p></section>';
+    }
+
     if (land.kilder) {
       h += "<section><h2>" + T.kilder + '</h2><ul class="kilder">' +
         land.kilder.map(k => '<li><a href="' + LV.esc(k.url) + '" target="_blank" rel="noopener">' + LV.esc(k.tittel) + "</a></li>").join("") + "</ul></section>";
@@ -225,6 +246,7 @@
     document.body.appendChild(linje);
 
     kobleOrd();
+    kobleLytt();
     kobleSvar();
     if (land.quiz) startQuiz();
     const kq = document.getElementById("ks-innebygd");
@@ -232,6 +254,15 @@
   }
 
   // ---------- Ordforklaringer ----------
+  function kobleLytt() {
+    const b = document.getElementById("land-lytt-knapp"); if (!b) return;
+    b.addEventListener("click", () => {
+      speechSynthesis.cancel();
+      const har = LV.aksentStemme(b.dataset.k);
+      document.getElementById("land-lytt-info").textContent = har ? "" : "Your browser has no voice for this accent, so you hear another English voice.";
+      LV.lesEngelsk("Hello! Welcome to our country. I hope you enjoy your visit, and that you learn a lot about how we live and talk here.", b.dataset.k, 0.95);
+    });
+  }
   function kobleOrd() {
     const lukk = unntak => document.querySelectorAll(".ord[aria-expanded='true']").forEach(b => {
       if (b === unntak) return;

@@ -90,9 +90,31 @@ window.LV = window.LV || {};
       '<p class="km-kilde">Kilde: ' + planer.map(p => '<a href="' + p.url + '" target="_blank" rel="noopener">Læreplan i ' + p.navn.toLowerCase() + " (" + p.kode + ")</a>").join(", ") + ', gjelder fra 1.8.2026. <a href="planlegger.html">Se alle målene i planleggeren →</a></p></details>';
   };
 
+  // Engelske aksenter for opplesing. Gir bare de variantene nettleseren har stemmer til.
+  LV.AKSENTER = [["en-GB", "British English"], ["en-US", "American English"], ["en-AU", "Australian English"], ["en-IN", "Indian English"], ["en-IE", "Irish English"], ["en-ZA", "South African English"], ["en-NZ", "New Zealand English"], ["en-CA", "Canadian English"], ["en-SG", "Singapore English"]];
+  LV.aksentStemme = function (kode) {
+    if (!("speechSynthesis" in window)) return null;
+    const alle = speechSynthesis.getVoices(), k = String(kode || "en-GB").toLowerCase().replace("_", "-");
+    return alle.find(v => v.lang && v.lang.toLowerCase().replace("_", "-") === k) || null;
+  };
+  LV.tilgjengeligeAksenter = function () {
+    return LV.AKSENTER.filter(([k]) => LV.aksentStemme(k));
+  };
+  // Leser engelsk tekst med valgt aksent (faller tilbake til en engelsk stemme)
+  LV.lesEngelsk = function (tekst, kode, fart, ferdig) {
+    if (!("speechSynthesis" in window)) return false;
+    const u = new SpeechSynthesisUtterance(tekst);
+    u.lang = kode || "en-GB"; u.rate = fart || 0.9;
+    const v = LV.aksentStemme(u.lang) || speechSynthesis.getVoices().find(x => /^en/i.test(x.lang));
+    if (v) u.voice = v;
+    if (ferdig) { u.onend = ferdig; u.onerror = ferdig; }
+    speechSynthesis.speak(u);
+    return true;
+  };
+
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261105c";
+  LV.versjon = "20261105d";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -109,7 +131,7 @@ window.LV = window.LV || {};
     const k = LV.config || { navn: "Les verden" };
     const side = document.body.dataset.side || "";
     const fag = LV.param("fag");
-    const engelskSider = ["lesing", "sport", "grammatikk", "land"];
+    const engelskSider = ["lesing", "sport", "grammatikk", "land", "uttale", "laere"];
     const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "muntlig", "skriving", "sok"];
     const aktiv = function (navn) {
       if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && engelskSider.includes(side));
@@ -139,6 +161,8 @@ window.LV = window.LV || {};
         ["index.html?fag=engelsk#temaer", "📚", "Alle temaer", "Topics for 8th–10th grade", "en"],
         ["lesing.html", "📖", "Reading Room", "Stories, speeches and non-fiction", "en"],
         ["grammatikk.html", "🧩", "Grammar and vocabulary", "Parts of speech and more", "en"],
+        ["uttale.html", "👄", "Pronunciation", "Sounds, stress and accents", "en"],
+        ["laere-engelsk.html", "🧭", "How to learn English", "Learning strategies", "en"],
         ["skriving.html", "✍️", "How to write", "Essays, short stories, presentations", "en"],
         ["land.html", "🌍", "Landsider", "The English-speaking world"],
         ["sport.html", "🏆", "Sport", "Sports in the English-speaking world", "en"],
@@ -149,6 +173,8 @@ window.LV = window.LV || {};
       verktoy: { navn: "Lese og skrive", lenker: [
         ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
         ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
+        ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
+        ["uttale.html", "👄", "Pronunciation", "Uttale for nordmenn", "en"],
         ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
         ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
         ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],

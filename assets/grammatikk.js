@@ -73,7 +73,7 @@
       if (g.quiz) h += '<section class="gr-ovelser"><h3>' + esc(g.quiz.tittel) + '</h3><div id="gr-quiz-' + g.id + '"></div></section>';
       h += "</section>";
     });
-    h += '<p class="gr-kommer" lang="nb">Flere emner kommer, for eksempel verbtider, setningsbygning og vanlige feil.</p>';
+    h += '<p class="gr-kommer" lang="nb">Flere emner kommer, for eksempel verbtider.</p>';
     $("innhold").innerHTML = h;
     LV.grammatikkGrupper.forEach(g => { if (g.quiz) ovelseSett($("gr-quiz-" + g.id), Object.assign({ type: "mc" }, g.quiz), 0, true); });
     document.querySelectorAll(".gr-sord").forEach(b => b.addEventListener("click", () => {

@@ -18,10 +18,14 @@
     lesing: { ikon: "📖", navn: "Reading Room" },
     film: { ikon: "🎬", navn: "Filmer" },
     skriving: { ikon: "✍️", navn: "Skriveguider" },
+    grammatikk: { ikon: "🧩", navn: "Grammatikk" },
     side: { ikon: "🧰", navn: "Verktøy og sider" }
   };
   const SIDER = [
     ["lesestrategier", "Lesestrategier", "lesestrategier.html", "Strategier før, under og etter lesing, med VØL-skjema.", ["samfunnsfag", "engelsk"]],
+    ["laere", "How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", ["engelsk"]],
+    ["uttale", "Pronunciation for Norwegians", "uttale.html", "Vanskelige lyder, ordtrykk og stumme bokstaver – lytt og ta opp deg selv.", ["engelsk"]],
+    ["muntlig", "Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", ["samfunnsfag", "engelsk"]],
     ["grammatikk", "Grammar and vocabulary", "grammatikk.html", "Ordklasser, homofoner og øvelser.", ["engelsk"]],
     ["ordbok", "Ordbok", "ordbok.html", "Bokmålsordboka, norsk–engelsk og synonymer.", ["samfunnsfag", "engelsk"]],
     ["land", "Landsider", "land.html", "De engelskspråklige landene med fakta og quiz.", ["engelsk"]],
@@ -56,8 +60,13 @@
     });
     (LV.skriveguider || []).forEach(g => {
       const en = g.sprak === "en";
-      R.push({ key: "skriving:" + g.id, type: "skriving", tittel: g.tittel, kort: g.kort, fag: en ? ["engelsk"] : ["samfunnsfag"], trinn: [8, 9, 10], url: g.lenke || "skriving.html?id=" + encodeURIComponent(g.id), mal: en ? ["e14", "e15", "e9"] : ["s1"], en: en });
+      R.push({ key: "skriving:" + g.id, type: "skriving", tittel: g.tittel, kort: g.kort, fag: en ? ["engelsk"] : ["samfunnsfag"], trinn: [8, 9, 10], url: g.lenke || "skriving.html?id=" + encodeURIComponent(g.id), mal: en ? ["e14", "e15", "e9", "e1"] : ["s1"], en: en });
     });
+    const GRAMMAL = { partsofspeech: ["e8", "e9"], lookalikes: ["e9", "e3"], sentences: ["e8", "e9", "e15"] };
+    (LV.grammatikkGrupper || []).forEach(gr => gr.emner.forEach(id => {
+      const e = (LV.grammatikkListe || []).find(x => x.id === id); if (!e) return;
+      R.push({ key: "grammatikk:" + id, type: "grammatikk", tittel: e.tittel, kort: e.kort + " (" + e.norsk + ")", fag: ["engelsk"], trinn: [8, 9, 10], url: "grammatikk.html?id=" + encodeURIComponent(id), mal: GRAMMAL[gr.id] || ["e8"], en: true });
+    }));
     SIDER.forEach(([id, t, u, k, fag]) => R.push({ key: "side:" + id, type: "side", tittel: t, kort: k, fag: fag, trinn: [8, 9, 10], url: u, mal: K().kobling["side:" + id] || [] }));
     return R;
   }
@@ -141,9 +150,9 @@
     function tegnOversikt() {
       $("pl-ov").innerHTML = ["samfunnsfag", "engelsk"].map(f => '<h3>' + K()[f].navn + ' <span class="pl-kode">' + K()[f].kode + "</span></h3><ul class=\"pl-ov-liste\">" +
         K()[f].mal.map(m => {
-          const n = R.filter(r => r.type !== "side" && r.mal.includes(m.id));
-          const temaer = n.filter(r => r.type === "tema").length;
-          return '<li><button type="button" class="pl-ov-mal" data-mal="' + m.id + '"><span class="pl-ov-n' + (n.length < 2 ? " lav" : "") + '">' + n.length + '</span><span><strong>' + esc(m.kort) + "</strong><small>" + esc(m.tekst) + '</small><small class="pl-ov-tall">' + temaer + " temaer · " + (n.length - temaer) + " tekster, filmer og guider</small></span></button></li>";
+          const n = R.filter(r => r.mal.includes(m.id));
+          const temaer = n.filter(r => r.type === "tema").length, verktoy = n.filter(r => r.type === "side" || r.type === "grammatikk").length;
+          return '<li><button type="button" class="pl-ov-mal" data-mal="' + m.id + '"><span class="pl-ov-n' + (n.length < 2 ? " lav" : "") + '">' + n.length + '</span><span><strong>' + esc(m.kort) + "</strong><small>" + esc(m.tekst) + '</small><small class="pl-ov-tall">' + temaer + " temaer · " + (n.length - temaer - verktoy) + " tekster, filmer og guider · " + verktoy + " verktøy og grammatikk</small></span></button></li>";
         }).join("") + "</ul>").join("") + '<p class="km-kilde">Kilder: <a href="' + K().samfunnsfag.url + '" target="_blank" rel="noopener">Læreplan i samfunnsfag (SAF01-05)</a> og <a href="' + K().engelsk.url + '" target="_blank" rel="noopener">Læreplan i engelsk (ENG01-06)</a>, fastsatt 20.5.2026, gjelder fra 1.8.2026.</p>';
     }
     function oppdater() { skrivAdresse(); tegnListe(); tegnPlan(); }
