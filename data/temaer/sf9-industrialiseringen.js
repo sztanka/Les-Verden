@@ -28,6 +28,9 @@ window.LV.tema = {
       tekst: [
         "Før 1750 bodde de aller fleste i Europa på landet. Folk dyrket jorda, stelte husdyr og laget mye av det de trengte selv. Klær ble spunnet og vevd for hånd hjemme på gården. Det meste av arbeidet ble gjort med muskelkraft fra mennesker og dyr, eller med kraft fra vind og vann.",
         "I andre halvdel av 1700-tallet begynte dette å endre seg i Storbritannia. Nye maskiner gjorde det mulig å lage mye mer, mye raskere. Varene ble ikke lenger laget hjemme, men i store bygninger med mange arbeidere og maskiner: [[fabrikker|fabrikk]]. Overgangen fra et samfunn bygd på jordbruk og håndverk til et samfunn bygd på industri kaller vi [[industrialiseringen|industrialisering]]. Fordi forandringene var så store og skjedde så raskt, kalles den ofte **den industrielle revolusjonen**."
+      ],
+      lett: [
+        "Før 1750 bodde de fleste på landet. Folk laget mye av det de trengte selv, for hånd. Så kom nye maskiner i Storbritannia. Varene ble laget i store **fabrikker**. Denne store forandringen kaller vi **industrialiseringen** eller den industrielle revolusjonen."
       ]
     },
     {
@@ -37,6 +40,9 @@ window.LV.tema = {
         "For det andre hadde Storbritannia mange [[kolonier|koloni]] og drev handel over hele verden. Det gjorde mange kjøpmenn rike, og de hadde [[kapital]] – penger de kunne bruke på nye fabrikker. Fra koloniene kom også [[råvarer|råvare]] som bomull.",
         "For det tredje ble jordbruket mer effektivt. Færre mennesker trengtes på gårdene, samtidig som befolkningen vokste. Dermed fantes det mange som trengte arbeid, og som kunne flytte til byene. Til slutt hadde landet mange oppfinnere og forretningsfolk som var villige til å prøve ut nye ideer."
       ],
+      lett: [
+        "Storbritannia hadde mye **kull og jern**. Landet hadde kolonier og handel, og mange rike kjøpmenn hadde penger til fabrikker. Jordbruket trengte færre arbeidere, så mange kunne flytte til byene. Landet hadde også mange oppfinnere."
+      ],
       stoppOgTenk: "Hvilken av grunnene tror du var viktigst? Hvorfor?"
     },
     {
@@ -45,6 +51,9 @@ window.LV.tema = {
         "Industrialiseringen startet i tekstilindustrien, der klær og stoffer ble laget. På 1760-tallet kom spinnemaskiner som gjorde at én arbeider kunne spinne mange tråder samtidig, i stedet for bare én.",
         "Den viktigste oppfinnelsen var likevel [[dampmaskinen|dampmaskin]]. Enkle dampmaskiner fantes fra før, men de brukte mye kull og var lite effektive. Skotten **James Watt** forbedret dampmaskinen på slutten av 1760-tallet. Nå kunne dampmaskiner drive maskiner nesten hvor som helst. Fabrikkene trengte ikke lenger å ligge ved en elv for å bruke vannkraft.",
         "Dampkraften forandret også transporten. I 1825 åpnet den første jernbanen der et damplokomotiv trakk vogner med passasjerer, og i 1830 kom jernbanen mellom byene Liverpool og Manchester. Med tog og dampskip kunne råvarer, varer og mennesker fraktes raskt og billig over lange avstander."
+      ],
+      lett: [
+        "Det startet med maskiner som laget tråd og stoff. Den viktigste oppfinnelsen var **dampmaskinen**, som James Watt gjorde bedre rundt 1770. Nå kunne fabrikker ligge hvor som helst. Damp ga også kraft til tog og skip. Varer og folk kunne reise raskt og billig."
       ]
     },
     {
@@ -54,6 +63,9 @@ window.LV.tema = {
         "Det var lite rent vann og ingen kloakk. Søppel og avfall havnet på gatene og i elvene. Sykdommer som [[kolera]] og tyfus spredte seg raskt, og mange døde unge. Over byene lå det røyk fra fabrikkpipene og fra kull som ble brent i husene.",
         "Arbeidsdagen i fabrikkene var ofte 12 til 14 timer lang, seks dager i uka. Lønna var lav, og maskinene var farlige. Ble en arbeider skadet eller syk, fikk han eller hun ingen lønn og kunne miste jobben. Det fantes ingen sykepenger eller pensjon."
       ],
+      lett: [
+        "Folk flyttet fra landet til byene for å få jobb. Det kalles **urbanisering**. Arbeiderne bodde trangt og skittent. Det var lite rent vann, og sykdommer spredte seg. Arbeidsdagen var 12–14 timer lang, og lønna var lav. Ble du syk, fikk du ingen penger."
+      ],
       stoppOgTenk: "Tenk deg at du bor i en fabrikkby rundt 1840. Hva tror du hadde vært det verste?"
     },
     {
@@ -61,6 +73,9 @@ window.LV.tema = {
       tekst: [
         "Barn hadde alltid hjulpet til på gårdene, men i fabrikkene ble arbeidet farlig og ensformig. Fabrikkeierne brukte barn fordi de var billige, og fordi de var små nok til å krype under maskinene for å reparere tråder og rydde. Mange begynte å arbeide når de var seks eller sju år gamle, og de fleste gikk ikke på skole.",
         "Etter hvert reagerte mange på [[barnearbeidet|barnearbeid]]. I 1833 vedtok Storbritannia en lov som forbød barn under ni år å arbeide i tekstilfabrikker, og som begrenset hvor mange timer eldre barn kunne jobbe. Senere kom flere slike lover, og etter hvert ble det vanlig at alle barn gikk på skole."
+      ],
+      lett: [
+        "Mange barn jobbet i fabrikkene fra de var seks–sju år. De var billige arbeidere og små nok til å krype under maskinene. Arbeidet var farlig, og de fleste gikk ikke på skole. I 1833 kom en lov i Storbritannia som forbød barn under ni år å jobbe i tekstilfabrikker."
       ]
     },
     {
@@ -68,6 +83,9 @@ window.LV.tema = {
       tekst: [
         "Arbeiderne skjønte at de sto sterkere sammen enn alene. De startet [[fagforeninger|fagforening]] for å kreve høyere lønn, kortere arbeidsdager og tryggere arbeidsplasser. Hvis arbeidsgiveren ikke ville høre, kunne de gå til [[streik]]. I begynnelsen var fagforeninger forbudt eller motarbeidet, og mange arbeidere mistet jobben fordi de var med.",
         "To tyske tenkere, **Karl Marx** og **Friedrich Engels**, skrev i 1848 boka «Det kommunistiske manifest». De mente at arbeiderne ble utnyttet av fabrikkeierne, og at samfunnet måtte endres slik at arbeiderne fikk makt. Ideene deres fikk stor betydning for politikken i mange land på 1900-tallet. I Norge ble Det norske Arbeiderparti stiftet i 1887."
+      ],
+      lett: [
+        "Arbeiderne gikk sammen i **fagforeninger** for å få bedre lønn og kortere arbeidsdager. De kunne **streike**. **Karl Marx** og Friedrich Engels mente at arbeiderne ble utnyttet, og at samfunnet måtte endres. I Norge ble Arbeiderpartiet startet i 1887."
       ]
     },
     {
@@ -77,6 +95,9 @@ window.LV.tema = {
         "Også i Norge gikk arbeidere sammen. **Marcus Thrane** startet arbeiderforeninger fra 1848, og bevegelsen fikk tusenvis av medlemmer. Myndighetene så på den som en trussel, og Thrane og andre ledere ble arrestert og satt i fengsel.",
         "Rundt år 1900 kom en ny fase. Nå ble fossene bygget ut for å lage strøm, og [[vannkraft]] ble grunnlaget for ny industri. Selskapet **Norsk Hydro** ble stiftet i 1905 og laget kunstgjødsel på Notodden og Rjukan. I samme periode utvandret mange nordmenn til Amerika for å finne arbeid og et bedre liv."
       ],
+      lett: [
+        "I Norge kom fabrikkene senere. Fra midten av 1800-tallet ble det bygd fabrikker langs Akerselva i Oslo. **Marcus Thrane** startet arbeiderforeninger fra 1848. Rundt 1900 ble fossene brukt til å lage strøm, og **Norsk Hydro** ble startet i 1905."
+      ],
       stoppOgTenk: "Hvorfor tror du de første fabrikkene i Norge ble bygget langs en elv?"
     },
     {
@@ -84,6 +105,9 @@ window.LV.tema = {
       tekst: [
         "Industrialiseringen forandret verden for alltid. På lang sikt førte den til at [[levestandarden|levestandard]] økte for mange mennesker. Varer ble billigere, og etter hvert fikk folk bedre boliger, bedre helse og mer fritid. Mye av det vi tar for gitt i dag – som tog, elektrisitet og billige klær – har røtter i denne tiden.",
         "Men industrialiseringen hadde også en pris. Den bygde på kull, og senere på olje og gass. Når slike brensler brennes, slippes det ut klimagasser. Derfor henger industrialiseringen sammen med klimaendringene vi ser i dag. Mange mener at vi fortsatt lever i industrialiseringens tid – og at vi nå må finne nye og renere måter å skaffe energi på."
+      ],
+      lett: [
+        "Industrialiseringen ga etter hvert bedre levekår for mange: billigere varer, bedre boliger og mer fritid. Men den bygde på kull, olje og gass. Det gir utslipp som fører til **klimaendringer**. Nå må vi finne renere energi."
       ]
     }
   ],

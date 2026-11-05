@@ -280,6 +280,46 @@
       }
     }
 
+    // Hva har jeg lært? Egenvurdering, avslutningslapp og vurderingskriterier
+    {
+      const en = tema.sprak === "en";
+      const E = en ? {
+        tittel: "What have I learned?", intro: "Think about the learning goals for this topic. How well can you do this now? Be honest – this helps you and your teacher.",
+        valg: ["Not yet", "Partly", "Yes, well"], kanJeg: "I can …", exit: "Exit ticket", exitIntro: "Answer in one or two sentences.",
+        exitSp: ["The most important thing I learned:", "Something I still wonder about:", "One thing I want to tell someone else:"],
+        krit: "Assessment criteria (suggestion)", kritIntro: "This is what your teacher may look for when you show what you have learned – in writing or orally.",
+        nivaa: ["Low", "Medium", "High"], gruppe: "Self-assessment",
+        rader: [
+          ["Knowledge and terms", "uses a few terms from the topic, sometimes incorrectly", "uses key terms correctly, for example " + "%B%", "uses many terms precisely and explains them in own words"],
+          ["Understanding", "retells some facts from the text", "explains causes and consequences with examples", "sees connections across topics and between past and present"],
+          ["Reflection and discussion", "gives an opinion with a simple reason", "gives reasons and shows more than one point of view", "discusses different perspectives and draws a well-founded conclusion"],
+          ["Language and structure", "short answers, many errors that make it hard to understand", "clear structure, mostly correct English with some variation", "fluent, varied and precise English with a clear structure"]
+        ]
+      } : {
+        tittel: "Hva har jeg lært?", intro: "Tenk over læringsmålene for temaet. Hvor godt kan du dette nå? Vær ærlig – det hjelper både deg og læreren.",
+        valg: ["Ikke ennå", "Delvis", "Ja, godt"], kanJeg: "Jeg kan …", exit: "Avslutningslapp", exitIntro: "Svar med én eller to setninger.",
+        exitSp: ["Det viktigste jeg lærte:", "Noe jeg fortsatt lurer på:", "Én ting jeg vil fortelle videre til noen:"],
+        krit: "Vurderingskriterier (forslag)", kritIntro: "Dette kan læreren se etter når du viser hva du har lært – skriftlig eller muntlig.",
+        nivaa: ["Lav", "Middels", "Høy"], gruppe: "Egenvurdering",
+        rader: [
+          ["Fagkunnskap og begreper", "bruker noen få begreper fra temaet, av og til feil", "bruker sentrale begreper riktig, for eksempel %B%", "bruker mange begreper presist og forklarer dem med egne ord"],
+          ["Forståelse og sammenhenger", "gjengir noen fakta fra teksten", "forklarer årsaker og konsekvenser med eksempler", "ser sammenhenger mellom temaer og mellom fortid, nåtid og framtid"],
+          ["Refleksjon og drøfting", "sier hva han eller hun mener, med en enkel begrunnelse", "begrunner meningene sine og viser mer enn ett perspektiv", "drøfter ulike perspektiver og kommer fram til en godt begrunnet konklusjon"],
+          ["Kilder og kildebruk", "bruker fagteksten, men oppgir ikke kilder", "bruker flere kilder og oppgir dem", "vurderer hvor pålitelige kildene er, og bruker dem kritisk"]
+        ]
+      };
+      const begreper = Object.keys(tema.ord || {}).slice(0, 3).map(b => "«" + b + "»").join(", ");
+      h += '<section class="egenvurdering" id="egenvurdering" aria-labelledby="ev-tittel"><h2 id="ev-tittel">🎯 ' + E.tittel + '</h2>';
+      if (tema.maal && tema.maal.length) {
+        h += '<p class="ev-intro">' + E.intro + '</p><ul class="ev-liste" data-gruppe="' + LV.esc(E.gruppe) + '">' + tema.maal.map((m, i) =>
+          '<li><fieldset><legend><span class="ev-kan">' + E.kanJeg + "</span> " + formater(m) + '</legend><div class="ev-valg">' + E.valg.map((v, j) =>
+            '<label><input type="radio" name="ev-' + i + '" id="ev-' + i + "-" + j + '" value="' + j + '" data-maal="' + LV.esc(rentekst(m)) + '" data-tekst="' + LV.esc(v) + '"> <span>' + ["🌱", "🌿", "🌳"][j] + " " + v + "</span></label>").join("") + "</div></fieldset></li>").join("") + "</ul>";
+      }
+      h += "<h3>" + E.exit + '</h3><p class="ev-intro">' + E.exitIntro + '</p><ol class="ev-exit">' + E.exitSp.map((s, i) => "<li><p>" + s + "</p>" + svarfelt("exit-" + i, s, E.exit) + "</li>").join("") + "</ol>";
+      h += '<details class="ev-krit"><summary>📋 ' + E.krit + '</summary><p class="ev-intro">' + E.kritIntro + '</p><div class="ev-tabell"><table><thead><tr><th scope="col"></th>' + E.nivaa.map(n => '<th scope="col">' + n + "</th>").join("") + "</tr></thead><tbody>" +
+        E.rader.map(r => '<tr><th scope="row">' + r[0] + "</th>" + r.slice(1).map(c => "<td>" + LV.esc(c.replace("%B%", begreper || (en ? "the key terms" : "nøkkelbegrepene"))) + "</td>").join("") + "</tr>").join("") + "</tbody></table></div></details></section>";
+    }
+
     // Spill og øv
     {
       const en = tema.sprak === "en";
@@ -416,13 +456,18 @@
 
   function byggKopitekst() {
     const felt = Array.from(document.querySelectorAll("textarea.svar")).filter(t => t.value.trim());
-    if (!felt.length) return null;
+    const ev = Array.from(document.querySelectorAll(".ev-liste input:checked"));
+    if (!felt.length && !ev.length) return null;
     const navn = document.getElementById("elevnavn").value.trim();
     const H = T.kopiHode;
     const linjer = [];
     if (navn) linjer.push(T.navn + ": " + navn);
     linjer.push(H.tema + ": " + tema.tittel + " (" + LV.fagNavn[tema.fag] + ", " + tema.trinn + ". " + H.trinn + ")");
     linjer.push(H.dato + ": " + datoTekst());
+    if (ev.length) {
+      linjer.push("", document.querySelector(".ev-liste").dataset.gruppe.toUpperCase());
+      ev.forEach(r => linjer.push("• " + r.dataset.maal + ": " + r.dataset.tekst));
+    }
     let forrigeGruppe = null;
     felt.forEach(t => {
       if (t.dataset.gruppe !== forrigeGruppe) {
@@ -460,7 +505,7 @@
 
   function kobleSvar() {
     document.addEventListener("input", e => {
-      if (e.target.matches("textarea.svar")) { endretSidenKopi = true; visStatus(""); }
+      if (e.target.matches("textarea.svar, .ev-liste input")) { endretSidenKopi = true; visStatus(""); }
     });
 
     document.getElementById("kopier").addEventListener("click", async () => {
@@ -477,6 +522,7 @@
     document.getElementById("slett").addEventListener("click", () => {
       if (!confirm(T.bekreftSlett)) return;
       document.querySelectorAll("textarea.svar").forEach(t => { t.value = ""; });
+      document.querySelectorAll(".ev-liste input").forEach(r => { r.checked = false; });
       endretSidenKopi = false;
       visStatus("");
     });

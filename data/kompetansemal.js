@@ -143,6 +143,7 @@ LV.kompetansemal = {
     "en10-american-dream": ["e10", "e18", "e12"],
     "en10-9-11": ["e10", "e12", "e18"],
     // Andre sider
+    "side:lesedagbok": ["e10", "e11", "e12", "e6"],
     "side:lesestrategier": ["e1", "e10", "e12"],
     "side:laere": ["e1", "e2", "e7", "e6"],
     "side:uttale": ["e3", "e4"],

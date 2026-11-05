@@ -23,6 +23,7 @@
   };
   const SIDER = [
     ["lesestrategier", "Lesestrategier", "lesestrategier.html", "Strategier før, under og etter lesing, med VØL-skjema.", ["samfunnsfag", "engelsk"]],
+    ["lesedagbok", "Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for selvvalgte tekster.", ["samfunnsfag", "engelsk"]],
     ["laere", "How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", ["engelsk"]],
     ["uttale", "Pronunciation for Norwegians", "uttale.html", "Vanskelige lyder, ordtrykk og stumme bokstaver – lytt og ta opp deg selv.", ["engelsk"]],
     ["muntlig", "Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", ["samfunnsfag", "engelsk"]],
@@ -145,7 +146,7 @@
       $("pl-apne").href = elevLenke(false);
       const har = valgt.length > 0;
       ["pl-kopier-lenke", "pl-kopier-liste", "pl-tom"].forEach(id => { $(id).disabled = !har; });
-      $("pl-apne").classList.toggle("deaktivert", !har);
+      $("pl-apne").classList.toggle("deaktivert", !har); if (har) $("pl-apne").removeAttribute("aria-disabled"); else $("pl-apne").setAttribute("aria-disabled", "true");
     }
     function tegnOversikt() {
       $("pl-ov").innerHTML = ["samfunnsfag", "engelsk"].map(f => '<h3>' + K()[f].navn + ' <span class="pl-kode">' + K()[f].kode + "</span></h3><ul class=\"pl-ov-liste\">" +

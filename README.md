@@ -31,6 +31,7 @@ les-verden/
 ├── muntlig.html            Muntlig og lytting: samtalekort, lytteøvelse og den varme stolen per tema (data i data/muntlig.js)
 ├── laere-engelsk.html      How to learn English: strategier for språklæring (data i data/laere-engelsk.js)
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
+├── lesedagbok.html         Lesedagbok for selvvalgte tekster (assets/lesedagbok.js)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
@@ -257,7 +258,7 @@ Grammatikken har fått gruppen **Sentence workshop** (`sentences` i `data/gramma
 
 ### Lettere tekst på temasidene
 
-Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. Foreløpig har de seks nye 10.-trinnstemaene lettere tekst.
+Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. Foreløpig har tolv temaer lettere tekst: de seks nye 10.-trinnstemaene, Den kalde krigen, Holocaust, Norge under okkupasjonen, FN og menneskerettighetene, Første verdenskrig og Industrialiseringen.
 
 ### How to learn English og Pronunciation
 
@@ -266,6 +267,30 @@ Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst
 `uttale.html` + `assets/uttale.js`, data i `data/uttale.js` (`lyder` med tips, eksempelord og minimale par til lyttequizen, `trykk` med stavelser og indeksen til trykkstavelsen, `trykkPar`, `stumme`, `vanskelige`, `aksentord`). Opplesingen bruker `LV.lesEngelsk(tekst, aksent)` i felles.js, og aksentlista viser bare stemmene nettleseren faktisk har (`LV.tilgjengeligeAksenter()`). «Ta opp deg selv» bruker mikrofonen og MediaRecorder; opptaket ligger bare i minnet og blir aldri lagret eller sendt. Merk: Mikrofonen virker bare på https (GitHub Pages) eller localhost, ikke når filen åpnes rett fra disken.
 
 Landsidene har en boks «🎧 Listen to the accent» med opplesing i landets aksent (hvis nettleseren har stemmen) og lenker til ekte opptak. Lenkene ligger i `LYTT` i `assets/land.js`. Lytteøvelsen på muntlig-sidene har aksentvalg for engelske temaer.
+
+### Lagre og fortsette med fil
+
+`assets/svarfil.js` (lastes på tema, lesing, land, film, sport, skriving og lesedagbok) legger «💾 Last ned svarene» og «📂 Fortsett fra fil» i svarlinja. Filen er en vanlig tekstfil med svarene lesbart øverst og en JSON-blokk nederst (etter en merkelinje) som brukes når eleven leser filen inn igjen. Feltene kjennes igjen på `id`, så nye felt bør alltid få en fast `id`. Filen hører til én side (`side.html?id=…`); leser eleven inn en fil fra en annen side, får hun en lenke dit. Ingenting lagres på nettstedet.
+
+### Egenvurdering i temaene
+
+Alle temaer får automatisk «🎯 Hva har jeg lært?» etter oppgavene: én egenvurdering per læringsmål (`maal`), en avslutningslapp med tre spørsmål og vurderingskriterier (lav–middels–høy) der begrepene hentes fra temaets ordliste. Egenvurderingen kommer med når eleven kopierer svarene. Tekstene ligger i `tema.js` (søk etter «Hva har jeg lært»).
+
+### Lesedagbok
+
+`lesedagbok.html` + `assets/lesedagbok.js`. Norsk som standard, engelsk med `?sprak=en`. Har om boka, før lesing, leselogg (30 rader, 6 synlige; rader med innhold vises automatisk), lesekort som trekkes tilfeldig, ordliste, etter lesing med terningkast og manus for bokpresentasjon.
+
+### Bilder lokalt (personvern)
+
+Temabildene lå før som lenker til Unsplash, slik at elevenes nettlesere kontaktet Unsplash. GitHub-jobben **Hent bilder lokalt** (`.github/workflows/hent-bilder.yml`) kjører `verktoy/hent-bilder.mjs`, som laster ned bildene til `assets/bilder/` og bytter lenkene i `data/temaer/oversikt.js` og `data/land/oversikt.js`. Kjør den én gang: GitHub → Actions → «Hent bilder lokalt» → Run workflow. Hent deretter endringene i GitHub Desktop (Fetch/Pull) før du jobber videre. Nye bilder fra Unsplash kan hentes på samme måte senere. Krediteringen av fotografene beholdes.
+
+### Lenkesjekk
+
+GitHub-jobben **Lenkesjekk** (`.github/workflows/lenkesjekk.yml`) sjekker alle eksterne lenker den 1. i hver måned og oppretter en sak (Issues) med døde lenker. Den kan også kjøres manuelt fra Actions-fanen.
+
+### Universell utforming
+
+Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema uten funn (november 2026). Kontrastfargen `--aksent` og noen guide- og grammatikkfarger ble gjort mørkere. Når du legger til nye farger for tekst, bør kontrasten mot bakgrunnen være minst 4,5:1.
 
 ### Søk
 
@@ -371,7 +396,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

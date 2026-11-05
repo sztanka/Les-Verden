@@ -114,7 +114,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261105d";
+  LV.versjon = "20261105e";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -132,7 +132,7 @@ window.LV = window.LV || {};
     const side = document.body.dataset.side || "";
     const fag = LV.param("fag");
     const engelskSider = ["lesing", "sport", "grammatikk", "land", "uttale", "laere"];
-    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "muntlig", "skriving", "sok"];
+    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "muntlig", "lesedagbok", "skriving", "sok"];
     const aktiv = function (navn) {
       if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && engelskSider.includes(side));
       if (navn === "verktoy") return verktoySider.includes(side);
@@ -173,6 +173,7 @@ window.LV = window.LV || {};
       verktoy: { navn: "Lese og skrive", lenker: [
         ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
         ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
+        ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
         ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
         ["uttale.html", "👄", "Pronunciation", "Uttale for nordmenn", "en"],
         ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],

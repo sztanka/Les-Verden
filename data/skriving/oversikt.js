@@ -6,7 +6,7 @@
    ========================================================= */
 window.LV = window.LV || {};
 LV.skriveguider = [
-  { id: "five-paragraph-essay", sprak: "en", ikon: "🍔", farge: "#c0632b", tittel: "The five-paragraph essay", kort: "Introduction, three body paragraphs and a conclusion – the classic school essay.", fag: ["Engelsk"] },
+  { id: "five-paragraph-essay", sprak: "en", ikon: "🍔", farge: "#ae5a27", tittel: "The five-paragraph essay", kort: "Introduction, three body paragraphs and a conclusion – the classic school essay.", fag: ["Engelsk"] },
   { id: "argumentative-essay", sprak: "en", ikon: "⚖️", farge: "#2c4f8f", tittel: "The argumentative essay", kort: "Take a stand, give reasons, meet the counterarguments – and convince your reader.", fag: ["Engelsk"], par: "droftende" },
   { id: "short-story", sprak: "en", ikon: "📖", farge: "#7a3e8f", tittel: "The short story", kort: "Character, setting, conflict, climax – plan and write your own short story.", fag: ["Engelsk"] },
   { id: "literary-analysis", sprak: "en", ikon: "🔍", farge: "#24624a", tittel: "Analysing a short story", kort: "Write about plot, characters, narrator, themes and language – with quotes.", fag: ["Engelsk"] },

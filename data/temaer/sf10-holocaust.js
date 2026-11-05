@@ -26,6 +26,9 @@ window.LV.tema = {
         "[[Holocaust]] er navnet på nazistenes systematiske forfølgelse og drap på Europas jøder mellom 1933 og 1945. På hebraisk kalles det **Shoah**, som betyr «katastrofen». Rundt seks millioner jøder ble drept, blant dem omtrent 1,5 millioner barn.",
         "Nazistene forfulgte også andre grupper. Hundretusener av rom og sinti ble drept. Mennesker med psykiske lidelser og funksjonsnedsettelser ble myrdet i et eget program. Homofile, Jehovas vitner, politiske motstandere og sovjetiske krigsfanger ble også forfulgt, satt i leirer og drept.",
         "Holocaust var et [[folkemord]]: et forsøk på å utrydde en hel folkegruppe. Ordet folkemord ble laget i 1944, nettopp for å beskrive det som skjedde."
+      ],
+      lett: [
+        "**Holocaust** er nazistenes drap på Europas jøder fra 1933 til 1945. Rundt seks millioner jøder ble drept, blant dem 1,5 millioner barn. Nazistene drepte også rom og sinti, syke og funksjonshemmede, og forfulgte homofile og politiske motstandere. Holocaust var et **folkemord** – et forsøk på å utrydde en hel folkegruppe."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
       tekst: [
         "Hat mot jøder, [[antisemittisme]], har en lang historie i Europa. I mange hundre år ble jøder utestengt fra yrker, fordrevet fra land og gitt skylden for ulykker som pest og krig.",
         "Nazistene gjorde de gamle fordommene om til en rasetenkning. De påsto at menneskeheten var delt i «raser» med ulik verdi, at tyskerne tilhørte en overlegen «arisk rase», og at jødene var en fiende som truet Tyskland. Gjennom [[propaganda]] – aviser, plakater, filmer og skolebøker – ble disse løgnene gjentatt igjen og igjen."
+      ],
+      lett: [
+        "Jøder hadde blitt hatet og diskriminert i Europa i mange hundre år. Det kalles **antisemittisme**. Nazistene påsto at mennesker tilhørte «raser» med ulik verdi, og at jødene var en fiende. De spredte løgnene i aviser, filmer og skolebøker. Det kalles **propaganda**."
       ]
     },
     {
@@ -42,6 +48,9 @@ window.LV.tema = {
         "Natt til 10. november 1938 – **krystallnatten** – ble synagoger satt i brann og jødiske butikker knust over hele Tyskland. Rundt 30 000 jødiske menn ble sendt til konsentrasjonsleirer.",
         "Etter at krigen begynte, ble jøder i de okkuperte landene stengt inne i [[ghettoer|ghetto]], der mange døde av sult og sykdom. Da Tyskland angrep Sovjetunionen i 1941, fulgte egne drapsenheter etter hæren og skjøt hundretusener av jøder i massegraver. I januar 1942 møttes nazistiske ledere på **Wannsee**-konferansen for å organisere det de kalte «den endelige løsningen»: drapet på alle Europas jøder."
       ],
+      lett: [
+        "Forfølgelsen skjedde steg for steg. Fra 1933 mistet jøder jobbene sine. I 1935 mistet de statsborgerskapet. I 1938 ble synagoger brent og butikker knust – det kalles **krystallnatten**. Under krigen ble jøder stengt inne i **ghettoer**. I 1942 planla nazistene å drepe alle jødene i Europa."
+      ],
       stoppOgTenk: "Hvorfor tror du nazistene gikk fram trinn for trinn, i stedet for å gjøre alt på én gang?"
     },
     {
@@ -49,6 +58,9 @@ window.LV.tema = {
       tekst: [
         "Nazistene bygde mange leirer. I [[konsentrasjonsleirer|konsentrasjonsleir]] ble fanger tvunget til hardt arbeid under umenneskelige forhold, og mange døde. I tillegg bygde nazistene **utryddelsesleirer** i det okkuperte Polen, som Treblinka, Sobibor og Belzec. De hadde ett formål: å drepe så mange mennesker som mulig, så raskt som mulig.",
         "Den største leiren var **Auschwitz-Birkenau**. Der ble rundt 1,1 millioner mennesker drept, de fleste av dem jøder. Fangene kom med tog fra hele Europa, stuet sammen i godsvogner. Ved ankomst ble de fleste – barn, eldre og syke – sendt rett i gasskamrene. 27. januar 1945 ble Auschwitz befridd av sovjetiske soldater. Datoen markeres i dag som den internasjonale minnedagen for Holocaust."
+      ],
+      lett: [
+        "Nazistene bygde mange leirer. I **konsentrasjonsleirene** måtte fangene jobbe hardt, og mange døde. I **utryddelsesleirene** ble mennesker drept med en gang. Den største leiren var **Auschwitz-Birkenau**, der rundt 1,1 millioner ble drept. Auschwitz ble befridd 27. januar 1945. Den dagen er i dag minnedag for Holocaust."
       ]
     },
     {
@@ -58,6 +70,9 @@ window.LV.tema = {
         "26. november 1942 ble 529 jøder, også kvinner og barn, sendt med skipet **Donau** fra Oslo. Til sammen ble 773 jøder deportert fra Norge. Bare 34 av dem overlevde. De fleste ble drept i Auschwitz.",
         "Rundt 1100 jøder klarte å flykte til Sverige, ofte med hjelp fra nordmenn som risikerte livet. I 2012 ba statsminister Jens Stoltenberg om unnskyldning for at nordmenn deltok i arrestasjonene og deportasjonene."
       ],
+      lett: [
+        "Det bodde rundt 2100 jøder i Norge. I 1942 ble de arrestert, også av norsk politi. 26. november 1942 ble 529 jøder sendt fra Oslo med skipet **Donau**. Til sammen ble 773 jøder sendt fra Norge, og bare 34 overlevde. Rundt 1100 jøder flyktet til Sverige. I 2012 ba statsministeren om unnskyldning."
+      ],
       stoppOgTenk: "Hvordan tror du det føltes for jødiske familier i Norge at det var norsk politi som arresterte dem?"
     },
     {
@@ -65,6 +80,9 @@ window.LV.tema = {
       tekst: [
         "Selv under umulige forhold gjorde mange jøder motstand. Våren 1943 gjorde jødene i Warszawa-ghettoen væpnet opprør mot tyskerne og holdt ut i nesten en måned. Andre gjorde motstand ved å skrive dagbøker, smugle mat eller holde skole i ghettoene. Den mest kjente dagboken ble skrevet av **Anne Frank**, en jødisk jente som gjemte seg i Amsterdam i to år før familien ble oppdaget. Hun døde i konsentrasjonsleiren Bergen-Belsen i 1945, 15 år gammel.",
         "Noen ikke-jøder risikerte livet for å redde jøder. I Israel kalles de «rettferdige blant folkene». Men de fleste så bort. Mange var redde, noen tjente på det, og mange syntes det ikke angikk dem. Holocaust ble mulig fordi så mange enten deltok eller lot det skje."
+      ],
+      lett: [
+        "Mange jøder gjorde motstand. I 1943 gjorde jødene i Warszawa-ghettoen væpnet opprør. Andre skrev dagbøker eller smuglet mat. **Anne Frank** skrev en kjent dagbok mens hun gjemte seg i Amsterdam. Hun døde i en leir i 1945, 15 år gammel. Noen risikerte livet for å redde jøder, men de fleste så bort."
       ]
     },
     {
@@ -72,6 +90,9 @@ window.LV.tema = {
       tekst: [
         "Etter krigen ble FN enige om en konvensjon mot folkemord (1948), og verdenserklæringen om menneskerettighetene slår fast at alle mennesker har samme verdi. Men folkemord har skjedd igjen, blant annet i Kambodsja, Rwanda og Bosnia.",
         "Når de siste overlevende nå er borte, blir det enda viktigere å lære om Holocaust. Det handler ikke bare om fortiden, men om å kjenne igjen farene i dag: når fordommer blir normale, når en gruppe gjøres til syndebukk, og når folk slutter å si ifra. I Oslo forteller **HL-senteret** om Holocaust og om jødenes historie i Norge."
+      ],
+      lett: [
+        "Etter krigen laget FN en avtale mot folkemord og en erklæring om menneskerettighetene. Likevel har folkemord skjedd igjen, for eksempel i Rwanda og Bosnia. Vi må lære om Holocaust for å kjenne igjen farene i dag: når fordommer blir vanlige, og når folk slutter å si ifra."
       ]
     }
   ],

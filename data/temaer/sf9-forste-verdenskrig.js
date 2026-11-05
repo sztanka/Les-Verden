@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Rundt år 1900 var Europa verdens mektigste del av verden. Men stormaktene var mistenksomme overfor hverandre. Historikere peker ofte på fire årsaker til krigen, som kan huskes med de engelske forbokstavene **MAIN**:",
         "[[Militarisme]]: Landene bygde opp store hærer og flåter, og Tyskland og Storbritannia konkurrerte om å ha flest krigsskip. Allianser: Landene inngikk avtaler om å hjelpe hverandre i krig. Imperialisme: Stormaktene konkurrerte om kolonier og makt. Nasjonalisme: Mange folk var svært stolte av landet sitt, og noen folkegrupper, som serberne, ville ha egne stater."
+      ],
+      lett: [
+        "Rundt år 1900 var stormaktene i Europa mistenksomme mot hverandre. Det var fire hovedårsaker til krigen, som vi kan huske med ordet **MAIN**: store hærer (militarisme), avtaler om å hjelpe hverandre (allianser), kamp om kolonier (imperialisme) og sterk stolthet over eget land (nasjonalisme)."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "Europa var delt i to leirer. På den ene siden sto [[Trippelententen|ententen]]: Storbritannia, Frankrike og Russland. På den andre siden sto **sentralmaktene**: Tyskland og Østerrike-Ungarn, senere også Det osmanske riket og Bulgaria.",
         "Alliansene skulle gi trygghet, men de gjorde også at en konflikt mellom to land raskt kunne dra inn alle de andre. Det var som en rekke dominobrikker: Faller én, faller alle."
       ],
+      lett: [
+        "Europa var delt i to grupper. Den ene var Storbritannia, Frankrike og Russland. Den andre var Tyskland og Østerrike-Ungarn. Alliansene skulle gi trygghet. Men de gjorde at en liten konflikt raskt kunne trekke inn alle landene, som dominobrikker."
+      ],
       stoppOgTenk: "Hvordan kan allianser som skulle skape trygghet, gjøre verden farligere?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "28. juni 1914 besøkte den østerrikske tronfølgeren **Franz Ferdinand** byen Sarajevo i Bosnia, som Østerrike-Ungarn hadde tatt kontroll over. En ung bosnisk serber, **Gavrilo Princip**, skjøt og drepte både ham og kona hans. Princip var med i en gruppe som ville at Bosnia skulle bli en del av Serbia.",
         "Østerrike-Ungarn ga Serbia skylden og erklærte krig 28. juli. Russland støttet Serbia, Tyskland støttet Østerrike-Ungarn, og Frankrike og Storbritannia var alliert med Russland. Da Tyskland marsjerte gjennom det nøytrale Belgia for å angripe Frankrike, gikk Storbritannia inn i krigen. I løpet av en uke var Europas stormakter i krig."
+      ],
+      lett: [
+        "**28. juni 1914** ble den østerrikske tronfølgeren **Franz Ferdinand** skutt i Sarajevo. Østerrike-Ungarn ga Serbia skylden og startet krig. Så trakk alliansene inn det ene landet etter det andre. I løpet av en uke var alle stormaktene i Europa i krig."
       ]
     },
     {
@@ -47,6 +56,9 @@ window.LV.tema = {
       tekst: [
         "Tyskland hadde en plan om å slå Frankrike raskt før de vendte seg mot Russland. Men angrepet ble stanset i Frankrike høsten 1914. Begge sider gravde seg ned i lange grøfter, [[skyttergraver|skyttergrav]], som til slutt strakte seg fra Nordsjøen til Sveits. Dette ble **vestfronten**.",
         "Livet i skyttergravene var et mareritt. Soldatene sto i gjørme og vann, omgitt av rotter, lus og døde kamerater. Mellom frontlinjene lå «ingenmannsland», fullt av piggtråd og granathull. Når soldatene ble sendt ut for å angripe, ble de meid ned av maskingevær. I slaget ved **Somme** i 1916 mistet britene rundt 57 000 mann – døde, sårede og savnede – på den første dagen alene. I slaget ved **Verdun** samme år døde hundretusener."
+      ],
+      lett: [
+        "I Frankrike gravde soldatene seg ned i lange grøfter, **skyttergraver**. Livet der var forferdelig, med gjørme, rotter og lus. Mellom frontene lå piggtråd og «ingenmannsland». Når soldatene angrep, ble de skutt ned av maskingevær. I store slag som ved Somme og Verdun døde hundretusener."
       ]
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
         "Første verdenskrig var den første krigen der industrien for alvor ble brukt til å produsere våpen. **Maskingeværet** kunne skyte hundrevis av skudd i minuttet. Kraftig artilleri kunne skyte granater mange kilometer. I 1915 tok tyskerne i bruk **giftgass**, og snart brukte begge sider det. Senere kom de første stridsvognene og flyene.",
         "Til sjøs brukte Tyskland [[ubåter|ubåt]] for å senke skip som fraktet forsyninger til Storbritannia. Teknologien gjorde det mulig å drepe flere mennesker enn noen gang før, men den var dårlig egnet til å vinne avgjørende seire."
       ],
+      lett: [
+        "Det kom nye våpen som maskingevær, kraftige kanoner, giftgass, stridsvogner og fly. Tyske ubåter senket skip på havet. Våpnene kunne drepe flere mennesker enn noen gang før."
+      ],
       stoppOgTenk: "Hvorfor tror du det var så vanskelig for noen av sidene å vinne krigen på vestfronten?"
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Norge var [[nøytralt|nøytral]] og deltok ikke i krigen. Men den store handelsflåten fraktet varer for begge sider, og mange norske skip ble senket av ubåter og miner. Rundt 2000 norske sjøfolk mistet livet.",
         "Samtidig tjente noen nordmenn store penger på krigen, særlig på skipsfart og aksjer. Denne tiden kalles **jobbetiden**. Etter krigen sprakk boblen, og mange gikk konkurs."
+      ],
+      lett: [
+        "Norge var **nøytralt** og var ikke med i krigen. Men mange norske skip ble senket, og rundt 2000 norske sjøfolk døde. Noen nordmenn ble rike på krigen. Etter krigen gikk mange av dem konkurs."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "I 1917 skjedde to ting som avgjorde krigen. **USA** gikk inn på ententens side, blant annet fordi tyske ubåter senket amerikanske skip. Samtidig brøt det ut revolusjon i **Russland**, som trakk seg ut av krigen. Våren 1918 gjorde Tyskland et siste stort angrep i vest, men med friske amerikanske soldater klarte de allierte å slå tilbake.",
         "11. november 1918 klokka 11 trådte en [[våpenhvile]] i kraft. Rundt 17 millioner mennesker var døde, og mange flere var skadet for livet. Samme år spredte spanskesyken seg over hele verden og drepte enda flere. Etter krigen falt keiserrikene i Tyskland, Østerrike-Ungarn, Russland og Det osmanske riket, og nye land som Polen og Tsjekkoslovakia ble opprettet. I fredsavtalen i Versailles i 1919 fikk Tyskland skylden for krigen og harde straffer – noe som skapte bitterhet og la grunnlaget for nye konflikter."
+      ],
+      lett: [
+        "I 1917 gikk USA inn i krigen, og Russland trakk seg ut. **11. november 1918** kom våpenhvilen. Rundt 17 millioner mennesker var døde. Etter krigen falt flere keiserriker, og nye land ble laget. Tyskland fikk skylden og harde straffer. Det skapte sinne som bidro til en ny krig senere."
       ]
     }
   ],

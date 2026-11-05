@@ -15,7 +15,7 @@
   --samfunnsfag-lys: #e2efe9;
   --engelsk: #2c4f8f;
   --engelsk-lys: #e3eaf6;
-  --aksent: #c8561a;
+  --aksent: #a8460f;
   --aksent-lys: #fbe9dd;
   --gul-lys: #fdf3d3;
   --gul: #8a6a00;
@@ -692,7 +692,7 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 
 .strukturlinje { display: flex; border-radius: 10px; overflow: hidden; margin: .5rem 0 1rem; font-weight: 700; font-size: .9rem; }
 .strukturlinje span { padding: .55rem .7rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.strukturlinje .del-0, .strukturkort .del-0 { --del: #6b7f2a; }
+.strukturlinje .del-0, .strukturkort .del-0 { --del: #5a6b22; }
 .strukturlinje .del-1, .strukturkort .del-1 { --del: var(--fag); }
 .strukturlinje .del-2, .strukturkort .del-2 { --del: #8a4b9a; }
 .strukturlinje span { background: var(--del); }
@@ -1359,7 +1359,7 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .gr-pkort-eks > span { display: flex; flex-direction: column; }
 .gr-pkort-eks u { text-underline-offset: 2px; font-weight: 700; margin-bottom: .1rem; }
 .gr-pkort-eks i { font-style: normal; }
-.gr-pkort-norsk { margin-top: auto; font-size: .8rem; opacity: .9; }
+.gr-pkort-norsk { margin-top: auto; font-size: .8rem; }
 .gr-plakat-setning { margin: 1.2rem 0 .3rem; text-align: center; line-height: 1.9; font: 800 clamp(1.1rem, 3.6vw, 1.7rem) var(--font-tekst); }
 .gr-sord { border: 0; background: none; padding: 0 .05em; font: inherit; color: var(--gr-farge); cursor: pointer; border-radius: 4px; filter: brightness(1.35) saturate(1.1); }
 .gr-sord:hover, .gr-sord.valgt { background: var(--gr-farge); color: var(--gr-tekst); filter: none; }
@@ -1924,15 +1924,16 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 :root[data-tema="mork"] .sk-fakta-tittel { color: var(--tekst); }
 .sk-fakta dt { font-size: .8rem; color: var(--tekst-dempet); }
 .sk-fakta dd { margin: 0; }
+.sk-fakta-tittel { margin: 0; }
+.sk-fakta-liste { margin: 0; display: grid; gap: .45rem; }
 .sk-forarbeid { font-family: var(--font-ui); line-height: 1.55; display: grid; gap: .45rem; padding-left: 1.4rem; }
 /* Blåkopi */
 .sk-blaakopi { list-style: none; padding: 0; margin: 1rem auto 1.6rem; max-width: 34rem; display: grid; gap: 5px; }
 .sk-blaakopi a { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: calc(var(--h) * 2.6rem); padding: .4rem .8rem; border-radius: 12px; background: var(--sk); color: #fff; text-decoration: none; font-family: var(--font-ui); }
-.sk-blaakopi li:nth-child(even) a { background: color-mix(in srgb, var(--sk) 72%, #fff); }
+.sk-blaakopi li:nth-child(even) a { background: color-mix(in srgb, var(--sk) 78%, #000); }
 .sk-blaakopi a:hover { outline: 3px solid var(--tekst); }
 .sk-bk-navn { font-weight: 700; }
 .sk-bk-kort { font-size: .85rem; opacity: .95; }
-:root[data-tema="mork"] .sk-blaakopi a { color: #10141a; }
 /* Delkort */
 .sk-delkort-rad { display: grid; gap: 1rem; }
 .sk-delkort { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--sk); border-radius: var(--radius); padding: .4rem 1.3rem 1rem; scroll-margin-top: 5rem; }
@@ -2352,3 +2353,53 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .land-lytt { background: var(--engelsk-lys); border-radius: var(--radius); padding: .4rem 1.2rem 1rem; margin: 2rem 0; }
 .land-lytt-info { font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); }
 .land-lytt-tips { font-family: var(--font-ui); font-size: .92rem; }
+
+/* ---------- Svarfil ---------- */
+.sf-annen { flex-basis: 100%; margin: .3rem 0 0; font-family: var(--font-ui); font-size: .9rem; background: var(--gul-lys); border-radius: 8px; padding: .4rem .7rem; }
+@media (max-width: 640px) {
+  .svarlinje .sf-ned, .svarlinje .sf-opp, .svarlinje .us-knapp { flex: 0 0 auto; min-width: 44px; padding: .4rem .55rem; }
+  .svarlinje .knapp-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* ---------- Egenvurdering ---------- */
+.egenvurdering { background: var(--flate); border: 1px solid var(--linje); border-top: 6px solid var(--fag); border-radius: var(--radius); padding: .6rem 1.3rem 1.2rem; margin: 2.4rem 0; }
+.ev-intro { font-family: var(--font-ui); color: var(--tekst-dempet); }
+.ev-liste { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.ev-liste fieldset { border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .9rem; margin: 0; }
+.ev-liste legend { font-family: var(--font-tekst); font-size: 1.05rem; padding: 0 .3rem; }
+.ev-kan { font-family: var(--font-ui); font-weight: 700; color: var(--fag); }
+:root[data-tema="mork"] .ev-kan { color: var(--tekst); }
+.ev-valg { display: flex; flex-wrap: wrap; gap: .4rem; font-family: var(--font-ui); margin-top: .3rem; }
+.ev-valg label { position: relative; }
+.ev-valg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.ev-valg span { display: inline-block; padding: .35rem .8rem; border: 2px solid var(--linje); border-radius: 999px; background: var(--bakgrunn); }
+.ev-valg input:checked + span { border-color: var(--fag); background: var(--fag-lys); font-weight: 700; }
+.ev-valg input:focus-visible + span { outline: 3px solid var(--tekst); outline-offset: 2px; }
+.ev-exit { padding-left: 1.3rem; }
+.ev-exit p { font-family: var(--font-ui); font-weight: 600; margin: .6rem 0 .2rem; }
+.ev-krit { margin-top: 1.2rem; font-family: var(--font-ui); }
+.ev-krit summary { cursor: pointer; font-weight: 700; }
+.ev-tabell { overflow-x: auto; }
+.ev-tabell table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: .9rem; }
+.ev-tabell th, .ev-tabell td { border: 1px solid var(--linje); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+.ev-tabell thead th { background: var(--fag-lys); }
+.ev-tabell tbody th { background: var(--flate-2); width: 22%; }
+
+/* ---------- Lesedagbok ---------- */
+.ld-boks { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1.3rem 1rem; }
+.ld-felt { display: grid; gap: 0 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.ld-felt input, .ld-logg input { font: inherit; font-weight: 400; padding: .45rem .6rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); width: 100%; box-sizing: border-box; }
+.ld-logg-wrap { overflow-x: auto; }
+.ld-logg { border-collapse: collapse; width: 100%; min-width: 560px; font-family: var(--font-ui); }
+.ld-logg th { text-align: left; font-size: .85rem; padding: .3rem; color: var(--tekst-dempet); }
+.ld-logg td { padding: .2rem .25rem; }
+.ld-logg td:nth-child(1) { width: 7.5rem; } .ld-logg td:nth-child(2) { width: 6rem; } .ld-logg td:nth-child(3) { width: 5.5rem; }
+.ld-sum { font-family: var(--font-ui); font-weight: 600; }
+.ld-kort { margin: .6rem 0 .8rem; min-height: 6rem; background: var(--lilla); }
+.ld-terning { border: 1px solid var(--linje); border-radius: 12px; display: flex; flex-wrap: wrap; gap: .4rem; font-family: var(--font-ui); }
+.ld-terning legend { font-weight: 700; padding: 0 .3rem; }
+.ld-terning label { position: relative; }
+.ld-terning input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.ld-terning span { display: inline-block; padding: .3rem .7rem; border: 2px solid var(--linje); border-radius: 10px; font-size: 1.05rem; }
+.ld-terning input:checked + span { border-color: var(--lilla); background: var(--lilla-lys); font-weight: 700; }
+.ld-terning input:focus-visible + span { outline: 3px solid var(--tekst); }

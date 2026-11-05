@@ -1,0 +1,25 @@
+# Les verden – «Hent bilder lokalt»
+# Kjør manuelt: Actions → «Hent bilder lokalt» → Run workflow.
+# Laster ned temabildene fra Unsplash til assets/bilder/ og bytter lenkene,
+# slik at elevenes nettlesere bare henter filer fra deres egen side.
+name: Hent bilder lokalt
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  hent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Last ned bildene
+        run: node verktoy/hent-bilder.mjs
+      - name: Lagre endringene i repoet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/bilder data/temaer/oversikt.js data/land/oversikt.js
+          if git diff --cached --quiet; then echo "Ingen endringer."; else git commit -m "Legg temabildene lokalt (hent-bilder)" && git push; fi

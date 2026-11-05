@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Under andre verdenskrig kjempet USA og Sovjetunionen på samme side mot Hitler. Men de var svært forskjellige. USA var et demokrati med [[kapitalisme]], der privatpersoner og bedrifter eier mye og konkurrerer i et fritt marked. Sovjetunionen var et kommunistisk diktatur, der staten eide og styrte nesten alt, og der ett parti hadde all makt.",
         "Etter krigen sto sovjetiske soldater i store deler av Øst-Europa. I land som Polen, Ungarn og Tsjekkoslovakia fikk kommunister makten med hjelp fra Moskva. I 1946 sa den britiske lederen Winston Churchill at et [[jernteppe]] hadde senket seg over Europa. Den kalde krigen varte omtrent fra 1947 til 1991."
+      ],
+      lett: [
+        "Under andre verdenskrig kjempet USA og Sovjetunionen sammen mot Hitler. Men landene var svært forskjellige. USA var et demokrati der folk og bedrifter kunne eie mye. Sovjetunionen var et kommunistisk diktatur der staten styrte nesten alt. Etter krigen fikk kommunister makten i mange land i Øst-Europa. Churchill sa at et **jernteppe** delte Europa i to."
       ]
     },
     {
@@ -32,6 +35,9 @@ window.LV.tema = {
       tekst: [
         "USA ville stoppe spredningen av kommunismen. Gjennom **Marshallhjelpen** fra 1948 fikk landene i Vest-Europa, også Norge, store summer til å bygge opp igjen landene etter krigen. Sovjetunionen sa nei til å ta imot hjelpen og nektet landene i øst å gjøre det.",
         "Tyskland ble delt i to stater i 1949: demokratiske **Vest-Tyskland** og kommunistiske **Øst-Tyskland**. Samme år ble forsvarsalliansen **NATO** grunnlagt 4. april 1949, med USA i spissen. Norge var et av de tolv landene som var med fra starten. I 1955 svarte Sovjetunionen med å opprette **Warszawapakten** sammen med landene i Øst-Europa. Europa var nå delt i to [[militærallianser|militærallianse]]."
+      ],
+      lett: [
+        "USA ga Vest-Europa mye penger for å bygge opp landene etter krigen. Det kalles **Marshallhjelpen**. Tyskland ble delt i to land i 1949: Vest-Tyskland og Øst-Tyskland. Samme år ble **NATO** startet, og Norge var med. Sovjetunionen og landene i øst startet sin egen allianse i 1955."
       ]
     },
     {
@@ -39,6 +45,9 @@ window.LV.tema = {
       tekst: [
         "Berlin lå midt inne i Øst-Tyskland, men også byen var delt. Vest-Berlin hørte til Vesten. Millioner av østtyskere flyktet vestover gjennom Berlin, fordi de ville ha frihet og bedre levekår. For å stoppe flukten bygde de østtyske myndighetene natt til **13. august 1961** en mur tvers gjennom byen.",
         "**Berlinmuren** ble et symbol på hele den kalde krigen. Familier og venner ble skilt i 28 år. Muren ble voktet av soldater med ordre om å skyte, og minst 140 mennesker ble drept da de prøvde å komme over."
+      ],
+      lett: [
+        "Byen Berlin var også delt. Mange østtyskere flyktet til Vest-Berlin for å få frihet. For å stoppe dem bygde Øst-Tyskland en mur gjennom byen i **1961**. Familier og venner ble skilt i 28 år. Minst 140 mennesker ble drept da de prøvde å komme over muren."
       ],
       stoppOgTenk: "Hva tror du det sier om et land når det må bygge en mur for å hindre sine egne innbyggere i å reise?"
     },
@@ -48,6 +57,9 @@ window.LV.tema = {
         "USA brukte atombomben i 1945, og i 1949 fikk også Sovjetunionen atomvåpen. Det startet et [[våpenkappløp]]: Begge sider bygde tusenvis av stadig kraftigere atomvåpen og raketter som kunne nå den andre siden på under en time. Ingen av dem kunne angripe uten selv å bli utslettet. Denne situasjonen kalles [[terrorbalansen]].",
         "Verden var aldri nærmere en atomkrig enn under **Cubakrisen** i oktober 1962. Sovjetunionen hadde plassert atomraketter på Cuba, bare rundt 150 kilometer fra USA. President **John F. Kennedy** krevde at rakettene ble fjernet, og satte opp en sjøblokade rundt øya. I 13 dager holdt verden pusten. Til slutt ga den sovjetiske lederen **Nikita Khrusjtsjov** etter, og USA lovte i hemmelighet å fjerne sine raketter fra Tyrkia."
       ],
+      lett: [
+        "Både USA og Sovjetunionen bygde tusenvis av atomvåpen. Ingen av dem turte å angripe, fordi begge ville blitt ødelagt. Det kalles **terrorbalansen**. I 1962 plasserte Sovjetunionen atomraketter på Cuba, nær USA. I 13 dager var verden nær en atomkrig. Til slutt ble rakettene fjernet."
+      ],
       stoppOgTenk: "Hvordan kan atomvåpen både skape frykt og samtidig hindre krig? Høres det logisk ut?"
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "Selv om supermaktene ikke kriget direkte mot hverandre, støttet de hver sin side i mange kriger rundt om i verden. Slike kriger kalles [[stedfortrederkriger|stedfortrederkrig]]. I **Koreakrigen** (1950–1953) kjempet kommunistiske Nord-Korea, støttet av Kina og Sovjetunionen, mot Sør-Korea, støttet av USA og FN. Korea er fortsatt delt i dag.",
         "I **Vietnamkrigen** sendte USA over en halv million soldater for å stoppe kommunistene i Nord-Vietnam, men tapte. Krigen førte til store protester i USA og resten av verden. I **Afghanistan** (1979–1989) kjempet Sovjetunionen mot opprørere som fikk våpen fra USA, og led et stort nederlag."
+      ],
+      lett: [
+        "USA og Sovjetunionen kriget aldri direkte mot hverandre. Men de støttet hver sin side i kriger i andre land. Eksempler er **Koreakrigen**, **Vietnamkrigen** og krigen i **Afghanistan**. Millioner av mennesker døde i disse krigene."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Den kalde krigen var også en konkurranse om hvem som hadde best teknologi og det beste samfunnet. I 1957 sendte Sovjetunionen opp **Sputnik**, verdens første satellitt. I 1961 ble **Jurij Gagarin** det første mennesket i verdensrommet. USA følte seg forbigått og satset enorme summer. 20. juli 1969 gikk amerikaneren **Neil Armstrong** som første menneske på månen.",
         "Kampen foregikk også i idrett, kunst og propaganda. Olympiske leker ble boikottet, og begge sider brukte filmer, radio og plakater for å vise at deres system var best."
+      ],
+      lett: [
+        "Supermaktene konkurrerte også om hvem som var best i teknologi. I 1957 sendte Sovjetunionen opp den første satellitten. I 1961 ble **Jurij Gagarin** det første mennesket i verdensrommet. I 1969 gikk amerikaneren **Neil Armstrong** på månen."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "Norge var det eneste NATO-landet i Nord-Europa som hadde grense mot Sovjetunionen, i Finnmark. Derfor var Norge viktig for NATO, blant annet for å overvåke sovjetiske ubåter og fly fra Kola-halvøya. Samtidig ville Norge ikke provosere naboen: Norge sa nei til faste utenlandske militærbaser og atomvåpen på norsk jord i fredstid.",
         "Mange nordmenn var redde for atomkrig. Det ble bygd tilfluktsrom over hele landet, og sirener ble testet regelmessig – det gjøres fortsatt i dag."
+      ],
+      lett: [
+        "Norge hadde grense mot Sovjetunionen i Finnmark. Derfor var Norge viktig for NATO. Men Norge ville ikke ha utenlandske baser eller atomvåpen i fredstid. Mange nordmenn var redde for atomkrig, og det ble bygd tilfluktsrom over hele landet."
       ]
     },
     {
@@ -77,6 +98,9 @@ window.LV.tema = {
         "På 1980-tallet var Sovjetunionen i dyp økonomisk krise. Den nye lederen **Mikhail Gorbatsjov**, som kom til makten i 1985, ville reformere landet og ga folk mer frihet til å si hva de mente. Han inngikk også nedrustningsavtaler med USA.",
         "I 1989 gjorde folk i Øst-Europa opprør mot de kommunistiske regimene, nesten uten vold. Om kvelden **9. november 1989** åpnet grensen i Berlin, og jublende mennesker klatret opp på muren. 3. oktober 1990 ble Tyskland samlet igjen. I desember 1991 ble Sovjetunionen oppløst og delt i 15 selvstendige stater, blant dem Russland, Ukraina og de baltiske landene. Den kalde krigen var over.",
         "Mange trodde da at demokratiet hadde vunnet for godt. I dag er spenningen mellom Russland og Vesten igjen stor, særlig etter Russlands fullskala invasjon av Ukraina i 2022. Noen snakker om en ny kald krig."
+      ],
+      lett: [
+        "På 1980-tallet var Sovjetunionen i krise. Lederen **Gorbatsjov** ga folk mer frihet. I 1989 gjorde folk i Øst-Europa opprør, og **Berlinmuren falt 9. november 1989**. Tyskland ble ett land igjen i 1990, og Sovjetunionen ble oppløst i 1991. I dag er det igjen stor spenning mellom Russland og Vesten."
       ]
     }
   ],

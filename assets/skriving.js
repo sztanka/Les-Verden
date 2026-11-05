@@ -58,7 +58,7 @@
 
     // Hva er det?
     h += '<section id="sk-hva" class="sk-del"><h2>' + t.hva + '</h2><div class="sk-hva">' + '<div class="sk-hva-tekst">' + g.hva.map(p => "<p>" + fmt(p) + "</p>").join("") + "</div>" +
-      (g.fakta ? '<dl class="sk-fakta"><div class="sk-fakta-tittel">' + t.fakta + "</div>" + g.fakta.map(([k, v]) => "<div><dt>" + esc(k) + "</dt><dd>" + fmt(v) + "</dd></div>").join("") + "</dl>" : "") + "</div></section>";
+      (g.fakta ? '<div class="sk-fakta"><p class="sk-fakta-tittel">' + t.fakta + '</p><dl class="sk-fakta-liste">' + g.fakta.map(([k, v]) => "<div><dt>" + esc(k) + "</dt><dd>" + fmt(v) + "</dd></div>").join("") + "</dl></div>" : "") + "</div></section>";
 
     // Før du skriver
     h += '<section id="sk-for" class="sk-del"><h2>' + t.for + '</h2><ol class="sk-forarbeid">' + g.forarbeid.map(s => "<li>" + fmt(s) + "</li>").join("") + "</ol></section>";

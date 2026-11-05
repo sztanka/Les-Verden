@@ -26,6 +26,9 @@ window.LV.tema = {
         "Etter første verdenskrig ble Folkeforbundet opprettet for å hindre nye kriger. Det klarte det ikke: USA ble aldri med, og Folkeforbundet hadde ingen makt til å stoppe land som Tyskland, Italia og Japan da de angrep andre land på 1930-tallet.",
         "Under andre verdenskrig begynte de allierte å planlegge en ny og sterkere organisasjon. 24. oktober 1945 ble **De forente nasjoner (FN)** formelt opprettet. 51 land var med fra starten, blant dem Norge. I dag har FN 193 [[medlemsland|medlemsland]] – nesten alle verdens stater. Datoen 24. oktober markeres hvert år som FN-dagen.",
         "Den første generalsekretæren i FN var en nordmann: **Trygve Lie**, som ledet organisasjonen fra 1946 til 1952."
+      ],
+      lett: [
+        "Etter første verdenskrig ble Folkeforbundet startet, men det klarte ikke å hindre en ny krig. **24. oktober 1945** ble **FN** opprettet. I dag er 193 land med. Den første lederen av FN var nordmannen **Trygve Lie**."
       ]
     },
     {
@@ -35,6 +38,9 @@ window.LV.tema = {
         "Den mektigste delen av FN er **Sikkerhetsrådet**, som har ansvaret for fred og sikkerhet i verden. Rådet har 15 medlemmer. Fem av dem er faste: USA, Russland, Kina, Storbritannia og Frankrike – seiersmaktene fra andre verdenskrig. De har [[vetorett]], som betyr at hvert av dem alene kan stoppe et vedtak. De ti andre medlemmene velges for to år av gangen. Norge satt i Sikkerhetsrådet senest i 2021–2022.",
         "FN har også en internasjonal domstol i Haag i Nederland og et **sekretariat**, ledet av generalsekretæren. I tillegg har FN mange særorganisasjoner og fond, for eksempel **UNICEF** (barn), **WHO** (helse), **UNHCR** (flyktninger) og **Verdens matvareprogram (WFP)**."
       ],
+      lett: [
+        "I **Generalforsamlingen** har alle land én stemme. Den mektigste delen er **Sikkerhetsrådet**, som skal passe på fred i verden. Fem land er faste medlemmer: USA, Russland, Kina, Storbritannia og Frankrike. Hvert av dem kan stoppe et vedtak alene med **vetorett**. FN har også organisasjoner som UNICEF og WHO."
+      ],
       stoppOgTenk: "Er det rettferdig at fem land har vetorett i Sikkerhetsrådet? Hvorfor tror du det ble slik i 1945?"
     },
     {
@@ -42,6 +48,9 @@ window.LV.tema = {
       tekst: [
         "Etter Holocaust og grusomhetene under krigen ville verden slå fast at enhver stat har plikt til å behandle menneskene sine med respekt. En komité ledet av **Eleanor Roosevelt**, enken etter den amerikanske presidenten Franklin D. Roosevelt, skrev et utkast. 10. desember 1948 vedtok FNs generalforsamling **verdenserklæringen om menneskerettighetene**.",
         "Erklæringen har 30 artikler. Artikkel 1 lyder: «Alle mennesker er født frie og med samme menneskeverd og menneskerettigheter.» Menneskerettighetene er [[universelle|universell]]: De gjelder for alle mennesker, uansett kjønn, hudfarge, religion, nasjonalitet eller meninger. 10. desember er i dag menneskerettighetsdagen."
+      ],
+      lett: [
+        "Etter krigen ville verden sikre at alle blir behandlet med respekt. **10. desember 1948** vedtok FN **verdenserklæringen om menneskerettighetene**. Den første artikkelen sier at alle mennesker er født frie og med samme verdi. Rettighetene gjelder for alle."
       ]
     },
     {
@@ -51,6 +60,9 @@ window.LV.tema = {
         "**Økonomiske, sosiale og kulturelle rettigheter** handler om at staten skal sørge for at folk kan leve et verdig liv. Eksempler er retten til utdanning, helsehjelp, arbeid, mat og et sted å bo.",
         "Verdenserklæringen er ikke juridisk bindende i seg selv. Derfor har FN senere laget [[konvensjoner|konvensjon]] – avtaler som landene forplikter seg til å følge når de har skrevet under. Den viktigste for deg er **barnekonvensjonen** fra 1989. Den sier blant annet at barn har rett til å bli hørt i saker som gjelder dem, og at barnets beste skal komme først. Barnekonvensjonen er den konvensjonen som flest land i verden har sluttet seg til."
       ],
+      lett: [
+        "Noen rettigheter beskytter deg mot staten, som ytringsfrihet, religionsfrihet og forbud mot tortur. Andre handler om et godt liv, som retten til skole, helsehjelp og mat. FN har laget avtaler som landene må følge. **Barnekonvensjonen** fra 1989 sier at barn har rett til å bli hørt, og at barnets beste skal komme først."
+      ],
       stoppOgTenk: "Hvilken rettighet i barnekonvensjonen tror du er viktigst for deg? Hvorfor?"
     },
     {
@@ -58,6 +70,9 @@ window.LV.tema = {
       tekst: [
         "Norge har sluttet seg til de viktigste menneskerettighetskonvensjonene, og flere av dem er gjort til norsk lov. I 2014, da Grunnloven fylte 200 år, fikk den et eget kapittel om menneskerettigheter. Der står det blant annet at statens myndigheter skal respektere og sikre menneskerettighetene.",
         "Likevel blir Norge også kritisert, for eksempel for behandlingen av samer og romfolk i historien, for hvordan barn i barnevernet og asylsøkere er blitt behandlet, og for bruk av varetektsfengsling. Menneskerettighetene er ikke noe et land «er ferdig med» – de må hele tiden passes på."
+      ],
+      lett: [
+        "Norge har skrevet under på de viktigste avtalene. Siden 2014 står menneskerettighetene i Grunnloven. Likevel får Norge kritikk, for eksempel for hvordan samer, romfolk og asylsøkere er blitt behandlet. Menneskerettighetene må passes på hele tiden."
       ]
     },
     {
@@ -65,6 +80,9 @@ window.LV.tema = {
       tekst: [
         "FN gjør mye som sjelden kommer på nyhetene. FN-organisasjoner vaksinerer millioner av barn, gir mat til mennesker i krise, hjelper flyktninger og overvåker valg. FN har også sendt [[fredsbevarende styrker|fredsbevarende]] – soldater med blå hjelmer – til mange konfliktområder for å holde partene fra hverandre. Tusenvis av norske soldater har deltatt, blant annet i Libanon.",
         "Frivillige organisasjoner er viktige i arbeidet for menneskerettighetene. **Amnesty International**, grunnlagt i 1961, arbeider for samvittighetsfanger og mot tortur og dødsstraff. Organisasjoner som Redd Barna og Flyktninghjelpen hjelper mennesker i krig og nød."
+      ],
+      lett: [
+        "FN vaksinerer barn, gir mat til folk i nød og hjelper flyktninger. FN sender også soldater med blå hjelmer for å holde fred i konfliktområder. Organisasjoner som **Amnesty**, Redd Barna og Flyktninghjelpen jobber også for menneskerettighetene."
       ]
     },
     {
@@ -72,6 +90,9 @@ window.LV.tema = {
       tekst: [
         "FN blir ofte kritisert for å være for svakt. Når en av de fem faste medlemmene i Sikkerhetsrådet bruker vetoretten, blir FN lammet. Russland har for eksempel stoppet vedtak om Syria og Ukraina, og USA har stoppet vedtak om Israel og Palestina. FN klarte heller ikke å hindre folkemordene i Rwanda og Srebrenica på 1990-tallet, selv om FN-soldater var til stede.",
         "Andre peker på at FN er det eneste stedet der nesten alle verdens land møtes og snakker sammen, også når de er fiender. Uten FN ville verden kanskje vært enda farligere. FNs tidligere generalsekretær Dag Hammarskjöld sa det slik: «FN ble ikke skapt for å ta menneskeheten til himmelen, men for å redde den fra helvete.»"
+      ],
+      lett: [
+        "Mange mener at FN er for svakt. Når et av de fem faste landene bruker vetoretten, kan FN ikke gjøre noe. FN klarte heller ikke å stoppe folkemordene i Rwanda og Srebrenica. Men FN er det eneste stedet der nesten alle land møtes og snakker sammen."
       ]
     }
   ],

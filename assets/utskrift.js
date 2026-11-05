@@ -14,6 +14,8 @@
     [".personer-tema", "Personer", false],
     [".begrepsliste", "Begreper", true],
     [".oppgaver", "Oppgaver", true],
+    ["#egenvurdering", "Egenvurdering og avslutningslapp", true],
+    ["#ld-skjema", "Lesedagboka", true],
     ["#for", "Before you read", true],
     ["#les", "Teksten (den fanen som er valgt)", true],
     ["#etter", "After reading", true],
@@ -87,7 +89,7 @@
     const linje = document.querySelector(".svarlinje-indre");
     if (!linje || linje.querySelector(".us-knapp")) return !!linje;
     const b = document.createElement("button");
-    b.type = "button"; b.className = "knapp us-knapp"; b.innerHTML = '<span aria-hidden="true">🖨️</span> Skriv ut';
+    b.type = "button"; b.className = "knapp us-knapp"; b.innerHTML = '<span aria-hidden="true">🖨️</span> <span class="knapp-tekst">Skriv ut</span>';
     b.title = "Skriv ut siden som arbeidsark eller med svarene dine";
     b.addEventListener("click", dialog);
     const status = linje.querySelector(".status");

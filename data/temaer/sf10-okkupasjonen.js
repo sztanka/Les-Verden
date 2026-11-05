@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Natt til 9. april 1940 angrep tyske styrker Norge fra sjøen og fra lufta. Tyskland ville sikre seg havnene langs norskekysten og transporten av svensk jernmalm, som ble fraktet fra Narvik. Samtidig ble Danmark okkupert.",
         "I Oslofjorden møtte den tyske krysseren **Blücher** motstand fra Oscarsborg festning i Drøbaksundet. Skipet ble senket, og over 800 tyskere omkom. Det ga kongen, regjeringen og Stortinget tid til å flykte fra Oslo – og Norges Banks gullbeholdning ble fraktet i sikkerhet. Samme kveld gikk **Vidkun Quisling** på radio og erklærte seg selv som statsminister. Kuppforsøket hans varte bare i noen dager."
+      ],
+      lett: [
+        "Natt til **9. april 1940** angrep Tyskland Norge. Tyskland ville ha havnene og jernmalmen fra Narvik. I Oslofjorden ble det tyske skipet **Blücher** senket ved Oscarsborg. Da fikk kongen, regjeringen og Stortinget tid til å flykte fra Oslo. Samme kveld sa **Vidkun Quisling** på radio at han var ny statsminister."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "10. april krevde den tyske sendemannen at kong **Haakon 7.** skulle godkjenne en ny regjering under Quisling. Kongen sa nei, og sa at han heller ville abdisere enn å gjøre det. Regjeringen sluttet seg til. «Kongens nei» ble et viktig symbol for motstanden i hele krigen.",
         "Norske soldater kjempet sammen med britiske, franske og polske styrker i 62 dager, blant annet ved Narvik. Men 7. juni 1940 måtte kongen og regjeringen flykte til London, og 10. juni kapitulerte de norske styrkene. Fra London ledet regjeringen Norges deltakelse i krigen. Den norske handelsflåten, en av verdens største, seilte for de allierte – og over 3000 sjøfolk omkom."
       ],
+      lett: [
+        "Tyskland krevde at kongen skulle godta Quisling. **Kong Haakon 7.** sa nei. «Kongens nei» ble et viktig symbol. Norske soldater kjempet i to måneder, blant annet ved Narvik. I juni 1940 flyktet kongen og regjeringen til London. Den norske handelsflåten seilte for de allierte resten av krigen."
+      ],
       stoppOgTenk: "Hvorfor tror du «kongens nei» ble et så viktig symbol for nordmenn under krigen?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "Den egentlige makten i Norge lå hos den tyske [[rikskommissæren|rikskommissær]] **Josef Terboven**. Alle andre partier enn Nasjonal Samling (NS) ble forbudt. Fra 1942 var Quisling «ministerpresident», men han måtte alltid gjøre som tyskerne ville.",
         "NS ville gjøre Norge til et nasjonalsosialistisk samfunn. Partiet prøvde å ta kontroll over skolen, kirken, idretten og fagforeningene. På det meste hadde NS rundt 40 000 medlemmer. Noen tusen nordmenn meldte seg også frivillig til å kjempe på tysk side på østfronten. Å samarbeide med fienden kalles [[kollaborasjon]]."
+      ],
+      lett: [
+        "Tyskeren **Josef Terboven** hadde den egentlige makten i Norge. Bare partiet **Nasjonal Samling (NS)** var lov. Quisling ledet NS, men måtte gjøre som tyskerne ville. NS prøvde å ta kontroll over skolen, kirken og idretten. Å samarbeide med fienden kalles **kollaborasjon**."
       ]
     },
     {
@@ -47,6 +56,9 @@ window.LV.tema = {
       tekst: [
         "Det var opptil 350 000 tyske soldater i Norge, i et land med under tre millioner innbyggere. Mat, klær og andre varer ble [[rasjonert|rasjonering]], og folk måtte bruke rasjoneringskort. Mange spiste sild og poteter dag etter dag, og kaffe ble erstattet med surrogat laget av korn.",
         "Aviser og radio ble [[sensurert|sensur]], og i 1941 måtte alle levere inn radioene sine, slik at de ikke kunne høre nyheter fra BBC i London. Mange gjemte likevel radioer og lyttet i hemmelighet. Selv små symboler kunne være farlige: Rød nisselue ble brukt som et tegn på motstand, og ble derfor forbudt."
+      ],
+      lett: [
+        "Det var opptil 350 000 tyske soldater i Norge. Mat og klær ble rasjonert, og mange spiste sild og poteter hver dag. Aviser og radio ble sensurert. I 1941 måtte alle levere inn radioene sine. Mange gjemte likevel radioer og hørte nyheter fra London i hemmelighet."
       ]
     },
     {
@@ -56,6 +68,9 @@ window.LV.tema = {
         "Mange laget og delte [[illegale aviser|illegal]] med nyheter fra London. Den militære motstandsorganisasjonen **Milorg** forberedte seg på å kjempe når de allierte kom. Kompani Linge, norske soldater trent i Storbritannia, gjennomførte sabotasjeaksjoner. Den mest kjente er **tungtvannsaksjonen** i 1943, da sabotører ødela produksjonen av tungtvann på Vemork ved Rjukan, som tyskerne kunne brukt i forskning på atomvåpen.",
         "I Oslo sprengte sabotører som **Max Manus** og Gunnar Sønsteby tyske skip og anlegg. Motstandsfolk som ble tatt, ble ofte torturert av Gestapo. Mange ble sendt til fangeleirer i Tyskland, og noen ble henrettet."
       ],
+      lett: [
+        "De fleste viste motstand ved å nekte å støtte NS. I 1942 nektet over 10 000 lærere å bli med i et NS-styrt lærerlag, og de vant. Mange laget illegale aviser. Sabotører ødela tyske anlegg. Den kjente **tungtvannsaksjonen** stoppet produksjon som kunne blitt brukt til atomvåpen. Motstandsfolk som ble tatt, ble ofte torturert."
+      ],
       stoppOgTenk: "Lærerne vant kampen mot NS fordi så mange sto sammen. Hva sier det om makten til vanlige folk?"
     },
     {
@@ -63,6 +78,9 @@ window.LV.tema = {
       tekst: [
         "Høsten 1944 rykket sovjetiske styrker inn i Øst-Finnmark og befridde Kirkenes. Da tyskerne trakk seg tilbake, brukte de [[den brente jords taktikk|brent jord]]: De tvangsevakuerte befolkningen og brente nesten alle hus, kaier og broer i Finnmark og Nord-Troms. Titusener mistet alt de eide.",
         "8. mai 1945 kapitulerte de tyske styrkene i Norge. Folk strømmet ut i gatene med flagg, og 7. juni 1945 – fem år etter at han flyktet – kom kong Haakon tilbake til Oslo. Rundt 10 000 nordmenn mistet livet i krigen."
+      ],
+      lett: [
+        "Høsten 1944 befridde sovjetiske soldater Kirkenes. Da tyskerne trakk seg tilbake, brente de nesten alt i Finnmark og Nord-Troms. **8. mai 1945** kapitulerte tyskerne i Norge, og folk jublet i gatene. Kongen kom tilbake 7. juni 1945. Rundt 10 000 nordmenn døde i krigen."
       ]
     },
     {
@@ -70,6 +88,9 @@ window.LV.tema = {
       tekst: [
         "Etter krigen ble nordmenn som hadde samarbeidet med tyskerne, stilt for retten i [[landssviksoppgjøret]]. Rundt 90 000 saker ble etterforsket, og rundt halvparten endte med straff. 25 nordmenn ble henrettet, blant dem Vidkun Quisling, som ble skutt på Akershus festning 24. oktober 1945. Navnet hans brukes i dag på mange språk som et ord for en forræder.",
         "Oppgjøret er fortsatt omdiskutert. Mange av de dømte og familiene deres opplevde å bli utstøtt i mange år. Også barn med tysk far, de såkalte «krigsbarna», og kvinner som hadde hatt forhold til tyske soldater, ble behandlet hardt. I 2018 ba statsminister Erna Solberg disse kvinnene om unnskyldning på vegne av staten."
+      ],
+      lett: [
+        "Etter krigen ble nordmenn som hadde samarbeidet med tyskerne, stilt for retten. Rundt halvparten av 90 000 saker endte med straff. 25 ble henrettet, blant dem Quisling. Også barn med tysk far og kvinner som hadde vært sammen med tyske soldater, ble behandlet hardt. I 2018 ba staten kvinnene om unnskyldning."
       ]
     }
   ],
