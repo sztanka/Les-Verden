@@ -2601,3 +2601,6 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
   .bg-gratis { grid-column: auto !important; }
   .bg-rute input[type=text] { border: 0; border-bottom: 1px solid #000; }
 }
+/* Lange valg i muntlig (lytteøvelse og den varme stolen) skal ikke gi sideveis rulling */
+.mu-lyttrad label, .mu-velgperson { max-width: 100%; min-width: 0; }
+.mu-lyttrad select, .mu-velgperson select { max-width: 100%; min-width: 0; }

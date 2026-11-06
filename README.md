@@ -312,6 +312,11 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Debattduell** (`debatt.html`, data i `data/debatt.js`): Hver påstand har argumentkort med `side` («for», «mot» eller «svak»). Svake argumenter har `feil` (typen argumentasjonsfeil) og `hvorfor`. 6 påstander på norsk og 4 på engelsk.
 - **Lesebingo** (`bingo.html`, `assets/bingo.js`): 40 oppgaver per språk. `?id=nb-123456` eller `?id=en-123456` gir alltid det samme brettet, så læreren kan dele én lenke. Elevene bruker «Last ned svarene» for å fortsette senere.
 
+### Nye temaer (runde 3)
+
+- `sf10-folkemord` (Folkemordene i Rwanda og Srebrenica), `sf9-digital-dommekraft` (Digital dømmekraft) og `en8-norwegian-and-english` (Norwegian and English).
+- Bildene til de tre temaene peker til Unsplash til GitHub-jobben «Hent bilder lokalt» er kjørt. Kjør den én gang etter at filene er lastet opp.
+
 ### Søk
 
 `sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
@@ -416,7 +421,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261105g`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261105h`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

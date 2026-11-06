@@ -174,7 +174,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["sf10-andre-verdenskrig", "sf10-okkupasjonen", "sf10-fn-menneskerettigheter", "en10-leading-following", "en10-oppression"],
+  kobletTil: ["sf10-folkemord", "sf10-andre-verdenskrig", "sf10-okkupasjonen", "sf10-fn-menneskerettigheter", "en10-leading-following", "en10-oppression"],
 
   kilder: [
     { tittel: "HL-senteret – Senter for studier av Holocaust og livssynsminoriteter", url: "https://www.hlsenteret.no/" },

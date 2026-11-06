@@ -172,7 +172,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["sf10-andre-verdenskrig", "sf10-holocaust", "sf10-internasjonalt-samarbeid", "en10-oppression", "en10-democracy-citizenship"],
+  kobletTil: ["sf10-folkemord", "sf10-andre-verdenskrig", "sf10-holocaust", "sf10-internasjonalt-samarbeid", "en10-oppression", "en10-democracy-citizenship"],
 
   kilder: [
     { tittel: "FN-sambandet: FN.no", url: "https://www.fn.no/" },

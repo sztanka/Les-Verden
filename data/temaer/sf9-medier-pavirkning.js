@@ -152,7 +152,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["en9-media-advertising", "sf10-polarisering", "sf10-demokrati-diktatur", "en10-group-think"],
+  kobletTil: ["sf9-digital-dommekraft", "en9-media-advertising", "sf10-polarisering", "sf10-demokrati-diktatur", "en10-group-think"],
 
   kilder: [
     { tittel: "Medietilsynet: kritisk medieforståelse", url: "https://www.medietilsynet.no/digitale-medier/" },

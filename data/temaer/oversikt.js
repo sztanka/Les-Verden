@@ -292,6 +292,25 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf10-folkemord",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 10,
+    tittel: "Folkemordene i Rwanda og Srebrenica",
+    kort: "Hundre dager i Rwanda i 1994 og Srebrenica i 1995: hvordan folkemord skjer, hvorfor verden sviktet – og hvordan de kan forebygges.",
+    sted: { navn: "Kigali", lat: -1.95, lon: 30.06 },
+    bilde: "https://images.unsplash.com/photo-1647891684895-15c5b831fde1?w=1200&q=80&auto=format&fit=crop",
+    bildeAlt: "En åsside med et tre ved Kivusjøen i Rwanda",
+    kreditt: "Ifeoluwa B.",
+    kredittUrl: "https://unsplash.com/@ife_?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Ordet «folkemord» ble laget av juristen Raphael Lemkin i 1944.",
+      "Rwanda minnes folkemordet hvert år i hundre dager fra 7. april. Det kalles Kwibuka – «å huske»."
+    ]
+  },
+  {
     id: "sf10-okkupasjonen",
     fag: "samfunnsfag",
     emne: "historie",
@@ -893,6 +912,24 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf9-digital-dommekraft",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Digital dømmekraft",
+    kort: "Digitale spor, personvern, algoritmer, deepfakes og nettvett – hvordan ta gode valg på nett.",
+    bilde: "https://images.unsplash.com/photo-1758812925626-e30b5b345582?w=1200&q=80&auto=format&fit=crop",
+    bildeAlt: "En ung person med krøllete hår som ser på mobilen",
+    kreditt: "Richard Williams",
+    kredittUrl: "https://unsplash.com/@richardjw?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Personvernloven GDPR gir deg rett til å få vite hva et selskap vet om deg.",
+      "Det er alltid straffbart å dele nakenbilder av noen under 18 år."
+    ]
+  },
+  {
     id: "en9-new-zealand",
     fag: "engelsk",
     trinn: 9,
@@ -1396,6 +1433,25 @@ window.LV.temaer = [
     fakta: [
       "The English words sky, egg, knife and they all come from the Vikings.",
       "Most conversations in English today are between people who are not native speakers."
+    ]
+  },
+  {
+    id: "en8-norwegian-and-english",
+    fag: "engelsk",
+    trinn: 8,
+    sprak: "en",
+    tittel: "Norwegian and English",
+    kort: "Language relatives: Viking loanwords, false friends and the most common mistakes Norwegians make in English.",
+    sted: { navn: "York (Jorvik)", lat: 53.96, lon: -1.08 },
+    bilde: "https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?w=1200&q=80&auto=format&fit=crop",
+    bildeAlt: "A close-up of a page in a dictionary",
+    kreditt: "Romain Vignes",
+    kredittUrl: "https://unsplash.com/@rvignes?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "The English words they, them and their come from Old Norse.",
+      "«Window» comes from the Old Norse vindauga – the «wind eye»."
     ]
   },
   {

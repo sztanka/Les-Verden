@@ -146,7 +146,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["en10-english-speaking-world", "en9-british-empire", "en9-india", "en9-australia"],
+  kobletTil: ["en8-norwegian-and-english", "en10-english-speaking-world", "en9-british-empire", "en9-india", "en9-australia"],
 
   kilder: [
     { tittel: "Cambridge Dictionary: British and American English", url: "https://dictionary.cambridge.org/grammar/british-grammar/british-and-american-english" },

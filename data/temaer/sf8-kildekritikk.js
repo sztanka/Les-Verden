@@ -138,7 +138,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["sf9-medier-pavirkning", "en10-group-think", "sf10-polarisering", "sf8-identitet-sosialisering"],
+  kobletTil: ["sf9-digital-dommekraft", "sf9-medier-pavirkning", "en10-group-think", "sf10-polarisering", "sf8-identitet-sosialisering"],
 
   kilder: [
     { tittel: "Faktisk.no", url: "https://www.faktisk.no/" },

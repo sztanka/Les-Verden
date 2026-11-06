@@ -33,6 +33,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Ireland (`en8-ireland`)
 - [x] Democracy in Britain: from Magna Carta to Parliament (`en8-democracy-britain`) ↔ *1814 og Grunnloven*
 - [x] English Around the World (`en8-english-around-the-world`)
+- [x] Norwegian and English (`en8-norwegian-and-english`) – lånord, falske venner, typiske feil
 - [x] Reading *Wonder* (`en8-wonder`)
 
 ---
@@ -57,6 +58,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Arbeidsliv (`sf9-arbeidsliv`)
 - [x] Kriminalitet og straff (`sf9-kriminalitet-straff`)
 - [x] Medier og påvirkning (`sf9-medier-pavirkning`) ↔ *Media and Advertising*
+- [x] Digital dømmekraft (`sf9-digital-dommekraft`) – digitale spor, personvern, algoritmer, nettvett
 
 ### Engelsk
 - [x] The Victorian Era and Charles Dickens (`en9-victorian-era`) ↔ *Industrialiseringen*
@@ -81,6 +83,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] FN og menneskerettighetene (`sf10-fn-menneskerettigheter`) ↔ *Oppression*
 - [x] Den kalde krigen (`sf10-kalde-krigen`) – Berlinmuren, Cubakrisen
 - [x] Avkolonisering (`sf10-avkolonisering`) – Gandhi
+- [x] Folkemordene i Rwanda og Srebrenica (`sf10-folkemord`)
 - [x] Apartheid (`sf10-apartheid`) – Mandela ↔ *Oppression*
 - [x] Midtøsten-konflikten (`sf10-midtosten`)
 - [x] Norge etter 1945 (`sf10-norge-etter-1945`) – velferdsstaten, oljen
@@ -106,7 +109,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ---
 
-Totalt: 75 temasider (13 + 9 + 17 + 9 + 17 + 10).
+Totalt: 78 temasider (13 + 10 + 18 + 9 + 18 + 10).
 
 ---
 

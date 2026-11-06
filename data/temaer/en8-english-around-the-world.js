@@ -145,7 +145,7 @@ window.LV.tema = {
     }
   },
 
-  kobletTil: ["en9-british-american-english", "en9-british-empire", "en10-english-speaking-world", "en9-india"],
+  kobletTil: ["en8-norwegian-and-english", "en9-british-american-english", "en9-british-empire", "en10-english-speaking-world", "en9-india"],
 
   kilder: [
     { tittel: "The British Library: Evolving English", url: "https://www.bl.uk/learning/langlit/evolvingenglish/" },
