@@ -28,7 +28,7 @@ LV.sport = {
     {
       id: "football", navn: "Football (soccer)", ikon: "⚽",
       kort: "The world’s most popular sport – called «soccer» in the USA.",
-      land: { uk: 2, ireland: 1, usa: 1, australia: 1, newzealand: 1, southafrica: 2, india: 1, singapore: 2 },
+      land: { uk: 2, ireland: 1, usa: 1, australia: 1, newzealand: 1, southafrica: 2, india: 1, singapore: 2, canada: 1, jamaica: 2, nigeria: 2 },
       spilles: "Two teams of eleven players try to kick or head the ball into the other team’s goal. Only the goalkeeper may touch the ball with the hands. A match lasts 90 minutes.",
       ord: [["pitch", "the field a match is played on"], ["nil", "zero (British English)"], ["penalty", "a free shot at goal from 11 metres"], ["offside", "a rule that stops attackers from waiting next to the goal"]],
       store: ["The Premier League (England)", "The FA Cup – the oldest football competition in the world (1871)", "The FIFA World Cup"],
@@ -37,7 +37,7 @@ LV.sport = {
     {
       id: "cricket", navn: "Cricket", ikon: "🏏",
       kort: "A bat-and-ball game where a match can last for five days – with breaks for lunch and tea.",
-      land: { uk: 2, australia: 2, newzealand: 1, southafrica: 2, india: 2 },
+      land: { uk: 2, australia: 2, newzealand: 1, southafrica: 2, india: 2, jamaica: 2 },
       spilles: "Two teams of eleven take turns to bat and to field. The bowler throws the ball at the wicket (three wooden stumps), and the batter tries to protect it and hit the ball far enough to run between the wickets and score runs. The team with the most runs wins.",
       ord: [["wicket", "three stumps with two small pieces of wood on top"], ["bowler", "the player who throws the ball"], ["batter / batsman", "the player who hits the ball"], ["over", "six balls in a row from the same bowler"], ["run", "one point"]],
       store: ["Test matches (up to five days)", "The Ashes – England v Australia since 1882", "The Indian Premier League (IPL)", "The Cricket World Cup"],
@@ -64,7 +64,7 @@ LV.sport = {
     {
       id: "baseball", navn: "Baseball", ikon: "⚾",
       kort: "«America’s pastime» – a bat-and-ball game with roots in English games like rounders.",
-      land: { usa: 2 },
+      land: { usa: 2, canada: 1 },
       spilles: "Two teams of nine take turns to bat and to field. The pitcher throws the ball, and the batter tries to hit it and run around four bases. A run is scored when a player gets all the way around. A game has nine **innings**.",
       ord: [["pitcher", "the player who throws the ball to the batter"], ["home run", "hitting the ball so far that you can run around all bases at once"], ["strike", "a miss – three strikes and you are out"], ["inning", "one part of the game, where both teams bat once"]],
       store: ["MLB (Major League Baseball)", "The World Series"],
@@ -73,7 +73,7 @@ LV.sport = {
     {
       id: "basketball", navn: "Basketball", ikon: "🏀",
       kort: "Invented by a teacher in 1891 – now one of the most popular sports in the world.",
-      land: { usa: 2, australia: 1, newzealand: 1, singapore: 1 },
+      land: { usa: 2, australia: 1, newzealand: 1, singapore: 1, canada: 1, nigeria: 1 },
       spilles: "Two teams of five try to throw the ball through the other team’s hoop, three metres above the floor. You must bounce (dribble) the ball when you move. A basket is worth 2 points, or 3 points from far away.",
       ord: [["dribble", "bounce the ball while you move"], ["slam dunk", "pushing the ball down through the hoop"], ["three-pointer", "a basket from behind the long line"], ["rebound", "catching the ball after a missed shot"]],
       store: ["The NBA (National Basketball Association)", "March Madness – the college tournament", "The WNBA for women"],
@@ -82,7 +82,7 @@ LV.sport = {
     {
       id: "ice-hockey", navn: "Ice hockey", ikon: "🏒",
       kort: "Canada’s national winter sport – and big in the northern USA.",
-      land: { usa: 1 },
+      land: { usa: 1, canada: 2 },
       spilles: "Two teams of six players (including a goalkeeper) skate on ice and use sticks to shoot a hard rubber disc, the **puck**, into the other team’s goal. Players change very often because the game is so fast and tiring.",
       ord: [["puck", "the black rubber disc"], ["rink", "the ice where the game is played"], ["power play", "when one team has more players because the other team has a player in the penalty box"]],
       store: ["The NHL (teams from the USA and Canada)", "The Stanley Cup"],
@@ -109,11 +109,20 @@ LV.sport = {
     {
       id: "netball", navn: "Netball", ikon: "🥅",
       kort: "One of the biggest team sports for women in the Commonwealth.",
-      land: { uk: 1, australia: 2, newzealand: 2, southafrica: 1, singapore: 1 },
+      land: { uk: 1, australia: 2, newzealand: 2, southafrica: 1, singapore: 1, jamaica: 2 },
       spilles: "Two teams of seven. Players may not run with the ball or bounce it – they must pass it within three seconds. Every player has a position that decides where on the court they may go. Only two players on each team may shoot at the hoop, which has no backboard.",
       ord: [["court", "the area where the game is played"], ["bib", "a vest with the player’s position, like GS (goal shooter)"], ["centre pass", "the pass that starts the game after each goal"]],
       store: ["The Netball World Cup", "The Commonwealth Games"],
       visste: "Netball grew out of early basketball. Australia has won the Netball World Cup more often than any other country."
+    },
+    {
+      id: "athletics", navn: "Athletics (track and field)", ikon: "🏃",
+      kort: "Running, jumping and throwing – the heart of the Olympic Games.",
+      land: { uk: 1, usa: 1, canada: 1, jamaica: 2, nigeria: 1 },
+      spilles: "Athletics includes **track** events like sprints, hurdles, relays and long-distance races, and **field** events like the long jump, high jump, pole vault, shot put and javelin. In a **relay**, four runners pass a baton to each other.",
+      ord: [["sprint", "a short, very fast race, like the 100 metres"], ["baton", "the stick passed between runners in a relay"], ["false start", "starting before the gun – you are disqualified"], ["personal best (PB)", "your best result ever"]],
+      store: ["The Olympic Games", "The World Athletics Championships", "The Penn Relays (USA) – where Jamaican high-school teams are stars"],
+      visste: "In 2009, Jamaica’s Usain Bolt ran 100 metres in 9.58 seconds. That is a top speed of more than 44 km/h – and the world record still stands."
     },
     {
       id: "tennis", navn: "Tennis", ikon: "🎾",
@@ -206,6 +215,36 @@ LV.sport = {
       store: ["The IPL (cricket)", "India v Pakistan cricket matches", "The Pro Kabaddi League"],
       visste: "In 1983, India surprised the world by winning the Cricket World Cup. The victory made cricket the country’s great passion.",
       idretter: ["cricket", "football"]
+    },
+    canada: {
+      tittel: "Sport in Canada",
+      tekst: [
+        "Ice hockey is Canada’s national winter sport and a big part of the country’s identity. Children play on frozen lakes and backyard rinks, and on a Saturday night millions of Canadians watch «Hockey Night in Canada». **Lacrosse**, a game first played by Indigenous peoples, is Canada’s official national summer sport.",
+        "Canadians also love basketball – which was invented by a Canadian, **James Naismith**, in 1891 – and the Toronto Raptors won the NBA in 2019. Canadian football is a lot like American football, but the field is bigger and teams have only three tries to move the ball forward, not four."
+      ],
+      store: ["The Stanley Cup (ice hockey)", "Olympic ice hockey finals", "The Grey Cup (Canadian football)", "The Toronto Blue Jays (baseball)"],
+      visste: "When Canada beat the USA in the Olympic ice hockey final in Vancouver in 2010, about 80 per cent of all Canadians watched at least part of the game.",
+      idretter: ["ice-hockey", "basketball", "baseball", "football", "athletics"]
+    },
+    jamaica: {
+      tittel: "Sport in Jamaica and the Caribbean",
+      tekst: [
+        "For its size, Jamaica is the greatest sprinting nation in the world. **Usain Bolt** holds the world records in the 100 and 200 metres, and **Shelly-Ann Fraser-Pryce** and **Elaine Thompson-Herah** have won many Olympic golds. The secret? Many say it is **«Champs»**, a huge athletics competition for high schools, where the stars of the future are discovered in front of 30,000 fans.",
+        "Cricket is the big team sport across the English-speaking Caribbean, and the countries play together as **the West Indies**. Football is hugely popular too – the Jamaican team, the **Reggae Boyz**, played at the World Cup in 1998 – and the netball team, the **Sunshine Girls**, is one of the best in the world."
+      ],
+      store: ["«Champs» – the high-school athletics championships", "The West Indies cricket team", "The Caribbean Premier League (cricket)", "The Reggae Boyz and the Reggae Girlz (football)"],
+      visste: "In 1988, Jamaica sent a bobsleigh team to the Winter Olympics in Calgary – a country without snow! Their story became the film «Cool Runnings».",
+      idretter: ["athletics", "cricket", "football", "netball"]
+    },
+    nigeria: {
+      tittel: "Sport in Nigeria",
+      tekst: [
+        "Football is by far the biggest sport in Nigeria. When the men’s national team, the **Super Eagles**, plays, the whole country stops. In 1996, Nigeria won the Olympic gold medal in football, beating Brazil and Argentina. The women’s team, the **Super Falcons**, has won the African championship more times than any other team.",
+        "Nigeria has many great sprinters and jumpers, and basketball is growing fast: the women’s team, **D’Tigress**, has won the African championship several times, and many NBA stars have Nigerian parents."
+      ],
+      store: ["The Super Eagles (men’s football)", "The Super Falcons (women’s football)", "The Africa Cup of Nations", "D’Tigress (women’s basketball)"],
+      visste: "Many famous footballers in the English Premier League have Nigerian roots – and many young Nigerians support English clubs like Arsenal, Chelsea and Manchester United.",
+      idretter: ["football", "athletics", "basketball"]
     },
     singapore: {
       tittel: "Sport in Singapore",

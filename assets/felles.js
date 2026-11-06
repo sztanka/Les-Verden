@@ -91,7 +91,7 @@ window.LV = window.LV || {};
   };
 
   // Engelske aksenter for opplesing. Gir bare de variantene nettleseren har stemmer til.
-  LV.AKSENTER = [["en-GB", "British English"], ["en-US", "American English"], ["en-AU", "Australian English"], ["en-IN", "Indian English"], ["en-IE", "Irish English"], ["en-ZA", "South African English"], ["en-NZ", "New Zealand English"], ["en-CA", "Canadian English"], ["en-SG", "Singapore English"]];
+  LV.AKSENTER = [["en-GB", "British English"], ["en-US", "American English"], ["en-AU", "Australian English"], ["en-IN", "Indian English"], ["en-IE", "Irish English"], ["en-ZA", "South African English"], ["en-NZ", "New Zealand English"], ["en-CA", "Canadian English"], ["en-SG", "Singapore English"], ["en-JM", "Jamaican English"], ["en-NG", "Nigerian English"]];
   LV.aksentStemme = function (kode) {
     if (!("speechSynthesis" in window)) return null;
     const alle = speechSynthesis.getVoices(), k = String(kode || "en-GB").toLowerCase().replace("_", "-");
@@ -114,7 +114,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261105h";
+  LV.versjon = "20261106a";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {

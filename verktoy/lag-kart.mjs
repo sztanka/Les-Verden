@@ -289,7 +289,7 @@ const SETT = [];
 }
 
 // =========================================================
-// Landsidene: Irland, Australia, New Zealand, Sør-Afrika, India, Singapore
+// Landsidene: Irland, Australia, New Zealand, Sør-Afrika, India, Singapore, Canada, Jamaica/Karibia, Nigeria
 // =========================================================
 {
   const sub = await hentNE("ne_10m_admin_0_map_subunits");
@@ -390,6 +390,34 @@ const SETT = [];
     navn: { "Andaman and Nicobar": "Andaman and Nicobar Islands", "Orissa": "Odisha" },
     byer: S.IND_BYER, byTittel: "Cities in India", byBeskr: "New Delhi, Mumbai, Kolkata og andre byer.",
     landemerker: S.IND_LANDEMERKER, lmTittel: "Famous places in India", lmBeskr: "Taj Mahal, Golden Temple, Kerala og andre kjente steder."
+  });
+  lagLand({
+    id: "canada", gruppe: "Canada", W: 1000, H: 900, boks: [-133, 43.5, -57, 71],
+    proj: () => d3.geoConicConformal().parallels([49, 77]).rotate([96, 0]),
+    adm0: "CAN", forenkle: 0.04, pre: "provins:", omrader: "Provinces and territories of Canada", omrBeskr: "Finn de ti provinsene og tre territoriene i Canada.", terskel: 40, utenOmriss: ["CAN"],
+    byer: S.CAN_BYER, byTittel: "Cities in Canada", byBeskr: "Ottawa, Toronto, Montréal, Vancouver og andre byer.",
+    landemerker: S.CAN_LANDEMERKER, lmTittel: "Famous places in Canada", lmBeskr: "Niagara Falls, Banff, Hudson Bay og andre kjente steder."
+  });
+  lagLand({
+    id: "jamaica", gruppe: "Jamaica og Karibia", W: 1000, H: 520, boks: [-78.45, 17.65, -76.12, 18.6],
+    proj: () => d3.geoMercator(),
+    adm0: "JAM", forenkle: 0.4, pre: "parish:", omrader: "The parishes of Jamaica", omrBeskr: "Finn de 14 «parishes» (fylkene) på Jamaica.", terskel: 30, utenOmriss: ["JAM"],
+    navn: { "Saint Andrew": "St Andrew", "Saint Ann": "St Ann", "Saint Catherine": "St Catherine", "Saint Elizabeth": "St Elizabeth", "Saint James": "St James", "Saint Mary": "St Mary", "Saint Thomas": "St Thomas" },
+    byer: S.JAM_BYER, byTittel: "Towns in Jamaica", byBeskr: "Kingston, Montego Bay, Spanish Town og andre byer.",
+    landemerker: S.JAM_LANDEMERKER, lmTittel: "Famous places in Jamaica", lmBeskr: "Blue Mountain Peak, Dunn’s River Falls, Port Royal og andre kjente steder."
+  });
+  lagLand({
+    id: "karibia", gruppe: "Jamaica og Karibia", W: 1000, H: 640, boks: [-89.3, 9.8, -59.2, 27.0],
+    proj: () => d3.geoMercator(), adm0: "XXX", forenkle: 0.3,
+    byer: S.KARIBIA, byTittel: "Countries and islands of the Caribbean", byBeskr: "Finn Jamaica, Cuba, Trinidad og Tobago, Barbados og andre land og øyer i Karibia."
+  });
+  lagLand({
+    id: "nigeria", gruppe: "Nigeria", W: 1000, H: 820, boks: [2.6, 4.2, 14.7, 13.95],
+    proj: () => d3.geoMercator(),
+    adm0: "NGA", forenkle: 0.3, pre: "stat:", omrader: "The states of Nigeria", omrBeskr: "Finn de 36 delstatene og hovedstadsterritoriet i Nigeria.", terskel: 30, utenOmriss: ["NGA"],
+    navn: { "Nassarawa": "Nasarawa" },
+    byer: S.NGA_BYER, byTittel: "Cities in Nigeria", byBeskr: "Abuja, Lagos, Kano og andre byer.",
+    landemerker: S.NGA_LANDEMERKER, lmTittel: "Famous places in Nigeria", lmBeskr: "Zuma Rock, Lake Chad, Niger-deltaet og andre kjente steder."
   });
   lagLand({
     id: "singapore", gruppe: "Singapore", W: 1000, H: 640, boks: [103.6, 1.2, 104.08, 1.48],

@@ -190,5 +190,78 @@ window.LV.landliste = [
    "en9-british-empire",
    "sf9-globalisering"
   ]
+ },
+ {
+  "id": "canada",
+  "navn": "Canada",
+  "norsk": "Canada",
+  "flagg": "🇨🇦",
+  "kort": "The second largest country in the world – two languages, Indigenous peoples and a Viking past.",
+  "bilde": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1200&q=80&auto=format&fit=crop",
+  "bildeAlt": "A turquoise lake below steep mountains in the Canadian Rockies",
+  "kreditt": "John Lee",
+  "kredittUrl": "https://unsplash.com/@john_artifexfilm?utm_source=les_verden&utm_medium=referral",
+  "kilde": "Unsplash",
+  "kildeUrl": "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+  "kartsett": [
+   "canada-omrader",
+   "canada-byer",
+   "canada-landemerker"
+  ],
+  "temaer": [
+   "en10-indigenous-peoples",
+   "en9-british-empire",
+   "en9-british-american-english",
+   "sf9-utvandringen"
+  ]
+ },
+{
+  "id": "jamaica",
+  "navn": "Jamaica and the Caribbean",
+  "norsk": "Jamaica og Karibia",
+  "flagg": "🇯🇲",
+  "kort": "Reggae, record-breaking runners, Patois – and a history of slavery and resistance.",
+  "bilde": "https://images.unsplash.com/photo-1613758161254-93201c574c4f?w=1200&q=80&auto=format&fit=crop",
+  "bildeAlt": "A white and blue boat on a sandy beach with turquoise water",
+  "kreditt": "Caspar Rae",
+  "kredittUrl": "https://unsplash.com/@raecaspar?utm_source=les_verden&utm_medium=referral",
+  "kilde": "Unsplash",
+  "kildeUrl": "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+  "kartsett": [
+   "jamaica-omrader",
+   "jamaica-byer",
+   "jamaica-landemerker",
+   "karibia-byer"
+  ],
+  "temaer": [
+   "en9-british-empire",
+   "en10-oppression",
+   "en8-english-around-the-world",
+   "sf9-kolonialisme"
+  ]
+ },
+{
+  "id": "nigeria",
+  "navn": "Nigeria",
+  "norsk": "Nigeria",
+  "flagg": "🇳🇬",
+  "kort": "The giant of Africa – 500 languages, Nollywood, Afrobeats and a young, fast-growing population.",
+  "bilde": "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?w=1200&q=80&auto=format&fit=crop",
+  "bildeAlt": "Modern office towers by the water in Lekki, Lagos",
+  "kreditt": "Nupo Deyon Daniel",
+  "kredittUrl": "https://unsplash.com/@thewallpaperguy_?utm_source=les_verden&utm_medium=referral",
+  "kilde": "Unsplash",
+  "kildeUrl": "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+  "kartsett": [
+   "nigeria-omrader",
+   "nigeria-byer",
+   "nigeria-landemerker"
+  ],
+  "temaer": [
+   "en9-british-empire",
+   "sf10-avkolonisering",
+   "sf9-kolonialisme",
+   "en10-narrated-stories"
+  ]
  }
 ];

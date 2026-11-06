@@ -123,6 +123,6 @@ Totalt: 78 temasider (13 + 10 + 18 + 9 + 18 + 10).
 - [x] South Africa (`southafrica`)
 - [x] India (`india`)
 - [x] Singapore (`singapore`)
-- [ ] Canada (`canada`) – forslag
-- [ ] Jamaica / Karibia (`jamaica`) – forslag
-- [ ] Nigeria / Kenya (`nigeria`) – forslag
+- [x] Canada (`canada`)
+- [x] Jamaica and the Caribbean (`jamaica`) – med kartspill over Karibia
+- [x] Nigeria (`nigeria`)

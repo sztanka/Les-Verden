@@ -444,6 +444,114 @@ export const SGP_LANDEMERKER = [
 ];
 
 // =========================================================
+// Runde 4: Canada, Jamaica og Karibia, Nigeria
+// =========================================================
+export const CAN_BYER = [
+  ["Ottawa", 45.42, -75.70, "The capital of Canada, on the border between Ontario and Québec."],
+  ["Toronto", 43.65, -79.38, "Canada’s largest city, on Lake Ontario."],
+  ["Montréal", 45.50, -73.57, "The largest French-speaking city in the Americas."],
+  ["Vancouver", 49.28, -123.12, "A port city on the Pacific coast, between the sea and the mountains."],
+  ["Calgary", 51.05, -114.07, "An oil city in Alberta, famous for the Calgary Stampede rodeo."],
+  ["Edmonton", 53.55, -113.49, "The capital of Alberta."],
+  ["Québec City", 46.81, -71.21, "The capital of Québec, with old city walls from the French colonial time."],
+  ["Winnipeg", 49.90, -97.14, "The capital of Manitoba, in the middle of the continent."],
+  ["Halifax", 44.65, -63.57, "The capital of Nova Scotia and a big Atlantic port."],
+  ["St. John’s", 47.56, -52.71, "The capital of Newfoundland and Labrador – the oldest city in North America founded by the English."],
+  ["Victoria", 48.43, -123.37, "The capital of British Columbia, on Vancouver Island."],
+  ["Regina", 50.45, -104.61, "The capital of Saskatchewan, on the prairies."],
+  ["Iqaluit", 63.75, -68.52, "The capital of Nunavut, the Inuit territory."],
+  ["Whitehorse", 60.72, -135.06, "The capital of Yukon, from the time of the Klondike gold rush."],
+  ["Yellowknife", 62.45, -114.37, "The capital of the Northwest Territories – a great place to see the northern lights."],
+  ["Churchill", 58.77, -94.17, "A small town on Hudson Bay – the «polar bear capital of the world»."]
+];
+export const CAN_LANDEMERKER = [
+  ["Niagara Falls", 43.08, -79.07, "Huge waterfalls on the border between Canada and the USA."],
+  ["Banff National Park", 51.40, -116.20, "Canada’s first national park, with turquoise lakes in the Rocky Mountains."],
+  ["Mount Logan", 60.57, -140.40, "Canada’s highest mountain (5,959 m), in Yukon."],
+  ["The Bay of Fundy", 45.10, -65.80, "A bay with the highest tides in the world – up to 16 metres."],
+  ["L’Anse aux Meadows", 51.60, -55.53, "The site of a Viking settlement from about the year 1000."],
+  ["Hudson Bay", 60.00, -85.00, "A huge inland sea in the north, named after the explorer Henry Hudson."],
+  ["Lake Superior", 47.70, -87.50, "The largest of the Great Lakes – one of the largest lakes in the world."],
+  ["Haida Gwaii", 53.00, -132.00, "Islands on the Pacific coast, home of the Haida people and their totem poles."],
+  ["The Prairies", 51.00, -106.00, "Flat grasslands with huge fields of wheat."],
+  ["The Gulf of St. Lawrence", 48.50, -62.50, "The mouth of the St. Lawrence River, the gateway from the Atlantic to the Great Lakes."],
+  ["Dinosaur Provincial Park", 50.76, -111.49, "Badlands in Alberta where many dinosaur fossils have been found."],
+  ["Nahanni National Park", 61.60, -125.70, "A wild park in the north with deep canyons and Virginia Falls."]
+];
+export const JAM_BYER = [
+  ["Kingston", 17.97, -76.79, "The capital and largest city of Jamaica."],
+  ["Montego Bay", 18.47, -77.92, "The second city and the centre of tourism."],
+  ["Spanish Town", 17.99, -76.96, "The old capital from Spanish and early British times."],
+  ["Ocho Rios", 18.41, -77.10, "A tourist town on the north coast."],
+  ["Mandeville", 18.04, -77.51, "A town in the cool hills of central Jamaica."],
+  ["May Pen", 17.96, -77.24, "A market town in Clarendon."],
+  ["Negril", 18.27, -78.35, "A beach town at the western tip of the island."],
+  ["Port Antonio", 18.18, -76.45, "A small port town in Portland, with rainforest and rivers."],
+  ["Falmouth", 18.49, -77.66, "A Georgian town from the time of the sugar trade."],
+  ["Savanna-la-Mar", 18.22, -78.13, "The capital of Westmoreland on the south-west coast."],
+  ["Morant Bay", 17.88, -76.41, "The town where the Morant Bay Rebellion started in 1865."],
+  ["Black River", 18.03, -77.85, "A town at the mouth of the Black River, known for its crocodiles."]
+];
+export const JAM_LANDEMERKER = [
+  ["Blue Mountain Peak", 18.05, -76.58, "Jamaica’s highest point (2,256 m) – famous for Blue Mountain coffee."],
+  ["Dunn’s River Falls", 18.41, -77.14, "Waterfalls that you can climb, near Ocho Rios."],
+  ["Port Royal", 17.94, -76.84, "Once the «wickedest city on Earth», a pirate town destroyed by an earthquake in 1692."],
+  ["Seven Mile Beach", 18.31, -78.34, "A long white beach in Negril."],
+  ["Cockpit Country", 18.30, -77.60, "Wild limestone hills where the Maroons fought the British."],
+  ["Rose Hall", 18.51, -77.83, "A great house from a sugar plantation, built in the 1770s."],
+  ["The Luminous Lagoon", 18.50, -77.63, "A bay where the water glows at night because of tiny organisms."],
+  ["Treasure Beach", 17.88, -77.76, "Quiet fishing villages on the south coast."],
+  ["Accompong", 18.23, -77.75, "A Maroon town that has governed itself since a treaty with the British in 1739."],
+  ["The Rio Grande", 18.10, -76.48, "A river in Portland where you can go rafting on bamboo rafts."]
+];
+export const KARIBIA = [
+  ["Jamaica", 18.15, -77.30, "Capital: Kingston. Independent from Britain since 1962."],
+  ["Cuba", 21.60, -79.20, "The largest island in the Caribbean. Spanish-speaking."],
+  ["Haiti", 19.00, -72.40, "The first independent Black republic (1804), after a slave revolution. French and Haitian Creole."],
+  ["The Dominican Republic", 18.85, -70.40, "Shares the island of Hispaniola with Haiti. Spanish-speaking."],
+  ["Puerto Rico", 18.22, -66.50, "A territory of the USA. Spanish and English."],
+  ["The Bahamas", 24.40, -77.60, "About 700 islands. English-speaking, independent since 1973."],
+  ["Trinidad and Tobago", 10.60, -61.30, "Home of calypso, steelpan music and a huge carnival."],
+  ["Barbados", 13.17, -59.55, "An English-speaking island that became a republic in 2021."],
+  ["Saint Lucia", 13.90, -60.97, "English-speaking island with two famous volcanic peaks, the Pitons."],
+  ["Grenada", 12.12, -61.68, "The «Spice Isle», famous for nutmeg."],
+  ["Antigua and Barbuda", 17.08, -61.80, "English-speaking islands said to have 365 beaches."],
+  ["Dominica", 15.42, -61.35, "A green volcanic island with rainforests and hot springs."],
+  ["The Cayman Islands", 19.31, -81.25, "A British overseas territory."],
+  ["Belize", 17.20, -88.60, "The only English-speaking country in Central America."],
+  ["Martinique", 14.65, -61.02, "A part of France in the Caribbean."]
+];
+export const NGA_BYER = [
+  ["Abuja", 9.06, 7.49, "The capital since 1991, built as a new, planned city in the middle of the country."],
+  ["Lagos", 6.52, 3.38, "Nigeria’s largest city and business centre – one of the biggest cities in Africa."],
+  ["Kano", 12.00, 8.52, "An ancient trading city in the north, with old city walls."],
+  ["Ibadan", 7.38, 3.95, "One of the largest cities in Nigeria, home of the country’s first university."],
+  ["Port Harcourt", 4.82, 7.03, "The centre of the oil industry in the Niger Delta."],
+  ["Benin City", 6.34, 5.63, "The old capital of the Kingdom of Benin, famous for the Benin Bronzes."],
+  ["Kaduna", 10.52, 7.44, "An industrial city in the north."],
+  ["Maiduguri", 11.83, 13.15, "The largest city in the north-east, near Lake Chad."],
+  ["Enugu", 6.44, 7.50, "The «Coal City» in the south-east."],
+  ["Jos", 9.90, 8.86, "A city on a cool plateau in the middle of the country."],
+  ["Calabar", 4.95, 8.32, "A port city in the south-east, known for its big Christmas carnival."],
+  ["Sokoto", 13.06, 5.24, "The seat of the Sultan of Sokoto, a spiritual leader for many Muslims."],
+  ["Onitsha", 6.15, 6.79, "A trading city on the Niger with one of the largest markets in West Africa."],
+  ["Abeokuta", 7.15, 3.35, "A city famous for Olumo Rock and the tie-dye fabric adire."]
+];
+export const NGA_LANDEMERKER = [
+  ["Zuma Rock", 9.13, 7.23, "A huge rock outside Abuja – it is on the 100 naira note."],
+  ["Lake Chad", 13.15, 13.90, "A large, shallow lake shared by four countries. It has shrunk a lot since the 1960s."],
+  ["The confluence at Lokoja", 7.80, 6.74, "Where the two great rivers, the Niger and the Benue, meet."],
+  ["The Niger Delta", 5.00, 6.00, "A huge delta of rivers, swamps and mangroves – and the centre of oil production."],
+  ["Yankari National Park", 9.75, 10.50, "A national park with elephants and warm springs."],
+  ["The Osun-Osogbo Sacred Grove", 7.76, 4.55, "A sacred forest for the Yoruba goddess Osun – a UNESCO World Heritage Site."],
+  ["Sukur", 10.74, 13.57, "A village on a hill with stone terraces – a UNESCO World Heritage Site."],
+  ["The Obudu Plateau", 6.37, 9.37, "Cool highlands with a famous cable car."],
+  ["Chappal Waddi", 7.03, 11.70, "Nigeria’s highest mountain (2,419 m), on the border with Cameroon."],
+  ["Kainji Lake", 10.40, 4.55, "A large reservoir on the Niger River with a big dam."],
+  ["Nok", 9.50, 8.00, "The area where the Nok culture made clay sculptures more than 2,000 years ago."]
+];
+
+// =========================================================
 // USA: regioner og divisjoner slik US Census Bureau bruker dem (siden 1950)
 // Delstatsnavnene må stå akkurat som i us-atlas.
 // =========================================================

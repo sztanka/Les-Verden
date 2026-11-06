@@ -214,6 +214,9 @@
       newzealand: ["en-NZ", "New Zealand English", "New Zealand English sounds a bit like Australian English, but the short *i* in *fish* sounds almost like *fush*. Many Māori words are used every day.", [["RNZ – Radio New Zealand", "https://www.rnz.co.nz/"]]],
       india: ["en-IN", "Indian English", "Indian English is spoken by millions and is influenced by Hindi and many other Indian languages, for example in rhythm and in the *t* and *d* sounds.", [["All India Radio News", "https://newsonair.gov.in/"]]],
       southafrica: ["en-ZA", "South African English", "South African English is influenced by Afrikaans and African languages like isiZulu and isiXhosa.", [["SABC News", "https://www.sabcnews.com/"]]],
+      canada: ["en-CA", "Canadian English", "Canadian English sounds a lot like American English, but listen for the vowel in words like *about* and *out* – and for *eh?* at the end of sentences.", [["CBC Listen", "https://www.cbc.ca/listen"]]],
+      jamaica: ["en-JM", "Jamaican English", "Jamaicans switch between standard English and Jamaican Patois. Listen for the rhythm, the *th* that often sounds like *t* or *d*, and Patois words like *irie* and *likkle*.", [["RJR News (Jamaica)", "https://radiojamaicanewsonline.com/"]]],
+      nigeria: ["en-NG", "Nigerian English", "Nigerian English has a clear, syllable-timed rhythm – each syllable gets about the same length – and is often mixed with Pidgin, Yoruba, Igbo or Hausa words.", [["Channels Television", "https://www.channelstv.com/"]]],
       singapore: ["en-SG", "Singapore English", "Singapore English, and the informal «Singlish», mixes English with Malay, Chinese and Tamil words, like *lah* at the end of sentences.", [["CNA – Channel NewsAsia", "https://www.channelnewsasia.com/"]]]
     };
     const ly = LYTT[info.id];

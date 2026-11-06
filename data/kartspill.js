@@ -5781,6 +5781,1336 @@ window.LV.kartspill = [
   ]
  },
  {
+  "id": "canada-omrader",
+  "kart": "canada",
+  "gruppe": "Canada",
+  "tittel": "Provinces and territories of Canada",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn de ti provinsene og tre territoriene i Canada.",
+  "elementer": [
+   {
+    "id": "provins:Alberta",
+    "navn": "Alberta",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:British Columbia",
+    "navn": "British Columbia",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Manitoba",
+    "navn": "Manitoba",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:New Brunswick",
+    "navn": "New Brunswick",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Newfoundland and Labrador",
+    "navn": "Newfoundland and Labrador",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Northwest Territories",
+    "navn": "Northwest Territories",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Nova Scotia",
+    "navn": "Nova Scotia",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Nunavut",
+    "navn": "Nunavut",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Ontario",
+    "navn": "Ontario",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Prince Edward Island",
+    "navn": "Prince Edward Island",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Québec",
+    "navn": "Québec",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Saskatchewan",
+    "navn": "Saskatchewan",
+    "form": "omrade"
+   },
+   {
+    "id": "provins:Yukon",
+    "navn": "Yukon",
+    "form": "omrade"
+   }
+  ]
+ },
+ {
+  "id": "canada-byer",
+  "kart": "canada",
+  "gruppe": "Canada",
+  "tittel": "Cities in Canada",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Ottawa, Toronto, Montréal, Vancouver og andre byer.",
+  "elementer": [
+   {
+    "id": "by:Ottawa",
+    "navn": "Ottawa",
+    "form": "punkt",
+    "xy": [
+     750.7,
+     718.2
+    ],
+    "info": "The capital of Canada, on the border between Ontario and Québec."
+   },
+   {
+    "id": "by:Toronto",
+    "navn": "Toronto",
+    "form": "punkt",
+    "xy": [
+     713,
+     764.1
+    ],
+    "info": "Canada’s largest city, on Lake Ontario."
+   },
+   {
+    "id": "by:Montréal",
+    "navn": "Montréal",
+    "form": "punkt",
+    "xy": [
+     776.6,
+     707.6
+    ],
+    "info": "The largest French-speaking city in the Americas."
+   },
+   {
+    "id": "by:Vancouver",
+    "navn": "Vancouver",
+    "form": "punkt",
+    "xy": [
+     172.9,
+     620.4
+    ],
+    "info": "A port city on the Pacific coast, between the sea and the mountains."
+   },
+   {
+    "id": "by:Calgary",
+    "navn": "Calgary",
+    "form": "punkt",
+    "xy": [
+     283.8,
+     627
+    ],
+    "info": "An oil city in Alberta, famous for the Calgary Stampede rodeo."
+   },
+   {
+    "id": "by:Edmonton",
+    "navn": "Edmonton",
+    "form": "punkt",
+    "xy": [
+     302.5,
+     585
+    ],
+    "info": "The capital of Alberta."
+   },
+   {
+    "id": "by:Québec City",
+    "navn": "Québec City",
+    "form": "punkt",
+    "xy": [
+     796.1,
+     673.7
+    ],
+    "info": "The capital of Québec, with old city walls from the French colonial time."
+   },
+   {
+    "id": "by:Winnipeg",
+    "navn": "Winnipeg",
+    "form": "punkt",
+    "xy": [
+     475.2,
+     677.2
+    ],
+    "info": "The capital of Manitoba, in the middle of the continent."
+   },
+   {
+    "id": "by:Halifax",
+    "navn": "Halifax",
+    "form": "punkt",
+    "xy": [
+     903.3,
+     666.7
+    ],
+    "info": "The capital of Nova Scotia and a big Atlantic port."
+   },
+   {
+    "id": "by:St. John’s",
+    "navn": "St. John’s",
+    "form": "punkt",
+    "xy": [
+     989.1,
+     543.3
+    ],
+    "info": "The capital of Newfoundland and Labrador – the oldest city in North America founded by the English."
+   },
+   {
+    "id": "by:Victoria",
+    "navn": "Victoria",
+    "form": "punkt",
+    "xy": [
+     163.6,
+     633.4
+    ],
+    "info": "The capital of British Columbia, on Vancouver Island."
+   },
+   {
+    "id": "by:Regina",
+    "navn": "Regina",
+    "form": "punkt",
+    "xy": [
+     388.5,
+     660.5
+    ],
+    "info": "The capital of Saskatchewan, on the prairies."
+   },
+   {
+    "id": "by:Iqaluit",
+    "navn": "Iqaluit",
+    "form": "punkt",
+    "xy": [
+     699,
+     381.4
+    ],
+    "info": "The capital of Nunavut, the Inuit territory."
+   },
+   {
+    "id": "by:Whitehorse",
+    "navn": "Whitehorse",
+    "form": "punkt",
+    "xy": [
+     168,
+     380.1
+    ],
+    "info": "The capital of Yukon, from the time of the Klondike gold rush."
+   },
+   {
+    "id": "by:Yellowknife",
+    "navn": "Yellowknife",
+    "form": "punkt",
+    "xy": [
+     339,
+     429
+    ],
+    "info": "The capital of the Northwest Territories – a great place to see the northern lights."
+   },
+   {
+    "id": "by:Churchill",
+    "navn": "Churchill",
+    "form": "punkt",
+    "xy": [
+     505.7,
+     516.4
+    ],
+    "info": "A small town on Hudson Bay – the «polar bear capital of the world»."
+   }
+  ]
+ },
+ {
+  "id": "canada-landemerker",
+  "kart": "canada",
+  "gruppe": "Canada",
+  "tittel": "Famous places in Canada",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Niagara Falls, Banff, Hudson Bay og andre kjente steder.",
+  "elementer": [
+   {
+    "id": "lm:Niagara Falls",
+    "navn": "Niagara Falls",
+    "form": "punkt",
+    "xy": [
+     719.9,
+     773.4
+    ],
+    "info": "Huge waterfalls on the border between Canada and the USA."
+   },
+   {
+    "id": "lm:Banff National Park",
+    "navn": "Banff National Park",
+    "form": "punkt",
+    "xy": [
+     262.4,
+     613.7
+    ],
+    "info": "Canada’s first national park, with turquoise lakes in the Rocky Mountains."
+   },
+   {
+    "id": "lm:Mount Logan",
+    "navn": "Mount Logan",
+    "form": "punkt",
+    "xy": [
+     129.3,
+     353.6
+    ],
+    "info": "Canada’s highest mountain (5,959 m), in Yukon."
+   },
+   {
+    "id": "lm:The Bay of Fundy",
+    "navn": "The Bay of Fundy",
+    "form": "punkt",
+    "xy": [
+     873.2,
+     673.3
+    ],
+    "info": "A bay with the highest tides in the world – up to 16 metres."
+   },
+   {
+    "id": "lm:L’Anse aux Meadows",
+    "navn": "L’Anse aux Meadows",
+    "form": "punkt",
+    "xy": [
+     917.1,
+     505.2
+    ],
+    "info": "The site of a Viking settlement from about the year 1000."
+   },
+   {
+    "id": "lm:Hudson Bay",
+    "navn": "Hudson Bay",
+    "form": "punkt",
+    "xy": [
+     586.7,
+     486.1
+    ],
+    "info": "A huge inland sea in the north, named after the explorer Henry Hudson."
+   },
+   {
+    "id": "lm:Lake Superior",
+    "navn": "Lake Superior",
+    "form": "punkt",
+    "xy": [
+     594.3,
+     710.9
+    ],
+    "info": "The largest of the Great Lakes – one of the largest lakes in the world."
+   },
+   {
+    "id": "lm:Haida Gwaii",
+    "navn": "Haida Gwaii",
+    "form": "punkt",
+    "xy": [
+     115.7,
+     512.3
+    ],
+    "info": "Islands on the Pacific coast, home of the Haida people and their totem poles."
+   },
+   {
+    "id": "lm:The Prairies",
+    "navn": "The Prairies",
+    "form": "punkt",
+    "xy": [
+     374.1,
+     648.2
+    ],
+    "info": "Flat grasslands with huge fields of wheat."
+   },
+   {
+    "id": "lm:The Gulf of St. Lawrence",
+    "navn": "The Gulf of St. Lawrence",
+    "form": "punkt",
+    "xy": [
+     879.7,
+     597.7
+    ],
+    "info": "The mouth of the St. Lawrence River, the gateway from the Atlantic to the Great Lakes."
+   },
+   {
+    "id": "lm:Dinosaur Provincial Park",
+    "navn": "Dinosaur Provincial Park",
+    "form": "punkt",
+    "xy": [
+     311.1,
+     639.9
+    ],
+    "info": "Badlands in Alberta where many dinosaur fossils have been found."
+   },
+   {
+    "id": "lm:Nahanni National Park",
+    "navn": "Nahanni National Park",
+    "form": "punkt",
+    "xy": [
+     245.2,
+     408.1
+    ],
+    "info": "A wild park in the north with deep canyons and Virginia Falls."
+   }
+  ]
+ },
+ {
+  "id": "jamaica-omrader",
+  "kart": "jamaica",
+  "gruppe": "Jamaica og Karibia",
+  "tittel": "The parishes of Jamaica",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn de 14 «parishes» (fylkene) på Jamaica.",
+  "elementer": [
+   {
+    "id": "parish:Clarendon",
+    "navn": "Clarendon",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Hanover",
+    "navn": "Hanover",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Kingston",
+    "navn": "Kingston",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Manchester",
+    "navn": "Manchester",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Portland",
+    "navn": "Portland",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Andrew",
+    "navn": "St Andrew",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Ann",
+    "navn": "St Ann",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Catherine",
+    "navn": "St Catherine",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Elizabeth",
+    "navn": "St Elizabeth",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint James",
+    "navn": "St James",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Mary",
+    "navn": "St Mary",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Saint Thomas",
+    "navn": "St Thomas",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Trelawny",
+    "navn": "Trelawny",
+    "form": "omrade"
+   },
+   {
+    "id": "parish:Westmoreland",
+    "navn": "Westmoreland",
+    "form": "omrade"
+   }
+  ]
+ },
+ {
+  "id": "jamaica-byer",
+  "kart": "jamaica",
+  "gruppe": "Jamaica og Karibia",
+  "tittel": "Towns in Jamaica",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Kingston, Montego Bay, Spanish Town og andre byer.",
+  "elementer": [
+   {
+    "id": "by:Kingston",
+    "navn": "Kingston",
+    "form": "punkt",
+    "xy": [
+     708.2,
+     328.9
+    ],
+    "info": "The capital and largest city of Jamaica."
+   },
+   {
+    "id": "by:Montego Bay",
+    "navn": "Montego Bay",
+    "form": "punkt",
+    "xy": [
+     232.9,
+     107.5
+    ],
+    "info": "The second city and the centre of tourism."
+   },
+   {
+    "id": "by:Spanish Town",
+    "navn": "Spanish Town",
+    "form": "punkt",
+    "xy": [
+     636.7,
+     320
+    ],
+    "info": "The old capital from Spanish and early British times."
+   },
+   {
+    "id": "by:Ocho Rios",
+    "navn": "Ocho Rios",
+    "form": "punkt",
+    "xy": [
+     577.8,
+     134.1
+    ],
+    "info": "A tourist town on the north coast."
+   },
+   {
+    "id": "by:Mandeville",
+    "navn": "Mandeville",
+    "form": "punkt",
+    "xy": [
+     405.4,
+     297.9
+    ],
+    "info": "A town in the cool hills of central Jamaica."
+   },
+   {
+    "id": "by:May Pen",
+    "navn": "May Pen",
+    "form": "punkt",
+    "xy": [
+     518.9,
+     333.3
+    ],
+    "info": "A market town in Clarendon."
+   },
+   {
+    "id": "by:Negril",
+    "navn": "Negril",
+    "form": "punkt",
+    "xy": [
+     52.1,
+     196.1
+    ],
+    "info": "A beach town at the western tip of the island."
+   },
+   {
+    "id": "by:Port Antonio",
+    "navn": "Port Antonio",
+    "form": "punkt",
+    "xy": [
+     851.2,
+     235.9
+    ],
+    "info": "A small port town in Portland, with rainforest and rivers."
+   },
+   {
+    "id": "by:Falmouth",
+    "navn": "Falmouth",
+    "form": "punkt",
+    "xy": [
+     342.3,
+     98.6
+    ],
+    "info": "A Georgian town from the time of the sugar trade."
+   },
+   {
+    "id": "by:Savanna-la-Mar",
+    "navn": "Savanna-la-Mar",
+    "form": "punkt",
+    "xy": [
+     144.6,
+     218.2
+    ],
+    "info": "The capital of Westmoreland on the south-west coast."
+   },
+   {
+    "id": "by:Morant Bay",
+    "navn": "Morant Bay",
+    "form": "punkt",
+    "xy": [
+     868,
+     368.6
+    ],
+    "info": "The town where the Morant Bay Rebellion started in 1865."
+   },
+   {
+    "id": "by:Black River",
+    "navn": "Black River",
+    "form": "punkt",
+    "xy": [
+     262.4,
+     302.3
+    ],
+    "info": "A town at the mouth of the Black River, known for its crocodiles."
+   }
+  ]
+ },
+ {
+  "id": "jamaica-landemerker",
+  "kart": "jamaica",
+  "gruppe": "Jamaica og Karibia",
+  "tittel": "Famous places in Jamaica",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Blue Mountain Peak, Dunn’s River Falls, Port Royal og andre kjente steder.",
+  "elementer": [
+   {
+    "id": "lm:Blue Mountain Peak",
+    "navn": "Blue Mountain Peak",
+    "form": "punkt",
+    "xy": [
+     796.5,
+     293.5
+    ],
+    "info": "Jamaica’s highest point (2,256 m) – famous for Blue Mountain coffee."
+   },
+   {
+    "id": "lm:Dunn’s River Falls",
+    "navn": "Dunn’s River Falls",
+    "form": "punkt",
+    "xy": [
+     561,
+     134.1
+    ],
+    "info": "Waterfalls that you can climb, near Ocho Rios."
+   },
+   {
+    "id": "lm:Port Royal",
+    "navn": "Port Royal",
+    "form": "punkt",
+    "xy": [
+     687.2,
+     342.1
+    ],
+    "info": "Once the «wickedest city on Earth», a pirate town destroyed by an earthquake in 1692."
+   },
+   {
+    "id": "lm:Seven Mile Beach",
+    "navn": "Seven Mile Beach",
+    "form": "punkt",
+    "xy": [
+     56.3,
+     178.4
+    ],
+    "info": "A long white beach in Negril."
+   },
+   {
+    "id": "lm:Cockpit Country",
+    "navn": "Cockpit Country",
+    "form": "punkt",
+    "xy": [
+     367.5,
+     182.8
+    ],
+    "info": "Wild limestone hills where the Maroons fought the British."
+   },
+   {
+    "id": "lm:Rose Hall",
+    "navn": "Rose Hall",
+    "form": "punkt",
+    "xy": [
+     270.8,
+     89.7
+    ],
+    "info": "A great house from a sugar plantation, built in the 1770s."
+   },
+   {
+    "id": "lm:The Luminous Lagoon",
+    "navn": "The Luminous Lagoon",
+    "form": "punkt",
+    "xy": [
+     354.9,
+     94.1
+    ],
+    "info": "A bay where the water glows at night because of tiny organisms."
+   },
+   {
+    "id": "lm:Treasure Beach",
+    "navn": "Treasure Beach",
+    "form": "punkt",
+    "xy": [
+     300.2,
+     368.6
+    ],
+    "info": "Quiet fishing villages on the south coast."
+   },
+   {
+    "id": "lm:Accompong",
+    "navn": "Accompong",
+    "form": "punkt",
+    "xy": [
+     304.4,
+     213.8
+    ],
+    "info": "A Maroon town that has governed itself since a treaty with the British in 1739."
+   },
+   {
+    "id": "lm:The Rio Grande",
+    "navn": "The Rio Grande",
+    "form": "punkt",
+    "xy": [
+     838.6,
+     271.3
+    ],
+    "info": "A river in Portland where you can go rafting on bamboo rafts."
+   }
+  ]
+ },
+ {
+  "id": "karibia-byer",
+  "kart": "karibia",
+  "gruppe": "Jamaica og Karibia",
+  "tittel": "Countries and islands of the Caribbean",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn Jamaica, Cuba, Trinidad og Tobago, Barbados og andre land og øyer i Karibia.",
+  "elementer": [
+   {
+    "id": "by:Jamaica",
+    "navn": "Jamaica",
+    "form": "punkt",
+    "xy": [
+     401.2,
+     350.9
+    ],
+    "info": "Capital: Kingston. Independent from Britain since 1962."
+   },
+   {
+    "id": "by:Cuba",
+    "navn": "Cuba",
+    "form": "punkt",
+    "xy": [
+     339.6,
+     231.9
+    ],
+    "info": "The largest island in the Caribbean. Spanish-speaking."
+   },
+   {
+    "id": "by:Haiti",
+    "navn": "Haiti",
+    "form": "punkt",
+    "xy": [
+     560,
+     321.8
+    ],
+    "info": "The first independent Black republic (1804), after a slave revolution. French and Haitian Creole."
+   },
+   {
+    "id": "by:The Dominican Republic",
+    "navn": "The Dominican Republic",
+    "form": "punkt",
+    "xy": [
+     624.8,
+     326.9
+    ],
+    "info": "Shares the island of Hispaniola with Haiti. Spanish-speaking."
+   },
+   {
+    "id": "by:Puerto Rico",
+    "navn": "Puerto Rico",
+    "form": "punkt",
+    "xy": [
+     751.2,
+     348.5
+    ],
+    "info": "A territory of the USA. Spanish and English."
+   },
+   {
+    "id": "by:The Bahamas",
+    "navn": "The Bahamas",
+    "form": "punkt",
+    "xy": [
+     391.4,
+     133.4
+    ],
+    "info": "About 700 islands. English-speaking, independent since 1973."
+   },
+   {
+    "id": "by:Trinidad and Tobago",
+    "navn": "Trinidad and Tobago",
+    "form": "punkt",
+    "xy": [
+     919.7,
+     603.7
+    ],
+    "info": "Home of calypso, steelpan music and a huge carnival."
+   },
+   {
+    "id": "by:Barbados",
+    "navn": "Barbados",
+    "form": "punkt",
+    "xy": [
+     976.4,
+     518.5
+    ],
+    "info": "An English-speaking island that became a republic in 2021."
+   },
+   {
+    "id": "by:Saint Lucia",
+    "navn": "Saint Lucia",
+    "form": "punkt",
+    "xy": [
+     930.4,
+     494.2
+    ],
+    "info": "English-speaking island with two famous volcanic peaks, the Pitons."
+   },
+   {
+    "id": "by:Grenada",
+    "navn": "Grenada",
+    "form": "punkt",
+    "xy": [
+     907.4,
+     553.4
+    ],
+    "info": "The «Spice Isle», famous for nutmeg."
+   },
+   {
+    "id": "by:Antigua and Barbuda",
+    "navn": "Antigua and Barbuda",
+    "form": "punkt",
+    "xy": [
+     903.5,
+     387.2
+    ],
+    "info": "English-speaking islands said to have 365 beaches."
+   },
+   {
+    "id": "by:Dominica",
+    "navn": "Dominica",
+    "form": "punkt",
+    "xy": [
+     918.1,
+     443.3
+    ],
+    "info": "A green volcanic island with rainforests and hot springs."
+   },
+   {
+    "id": "by:The Cayman Islands",
+    "navn": "The Cayman Islands",
+    "form": "punkt",
+    "xy": [
+     273.1,
+     311.2
+    ],
+    "info": "A British overseas territory."
+   },
+   {
+    "id": "by:Belize",
+    "navn": "Belize",
+    "form": "punkt",
+    "xy": [
+     34.9,
+     383.2
+    ],
+    "info": "The only English-speaking country in Central America."
+   },
+   {
+    "id": "by:Martinique",
+    "navn": "Martinique",
+    "form": "punkt",
+    "xy": [
+     928.8,
+     469.1
+    ],
+    "info": "A part of France in the Caribbean."
+   }
+  ]
+ },
+ {
+  "id": "nigeria-omrader",
+  "kart": "nigeria",
+  "gruppe": "Nigeria",
+  "tittel": "The states of Nigeria",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Finn de 36 delstatene og hovedstadsterritoriet i Nigeria.",
+  "elementer": [
+   {
+    "id": "stat:Abia",
+    "navn": "Abia",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Adamawa",
+    "navn": "Adamawa",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Akwa Ibom",
+    "navn": "Akwa Ibom",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Anambra",
+    "navn": "Anambra",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Bauchi",
+    "navn": "Bauchi",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Bayelsa",
+    "navn": "Bayelsa",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Benue",
+    "navn": "Benue",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Borno",
+    "navn": "Borno",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Cross River",
+    "navn": "Cross River",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Delta",
+    "navn": "Delta",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Ebonyi",
+    "navn": "Ebonyi",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Edo",
+    "navn": "Edo",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Ekiti",
+    "navn": "Ekiti",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Enugu",
+    "navn": "Enugu",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Federal Capital Territory",
+    "navn": "Federal Capital Territory",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Gombe",
+    "navn": "Gombe",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Imo",
+    "navn": "Imo",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Jigawa",
+    "navn": "Jigawa",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Kaduna",
+    "navn": "Kaduna",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Kano",
+    "navn": "Kano",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Katsina",
+    "navn": "Katsina",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Kebbi",
+    "navn": "Kebbi",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Kogi",
+    "navn": "Kogi",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Kwara",
+    "navn": "Kwara",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Lagos",
+    "navn": "Lagos",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Nassarawa",
+    "navn": "Nasarawa",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Niger",
+    "navn": "Niger",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Ogun",
+    "navn": "Ogun",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Ondo",
+    "navn": "Ondo",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Osun",
+    "navn": "Osun",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Oyo",
+    "navn": "Oyo",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Plateau",
+    "navn": "Plateau",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Rivers",
+    "navn": "Rivers",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Sokoto",
+    "navn": "Sokoto",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Taraba",
+    "navn": "Taraba",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Yobe",
+    "navn": "Yobe",
+    "form": "omrade"
+   },
+   {
+    "id": "stat:Zamfara",
+    "navn": "Zamfara",
+    "form": "omrade"
+   }
+  ]
+ },
+ {
+  "id": "nigeria-byer",
+  "kart": "nigeria",
+  "gruppe": "Nigeria",
+  "tittel": "Cities in Nigeria",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Abuja, Lagos, Kano og andre byer.",
+  "elementer": [
+   {
+    "id": "by:Abuja",
+    "navn": "Abuja",
+    "form": "punkt",
+    "xy": [
+     406.1,
+     414
+    ],
+    "info": "The capital since 1991, built as a new, planned city in the middle of the country."
+   },
+   {
+    "id": "by:Lagos",
+    "navn": "Lagos",
+    "form": "punkt",
+    "xy": [
+     73.5,
+     621.4
+    ],
+    "info": "Nigeria’s largest city and business centre – one of the biggest cities in Africa."
+   },
+   {
+    "id": "by:Kano",
+    "navn": "Kano",
+    "form": "punkt",
+    "xy": [
+     489.5,
+     171.9
+    ],
+    "info": "An ancient trading city in the north, with old city walls."
+   },
+   {
+    "id": "by:Ibadan",
+    "navn": "Ibadan",
+    "form": "punkt",
+    "xy": [
+     119.7,
+     551.3
+    ],
+    "info": "One of the largest cities in Nigeria, home of the country’s first university."
+   },
+   {
+    "id": "by:Port Harcourt",
+    "navn": "Port Harcourt",
+    "form": "punkt",
+    "xy": [
+     368.9,
+     759.7
+    ],
+    "info": "The centre of the oil industry in the Niger Delta."
+   },
+   {
+    "id": "by:Benin City",
+    "navn": "Benin City",
+    "form": "punkt",
+    "xy": [
+     255.6,
+     636.1
+    ],
+    "info": "The old capital of the Kingdom of Benin, famous for the Benin Bronzes."
+   },
+   {
+    "id": "by:Kaduna",
+    "navn": "Kaduna",
+    "form": "punkt",
+    "xy": [
+     402.1,
+     294.1
+    ],
+    "info": "An industrial city in the north."
+   },
+   {
+    "id": "by:Maiduguri",
+    "navn": "Maiduguri",
+    "form": "punkt",
+    "xy": [
+     864.1,
+     186
+    ],
+    "info": "The largest city in the north-east, near Lake Chad."
+   },
+   {
+    "id": "by:Enugu",
+    "navn": "Enugu",
+    "form": "punkt",
+    "xy": [
+     406.9,
+     627.9
+    ],
+    "info": "The «Coal City» in the south-east."
+   },
+   {
+    "id": "by:Jos",
+    "navn": "Jos",
+    "form": "punkt",
+    "xy": [
+     517,
+     345
+    ],
+    "info": "A city on a cool plateau in the middle of the country."
+   },
+   {
+    "id": "by:Calabar",
+    "navn": "Calabar",
+    "form": "punkt",
+    "xy": [
+     473.3,
+     749.1
+    ],
+    "info": "A port city in the south-east, known for its big Christmas carnival."
+   },
+   {
+    "id": "by:Sokoto",
+    "navn": "Sokoto",
+    "form": "punkt",
+    "xy": [
+     224.1,
+     84.1
+    ],
+    "info": "The seat of the Sultan of Sokoto, a spiritual leader for many Muslims."
+   },
+   {
+    "id": "by:Onitsha",
+    "navn": "Onitsha",
+    "form": "punkt",
+    "xy": [
+     349.5,
+     651.5
+    ],
+    "info": "A trading city on the Niger with one of the largest markets in West Africa."
+   },
+   {
+    "id": "by:Abeokuta",
+    "navn": "Abeokuta",
+    "form": "punkt",
+    "xy": [
+     71.1,
+     570.1
+    ],
+    "info": "A city famous for Olumo Rock and the tie-dye fabric adire."
+   }
+  ]
+ },
+ {
+  "id": "nigeria-landemerker",
+  "kart": "nigeria",
+  "gruppe": "Nigeria",
+  "tittel": "Famous places in Nigeria",
+  "fag": "engelsk",
+  "sprak": "en",
+  "beskrivelse": "Zuma Rock, Lake Chad, Niger-deltaet og andre kjente steder.",
+  "elementer": [
+   {
+    "id": "lm:Zuma Rock",
+    "navn": "Zuma Rock",
+    "form": "punkt",
+    "xy": [
+     385.1,
+     408.2
+    ],
+    "info": "A huge rock outside Abuja – it is on the 100 naira note."
+   },
+   {
+    "id": "lm:Lake Chad",
+    "navn": "Lake Chad",
+    "form": "punkt",
+    "xy": [
+     924.8,
+     76.6
+    ],
+    "info": "A large, shallow lake shared by four countries. It has shrunk a lot since the 1960s."
+   },
+   {
+    "id": "lm:The confluence at Lokoja",
+    "navn": "The confluence at Lokoja",
+    "form": "punkt",
+    "xy": [
+     345.4,
+     517
+    ],
+    "info": "Where the two great rivers, the Niger and the Benue, meet."
+   },
+   {
+    "id": "lm:The Niger Delta",
+    "navn": "The Niger Delta",
+    "form": "punkt",
+    "xy": [
+     285.6,
+     745.1
+    ],
+    "info": "A huge delta of rivers, swamps and mangroves – and the centre of oil production."
+   },
+   {
+    "id": "lm:Yankari National Park",
+    "navn": "Yankari National Park",
+    "form": "punkt",
+    "xy": [
+     649.7,
+     357.4
+    ],
+    "info": "A national park with elephants and warm springs."
+   },
+   {
+    "id": "lm:The Osun-Osogbo Sacred Grove",
+    "navn": "The Osun-Osogbo Sacred Grove",
+    "form": "punkt",
+    "xy": [
+     168.2,
+     520.3
+    ],
+    "info": "A sacred forest for the Yoruba goddess Osun – a UNESCO World Heritage Site."
+   },
+   {
+    "id": "lm:Sukur",
+    "navn": "Sukur",
+    "form": "punkt",
+    "xy": [
+     898.1,
+     275.9
+    ],
+    "info": "A village on a hill with stone terraces – a UNESCO World Heritage Site."
+   },
+   {
+    "id": "lm:The Obudu Plateau",
+    "navn": "The Obudu Plateau",
+    "form": "punkt",
+    "xy": [
+     558.3,
+     633.6
+    ],
+    "info": "Cool highlands with a famous cable car."
+   },
+   {
+    "id": "lm:Chappal Waddi",
+    "navn": "Chappal Waddi",
+    "form": "punkt",
+    "xy": [
+     746.8,
+     579.9
+    ],
+    "info": "Nigeria’s highest mountain (2,419 m), on the border with Cameroon."
+   },
+   {
+    "id": "lm:Kainji Lake",
+    "navn": "Kainji Lake",
+    "form": "punkt",
+    "xy": [
+     168.2,
+     303.9
+    ],
+    "info": "A large reservoir on the Niger River with a big dam."
+   },
+   {
+    "id": "lm:Nok",
+    "navn": "Nok",
+    "form": "punkt",
+    "xy": [
+     447.4,
+     377.9
+    ],
+    "info": "The area where the Nok culture made clay sculptures more than 2,000 years ago."
+   }
+  ]
+ },
+ {
   "id": "singapore-landemerker",
   "kart": "singapore",
   "gruppe": "Singapore",
