@@ -149,6 +149,7 @@ LV.kompetansemal = {
     "side:kildedetektiv": ["s2", "s17", "e12", "e13"],
     "side:klassequiz": ["s3", "e10"],
     "side:tidsreise": ["s3"],
+    "side:fortelling": ["s3", "s5", "s6"],
     "side:arsak": ["s7", "s5"],
     "side:debatt": ["s16", "s17", "e6", "e5"],
     "side:bingo": ["e10", "e11"],

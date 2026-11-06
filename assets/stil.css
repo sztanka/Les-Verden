@@ -2604,3 +2604,40 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
 /* Lange valg i muntlig (lytteøvelse og den varme stolen) skal ikke gi sideveis rulling */
 .mu-lyttrad label, .mu-velgperson { max-width: 100%; min-width: 0; }
 .mu-lyttrad select, .mu-velgperson select { max-width: 100%; min-width: 0; }
+
+/* ---------- Velg din vei ---------- */
+.fo-liste { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.fo-kort { display: flex; flex-direction: column; gap: .4rem; height: 100%; box-sizing: border-box; padding: 1.1rem 1.2rem; border-radius: var(--radius); background: var(--flate); border: 1px solid var(--linje); border-top: 8px solid var(--fo-a); color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.fo-kort:hover, .fo-kort:focus-visible { border-color: var(--tekst); border-top-color: var(--fo-a); }
+.fo-kort strong { font-family: var(--font-tekst); font-size: 1.35rem; }
+.fo-kort-topp { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--tekst-dempet); }
+.fo-ikon { font-size: 1.8rem; }
+.fo-trinn { margin-top: auto; font-size: .85rem; color: var(--tekst-dempet); }
+.fo-hode h1 { margin-bottom: .6rem; }
+.fo-rolle { background: var(--flate); border-left: 6px solid var(--fo-a); border-radius: 10px; padding: .8rem 1.1rem; font-family: var(--font-tekst); font-size: 1.1rem; }
+.fo-rolle p { margin: .2rem 0; }
+.fo-merk { font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); }
+.fo-scener { max-width: 46rem; }
+.fo-scene { font-family: var(--font-tekst); font-size: 1.12rem; line-height: 1.7; padding: 1rem 0 .5rem; border-bottom: 1px dashed var(--linje); }
+.fo-scene .fo-nr { font-family: var(--font-ui); font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--tekst-dempet); margin: 0 0 .4rem; }
+.fo-scene .fo-nr:focus { outline: none; }
+.fo-slutt .fo-nr { font-size: 1.1rem; color: var(--tekst); text-transform: none; letter-spacing: 0; }
+.fo-kilde { font-family: var(--font-ui); font-size: .95rem; line-height: 1.55; background: var(--lilla-lys); border-radius: 10px; padding: .7rem 1rem; margin: .8rem 0; }
+.fo-kilde h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.fo-kilde p { margin: 0; }
+.fo-valg { display: grid; gap: .5rem; margin: 1rem 0; font-family: var(--font-ui); }
+.fo-sporsmal { margin: 0; font-weight: 700; }
+.fo-valgknapp { font: inherit; font-size: 1.02rem; text-align: left; background: var(--flate); color: var(--tekst); border: 2px solid var(--tekst); border-radius: 12px; padding: .7rem 1rem; cursor: pointer; }
+.fo-valgknapp::before { content: "➜ "; }
+.fo-valgknapp:hover, .fo-valgknapp:focus-visible { background: var(--tekst); color: var(--bakgrunn); }
+.fo-valgt { font-family: var(--font-ui); font-size: .95rem; color: var(--tekst-dempet); }
+.fo-tilbake { margin: .8rem 0; }
+.fo-ord { font: inherit; }
+.fo-forkl { font-family: var(--font-ui); font-size: .9em; color: var(--tekst-dempet); }
+.fo-oppsummering, .fo-oppgaver { max-width: 46rem; font-family: var(--font-ui); margin-top: 1.5rem; }
+.fo-vei li { margin: .2rem 0; }
+.fo-oppgaver ol { padding-left: 1.2rem; }
+.fo-oppgaver li { margin-bottom: .8rem; }
+.fo-oppgaver label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.fo-oppgaver textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
+@media print { .fo-valg, .fo-tilbake, #fo-igjen { display: none !important; } .fo-scene { break-inside: avoid; } }

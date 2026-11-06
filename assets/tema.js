@@ -339,6 +339,10 @@
           (en ? "Practise the terms, people and events from this topic." : "Øv på begrepene, personene og hendelsene fra dette temaet.") + '</p><ul class="spillknapper">' +
           spill.map(x => '<li><a class="knapp" href="spill.html?spill=' + x[0] + "&tema=" + encodeURIComponent(tema.id) + '"><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a></li>").join("") + "</ul></section>";
       }
+      // Velg din vei-fortellinger knyttet til temaet (holdes i takt med data/fortellinger.js)
+      const FORTELLING = { "sf9-utvandringen": ["utvandrer-1882", "🚢", "Utvandreren – Valdres–Amerika, 1882"], "sf9-arbeiderbevegelsen": ["fyrstikk-1889", "🔥", "Fyrstikkarbeidersken – Kristiania, 1889"], "sf8-1814-grunnloven": ["eidsvoll-1814", "📜", "Tjenestejenta på Eidsvoll – våren 1814"] };
+      const fo = FORTELLING[tema.id];
+      if (fo) h += '<a class="mu-banner fo-banner" href="fortelling.html?id=' + fo[0] + '"><span class="mu-banner-ikon" aria-hidden="true">' + fo[1] + "</span><span><strong>Velg din vei: " + LV.esc(fo[2]) + "</strong><span>Gå inn i historien som en ung person og ta valgene selv.</span></span><span aria-hidden=\"true\">→</span></a>";
       h += '<a class="mu-banner" href="muntlig.html?id=' + encodeURIComponent(tema.id) + '"><span class="mu-banner-ikon" aria-hidden="true">🗣️</span><span><strong>' + (en ? "Speaking and listening" : "Muntlig og lytting") + "</strong><span>" +
         (en ? "Talk cards with a timer, a listening task and the hot seat for this topic." : "Samtalekort med tidtaker, lytteøvelse og «den varme stolen» til dette temaet.") + "</span></span><span aria-hidden=\"true\">→</span></a>";
     }
