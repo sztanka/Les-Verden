@@ -24,6 +24,9 @@
   const SIDER = [
     ["lesestrategier", "Lesestrategier", "lesestrategier.html", "Strategier før, under og etter lesing, med VØL-skjema.", ["samfunnsfag", "engelsk"]],
     ["kildedetektiv", "Kildedetektiven", "kildedetektiv.html", "Spill i kildekritikk: er innlegget sant eller falskt?", ["samfunnsfag", "engelsk"]],
+    ["kommune", "Ordfører for en dag", "kommune.html", "Budsjettspill i en oppdiktet kommune: prioriteringer, dilemmaer og kommunevalg.", ["samfunnsfag"]],
+    ["lov", "Lag en lov", "lov.html", "Fra høring til votering: kompromisser og flertall i et Storting med oppdiktede partier.", ["samfunnsfag"]],
+    ["hjorner", "Fire hjørner", "hjorner.html", "Storskjerm: påstander, elevene velger hjørne og argumenterer (norsk og engelsk).", ["samfunnsfag", "engelsk"]],
     ["fortelling", "Velg din vei", "fortelling.html", "Historiske fortellinger med valg: utvandreren, fyrstikkarbeidersken, Eidsvoll 1814.", ["samfunnsfag"]],
     ["tidsreise", "Tidsreisen", "tidsreise.html", "Spill: gjett året for hendelser fra tidslinjene i temaene.", ["samfunnsfag", "engelsk"]],
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],

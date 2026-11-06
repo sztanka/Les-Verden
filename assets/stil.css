@@ -2641,3 +2641,83 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
 .fo-oppgaver label { display: block; font-weight: 600; margin-bottom: .3rem; }
 .fo-oppgaver textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
 @media print { .fo-valg, .fo-tilbake, #fo-igjen { display: none !important; } .fo-scene { break-inside: avoid; } }
+
+/* ---------- Ordfører for en dag / Lag en lov ---------- */
+.ko-spill { max-width: 52rem; font-family: var(--font-ui); }
+.ko-kort { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin-bottom: 1rem; }
+.ko-kort h2 { margin-top: 0; }
+.ko-sporer { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; background: var(--tekst); color: var(--bakgrunn); border-radius: 10px; padding: .55rem 1rem; margin-bottom: .8rem; font-size: .95rem; }
+.ko-omrader { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.ko-omrader li { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; justify-content: space-between; border: 1px solid var(--linje); border-radius: 10px; padding: .55rem .8rem; }
+.ko-omrader li.lav { border-color: var(--aksent); border-width: 2px; }
+.ko-otekst { flex: 1 1 18rem; min-width: 0; }
+.ko-otekst strong { display: block; }
+.ko-otekst small { color: var(--tekst-dempet); }
+.ko-juster { display: flex; align-items: center; gap: .4rem; }
+.ko-juster output { min-width: 5.5rem; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ko-igjen { font-size: 1.05rem; }
+.ko-igjen.ok { color: var(--samfunnsfag); font-weight: 700; }
+.ko-advarsel { background: color-mix(in srgb, var(--aksent) 14%, var(--flate)); border-left: 5px solid var(--aksent); padding: .5rem .8rem; border-radius: 8px; }
+.ko-grupper { list-style: none; padding: 0; display: grid; gap: .45rem; }
+.ko-grupper li { display: grid; grid-template-columns: minmax(9rem, 15rem) 1fr 4.5rem; gap: .6rem; align-items: center; }
+.ko-gnavn small { color: var(--tekst-dempet); }
+.ko-bar { display: block; height: .9rem; background: var(--linje); border-radius: 99px; overflow: hidden; }
+.ko-bar > span { display: block; height: 100%; border-radius: 99px; }
+.ko-bar .god { background: var(--samfunnsfag); } .ko-bar .middels { background: #c99a1c; } .ko-bar .lav { background: var(--aksent); }
+.ko-tall { font-variant-numeric: tabular-nums; font-weight: 700; }
+.ko-tall .opp { color: var(--samfunnsfag); } .ko-tall .ned { color: var(--aksent); }
+.ko-avis { font-family: var(--font-tekst); font-size: 1.35rem; font-weight: 700; border-top: 4px double var(--tekst); border-bottom: 4px double var(--tekst); padding: .6rem 0; }
+.ko-avisnavn { display: block; font-family: var(--font-ui); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--tekst-dempet); font-weight: 400; }
+.ko-valg { text-align: left; }
+.ko-valgtekst { font-size: 1.15rem; }
+@media (max-width: 560px) { .ko-grupper li { grid-template-columns: 1fr 3.5rem; } .ko-grupper .ko-bar { grid-column: 1 / -1; grid-row: 2; } }
+.lo-steg { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem; font-family: var(--font-ui); font-size: .85rem; margin: 0 0 1rem; counter-reset: lo; }
+.lo-steg li { counter-increment: lo; padding: .3rem .7rem; border-radius: 99px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst-dempet); }
+.lo-steg li::before { content: counter(lo) ". "; }
+.lo-steg li.aktiv { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); font-weight: 700; }
+.lo-steg li.ferdig { color: var(--tekst); }
+.lo-steg li.ferdig::before { content: "✔ "; }
+.lo-saker { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.lo-saker small { font-weight: 400; color: inherit; opacity: .85; }
+.lo-forslag { font-family: var(--font-tekst); font-size: 1.15rem; border-left: 5px solid var(--lilla); margin: .6rem 0 1rem; padding: .3rem 1rem; }
+.lo-rett { border-color: var(--samfunnsfag) !important; outline: 3px solid var(--samfunnsfag); }
+.lo-horing { display: grid; gap: .6rem; margin-bottom: 1rem; }
+.lo-hsvar { border: 1px solid var(--linje); border-radius: 10px; padding: .6rem .9rem; background: var(--bakgrunn); }
+.lo-hsvar h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.lo-hsvar p { margin: 0; font-family: var(--font-tekst); }
+.lo-notat { display: block; font-weight: 600; margin-bottom: .3rem; }
+.ko-kort textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); margin-bottom: .8rem; }
+.lo-komp { border: 1px solid var(--linje); border-radius: 10px; padding: .6rem .9rem; display: grid; gap: .5rem; margin-bottom: 1rem; }
+.lo-komp legend { font-weight: 700; padding: 0 .3rem; }
+.lo-komp label { display: flex; gap: .5rem; align-items: flex-start; cursor: pointer; }
+.lo-komp input { width: 1.15rem; height: 1.15rem; margin-top: .15rem; flex: none; }
+.lo-sal { display: grid; grid-template-columns: repeat(auto-fill, minmax(.85rem, 1fr)); gap: 3px; margin: .5rem 0; }
+.lo-sete { aspect-ratio: 1; border-radius: 50%; background: var(--pf); }
+.lo-sete.nei { opacity: .25; }
+.lo-sete.avst { opacity: .55; background: repeating-linear-gradient(45deg, var(--pf) 0 2px, transparent 2px 4px); }
+.lo-telling { font-size: 1.05rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; }
+.lo-partier { list-style: none; padding: 0; display: grid; gap: .4rem; }
+.lo-partier li { display: grid; grid-template-columns: 1fr auto; gap: .1rem .6rem; border-left: 6px solid var(--pf); background: var(--bakgrunn); border-radius: 8px; padding: .4rem .7rem; }
+.lo-partier small { grid-column: 1 / -1; color: var(--tekst-dempet); }
+.lo-stemme { font-weight: 700; padding: 0 .5rem; border-radius: 99px; }
+.lo-stemme.ja { background: var(--samfunnsfag); color: #fff; } .lo-stemme.nei { background: var(--aksent); color: #fff; } .lo-stemme.avst { border: 1px solid var(--linje); }
+:root[data-tema="mork"] .lo-stemme.ja, :root[data-tema="mork"] .lo-stemme.nei { color: #10141a; }
+.lo-prosess li { margin: .3rem 0; }
+.lo-prosess li.ferdig::marker { color: var(--samfunnsfag); }
+
+/* ---------- Fire hjørner ---------- */
+.hj-scene { position: relative; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 4.2rem 1.2rem 1.2rem; min-height: 26rem; display: flex; flex-direction: column; align-items: center; text-align: center; font-family: var(--font-ui); }
+.hj-scene:fullscreen { padding: 7rem 3rem 2rem; justify-content: center; }
+.hj-scene:fullscreen .hj-pastand { font-size: clamp(2rem, 4.5vw, 4rem); }
+.hj-hjorner .hj-hjorne { position: absolute; display: flex; align-items: center; gap: .4rem; font-weight: 700; padding: .35rem .8rem; border-radius: 10px; background: var(--bakgrunn); border: 2px solid var(--linje); font-size: .95rem; }
+.hj-hjorne.h0 { top: .7rem; left: .7rem; } .hj-hjorne.h1 { top: .7rem; right: .7rem; } .hj-hjorne.h2 { bottom: .7rem; left: .7rem; } .hj-hjorne.h3 { bottom: .7rem; right: .7rem; }
+.hj-nr { color: var(--tekst-dempet); margin: 0; }
+.hj-pastand { font-family: var(--font-tekst); font-size: clamp(1.5rem, 3.4vw, 2.6rem); font-weight: 700; line-height: 1.25; max-width: 40rem; margin: .6rem 0 1.2rem; }
+.hj-gang { text-align: left; max-width: 36rem; padding-left: 1.4rem; color: var(--tekst-dempet); }
+.hj-gang li { margin: .25rem 0; }
+.hj-gang li.aktiv { color: var(--tekst); font-weight: 700; font-size: 1.1rem; }
+.hj-gang li.ferdig { text-decoration: line-through; }
+.hj-knapper { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-bottom: 3.2rem; }
+.hj-egen { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; font-family: var(--font-ui); }
+.hj-egen input { flex: 1 1 16rem; min-width: 0; font: inherit; padding: .45rem .7rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
+@media (max-width: 560px) { .hj-scene { padding-top: 5.6rem; } .hj-hjorne { font-size: .8rem !important; } .hj-knapper { margin-bottom: 5rem; } }
