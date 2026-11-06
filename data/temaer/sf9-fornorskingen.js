@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Samene er et [[urfolk]] som har bodd i Sápmi – de nordlige delene av Norge, Sverige, Finland og Kolahalvøya i Russland – i flere tusen år, lenge før det fantes grenser mellom landene. Samene har sine egne språk, sin egen kultur og sine egne tradisjoner, som joik, duodji (håndverk) og den samiske kofta.",
         "Mange samer har levd av reindrift, fiske og jordbruk. I dag bor samer over hele landet og har alle slags yrker. Ingen vet nøyaktig hvor mange samer det er, men det regnes ofte med 50 000–65 000 i Norge. Det har aldri vært laget offisielle lister over hvem som er same."
+      ],
+      lett: [
+        "**Samene** er et urfolk. De har bodd i **Sápmi** – nord i Norge, Sverige, Finland og Russland – i tusenvis av år, lenge før det fantes grenser. Samene har egne språk og egen kultur, som joik og kofte. Mange har levd av reindrift, fiske og jordbruk. I dag bor samer over hele landet."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "[[Fornorsking]] var en politikk som den norske staten førte fra omtrent 1850 og til langt ut på 1900-tallet. Målet var at samer og [[kvener|kven]] – en minoritet med finsk bakgrunn i Nord-Norge – skulle gi opp språket og kulturen sin og bli norske.",
         "Bak politikken lå flere ting. Nasjonalismen gjorde at mange mente at et land skulle ha ett folk og ett språk. Mange trodde også at samisk kultur var «mindre verdt», en tanke som bygde på datidens rasetenkning. Og staten var redd for at Finland og Russland skulle få innflytelse i nord, og ville derfor sikre at befolkningen der var «norsk»."
       ],
+      lett: [
+        "**Fornorsking** var en politikk fra rundt 1850 og langt inn på 1900-tallet. Staten ville at samer og **kvener** skulle slutte å bruke språket og kulturen sin og bli norske. Mange mente at et land skulle ha ett språk. Mange trodde også at samisk kultur var mindre verdt. Og staten ville sikre grensene i nord."
+      ],
       stoppOgTenk: "Hvordan henger fornorskingen sammen med nasjonalismen på 1800-tallet?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "Skolen var det viktigste redskapet i fornorskingen. Fra 1851 brukte Stortinget egne penger, det såkalte Finnefondet, til å lære samiske og kvenske barn norsk. I 1898 kom en instruks som sa at samisk og kvensk bare skulle brukes som et hjelpespråk, og helst ikke i det hele tatt. Barn som snakket samisk i friminuttene, kunne bli straffet.",
         "Mange samiske barn ble sendt på [[internatskoler|internatskole]], langt hjemmefra, fra de var sju år gamle. Der skulle de bare snakke norsk. Mange opplevde ensomhet og hjemlengsel, og noen ble utsatt for vold og ydmykelser. Mange voksne har fortalt at de mistet språket sitt og ikke lærte det videre til egne barn."
+      ],
+      lett: [
+        "Skolen var det viktigste redskapet. Samiske og kvenske barn skulle lære norsk. Barn som snakket samisk, kunne bli straffet. Mange barn ble sendt på **internatskoler** langt hjemmefra fra de var sju år. Mange var ensomme og hadde hjemlengsel. Mange mistet språket og lærte det ikke videre til egne barn."
       ]
     },
     {
@@ -47,6 +56,9 @@ window.LV.tema = {
       tekst: [
         "Fornorskingen handlet ikke bare om skolen. Etter en lov fra 1902 kunne bare folk som snakket, leste og skrev norsk, kjøpe jord i Finnmark. Samiske stedsnavn ble byttet ut med norske, og i offentlige papirer ble samer ofte registrert som norske.",
         "Følgen var at mange samer begynte å skjule hvem de var. De byttet til norsk språk og norske klær for å slippe diskriminering. Mange familier sluttet å snakke samisk hjemme. I dag er flere av de samiske språkene truet, og mange samer må lære språket til besteforeldrene sine som voksne."
+      ],
+      lett: [
+        "Fra 1902 kunne bare folk som kunne norsk, kjøpe jord i Finnmark. Samiske stedsnavn ble byttet ut med norske. Mange samer begynte å skjule hvem de var for å slippe diskriminering. Mange familier sluttet å snakke samisk. I dag er flere samiske språk truet."
       ]
     },
     {
@@ -54,6 +66,9 @@ window.LV.tema = {
       tekst: [
         "Samene gjorde motstand. I 1906 ble **Isak Saba** valgt som den første samen på Stortinget. Han skrev også teksten til den samiske nasjonalsangen. **6. februar 1917** møttes samer fra Norge og Sverige til det første store samiske landsmøtet i Trondheim. Møtet ble ledet an av **Elsa Laula Renberg**. Derfor er 6. februar i dag samefolkets dag.",
         "Etter andre verdenskrig begynte politikken sakte å endre seg. I 1959 ble det igjen lov å bruke samisk som undervisningsspråk i skolen."
+      ],
+      lett: [
+        "Samene kjempet imot. I 1906 ble **Isak Saba** den første samen på Stortinget. **6. februar 1917** møttes samer fra Norge og Sverige i Trondheim til det første store samiske landsmøtet, ledet an av Elsa Laula Renberg. Derfor er 6. februar **samefolkets dag**. Fra 1959 kunne samisk igjen brukes i skolen."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
         "Rundt 1980 ble det store protester mot at staten ville demme opp Altaelva i Finnmark for å bygge et kraftverk. Elva var viktig for reindrift og laksefiske. Samer sultestreiket foran Stortinget, og tusenvis av demonstranter lenket seg fast ved anleggsplassen. Kraftverket ble bygd, men **Altasaken** satte samenes rettigheter på dagsordenen.",
         "Etter dette fikk samene sterkere rettigheter. I 1988 fikk Grunnloven en paragraf om at staten skal legge til rette for at samene kan sikre og utvikle språket, kulturen og samfunnslivet sitt. I 1989 åpnet [[Sametinget]] i Karasjok. I 1997 ba kong Harald om unnskyldning for den uretten staten hadde gjort mot samene."
       ],
+      lett: [
+        "Rundt 1980 protesterte mange mot at staten ville bygge kraftverk i **Altaelva**. Kraftverket ble bygd, men **Altasaken** gjorde at samenes rettigheter ble tatt på alvor. I 1988 fikk Grunnloven en paragraf om samisk språk og kultur. I 1989 åpnet **Sametinget**. I 1997 ba kong Harald om unnskyldning."
+      ],
       stoppOgTenk: "Hvorfor tror du Altasaken ble et vendepunkt for samenes rettigheter?"
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "I 2018 satte Stortinget ned en **sannhets- og forsoningskommisjon** som skulle undersøke fornorskingspolitikken og uretten mot samer, kvener, norskfinner og skogfinner. Kommisjonen la fram rapporten sin i 2023. Den slo fast at fornorskingen har hatt store følger, som fortsatt merkes i dag.",
         "[[Forsoning]] handler om å erkjenne det som har skjedd, lytte til dem som ble rammet, og gjøre noe for at samiske og kvenske språk og kulturer skal leve videre. Det kan for eksempel bety mer samisk i skolen, flere samiske stedsnavn og at alle elever lærer om samenes historie."
+      ],
+      lett: [
+        "En **sannhets- og forsoningskommisjon** undersøkte fornorskingen. Rapporten kom i 2023. Den viser at fornorskingen fortsatt merkes i dag. Forsoning betyr å erkjenne det som skjedde, lytte til dem som ble rammet, og gjøre noe for at samiske og kvenske språk og kulturer skal leve videre."
       ]
     }
   ],

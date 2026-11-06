@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Da industrien vokste fram i Norge på 1800-tallet, flyttet mange fra bygdene til byene for å jobbe i fabrikker, på sagbruk og ved havnene. Arbeidsdagen kunne være på 12–14 timer, seks dager i uka. Lønna var lav, og mange barn måtte jobbe for at familien skulle klare seg.",
         "Arbeidet var ofte farlig. Maskinene hadde ingen vern, og luften i fabrikkene var full av støv. Ble en arbeider syk eller skadet, fikk hen som regel ingen lønn, og kunne miste jobben. Mange familier bodde trangt i små, kalde leiligheter uten innlagt vann. I Kristiania, som Oslo het den gang, bodde arbeiderne i egne strøk øst i byen, mens de rike bodde i vest."
+      ],
+      lett: [
+        "På 1800-tallet flyttet mange til byene for å jobbe i fabrikker. Arbeidsdagen var 12–14 timer, seks dager i uka. Lønna var lav, og mange barn måtte jobbe. Arbeidet var farlig. Ble man syk eller skadet, fikk man ingen lønn. Mange familier bodde trangt og kaldt."
       ]
     },
     {
@@ -32,6 +35,9 @@ window.LV.tema = {
       tekst: [
         "I 1848 var det revolusjoner i mange land i Europa. Samme år begynte læreren og journalisten **Marcus Thrane** å organisere husmenn og arbeidere i Norge. Han startet arbeiderforeninger og ga ut sin egen avis.",
         "Thranebevegelsen krevde blant annet allmenn stemmerett for menn, bedre skole for vanlige folk og bedre kår for husmennene. På kort tid fikk foreningene rundt 30 000 medlemmer. Myndighetene ble redde for at bevegelsen skulle føre til opprør. I 1851 ble Thrane og andre ledere arrestert, og han satt i fengsel i flere år. Senere utvandret han til Amerika. Bevegelsen ble slått ned, men ideene levde videre."
+      ],
+      lett: [
+        "I 1848 begynte **Marcus Thrane** å samle husmenn og arbeidere i foreninger. De krevde stemmerett for alle menn, bedre skole og bedre kår. Snart hadde de rundt 30 000 medlemmer. Myndighetene ble redde, og Thrane ble satt i fengsel. Bevegelsen ble slått ned, men ideene levde videre."
       ],
       stoppOgTenk: "Hvorfor tror du myndighetene var så redde for Thranebevegelsen?"
     },
@@ -41,6 +47,9 @@ window.LV.tema = {
         "En arbeider alene hadde liten makt overfor en fabrikkeier. Men hvis alle arbeiderne sto sammen, kunne de kreve bedre lønn og kortere arbeidsdager. Derfor begynte arbeiderne å danne [[fagforeninger|fagforening]]. Det viktigste våpenet deres var [[streik]]: å nekte å jobbe til kravene ble møtt.",
         "En kjent streik skjedde i 1889, da fyrstikkarbeiderskene i Kristiania la ned arbeidet. Kvinnene jobbet med giftig fosfor, som kunne gi en grusom sykdom i kjeven. Streiken fikk stor oppmerksomhet og viste at også kvinnene i arbeiderklassen kunne kjempe for rettighetene sine.",
         "I 1899 gikk mange fagforeninger sammen i en landsorganisasjon, det som i dag heter **LO**. Arbeidsgiverne svarte med å danne sin egen organisasjon året etter. Etter hvert ble det vanlig at arbeidstakere og arbeidsgivere forhandlet om lønn og arbeidsvilkår. Slike forhandlinger kalles [[tariffavtaler|tariffavtale]]."
+      ],
+      lett: [
+        "En arbeider alene hadde liten makt. Men sammen kunne arbeiderne kreve mer. De startet **fagforeninger**, og det viktigste våpenet var **streik** – å nekte å jobbe. I 1889 streiket fyrstikkarbeiderskene i Kristiania mot giftig arbeid. I 1899 gikk fagforeningene sammen i det som i dag heter **LO**."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
       tekst: [
         "Arbeiderne ville også ha politisk makt. I 1887 ble **Det norske Arbeiderparti** stiftet i Arendal. Partiet bygde på ideene til [[sosialismen]]: at samfunnets rikdom skulle fordeles mer rettferdig, og at staten skulle sørge for at alle hadde det godt.",
         "I starten var partiet lite, fordi mange arbeidere ikke hadde stemmerett. Først i 1898 fikk alle menn over 25 år stemmerett, og kvinnene fikk allmenn stemmerett i 1913. Etter dette vokste Arbeiderpartiet raskt. I 1928 dannet partiet sin første regjering, men den varte bare i 18 dager. I 1935 kom Arbeiderpartiet til makten for alvor."
+      ],
+      lett: [
+        "I 1887 ble **Arbeiderpartiet** startet. Partiet ville fordele rikdommen mer rettferdig. Først var partiet lite, fordi mange arbeidere ikke kunne stemme. Etter at alle menn fikk stemmerett i 1898 og kvinner i 1913, vokste partiet. Fra 1935 styrte Arbeiderpartiet landet."
       ]
     },
     {
@@ -56,6 +68,9 @@ window.LV.tema = {
         "Et av de viktigste kravene til arbeiderbevegelsen over hele verden var åttetimersdagen: «åtte timer arbeid, åtte timer hvile og åtte timer fritid». Kravet ble ropt ut i demonstrasjoner hver **1. mai**, som ble arbeiderbevegelsens kampdag.",
         "I Norge kom en lov om åtte timers arbeidsdag i 1919. Senere fikk arbeiderne også rett til ferie, og arbeidstiden ble kortet ned ytterligere. I dag er en vanlig arbeidsuke på 37,5 timer."
       ],
+      lett: [
+        "Arbeiderne ville ha «åtte timer arbeid, åtte timer hvile og åtte timer fritid». Kravet ble ropt ut i demonstrasjoner hver **1. mai**. I Norge kom loven om **åttetimersdagen** i 1919. Senere fikk arbeiderne rett til ferie. I dag er en vanlig arbeidsuke 37,5 timer."
+      ],
       stoppOgTenk: "Hvorfor tror du kravet om åtte timers fritid var like viktig som kravet om åtte timers arbeid?"
     },
     {
@@ -63,6 +78,9 @@ window.LV.tema = {
       tekst: [
         "Arbeiderbevegelsen var ikke alltid fredelig. Det var harde konflikter mellom arbeidere og arbeidsgivere, særlig i krisetiden på 1920- og 1930-tallet. Men i 1935 inngikk LO og arbeidsgiverne **Hovedavtalen**, som ble kalt «arbeidslivets grunnlov». Den ga regler for hvordan partene skulle forhandle og løse konflikter.",
         "Etter andre verdenskrig var arbeiderbevegelsen med på å bygge opp [[velferdsstaten]]. Staten tok ansvar for at alle skulle ha rett til skole, helsehjelp, pensjon og støtte ved sykdom og arbeidsledighet. Mye av dette var krav arbeiderbevegelsen hadde kjempet for i nesten hundre år."
+      ],
+      lett: [
+        "Det var harde konflikter mellom arbeidere og arbeidsgivere. Men i 1935 ble de enige om **Hovedavtalen**, med regler for hvordan de skulle forhandle. Etter andre verdenskrig var arbeiderbevegelsen med på å bygge **velferdsstaten**, der alle får skole, helsehjelp, pensjon og hjelp hvis de blir syke eller mister jobben."
       ]
     },
     {
@@ -70,6 +88,9 @@ window.LV.tema = {
       tekst: [
         "I dag er rundt halvparten av norske arbeidstakere med i en fagforening. Samarbeidet mellom fagforeninger, arbeidsgivere og staten kalles ofte **den norske modellen**. Mange mener at den er en viktig grunn til at Norge har små forskjeller mellom folk sammenlignet med mange andre land.",
         "Men arbeidslivet endrer seg. Mange unge jobber deltid eller i midlertidige jobber, og noen jobber for digitale plattformer der det er uklart hvilke rettigheter de har. Spørsmålet om hvordan arbeidere skal få gode og trygge vilkår, er like viktig i dag som på Thranes tid."
+      ],
+      lett: [
+        "I dag er omtrent halvparten av arbeidstakerne i Norge med i en fagforening. Samarbeidet mellom fagforeninger, arbeidsgivere og staten kalles **den norske modellen**. Men arbeidslivet endrer seg. Mange unge jobber deltid eller for apper, og det er ikke alltid klart hvilke rettigheter de har."
       ]
     }
   ],

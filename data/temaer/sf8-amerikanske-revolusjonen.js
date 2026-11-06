@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Fra begynnelsen av 1600-tallet slo engelske nybyggere seg ned langs østkysten av Nord-Amerika. Noen kom for å tjene penger, andre for å slippe unna religiøs forfølgelse. På 1700-tallet var det tretten britiske [[kolonier|koloni]], fra Massachusetts i nord til Georgia i sør. Rundt 1770 bodde det om lag 2,5 millioner mennesker der.",
         "Landet tilhørte i utgangspunktet urfolkene, som ble presset vekk fra jorda si av nybyggerne. I sørstatene arbeidet hundretusenvis av slavebundne afrikanere på store [[plantasjer|plantasje]] med tobakk og ris. Koloniene hadde egne forsamlinger som styrte mye lokalt, men de var underlagt den britiske kongen og parlamentet i London."
+      ],
+      lett: [
+        "Fra 1600-tallet bosatte engelske nybyggere seg på østkysten av Nord-Amerika. Det ble **tretten kolonier** som var styrt av den britiske kongen. Urfolkene ble presset bort fra landet sitt. I sør arbeidet slavebundne afrikanere på store plantasjer."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "I 1763 vant Storbritannia en lang og dyr krig mot Frankrike om kontrollen over Nord-Amerika. Britene mente at koloniene skulle være med på å betale regningen. Parlamentet i London innførte derfor nye skatter og avgifter, blant annet på papir, glass og te.",
         "Kolonistene ble rasende. De hadde ingen representanter i det britiske parlamentet, og mente at det var urettferdig å betale skatt til en forsamling de ikke var med i. Slagordet ble **«No taxation without representation»** – ingen skatt uten representasjon. I 1773 kledde en gruppe kolonister seg ut som urfolk, gikk om bord på britiske skip i Boston havn og kastet hundrevis av kister med te i sjøen. Hendelsen kalles [[Boston Tea Party]]."
       ],
+      lett: [
+        "Etter en dyr krig mot Frankrike ville Storbritannia at koloniene skulle betale mer skatt, blant annet på te. Kolonistene ble sinte. De hadde ingen representanter i det britiske parlamentet. Slagordet ble «Ingen skatt uten representasjon». I 1773 kastet noen kolonister masse te i sjøen i Boston. Det kalles **Boston Tea Party**."
+      ],
       stoppOgTenk: "Hvorfor tror du kolonistene kledde seg ut før de kastet teen i sjøen?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "I 1775 brøt det ut kamper mellom britiske soldater og kolonistenes militser. Representanter fra de tretten koloniene møttes i Philadelphia i en kongress. Den 4. juli 1776 vedtok de [[uavhengighetserklæringen]], som i hovedsak var skrevet av **Thomas Jefferson**.",
         "Erklæringen bygde på ideene til John Locke. Den slo fast at alle mennesker er skapt like, og at de har rett til liv, frihet og jakten på lykke. Regjeringer får makten sin fra folket, og hvis en regjering undertrykker folket, har folket rett til å avsette den. Erklæringen listet opp mange klager mot den britiske kongen Georg 3. Den 4. juli feires fortsatt som USAs nasjonaldag."
+      ],
+      lett: [
+        "I 1775 begynte kampene mot britene. **4. juli 1776** vedtok koloniene **uavhengighetserklæringen**, skrevet av Thomas Jefferson. Den sier at alle mennesker er skapt like og har rett til liv, frihet og lykke. Makten kommer fra folket. 4. juli er fortsatt USAs nasjonaldag."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
         "Krigen mot Storbritannia varte fra 1775 til 1783. Den amerikanske hæren ble ledet av **George Washington**. I starten så det ut som om britene, med verdens sterkeste flåte og godt trente soldater, ville vinne lett. Den amerikanske hæren manglet både våpen, klær og mat, og vinteren 1777–1778 døde mange soldater av kulde og sykdom.",
         "Vendepunktet kom da Frankrike gikk inn i krigen på amerikanernes side i 1778. Frankrike ville svekke sin gamle fiende Storbritannia. I 1781 måtte en stor britisk hær overgi seg ved Yorktown. Med fredsavtalen i Paris i 1783 anerkjente Storbritannia USA som en selvstendig stat."
       ],
+      lett: [
+        "Krigen varte fra 1775 til 1783. **George Washington** ledet den amerikanske hæren. Britene var sterkere, og amerikanerne manglet våpen, klær og mat. Men i 1778 kom Frankrike med på amerikanernes side. I 1781 måtte en stor britisk hær overgi seg. I 1783 ble USA et eget land."
+      ],
       stoppOgTenk: "Hvorfor tror du Frankrike, som selv var styrt av en eneveldig konge, ville hjelpe et opprør mot en annen konge?"
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "I 1787 møttes representanter i Philadelphia for å skrive en ny [[grunnlov]]. Grunnloven bygde på Montesquieus maktfordeling: **Kongressen** har den lovgivende makten, **presidenten** den utøvende og **Høyesterett** den dømmende. De tre maktene skal kontrollere hverandre. Dette kalles «checks and balances».",
         "USA ble en [[republikk]] – et land uten konge, der lederne blir valgt. George Washington ble landets første president i 1789. Samme år ble de første ti tilleggene til grunnloven vedtatt, kalt **Bill of Rights**. De sikret blant annet ytringsfrihet, religionsfrihet og pressefrihet. Den amerikanske grunnloven er den eldste skrevne grunnloven som fortsatt er i bruk."
+      ],
+      lett: [
+        "I 1787 skrev amerikanerne en **grunnlov**. Makten ble delt i tre: **Kongressen** lager lovene, **presidenten** styrer, og **Høyesterett** dømmer. De skal passe på hverandre. USA ble en republikk uten konge, og George Washington ble den første presidenten. Grunnloven fikk også en liste over rettigheter, som ytringsfrihet."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Uavhengighetserklæringen sa at alle mennesker er skapt like. Men i praksis gjaldt det ikke alle. Thomas Jefferson eide selv over 600 slavebundne mennesker i løpet av livet sitt. Slaveriet fortsatte i sørstatene i nesten 90 år etter 1776, og ble først avskaffet etter borgerkrigen i 1865.",
         "Kvinner fikk ikke stemmerett, og i mange stater fikk bare menn som eide jord, stemme. For urfolkene ble den nye staten en katastrofe. Uten britene som en viss bremse flyttet nybyggerne stadig lenger vestover, og urfolkene mistet landet sitt. Revolusjonen ga løfter om frihet og likhet, men det tok lang tid – og mange kamper – før løftene ble utvidet til flere."
+      ],
+      lett: [
+        "Erklæringen sa at alle er like, men det gjaldt ikke alle. Jefferson eide selv slaver, og slaveriet varte til 1865. Kvinner fikk ikke stemme. Urfolkene mistet stadig mer land. Løftene om frihet og likhet gjaldt i starten bare noen – det tok lang tid før de gjaldt flere."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "Den amerikanske revolusjonen viste at opplysningstidens ideer kunne settes ut i livet. For første gang hadde et folk gjort opprør mot en konge og bygd en ny stat på folkesuverenitet, maktfordeling og menneskerettigheter.",
         "Revolusjonen inspirerte mange andre. Franske soldater som hadde kjempet i Amerika, tok med seg ideene hjem, og bare seks år senere brøt den franske revolusjonen ut. Mennene som skrev den norske Grunnloven på Eidsvoll i 1814, studerte også den amerikanske grunnloven nøye."
+      ],
+      lett: [
+        "Revolusjonen viste at opplysningstidens ideer kunne brukes i virkeligheten: Et folk kunne kaste en konge og lage en stat der makten kommer fra folket. Den inspirerte andre. Seks år senere kom den franske revolusjonen, og eidsvollsmennene studerte den amerikanske grunnloven i 1814."
       ]
     }
   ],

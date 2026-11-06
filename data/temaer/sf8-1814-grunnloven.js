@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "I over 400 år hadde Norge vært i union med Danmark. Fra 1660 ble begge landene styrt av en eneveldig konge i København. Norge hadde ingen egen regjering, ingen egen hær og ikke noe eget universitet før 1811. Mange av embetsmennene, som prester, dommere og offiserer, var utdannet i København.",
         "Under Napoleonskrigene var Danmark-Norge alliert med Frankrike. Storbritannia svarte med å blokkere kysten. Kornet fra Danmark kom ikke fram, og det ble hungersnød i Norge i årene 1807–1814. Mange nordmenn mente at Danmark ikke tok hensyn til norske interesser."
+      ],
+      lett: [
+        "I over 400 år var Norge i union med Danmark. Kongen bodde i København og bestemte alt. Norge hadde ingen egen regjering og ikke eget universitet før 1811. Under Napoleonskrigene stengte britene kysten. Korn fra Danmark kom ikke fram, og mange i Norge sultet. Mange mente at Danmark ikke brydde seg om Norge."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "Da Napoleon tapte, sto Danmark på den tapende siden. Sverige, som hadde mistet Finland til Russland i 1809, ville ha Norge i stedet. Den svenske kronprinsen **Karl Johan** hadde kjempet mot Napoleon og fikk støtte fra stormaktene. Den 14. januar 1814 ble [[Kielfreden]] undertegnet: Den danske kongen måtte gi Norge til den svenske kongen.",
         "Nordmennene var ikke blitt spurt. I Norge satt den danske prinsen **Christian Frederik** som stattholder. Han ville ikke godta at Norge ble gitt bort, og han håpet kanskje å bli konge i Norge selv – og senere i Danmark. Han reiste rundt i landet og fikk støtte til å gjøre Norge selvstendig."
       ],
+      lett: [
+        "Danmark tapte krigen sammen med Napoleon. I **Kielfreden** 14. januar 1814 måtte den danske kongen gi Norge til Sverige. Ingen spurte nordmennene. Den danske prinsen **Christian Frederik** bodde i Norge. Han ville ikke at Norge skulle gis bort, og han fikk støtte til å gjøre Norge selvstendig."
+      ],
       stoppOgTenk: "Hvorfor tror du nordmennene reagerte så sterkt på at de ble «gitt bort» uten å bli spurt?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "Christian Frederik kalte inn til en [[riksforsamling]] på Eidsvoll, nord for Christiania. I hele landet ble det holdt valg i kirkene. Den 10. april 1814 møttes 112 menn i Eidsvollsbygningen. De kalles [[eidsvollsmennene]]. Det var embetsmenn, bønder, kjøpmenn og offiserer – ingen kvinner.",
         "Forsamlingen delte seg i to grupper. **Selvstendighetspartiet** ville ha et helt uavhengig Norge, gjerne med Christian Frederik som konge. **Unionspartiet** mente at det var urealistisk å stå imot Sverige og stormaktene, og ville heller ha en union med Sverige der Norge fikk mest mulig selvstyre. Selvstendighetspartiet var i flertall."
+      ],
+      lett: [
+        "Christian Frederik kalte inn til et møte på **Eidsvoll**. 10. april 1814 møttes 112 valgte menn – ingen kvinner. De var uenige. **Selvstendighetspartiet** ville ha et helt fritt Norge. **Unionspartiet** mente Norge ikke kunne stå imot Sverige, og ville heller ha en union med mest mulig selvstyre. Selvstendighetspartiet var flest."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
         "På bare fem uker skrev eidsvollsmennene en ny [[grunnlov]]. Den bygde på ideene fra opplysningstiden og hentet inspirasjon fra den amerikanske grunnloven og grunnlovene fra den franske revolusjonen. Den ble vedtatt 16. mai og datert og underskrevet **17. mai 1814**. Samme dag ble Christian Frederik valgt til konge av Norge.",
         "Grunnloven bygde på fire viktige prinsipper. **Folkesuverenitet**: Makten kommer fra folket. **Maktfordeling**: Makten deles mellom Stortinget (lovgivende), kongen og regjeringen (utøvende) og domstolene (dømmende). **Menneskerettigheter**: Borgerne har rettigheter, som ytringsfrihet og vern mot vilkårlig fengsling. **Nasjonal selvstendighet**: Norge er et fritt og selvstendig rike."
       ],
+      lett: [
+        "På fem uker skrev eidsvollsmennene **Grunnloven**. De hentet ideer fra opplysningstiden, USA og Frankrike. Grunnloven ble underskrevet **17. mai 1814**. Den bygger på fire ideer: Makten kommer fra folket. Makten deles mellom Stortinget, regjeringen og domstolene. Borgerne har rettigheter, som ytringsfrihet. Norge er et fritt land."
+      ],
       stoppOgTenk: "Hvilket av de fire prinsippene synes du er viktigst? Hvorfor?"
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "Grunnloven fra 1814 regnes som en av de mest demokratiske i verden på sin tid. Rundt 40 prosent av norske menn over 25 år fikk [[stemmerett]], blant annet fordi mange bønder eide jord. I mange andre land var andelen langt lavere.",
         "Men etter dagens målestokk var den langt fra demokratisk. Kvinner, tjenestefolk, husmenn og fattige uten eiendom fikk ikke stemme. Grunnloven inneholdt også en paragraf som forbød jøder å komme til riket, og den sa at jesuitter og munkeordener ikke var tillatt. **Henrik Wergeland** kjempet mot jødeparagrafen, og den ble fjernet i 1851. Kvinner fikk ikke alminnelig stemmerett før i 1913."
+      ],
+      lett: [
+        "Grunnloven var en av de mest demokratiske i verden på sin tid. Omtrent 40 prosent av mennene over 25 år fikk stemme. Men kvinner, tjenestefolk og fattige fikk ikke stemme. Grunnloven forbød også jøder å komme til Norge. Henrik Wergeland kjempet mot forbudet, og det ble fjernet i 1851."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Sverige godtok ikke at Norge hadde gjort seg selvstendig. Sommeren 1814 gikk svenske tropper til angrep. Krigen varte bare noen uker, og den norske hæren var svak. I august ble partene enige i **Mossekonvensjonen**: Christian Frederik måtte gå av og reise fra landet, men Norge fikk beholde Grunnloven med de endringene som var nødvendige for en union.",
         "Den 4. november 1814 valgte et ekstraordinært storting den svenske kongen Karl 13. til konge av Norge. Norge ble dermed i [[union]] med Sverige, men som et eget land med egen grunnlov, eget storting og egen regjering. Unionen varte til 1905."
+      ],
+      lett: [
+        "Sverige godtok ikke at Norge var selvstendig, og sommeren 1814 ble det krig. Norge tapte etter noen uker. Christian Frederik måtte reise fra landet. Men Norge fikk beholde Grunnloven. 4. november 1814 ble den svenske kongen også konge i Norge. Norge var i union med Sverige til 1905, men hadde eget storting og egen regjering."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "I de første årene var svenskekongen ikke begeistret for at nordmenn feiret 17. mai. Men feiringen vokste, og fra 1870 fikk Norge sitt første barnetog i Christiania, organisert blant andre av **Bjørnstjerne Bjørnson**. I dag er 17. mai en folkefest der barna står i sentrum.",
         "Grunnloven fra 1814 er fortsatt i bruk og er en av verdens eldste skrevne grunnlover som gjelder i dag. Den har blitt endret mange ganger, for eksempel med parlamentarisme, stemmerett for alle og et eget kapittel om menneskerettigheter i 2014. For å endre Grunnloven må forslaget legges fram for ett storting og vedtas av det neste med to tredels flertall."
+      ],
+      lett: [
+        "Svenskekongen likte ikke at nordmenn feiret 17. mai, men feiringen vokste. Fra 1870 har det vært barnetog. I dag er 17. mai en stor fest for barna. Grunnloven gjelder fortsatt og er en av de eldste i verden. Den er endret mange ganger, for eksempel med stemmerett for alle og menneskerettigheter."
       ]
     }
   ],

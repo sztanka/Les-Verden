@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "På 1700-tallet var Frankrike Europas folkerikeste land, med rundt 28 millioner innbyggere. Landet ble styrt av en eneveldig konge, **Ludvig 16.**, som bodde i det enorme slottet i Versailles sammen med dronning **Marie Antoinette**. Samfunnet var delt inn i tre [[stender|stand]].",
         "**Første stand** var presteskapet og **andre stand** var adelen. Til sammen var de bare om lag to prosent av befolkningen, men de eide store deler av jorda og betalte nesten ikke skatt. **Tredje stand** var alle andre: bønder, arbeidere, håndverkere og det voksende borgerskapet av kjøpmenn, advokater og leger. De betalte nesten all skatten, men hadde liten makt."
+      ],
+      lett: [
+        "På 1700-tallet hadde Frankrike en konge med all makt, **Ludvig 16.** Han bodde i slottet i Versailles. Folket var delt i tre grupper, **stender**. Prestene og adelen var bare to prosent av folket. De eide mye jord og betalte nesten ikke skatt. Alle andre var tredje stand. De betalte nesten all skatten, men hadde liten makt."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "På slutten av 1780-tallet var Frankrike i dyp krise. Staten hadde brukt enorme summer på kriger, blant annet på å støtte amerikanerne i uavhengighetskrigen, og på hoffet i Versailles. Kassen var tom. Samtidig ga dårlige avlinger høye brødpriser, og mange fattige sultet.",
         "Kongen trengte mer penger og kalte i 1789 inn **stenderforsamlingen**, der de tre stendene møttes. Men hver stand hadde bare én stemme, slik at presteskapet og adelen alltid kunne stemme ned tredje stand. Representantene for tredje stand nektet å godta dette. De erklærte seg som **nasjonalforsamlingen** og lovte å ikke gå hjem før Frankrike hadde fått en [[grunnlov]]."
       ],
+      lett: [
+        "På slutten av 1780-tallet var staten blakk etter kriger og et dyrt hoff. Brødet ble dyrt, og mange fattige sultet. Kongen trengte penger og kalte inn de tre stendene i 1789. Men hver stand hadde bare én stemme, så prestene og adelen kunne alltid vinne. Tredje stand protesterte og kalte seg **nasjonalforsamlingen**. De ville lage en grunnlov."
+      ],
       stoppOgTenk: "Hvorfor tror du det var så viktig for tredje stand at hver representant fikk én stemme?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "Den 14. juli 1789 stormet en stor folkemengde i Paris **Bastillen**, et gammelt fengsel som var et symbol på kongens makt. Dagen regnes som starten på revolusjonen og er Frankrikes nasjonaldag. Opprøret spredte seg til landsbygda, der bønder angrep slott og brente dokumenter som viste hva de skyldte adelen.",
         "I august 1789 opphevet nasjonalforsamlingen adelens privilegier. Samme måned vedtok den **erklæringen om menneskets og borgerens rettigheter**. Den slo fast at alle mennesker er født frie og like i rettigheter, og at makten ligger hos nasjonen. Slagordet ble **«Frihet, likhet, brorskap»**. Men rettighetene gjaldt bare menn. Forfatteren **Olympe de Gouges** skrev derfor en egen erklæring om kvinnens rettigheter i 1791."
+      ],
+      lett: [
+        "**14. juli 1789** stormet folk i Paris fengselet **Bastillen**, et symbol på kongens makt. Det regnes som starten på revolusjonen. I august fjernet nasjonalforsamlingen adelens fordeler. Den vedtok også at alle mennesker er født frie og like. Slagordet ble «Frihet, likhet, brorskap». Men rettighetene gjaldt bare menn."
       ]
     },
     {
@@ -47,6 +56,9 @@ window.LV.tema = {
       tekst: [
         "I starten prøvde revolusjonærene å gjøre Frankrike til et [[konstitusjonelt monarki]], der kongen fortsatt fantes, men måtte følge grunnloven. Men i 1791 prøvde kongefamilien å flykte fra landet. De ble tatt igjen, og mange mistet all tillit til kongen. Samtidig gikk Østerrike og Preussen til krig mot Frankrike for å stanse revolusjonen.",
         "I 1792 ble Frankrike en [[republikk]]. Ludvig 16. ble dømt for forræderi og henrettet med [[giljotinen|giljotin]] i januar 1793. Marie Antoinette ble henrettet senere samme år. For første gang hadde et folk stilt sin egen konge for retten og drept ham."
+      ],
+      lett: [
+        "Først skulle Frankrike ha konge og grunnlov sammen. Men i 1791 prøvde kongefamilien å flykte. Da mistet folk tilliten til kongen. I 1792 ble Frankrike en **republikk**, et land uten konge. Ludvig 16. ble dømt for forræderi og henrettet med **giljotinen** i 1793."
       ]
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
         "Frankrike var nå i krig med flere naboland, og det var opprør i deler av landet. Den radikale gruppen **jakobinerne**, ledet av **Maximilien Robespierre**, tok makten. De mente at revolusjonen måtte forsvares med alle midler. Perioden 1793–1794 kalles **terroren**.",
         "Alle som ble mistenkt for å være fiender av revolusjonen, kunne arresteres. Rundt 17 000 mennesker ble dømt til døden og henrettet, og mange flere døde i fengsler eller i kampene. Til slutt ble Robespierre selv arrestert og henrettet i 1794. Terrorperioden viser hvordan en revolusjon som startet med kampen for frihet, kan ende i vold og undertrykking."
       ],
+      lett: [
+        "Frankrike var i krig og hadde opprør i landet. Gruppen **jakobinerne** med **Robespierre** tok makten. Alle som ble mistenkt for å være fiender av revolusjonen, kunne bli arrestert. Rundt 17 000 mennesker ble henrettet i 1793–1794. Til slutt ble Robespierre selv henrettet. Perioden kalles **terroren**."
+      ],
       stoppOgTenk: "Hvordan kan en revolusjon for frihet ende med terror? Hva gikk galt?"
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Etter terroren var Frankrike ustabilt. En ung og dyktig general, **Napoleon Bonaparte**, hadde vunnet mange slag. I 1799 tok han makten i et [[statskupp]], og i 1804 kronet han seg selv til keiser. Revolusjonen, som startet som et opprør mot en enehersker, endte dermed med en ny enehersker.",
         "Napoleon innførte også reformer som overlevde ham. Lovboken **Code Napoléon** slo fast at alle menn var like for loven, og at det var religionsfrihet. Den ble modell for lovene i mange land. Gjennom store kriger erobret Napoleon store deler av Europa. Men i 1812 gikk det galt: Et enormt felttog mot Russland endte i katastrofe, og hundretusenvis av soldater døde av kulde og sult på veien hjem."
+      ],
+      lett: [
+        "Generalen **Napoleon Bonaparte** tok makten i 1799 og gjorde seg til keiser i 1804. Revolusjonen mot en enehersker endte altså med en ny enehersker. Napoleon laget en ny lovbok der alle menn var like for loven. Han erobret store deler av Europa. Men i 1812 gikk det galt i Russland, der hundretusenvis av soldater døde av kulde og sult."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "I 1814 ble Napoleon slått og sendt i eksil på øya Elba. Han rømte og tok makten igjen i 100 dager, men ble endelig slått i **slaget ved Waterloo** i 1815. Han døde i eksil på øya St. Helena i Atlanterhavet i 1821.",
         "Napoleonskrigene fikk stor betydning for Norge. Danmark-Norge var alliert med Frankrike, og britene blokkerte kysten. Det førte til hungersnød i Norge. Da Napoleon tapte, måtte den danske kongen gi fra seg Norge til Sverige i **Kielfreden** i januar 1814. Det ble starten på det som skjedde på Eidsvoll samme vår. Ideene fra den franske revolusjonen – folkesuverenitet, maktfordeling og borgerrettigheter – ble også en del av den norske Grunnloven."
+      ],
+      lett: [
+        "Napoleon ble endelig slått ved **Waterloo** i 1815 og døde i eksil. Krigene hans fikk stor betydning for Norge. Danmark-Norge var med Frankrike, og britene stengte kysten, så nordmenn sultet. Etter krigen måtte Danmark gi Norge til Sverige. Ideene fra revolusjonen kom også med i den norske Grunnloven i 1814."
       ]
     }
   ],

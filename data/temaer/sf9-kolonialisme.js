@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "En [[koloni]] er et område som blir styrt av et annet land, ofte langt borte. Kolonimakten bestemmer over landet, utnytter ressursene og tar de viktigste beslutningene. [[Kolonialisme]] er politikken der stater skaffer seg og styrer kolonier.",
         "[[Imperialisme]] betyr at en stat prøver å utvide makten sin over andre land og folk – med militær makt, økonomisk press eller politisk kontroll. Ordet kommer fra «imperium», et stort rike som styrer over mange folk. Perioden fra rundt 1870 til 1914 kalles ofte **imperialismens tid**."
+      ],
+      lett: [
+        "En **koloni** er et område som blir styrt av et annet land, ofte langt borte. Kolonimakten tar de viktigste beslutningene og bruker ressursene i landet. **Imperialisme** betyr at et land prøver å få makt over andre land og folk. Tiden fra 1870 til 1914 kalles imperialismens tid."
       ]
     },
     {
@@ -32,6 +35,9 @@ window.LV.tema = {
       tekst: [
         "Europeisk kolonisering startet allerede rundt 1500. Etter at Columbus kom til Amerika i 1492, erobret Spania og Portugal store deler av Sør- og Mellom-Amerika. Senere fulgte England, Frankrike og Nederland etter, blant annet i Nord-Amerika og Karibia.",
         "Millioner av urfolk døde av sykdommer, krig og tvangsarbeid. For å skaffe arbeidskraft til plantasjene i Amerika ble rundt 12 millioner afrikanere fraktet over Atlanterhavet som slaver. Mange av koloniene i Amerika ble selvstendige på slutten av 1700- og begynnelsen av 1800-tallet, men da begynte en ny runde med kolonisering – denne gangen i Afrika og Asia."
+      ],
+      lett: [
+        "Kolonitiden startet rundt 1500. Spania og Portugal erobret store deler av Sør- og Mellom-Amerika. Senere kom England, Frankrike og Nederland. Millioner av urfolk døde av sykdom, krig og tvangsarbeid. Rundt 12 millioner afrikanere ble fraktet over Atlanterhavet som slaver."
       ]
     },
     {
@@ -41,6 +47,9 @@ window.LV.tema = {
         "Den andre grunnen var makt og prestisje. Kolonier ga stormaktene baser for flåten og viste at landet var mektig. Ingen ville bli forbigått av konkurrentene.",
         "Den tredje grunnen var ideer. Mange europeere mente at de var mer «siviliserte» enn andre folk, og at de hadde en plikt til å spre kristendom og europeisk kultur. Slike tanker bygde på [[rasisme]] – troen på at noen folk er mer verdt enn andre. Misjonærer reiste til koloniene, og noen av dem bygde skoler og sykehus, men de bidro også til å bryte ned lokale kulturer."
       ],
+      lett: [
+        "Europeiske land ville ha kolonier av tre grunner. Industrien trengte **råvarer** og steder å selge varer. Kolonier ga **makt** og viste at landet var sterkt. Og mange europeere trodde at de var bedre enn andre folk og skulle spre sin kultur og religion. Det var **rasisme**."
+      ],
       stoppOgTenk: "Hvilken av de tre grunnene tror du var viktigst? Begrunn svaret."
     },
     {
@@ -49,6 +58,9 @@ window.LV.tema = {
         "I 1870 var det meste av Afrika fortsatt styrt av afrikanere. Bare 40 år senere var nesten hele kontinentet delt mellom europeiske land. Dette kalles **kappløpet om Afrika**.",
         "På **Berlinkonferansen** i 1884–1885 møttes europeiske stormakter for å bli enige om reglene for hvordan Afrika skulle deles. Ingen afrikanere var invitert. Grensene ble ofte tegnet med linjal på kartet, uten tanke på hvor folkegrupper bodde. Mange av dagens grenser i Afrika stammer fra denne tiden.",
         "Europeerne hadde overtaket fordi de hadde ny teknologi: dampskip som kunne gå oppover elvene, medisin mot malaria og maskingevær. Men afrikanere gjorde motstand mange steder. I 1896 slo Etiopia en italiensk hær i slaget ved Adwa, og Etiopia og Liberia var de eneste landene i Afrika som ikke ble koloniser."
+      ],
+      lett: [
+        "I 1870 styrte afrikanerne fortsatt det meste av Afrika. 40 år senere var nesten hele kontinentet delt mellom europeiske land. På **Berlinkonferansen** i 1884–1885 bestemte europeerne reglene for delingen. Ingen afrikanere var med. Grensene ble ofte tegnet med linjal. Etiopia slo tilbake en italiensk hær og ble aldri kolonisert."
       ]
     },
     {
@@ -57,6 +69,9 @@ window.LV.tema = {
         "Et av de verste eksemplene på hvordan kolonier ble utnyttet, er Kongo. Fra 1885 var området det personlige eiendommet til den belgiske kongen **Leopold 2.** Befolkningen ble tvunget til å samle gummi. Hvis de ikke klarte kvotene, ble de straffet hardt – også med drap og ved at hender ble hogd av.",
         "Det er usikkert hvor mange som døde, men forskere regner med flere millioner. Etter internasjonale protester måtte Leopold gi fra seg Kongo i 1908, og landet ble en belgisk koloni. Også nordmenn deltok: Flere hundre norske sjøfolk og offiserer arbeidet i Kongo på denne tiden."
       ],
+      lett: [
+        "**Kongo** er et av de verste eksemplene. Den belgiske kongen Leopold 2. eide landet selv. Folk ble tvunget til å samle gummi. De som ikke klarte nok, ble straffet hardt, noen ble drept eller fikk hendene hogd av. Flere millioner døde. Også nordmenn arbeidet i Kongo på denne tiden."
+      ],
       stoppOgTenk: "Hvorfor tror du det tok så lang tid før resten av verden reagerte på det som skjedde i Kongo?"
     },
     {
@@ -64,6 +79,9 @@ window.LV.tema = {
       tekst: [
         "Storbritannia hadde det største imperiet av alle. Den viktigste kolonien var **India**, som ble kalt «juvelen i kronen». Først ble India styrt av et handelsselskap, East India Company, men etter et stort opprør i 1857 overtok den britiske staten. I 1876 fikk dronning Victoria tittelen keiserinne av India.",
         "Britene bygde jernbaner, skoler og administrasjon, men de styrte landet i sin egen interesse. Indiske bønder måtte dyrke varer for eksport, og flere store hungersnøder kostet millioner av liv. På 1900-tallet vokste en selvstendighetsbevegelse fram, og i 1947 ble India selvstendig."
+      ],
+      lett: [
+        "**Storbritannia** hadde det største imperiet. Den viktigste kolonien var **India**. Britene bygde jernbaner og skoler, men styrte landet for sin egen skyld. Store hungersnøder kostet millioner av liv. Indere kjempet for frihet, og i 1947 ble India selvstendig."
       ]
     },
     {
@@ -71,6 +89,9 @@ window.LV.tema = {
       tekst: [
         "De fleste koloniene ble selvstendige etter andre verdenskrig. Men kolonitiden har satt dype spor. Mange land har grenser som skaper konflikter, og økonomier som fortsatt er bygd på å selge råvarer. Engelsk, fransk, spansk og portugisisk er blitt verdensspråk fordi de ble spredt gjennom koloniene.",
         "I dag diskuteres det om tidligere kolonimakter bør be om unnskyldning eller betale erstatning, og om gjenstander som ble tatt fra koloniene og står i europeiske museer, bør leveres tilbake. Hvordan vi skal forholde oss til denne historien, er et spørsmål som fortsatt engasjerer."
+      ],
+      lett: [
+        "De fleste koloniene ble frie etter andre verdenskrig. Men kolonitiden har satt spor: grenser som skaper konflikter, land som fortsatt bare selger råvarer, og europeiske språk som blir snakket over hele verden. I dag diskuterer mange om tidligere kolonimakter bør be om unnskyldning og gi tilbake gjenstander de tok."
       ]
     }
   ],

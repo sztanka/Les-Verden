@@ -66,6 +66,19 @@ LV.lesetekster = [
     tags: ["Indigenous peoples", "Identity", "True story"], temaer: ["en10-indigenous-peoples", "en10-identity-stereotypes", "sf9-fornorskingen"] },
   { id: "douglass", tittel: "Learning to Read and Write", forfatter: "Frederick Douglass", levde: "c. 1818–1895", ar: 1845, sjanger: "Autobiography", nivaa: 3, trinn: "10", ord: 2450,
     ikon: "✒️", farger: ["#24324a", "#e3d3b0"], kort: "An enslaved boy teaches himself to read and write in secret – and discovers that knowledge is the path to freedom.",
-    tags: ["Slavery", "Civil rights", "True story"], temaer: ["en10-oppression"] }
+    tags: ["Slavery", "Civil rights", "True story"], temaer: ["en10-oppression"] },
+  { id: "aesop-fables", tittel: "Fables from Aesop", forfatter: "Aesop (Joseph Jacobs)", levde: "c. 600 BC / 1854–1916", ar: 1894, sjanger: "Fables", nivaa: 1, trinn: "8–9", ord: 1090, kilde: "gutenberg",
+    ikon: "🦊", farger: ["#3c5a2a", "#f0d68a"], kort: "Six short stories with talking animals – and a lesson in each. Sour grapes, a boy who cried wolf and a very slow tortoise.",
+    tags: ["Fables", "Animals", "Short texts"], temaer: ["en8-identity-friendship", "en10-narrated-stories"] },
+  { id: "dickinson", tittel: "Hope Is the Thing with Feathers", forfatter: "Emily Dickinson", levde: "1830–1886", ar: 1890, sjanger: "Poetry", nivaa: 2, trinn: "8–10", ord: 320, kilde: "gutenberg",
+    ikon: "🪶", farger: ["#2d3a4f", "#e9e1cf"], kort: "Six short poems about books, words, hope, being «nobody» – and a carriage ride with Death.",
+    tags: ["Poetry", "Reading", "Short texts"], temaer: ["en9-poetry"] },
+  { id: "war-poems", tittel: "Poems of the First World War", forfatter: "John McCrae / Wilfred Owen", levde: "1872–1918 / 1893–1918", ar: 1915, sjanger: "Poetry", nivaa: 3, trinn: "9–10", ord: 430, kilde: "gutenberg",
+    ikon: "🌺", farger: ["#3a1d1d", "#d94a3a"], kort: "Poppies in Flanders, and a gas attack in the trenches: three poems by soldiers – from glory to «the old Lie».",
+    tags: ["Poetry", "War", "History"], temaer: ["en9-poetry", "sf9-forste-verdenskrig"] },
+  { id: "dunbar", tittel: "We Wear the Mask", forfatter: "Paul Laurence Dunbar", levde: "1872–1906", ar: 1895, sjanger: "Poetry", nivaa: 2, trinn: "9–10", ord: 290, kilde: "gutenberg",
+    ikon: "🎭", farger: ["#2a2433", "#c8a96a"], kort: "A smile that hides the pain, and a caged bird that sings for freedom: two poems about life after slavery.",
+    tags: ["Poetry", "Civil rights", "Short texts"], temaer: ["en10-oppression", "en9-poetry"] }
 ];
+
 LV.lesenivaer = { 1: "Easier", 2: "Medium", 3: "Challenging" };

@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Ordet [[demokrati]] kommer fra gresk og betyr «folkestyre». I et demokrati er det folket som har makten. Norge er et [[representativt demokrati]]: Vi velger representanter som tar beslutningene på våre vegne. I et **direkte demokrati** stemmer folket selv over sakene, for eksempel gjennom folkeavstemninger.",
         "Et demokrati er mer enn valg. Det krever også ytringsfrihet, frie medier, at folk kan organisere seg, at mindretallet blir beskyttet, og at alle er like for loven. Disse rettighetene står i Grunnloven fra 1814, som fortsatt er grunnlaget for hvordan Norge styres."
+      ],
+      lett: [
+        "**Demokrati** betyr «folkestyre». Det er folket som har makten. Norge er et **representativt demokrati**: Vi velger politikere som bestemmer for oss. I et direkte demokrati stemmer folket selv over sakene. Et demokrati trenger også ytringsfrihet, frie medier og at alle er like for loven."
       ]
     },
     {
@@ -32,6 +35,9 @@ window.LV.tema = {
       tekst: [
         "Makten i Norge er delt i tre, etter ideene til Montesquieu. **Stortinget** har den **lovgivende** makten: Det vedtar lover og statsbudsjettet. **Regjeringen** har den **utøvende** makten: Den styrer landet og setter lovene ut i livet. **Domstolene** har den **dømmende** makten: De avgjør om lovene er brutt.",
         "Kongen er formelt statsoverhode, men har ingen politisk makt. Han underskriver lover og utnevner statsråder, men det er regjeringen som tar avgjørelsene. Dette er et [[konstitusjonelt monarki]]. Maktfordelingen skal hindre at noen får for mye makt, og gjøre at de tre statsmaktene kan kontrollere hverandre."
+      ],
+      lett: [
+        "Makten i Norge er delt i tre. **Stortinget** lager lovene. **Regjeringen** styrer landet. **Domstolene** dømmer om lovene er brutt. Kongen har ingen politisk makt. Når makten er delt, kan ingen få for mye makt, og de tre kan passe på hverandre."
       ]
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
         "[[Stortinget]] er Norges nasjonalforsamling. Det har 169 representanter som blir valgt hvert fjerde år ved stortingsvalg. Representantene kommer fra alle fylkene og fra mange ulike partier. Stortinget behandler forslag til nye lover, vedtar statsbudsjettet og kontrollerer regjeringen.",
         "Mye av arbeidet skjer i **komiteer**, der representantene diskuterer sakene grundig før de blir behandlet i salen. Stortinget kan stille spørsmål til statsrådene og kreve svar. Hvis et flertall vedtar **mistillit** til regjeringen, må den gå av. Dette er [[parlamentarisme]], som ble innført i 1884."
       ],
+      lett: [
+        "**Stortinget** har 169 representanter. De velges hvert fjerde år. Stortinget lager lover, bestemmer hvordan statens penger skal brukes, og kontrollerer regjeringen. Hvis flertallet på Stortinget ikke har tillit til regjeringen, må regjeringen gå av. Det kalles **parlamentarisme**."
+      ],
       stoppOgTenk: "Hvorfor tror du det er viktig at Stortinget kan kontrollere regjeringen?"
     },
     {
@@ -47,6 +56,9 @@ window.LV.tema = {
       tekst: [
         "Etter et stortingsvalg blir det dannet en [[regjering]]. Lederen er **statsministeren**, og de andre medlemmene kalles **statsråder**. Hver statsråd leder et departement, for eksempel Kunnskapsdepartementet, som har ansvar for skolen, eller Helse- og omsorgsdepartementet.",
         "En regjering kan bestå av ett parti eller flere partier som samarbeider. Har regjeringspartiene til sammen over halvparten av plassene på Stortinget, har den **flertall**. Har de ikke det, er det en **mindretallsregjering**, som må samarbeide med andre partier for å få vedtatt forslagene sine. Mindretallsregjeringer er vanlige i Norge."
+      ],
+      lett: [
+        "Lederen for regjeringen er **statsministeren**. De andre i regjeringen er **statsråder**, og hver av dem har ansvar for et område, for eksempel skole eller helse. En regjering kan ha ett eller flere partier. Har den ikke flertall på Stortinget, må den samarbeide med andre partier."
       ]
     },
     {
@@ -54,6 +66,9 @@ window.LV.tema = {
       tekst: [
         "Et [[politisk parti]] er en organisasjon av mennesker som har noenlunde like meninger om hvordan samfunnet bør være. Partiene blir ofte plassert på en skala fra venstre til høyre. Partier på venstresiden vil ofte at staten skal ha en stor rolle og at forskjellene skal være små. Partier på høyresiden legger ofte mer vekt på markedet, lavere skatt og den enkeltes frihet. Det finnes også partier som er opptatt av bestemte saker, som miljø, distrikter eller kristne verdier.",
         "I Norge er det stortingsvalg hvert fjerde år, og kommune- og fylkestingsvalg to år etterpå. Alle norske statsborgere som har fylt 18 år innen utgangen av valgåret, har [[stemmerett]] ved stortingsvalg. Valget er hemmelig: Ingen kan se hva du stemmer. Norge bruker forholdstallsvalg, der partiene får plasser omtrent i forhold til hvor mange stemmer de får."
+      ],
+      lett: [
+        "Et **parti** er en gruppe mennesker med like meninger om samfunnet. Partier til venstre vil ofte at staten skal gjøre mye og at forskjellene skal være små. Partier til høyre vil ofte ha lavere skatt og mer frihet for den enkelte. Alle norske borgere som er 18 år, kan stemme ved stortingsvalg. Valget er hemmelig."
       ]
     },
     {
@@ -61,6 +76,9 @@ window.LV.tema = {
       tekst: [
         "Norge er delt inn i fylker og kommuner. [[Kommunen|kommune]] har ansvar for mye av det som betyr mest i hverdagen: barneskoler og ungdomsskoler, barnehager, sykehjem, helsestasjon, vann, avløp, renovasjon og lokale veier. Fylkeskommunen har ansvar for blant annet videregående skoler, fylkesveier og kollektivtransport.",
         "Kommunen styres av **kommunestyret**, som blir valgt ved kommunevalget. Lederen er **ordføreren**. Mange kommuner har også et **ungdomsråd** der unge kan si sin mening om saker som angår dem, for eksempel fritidstilbud, skolevei og ungdomsklubber."
+      ],
+      lett: [
+        "Norge er delt i fylker og kommuner. **Kommunen** har ansvar for mye i hverdagen, som barneskole, ungdomsskole, barnehage og sykehjem. Kommunen styres av kommunestyret, og lederen heter **ordfører**. Mange kommuner har et ungdomsråd der unge kan si sin mening."
       ]
     },
     {
@@ -68,6 +86,9 @@ window.LV.tema = {
       tekst: [
         "Du trenger ikke vente til du er 18 for å påvirke samfunnet. Du kan engasjere deg i elevrådet på skolen, i ungdomsrådet i kommunen eller i en organisasjon som jobber for noe du bryr deg om. Du kan skrive leserinnlegg, starte en underskriftskampanje eller delta i en demonstrasjon. Mange politiske partier har egne ungdomsorganisasjoner.",
         "Et levende demokrati trenger at folk deltar. Valgdeltakelsen ved stortingsvalg i Norge er rundt 77–78 prosent, men den er lavere blant unge. Forskning viser at de som stemmer første gang de kan, ofte fortsetter å stemme resten av livet. Derfor er det viktig at unge lærer hvordan demokratiet fungerer – og at det er verdt å bry seg om."
+      ],
+      lett: [
+        "Du kan påvirke før du er 18. Du kan være med i elevrådet, i ungdomsrådet eller i en organisasjon. Du kan skrive leserinnlegg eller samle underskrifter. Demokratiet trenger at folk er med. De som stemmer første gang de kan, fortsetter ofte å stemme resten av livet."
       ],
       stoppOgTenk: "Hvilken sak ville du engasjert deg i hvis du skulle prøve å påvirke politikerne?"
     }

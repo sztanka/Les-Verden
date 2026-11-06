@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "På 1600- og 1700-tallet ble de fleste land i Europa styrt av konger med nesten ubegrenset makt. Dette kalles [[eneveldet|enevelde]]. Kongen laget lovene, krevde inn skatt, styrte hæren og var øverste dommer. Mange mente at kongen hadde makten sin direkte fra Gud. Derfor var det synd å gjøre opprør mot ham. Også Norge var en del av eneveldet: Fra 1660 hadde den dansk-norske kongen all makt.",
         "Samfunnet var delt inn i [[stender|stand]]. Adelen og de høyeste i kirken hadde mange privilegier. De betalte lite skatt og hadde de beste stillingene. Bøndene, som var de aller fleste, hadde få rettigheter og måtte betale mye. Hvilken stand du ble født inn i, bestemte nesten alt i livet ditt."
+      ],
+      lett: [
+        "På 1600- og 1700-tallet hadde kongene nesten all makt. Det kalles **enevelde**. Mange trodde at kongen hadde makten fra Gud. Folket var delt i **stender**. Adelen og kirken hadde mange fordeler, mens bøndene hadde få rettigheter. Hvilken stand du ble født inn i, bestemte nesten alt."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "På 1700-tallet begynte flere tenkere å utfordre disse ideene. De mente at mennesket kunne bruke [[fornuften|fornuft]] sin til å forstå verden, i stedet for bare å godta det kongen og kirken sa. Mørket skulle opplyses av kunnskap – derfor kalles perioden **opplysningstiden**.",
         "Inspirasjonen kom blant annet fra naturvitenskapen. Forskere som Isaac Newton hadde vist at naturen fulgte lover som kunne forklares med matematikk. Filosofene tenkte: Hvis vi kan finne naturens lover, kan vi kanskje også finne ut hvordan samfunnet bør organiseres på en fornuftig og rettferdig måte."
       ],
+      lett: [
+        "På 1700-tallet sa flere tenkere at mennesker skulle bruke **fornuften** sin, og ikke bare tro på det kongen og kirken sa. Kunnskap skulle «opplyse mørket». Derfor kalles tiden **opplysningstiden**. Forskere som Newton hadde vist at naturen fulgte lover. Kanskje kunne man også finne gode regler for samfunnet?"
+      ],
       stoppOgTenk: "Hvorfor tror du det var farlig å kritisere kongen og kirken på 1700-tallet?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "Den engelske filosofen **John Locke** mente at alle mennesker er født med [[naturlige rettigheter]]: retten til liv, frihet og eiendom. Disse rettighetene har vi ikke fått av kongen, og derfor kan ingen konge ta dem fra oss.",
         "Locke mente at staten bare finnes fordi folket har gått med på det, for å beskytte rettighetene deres. Dette kalles [[samfunnskontrakten]]. Hvis en hersker bryter kontrakten og undertrykker folket, har folket rett til å sette ham av. Denne tanken ble svært viktig for de amerikanske og franske revolusjonene."
+      ],
+      lett: [
+        "**John Locke** mente at alle er født med rettigheter: retten til liv, frihet og eiendom. Kongen har ikke gitt oss disse rettighetene, så han kan ikke ta dem fra oss. Staten skal beskytte rettighetene. Hvis en konge undertrykker folket, har folket rett til å avsette ham."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
         "Den franske filosofen **Montesquieu** så at makt lett blir misbrukt når én person har all makt. Han foreslo derfor at makten i en stat skulle deles i tre: Den **lovgivende** makten lager lovene. Den **utøvende** makten setter lovene ut i livet og styrer landet. Den **dømmende** makten avgjør om lovene er brutt.",
         "Dette kalles [[maktfordelingsprinsippet]]. Hvis de tre maktene er uavhengige av hverandre, kan de kontrollere hverandre, og ingen kan bli for mektig. I Norge i dag er det Stortinget som har den lovgivende makten, regjeringen som har den utøvende, og domstolene som har den dømmende."
       ],
+      lett: [
+        "**Montesquieu** mente at det er farlig når én person har all makt. Han ville dele makten i tre: én som lager lovene, én som styrer landet, og én som dømmer. Det kalles **maktfordeling**. I Norge i dag lager Stortinget lovene, regjeringen styrer, og domstolene dømmer."
+      ],
       stoppOgTenk: "Hva kunne skje hvis den samme personen både lagde lovene og dømte dem som brøt dem?"
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "**Jean-Jacques Rousseau** mente at makten skulle ligge hos folket. Det var folkets felles vilje som skulle bestemme lovene. Denne tanken kalles [[folkesuverenitet]]. Rousseau mente også at sivilisasjonen hadde gjort menneskene ulike og ufrie, og han kritiserte at noen få var rike mens mange var fattige.",
         "**Voltaire** kjempet for [[ytringsfrihet]] og religionsfrihet. Han skrev skarpe og morsomme tekster der han gjorde narr av kirken og adelen. Han ble satt i fengsel og måtte flykte fra Frankrike flere ganger. En kjent setning som ofte blir knyttet til ham, men som egentlig ble skrevet av en senere forfatter, lyder omtrent slik: «Jeg er uenig i det du sier, men jeg vil forsvare til døden din rett til å si det.»"
+      ],
+      lett: [
+        "**Rousseau** mente at makten skulle ligge hos folket. Det kalles **folkesuverenitet**. **Voltaire** kjempet for ytringsfrihet og religionsfrihet. Han gjorde narr av kirken og adelen og måtte flykte fra Frankrike flere ganger."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "Opplysningsideene spredte seg gjennom bøker, aviser og pamfletter. I Paris møttes forfattere, forskere og adelsfolk i [[salonger|salong]] for å diskutere nye ideer. Ofte var det kvinner som var vertinner for salongene. Et stort prosjekt var **Encyclopédie**, et leksikon på 28 bind der målet var å samle all kunnskap i verden.",
         "Noen kvinner kjempet også for at ideene om like rettigheter skulle gjelde kvinner. Den britiske forfatteren **Mary Wollstonecraft** skrev i 1792 et forsvar for kvinners rettigheter. Hun mente at kvinner virket mindre fornuftige bare fordi de ikke fikk utdanning. Selv noen av kongene ble påvirket. De kalles **opplyste eneveldige** fordi de innførte reformer, for eksempel bedre skoler, men beholdt all makt selv."
+      ],
+      lett: [
+        "Ideene spredte seg gjennom bøker, aviser og møter. Et stort leksikon skulle samle all kunnskap i verden. **Mary Wollstonecraft** skrev at kvinner må få utdanning og like rettigheter. Noen konger gjennomførte reformer, men de beholdt makten selv."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "Ideene fra opplysningstiden ble satt ut i livet i revolusjonene i Amerika i 1776 og Frankrike i 1789. De ble også grunnlaget for den norske Grunnloven i 1814, som bygde på folkesuverenitet, maktfordeling og menneskerettigheter.",
         "I dag finner vi ideene igjen i FNs menneskerettighetserklæring, i grunnlovene til de fleste demokratier og i tanken om at alle er like for loven. Men opplysningsfilosofene var ikke perfekte. Mange av dem mente at rettighetene bare gjaldt hvite menn, og noen forsvarte slaveriet. Det tok lang tid før ideene om frihet og likhet ble utvidet til å gjelde alle."
+      ],
+      lett: [
+        "Opplysningstidens ideer ble brukt i revolusjonene i Amerika og Frankrike og i den norske **Grunnloven** i 1814. I dag finner vi dem i menneskerettighetene og i demokratiene. Men mange av filosofene mente at rettighetene bare gjaldt hvite menn. Det tok lang tid før ideene gjaldt alle."
       ],
       stoppOgTenk: "Hvilken idé fra opplysningstiden synes du er viktigst i dag? Hvorfor?"
     }

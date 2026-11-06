@@ -262,9 +262,13 @@ Grammatikken har fått gruppen **Sentence workshop** (`sentences` i `data/gramma
 
 `assets/utskrift.js` (lastes på tema.html, lesing.html og land.html) legger knappen «🖨️ Skriv ut» i svarlinja nederst. Eleven velger hvilke deler og hvilke oppgavenivåer som skal med, og om svarfeltene skal bli tomme skrivelinjer eller vise svarene. Utskriften får linje for navn, klasse og dato og adressen nederst. Utskriftsreglene ligger under «Utskrift og arbeidsark» i stil.css.
 
+### Reading Room: tekster fra runde 5
+
+`aesop-fables`, `dickinson`, `war-poems` og `dunbar` er hentet fra Project Gutenberg via GITenberg (Aesop-s-Fables_28 – Joseph Jacobs’ utgave, Poems-by-Emily-Dickinson-Three-Series-Complete_12242, In-Flanders-Fields-and-Other-Poems_353, The-Complete-Poems-of-Paul-Laurence-Dunbar_18338) og Standard Ebooks (wilfred-owen_poetry). Originalteksten står nederst i hver fil og er laget én gang; den blir ikke endret av `lag-lesing.py`. Dikt lagres som `{ vers: "linje\nlinje\n\nny strofe" }`.
+
 ### Lettere tekst på temasidene
 
-Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. Foreløpig har tolv temaer lettere tekst: de seks nye 10.-trinnstemaene, Den kalde krigen, Holocaust, Norge under okkupasjonen, FN og menneskerettighetene, Første verdenskrig og Industrialiseringen.
+Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst ett avsnitt har det, får temasiden knappene «📄 Vanlig tekst / 🌱 Lettere tekst» (eller «Standard text / Easier text»). Valget ligger i adressen (`&tekst=lett`). Opplesingen leser den teksten som vises. Oppgavene er de samme. 25 samfunnsfagtemaer har lettere tekst (se lærersiden for lista). Den store temasiden Andre verdenskrig (28 avsnitt) og de engelske temaene har det ikke ennå.
 
 ### How to learn English og Pronunciation
 
@@ -422,7 +426,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261106a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261106b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

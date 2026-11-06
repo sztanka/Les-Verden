@@ -26,12 +26,18 @@ window.LV.tema = {
         "Første verdenskrig sluttet i november 1918. Rundt 17 millioner mennesker var drept, og store deler av Europa var ødelagt. I 1919 møttes seierherrene i Paris for å bestemme vilkårene for freden. Resultatet ble **Versaillesfreden**.",
         "Tyskland ble gitt skylden for krigen. Landet mistet store områder, fikk bare lov til å ha en liten hær, og måtte betale enorme summer i [[krigserstatning]] til seierherrene. Mange tyskere opplevde freden som en ydmykelse, og bitterheten ble senere brukt av Adolf Hitler.",
         "For å hindre nye kriger ble **Folkeforbundet** opprettet i 1920. Nordmannen **Fridtjof Nansen** fikk en viktig rolle som høykommissær for flyktninger. Han hjalp hundretusener av krigsfanger og flyktninger og fikk Nobels fredspris i 1922. Men Folkeforbundet var svakt. USA ble aldri med, og organisasjonen hadde ingen hær som kunne stoppe land som brøt reglene."
+      ],
+      lett: [
+        "Første verdenskrig sluttet i 1918. Rundt 17 millioner var drept. I **Versaillesfreden** fikk Tyskland skylden. Landet mistet områder, fikk bare en liten hær og måtte betale store summer. Mange tyskere følte seg ydmyket. **Folkeforbundet** skulle hindre nye kriger, men det var svakt. Fridtjof Nansen hjalp flyktninger og fikk Nobels fredspris."
       ]
     },
     {
       tittel: "De glade tjueårene",
       tekst: [
         "For mange, særlig i USA, ble 1920-tallet en tid med optimisme og fest. Økonomien vokste, og nye oppfinnelser som radio, kino og bil ble vanlige. Jazzmusikk fra USA spredte seg til Europa, og unge kvinner klipte håret kort og fikk mer frihet. I flere land fikk kvinner stemmerett etter krigen. I Norge hadde kvinner hatt allmenn stemmerett siden 1913."
+      ],
+      lett: [
+        "For mange, særlig i USA, var 1920-tallet en glad tid. Økonomien vokste, og radio, kino og bil ble vanlig. Jazzmusikk spredte seg til Europa. Unge kvinner fikk mer frihet, og i flere land fikk kvinner stemmerett."
       ]
     },
     {
@@ -39,6 +45,9 @@ window.LV.tema = {
       tekst: [
         "I oktober 1929 raste aksjekursene på børsen i New York, på **Wall Street**. Mange hadde lånt penger for å kjøpe aksjer, og nå mistet de alt. Banker gikk konkurs, bedrifter la ned, og millioner mistet jobben. Krisen spredte seg til hele verden og fikk navnet **den store depresjonen**.",
         "I USA var omtrent hver fjerde arbeider uten jobb på det verste. I Tyskland var rundt seks millioner arbeidsløse i 1932. Mange familier hadde ikke penger til mat eller husleie. [[Arbeidsløshet|arbeidsløshet]] i så stor skala skapte fattigdom, sinne og fortvilelse – og gjorde mange villige til å lytte til politikere som lovte å fikse alt."
+      ],
+      lett: [
+        "I oktober 1929 raste aksjene på børsen i New York. Det kalles **krakket**. Banker og bedrifter gikk konkurs, og millioner mistet jobben. Krisen spredte seg til hele verden og ble kalt **den store depresjonen**. Mange var fattige og sinte, og de begynte å lytte til politikere som lovte enkle løsninger."
       ],
       stoppOgTenk: "Hvorfor tror du økonomisk krise kan gjøre folk mer villige til å støtte ekstreme politikere?"
     },
@@ -48,6 +57,9 @@ window.LV.tema = {
         "I **Italia** tok **Benito Mussolini** makten i 1922. Han grunnla [[fascismen]], en ideologi som satte nasjonen og staten over enkeltmennesket. Fascistene var mot demokrati, forbød andre partier og brukte vold mot motstanderne sine.",
         "I **Sovjetunionen** hadde kommunistene tatt makten etter revolusjonen i 1917. Fra slutten av 1920-tallet styrte **Josef Stalin** landet som en brutal diktator. Millioner ble sendt til arbeidsleirer, og i 1932–1933 døde millioner av sult, særlig i Ukraina, som følge av Stalins politikk.",
         "I **Tyskland** vokste **Adolf Hitler** og nazistpartiet raskt under krisen. Hitler lovte arbeid, et sterkt Tyskland og hevn for Versaillesfreden, og han ga jødene og kommunistene skylden for landets problemer. 30. januar 1933 ble han rikskansler. I løpet av få måneder var Tyskland blitt et [[diktatur]]: Alle andre partier ble forbudt, og motstandere ble sendt til konsentrasjonsleirer. I 1935 fratok Nürnberglovene jødene borgerrettighetene."
+      ],
+      lett: [
+        "Flere land ble **diktaturer**. I Italia tok **Mussolini** makten i 1922. I Sovjetunionen styrte **Stalin** brutalt, og millioner døde i leirer og av sult. I Tyskland ble **Hitler** rikskansler i 1933. På få måneder ble Tyskland et diktatur. Andre partier ble forbudt, og jødene mistet rettighetene sine."
       ]
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "**Fascisme** og **nazisme** er beslektede ideologier. Begge mener at nasjonen er viktigere enn enkeltmennesket, at landet trenger en sterk fører, og at demokrati er svakt. Nazismen hadde i tillegg en rasetenkning som sa at noen «raser» var mer verdt enn andre. Dette førte til forfølgelse og drap på jøder og andre grupper.",
         "**Kommunismen** bygget på ideene til Karl Marx. Målet var et samfunn uten klasser, der alt ble eid i fellesskap. I praksis førte det i Sovjetunionen til et diktatur der staten kontrollerte alt. Selv om kommunismen og nazismen var bitre fiender, hadde diktaturene deres mye til felles: ett parti, ingen ytringsfrihet, hemmelig politi og [[propaganda]]."
+      ],
+      lett: [
+        "**Fascisme** og **nazisme** sier at nasjonen er viktigere enn enkeltmennesket, og at landet trenger en sterk leder. Nazismen sa i tillegg at noen «raser» var mer verdt enn andre. **Kommunismen** ville ha et samfunn der alt eies sammen. Diktaturene hadde mye til felles: ett parti, ingen ytringsfrihet, hemmelig politi og propaganda."
       ],
       stoppOgTenk: "Hva hadde diktaturene i Tyskland og Sovjetunionen til felles, selv om de var fiender?"
     },
@@ -64,6 +79,9 @@ window.LV.tema = {
         "Hitler ville gjøre Tyskland stort igjen og skaffe «livsrom» i øst. Steg for steg brøt han Versaillesfreden. I 1936 sendte han soldater inn i Rhinland, og i 1938 innlemmet han Østerrike i Tyskland. Samme år krevde han Sudetenland, et område i Tsjekkoslovakia der det bodde mange tyskere.",
         "Storbritannia og Frankrike ønsket for all del å unngå en ny krig. På et møte i **München** i september 1938 ga de Hitler det han ville ha, mot at han lovte at det var hans siste krav. Denne politikken kalles [[ettergivenhetspolitikk]]. Men et halvt år senere tok Hitler resten av Tsjekkoslovakia.",
         "I august 1939 inngikk Tyskland og Sovjetunionen en avtale om ikke å angripe hverandre. 1. september 1939 angrep Tyskland Polen. To dager senere erklærte Storbritannia og Frankrike krig mot Tyskland. Andre verdenskrig hadde begynt."
+      ],
+      lett: [
+        "Hitler brøt Versaillesfreden steg for steg. Han tok Østerrike og deler av Tsjekkoslovakia. Storbritannia og Frankrike ville unngå krig og ga etter. Det kalles **ettergivenhetspolitikk**. I 1939 lovte Tyskland og Sovjetunionen å ikke angripe hverandre. **1. september 1939** angrep Tyskland Polen, og andre verdenskrig begynte."
       ]
     },
     {
@@ -71,6 +89,9 @@ window.LV.tema = {
       tekst: [
         "Også Norge ble hardt rammet av krisen. På begynnelsen av 1930-tallet var arbeidsløsheten svært høy, mange bønder mistet gårdene sine, og det var harde konflikter mellom arbeidere og arbeidsgivere. I 1931 kom det til slagsmål mellom streikende arbeidere og politi i Menstad ved Porsgrunn.",
         "I 1935 inngikk Arbeiderpartiet og Bondepartiet et [[kriseforlik]], og Arbeiderpartiet dannet regjering med Johan Nygaardsvold som statsminister. Staten satte i gang tiltak for å skape arbeid. I 1933 hadde **Vidkun Quisling** startet partiet Nasjonal Samling, som var inspirert av fascismen og nazismen. Partiet fikk under tre prosent av stemmene ved valg og hadde liten oppslutning – inntil Tyskland angrep Norge i 1940."
+      ],
+      lett: [
+        "Norge ble også rammet av krisen. Mange mistet jobben, og bønder mistet gårdene sine. I 1935 ble Arbeiderpartiet og Bondepartiet enige om et **kriseforlik**, og staten skapte arbeid. **Vidkun Quisling** startet partiet Nasjonal Samling i 1933, inspirert av fascismen. Partiet fikk få stemmer – helt til Tyskland angrep Norge i 1940."
       ]
     }
   ],

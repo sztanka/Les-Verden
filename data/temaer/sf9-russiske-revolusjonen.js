@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "Rundt år 1900 var Russland verdens største land, men også et av de fattigste i Europa. Landet ble styrt av en [[tsar]], keiseren **Nikolaj 2.**, som hadde nesten all makt. Det var ingen ekte valg, og kritikere ble sendt i fengsel eller til arbeidsleirer i Sibir.",
         "De aller fleste russere var fattige bønder. Frem til 1861 hadde mange av dem vært [[livegne|livegen]] – nesten som slaver for godseierne. I byene vokste det fram fabrikker, og arbeiderne levde under elendige forhold. Samtidig levde adelen og tsarfamilien i stor luksus."
+      ],
+      lett: [
+        "Rundt 1900 var Russland verdens største land, men de fleste var fattige bønder. Landet ble styrt av **tsar Nikolaj 2.**, som hadde nesten all makt. Det var ingen ekte valg, og kritikere ble sendt i fengsel eller til Sibir. Arbeiderne i byene hadde det elendig, mens adelen levde i luksus."
       ]
     },
     {
@@ -33,6 +36,9 @@ window.LV.tema = {
         "Allerede i 1905 hadde det vært et opprør i Russland, etter at soldater skjøt mot fredelige demonstranter i St. Petersburg. Tsaren lovte reformer, men holdt på makten.",
         "Første verdenskrig ble en katastrofe for Russland. Hæren var dårlig utrustet, og millioner av soldater ble drept, såret eller tatt til fange. Hjemme var det mangel på mat og brensel. Tsaren reiste selv til fronten for å lede hæren og fikk skylden for nederlagene. Misnøyen vokste i hele befolkningen."
       ],
+      lett: [
+        "Allerede i 1905 var det et opprør, men tsaren beholdt makten. **Første verdenskrig** ble en katastrofe for Russland. Millioner av soldater ble drept eller såret, og folk hjemme manglet mat. Tsaren fikk skylden. Folk ble mer og mer sinte."
+      ],
       stoppOgTenk: "Hvorfor tror du krig ofte kan føre til revolusjon?"
     },
     {
@@ -40,6 +46,9 @@ window.LV.tema = {
       tekst: [
         "I februar 1917 gikk tusenvis av kvinner, arbeidere og soldater ut i gatene i Petrograd (som St. Petersburg het da) og krevde brød og fred. Soldatene som skulle slå ned opptøyene, gikk over til demonstrantene. Tsaren måtte gi fra seg makten. Etter over 300 år var tsarstyret i Russland slutt.",
         "En [[provisorisk regjering]] tok over og lovte valg og frihet. Men den ville fortsette krigen mot Tyskland, og det gjorde den upopulær. Samtidig dannet arbeidere og soldater egne råd, kalt [[sovjeter|sovjet]], som også ville ha makt."
+      ],
+      lett: [
+        "I **februar 1917** gikk kvinner, arbeidere og soldater ut i gatene i Petrograd og krevde brød og fred. Soldatene ble med demonstrantene, og tsaren måtte gå av. En ny regjering tok over, men den ville fortsette krigen. Arbeidere og soldater laget egne råd som het **sovjeter**."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
         "Et lite, godt organisert parti, **bolsjevikene**, ble ledet av **Vladimir Lenin**. De bygde på ideene til Karl Marx og ville skape et kommunistisk samfunn der arbeiderne eide fabrikkene og jorda, og der det ikke fantes rike og fattige. Lenins slagord var enkelt: «Fred, jord og brød».",
         "Natt til 25. oktober 1917 (7. november etter vår kalender) tok bolsjevikene kontroll over viktige bygninger i Petrograd og stormet Vinterpalasset, der den provisoriske regjeringen satt. Dette kalles **Oktoberrevolusjonen**. Lenin ble leder for landet. Da bolsjevikene tapte valget til en nasjonalforsamling, oppløste de forsamlingen med makt."
       ],
+      lett: [
+        "Partiet **bolsjevikene** ble ledet av **Lenin**. De ville lage et samfunn uten rike og fattige, der arbeiderne eide alt. Slagordet var «Fred, jord og brød». I oktober 1917 tok bolsjevikene makten i Petrograd. Det kalles **Oktoberrevolusjonen**. Da de tapte et valg, stengte de nasjonalforsamlingen med makt."
+      ],
       stoppOgTenk: "Lenin lovte «fred, jord og brød». Hvorfor tror du dette slagordet var så effektivt?"
     },
     {
@@ -55,6 +67,9 @@ window.LV.tema = {
       tekst: [
         "I 1918 inngikk bolsjevikene fred med Tyskland og ga fra seg store landområder. Samtidig brøt det ut [[borgerkrig]] mellom bolsjevikenes «røde» Røde armé og de «hvite», som var motstandere av kommunistene. De hvite fikk støtte fra flere andre land.",
         "Borgerkrigen varte til rundt 1921 og var ekstremt brutal. Begge sider drepte sivile og fanger. Bolsjevikene opprettet et hemmelig politi som forfulgte alle som ble sett på som fiender. I juli 1918 ble tsaren og hele familien hans skutt. Millioner døde i krigen og i hungersnøden som fulgte. Til slutt vant de røde, blant annet takket være den dyktige organisatoren **Lev Trotskij**."
+      ],
+      lett: [
+        "Bolsjevikene sluttet fred med Tyskland. Så ble det **borgerkrig** mellom de «røde» kommunistene og de «hvite» motstanderne. Krigen var svært brutal. Tsaren og familien hans ble skutt i 1918. Millioner døde av krig og sult. De røde vant rundt 1921."
       ]
     },
     {
@@ -62,6 +77,9 @@ window.LV.tema = {
       tekst: [
         "I 1922 ble **Sovjetunionen** opprettet. Det var en [[ettpartistat]], der kommunistpartiet hadde all makt og andre partier var forbudt. Staten tok over fabrikker, banker og etter hvert også gårdene.",
         "Lenin døde i 1924. Etter en maktkamp tok **Josef Stalin** over. Trotskij ble kastet ut av landet og senere drept. Under Stalin ble Sovjetunionen raskt industrialisert, men millioner av mennesker døde i arbeidsleirer, utrenskninger og hungersnød."
+      ],
+      lett: [
+        "I 1922 ble **Sovjetunionen** opprettet. Bare kommunistpartiet var lov. Staten tok over fabrikker, banker og gårder. Etter at Lenin døde i 1924, tok **Stalin** makten. Landet fikk mange fabrikker, men millioner av mennesker døde i arbeidsleirer og hungersnød."
       ]
     },
     {
@@ -69,6 +87,9 @@ window.LV.tema = {
       tekst: [
         "Revolusjonen i Russland skapte både håp og frykt over hele verden. Mange arbeidere i andre land så på Sovjetunionen som et forbilde, og kommunistiske partier ble stiftet i mange land. I Norge var Arbeiderpartiet en kort periode med i den internasjonale kommunistorganisasjonen styrt fra Moskva, men meldte seg ut i 1923.",
         "Andre fryktet at kommunismen skulle spre seg, og frykten for revolusjon var en av grunnene til at fascismen fikk støtte i mange land. Etter andre verdenskrig ble Sovjetunionen en supermakt og USAs motstander i den kalde krigen. Sovjetunionen ble oppløst i 1991 – nesten 75 år etter revolusjonen."
+      ],
+      lett: [
+        "Revolusjonen ga håp til mange arbeidere i andre land, og kommunistiske partier ble startet mange steder. Andre var redde for kommunismen, og noen støttet derfor fascismen. Etter andre verdenskrig ble Sovjetunionen en supermakt og USAs motstander i den kalde krigen. Sovjetunionen ble oppløst i 1991."
       ]
     }
   ],

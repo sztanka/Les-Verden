@@ -25,6 +25,9 @@ window.LV.tema = {
       tekst: [
         "4. juli 1825 seilte den lille sluppen **Restauration** ut fra Stavanger. Om bord var 52 mennesker. Mange av dem var [[kvekere|kveker]], som ble forfulgt for troen sin i Norge, og de ville søke frihet og et bedre liv i Amerika. Etter 14 uker på havet kom de fram til New York. Underveis ble et barn født, så det var flere passasjerer da de kom fram enn da de dro.",
         "Utvandrerne på Restauration kalles ofte «sluppefolket». De var de første i en stor bølge. I de neste hundre årene reiste rundt 800 000 nordmenn over Atlanterhavet. Det tilsvarte omtrent hele befolkningen i Norge i 1801."
+      ],
+      lett: [
+        "4. juli 1825 seilte den lille båten **Restauration** fra Stavanger til Amerika med 52 mennesker. Mange var **kvekere** som ble forfulgt for troen sin. De var de første av mange. De neste hundre årene reiste rundt 800 000 nordmenn til Amerika."
       ]
     },
     {
@@ -34,6 +37,9 @@ window.LV.tema = {
         "Den viktigste push-faktoren var at befolkningen i Norge vokste raskt på 1800-tallet. Det ble født mange barn, og færre døde. Men det var ikke nok jord til alle. Den eldste sønnen arvet gården, og de andre barna måtte finne seg noe annet. Mange ble husmenn eller fattige arbeidere med små muligheter. Noen dro også på grunn av religiøs forfølgelse eller dårlige avlinger.",
         "Den viktigste pull-faktoren var jord. Med **Homestead Act** fra 1862 kunne innvandrere i USA få 160 acres – rundt 650 dekar – gratis jord hvis de dyrket den i fem år. Det var mer enn mange norske bønder kunne drømme om. I Amerika var det også arbeid i byene, i skogen og på jernbanen."
       ],
+      lett: [
+        "Det var både **push-faktorer** (grunner til å dra) og **pull-faktorer** (grunner til å komme). I Norge vokste befolkningen, men det var ikke nok jord. Bare den eldste sønnen arvet gården. I Amerika kunne man få gratis jord hvis man dyrket den. Det var også arbeid i byene og på jernbanen."
+      ],
       stoppOgTenk: "Hvilken push- eller pull-faktor tror du var viktigst for en ung nordmann rundt 1880? Hvorfor?"
     },
     {
@@ -41,6 +47,9 @@ window.LV.tema = {
       tekst: [
         "De som hadde reist, skrev brev hjem. I disse **amerikabrevene** fortalte de om store gårder, god mat og høye lønninger. Noen ganger var historiene nok litt pyntet. Brevene ble lest høyt og sendt rundt i bygda, og de fikk mange flere til å reise.",
         "Ofte sendte utvandrerne også penger eller [[billetter|forhåndsbetalt billett]] hjem, slik at søsken, foreldre og naboer kunne komme etter. Slik oppsto lange kjeder av utvandring fra de samme bygdene til de samme stedene i Amerika."
+      ],
+      lett: [
+        "De som hadde reist, skrev **amerikabrev** hjem. De fortalte om store gårder og gode lønninger – noen ganger litt pyntet. Brevene fikk mange flere til å reise. Ofte sendte utvandrerne billetter hjem, slik at familie og naboer kunne komme etter."
       ]
     },
     {
@@ -48,6 +57,9 @@ window.LV.tema = {
       tekst: [
         "De første utvandrerne reiste med seilskuter. Turen kunne ta to–tre måneder, og forholdene om bord var trange og skitne. Mange ble syke, og noen døde underveis. Fra 1870-tallet tok de fleste dampskip, ofte via England. Da tok reisen omtrent to uker.",
         "Fra 1892 kom de fleste innvandrere til USA gjennom **Ellis Island**, en innvandrerstasjon utenfor New York. Der ble de sjekket av leger og spurt ut av tjenestemenn. De aller fleste fikk komme inn, men syke kunne bli sendt tilbake."
+      ],
+      lett: [
+        "De første reiste med seilskip. Turen tok to–tre måneder, og mange ble syke. Fra 1870-tallet tok de fleste dampskip, og reisen tok omtrent to uker. Fra 1892 kom de fleste til USA gjennom **Ellis Island** i New York. Der ble de sjekket av leger før de slapp inn."
       ]
     },
     {
@@ -56,6 +68,9 @@ window.LV.tema = {
         "De fleste nordmennene slo seg ned i [[Midtvesten]], i stater som Wisconsin, Minnesota, Iowa og Nord- og Sør-Dakota. Her var det mye jord, og klimaet minnet om Norge. Livet på prærien var hardt: Mange bodde først i torvhus, vintrene var iskalde, og det kunne være langt til nærmeste nabo.",
         "Nordmennene bygde egne kirker, skoler og aviser, og mange snakket norsk i flere generasjoner. Samtidig fikk utvandringen også en mørk side: Jorda nordmennene og andre innvandrere fikk, var tatt fra urfolk som dakota-folket, som ble tvunget bort fra landområdene sine."
       ],
+      lett: [
+        "De fleste nordmennene bosatte seg i **Midtvesten**, for eksempel i Minnesota og Wisconsin. Livet på prærien var hardt, med iskalde vintre og lang vei til naboen. Nordmennene bygde kirker, skoler og aviser og snakket norsk lenge. Men jorda de fikk, var tatt fra urfolk, som dakota-folket."
+      ],
       stoppOgTenk: "Hvordan tror du urfolkene opplevde at innvandrere fra Europa fikk «gratis jord» der de selv hadde bodd?"
     },
     {
@@ -63,6 +78,9 @@ window.LV.tema = {
       tekst: [
         "Med tiden ble utvandrerne og barna deres en del av det amerikanske samfunnet. Noen ble kjente. Den norskfødte **Knute Nelson** ble både guvernør i Minnesota og senator i Washington. Forfatteren **Ole Edvart Rølvaag** skrev romanen om nybyggerne på prærien, «I de dage», som ble kjent også på engelsk.",
         "I dag sier over fire millioner amerikanere at de har norske forfedre. Hvert år feires 17. mai i mange byer i USA, og tusenvis av norskamerikanere reiser til Norge for å finne slekta si."
+      ],
+      lett: [
+        "Med tiden ble utvandrerne og barna deres amerikanere. Noen ble kjente, som politikeren Knute Nelson og forfatteren Ole Edvart Rølvaag. I dag sier over fire millioner amerikanere at de har norske forfedre, og 17. mai feires i mange byer i USA."
       ]
     },
     {
@@ -70,6 +88,9 @@ window.LV.tema = {
       tekst: [
         "Rundt 1930 stoppet den store utvandringen nesten helt. USA hadde innført strenge kvoter for innvandring, og den økonomiske krisen gjorde at det ikke lenger var så lett å få jobb. Samtidig hadde Norge fått flere arbeidsplasser og bedre levekår.",
         "I dag er Norge et land folk flytter til, ikke fra. Mange av grunnene er de samme som for nordmennene på 1800-tallet: fattigdom, mangel på arbeid, forfølgelse og håp om en bedre framtid for barna. Å kjenne vår egen utvandringshistorie kan hjelpe oss å forstå dem som kommer til Norge i dag."
+      ],
+      lett: [
+        "Rundt 1930 stoppet utvandringen nesten helt. USA slapp inn færre, og det var krise. I dag flytter folk **til** Norge. Mange har de samme grunnene som nordmennene på 1800-tallet: fattigdom, mangel på arbeid, forfølgelse og håp om et bedre liv. Vår egen historie kan hjelpe oss å forstå dem."
       ]
     }
   ],
