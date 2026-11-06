@@ -2721,3 +2721,38 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
 .hj-egen { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; font-family: var(--font-ui); }
 .hj-egen input { flex: 1 1 16rem; min-width: 0; font: inherit; padding: .45rem .7rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
 @media (max-width: 560px) { .hj-scene { padding-top: 5.6rem; } .hj-hjorne { font-size: .8rem !important; } .hj-knapper { margin-bottom: 5rem; } }
+
+/* ---------- Escape room ---------- */
+.es-hode h1 { margin-bottom: .3rem; }
+.es-status { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; align-items: center; background: var(--tekst); color: var(--bakgrunn); border-radius: 10px; padding: .5rem 1rem; margin-bottom: .8rem; font-family: var(--font-ui); max-width: 52rem; }
+.es-lasrekke { letter-spacing: .15em; }
+.es-spill { max-width: 52rem; }
+.es-kort { font-family: var(--font-tekst); font-size: 1.08rem; line-height: 1.65; }
+.es-kort h2 { font-family: var(--font-ui); }
+.es-kort h2:focus { outline: none; }
+.es-intro { font-size: 1.2rem; }
+.es-dok { font-family: "Courier New", Courier, monospace; font-size: 1rem; line-height: 1.6; background: var(--bakgrunn); border: 1px dashed var(--tekst-dempet); border-radius: 6px; padding: .8rem 1rem; margin: .8rem 0; }
+.es-las { font-family: var(--font-ui); background: var(--lilla-lys); border-radius: 12px; padding: .8rem 1rem; margin-top: 1rem; }
+.es-las.rist { animation: es-rist .4s; }
+@keyframes es-rist { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .es-las.rist { animation: none; } }
+.es-oppgave { font-weight: 700; font-size: 1.08rem; margin-top: 0; }
+.es-kode { display: flex; flex-wrap: wrap; gap: .5rem; }
+.es-kode input { flex: 1 1 12rem; min-width: 0; font: inherit; font-size: 1.15rem; letter-spacing: .05em; padding: .5rem .8rem; border: 2px solid var(--tekst); border-radius: 10px; background: var(--flate); color: var(--tekst); }
+.es-melding { min-height: 1.4em; margin: .6rem 0; }
+.es-melding.feil { color: var(--aksent); font-weight: 700; }
+.es-melding.ok { color: var(--tekst); background: var(--flate); border-left: 5px solid var(--samfunnsfag); border-radius: 8px; padding: .5rem .8rem; }
+.es-hinttekst { font-style: italic; }
+.es-resultat { font-family: var(--font-ui); font-size: 1.15rem; }
+
+/* ---------- Begrepsgåta ---------- */
+.bq-gata { max-width: 44rem; font-family: var(--font-ui); }
+.bq-merke { color: var(--tekst-dempet); margin-top: 0; }
+.bq-forkl { font-family: var(--font-tekst); font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.4; margin: .4rem 0 1rem; }
+.bq-hint { list-style: none; padding: 0; display: grid; gap: .35rem; }
+.bq-hint li { background: var(--lilla-lys); border-radius: 8px; padding: .4rem .7rem; }
+.bq-forsok { display: flex; flex-wrap: wrap; gap: .35rem; }
+.bq-forsok span { padding: .2rem .6rem; border-radius: 99px; border: 2px solid var(--aksent); text-decoration: line-through; }
+.bq-forsok span.ok { border-color: var(--samfunnsfag); text-decoration: none; font-weight: 700; }
+.bq-igjen { color: var(--tekst-dempet); font-size: .9rem; }
+.bq-svaret { font-size: 1.4rem; margin: 0; }

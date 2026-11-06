@@ -150,6 +150,8 @@ LV.kompetansemal = {
     "side:klassequiz": ["s3", "e10"],
     "side:tidsreise": ["s3"],
     "side:fortelling": ["s3", "s5", "s6"],
+    "side:escape": ["s3", "e10", "e12"],
+    "side:begrepsgata": ["s1", "e3"],
     "side:kommune": ["s16", "s12", "s17"],
     "side:lov": ["s16", "s17", "s5"],
     "side:hjorner": ["s17", "e5", "e6"],

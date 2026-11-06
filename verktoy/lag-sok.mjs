@@ -40,6 +40,8 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", "muntlig lytting speaking listening samtalekort diskusjon frasebank hot seat varme stolen"],
   ["Kildedetektiven", "kildedetektiv.html", "Spill: er innlegget sant eller falskt? Undersøk avsender, dato og bilde.", "kildekritikk falske nyheter fake news desinformasjon ki-bilder svindel phishing spill kildedetektiv"],
   ["Klassequiz på storskjerm", "klassequiz.html", "For læreren: vis quizspørsmål fra temaer, tekster og land stort på tavla.", "klassequiz quiz storskjerm tavle kahoot lærer spørsmål"],
+  ["Escape room", "escape.html", "Lås deg ut ved å lese nøye – Bastillen, the Workhouse og the Locked Library.", "escape room rømning lås kode gåte bastillen workhouse library victorian franske revolusjonen lesing"],
+  ["Begrepsgåta", "begrepsgata.html", "Gjett dagens fagbegrep ut fra forklaringen.", "begrepsgåta begreper gåte ord dagens begrep wordle fagord vocabulary"],
   ["Ordfører for en dag", "kommune.html", "Fordel budsjettet i en oppdiktet kommune og møt velgerne.", "ordfører kommune budsjett kommunestyre valg demokrati spill simulering prioritering"],
   ["Lag en lov", "lov.html", "Følg et lovforslag fra høring til votering på Stortinget.", "lov lovforslag stortinget høring komité votering flertall kompromiss parti demokrati"],
   ["Fire hjørner", "hjorner.html", "Påstander på storskjerm – elevene velger hjørne og argumenterer.", "fire hjørner påstand diskusjon argumentasjon muntlig storskjerm four corners"],
