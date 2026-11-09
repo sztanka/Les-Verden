@@ -48,6 +48,9 @@ les-verden/
 ├── fortelling.html         Velg din vei: historiske fortellinger med valg (data i data/fortellinger.js)
 ├── tidsreise.html          Tidsreisen: gjett året (data i data/tidsreise.js, lages av verktoy/lag-sok.mjs)
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
+├── repetisjon.html         Repetisjonsstart: blandede spørsmål fra flere temaer
+├── lesegruppe.html         Lesegrupper med roller (gjensidig undervisning)
+├── lognfabrikk.html        Løgnfabrikken: prebunking-spill om desinformasjon
 ├── morsmal.html            Begreper på morsmål: arabisk, ukrainsk, tyrkisk, polsk (data i data/morsmal.js)
 ├── tegneserie.html         Tegneseriemaker (SVG → PNG), innholdet i lenken (#)
 ├── leseloype.html          QR-leseløype: plakater, poster og svarark (QR: assets/vendor/qrcode.js, MIT)
@@ -449,7 +452,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261109h`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261109i`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
