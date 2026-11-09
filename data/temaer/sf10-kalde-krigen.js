@@ -22,6 +22,7 @@ window.LV.tema = {
   avsnitt: [
     {
       tittel: "Fra allierte til fiender",
+      utfordring: ["Hvem hadde skylden for den kalde krigen? I Vesten var det lenge vanlig å legge skylden på Sovjetunionens ekspansjon i Øst-Europa. På 1960- og 70-tallet hevdet såkalte revisjonistiske historikere at også USA hadde et stort ansvar, blant annet fordi landet brukte sin økonomiske makt og atombomben til å presse Sovjetunionen. Etter at sovjetiske arkiver delvis ble åpnet på 1990-tallet, har mange historikere lagt vekt på gjensidig mistillit: Begge sider tolket den andres handlinger som aggresjon og sine egne som forsvar. For Sovjetunionen, som hadde mistet rundt 27 millioner mennesker i krigen, var en buffer av vennligsinnede stater i øst et spørsmål om sikkerhet. For USA og Vest-Europa så det ut som kommunistisk ekspansjon som måtte demmes opp."],
       tekst: [
         "Under andre verdenskrig kjempet USA og Sovjetunionen på samme side mot Hitler. Men de var svært forskjellige. USA var et demokrati med [[kapitalisme]], der privatpersoner og bedrifter eier mye og konkurrerer i et fritt marked. Sovjetunionen var et kommunistisk diktatur, der staten eide og styrte nesten alt, og der ett parti hadde all makt.",
         "Etter krigen sto sovjetiske soldater i store deler av Øst-Europa. I land som Polen, Ungarn og Tsjekkoslovakia fikk kommunister makten med hjelp fra Moskva. I 1946 sa den britiske lederen Winston Churchill at et [[jernteppe]] hadde senket seg over Europa. Den kalde krigen varte omtrent fra 1947 til 1991."
@@ -32,6 +33,7 @@ window.LV.tema = {
     },
     {
       tittel: "To blokker",
+      utfordring: ["Konflikten var både militær, økonomisk og ideologisk – et oppgjør mellom [[kapitalisme]] og kommunisme. Gjennom Trumandoktrinen fra 1947 lovet USA å støtte land som ble truet av kommunistisk overtakelse, og Marshallplanen ga omfattende økonomisk hjelp til gjenoppbyggingen av Vest-Europa. Sovjetunionen så Marshallplanen som et forsøk på å kjøpe innflytelse og nektet landene i øst å ta imot hjelpen. NATO ble opprettet i 1949, og Warszawapakten i 1955 etter at Vest-Tyskland ble med i NATO. Mange land i Asia, Afrika og Latin-Amerika ville ikke velge side, og i 1961 dannet de Den alliansefrie bevegelsen. Verden var altså ikke bare todelt: Den «tredje verden» var både en arena for supermaktenes rivalisering og en egen politisk kraft."],
       tekst: [
         "USA ville stoppe spredningen av kommunismen. Gjennom **Marshallhjelpen** fra 1948 fikk landene i Vest-Europa, også Norge, store summer til å bygge opp igjen landene etter krigen. Sovjetunionen sa nei til å ta imot hjelpen og nektet landene i øst å gjøre det.",
         "Tyskland ble delt i to stater i 1949: demokratiske **Vest-Tyskland** og kommunistiske **Øst-Tyskland**. Samme år ble forsvarsalliansen **NATO** grunnlagt 4. april 1949, med USA i spissen. Norge var et av de tolv landene som var med fra starten. I 1955 svarte Sovjetunionen med å opprette **Warszawapakten** sammen med landene i Øst-Europa. Europa var nå delt i to [[militærallianser|militærallianse]]."
@@ -42,6 +44,7 @@ window.LV.tema = {
     },
     {
       tittel: "Berlinmuren",
+      utfordring: ["Muren ble bygget i august 1961 fordi DDR var i ferd med å tømmes for mennesker: Rundt 2,7 millioner hadde flyktet vestover siden 1949, mange av dem unge og høyt utdannede. DDR-regimet kalte muren en «antifascistisk beskyttelsesvoll», men den var først og fremst laget for å holde egne innbyggere inne. Minst 140 mennesker ble drept ved muren i Berlin. Muren ble et kraftig symbol i propagandaen fra begge sider – president Kennedys tale «Ich bin ein Berliner» i 1963 er et eksempel. Da muren åpnet seg 9. november 1989, skyldtes det både lang tids press fra befolkningen og en misforståelse: En talsmann for regjeringen kunngjorde på en pressekonferanse at de nye reglene for utreise gjaldt «umiddelbart»."],
       tekst: [
         "Berlin lå midt inne i Øst-Tyskland, men også byen var delt. Vest-Berlin hørte til Vesten. Millioner av østtyskere flyktet vestover gjennom Berlin, fordi de ville ha frihet og bedre levekår. For å stoppe flukten bygde de østtyske myndighetene natt til **13. august 1961** en mur tvers gjennom byen.",
         "**Berlinmuren** ble et symbol på hele den kalde krigen. Familier og venner ble skilt i 28 år. Muren ble voktet av soldater med ordre om å skyte, og minst 140 mennesker ble drept da de prøvde å komme over."
@@ -53,6 +56,7 @@ window.LV.tema = {
     },
     {
       tittel: "Terrorbalansen og Cubakrisen",
+      utfordring: ["[[Terrorbalansen|terrorbalansen]] bygde på en kald logikk: Så lenge begge supermaktene kunne ødelegge hverandre selv etter et overraskelsesangrep, ville ingen av dem våge å starte en atomkrig. Tanken kalles ofte MAD – «mutually assured destruction», gjensidig sikret ødeleggelse. Cubakrisen i oktober 1962 viste hvor skjør balansen var. USA oppdaget sovjetiske atomraketter på Cuba, og i tretten dager sto verden på randen av atomkrig. Krisen ble løst gjennom forhandlinger: Sovjetunionen trakk rakettene ut, og USA lovet å ikke invadere Cuba og trakk i hemmelighet sine egne raketter ut av Tyrkia. Etterpå ble det opprettet en direkte linje mellom Washington og Moskva, og i 1963 ble det inngått en avtale som forbød prøvesprengninger av atomvåpen i atmosfæren."],
       tekst: [
         "USA brukte atombomben i 1945, og i 1949 fikk også Sovjetunionen atomvåpen. Det startet et [[våpenkappløp]]: Begge sider bygde tusenvis av stadig kraftigere atomvåpen og raketter som kunne nå den andre siden på under en time. Ingen av dem kunne angripe uten selv å bli utslettet. Denne situasjonen kalles [[terrorbalansen]].",
         "Verden var aldri nærmere en atomkrig enn under **Cubakrisen** i oktober 1962. Sovjetunionen hadde plassert atomraketter på Cuba, bare rundt 150 kilometer fra USA. President **John F. Kennedy** krevde at rakettene ble fjernet, og satte opp en sjøblokade rundt øya. I 13 dager holdt verden pusten. Til slutt ga den sovjetiske lederen **Nikita Khrusjtsjov** etter, og USA lovte i hemmelighet å fjerne sine raketter fra Tyrkia."
@@ -64,6 +68,7 @@ window.LV.tema = {
     },
     {
       tittel: "Varme kriger i en kald krig",
+      utfordring: ["Fordi supermaktene ikke kunne krige direkte uten å risikere atomkrig, ble mange konflikter utkjempet som [[stedfortrederkriger|stedfortrederkrig]]. I Korea (1950–1953) og Vietnam kjempet USA mot kommunistiske styrker som ble støttet av Sovjetunionen og Kina. I Afghanistan (1979–1989) var det Sovjetunionen som invaderte, mens USA, Pakistan og andre støttet geriljagrupper. For befolkningen i disse landene var krigene alt annet enn kalde: Millioner ble drept, og landene ble ødelagt. Konfliktene handlet dessuten ofte om lokale spørsmål som avkolonisering, nasjonal selvstendighet og fordeling av jord. Å forstå dem bare som en del av supermaktenes kamp er derfor for enkelt."],
       tekst: [
         "Selv om supermaktene ikke kriget direkte mot hverandre, støttet de hver sin side i mange kriger rundt om i verden. Slike kriger kalles [[stedfortrederkriger|stedfortrederkrig]]. I **Koreakrigen** (1950–1953) kjempet kommunistiske Nord-Korea, støttet av Kina og Sovjetunionen, mot Sør-Korea, støttet av USA og FN. Korea er fortsatt delt i dag.",
         "I **Vietnamkrigen** sendte USA over en halv million soldater for å stoppe kommunistene i Nord-Vietnam, men tapte. Krigen førte til store protester i USA og resten av verden. I **Afghanistan** (1979–1989) kjempet Sovjetunionen mot opprørere som fikk våpen fra USA, og led et stort nederlag."
@@ -74,6 +79,7 @@ window.LV.tema = {
     },
     {
       tittel: "Kappløpet i verdensrommet",
+      utfordring: ["Romkappløpet var tett knyttet til [[våpenkappløpet|våpenkappløp]]. Den samme rakettteknologien som kunne sende en satellitt i bane, kunne sende et atomstridshode til et annet kontinent. Da Sovjetunionen sendte opp Sputnik i 1957, fryktet mange amerikanere at de lå bak teknologisk. Det førte til store investeringer i forskning og utdanning, og til at romfartsorganisasjonen NASA ble opprettet i 1958. Kappløpet var også et prestisjeprosjekt: Begge sider ville vise at deres samfunnssystem var best. Sovjetunionen sendte det første mennesket, Jurij Gagarin, ut i rommet i 1961, men USA landet de første menneskene på månen i 1969. Mange av teknologiene fra romkappløpet, som satellitter for kommunikasjon og navigasjon, bruker vi hver dag."],
       tekst: [
         "Den kalde krigen var også en konkurranse om hvem som hadde best teknologi og det beste samfunnet. I 1957 sendte Sovjetunionen opp **Sputnik**, verdens første satellitt. I 1961 ble **Jurij Gagarin** det første mennesket i verdensrommet. USA følte seg forbigått og satset enorme summer. 20. juli 1969 gikk amerikaneren **Neil Armstrong** som første menneske på månen.",
         "Kampen foregikk også i idrett, kunst og propaganda. Olympiske leker ble boikottet, og begge sider brukte filmer, radio og plakater for å vise at deres system var best."
@@ -84,6 +90,7 @@ window.LV.tema = {
     },
     {
       tittel: "Norge i den kalde krigen",
+      utfordring: ["Norge var et lite land med felles grense med Sovjetunionen, og det preget sikkerhetspolitikken. Norge ble med i NATO i 1949, men innførte samtidig en basepolitikk: Det skulle ikke være utenlandske militære baser på norsk jord i fredstid. I 1957 kom også en atompolitikk om at atomvåpen ikke skulle lagres i Norge i fredstid. Slik ville Norge både avskrekke og berolige – vise styrke overfor Sovjetunionen uten å provosere unødig. Den kalde krigen fikk også følger innenlands. Overvåkingspolitiet registrerte mange personer på grunn av deres politiske meninger, særlig kommunister og folk på venstresiden. Lund-kommisjonen slo i 1996 fast at mye av denne overvåkingen hadde vært ulovlig."],
       tekst: [
         "Norge var det eneste NATO-landet i Nord-Europa som hadde grense mot Sovjetunionen, i Finnmark. Derfor var Norge viktig for NATO, blant annet for å overvåke sovjetiske ubåter og fly fra Kola-halvøya. Samtidig ville Norge ikke provosere naboen: Norge sa nei til faste utenlandske militærbaser og atomvåpen på norsk jord i fredstid.",
         "Mange nordmenn var redde for atomkrig. Det ble bygd tilfluktsrom over hele landet, og sirener ble testet regelmessig – det gjøres fortsatt i dag."
@@ -94,6 +101,7 @@ window.LV.tema = {
     },
     {
       tittel: "Slutten på den kalde krigen",
+      utfordring: ["Hvorfor tok den kalde krigen slutt? Noen legger vekt på at USA under Ronald Reagan økte rustningen og presset en svak sovjetisk økonomi. Andre peker på Mikhail Gorbatsjovs reformer, glasnost (åpenhet) og perestrojka (omstrukturering), og på at han lot landene i Øst-Europa velge sin egen vei. Atter andre framhever folkebevegelser som Solidaritet i Polen og de fredelige demonstrasjonene i DDR, som viste at regimene hadde mistet sin legitimitet. Trolig virket alle disse faktorene sammen. Sovjetunionen ble oppløst i desember 1991, og noen snakket om «historiens slutt» – at det liberale demokratiet hadde vunnet for godt. Krigen i Ukraina og den økte spenningen mellom Russland og Vesten viser at dette var for optimistisk."],
       tekst: [
         "På 1980-tallet var Sovjetunionen i dyp økonomisk krise. Den nye lederen **Mikhail Gorbatsjov**, som kom til makten i 1985, ville reformere landet og ga folk mer frihet til å si hva de mente. Han inngikk også nedrustningsavtaler med USA.",
         "I 1989 gjorde folk i Øst-Europa opprør mot de kommunistiske regimene, nesten uten vold. Om kvelden **9. november 1989** åpnet grensen i Berlin, og jublende mennesker klatret opp på muren. 3. oktober 1990 ble Tyskland samlet igjen. I desember 1991 ble Sovjetunionen oppløst og delt i 15 selvstendige stater, blant dem Russland, Ukraina og de baltiske landene. Den kalde krigen var over.",

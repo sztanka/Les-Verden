@@ -57,6 +57,7 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Velg din vei", "fortelling.html", "Historiske fortellinger med valg: utvandreren, fyrstikkarbeidersken og Eidsvoll 1814.", "velg din vei fortelling rollespill valg utvandrer amerika fyrstikk streik eidsvoll 1814 grunnloven historie"],
   ["Tidsreisen", "tidsreise.html", "Spill: gjett året for historiske hendelser.", "tidsreise gjett året årstall historie spill timeline guess the year"],
   ["Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge.", "årsak virkning følger konsekvenser cause effect sammenheng rekkefølge spill"],
+  ["Begreper på morsmål", "morsmal.html", "Fagbegreper på arabisk, ukrainsk, tyrkisk og polsk.", "morsmål flerspråklig arabisk ukrainsk tyrkisk polsk oversettelse begreper minoritetsspråk særskilt språkopplæring arabic ukrainian turkish polish"],
   ["Tegneseriemaker", "tegneserie.html", "Lag din egen tegneserie.", "tegneserie tegneseriemaker comic snakkeboble tegning stripe bilde lag fortelle"],
   ["QR-leseløype", "leseloype.html", "Lag en leseløype med QR-koder fra et tema.", "qr leseløype løype poster postløp orientering kodeord løsningsord skanne"],
   ["Lesepass", "lesepass.html", "Samle stempler for lesing.", "lesepass stempler pass lesing bronse sølv gull diamant reading passport"],

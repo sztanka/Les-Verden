@@ -152,6 +152,7 @@ LV.kompetansemal = {
     "side:fortelling": ["s3", "s5", "s6"],
     "side:skriftlig": ["e4", "e10", "e6", "e14", "e15"],
     "side:kilder": ["s2", "s3", "s4", "e12"],
+    "side:morsmal": ["e7", "s13"],
     "side:tegneserie": ["e14", "e19", "s3"],
     "side:leseloype": ["e10", "s1"],
     "side:lesepass": ["e10", "e11", "e1"],

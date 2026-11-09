@@ -65,7 +65,7 @@
       if (!forklaring) return vis;
       const id = "ord-" + (++ordTeller);
       return '<span class="ord-wrap"><button type="button" class="ord" aria-expanded="false" aria-controls="' + id + '">' + vis + "</button>" +
-        '<span class="ordforklaring" id="' + id + '" role="tooltip" hidden><strong>' + LV.esc(n) + "</strong>" + LV.esc(forklaring) + "</span></span>";
+        '<span class="ordforklaring" id="' + id + '" role="tooltip" hidden><strong>' + LV.esc(n) + "</strong>" + LV.esc(forklaring) + (tema.sprak === "en" ? "" : LV.morsmalHtml(n)) + "</span></span>";
     });
     return html;
   }
@@ -123,15 +123,20 @@
     h += '<p class="ordbok-tips" lang="nb"><span aria-hidden="true">📖</span> Ukjent ord? Dobbeltklikk på ordet (eller hold fingeren på det på mobil) for å slå det opp i <a href="ordbok.html">ordboka</a>.</p>';
     h += "</section>";
 
-    // Tekstnivå: vanlig eller lettere tekst (når temaet har «lett» i avsnittene)
+    // Tekstnivå: lettere, vanlig eller utfordring (når temaet har «lett» eller «utfordring» i avsnittene)
     const harLett = tema.avsnitt.some(a => a.lett && a.lett.length);
-    let lett = harLett && LV.param("tekst") === "lett";
-    if (harLett) {
+    const harUtf = tema.avsnitt.some(a => a.utfordring && a.utfordring.length);
+    const harNiva = harLett || harUtf;
+    let niva = LV.param("tekst");
+    if (!((niva === "lett" && harLett) || (niva === "utfordring" && harUtf))) niva = "vanlig";
+    let lett = niva === "lett";
+    if (harNiva) {
       const en = tema.sprak === "en";
+      const knapp = (v, ikon, nb, eng) => '<button type="button" class="knapp liten" data-tekstniva="' + v + '" aria-pressed="' + (niva === v) + '">' + ikon + " " + (en ? eng : nb) + "</button>";
       h += '<div class="tekstniva" role="group" aria-label="' + (en ? "Text level" : "Tekstnivå") + '"><span class="etikett">' + (en ? "Text:" : "Tekst:") + "</span>" +
-        '<button type="button" class="knapp liten" data-tekstniva="vanlig" aria-pressed="' + !lett + '">📄 ' + (en ? "Standard text" : "Vanlig tekst") + "</button>" +
-        '<button type="button" class="knapp liten" data-tekstniva="lett" aria-pressed="' + lett + '">🌱 ' + (en ? "Easier text" : "Lettere tekst") + "</button>" +
-        '<span class="tekstniva-info">' + (en ? "The easier text is shorter and uses simpler words. The tasks are the same." : "Den lettere teksten er kortere og har enklere ord. Oppgavene er de samme.") + "</span></div>";
+        (harLett ? knapp("lett", "🌱", "Lettere tekst", "Easier text") : "") + knapp("vanlig", "📄", "Vanlig tekst", "Standard text") + (harUtf ? knapp("utfordring", "🚀", "Utfordring", "Challenge") : "") +
+        '<span class="tekstniva-info">' + (en ? (harLett ? "The easier text is shorter and uses simpler words. " : "") + (harUtf ? "The challenge text goes deeper, with more context, different interpretations and more advanced language. " : "") + "The tasks are the same."
+          : (harLett ? "Den lettere teksten er kortere og har enklere ord. " : "") + (harUtf ? "Utfordringsteksten går dypere, med mer sammenheng, ulike tolkninger og et mer avansert språk. " : "") + "Oppgavene er de samme.") + "</span></div>";
     }
 
     // Opplesing
@@ -176,7 +181,10 @@
       h += '<section class="avsnitt" id="avsnitt-' + i + '" data-avsnitt="' + i + '"><' + htag + ">" + LV.esc(a.tittel) +
         ("speechSynthesis" in window ? ' <button type="button" class="les-avsnitt" data-les="' + i + '" aria-label="' + T.lesAvsnitt + ": " + LV.esc(a.tittel) + '">▶ ' + T.lesAvsnitt + "</button>" : "") +
         "</" + htag + ">";
-      if (harLett && a.lett && a.lett.length) h += '<div class="tekst-lett"' + (lett ? "" : " hidden") + ">" + a.lett.map(p => "<p>" + formater(p) + "</p>").join("") + '</div><div class="tekst-vanlig"' + (lett ? " hidden" : "") + ">";
+      const aLett = !!(a.lett && a.lett.length), aUtf = !!(a.utfordring && a.utfordring.length), aVis = (niva === "lett" && aLett) ? "lett" : (niva === "utfordring" && aUtf) ? "utfordring" : "vanlig";
+      if (aLett) h += '<div class="tekst-lett"' + (aVis === "lett" ? "" : " hidden") + ">" + a.lett.map(p => "<p>" + formater(p) + "</p>").join("") + "</div>";
+      if (aUtf) h += '<div class="tekst-utfordring"' + (aVis === "utfordring" ? "" : " hidden") + ">" + a.utfordring.map(p => "<p>" + formater(p) + "</p>").join("") + "</div>";
+      if (aLett || aUtf) h += '<div class="tekst-vanlig"' + (aVis === "vanlig" ? "" : " hidden") + ">";
       a.tekst.forEach(p => {
         // Et dikt skrives som { dikt: "linje 1\nlinje 2", kilde: "Forfatter, «Tittel» (år)" }
         if (p && typeof p === "object" && p.dikt) {
@@ -187,7 +195,7 @@
           h += "<p>" + formater(p) + "</p>";
         }
       });
-      if (harLett && a.lett && a.lett.length) h += "</div>";
+      if (aLett || aUtf) h += "</div>";
       h += "</section>";
       if (a.stoppOgTenk) {
         stoppNr++;
@@ -215,7 +223,8 @@
     if (tema.begrepsliste && tema.ord) {
       const nokler = Object.keys(tema.ord).sort((a, b) => a.localeCompare(b, "nb"));
       h += '<section class="begrepsliste" aria-labelledby="begreper-tittel"><h2 id="begreper-tittel">' + T.begrepsliste + "</h2><dl>" +
-        nokler.map(k => "<div><dt>" + LV.esc(k) + "</dt><dd>" + LV.esc(tema.ord[k]) + "</dd></div>").join("") + "</dl></section>";
+        nokler.map(k => "<div><dt>" + LV.esc(k) + (tema.sprak === "en" ? "" : LV.morsmalHtml(k)) + "</dt><dd>" + LV.esc(tema.ord[k]) + "</dd></div>").join("") + "</dl>" +
+        (tema.sprak === "en" ? "" : '<p class="mm-lenke"><a href="morsmal.html">🌐 Begrepene på arabisk, ukrainsk, tyrkisk og polsk</a></p>') + "</section>";
     }
 
     // Sammendrag
@@ -390,15 +399,21 @@
       '<span class="status" id="status" role="status" aria-live="polite"></span></div>';
     document.body.appendChild(linje);
 
-    // Bytt tekstnivå
-    document.body.classList.toggle("lett-tekst", lett);
+    // Bytt tekstnivå. Mangler et avsnitt det valgte nivået, vises vanlig tekst.
+    document.body.classList.toggle("lett-tekst", niva === "lett");
+    document.body.classList.toggle("utfordring-tekst", niva === "utfordring");
     document.querySelectorAll("[data-tekstniva]").forEach(b => b.addEventListener("click", () => {
-      lett = b.dataset.tekstniva === "lett";
-      document.body.classList.toggle("lett-tekst", lett);
+      niva = b.dataset.tekstniva; lett = niva === "lett";
+      document.body.classList.toggle("lett-tekst", niva === "lett");
+      document.body.classList.toggle("utfordring-tekst", niva === "utfordring");
       document.querySelectorAll("[data-tekstniva]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-      document.querySelectorAll(".tekst-lett").forEach(x => { x.hidden = !lett; });
-      document.querySelectorAll(".tekst-vanlig").forEach(x => { x.hidden = lett; });
-      const q = new URLSearchParams(location.search); if (lett) q.set("tekst", "lett"); else q.delete("tekst");
+      document.querySelectorAll(".avsnitt").forEach(sek => {
+        const l = sek.querySelector(":scope > .tekst-lett"), u = sek.querySelector(":scope > .tekst-utfordring"), v = sek.querySelector(":scope > .tekst-vanlig");
+        if (!v) return;
+        const vis = (niva === "lett" && l) ? l : (niva === "utfordring" && u) ? u : v;
+        [l, u, v].forEach(x => { if (x) x.hidden = x !== vis; });
+      });
+      const q = new URLSearchParams(location.search); if (niva !== "vanlig") q.set("tekst", niva); else q.delete("tekst");
       history.replaceState(null, "", "tema.html?" + q + location.hash);
     }));
     kobleOrdforklaringer();
@@ -581,7 +596,8 @@
         const seksjon = document.querySelector('[data-avsnitt="' + i + '"]');
         ko.push({ tekst: a.tittel, el: seksjon });
         const lettNa = a.lett && a.lett.length && document.body.classList.contains("lett-tekst");
-        (lettNa ? a.lett : a.tekst).forEach(p => ko.push({ tekst: (p && p.dikt) ? p.dikt.replace(/\n+/g, " ") : rentekst(p), el: seksjon }));
+        const utfNa = a.utfordring && a.utfordring.length && document.body.classList.contains("utfordring-tekst");
+        (lettNa ? a.lett : utfNa ? a.utfordring : a.tekst).forEach(p => ko.push({ tekst: (p && p.dikt) ? p.dikt.replace(/\n+/g, " ") : rentekst(p), el: seksjon }));
       });
       // Hvert avsnitt leses for seg – lange tekster kuttes ellers av enkelte nettlesere
       ko.forEach((del, n) => {

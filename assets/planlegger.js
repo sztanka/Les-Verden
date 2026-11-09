@@ -39,6 +39,7 @@
     ["fortelling", "Velg din vei", "fortelling.html", "Historiske fortellinger med valg: utvandreren, fyrstikkarbeidersken, Eidsvoll 1814.", ["samfunnsfag"]],
     ["tidsreise", "Tidsreisen", "tidsreise.html", "Spill: gjett året for hendelser fra tidslinjene i temaene.", ["samfunnsfag", "engelsk"]],
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],
+    ["morsmal", "Begreper på morsmål", "morsmal.html", "112 sentrale begreper fra samfunnsfag på arabisk, ukrainsk, tyrkisk og polsk, med søk og ordkort. Kan også slås på i temaene via Aa-menyen.", ["samfunnsfag"]],
     ["tegneserie", "Tegneseriemaker", "tegneserie.html", "Lag tegneserie med bakgrunner, figurer, snakkebobler og fortellerboks. Last ned som PNG, skriv ut eller del lenke.", ["samfunnsfag", "engelsk"]],
     ["leseloype", "QR-leseløype", "leseloype.html", "Lag en leseløype fra et tema: én QR-post per avsnitt, svarark og løsningsord.", ["samfunnsfag", "engelsk"]],
     ["lesepass", "Lesepass", "lesepass.html", "20 stempler for leseaktiviteter på nettstedet, med nivåer fra bronse til diamant.", ["samfunnsfag", "engelsk"]],

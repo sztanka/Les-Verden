@@ -3452,3 +3452,36 @@ html[data-fokus] main p, html[data-fokus] main li { line-height: 1.85; }
 @media print { .lp-lenke, .lp-viktig { display: none !important; } .lp-stempel { break-inside: avoid; } .lp-stempel-merke, .lp-fyll { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 @media print { body:has(.ll-plakater) .brodsmuler, body:has(.ts-bilde) .brodsmuler { display: none !important; } }
 @media (max-width: 980px) { .ts-forhand { order: -1; position: static; } }
+
+/* ---------- Begreper på morsmål ---------- */
+.mm-boks { display: contents; }
+.mm { display: none; }
+html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsmal="tr"] .mm-tr, html[data-morsmal="pl"] .mm-pl { display: inline-block; margin: 0 .35rem; padding: .05rem .5rem; border-radius: 6px; background: var(--lilla-lys); color: var(--tekst); font-weight: 600; font-style: normal; font-family: var(--font-ui); }
+.ordforklaring .mm { margin: .3rem 0 0 0 !important; }
+.mm-ar, .mm-rtl, [lang="ar"] { font-family: "Noto Naskh Arabic", "Geeza Pro", "Segoe UI", Tahoma, var(--font-ui); }
+.mm-valg { display: inline-flex; gap: .4rem; align-items: center; font-family: var(--font-ui); flex-wrap: wrap; }
+.mm-valg select { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.mm-lenke { font-family: var(--font-ui); margin-top: .8rem; }
+.mm-sprakrad { font-family: var(--font-ui); font-size: 1.1rem; }
+.mm-verktoy { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; align-items: flex-end; margin: 1rem 0; font-family: var(--font-ui); }
+.mm-velg { border: 1px solid var(--linje); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .3rem 1rem; padding: .3rem .9rem .5rem; margin: 0; }
+.mm-velg legend { font-weight: 700; padding: 0 .3rem; }
+.mm-velg label { display: flex; gap: .35rem; align-items: center; }
+.mm-sok { display: grid; gap: .2rem; font-weight: 600; }
+.mm-sok input { font: inherit; padding: .45rem .6rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); min-width: 0; width: 16rem; max-width: 100%; }
+.mm-antall { font-family: var(--font-ui); color: var(--tekst-dempet); }
+.mm-gruppe h2 { font-size: 1.2rem; margin-top: 1.4rem; }
+.mm-tabell { overflow-x: auto; }
+.mm-tabell table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; }
+.mm-tabell th, .mm-tabell td { padding: .4rem .6rem; border-bottom: 1px solid var(--linje); text-align: left; vertical-align: middle; }
+.mm-tabell thead th { font-size: .85rem; color: var(--tekst-dempet); }
+.mm-tabell tbody th { font-weight: 700; white-space: nowrap; }
+.mm-tabell td { font-size: 1.05rem; }
+.mm-rtl { display: inline-block; font-size: 1.15rem; }
+.mm-lytt { font: inherit; font-size: .85rem; background: none; border: 1px solid var(--linje); border-radius: 6px; cursor: pointer; padding: 0 .3rem; color: var(--tekst); }
+@media (max-width: 600px) { .mm-tabell tbody th { white-space: normal; } .mm-tabell th, .mm-tabell td { padding: .35rem .4rem; } }
+.mm-ov-valg { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: flex-end; font-family: var(--font-ui); margin-bottom: 1rem; }
+.mm-ov-valg label { display: grid; gap: .2rem; font-weight: 600; }
+.mm-ov-valg select { font: inherit; padding: .4rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.tekst-utfordring p { line-height: 1.7; }
+.utfordring-tekst .tekstniva [data-tekstniva="utfordring"][aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); }

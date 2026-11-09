@@ -25,6 +25,7 @@ window.LV.tema = {
   avsnitt: [
     {
       tittel: "Fra håndkraft til maskinkraft",
+      utfordring: ["Historikere har diskutert om uttrykket «den industrielle revolusjon» er treffende. Ordet revolusjon gir inntrykk av en brå endring, men veksten i Storbritannia var ganske langsom de første tiårene, og håndverk og hjemmeindustri levde lenge side om side med fabrikkene. Det som var nytt, var at energi fra kull erstattet muskelkraft, og at produksjonen ble samlet i [[fabrikker|fabrikk]] der arbeidet ble delt opp i små, ensformige oppgaver. Denne arbeidsdelingen økte produktiviteten kraftig, men gjorde også arbeiderne mer avhengige av fabrikkeierne. Mange historikere mener derfor at [[industrialiseringen|industrialisering]] er den største endringen i menneskers levesett siden jordbruket ble tatt i bruk for over 10 000 år siden."],
       tekst: [
         "Før 1750 bodde de aller fleste i Europa på landet. Folk dyrket jorda, stelte husdyr og laget mye av det de trengte selv. Klær ble spunnet og vevd for hånd hjemme på gården. Det meste av arbeidet ble gjort med muskelkraft fra mennesker og dyr, eller med kraft fra vind og vann.",
         "I andre halvdel av 1700-tallet begynte dette å endre seg i Storbritannia. Nye maskiner gjorde det mulig å lage mye mer, mye raskere. Varene ble ikke lenger laget hjemme, men i store bygninger med mange arbeidere og maskiner: [[fabrikker|fabrikk]]. Overgangen fra et samfunn bygd på jordbruk og håndverk til et samfunn bygd på industri kaller vi [[industrialiseringen|industrialisering]]. Fordi forandringene var så store og skjedde så raskt, kalles den ofte **den industrielle revolusjonen**."
@@ -35,6 +36,7 @@ window.LV.tema = {
     },
     {
       tittel: "Hvorfor startet det i Storbritannia?",
+      utfordring: ["Forklaringene på hvorfor industrialiseringen startet i Storbritannia, deles ofte i naturgitte, økonomiske og politiske årsaker. Kull og jern lå nær kysten og elvene, slik at tunge varer kunne fraktes billig. Handel med [[kolonier|koloni]] og den transatlantiske slavehandelen ga [[kapital]] til investeringer, og plantasjene i Amerika leverte [[råvarer|råvare]] som bomull – produsert av slavebundne mennesker. Samtidig hadde Storbritannia et parlament som beskyttet eiendomsretten, et patentsystem og et velutviklet bankvesen. Noen økonomiske historikere legger vekt på at lønningene var høye og kullet billig, slik at det lønte seg å erstatte arbeidere med maskiner. Det er sjelden én årsak som forklarer en så stor endring – det er samspillet mellom årsakene som er avgjørende."],
       tekst: [
         "Det var flere grunner til at industrialiseringen startet nettopp i Storbritannia. For det første hadde landet mye kull og jern i bakken. Kull ga energi, og jern trengtes til maskiner, skinner og verktøy.",
         "For det andre hadde Storbritannia mange [[kolonier|koloni]] og drev handel over hele verden. Det gjorde mange kjøpmenn rike, og de hadde [[kapital]] – penger de kunne bruke på nye fabrikker. Fra koloniene kom også [[råvarer|råvare]] som bomull.",
@@ -47,6 +49,7 @@ window.LV.tema = {
     },
     {
       tittel: "Dampmaskinen endret alt",
+      utfordring: ["Dampmaskinen er et eksempel på at en oppfinnelse sjelden kommer alene. Thomas Newcomens dampmaskin fra 1712 ble brukt til å pumpe vann ut av gruvene, men den var lite effektiv. James Watt fikk patent på en forbedring med et eget kondensatorkammer i 1769, og sammen med forretningsmannen Matthew Boulton gjorde han dampmaskinen til en lønnsom vare. Fordi en [[dampmaskin]] ikke var avhengig av rennende vann, kunne fabrikker bygges nær kullgruver, havner og byer. Dampkraften ble etter hvert brukt i jernbaner og dampskip, som krympet avstander og gjorde det mulig å frakte råvarer og ferdige varer over hele verden. Slik ble industrialiseringen også en drivkraft for globalisering – og for europeisk makt over andre deler av verden."],
       tekst: [
         "Industrialiseringen startet i tekstilindustrien, der klær og stoffer ble laget. På 1760-tallet kom spinnemaskiner som gjorde at én arbeider kunne spinne mange tråder samtidig, i stedet for bare én.",
         "Den viktigste oppfinnelsen var likevel [[dampmaskinen|dampmaskin]]. Enkle dampmaskiner fantes fra før, men de brukte mye kull og var lite effektive. Skotten **James Watt** forbedret dampmaskinen på slutten av 1760-tallet. Nå kunne dampmaskiner drive maskiner nesten hvor som helst. Fabrikkene trengte ikke lenger å ligge ved en elv for å bruke vannkraft.",
@@ -58,6 +61,7 @@ window.LV.tema = {
     },
     {
       tittel: "Livet i fabrikkbyene",
+      utfordring: ["[[Urbaniseringen|urbanisering]] gikk raskere enn byene klarte å bygge boliger, avløp og vannforsyning. Familier bodde i trange bakgårdsleiligheter og kjellere, og søppel og kloakk rant i gatene. Sykdommer som [[kolera]] og tyfus spredte seg raskt. Da legen John Snow kartla et kolerautbrudd i London i 1854, viste han at smitten kom fra en forurenset vannpumpe – en oppdagelse som bidro til at byene etter hvert bygde kloakk og ledninger for rent vann. Friedrich Engels beskrev forholdene i Manchester i boka «Arbeiderklassens stilling i England» (1845). Beskrivelsen er en viktig kilde, men Engels var også politisk engasjert og ville vise at kapitalismen gjorde arbeiderne fattige. Historikere må derfor lese slike kilder kritisk og sammenligne dem med andre kilder, som folketellinger og statistikk."],
       tekst: [
         "Fabrikkene trengte arbeidere, og folk strømmet fra landsbygda inn til byene. Dette kaller vi [[urbanisering]]. Byer som Manchester vokste enormt på kort tid. Byene ble ikke bygget for så mange mennesker, og arbeiderne bodde trangt i dårlige hus. Ofte delte en hel familie ett rom.",
         "Det var lite rent vann og ingen kloakk. Søppel og avfall havnet på gatene og i elvene. Sykdommer som [[kolera]] og tyfus spredte seg raskt, og mange døde unge. Over byene lå det røyk fra fabrikkpipene og fra kull som ble brent i husene.",
@@ -70,6 +74,7 @@ window.LV.tema = {
     },
     {
       tittel: "Barnearbeid",
+      utfordring: ["[[Barnearbeid]] var ikke nytt, men fabrikkene endret det. På gården arbeidet barn sammen med familien og i takt med årstidene. I fabrikken var arbeidstiden styrt av klokka og maskinene, og barna var underlagt fremmede voksne. Fabrikkloven av 1833 forbød barn under ni år å arbeide i tekstilfabrikker og innførte fabrikkinspektører, men kontrollen var svak. Endringene kom både fordi reformatorer, journalister og leger dokumenterte forholdene, og fordi nye maskiner gjorde barnas arbeid mindre nødvendig. Innføringen av obligatorisk skole senere på 1800-tallet var også viktig. Barnearbeid er likevel ikke bare historie: ILO og UNICEF anslo at rundt 160 millioner barn var i barnearbeid i verden i 2020 – mange av dem i produksjonen av varer som selges i rike land."],
       tekst: [
         "Barn hadde alltid hjulpet til på gårdene, men i fabrikkene ble arbeidet farlig og ensformig. Fabrikkeierne brukte barn fordi de var billige, og fordi de var små nok til å krype under maskinene for å reparere tråder og rydde. Mange begynte å arbeide når de var seks eller sju år gamle, og de fleste gikk ikke på skole.",
         "Etter hvert reagerte mange på [[barnearbeidet|barnearbeid]]. I 1833 vedtok Storbritannia en lov som forbød barn under ni år å arbeide i tekstilfabrikker, og som begrenset hvor mange timer eldre barn kunne jobbe. Senere kom flere slike lover, og etter hvert ble det vanlig at alle barn gikk på skole."
@@ -80,6 +85,7 @@ window.LV.tema = {
     },
     {
       tittel: "Arbeiderne organiserer seg",
+      utfordring: ["I Storbritannia var [[fagforeninger|fagforening]] lenge forbudt gjennom lovene mot sammenslutninger fra 1799 og 1800, som først ble opphevet i 1824. Arbeiderbevegelsen sto overfor et strategisk valg: Skulle den kjempe for bedre vilkår innenfor det kapitalistiske systemet, eller for å avskaffe det? Chartistbevegelsen krevde stemmerett for alle menn, mens sosialister som Karl Marx mente at arbeiderklassen måtte overta produksjonsmidlene. I Norge samlet Marcus Thrane tusenvis av arbeidere og husmenn rundt 1850, før lederne ble arrestert og dømt. Selv om [[streiker|streik]] og demonstrasjoner ofte ble slått ned, la bevegelsen grunnlaget for rettigheter vi tar for gitt i dag, som åtte timers arbeidsdag, ferie og trygder."],
       tekst: [
         "Arbeiderne skjønte at de sto sterkere sammen enn alene. De startet [[fagforeninger|fagforening]] for å kreve høyere lønn, kortere arbeidsdager og tryggere arbeidsplasser. Hvis arbeidsgiveren ikke ville høre, kunne de gå til [[streik]]. I begynnelsen var fagforeninger forbudt eller motarbeidet, og mange arbeidere mistet jobben fordi de var med.",
         "To tyske tenkere, **Karl Marx** og **Friedrich Engels**, skrev i 1848 boka «Det kommunistiske manifest». De mente at arbeiderne ble utnyttet av fabrikkeierne, og at samfunnet måtte endres slik at arbeiderne fikk makt. Ideene deres fikk stor betydning for politikken i mange land på 1900-tallet. I Norge ble Det norske Arbeiderparti stiftet i 1887."
@@ -90,6 +96,7 @@ window.LV.tema = {
     },
     {
       tittel: "Industrialiseringen kommer til Norge",
+      utfordring: ["Norge ble industrialisert i to bølger. Den første kom fra midten av 1800-tallet, med tekstilfabrikker og mekaniske verksteder langs Akerselva og i andre byer, ofte med britisk teknologi. Den andre bølgen kom rundt 1900, da norsk [[vannkraft]] gjorde det mulig å bygge kraftkrevende industri, som Norsk Hydro på Notodden og Rjukan. Mye av kapitalen kom fra utlandet, og mange var redde for at fossene og naturressursene skulle havne på utenlandske hender. Fra 1906 vedtok Stortinget derfor konsesjonslover som krevde tillatelse for å kjøpe fosser, og som ga staten hjemfallsrett: Etter et visst antall år skulle kraftverkene gå tilbake til staten. Slik ble industrialiseringen i Norge tett knyttet til spørsmålet om nasjonal selvstendighet."],
       tekst: [
         "Norge ble industrialisert senere enn Storbritannia. Fra midten av 1800-tallet ble det bygget tekstilfabrikker og andre bedrifter langs Akerselva i Christiania, som Oslo het den gang. Elva ga vannkraft til maskinene. Mange av arbeiderne var unge kvinner og barn.",
         "Også i Norge gikk arbeidere sammen. **Marcus Thrane** startet arbeiderforeninger fra 1848, og bevegelsen fikk tusenvis av medlemmer. Myndighetene så på den som en trussel, og Thrane og andre ledere ble arrestert og satt i fengsel.",
@@ -102,6 +109,7 @@ window.LV.tema = {
     },
     {
       tittel: "Hva betyr industrialiseringen for oss i dag?",
+      utfordring: ["Industrialiseringen ga etter hvert høyere [[levestandard]], lengre levealder og mer utdanning for store deler av verdens befolkning. Men gevinstene ble ujevnt fordelt, både mellom samfunnsklasser og mellom land. Mange kolonier ble leverandører av råvarer, mens industrien og verdiskapingen lå i Europa og Nord-Amerika – et mønster som fortsatt preger verdensøkonomien. I tillegg begynte menneskene å brenne fossilt brensel i stor skala. Konsentrasjonen av CO₂ i atmosfæren har økt med omtrent 50 prosent siden førindustriell tid, og klimaendringene er derfor også en arv fra industrialiseringen. Noen kaller vår egen tid en fjerde industriell revolusjon, preget av digitalisering, roboter og kunstig intelligens. Spørsmålet er om vi klarer å fordele gevinstene bedre denne gangen."],
       tekst: [
         "Industrialiseringen forandret verden for alltid. På lang sikt førte den til at [[levestandarden|levestandard]] økte for mange mennesker. Varer ble billigere, og etter hvert fikk folk bedre boliger, bedre helse og mer fritid. Mye av det vi tar for gitt i dag – som tog, elektrisitet og billige klær – har røtter i denne tiden.",
         "Men industrialiseringen hadde også en pris. Den bygde på kull, og senere på olje og gass. Når slike brensler brennes, slippes det ut klimagasser. Derfor henger industrialiseringen sammen med klimaendringene vi ser i dag. Mange mener at vi fortsatt lever i industrialiseringens tid – og at vi nå må finne nye og renere måter å skaffe energi på."

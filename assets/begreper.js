@@ -64,7 +64,7 @@
         '<h2 id="bh-' + encodeURIComponent(k) + '">' + k + '</h2><dl class="begrepskort">';
       liste.forEach(b => {
         const fagene = [...new Set(alleTemaer(b).map(t => t.fag))];
-        h += '<div class="begrep fag-' + fagene[0] + '"><dt' + (b.sprak === "en" ? ' lang="en"' : "") + ">" + LV.esc(b.ord) +
+        h += '<div class="begrep fag-' + fagene[0] + '"><dt' + (b.sprak === "en" ? ' lang="en"' : "") + ">" + LV.esc(b.ord) + (b.sprak === "en" ? "" : LV.morsmalHtml(b.ord)) +
           (b.sprak === "en" ? ' <span class="sprakmerke" lang="nb" title="Engelsk ord">EN</span>' : "") + "</dt>";
         b.forklaringer.forEach(f => {
           h += "<dd>" + LV.esc(f.tekst) + '<span class="tema-lenker">' + f.temaer.map(t =>

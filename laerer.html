@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For lærere – Les verden</title>
-  <link rel="stylesheet" href="assets/stil.css?v=20261109g">
-  <script src="data/innstillinger.js?v=20261109g"></script>
-  <script src="data/temaer/oversikt.js?v=20261109g"></script>
-  <script src="data/kart.js?v=20261109g"></script>
-  <script src="assets/felles.js?v=20261109g"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261109h">
+  <script src="data/innstillinger.js?v=20261109h"></script>
+  <script src="data/temaer/oversikt.js?v=20261109h"></script>
+  <script src="data/kart.js?v=20261109h"></script>
+  <script src="assets/felles.js?v=20261109h"></script>
 </head>
 <body data-side="laerer">
   <main id="innhold" class="smal">
@@ -74,6 +74,9 @@
     <p><a href="skriftlig.html">Skriftlig eksamen i engelsk</a> har tre temaer (<span lang="en">Fast Fashion, Life Online, Sport and Belonging</span>). Hvert tema har:</p>
     <ul><li><strong>Videreformidling:</strong> en oppdiktet, «autentisk» muntlig tekst (podkastintervju, radioreportasje eller vlogg) med flere personer og ulike engelske aksenter, en lytteteller («Listening 1 of 2»), notatskjema, skriveoppgave med mottaker og formål, ordteller, hovedpoeng eleven kan krysse av, sjekkliste, eksempelsvar og transkripsjon.</li><li><strong>Samhandling:</strong> en oppdiktet forumtråd med 6–7 innlegg av ulik kvalitet (også et uhøflig innlegg), oppgaver om å svare på bestemte innlegg og skrive et nytt innlegg, frasebank som kan klikkes inn, «Post»-knapp som viser svaret i tråden, sjekkliste og eksempler på gode og svake svar.</li><li><strong>Hel eksamensøkt:</strong> begge delene om samme tema med nedtellingsklokke (du velger minutter).</li></ul>
     <p>Lydtekstene leses foreløpig av nettleserens talesyntese, med ulike stemmer for hver person der nettleseren har flere engelske stemmer. Hver lydtekst kan senere få en ferdig lydfil (for eksempel laget med ElevenLabs) – da legges filen inn som <code>lyd.fil</code> i <code>data/skriftlig.js</code>, og avspilleren brukes i stedet. Sjekk formatet mot Udirs eksempeloppgaver for årets eksamen.</p>
+    <h2>Tre tekstnivåer og begreper på morsmål</h2>
+    <p><strong>Utfordringstekst:</strong> Seks temaer har nå tre tekstnivåer: 🌱 Lettere tekst, 📄 Vanlig tekst og 🚀 Utfordring. Det gjelder 1814 og Grunnloven, Industrialiseringen, Første verdenskrig, Den kalde krigen, Apartheid i Sør-Afrika og <span lang="en">Oppression</span> (engelsk). Utfordringsteksten går dypere: flere årsaker og sammenhenger, historikernes ulike tolkninger, kildekritikk og et mer avansert språk. Oppgavene er de samme på alle nivåer, så hele klassen kan jobbe med samme tema. Nivået kan lenkes direkte med <code>tema.html?id=…&amp;tekst=utfordring</code>. Flere temaer kan få utfordringstekst ved å legge til feltet <code>utfordring</code> i avsnittene.</p>
+    <p><strong>Begreper på morsmål:</strong> 112 sentrale begreper fra samfunnsfag er oversatt til arabisk, ukrainsk, tyrkisk og polsk. På <a href="morsmal.html">Begreper på morsmål</a> kan elevene søke, velge språk, lytte (hvis nettleseren har en stemme for språket) og øve med ordkort. I Aa-menyen (Lesestøtte) kan eleven velge morsmål – da vises oversettelsen ved forklaringen av begrepet i temaene og i begrepsbanken, og valget følger med når eleven klikker seg videre. <strong>Oversettelsene er ikke kvalitetssikret av morsmålslærere</strong> og bør sjekkes før de brukes mye. De ligger i <code>data/morsmal.js</code> og er enkle å rette. Flere språk kan legges til på samme måte.</p>
     <h2>Tegneseriemaker, QR-leseløype og lesepass</h2>
     <p><a href="tegneserie.html">Tegneseriemaker</a>: Eleven velger 3, 4 eller 6 ruter. Hver rute har bakgrunn (by, fabrikk, landsbygd, skog, hav, innendørs, klasserom, talerstol, natt), to figurer med ansiktsuttrykk, to snakkebobler (snakker, tenker, roper) og en fortellerboks. Tegneserien vises mens eleven jobber, og kan lastes ned som PNG, skrives ut eller deles som lenke – innholdet ligger i lenken, som i «Lag selv». Siden har en tekstversjon for skjermlesere og ideer til oppgaver.</p>
     <p><a href="leseloype.html">QR-leseløype</a>: Velg et tema og hvilke avsnitt som skal bli poster, og skriv eventuelt et løsningsord. Du får plakater med QR-kode (én per side ved utskrift) og et svarark. Når eleven skanner en kode, får hen avsnittet, to oppgaver (det viktigste i delen, og å forklare et fagbegrep fra avsnittet med fasit etterpå) og en kodebokstav. QR-kodene peker til nettsiden og virker når siden ligger på nettet. QR-kodene lages med det frie biblioteket qrcode-generator (MIT-lisens) i <code>assets/vendor/qrcode.js</code>.</p>

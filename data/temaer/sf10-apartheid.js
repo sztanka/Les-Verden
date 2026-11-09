@@ -22,6 +22,7 @@ window.LV.tema = {
   avsnitt: [
     {
       tittel: "Bakgrunnen",
+      utfordring: ["Apartheid bygde videre på et lengre system av segregering. Etter at Den sørafrikanske union ble dannet i 1910, vedtok myndighetene lover som begrenset svartes rett til jord, arbeid og bevegelse. Natives Land Act fra 1913 ga svarte, som var flertallet, rett til å eie jord i bare rundt sju prosent av landet. Nasjonalistpartiets valgseier i 1948 må også forstås på bakgrunn av afrikanernes egen historie: Mange [[afrikanere|afrikaner]] så på seg selv som et undertrykt folk etter boerkrigen mot britene (1899–1902), da titusener av boerkvinner og -barn – og mange svarte afrikanere – døde i britiske leirer. Ideologien bak apartheid kombinerte afrikanernasjonalisme, frykt for det svarte flertallet og økonomiske interesser, og ble rettferdiggjort med både religion og pseudovitenskapelige ideer om «raser»."],
       tekst: [
         "Sør-Afrika har en lang historie med kolonisering. Nederlendere kom til Kapp det gode håp i 1652, og etterkommerne deres kalles [[boere|afrikaner]] eller afrikanere. Senere tok britene over området. Begge gruppene la under seg jord som tilhørte afrikanske folk, og svarte arbeidere ble brukt i gull- og diamantgruvene for lav lønn.",
         "Allerede før 1948 fantes det mange lover som skilte mellom svarte og hvite, og en lov fra 1913 bestemte at svarte bare kunne eie jord i omtrent sju prosent av landet. Men i 1948 vant **Nasjonalistpartiet** valget – et valg der nesten bare hvite kunne stemme. Partiet gjorde rasediskriminering til et helt system og kalte det **apartheid**, som betyr «atskillelse» på afrikaans."
@@ -32,6 +33,7 @@ window.LV.tema = {
     },
     {
       tittel: "Hvordan apartheid fungerte",
+      utfordring: ["Apartheid var et omfattende lovsystem. Befolkningsregistreringsloven og boligområdeloven fra 1950 delte befolkningen inn etter «rase» og bestemte hvor folk kunne bo. Millioner ble tvangsflyttet til [[townships|township]] og til såkalte [[bantustaner|bantustan]] – «hjemland» som skulle bli selvstendige stater, slik at svarte kunne fratas statsborgerskapet i Sør-Afrika. Passlovene tvang svarte voksne til å bære [[pass]] og gjorde det mulig å arrestere hundretusenvis hvert år. Bantu-utdanningsloven fra 1953 ga svarte elever en skole som skulle forberede dem på lavtlønnet arbeid. Historikere skiller mellom «stor-apartheid» og «små-apartheid»: Det første handlet om å dele landet geografisk og politisk, det andre om atskilte benker, busser, strender og innganger i hverdagen."],
       tekst: [
         "Alle innbyggere ble registrert i en av fire grupper: hvite, «fargede» (folk med blandet bakgrunn), indere og svarte. Gruppen du tilhørte, bestemte nesten alt i livet ditt. Svarte utgjorde rundt tre fjerdedeler av befolkningen, men hadde ikke stemmerett i nasjonale valg.",
         "Loven om bosteder delte byene i egne områder for hver gruppe. Hundretusener av svarte og fargede ble tvangsflyttet fra hjemmene sine til [[townships|township]] langt fra sentrum. Svarte over 16 år måtte alltid bære et [[passbok|pass]] som viste hvor de hadde lov til å være. Det var forbudt å gifte seg med noen fra en annen gruppe.",
@@ -44,6 +46,7 @@ window.LV.tema = {
     },
     {
       tittel: "Motstand og massakre",
+      utfordring: ["ANC var i mange tiår en ikkevoldelig organisasjon, inspirert blant annet av Gandhis arbeid i Sør-Afrika. Frihetscharteret fra 1955 slo fast at «Sør-Afrika tilhører alle som bor i det, svarte og hvite». Etter Sharpeville-massakren i 1960, der politiet drepte 69 demonstranter, ble ANC og PAC forbudt. ANC-ledelsen, med Nelson Mandela, konkluderte med at fredelige metoder alene ikke lenger var mulige, og dannet en væpnet gren, Umkhonto we Sizwe. I starten skulle den drive sabotasje mot bygninger og infrastruktur, ikke mot mennesker. Spørsmålet om når det kan være riktig å bruke vold mot et undertrykkende regime, er et av de vanskeligste i historien – og regimet stemplet ANC som en terrororganisasjon."],
       tekst: [
         "Den viktigste motstandsorganisasjonen var **ANC** (African National Congress). På 1950-tallet organiserte den streiker, boikotter og ikkevoldelige aksjoner der folk med vilje brøt apartheidlovene. I 1955 vedtok ANC og allierte **Frihetscharteret**, som slo fast at «Sør-Afrika tilhører alle som bor der, svarte og hvite».",
         "**21. mars 1960** samlet tusenvis av mennesker seg utenfor politistasjonen i **Sharpeville** for å protestere mot passlovene. Politiet åpnet ild mot den ubevæpnede folkemengden og drepte 69 mennesker, mange skutt i ryggen mens de flyktet. Etter massakren ble ANC forbudt. Noen av lederne, blant dem **Nelson Mandela**, mente at fredelige metoder ikke lenger var nok, og startet en væpnet gren som saboterte strømmaster og offentlige bygninger.",
@@ -55,6 +58,7 @@ window.LV.tema = {
     },
     {
       tittel: "Soweto 1976",
+      utfordring: ["Opprøret i Soweto begynte som en protest mot et vedtak om at afrikaans skulle brukes som undervisningsspråk i flere fag. For mange elever var afrikaans undertrykkernes språk. Den 16. juni 1976 skjøt politiet mot tusenvis av elever som demonstrerte fredelig. Bildet av den døende 12 år gamle Hector Pieterson gikk verden rundt. Uroen spredte seg til hele landet, og hundrevis ble drept det året. Soweto-opprøret viste at en ny generasjon, inspirert av Steve Bikos bevegelse for «svart bevissthet», ikke lenger godtok systemet. Biko døde selv i politiets varetekt i 1977. I dag er 16. juni en nasjonal fridag i Sør-Afrika: Ungdommens dag."],
       tekst: [
         "I 1976 bestemte regjeringen at halvparten av undervisningen i svarte skoler skulle foregå på afrikaans – språket mange forbandt med undertrykkerne. **16. juni 1976** gikk tusenvis av elever ut i gatene i townshipen **Soweto** utenfor Johannesburg i protest. Politiet skjøt mot elevene. En av de første som ble drept, var 13 år gamle **Hector Pieterson**. Bildet av en gutt som bærer den døende Hector, gikk verden rundt.",
         "Opprøret spredte seg over hele landet, og flere hundre mennesker ble drept. Soweto-opprøret viste at en ny generasjon unge ikke ville finne seg i apartheid. 16. juni er i dag en nasjonal ungdomsdag i Sør-Afrika."
@@ -66,6 +70,7 @@ window.LV.tema = {
     },
     {
       tittel: "Verden reagerer – også Norge",
+      utfordring: ["Det internasjonale presset mot apartheid tok mange former. FN innførte en bindende våpen[[embargo]] i 1977, og mange land og organisasjoner innførte økonomiske [[sanksjoner|sanksjon]] og boikott av sport og kultur. I Norge spilte fagbevegelsen, kirkene og grasrotbevegelser som Fellesrådet for det sørlige Afrika en viktig rolle, og Stortinget vedtok en boikottlov i 1987. Samtidig fraktet norske rederier lenge olje til Sør-Afrika. Historikere diskuterer hvor stor effekt sanksjonene hadde. Noen mener at kapitalflukten og at utenlandske banker sluttet å gi nye lån fra midten av 1980-tallet var avgjørende, andre at motstanden inne i landet betydde mest. Trolig var det kombinasjonen som presset regimet til forhandlingsbordet."],
       tekst: [
         "FN fordømte apartheid gang på gang, og i 1977 innførte FN en [[våpenembargo|embargo]] mot Sør-Afrika. Mange land innførte etter hvert økonomiske [[sanksjoner|sanksjon]]. Sør-Afrika ble utestengt fra de olympiske leker fra 1964 og fra de fleste andre internasjonale idrettskonkurranser.",
         "I Norge vokste det fram en sterk folkebevegelse. Fellesrådet for det sørlige Afrika ble stiftet i 1967, og folk boikottet sørafrikanske appelsiner og vin. Norske skoleelever samlet inn penger gjennom **Operasjon Dagsverk** i 1985 til utdanning for unge sørafrikanere som hadde flyktet fra apartheid. Erkebiskop **Desmond Tutu** fikk Nobels fredspris i Oslo i 1984 for sin ikkevoldelige kamp. I 1987 vedtok Stortinget en lov om handelsboikott av Sør-Afrika.",
@@ -77,6 +82,7 @@ window.LV.tema = {
     },
     {
       tittel: "Fra fengsel til president",
+      utfordring: ["Overgangen fra apartheid til demokrati var ingen selvfølge. Mellom Mandelas løslatelse i 1990 og valget i 1994 ble tusenvis drept i politisk vold, blant annet i konflikter mellom ANC og Inkatha, ofte med hjelp fra deler av sikkerhetsstyrkene. Forhandlingene mellom Mandela og president F. W. de Klerk var preget av mistillit, men begge så at alternativet kunne bli borgerkrig. De fikk Nobels fredspris sammen i 1993. Den nye grunnloven fra 1996 regnes som en av verdens mest progressive. Sannhets- og forsoningskommisjonen under ledelse av erkebiskop Desmond Tutu ga [[amnesti]] til gjerningspersoner som fortalte hele sannheten om politisk motiverte forbrytelser. Mange ofre opplevde at de fikk sannheten, men ikke rettferdighet."],
       tekst: [
         "På slutten av 1980-tallet var Sør-Afrika i krise. Det var uro i townshipene, økonomien ble svekket av sanksjonene, og den kalde krigen nærmet seg slutten. Den nye presidenten **F.W. de Klerk** forsto at apartheid ikke kunne fortsette. I februar 1990 opphevet han forbudet mot ANC, og **11. februar 1990** gikk Nelson Mandela ut av fengselet etter 27 år.",
         "Mandela og de Klerk forhandlet fram en ny grunnlov, og de fikk Nobels fredspris sammen i 1993. **27. april 1994** holdt Sør-Afrika sitt første valg der alle voksne kunne stemme. Millioner sto i kø i timevis. ANC vant, og Mandela ble landets første svarte president. Han ville bygge en «regnbuenasjon» der alle grupper kunne leve sammen.",
@@ -89,6 +95,7 @@ window.LV.tema = {
     },
     {
       tittel: "Sør-Afrika i dag",
+      utfordring: ["Tretti år etter 1994 er Sør-Afrika et demokrati med frie valg, et uavhengig rettsvesen og fri presse. Men den økonomiske arven etter apartheid er tung. Sør-Afrika er et av landene med størst økonomisk [[ulikhet]] i verden, og arbeidsledigheten er svært høy, særlig blant unge svarte. Mye av jorda eies fortsatt av hvite, og spørsmålet om jordreform er politisk betent. Korrupsjonssaker har svekket tilliten til ANC, som mistet sitt rene flertall i valget i 2024 og måtte danne en samlingsregjering med andre partier. Noen spør derfor om den politiske frigjøringen er fullført, mens den økonomiske ikke er det."],
       tekst: [
         "Sør-Afrika er i dag et demokrati med frie valg, ytringsfrihet og en av verdens mest moderne grunnlover. Men arven etter apartheid er tydelig. Sør-Afrika er et av landene med størst økonomisk [[ulikhet]] i verden. Mange svarte bor fortsatt i fattige townships, arbeidsledigheten er svært høy, særlig blant unge, og det meste av jorda eies fortsatt av hvite.",
         "Mange er også skuffet over korrupsjon i ANC, som styrte alene i 30 år. I valget i 2024 mistet partiet flertallet for første gang og måtte danne en samlingsregjering med andre partier."

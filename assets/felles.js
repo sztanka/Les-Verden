@@ -90,6 +90,13 @@ window.LV = window.LV || {};
       '<p class="km-kilde">Kilde: ' + planer.map(p => '<a href="' + p.url + '" target="_blank" rel="noopener">Læreplan i ' + p.navn.toLowerCase() + " (" + p.kode + ")</a>").join(", ") + ', gjelder fra 1.8.2026. <a href="planlegger.html">Se alle målene i planleggeren →</a></p></details>';
   };
 
+  // Begreper på morsmål (data/morsmal.js må være lastet på siden)
+  LV.morsmalHtml = function (term) {
+    const m = LV.morsmal; if (!m) return "";
+    const t = m.ord[String(term).toLowerCase().trim()]; if (!t) return "";
+    return '<span class="mm-boks">' + m.sprak.map((s, i) => '<span class="mm mm-' + s.kode + '" lang="' + s.kode + '"' + (s.rtl ? ' dir="rtl"' : "") + ">" + LV.esc(t[i]) + "</span>").join("") + "</span>";
+  };
+
   // Engelske aksenter for opplesing. Gir bare de variantene nettleseren har stemmer til.
   LV.AKSENTER = [["en-GB", "British English"], ["en-US", "American English"], ["en-AU", "Australian English"], ["en-IN", "Indian English"], ["en-IE", "Irish English"], ["en-ZA", "South African English"], ["en-NZ", "New Zealand English"], ["en-CA", "Canadian English"], ["en-SG", "Singapore English"], ["en-JM", "Jamaican English"], ["en-NG", "Nigerian English"]];
   LV.aksentStemme = function (kode) {
@@ -114,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261109g";
+  LV.versjon = "20261109h";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -184,6 +191,7 @@ window.LV = window.LV || {};
         ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
         ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
         ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],
+        ["morsmal.html", "🌐", "Begreper på morsmål", "Arabisk, ukrainsk, tyrkisk, polsk"],
         ["tidslinje.html", "📅", "Tidslinje", "Alle hendelsene"],
         ["personer.html", "👤", "Personer", "Alle personene"],
         ["sok.html", "🔍", "Søk", "Søk i hele nettstedet"]
@@ -219,6 +227,7 @@ window.LV = window.LV || {};
         '<button class="knapp" id="tema-knapp" aria-pressed="false">Mørk modus</button>' +
         '<button class="knapp" id="linjal-knapp" aria-pressed="false" title="En lys stripe følger musa eller fingeren, resten av siden dempes. Flytt med Alt + piltastene.">📏 Leselinjal</button>' +
         '<button class="knapp" id="fokus-knapp" aria-pressed="false" title="Skjuler menyer og annet som forstyrrer, og gjør teksten smalere">🎯 Fokusmodus</button>' +
+        (LV.morsmal ? '<label class="mm-valg"><span>Begreper på morsmål:</span><select id="morsmal-valg"><option value="">Ingen</option>' + LV.morsmal.sprak.map(s => '<option value="' + s.kode + '">' + LV.esc(s.navn) + " – " + LV.esc(s.eget) + "</option>").join("") + "</select></label>" : "") +
       "</div>";
     document.body.prepend(topp);
 
@@ -307,6 +316,28 @@ window.LV = window.LV || {};
         linjal = null;
       }
     });
+
+    // Morsmål: viser oversatte begreper ved forklaringene. Valget følger med
+    // i lenker til andre sider (?mm=…), men lagres ikke.
+    const mmValg = panel.querySelector("#morsmal-valg");
+    if (mmValg) {
+      const settMm = kode => {
+        if (kode && LV.morsmal.sprak.some(s => s.kode === kode)) document.documentElement.dataset.morsmal = kode; else { delete document.documentElement.dataset.morsmal; kode = ""; }
+        mmValg.value = kode;
+        try { const u = new URL(location.href); if (kode) u.searchParams.set("mm", kode); else u.searchParams.delete("mm"); history.replaceState(null, "", u.pathname.split("/").pop() + u.search + u.hash); } catch (e) { /* ignorer */ }
+        document.dispatchEvent(new CustomEvent("lv-morsmal", { detail: kode }));
+      };
+      mmValg.addEventListener("change", () => settMm(mmValg.value));
+      if (LV.param("mm")) { settMm(LV.param("mm")); }
+      document.addEventListener("click", e => {
+        const a = e.target.closest("a[href]"), kode = document.documentElement.dataset.morsmal;
+        if (!a || !kode || a.target === "_blank") return;
+        const h = a.getAttribute("href");
+        if (!/^[\w-]+\.html/.test(h) || /[?&]mm=/.test(h)) return;
+        const [sti, hash] = h.split("#");
+        a.setAttribute("href", sti + (sti.includes("?") ? "&" : "?") + "mm=" + kode + (hash != null ? "#" + hash : ""));
+      }, true);
+    }
 
     // Fokusmodus: skjuler menyer, bannere og bunntekst, og gjør teksten smalere
     const fokus = panel.querySelector("#fokus-knapp");

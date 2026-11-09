@@ -22,6 +22,7 @@ window.LV.tema = {
   avsnitt: [
     {
       tittel: "Et Europa fullt av spenninger",
+      utfordring: ["Historikere oppsummerer ofte de langsiktige årsakene med forkortelsen MAIN: [[militarisme|Militarisme]], allianser, imperialisme og nasjonalisme. Men slike lister kan gi inntrykk av at krigen var uunngåelig. Historikeren Christopher Clark har beskrevet lederne i 1914 som «søvngjengere» som ikke forsto hva de satte i gang. Andre, som Fritz Fischer på 1960-tallet, har hevdet at Tyskland hadde et særlig stort ansvar fordi landets ledere ønsket å bli en verdensmakt. Debatten viser at årsaker ikke bare er fakta, men også tolkninger: Hva vi legger vekt på, avhenger av hvilke kilder vi leser og hvilke spørsmål vi stiller."],
       tekst: [
         "Rundt år 1900 var Europa verdens mektigste del av verden. Men stormaktene var mistenksomme overfor hverandre. Historikere peker ofte på fire årsaker til krigen, som kan huskes med de engelske forbokstavene **MAIN**:",
         "[[Militarisme]]: Landene bygde opp store hærer og flåter, og Tyskland og Storbritannia konkurrerte om å ha flest krigsskip. Allianser: Landene inngikk avtaler om å hjelpe hverandre i krig. Imperialisme: Stormaktene konkurrerte om kolonier og makt. Nasjonalisme: Mange folk var svært stolte av landet sitt, og noen folkegrupper, som serberne, ville ha egne stater."
@@ -32,6 +33,7 @@ window.LV.tema = {
     },
     {
       tittel: "To allianser",
+      utfordring: ["Alliansene skulle skape trygghet gjennom avskrekking: Ingen ville angripe et land som hadde mektige venner. Men systemet hadde en farlig svakhet. En lokal konflikt kunne raskt trekke inn alle stormaktene, fordi hver av dem fryktet å bli stående alene eller å miste troverdighet hvis den sviktet en alliert. [[Ententen|ententen]] var dessuten ikke en like fast militærallianse som Trippelalliansen, og Italia, som var med i Trippelalliansen, gikk i 1915 inn i krigen på motsatt side etter å ha fått løfter om nye landområder. Alliansene var altså mindre faste enn de ser ut på et kart – noe som også gjorde det vanskelig for lederne å forutse hva de andre ville gjøre."],
       tekst: [
         "Europa var delt i to leirer. På den ene siden sto [[Trippelententen|ententen]]: Storbritannia, Frankrike og Russland. På den andre siden sto **sentralmaktene**: Tyskland og Østerrike-Ungarn, senere også Det osmanske riket og Bulgaria.",
         "Alliansene skulle gi trygghet, men de gjorde også at en konflikt mellom to land raskt kunne dra inn alle de andre. Det var som en rekke dominobrikker: Faller én, faller alle."
@@ -43,6 +45,7 @@ window.LV.tema = {
     },
     {
       tittel: "Skuddene i Sarajevo",
+      utfordring: ["Attentatet var gnisten, ikke årsaken. Gavrilo Princip tilhørte en gruppe unge bosniske serbere som ønsket et forent sørslavisk rike, og de hadde fått våpen gjennom personer knyttet til den hemmelige serbiske organisasjonen Den svarte hånd. Østerrike-Ungarn så attentatet som en anledning til å svekke Serbia, og fikk i begynnelsen av juli et løfte om ubetinget støtte fra Tyskland – ofte kalt «blankosjekken». Ultimatumet til Serbia ble formulert slik at det nesten var umulig å godta i sin helhet. Da Russland mobiliserte for å støtte Serbia, satte Tyskland i gang Schlieffenplanen, som krevde et raskt angrep på Frankrike gjennom det nøytrale Belgia. Det fikk Storbritannia til å gå inn i krigen. På drøye fem uker gikk Europa fra fred til storkrig."],
       tekst: [
         "28. juni 1914 besøkte den østerrikske tronfølgeren **Franz Ferdinand** byen Sarajevo i Bosnia, som Østerrike-Ungarn hadde tatt kontroll over. En ung bosnisk serber, **Gavrilo Princip**, skjøt og drepte både ham og kona hans. Princip var med i en gruppe som ville at Bosnia skulle bli en del av Serbia.",
         "Østerrike-Ungarn ga Serbia skylden og erklærte krig 28. juli. Russland støttet Serbia, Tyskland støttet Østerrike-Ungarn, og Frankrike og Storbritannia var alliert med Russland. Da Tyskland marsjerte gjennom det nøytrale Belgia for å angripe Frankrike, gikk Storbritannia inn i krigen. I løpet av en uke var Europas stormakter i krig."
@@ -53,6 +56,7 @@ window.LV.tema = {
     },
     {
       tittel: "Krigen i skyttergravene",
+      utfordring: ["Vestfronten ble en stillingskrig fordi forsvar var sterkere enn angrep: Maskingevær, piggtråd og artilleri gjorde det nesten umulig å rykke fram over åpent lende. Generalene forsøkte likevel å bryte gjennom med store offensiver. På den første dagen av slaget ved Somme, 1. juli 1916, fikk den britiske hæren nesten 60 000 tap, hvorav rundt 19 000 drepte. Etterpå har mange beskrevet soldatene som «løver ledet av esler». Noen historikere mener dette bildet er for enkelt, fordi hærene faktisk lærte og utviklet nye taktikker mot slutten av krigen, med samvirke mellom artilleri, infanteri, stridsvogner og fly. Spørsmålet om ansvar og meningsløshet i [[skyttergravene|skyttergrav]] er fortsatt omdiskutert."],
       tekst: [
         "Tyskland hadde en plan om å slå Frankrike raskt før de vendte seg mot Russland. Men angrepet ble stanset i Frankrike høsten 1914. Begge sider gravde seg ned i lange grøfter, [[skyttergraver|skyttergrav]], som til slutt strakte seg fra Nordsjøen til Sveits. Dette ble **vestfronten**.",
         "Livet i skyttergravene var et mareritt. Soldatene sto i gjørme og vann, omgitt av rotter, lus og døde kamerater. Mellom frontlinjene lå «ingenmannsland», fullt av piggtråd og granathull. Når soldatene ble sendt ut for å angripe, ble de meid ned av maskingevær. I slaget ved **Somme** i 1916 mistet britene rundt 57 000 mann – døde, sårede og savnede – på den første dagen alene. I slaget ved **Verdun** samme år døde hundretusener."
@@ -63,6 +67,7 @@ window.LV.tema = {
     },
     {
       tittel: "Nye og grusomme våpen",
+      utfordring: ["Første verdenskrig var en industrialisert krig der fabrikker, jernbaner og vitenskap ble satt inn i krigføringen. Giftgass ble brukt i stor skala for første gang ved Ypres i 1915. Den drepte relativt få sammenlignet med artilleriet, men skapte frykt og lidelse – og førte til at kjemiske våpen ble forbudt i Genèveprotokollen fra 1925. Krigen med [[ubåter|ubåt]] viste at grensen mellom soldater og sivile ble visket ut: Da det britiske passasjerskipet Lusitania ble senket i 1915, døde nesten 1200 mennesker, blant dem over hundre amerikanere. For å holde krigen i gang måtte hele samfunn mobiliseres. Kvinner tok over arbeid i fabrikker og på kontorer, og staten styrte økonomien, matforsyningen og propagandaen. Slik ble første verdenskrig den første «totale» krigen."],
       tekst: [
         "Første verdenskrig var den første krigen der industrien for alvor ble brukt til å produsere våpen. **Maskingeværet** kunne skyte hundrevis av skudd i minuttet. Kraftig artilleri kunne skyte granater mange kilometer. I 1915 tok tyskerne i bruk **giftgass**, og snart brukte begge sider det. Senere kom de første stridsvognene og flyene.",
         "Til sjøs brukte Tyskland [[ubåter|ubåt]] for å senke skip som fraktet forsyninger til Storbritannia. Teknologien gjorde det mulig å drepe flere mennesker enn noen gang før, men den var dårlig egnet til å vinne avgjørende seire."
@@ -74,6 +79,7 @@ window.LV.tema = {
     },
     {
       tittel: "Norge – nøytralt, men ikke uberørt",
+      utfordring: ["Norges nøytralitet var i praksis en nøytralitet på britiske premisser. Storbritannia kontrollerte havet og kunne stanse kull og andre viktige varer til Norge. Norske skip fraktet derfor mest for de allierte, og Norge ble kalt «den nøytrale allierte». Den tyske ubåtkrigen rammet den norske handelsflåten hardt: Rundt 2000 norske sjøfolk omkom, og nesten halvparten av flåten gikk tapt. Samtidig tjente mange nordmenn store penger på skipsfart og aksjespekulasjon – de ble kalt «jobbere». Prisene steg kraftig, og mange vanlige familier opplevde knapphet og rasjonering. Krigsårene skapte derfor store forskjeller mellom vinnere og tapere også i et land som var [[nøytralt|nøytral]]."],
       tekst: [
         "Norge var [[nøytralt|nøytral]] og deltok ikke i krigen. Men den store handelsflåten fraktet varer for begge sider, og mange norske skip ble senket av ubåter og miner. Rundt 2000 norske sjøfolk mistet livet.",
         "Samtidig tjente noen nordmenn store penger på krigen, særlig på skipsfart og aksjer. Denne tiden kalles **jobbetiden**. Etter krigen sprakk boblen, og mange gikk konkurs."
@@ -84,6 +90,7 @@ window.LV.tema = {
     },
     {
       tittel: "Slutten og følgene",
+      utfordring: ["[[Våpenhvilen|våpenhvile]] 11. november 1918 kom fordi Tyskland var utmattet, ikke fordi landet var okkupert. Det ga grobunn for den farlige myten om «dolkestøtet» – påstanden om at den tyske hæren ikke var slått, men forrådt av politikere, sosialister og jøder på hjemmefronten. Versaillestraktaten i 1919 påla Tyskland å ta på seg skylden for krigen og betale store krigserstatninger. Økonomen John Maynard Keynes advarte mot at en så hard fred ville skape nye konflikter, mens andre mente at traktaten var for svak til å holde Tyskland nede. Krigen førte også til at fire keiserriker gikk i oppløsning: det russiske, det tyske, det østerriksk-ungarske og det osmanske. Grensene som ble trukket opp i Europa og Midtøsten etter krigen, preger konflikter den dag i dag."],
       tekst: [
         "I 1917 skjedde to ting som avgjorde krigen. **USA** gikk inn på ententens side, blant annet fordi tyske ubåter senket amerikanske skip. Samtidig brøt det ut revolusjon i **Russland**, som trakk seg ut av krigen. Våren 1918 gjorde Tyskland et siste stort angrep i vest, men med friske amerikanske soldater klarte de allierte å slå tilbake.",
         "11. november 1918 klokka 11 trådte en [[våpenhvile]] i kraft. Rundt 17 millioner mennesker var døde, og mange flere var skadet for livet. Samme år spredte spanskesyken seg over hele verden og drepte enda flere. Etter krigen falt keiserrikene i Tyskland, Østerrike-Ungarn, Russland og Det osmanske riket, og nye land som Polen og Tsjekkoslovakia ble opprettet. I fredsavtalen i Versailles i 1919 fikk Tyskland skylden for krigen og harde straffer – noe som skapte bitterhet og la grunnlaget for nye konflikter."

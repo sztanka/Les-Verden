@@ -22,6 +22,7 @@ window.LV.tema = {
   avsnitt: [
     {
       tittel: "Norge under Danmark",
+      utfordring: ["Historikere har lenge diskutert hvor «undertrykt» Norge egentlig var i dobbeltmonarkiet. Den nasjonale historieskrivingen på 1800-tallet beskrev perioden som en lang natt, men nyere forskning gir et mer nyansert bilde. Norge hadde egen lov – Christian 5.s Norske Lov fra 1687 – og en egen økonomi med eksport av tømmer, fisk og metaller. Handelsborgerskapet i byer som Christiania og Bergen ble rikt på handel med Storbritannia, og mange embetsmenn følte seg både som dansk-norske og som nordmenn. Først da Storbritannia angrep København og tok den dansk-norske flåten i 1807, og Danmark-Norge gikk i allianse med Napoleon, ble båndene til Danmark virkelig satt på prøve. Den britiske blokaden rammet både handelen og matforsyningen, og kravet om egne norske institusjoner, som et universitet og en egen bank, ble sterkere."],
       tekst: [
         "I over 400 år hadde Norge vært i union med Danmark. Fra 1660 ble begge landene styrt av en eneveldig konge i København. Norge hadde ingen egen regjering, ingen egen hær og ikke noe eget universitet før 1811. Mange av embetsmennene, som prester, dommere og offiserer, var utdannet i København.",
         "Under Napoleonskrigene var Danmark-Norge alliert med Frankrike. Storbritannia svarte med å blokkere kysten. Kornet fra Danmark kom ikke fram, og det ble hungersnød i Norge i årene 1807–1814. Mange nordmenn mente at Danmark ikke tok hensyn til norske interesser."
@@ -32,6 +33,7 @@ window.LV.tema = {
     },
     {
       tittel: "Kielfreden",
+      utfordring: ["Kielfreden må forstås i lys av stormaktspolitikken under Napoleonskrigene. Den tidligere franske marskalken Jean-Baptiste Bernadotte ble valgt til svensk kronprins i 1810 og tok navnet Karl Johan. Han sluttet seg til koalisjonen mot Napoleon mot løfter fra Russland og Storbritannia om at Sverige skulle få Norge. I [[Kielfreden]] ble Norge avstått til «kongen av Sverige» – ikke til den svenske staten. Det fikk betydning: På et møte med fremstående menn på Eidsvoll 16. februar 1814, det såkalte notabelmøtet, argumenterte blant andre Georg Sverdrup for at makten gikk tilbake til folket når den danske kongen ga fra seg Norge. Christian Frederik hadde først tenkt å kreve tronen som arving, men ble overtalt til å la en valgt forsamling bestemme."],
       tekst: [
         "Da Napoleon tapte, sto Danmark på den tapende siden. Sverige, som hadde mistet Finland til Russland i 1809, ville ha Norge i stedet. Den svenske kronprinsen **Karl Johan** hadde kjempet mot Napoleon og fikk støtte fra stormaktene. Den 14. januar 1814 ble [[Kielfreden]] undertegnet: Den danske kongen måtte gi Norge til den svenske kongen.",
         "Nordmennene var ikke blitt spurt. I Norge satt den danske prinsen **Christian Frederik** som stattholder. Han ville ikke godta at Norge ble gitt bort, og han håpet kanskje å bli konge i Norge selv – og senere i Danmark. Han reiste rundt i landet og fikk støtte til å gjøre Norge selvstendig."
@@ -43,6 +45,7 @@ window.LV.tema = {
     },
     {
       tittel: "Eidsvoll",
+      utfordring: ["Valget av representanter til [[riksforsamlingen|riksforsamling]] var i seg selv et politisk virkemiddel. I kirkene over hele landet sverget menighetene en ed på å verne Norges selvstendighet, og samtidig valgte de valgmenn som igjen valgte representantene. Dermed ble valget også en måte å skape oppslutning om selvstendighetssaken på. Over halvparten av de 112 [[eidsvollsmennene]] var embetsmenn og offiserer, og rundt en tredjedel var bønder. Forsamlingen var preget av spenningen mellom idealisme og realpolitikk. Selvstendighetspartiet, med Christian Magnus Falsen som en av lederne, ville sikre et fritt Norge. Unionspartiet, med grev Herman Wedel Jarlsberg, mente at stormaktene allerede hadde bestemt seg, og at det viktigste var å få best mulige vilkår i en union med Sverige."],
       tekst: [
         "Christian Frederik kalte inn til en [[riksforsamling]] på Eidsvoll, nord for Christiania. I hele landet ble det holdt valg i kirkene. Den 10. april 1814 møttes 112 menn i Eidsvollsbygningen. De kalles [[eidsvollsmennene]]. Det var embetsmenn, bønder, kjøpmenn og offiserer – ingen kvinner.",
         "Forsamlingen delte seg i to grupper. **Selvstendighetspartiet** ville ha et helt uavhengig Norge, gjerne med Christian Frederik som konge. **Unionspartiet** mente at det var urealistisk å stå imot Sverige og stormaktene, og ville heller ha en union med Sverige der Norge fikk mest mulig selvstyre. Selvstendighetspartiet var i flertall."
@@ -53,6 +56,7 @@ window.LV.tema = {
     },
     {
       tittel: "Grunnloven",
+      utfordring: ["Grunnloven ble ikke skrevet fra bunnen av. Eidsvollsmennene bygde blant annet på et utkast fra Christian Magnus Falsen og Johan Gunder Adler, og hentet ideer fra den amerikanske grunnloven (1787), de franske revolusjonsforfatningene, den svenske regjeringsformen fra 1809 og den spanske grunnloven fra Cádiz (1812). Filosofisk bygde den på opplysningstidens tanker om folkesuverenitet og maktfordeling, slik de var formulert av blant andre Locke, Montesquieu og Rousseau. Et viktig trekk var at kongen bare fikk et utsettende veto: Hvis tre storting etter hverandre vedtok den samme loven, ble den gyldig uten kongens samtykke. Det ga Stortinget et sterkt vern mot kongemakten – noe som fikk stor betydning i unionstiden."],
       tekst: [
         "På bare fem uker skrev eidsvollsmennene en ny [[grunnlov]]. Den bygde på ideene fra opplysningstiden og hentet inspirasjon fra den amerikanske grunnloven og grunnlovene fra den franske revolusjonen. Den ble vedtatt 16. mai og datert og underskrevet **17. mai 1814**. Samme dag ble Christian Frederik valgt til konge av Norge.",
         "Grunnloven bygde på fire viktige prinsipper. **Folkesuverenitet**: Makten kommer fra folket. **Maktfordeling**: Makten deles mellom Stortinget (lovgivende), kongen og regjeringen (utøvende) og domstolene (dømmende). **Menneskerettigheter**: Borgerne har rettigheter, som ytringsfrihet og vern mot vilkårlig fengsling. **Nasjonal selvstendighet**: Norge er et fritt og selvstendig rike."
@@ -64,6 +68,7 @@ window.LV.tema = {
     },
     {
       tittel: "Hvor demokratisk var den?",
+      utfordring: ["Hvor demokratisk var Grunnloven? Svaret avhenger av hva vi sammenligner med. Sammenlignet med andre land i 1814 var den radikal: Rundt 40 prosent av mennene over 25 år fikk [[stemmerett]] – embetsmenn, bønder som eide eller leide matrikulert jord, og borgere i byene. Valgene var likevel indirekte, og kvinner, husmenn, tjenestefolk og arbeidere ble holdt utenfor. Grunnloven var også preget av sin tids syn på religion og minoriteter. Jødeparagrafen ble først fjernet i 1851 etter en lang kamp der Henrik Wergeland var den mest kjente forkjemperen, og forbudet mot jesuitter ble ikke opphevet før i 1956. Samene ble ikke nevnt i Grunnloven før i 1988, da det kom en egen paragraf om at staten skal legge forholdene til rette for at samene kan sikre og utvikle sitt språk, sin kultur og sitt samfunnsliv."],
       tekst: [
         "Grunnloven fra 1814 regnes som en av de mest demokratiske i verden på sin tid. Rundt 40 prosent av norske menn over 25 år fikk [[stemmerett]], blant annet fordi mange bønder eide jord. I mange andre land var andelen langt lavere.",
         "Men etter dagens målestokk var den langt fra demokratisk. Kvinner, tjenestefolk, husmenn og fattige uten eiendom fikk ikke stemme. Grunnloven inneholdt også en paragraf som forbød jøder å komme til riket, og den sa at jesuitter og munkeordener ikke var tillatt. **Henrik Wergeland** kjempet mot jødeparagrafen, og den ble fjernet i 1851. Kvinner fikk ikke alminnelig stemmerett før i 1913."
@@ -74,6 +79,7 @@ window.LV.tema = {
     },
     {
       tittel: "Krig og union",
+      utfordring: ["Sommeren 1814 sto Norge overfor en militær overmakt. Den svenske hæren var større og bedre trent, og Karl Johan hadde stormaktenes støtte. Etter et kort felttog ble Mossekonvensjonen undertegnet 14. august. For Norge var den et militært nederlag, men en politisk seier: Grunnloven ble beholdt, og Karl Johan hadde interesse av å få nordmennene med seg frivillig i stedet for å måtte holde landet nede med makt. Unionen som ble etablert 4. november 1814 og regulert i Riksakten av 1815, var en personalunion: De to landene hadde felles konge og en felles utenrikspolitikk som i praksis ble styrt fra Stockholm, men ellers egne grunnlover, nasjonalforsamlinger, regjeringer og hærer. Uenigheten om utenrikspolitikken og konsulatvesenet ble senere kjernen i konflikten som endte med oppløsningen i 1905."],
       tekst: [
         "Sverige godtok ikke at Norge hadde gjort seg selvstendig. Sommeren 1814 gikk svenske tropper til angrep. Krigen varte bare noen uker, og den norske hæren var svak. I august ble partene enige i **Mossekonvensjonen**: Christian Frederik måtte gå av og reise fra landet, men Norge fikk beholde Grunnloven med de endringene som var nødvendige for en union.",
         "Den 4. november 1814 valgte et ekstraordinært storting den svenske kongen Karl 13. til konge av Norge. Norge ble dermed i [[union]] med Sverige, men som et eget land med egen grunnlov, eget storting og egen regjering. Unionen varte til 1905."
@@ -84,6 +90,7 @@ window.LV.tema = {
     },
     {
       tittel: "17. mai og Grunnloven i dag",
+      utfordring: ["Feiringen av 17. mai har hele tiden vært politisk. I 1829 ble en folkemengde på torget i Christiania spredt av kavaleri og soldater – det såkalte Torgslaget – fordi kong Karl Johan mislikte feiringen. Henrik Wergeland gjorde 17. mai til en dag for frihet og folkestyre. På slutten av 1800-tallet ble barnetoget et symbol på at nasjonen tilhørte framtida, og etter frigjøringen i 1945 fikk dagen en ny betydning som en feiring av friheten etter okkupasjonen. Grunnloven har også endret seg mye. Parlamentarismen, som ble praktisert fra 1884, ble først skrevet inn i Grunnloven i 2007. I 2014 fikk Grunnloven et eget kapittel om menneskerettigheter og ble samtidig vedtatt i en språklig modernisert utgave på bokmål og nynorsk."],
       tekst: [
         "I de første årene var svenskekongen ikke begeistret for at nordmenn feiret 17. mai. Men feiringen vokste, og fra 1870 fikk Norge sitt første barnetog i Christiania, organisert blant andre av **Bjørnstjerne Bjørnson**. I dag er 17. mai en folkefest der barna står i sentrum.",
         "Grunnloven fra 1814 er fortsatt i bruk og er en av verdens eldste skrevne grunnlover som gjelder i dag. Den har blitt endret mange ganger, for eksempel med parlamentarisme, stemmerett for alle og et eget kapittel om menneskerettigheter i 2014. For å endre Grunnloven må forslaget legges fram for ett storting og vedtas av det neste med to tredels flertall."
