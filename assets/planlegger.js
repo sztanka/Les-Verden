@@ -26,6 +26,8 @@
     ["kildedetektiv", "Kildedetektiven", "kildedetektiv.html", "Spill i kildekritikk: er innlegget sant eller falskt?", ["samfunnsfag", "engelsk"]],
     ["skriftlig", "Skriftlig eksamen i engelsk", "skriftlig.html", "Videreformidling (lytt og formidle) og samhandling (chattråd) – tre temaer, også som hel eksamensøkt.", ["engelsk"]],
     ["kilder", "Kildeanalyse", "kilder.html", "Ekte historiske kilder (1215–1890) med ordhjelp, Se–tenk–lur og kildekritiske spørsmål.", ["samfunnsfag", "engelsk"]],
+    ["leseflyt", "Leseflyt: gjentatt lesing", "leseflyt.html", "Hør teksten, les høyt tre ganger med tidtaking, makker markerer feil, se fremgang i ord per minutt.", ["samfunnsfag", "engelsk"]],
+    ["oppgaveord", "Oppgaveord", "oppgaveord.html", "Hva krever beskriv, forklar, drøft, vurder – og describe, explain, discuss? Ordkort, koblespill, svardetektiv og «plukk oppgaven fra hverandre».", ["samfunnsfag", "engelsk"]],
     ["lytt", "Lytteøkt med stopp", "lytt.html", "Lytt til et tema eller en tekst del for del, med lytteoppgaver etter hver del.", ["samfunnsfag", "engelsk"]],
     ["svartut", "Svarte-ut-dikt", "svartut.html", "Blackout poetry: lag et nytt dikt av en side fra en tekst i Reading Room.", ["engelsk"]],
     ["skrivemal", "Skrivemaler", "skrivemal.html", "Postkort fra fortiden, historisk avisforside, Wanted-plakat, bokomslag og booktrailer-manus.", ["samfunnsfag", "engelsk"]],

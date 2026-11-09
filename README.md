@@ -35,6 +35,8 @@ les-verden/
 ├── kildedetektiv.html      Kildedetektiven: kildekritikk-spill (data i data/kildedetektiv.js)
 ├── skriftlig.html          Skriftlig eksamen i engelsk: videreformidling og samhandling (data i data/skriftlig.js)
 ├── kilder.html             Kildeanalyse med ekte historiske kilder (data i data/kilder.js – utdragene er ordrette)
+├── leseflyt.html           Leseflyt: gjentatt lesing med tidtaking og riktige ord per minutt
+├── oppgaveord.html         Oppgaveord på norsk og engelsk (data i data/oppgaveord.js)
 ├── lytt.html               Lytteøkt med stopp (talesyntese) for temaer og Reading Room-tekster
 ├── svartut.html            Svarte-ut-dikt / blackout poetry fra tekstene i Reading Room
 ├── skrivemal.html          Skrivemaler: postkort, avisforside, Wanted, bokomslag, booktrailer (malene står i assets/skrivemal.js)
@@ -437,7 +439,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261109b`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261109c`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
