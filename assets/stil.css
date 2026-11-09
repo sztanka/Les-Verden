@@ -2909,3 +2909,76 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
 .ly-stopp { margin-top: 1rem; border-top: 2px dashed var(--linje); padding-top: .6rem; }
 .ly-stopp textarea, .ly-okt textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); margin-bottom: .6rem; }
 .sidehode h1 { overflow-wrap: break-word; hyphens: auto; }
+
+/* ---------- Skriftlig eksamen ---------- */
+.sx-strategi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; font-family: var(--font-ui); margin-bottom: 1.4rem; }
+.sx-strategi section { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .7rem 1.1rem; }
+.sx-strategi h2 { font-size: 1.15rem; margin: .3rem 0; }
+.sx-strategi li { margin: .3rem 0; }
+.sx-temaer { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); font-family: var(--font-ui); }
+.sx-tema { background: var(--flate); border: 1px solid var(--linje); border-top: 8px solid var(--sx); border-radius: var(--radius); padding: .8rem 1.1rem; display: flex; flex-direction: column; gap: .3rem; }
+.sx-tema-ikon { font-size: 2.2rem; margin: 0; }
+.sx-tema h3 { margin: 0; font-size: 1.35rem; }
+.sx-tema-om { color: var(--tekst-dempet); margin: 0 0 .4rem; font-size: .92rem; }
+.sx-tema-knapper { display: grid; gap: .4rem; margin-top: auto; }
+.sx-del { max-width: 60rem; font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 1.4rem; }
+.sx-delnr { text-transform: uppercase; letter-spacing: .07em; font-size: .8rem; color: var(--tekst-dempet); margin: 0; }
+.sx-del h2 { margin-top: .2rem; }
+.sx-om { font-family: var(--font-tekst); font-size: 1.08rem; }
+.sx-talere { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; padding-left: 1.1rem; }
+.sx-oppgave { background: var(--lilla-lys); border-radius: 10px; padding: .6rem 1rem; margin: .8rem 0; }
+.sx-oppgave h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+.sx-spiller { border: 2px solid var(--tekst); border-radius: 12px; padding: .7rem 1rem; margin: 1rem 0; }
+.sx-spiller audio { width: 100%; }
+.sx-kontroll { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; }
+.sx-teller { font-weight: 700; margin-left: auto; }
+.sx-taler { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0 .3rem; }
+.sx-taler span { padding: .2rem .7rem; border-radius: 99px; border: 1px solid var(--linje); color: var(--tekst-dempet); }
+.sx-taler span.aktiv { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+.sx-tips { font-size: .88rem; color: var(--tekst-dempet); margin: .3rem 0 0; }
+.sx-notater { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: .2rem 1rem; }
+.sx-del textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); }
+.sx-tekst { font-family: var(--font-tekst) !important; font-size: 1.05rem !important; line-height: 1.6; }
+.sx-oppg-kort { font-style: italic; }
+.sx-ord { font-size: .88rem; color: var(--tekst-dempet); margin: .2rem 0 .8rem; text-align: right; }
+.sx-sjekk { display: grid; gap: .5rem; justify-items: start; }
+.sx-skjult { width: 100%; box-sizing: border-box; background: var(--bakgrunn); border-radius: 10px; padding: .6rem 1rem; }
+.sx-poeng, .sx-krit { list-style: none; padding: 0; display: grid; gap: .35rem; }
+.sx-poeng label, .sx-krit label { display: flex; gap: .5rem; align-items: flex-start; cursor: pointer; }
+.sx-poeng input, .sx-krit input { margin-top: .25rem; flex: none; }
+.sx-eksempel { font-family: var(--font-tekst); border-left: 5px solid var(--samfunnsfag); padding-left: 1rem; }
+.sx-niva-svak { border-left-color: var(--aksent); }
+.sx-niva { font-family: var(--font-ui); font-weight: 700; margin-bottom: .2rem; }
+.sx-trans p { margin: .3rem 0; }
+.sx-trad-rad { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 1rem; align-items: start; }
+@media (max-width: 820px) { .sx-trad-rad { grid-template-columns: 1fr; } }
+.sx-trad { background: var(--bakgrunn); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem; display: grid; gap: .5rem; }
+.sx-forum { margin: 0; font-size: .82rem; color: var(--tekst-dempet); }
+.sx-tradtittel { margin: 0 0 .3rem; font-size: 1.15rem; font-weight: 700; }
+.sx-post { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .6rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .6rem .7rem; }
+.sx-avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: .85rem; background: var(--lilla); }
+.sx-post-hode { margin: 0; font-size: .92rem; }
+.sx-post-hode span { color: var(--tekst-dempet); font-size: .82rem; margin-left: .3rem; }
+.sx-post-tekst { margin: .2rem 0; overflow-wrap: anywhere; }
+.sx-post-fot { margin: 0; font-size: .82rem; color: var(--tekst-dempet); }
+.sx-svarboks { margin-top: .6rem; border-left: 3px solid var(--lilla); padding-left: .7rem; }
+.sx-svarboks label { display: block; font-weight: 700; font-size: .9rem; margin-bottom: .2rem; }
+.sx-svarlinje { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.sx-svarlinje .sx-ord { margin: 0; text-align: left; }
+.sx-publisert { background: var(--lilla-lys); border-radius: 8px; padding: .4rem .7rem; margin-bottom: .3rem; }
+.sx-ny { border-style: dashed; }
+.sx-fraser { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .5rem .8rem; font-size: .9rem; }
+.sx-fraser h3 { margin: .2rem 0; font-size: 1rem; }
+.sx-fraser h4 { margin: .6rem 0 .2rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tekst-dempet); }
+.sx-fraser ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .2rem; }
+.sx-frase { font: inherit; text-align: left; width: 100%; background: var(--bakgrunn); color: var(--tekst); border: 1px solid var(--linje); border-radius: 6px; padding: .25rem .5rem; cursor: pointer; }
+.sx-frase:hover, .sx-frase:focus-visible { border-color: var(--tekst); }
+.sx-fraser-tips { color: var(--tekst-dempet); font-size: .82rem; margin: 0; }
+@media (min-width: 821px) { .sx-fraser { position: sticky; top: 1rem; } }
+.sx-klokke { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-family: var(--font-ui); position: sticky; top: 0; z-index: 5; background: var(--bakgrunn); padding: .4rem 0; }
+.sx-klokke input { width: 5rem; font: inherit; padding: .35rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
+.sx-tid { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; margin-left: .5rem; }
+.sx-tid.lite { color: var(--aksent); }
+.sx-tematittel { font-family: var(--font-ui); }
+.sx-videre { display: flex; flex-wrap: wrap; gap: .5rem; }
+@media print { .sx-kontroll, .sx-tips, .sx-fraser, .sx-vis, .sx-publiser, .sx-klokke { display: none !important; } .sx-skjult[hidden] { display: none !important; } }
