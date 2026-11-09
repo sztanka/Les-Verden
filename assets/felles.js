@@ -114,7 +114,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261109f";
+  LV.versjon = "20261109g";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -176,6 +176,7 @@ window.LV = window.LV || {};
         ["leseflyt.html", "⏱️", "Leseflyt", "Gjentatt lesing med tidtaking"],
         ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
         ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
+        ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
         ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
         ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
         ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
