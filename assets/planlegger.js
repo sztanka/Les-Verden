@@ -52,6 +52,8 @@
     ["sport", "Sports in the English-speaking world", "sport.html", "Idretter og sportsspråk.", ["engelsk"]],
     ["kartspill", "Kartspill", "kartspill.html", "Finn land, byer og steder på kartet.", ["samfunnsfag", "engelsk"]],
     ["tidslinje", "Tidslinje", "tidslinje.html", "Alle hendelsene fra temaene på én tidslinje.", ["samfunnsfag"]],
+    ["samtidig", "Samtidig i verden", "samtidig.html", "Velg et år og se hendelser i Norge, den engelskspråklige verden og resten av verden side om side.", ["samfunnsfag", "engelsk"]],
+    ["tekstpar", "Tekstpar", "tekstpar.html", "Seks par med to tekster om samme tema (erindring + fagtekst, dikt + fagtekst, erklæring + tale …) med sammenligningsskjema og Venn-diagram.", ["samfunnsfag", "engelsk"]],
     ["eksamen", "Eksamenssone", "eksamen.html", "Forbered muntlig eksamen.", ["samfunnsfag", "engelsk"]]
   ];
 

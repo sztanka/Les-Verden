@@ -114,7 +114,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261109d";
+  LV.versjon = "20261109e";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -151,6 +151,7 @@ window.LV = window.LV || {};
         ["index.html?fag=samfunnsfag&trinn=9#temaer", "9️⃣", "9. trinn", "Verden i endring 1800–1918"],
         ["index.html?fag=samfunnsfag&trinn=10#temaer", "🔟", "10. trinn", "Krig, fred og verden i dag"],
         ["tidslinje.html?fag=samfunnsfag", "📅", "Tidslinje", "Alle hendelsene i rekkefølge"],
+        ["samtidig.html", "🕰️", "Samtidig i verden", "Hva skjedde samme år?"],
         ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
         ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"],
         ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
@@ -174,6 +175,7 @@ window.LV = window.LV || {};
         ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
         ["leseflyt.html", "⏱️", "Leseflyt", "Gjentatt lesing med tidtaking"],
         ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
+        ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
         ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
         ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
         ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
@@ -214,6 +216,8 @@ window.LV = window.LV || {};
         '<button class="knapp" data-skala="1" aria-label="Større tekst">A+</button>' +
         '<button class="knapp" id="skrift-knapp" aria-pressed="false">Lesevennlig skrift</button>' +
         '<button class="knapp" id="tema-knapp" aria-pressed="false">Mørk modus</button>' +
+        '<button class="knapp" id="linjal-knapp" aria-pressed="false" title="En lys stripe følger musa eller fingeren, resten av siden dempes. Flytt med Alt + piltastene.">📏 Leselinjal</button>' +
+        '<button class="knapp" id="fokus-knapp" aria-pressed="false" title="Skjuler menyer og annet som forstyrrer, og gjør teksten smalere">🎯 Fokusmodus</button>' +
       "</div>";
     document.body.prepend(topp);
 
@@ -262,6 +266,54 @@ window.LV = window.LV || {};
       skrift.setAttribute("aria-pressed", String(pa));
       if (pa) document.documentElement.dataset.skrift = "lesevennlig";
       else delete document.documentElement.dataset.skrift;
+    });
+
+    // Leselinjal: en stripe som følger musa/fingeren, resten dempes
+    const linjalKnapp = panel.querySelector("#linjal-knapp");
+    let linjal = null, linjalY = 0;
+    function plasserLinjal(y) {
+      if (!linjal) return;
+      const h = linjal.dataset.h;
+      linjalY = Math.max(0, Math.min(window.innerHeight, y));
+      linjal.firstChild.style.height = Math.max(0, linjalY - h / 2) + "px";
+      linjal.lastChild.style.top = (linjalY + h / 2) + "px";
+    }
+    const flyttMus = e => { if (e.pointerType !== "touch" || e.type === "pointerdown") plasserLinjal(e.clientY); };
+    const flyttTast = e => {
+      if (!e.altKey || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return;
+      e.preventDefault();
+      plasserLinjal(linjalY + (e.key === "ArrowDown" ? 1 : -1) * linjal.dataset.h * 0.6);
+    };
+    linjalKnapp.addEventListener("click", function () {
+      const pa = linjalKnapp.getAttribute("aria-pressed") !== "true";
+      linjalKnapp.setAttribute("aria-pressed", String(pa));
+      if (pa) {
+        linjal = document.createElement("div");
+        linjal.className = "leselinjal";
+        linjal.setAttribute("aria-hidden", "true");
+        linjal.innerHTML = '<div class="ll-over"></div><div class="ll-under"></div>';
+        linjal.dataset.h = Math.round(parseFloat(getComputedStyle(document.documentElement).fontSize) * 3 * (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--skala")) || 1));
+        document.body.appendChild(linjal);
+        plasserLinjal(window.innerHeight * 0.45);
+        document.addEventListener("pointermove", flyttMus);
+        document.addEventListener("pointerdown", flyttMus);
+        document.addEventListener("keydown", flyttTast);
+      } else {
+        document.removeEventListener("pointermove", flyttMus);
+        document.removeEventListener("pointerdown", flyttMus);
+        document.removeEventListener("keydown", flyttTast);
+        if (linjal) linjal.remove();
+        linjal = null;
+      }
+    });
+
+    // Fokusmodus: skjuler menyer, bannere og bunntekst, og gjør teksten smalere
+    const fokus = panel.querySelector("#fokus-knapp");
+    fokus.addEventListener("click", function () {
+      const pa = fokus.getAttribute("aria-pressed") !== "true";
+      fokus.setAttribute("aria-pressed", String(pa));
+      if (pa) document.documentElement.dataset.fokus = "pa";
+      else delete document.documentElement.dataset.fokus;
     });
 
     const tema = panel.querySelector("#tema-knapp");

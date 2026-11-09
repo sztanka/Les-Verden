@@ -28,6 +28,8 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Grammar and vocabulary", "grammatikk.html", "Parts of speech, homophones og øvelser.", "grammatikk grammar ordklasser"],
   ["Landsider", "land.html", "Engelskspråklige land med fakta, kartquiz og quiz.", "land countries"],
   ["Sports in the English-speaking world", "sport.html", "Idretter og sportsspråk i den engelskspråklige verden.", "sport idrett"],
+  ["Samtidig i verden", "samtidig.html", "Hva skjedde samme år i Norge og i verden?", "samtidig samme år årstall tidslinje verden norge parallell same year timeline"],
+  ["Tekstpar", "tekstpar.html", "To tekster om samme tema side om side.", "tekstpar sammenligne tekster sammenlignende lesing venn diagram paired texts compare douglass zitkala-sa wollstonecraft pankhurst riis owen fornorsking"],
   ["Tidslinje", "tidslinje.html", "Alle hendelsene fra temaene på én tidslinje.", "tidslinje timeline historie"],
   ["Begrepsbank", "begreper.html", "Alle begrepene fra temaene.", "begreper ord ordforklaringer"],
   ["Personer", "personer.html", "Personer fra temaene – og quizen Hvem er jeg?", "personer hvem er jeg"],
