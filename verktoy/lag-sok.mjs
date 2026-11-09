@@ -40,6 +40,8 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Muntlig og lytting", "muntlig.html", "Samtalekort, lytteøvelser og den varme stolen til alle temaene.", "muntlig lytting speaking listening samtalekort diskusjon frasebank hot seat varme stolen"],
   ["Kildedetektiven", "kildedetektiv.html", "Spill: er innlegget sant eller falskt? Undersøk avsender, dato og bilde.", "kildekritikk falske nyheter fake news desinformasjon ki-bilder svindel phishing spill kildedetektiv"],
   ["Klassequiz på storskjerm", "klassequiz.html", "For læreren: vis quizspørsmål fra temaer, tekster og land stort på tavla.", "klassequiz quiz storskjerm tavle kahoot lærer spørsmål"],
+  ["Svarte-ut-dikt", "svartut.html", "Blackout poetry: lag et nytt dikt av en side fra en tekst.", "svarte-ut-dikt blackout poetry dikt poesi skapende skriving reading room"],
+  ["Skrivemaler", "skrivemal.html", "Postkort fra fortiden, avisforside, Wanted-plakat, bokomslag og booktrailer.", "skrivemal postkort avis avisforside wanted plakat bokomslag booktrailer trailer skapende skriving historisk perspektiv"],
   ["Escape room", "escape.html", "Lås deg ut ved å lese nøye – Bastillen, the Workhouse og the Locked Library.", "escape room rømning lås kode gåte bastillen workhouse library victorian franske revolusjonen lesing"],
   ["Begrepsgåta", "begrepsgata.html", "Gjett dagens fagbegrep ut fra forklaringen.", "begrepsgåta begreper gåte ord dagens begrep wordle fagord vocabulary"],
   ["Ordfører for en dag", "kommune.html", "Fordel budsjettet i en oppdiktet kommune og møt velgerne.", "ordfører kommune budsjett kommunestyre valg demokrati spill simulering prioritering"],

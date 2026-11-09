@@ -2756,3 +2756,106 @@ body.kq-aktiv #innhold { max-width: none; padding: 0; }
 .bq-forsok span.ok { border-color: var(--samfunnsfag); text-decoration: none; font-weight: 700; }
 .bq-igjen { color: var(--tekst-dempet); font-size: .9rem; }
 .bq-svaret { font-size: 1.4rem; margin: 0; }
+
+/* ---------- Svarte-ut-dikt ---------- */
+.su-verktoy { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; font-family: var(--font-ui); margin-bottom: .8rem; }
+.su-verktoy select { font: inherit; max-width: 100%; min-width: 0; padding: .35rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.su-knapper { display: flex; flex-wrap: wrap; gap: .35rem; }
+.su-knapper [aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); }
+.su-steg { font-family: var(--font-ui); color: var(--tekst-dempet); }
+.su-side { max-width: 46rem; background: #f7f3ea; color: #1a1a1a; border: 1px solid var(--linje); border-radius: 6px; padding: 1.4rem 1.6rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; line-height: 2; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.su-ord { font: inherit; color: inherit; background: none; border: 0; padding: 0 .08em; margin: 0; cursor: pointer; border-radius: 4px; }
+.su-ord:hover { background: #ece4cf; }
+.su-ord:focus-visible { outline: 3px solid #1f5fa8; outline-offset: 1px; }
+.su-ord.valgt { outline: 2px solid #b03a2e; outline-offset: 1px; border-radius: 50% / 40%; font-weight: 700; }
+.su-side.svart .su-ord:not(.valgt) { background: #111; color: #111; border-radius: 0; }
+.su-side.svart .su-ord.valgt { background: #f7f3ea; outline: none; }
+.su-side.svart .su-skille { color: #111; background: #111; }
+.su-resultat { max-width: 46rem; font-family: var(--font-ui); margin-top: 1.2rem; }
+.su-dikt { font-family: Georgia, serif; font-size: 1.3rem; background: var(--flate); border-left: 5px solid #b03a2e; padding: .6rem 1rem; border-radius: 8px; }
+.lr-svartut { margin-top: 1rem; }
+@media print { .su-verktoy, .su-steg, #su-bilde, #su-skriv { display: none !important; } .su-side { box-shadow: none; } }
+
+/* ---------- Skrivemaler ---------- */
+.sm-rad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .sm-rad { grid-template-columns: 1fr; } }
+.sm-skjema { font-family: var(--font-ui); display: grid; gap: .3rem; }
+.sm-skjema input[type=text], .sm-skjema textarea { width: 100%; box-sizing: border-box; }
+.sm-tips { background: var(--lilla-lys); border-radius: 10px; padding: .5rem .9rem; margin-bottom: .5rem; }
+.sm-tips summary { cursor: pointer; font-weight: 700; }
+.sm-symboler { border: 1px solid var(--linje); border-radius: 10px; padding: .4rem .6rem; display: flex; flex-wrap: wrap; gap: .25rem; }
+.sm-symboler legend { font-weight: 600; padding: 0 .3rem; }
+.sm-symboler label { cursor: pointer; }
+.sm-symboler input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.sm-symboler label span[aria-hidden] { display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; font-size: 1.3rem; border-radius: 8px; border: 2px solid transparent; }
+.sm-symboler input:checked + span { border-color: var(--tekst); background: var(--flate); }
+.sm-symboler input:focus-visible + span { outline: 3px solid var(--lilla); }
+.sm-fargefelt input { width: 4rem; height: 2.4rem; padding: 0; border: 1px solid var(--linje); border-radius: 8px; }
+.sm-vis { position: sticky; top: 1rem; }
+.sm-vis-t { font-family: var(--font-ui); font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--tekst-dempet); }
+/* Postkort */
+.sm-postkort { display: grid; gap: .8rem; color: #222; }
+.sm-pk-bilde { aspect-ratio: 3 / 2; border-radius: 6px; background: linear-gradient(160deg, #e9d8a6, #94b9c9); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; box-shadow: 0 3px 10px rgba(0,0,0,.15); padding: 1rem; text-align: center; }
+.sm-pk-symbol { font-size: 4.5rem; }
+.sm-pk-hilsen { font-family: Georgia, serif; font-style: italic; font-size: 1.6rem; font-weight: 700; color: #3a2a12; overflow-wrap: anywhere; }
+.sm-pk-bak { display: grid; grid-template-columns: 1.6fr 1fr; background: #fbf8f0; border-radius: 6px; box-shadow: 0 3px 10px rgba(0,0,0,.15); min-height: 14rem; padding: 1rem; gap: 1rem; font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive; }
+.sm-pk-tekst { border-right: 1px solid #c9bfa8; padding-right: 1rem; overflow-wrap: anywhere; }
+.sm-pk-tekst p { margin: .3rem 0; }
+.sm-pk-sted { font-size: .9rem; color: #555; }
+.sm-pk-adr { position: relative; padding-top: 4rem; line-height: 2; overflow-wrap: anywhere; background-image: repeating-linear-gradient(transparent 0 1.95rem, #c9bfa8 1.95rem 2rem); background-position: 0 4rem; background-repeat: no-repeat; }
+.sm-pk-frimerke { position: absolute; top: 0; right: 0; font-size: 2rem; border: 3px dotted #a33; padding: .1rem .4rem; background: #fff; }
+@media (max-width: 560px) { .sm-pk-bak { grid-template-columns: 1fr; } .sm-pk-tekst { border-right: 0; border-bottom: 1px solid #c9bfa8; padding: 0 0 1rem; } }
+/* Avis */
+.sm-avis { background: #fbfaf6; color: #111; padding: 1rem 1.2rem; border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,.15); font-family: Georgia, "Times New Roman", serif; }
+.sm-avis-hode { border-bottom: 4px double #111; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem; padding-bottom: .3rem; }
+.sm-avis-navn { font-family: "Old English Text MT", "UnifrakturMaguntia", Georgia, serif; font-size: 2.1rem; font-weight: 700; overflow-wrap: anywhere; }
+.sm-avis-dato { font-size: .9rem; }
+.sm-avis-tittel { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.1; margin: .6rem 0; text-transform: uppercase; overflow-wrap: anywhere; }
+.sm-avis-ingress { font-weight: 700; }
+.sm-avis-kropp { columns: 2 14rem; column-gap: 1.2rem; text-align: justify; hyphens: auto; }
+.sm-avis-bilde { break-inside: avoid; background: #ddd; border: 1px solid #999; padding: .6rem; text-align: center; margin-bottom: .6rem; }
+.sm-avis-bilde span { font-size: 2.5rem; display: block; }
+.sm-avis-sitat { break-inside: avoid; font-size: 1.15rem; font-style: italic; border-top: 2px solid #111; border-bottom: 2px solid #111; margin: .6rem 0; padding: .4rem 0; }
+.sm-avis-kort { border-top: 1px solid #111; margin-top: .6rem; padding-top: .4rem; font-size: .95rem; }
+/* Wanted */
+.sm-wanted { background: #e8d3a3; color: #2a1a08; border: 6px double #5a3a14; padding: 1rem 1.3rem; text-align: center; font-family: Georgia, serif; box-shadow: 0 3px 10px rgba(0,0,0,.2); }
+.sm-w-topp { font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 900; letter-spacing: .12em; margin: 0; }
+.sm-w-under { margin: 0 0 .5rem; font-style: italic; overflow-wrap: anywhere; }
+.sm-w-portrett { font-size: 5rem; width: 9rem; height: 9rem; margin: 0 auto; display: grid; place-items: center; background: #f5e9cc; border: 3px solid #5a3a14; }
+.sm-w-navn { font-size: 1.8rem; font-weight: 700; margin: .4rem 0; overflow-wrap: anywhere; }
+.sm-w-info { text-align: left; margin: 0; }
+.sm-w-info dt { font-weight: 700; text-transform: uppercase; font-size: .85rem; margin-top: .5rem; }
+.sm-w-info dd { margin: 0; overflow-wrap: anywhere; }
+.sm-w-reward { font-size: 1.6rem; font-weight: 900; border-top: 3px solid #5a3a14; margin: .8rem 0 0; padding-top: .4rem; overflow-wrap: anywhere; }
+/* Omslag */
+.sm-omslag { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+@media (max-width: 560px) { .sm-omslag { grid-template-columns: 1fr; } }
+.sm-om-forside, .sm-om-bakside { aspect-ratio: 2 / 3; border-radius: 4px 10px 10px 4px; box-shadow: 0 4px 14px rgba(0,0,0,.25); padding: 1.2rem 1rem; display: flex; flex-direction: column; overflow: hidden; }
+.sm-om-forside { background: linear-gradient(170deg, var(--om), color-mix(in srgb, var(--om) 55%, #000)); color: #fff; text-align: center; align-items: center; justify-content: space-between; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.sm-om-forfatter { text-transform: uppercase; letter-spacing: .15em; font-family: var(--font-ui); font-size: .85rem; margin: 0; overflow-wrap: anywhere; }
+.sm-om-symbol { font-size: 5rem; text-shadow: none; }
+.sm-om-tittel { font-family: Georgia, serif; font-size: 1.9rem; font-weight: 700; line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
+.sm-om-krok { font-style: italic; font-size: .95rem; margin: 0; overflow-wrap: anywhere; }
+.sm-om-bakside { background: color-mix(in srgb, var(--om) 15%, #fbf8f0); color: #222; font-family: Georgia, serif; font-size: .95rem; overflow-wrap: anywhere; }
+.sm-om-anbefalt { margin-top: auto; font-style: italic; font-weight: 700; }
+/* Trailer */
+.sm-trailer { background: #141414; color: #f2f2f2; border-radius: 10px; padding: 1rem 1.1rem; font-family: var(--font-ui); }
+.sm-tr-tittel { font-size: 1.2rem; font-weight: 700; margin-top: 0; overflow-wrap: anywhere; }
+.sm-tr-scener { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.sm-tr-scener li { display: grid; grid-template-columns: 3.2rem 2rem 1fr; gap: .5rem; align-items: start; background: #262626; border-radius: 8px; padding: .5rem .6rem; }
+.sm-tr-tid { font-variant-numeric: tabular-nums; color: #f1c75b; font-weight: 700; }
+.sm-tr-tekst { overflow-wrap: anywhere; min-height: 1.4em; }
+.sm-tr-musikk { margin-bottom: 0; color: #ccc; }
+@media print {
+  .sm-skjema, .sm-vis-t, #sm-skriv, .sidehode .kd-filter { display: none !important; }
+  .sm-rad { display: block; } .sm-vis { position: static; }
+  .sm-pk-bilde, .sm-avis, .sm-wanted, .sm-om-forside, .sm-trailer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+.sm-rad > *, .sm-skjema > * { min-width: 0; }
+.sm-symboler { min-inline-size: 0; }
+.sm-skjema .mu-notat { display: block; }
+.sm-postkort { grid-template-columns: minmax(0, 1fr); }
+.sm-pk-bak > * { min-width: 0; }
+@media (max-width: 560px) { .sm-pk-bak { grid-template-columns: minmax(0, 1fr); } }
+.sm-skjema input[type=text], .sm-skjema textarea { font: inherit; font-size: 1rem; padding: .45rem .6rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); }
+.sm-skjema .mu-notat > span { display: block; font-weight: 600; margin: .5rem 0 .25rem; }

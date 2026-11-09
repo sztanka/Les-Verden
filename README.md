@@ -33,6 +33,8 @@ les-verden/
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
 ├── lesedagbok.html         Lesedagbok for selvvalgte tekster (assets/lesedagbok.js)
 ├── kildedetektiv.html      Kildedetektiven: kildekritikk-spill (data i data/kildedetektiv.js)
+├── svartut.html            Svarte-ut-dikt / blackout poetry fra tekstene i Reading Room
+├── skrivemal.html          Skrivemaler: postkort, avisforside, Wanted, bokomslag, booktrailer (malene står i assets/skrivemal.js)
 ├── escape.html             Escape room – tre rom med låser (data i data/escape.js)
 ├── begrepsgata.html        Begrepsgåta – gjett begrepet (bruker data/dagens-begrep.js)
 ├── kommune.html            Ordfører for en dag (data i data/kommune.js)
@@ -432,7 +434,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261106e`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261106f`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

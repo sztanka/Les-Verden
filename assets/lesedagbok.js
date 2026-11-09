@@ -23,7 +23,7 @@
       etter: "Etter at du har lest", etterSp: ["Skriv et kort sammendrag (bruk gjerne Noen – ville – men – så – til slutt).", "Hvem var den viktigste personen, og hvordan forandret hun eller han seg?", "Hva var det beste og det svakeste med boka?", "Hvem vil du anbefale boka til, og hvorfor?"],
       terning: "Terningkast", pres: "Bokpresentasjon (2–3 minutter)", presIntro: "Bruk punktene som manus når du presenterer boka for klassen.",
       presPunkt: ["Tittel, forfatter og sjanger", "Hvorfor valgte du boka?", "Hva handler den om? (Ikke avslør slutten!)", "Les opp et kort utdrag du liker – og fortell hvorfor", "Hva synes du om boka? Gi terningkast og begrunn", "Hvem bør lese den?"],
-      lenker: 'Skal du skrive en bokanmeldelse? Bruk <a href="skriving.html?id=anmeldelse">guiden for anmeldelse</a>. Trenger du hjelp underveis? Se <a href="lesestrategier.html">lesestrategiene</a>.',
+      lenker: 'Skal du skrive en bokanmeldelse? Bruk <a href="skriving.html?id=anmeldelse">guiden for anmeldelse</a>. Lag et <a href="skrivemal.html?mal=omslag">nytt bokomslag</a> eller et <a href="skrivemal.html?mal=trailer">manus til en booktrailer</a>. Trenger du hjelp underveis? Se <a href="lesestrategier.html">lesestrategiene</a>.',
       kopier: "Kopier lesedagboka", slett: "Tøm alt", kopiert: "Lesedagboka er kopiert!", tom: "Du har ikke skrevet noe ennå.", sikker: "Vil du tømme hele lesedagboka?", slettet: "Lesedagboka er tømt.", navn: "Navn",
       bytt: "In English"
     },
@@ -38,7 +38,7 @@
       etter: "After reading", etterSp: ["Write a short summary (you can use Somebody – Wanted – But – So – Then).", "Who was the most important character, and how did he or she change?", "What was the best and the weakest thing about the book?", "Who would you recommend the book to, and why?"],
       terning: "Rating", pres: "Book talk (2–3 minutes)", presIntro: "Use the points as notes when you present the book to the class.",
       presPunkt: ["Title, author and genre", "Why did you choose the book?", "What is it about? (Don’t give away the ending!)", "Read a short passage you like – and say why", "What do you think of the book? Give it a rating and explain", "Who should read it?"],
-      lenker: 'Writing a book review? Use <a href="skriving.html?id=review">the review guide</a>. Need help while reading? See the <a href="lesestrategier.html">reading strategies</a>.',
+      lenker: 'Writing a book review? Use <a href="skriving.html?id=review">the review guide</a>. Make a <a href="skrivemal.html?mal=omslag&amp;sprak=en">new book cover</a> or a <a href="skrivemal.html?mal=trailer&amp;sprak=en">book trailer script</a>. Need help while reading? See the <a href="lesestrategier.html">reading strategies</a>.',
       kopier: "Copy my reading log", slett: "Clear everything", kopiert: "Your reading log has been copied!", tom: "You have not written anything yet.", sikker: "Do you want to clear the whole reading log?", slettet: "The reading log has been cleared.", navn: "Name",
       bytt: "På norsk"
     }

@@ -24,6 +24,8 @@
   const SIDER = [
     ["lesestrategier", "Lesestrategier", "lesestrategier.html", "Strategier før, under og etter lesing, med VØL-skjema.", ["samfunnsfag", "engelsk"]],
     ["kildedetektiv", "Kildedetektiven", "kildedetektiv.html", "Spill i kildekritikk: er innlegget sant eller falskt?", ["samfunnsfag", "engelsk"]],
+    ["svartut", "Svarte-ut-dikt", "svartut.html", "Blackout poetry: lag et nytt dikt av en side fra en tekst i Reading Room.", ["engelsk"]],
+    ["skrivemal", "Skrivemaler", "skrivemal.html", "Postkort fra fortiden, historisk avisforside, Wanted-plakat, bokomslag og booktrailer-manus.", ["samfunnsfag", "engelsk"]],
     ["escape", "Escape room", "escape.html", "Tre escape rooms der svarene står i teksten: Bastillen (norsk), the Workhouse og the Locked Library (engelsk).", ["samfunnsfag", "engelsk"]],
     ["begrepsgata", "Begrepsgåta", "begrepsgata.html", "Dagens fagbegrep: gjett ordet ut fra forklaringen.", ["samfunnsfag", "engelsk"]],
     ["kommune", "Ordfører for en dag", "kommune.html", "Budsjettspill i en oppdiktet kommune: prioriteringer, dilemmaer og kommunevalg.", ["samfunnsfag"]],

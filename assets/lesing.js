@@ -289,7 +289,7 @@
       blokk("sporsmal", "❓", "Questions about the text", (d.utenTekst ? "Answer in full sentences." : "Answer in full sentences. You can answer after reading the original or the easier version."), d.sporsmal, "Questions") +
       blokk("analyse", "🔍", "Look closer", "These questions are about how the text is written. Use quotes from the original text.", d.analyse, "Look closer") +
       blokk("diskusjon", "💬", "Discuss", "Talk in pairs or groups. Write down your most important points.", d.diskusjon, "Discuss") +
-      blokk("skriv", "✍️", "Write", "Choose one task.", d.skriv, "Write") + "</section>";
+      blokk("skriv", "✍️", "Write", "Choose one task.", d.skriv, "Write") + (d.utenTekst ? "" : '<p class="lr-svartut"><a class="knapp" href="svartut.html?tekst=' + encodeURIComponent(info.id) + '">⬛ Make a blackout poem from this text</a></p>') + "</section>";
 
     // Koblinger
     if (temaer.length) h += '<section><h2>Les mer om temaet</h2><ul class="temaliste">' + temaer.map(x => '<li><a class="temakort fag-' + x.fag + '" href="tema.html?id=' + encodeURIComponent(x.id) + '"' + (x.fag === "engelsk" ? ' lang="en"' : "") + ">" + LV.merker(x) + "<h3>" + esc(x.tittel) + "</h3><p>" + esc(x.kort) + "</p></a></li>").join("") + "</ul></section>";

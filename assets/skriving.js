@@ -35,6 +35,7 @@
     grupper.forEach(([sp, tittel, tekst]) => {
       h += '<section class="sk-gruppe" id="' + sp + '"><h2' + (sp === "en" ? ' lang="en"' : "") + ">" + tittel + '</h2><p class="sk-gruppe-tekst">' + tekst + '</p><ul class="sk-kortrad">' + LV.skriveguider.filter(g => g.sprak === sp).map(kort).join("") + "</ul></section>";
     });
+    h += '<a class="mu-banner" href="skrivemal.html"><span class="mu-banner-ikon" aria-hidden="true">✍️</span><span><strong>Skrivemaler: skapende skriving</strong><span>Postkort fra fortiden, historisk avisforside, Wanted-plakat, nytt bokomslag og booktrailer-manus – med forhåndsvisning du kan skrive ut.</span></span><span aria-hidden="true">→</span></a>';
     h += '<p class="fo-merk">Tips: Mange av guidene passer sammen med tekstene i <a href="lesing.html" lang="en">Reading Room</a>, filmene på <a href="film.html">filmsiden</a> og forberedelsene i <a href="eksamen.html">eksamenssonen</a>.</p>';
     $("innhold").innerHTML = h;
   }
