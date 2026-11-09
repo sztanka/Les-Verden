@@ -3097,3 +3097,78 @@ button.lf-o:hover, button.lf-o:focus-visible { background: var(--flate-2); }
 .lf-prosodi label { display: flex; gap: .5rem; align-items: flex-start; }
 .lf-prosodi input { margin-top: .3rem; }
 @media print { .lf-panel, .lf-kontroll, .lf-deler, #lf-nullstill { display: none !important; } }
+
+/* ---------- Lag selv ---------- */
+.lg-typer { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); font-family: var(--font-ui); }
+.lg-type { background: var(--flate); border: 1px solid var(--linje); border-top: 8px solid var(--lg); border-radius: var(--radius); padding: .8rem 1.1rem; display: flex; flex-direction: column; }
+.lg-type-ikon { font-size: 2.2rem; margin: 0; }
+.lg-type h2 { margin: .2rem 0; }
+.lg-type-knapper { margin-top: auto; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.lg-info { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); font-family: var(--font-ui); margin: 1.4rem 0; }
+.lg-info section { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1.1rem .8rem; }
+.lg-info h2 { font-size: 1.15rem; }
+.lg-hode { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; align-items: flex-end; font-family: var(--font-ui); max-width: 52rem; }
+.lg-tittel { flex: 1 1 18rem; }
+.lg-felt { display: grid; gap: .2rem; font-family: var(--font-ui); min-width: 0; }
+.lg-felt > span { font-weight: 600; font-size: .92rem; }
+.lg-felt input, .lg-felt textarea, .lg-alt-rad input[type=text] { font: inherit; padding: .45rem .55rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); width: 100%; box-sizing: border-box; min-width: 0; }
+.lg-tittel input { font-size: 1.15rem; }
+.lg-sprak { border: 1px solid var(--linje); border-radius: 8px; display: flex; gap: 1rem; padding: .3rem .8rem .5rem; margin: 0; }
+.lg-sprak legend { font-weight: 600; font-size: .92rem; padding: 0 .3rem; }
+.lg-liste { list-style: none; padding: 0; display: grid; gap: .8rem; max-width: 52rem; }
+.lg-rad fieldset { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .5rem 1rem 1rem; margin: 0; display: grid; gap: .6rem; position: relative; min-width: 0; }
+.lg-rad legend { font-family: var(--font-ui); font-weight: 700; padding: 0 .4rem; }
+.lg-flytt { display: flex; gap: .3rem; justify-content: flex-end; }
+.lg-rad .lg-flytt { position: absolute; top: -.9rem; right: .8rem; background: var(--flate); padding: 0 .3rem; }
+.lg-rad .lg-flytt .knapp { padding: .15rem .55rem; }
+.lg-alt { display: grid; gap: .35rem; font-family: var(--font-ui); }
+.lg-alt-rad { display: flex; gap: .5rem; align-items: center; }
+.lg-alt-rad input[type=radio] { width: 1.25rem; height: 1.25rem; flex: none; accent-color: var(--samfunnsfag); }
+.lg-hint { font-size: .85rem; color: var(--tekst-dempet); margin: 0; font-family: var(--font-ui); }
+.lg-to { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: .6rem; }
+.lg-to:has(.lg-ar) { grid-template-columns: 7rem minmax(0, 1fr); }
+@media (max-width: 560px) { .lg-to { grid-template-columns: 1fr; } .lg-to:has(.lg-ar) { grid-template-columns: 6rem minmax(0, 1fr); } }
+.lg-antall { font-family: var(--font-ui); color: var(--tekst-dempet); font-size: .9rem; }
+.lg-del { background: var(--flate); border: 2px solid var(--tekst); border-radius: var(--radius); padding: .4rem 1.1rem 1rem; max-width: 52rem; font-family: var(--font-ui); margin-top: 1.4rem; }
+.lg-feil { color: var(--aksent); font-weight: 600; min-height: 1.2em; margin: .2rem 0; }
+.lg-feil:empty { display: none; }
+.lg-del-knapper { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.lg-del-knapper a[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+.lg-status { font-weight: 600; }
+.lg-merk { font-size: .85rem; color: var(--tekst-dempet); margin: .2rem 0 0; }
+.lg-elevmerk { font-family: var(--font-ui); font-size: .88rem; background: var(--gul-lys); border-radius: 8px; padding: .4rem .8rem; max-width: 44rem; }
+.lg-quiz { max-width: 44rem; font-family: var(--font-ui); }
+.lg-teller { color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .9rem; }
+.lg-sporsmal { font-size: 1.4rem; margin: .3rem 0 1rem; }
+.lg-sporsmal:focus { outline: none; }
+.lg-valg { display: grid; gap: .5rem; }
+.lg-valgknapp { font: inherit; text-align: left; padding: .7rem 1rem; border: 2px solid var(--linje); border-radius: 10px; background: var(--flate); color: var(--tekst); cursor: pointer; }
+.lg-valgknapp:hover:not([disabled]), .lg-valgknapp:focus-visible { border-color: var(--tekst); }
+.lg-valgknapp.ok { border-color: var(--samfunnsfag); background: var(--samfunnsfag-lys); }
+.lg-valgknapp.ok::before { content: "✔ "; }
+.lg-valgknapp.feil { border-color: var(--aksent); background: var(--aksent-lys); }
+.lg-valgknapp.feil::before { content: "✘ "; }
+.lg-valgknapp[disabled] { cursor: default; color: var(--tekst); }
+.lg-tilbake { margin-top: .8rem; }
+.lg-slutt { text-align: center; font-family: var(--font-ui); max-width: 34rem; margin: 1rem auto; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem; }
+.lg-slutt-tall { font-size: 3rem; font-weight: 700; margin: 0; }
+.lg-faner { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; font-family: var(--font-ui); }
+.lg-faner [aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+.lg-tidslinje { list-style: none; padding: 0 0 0 1rem; border-left: 4px solid var(--samfunnsfag); max-width: 44rem; }
+.lg-tidslinje li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .8rem; padding: .5rem 0 .9rem; position: relative; }
+.lg-tidslinje li::before { content: ""; position: absolute; left: calc(-1rem - 10px); top: .85rem; width: 16px; height: 16px; border-radius: 50%; background: var(--flate); border: 4px solid var(--samfunnsfag); box-sizing: border-box; }
+.lg-ar { font-family: var(--font-ui); font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.lg-hendelse { font-size: 1.15rem; margin: 0 0 .2rem; }
+.lg-tidslinje p { margin: 0; }
+@media (max-width: 520px) { .lg-tidslinje li { grid-template-columns: 1fr; gap: .1rem; } }
+.lg-sorter { padding-left: 1.6rem; display: grid; gap: .4rem; max-width: 44rem; font-family: var(--font-ui); }
+.lg-sorter li { background: var(--flate); border: 2px solid var(--linje); border-radius: 10px; padding: .4rem .6rem; display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.lg-sorter-tekst { flex: 1 1 12rem; }
+.lg-sorter-ar { font-weight: 700; }
+.lg-sorter li.ok { border-color: var(--samfunnsfag); background: var(--samfunnsfag-lys); }
+.lg-sorter li.feil { border-color: var(--aksent); background: var(--aksent-lys); }
+.lg-kort { display: grid; place-items: center; width: 100%; max-width: 30rem; min-height: 14rem; padding: 1.5rem; font: inherit; font-family: var(--font-tekst); background: var(--flate); color: var(--tekst); border: 2px solid var(--engelsk); border-radius: 18px; box-shadow: var(--skygge); cursor: pointer; text-align: center; }
+.lg-kort-for { font-size: 1.9rem; font-weight: 700; overflow-wrap: anywhere; }
+.lg-kort-bak { font-size: 1.2rem; }
+.lg-kort.snudd { background: var(--engelsk-lys); }
+.lg-kort-knapper { display: flex; gap: .5rem; flex-wrap: wrap; font-family: var(--font-ui); }

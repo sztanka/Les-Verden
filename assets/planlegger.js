@@ -39,6 +39,7 @@
     ["fortelling", "Velg din vei", "fortelling.html", "Historiske fortellinger med valg: utvandreren, fyrstikkarbeidersken, Eidsvoll 1814.", ["samfunnsfag"]],
     ["tidsreise", "Tidsreisen", "tidsreise.html", "Spill: gjett året for hendelser fra tidslinjene i temaene.", ["samfunnsfag", "engelsk"]],
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],
+    ["lag", "Lag selv: quiz, tidslinje og ordkort", "lag.html", "Elevene lager sin egen quiz, tidslinje eller ordkort og deler lenken. Innholdet ligger i lenken – ingenting lagres.", ["samfunnsfag", "engelsk"]],
     ["debatt", "Debattduell", "debatt.html", "Argumenter for og mot, argumentasjonsfeil og eget innlegg.", ["samfunnsfag", "engelsk"]],
     ["bingo", "Lesebingo", "bingo.html", "5 × 5 leseoppgaver på norsk eller engelsk – samme brett for hele klassen.", ["samfunnsfag", "engelsk"]],
     ["lesedagbok", "Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for selvvalgte tekster.", ["samfunnsfag", "engelsk"]],
