@@ -39,6 +39,7 @@
     ["fortelling", "Velg din vei", "fortelling.html", "Historiske fortellinger med valg: utvandreren, fyrstikkarbeidersken, Eidsvoll 1814.", ["samfunnsfag"]],
     ["tidsreise", "Tidsreisen", "tidsreise.html", "Spill: gjett året for hendelser fra tidslinjene i temaene.", ["samfunnsfag", "engelsk"]],
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],
+    ["exit", "Exit ticket", "exit.html", "Avslutningslapper: 3–2–1, klart og uklart, jeg trodde – nå tenker jeg, ett ord og læringsmål-sjekk. Storskjerm, utskrift (4 per ark) og digital elevversjon.", ["samfunnsfag", "engelsk"]],
     ["lateral", "Lateral lesing", "lateral.html", "Fem oppdiktede nettsider: forlat siden, søk på avsenderen, les søketreffene og konkluder.", ["samfunnsfag", "engelsk"]],
     ["historiker", "Les som en historiker", "historiker.html", "Tre kildesett (fyrstikkstreiken 1889, Torgslaget 1829, Peterloo 1819): opphav, kontekst, sammenligning, nærlesing og egen konklusjon.", ["samfunnsfag", "engelsk"]],
     ["argumentkart", "Argumentkart", "argumentkart.html", "Påstand, grunner, belegg, innvendinger og svar som visuelt kart – med tekstutkast og ideer fra Debattduell.", ["samfunnsfag", "engelsk"]],

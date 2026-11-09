@@ -139,6 +139,13 @@
           : (harLett ? "Den lettere teksten er kortere og har enklere ord. " : "") + (harUtf ? "Utfordringsteksten går dypere, med mer sammenheng, ulike tolkninger og et mer avansert språk. " : "") + "Oppgavene er de samme.") + "</span></div>";
     }
 
+    // Forklar hvorfor-kort (elaborerende spørsmål etter hvert avsnitt)
+    const hvorforPa = LV.param("hvorfor") === "1";
+    {
+      const en = tema.sprak === "en";
+      h += '<div class="hvorfor-bryter"><button type="button" class="knapp liten" id="hvorfor-knapp" aria-pressed="' + hvorforPa + '">🤔 ' + (en ? "Explain why cards" : "Forklar hvorfor-kort") + '</button><span class="tekstniva-info">' + (en ? "Shows a short «explain why» question after each part. Explaining to yourself while you read helps you remember and understand." : "Viser et kort «forklar hvorfor»-spørsmål etter hver del. Å forklare for seg selv mens man leser, gir bedre forståelse og hukommelse.") + "</span></div>";
+    }
+
     // Opplesing
     if ("speechSynthesis" in window) {
       h += '<div class="opplesing"><button class="knapp hoved" id="les-alt">▶ ' + T.lesOpp + '</button>' +
@@ -197,6 +204,14 @@
       });
       if (aLett || aUtf) h += "</div>";
       h += "</section>";
+      {
+        const en = tema.sprak === "en", t = a.tittel;
+        const MAL = en
+          ? ["Why do you think things turned out as described in «%»? Explain in your own words.", "How is «%» connected to what you read in the part before?", "What might have happened if things had gone differently in «%»?", "Why is «%» important for understanding the whole topic?", "How can you connect «%» to something you know from before – from another topic or from your own life?", "Which word or idea in «%» is the most important – and why?"]
+          : ["Hvorfor tror du det ble slik som beskrevet i «%»? Forklar med egne ord.", "Hvordan henger «%» sammen med det du leste i delen før?", "Hva kunne ha skjedd hvis det hadde gått annerledes i «%»?", "Hvorfor er «%» viktig for å forstå hele temaet?", "Hvordan kan du koble «%» til noe du vet fra før – fra et annet tema eller fra ditt eget liv?", "Hvilket ord eller hvilken idé i «%» er viktigst – og hvorfor?"];
+        const spm = MAL[i % MAL.length].replace("%", t); // første avsnitt får alltid «hvorfor», siden det ikke finnes noen del før
+        h += '<aside class="hvorfor"' + (hvorforPa ? "" : " hidden") + '><p class="hvorfor-tittel"><span aria-hidden="true">🤔</span> ' + (en ? "Explain why" : "Forklar hvorfor") + "</p><p>" + LV.esc(spm) + "</p>" + svarfelt("hvorfor-" + i, spm, en ? "Explain why" : "Forklar hvorfor") + "</aside>";
+      }
       if (a.stoppOgTenk) {
         stoppNr++;
         h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> ' + T.stoppOgTenk + LV.stoppMerke(a.stoppOgTenk, tema.sprak === "en") + "</div><p>" + formater(a.stoppOgTenk) + "</p>" +
@@ -324,7 +339,8 @@
           '<li><fieldset><legend><span class="ev-kan">' + E.kanJeg + "</span> " + formater(m) + '</legend><div class="ev-valg">' + E.valg.map((v, j) =>
             '<label><input type="radio" name="ev-' + i + '" id="ev-' + i + "-" + j + '" value="' + j + '" data-maal="' + LV.esc(rentekst(m)) + '" data-tekst="' + LV.esc(v) + '"> <span>' + ["🌱", "🌿", "🌳"][j] + " " + v + "</span></label>").join("") + "</div></fieldset></li>").join("") + "</ul>";
       }
-      h += "<h3>" + E.exit + '</h3><p class="ev-intro">' + E.exitIntro + '</p><ol class="ev-exit">' + E.exitSp.map((s, i) => "<li><p>" + s + "</p>" + svarfelt("exit-" + i, s, E.exit) + "</li>").join("") + "</ol>";
+      h += "<h3>" + E.exit + '</h3><p class="ev-intro">' + E.exitIntro + '</p><ol class="ev-exit">' + E.exitSp.map((s, i) => "<li><p>" + s + "</p>" + svarfelt("exit-" + i, s, E.exit) + "</li>").join("") + "</ol>" +
+        '<p class="ev-intro" lang="nb">For læreren: <a href="exit.html?v=maal&amp;tema=' + encodeURIComponent(tema.id) + '">Lag exit ticket for hele klassen</a> – til storskjerm, utskrift eller digitalt.</p>';
       h += '<details class="ev-krit"><summary>📋 ' + E.krit + '</summary><p class="ev-intro">' + E.kritIntro + '</p><div class="ev-tabell"><table><thead><tr><th scope="col"></th>' + E.nivaa.map(n => '<th scope="col">' + n + "</th>").join("") + "</tr></thead><tbody>" +
         E.rader.map(r => '<tr><th scope="row">' + r[0] + "</th>" + r.slice(1).map(c => "<td>" + LV.esc(c.replace("%B%", begreper || (en ? "the key terms" : "nøkkelbegrepene"))) + "</td>").join("") + "</tr>").join("") + "</tbody></table></div></details></section>";
     }
@@ -398,6 +414,17 @@
       '<button class="knapp fare" id="slett">' + T.slett + "</button>" +
       '<span class="status" id="status" role="status" aria-live="polite"></span></div>';
     document.body.appendChild(linje);
+
+    // Forklar hvorfor-kort av/på
+    const hk = document.getElementById("hvorfor-knapp");
+    if (hk) hk.addEventListener("click", () => {
+      const pa = hk.getAttribute("aria-pressed") !== "true";
+      hk.setAttribute("aria-pressed", String(pa));
+      document.querySelectorAll(".hvorfor").forEach(x => { x.hidden = !pa; });
+      const q = new URLSearchParams(location.search); if (pa) q.set("hvorfor", "1"); else q.delete("hvorfor");
+      history.replaceState(null, "", "tema.html?" + q + location.hash);
+      if (pa) { const f = document.querySelector(".hvorfor"); if (f) f.scrollIntoView({ block: "nearest" }); }
+    });
 
     // Bytt tekstnivå. Mangler et avsnitt det valgte nivået, vises vanlig tekst.
     document.body.classList.toggle("lett-tekst", niva === "lett");

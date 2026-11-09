@@ -3741,3 +3741,61 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .ak-bx-s { border-color: var(--gul); margin-left: 1.6rem; }
 .ak-knapper { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-family: var(--font-ui); }
 @media print { body:has(.ak-kart) main > *:not(.ak-kartdel) { display: none !important; } .ak-kart { overflow: visible; } }
+
+/* ---------- Forklar hvorfor-kort ---------- */
+.hvorfor-bryter { display: flex; flex-wrap: wrap; gap: .4rem .8rem; align-items: center; font-family: var(--font-ui); margin: .4rem 0 .8rem; }
+.hvorfor-bryter [aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+.hvorfor-bryter .tekstniva-info { flex-basis: auto; flex: 1 1 18rem; }
+.hvorfor { font-family: var(--font-ui); background: var(--lilla-lys); border-left: 6px solid var(--lilla); border-radius: 0 12px 12px 0; padding: .3rem 1rem .7rem; margin: .4rem 0 1.4rem; max-width: 46rem; }
+.hvorfor p { margin: .3rem 0; }
+.hvorfor-tittel { font-weight: 800; }
+.hvorfor textarea { width: 100%; box-sizing: border-box; }
+
+/* ---------- Lesehefte (utskrift) ---------- */
+.us-lesetegn { display: none; }
+@media print {
+  .us-lesehefte .us-lesetegn { display: block; border: 1.5px solid #333; border-radius: 6px; padding: .3rem .8rem; margin: 0 0 1rem; font-family: var(--font-ui); font-size: .85rem; break-inside: avoid; }
+  .us-lesehefte .us-lesetegn span { display: inline-block; margin-right: .9rem; white-space: nowrap; }
+  .us-lesehefte #fagtekst, .us-lesehefte .lr-tekst { counter-reset: lh-avsnitt; }
+  .us-lesehefte #fagtekst p, .us-lesehefte .lr-tekst p:not(.lr-tekst-av):not(.lr-slutt) {
+    counter-increment: lh-avsnitt; position: relative; padding-right: 36%; padding-left: 1.8rem; line-height: 1.9; font-size: 11.5pt;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(1.9em - 1px), #bbb calc(1.9em - 1px), #bbb 1.9em);
+    background-size: 32% 100%; background-position: right top; background-repeat: no-repeat;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .us-lesehefte #fagtekst p::before, .us-lesehefte .lr-tekst p:not(.lr-tekst-av):not(.lr-slutt)::before { content: counter(lh-avsnitt); position: absolute; left: 0; top: 0; font-family: var(--font-ui); font-size: 8pt; font-weight: 700; color: #555; }
+  .us-lesehefte .ord { text-decoration: none !important; border: 0 !important; background: none !important; padding: 0 !important; color: inherit !important; font: inherit !important; }
+  .us-lesehefte .les-avsnitt, .us-lesehefte .hvorfor-bryter, .us-lesehefte .tekstniva { display: none !important; }
+  .us-lesehefte .avsnitt h2, .us-lesehefte .avsnitt h3 { padding-right: 36%; }
+  .us-lesehefte .hvorfor[hidden] { display: none !important; }
+}
+
+/* ---------- Exit ticket ---------- */
+.ex-oppsett { display: grid; gap: .8rem; font-family: var(--font-ui); max-width: 50rem; margin-bottom: 1rem; }
+.ex-varianter { border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1rem .7rem; margin: 0; display: grid; gap: .3rem; background: var(--flate); }
+.ex-varianter legend { font-weight: 700; padding: 0 .3rem; }
+.ex-varianter label { display: flex; gap: .4rem; align-items: center; }
+.ex-temavalg { display: grid; gap: .2rem; font-weight: 600; }
+.ex-temavalg select { font: inherit; font-weight: 400; padding: .45rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); min-width: 0; max-width: 100%; }
+.ex-storskjerm { background: var(--flate); border: 2px solid var(--tekst); border-radius: 18px; padding: 1rem 1.6rem; font-family: var(--font-ui); max-width: 60rem; }
+.ex-storskjerm:fullscreen { display: grid; align-content: center; padding: 4rem; font-size: 1.6rem; }
+.ex-ss-topp { font-weight: 700; color: var(--tekst-dempet); margin: 0; }
+.ex-ss-liste { font-size: clamp(1.2rem, 2.6vw, 2rem); font-weight: 700; line-height: 1.35; display: grid; gap: .6rem; }
+.ex-ark { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
+.ex-lapp { background: #fff; color: #111; border: 2px dashed #888; border-radius: 8px; padding: .6rem .9rem; font-family: var(--font-ui); font-size: .92rem; }
+.ex-lapp-topp { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; margin: 0 0 .4rem; }
+.ex-q { font-weight: 600; margin: .5rem 0 .1rem; }
+.ex-linje { display: block; height: 1.7em; border-bottom: 1px solid #999; }
+.ex-maal { padding-left: 1.1rem; margin: .2rem 0; }
+.ex-maal li { margin-bottom: .2rem; }
+.ex-bokser { display: block; font-size: .85rem; color: #333; white-space: pre; }
+.ex-elev { max-width: 44rem; font-family: var(--font-ui); }
+.ex-skala { border: 1px solid var(--linje); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; padding: .3rem .9rem .6rem; margin: .8rem 0; }
+.ex-skala legend { font-weight: 600; padding: 0 .3rem; }
+.ex-skala label { display: flex; gap: .3rem; align-items: center; font-size: 1.1rem; }
+@media print {
+  body.ex-skriv-lapper main > *:not(.le-del), body.ex-skriv-lapper .le-del:not(:has(.ex-ark)), body.ex-skriv-lapper .le-del > h2, body.ex-skriv-lapper .le-del > p { display: none !important; }
+  body.ex-skriv-lapper .ex-ark { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0; height: 24cm; }
+  body.ex-skriv-lapper .ex-lapp { border-radius: 0; height: 100%; box-sizing: border-box; padding: 1rem 1.2rem; }
+}
+@media print { body.ex-skriv-lapper main { padding: 0 !important; margin: 0 !important; } body.ex-skriv-lapper .fot, body.ex-skriv-lapper header.topp, body.ex-skriv-lapper .topp, body.ex-skriv-lapper .svarlinje { display: none !important; } body.ex-skriv-lapper .le-del { margin: 0 !important; padding: 0 !important; border: 0 !important; } }

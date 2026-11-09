@@ -152,6 +152,7 @@ LV.kompetansemal = {
     "side:fortelling": ["s3", "s5", "s6"],
     "side:skriftlig": ["e4", "e10", "e6", "e14", "e15"],
     "side:kilder": ["s2", "s3", "s4", "e12"],
+    "side:exit": ["e1", "e15"],
     "side:lateral": ["s2", "e12", "e13", "s17"],
     "side:historiker": ["s2", "s3", "e12"],
     "side:argumentkart": ["e14", "e6", "s16"],
