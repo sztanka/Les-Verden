@@ -3652,3 +3652,92 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .en-stolpe-navn { font-size: .8rem; color: var(--tekst-dempet); }
 .en-andre { font-family: var(--font-ui); }
 .dm-plass, .dm-kort { overflow-wrap: anywhere; hyphens: auto; }
+
+/* ---------- Lateral lesing ---------- */
+.la-teller { font-family: var(--font-ui); color: var(--tekst-dempet); font-weight: 600; }
+.la-nettleser, .la-nyfane { border: 2px solid var(--tekst); border-radius: 14px; overflow: hidden; background: var(--flate); max-width: 46rem; }
+.la-adresse { background: var(--flate-2); font-family: var(--font-ui); font-size: .9rem; padding: .4rem .8rem; border-bottom: 1px solid var(--linje); }
+.la-side { padding: .6rem 1.2rem 1rem; font-family: var(--font-tekst); }
+.la-merke { font-family: var(--font-ui); font-weight: 800; color: var(--samfunnsfag); margin: 0; }
+.la-tittel { font-size: 1.6rem; margin: .3rem 0; }
+.la-tittel:focus { outline: none; }
+.la-pynt { font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); }
+.la-steg { font-family: var(--font-ui); margin-top: 1.2rem; max-width: 46rem; }
+.la-steg h2 { font-size: 1.15rem; }
+.la-valg { display: grid; gap: .4rem; padding: .6rem; }
+.la-valg .knapp { text-align: left; justify-content: flex-start; }
+.la-valg [aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+.la-tilbake { min-height: 1em; }
+.la-treff { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.la-treffknapp { font: inherit; text-align: left; width: 100%; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .8rem; color: var(--tekst); cursor: pointer; display: grid; gap: .1rem; }
+.la-treffknapp:hover, .la-treffknapp:focus-visible { border-color: var(--tekst); }
+.la-treff-tittel { color: var(--engelsk); font-weight: 700; text-decoration: underline; }
+.la-treff-adr { font-size: .82rem; color: var(--samfunnsfag); }
+.la-treff-tekst { background: var(--bakgrunn); border-left: 4px solid var(--engelsk); padding: .4rem .8rem; margin: .3rem 0 0; border-radius: 0 8px 8px 0; }
+.la-konk { border: 0; padding: 0; margin: 0 0 .5rem; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
+.la-konk label { display: flex; gap: .4rem; align-items: center; }
+
+/* ---------- Les som en historiker ---------- */
+.hi-stegliste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: .5rem; font-family: var(--font-ui); }
+.hi-stegliste li { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .7rem; display: grid; gap: .15rem; font-size: .9rem; }
+.hi-stegliste li > span:first-child { font-size: 1.4rem; }
+.hi-hoved { font-family: var(--font-ui); font-size: 1.1rem; background: var(--lilla-lys); border-radius: 10px; padding: .5rem .9rem; max-width: 50rem; }
+.hi-kilder { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: .8rem; }
+.hi-kilde { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1rem .8rem; }
+.hi-kilde h3 { font-family: var(--font-ui); font-size: 1rem; display: flex; gap: .5rem; align-items: center; }
+.hi-opphav { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .1rem .6rem; font-family: var(--font-ui); font-size: .88rem; margin: 0 0 .5rem; }
+.hi-opphav dt { font-weight: 700; }
+.hi-opphav dd { margin: 0; }
+.hi-tekst { font-family: var(--font-tekst); margin: 0; border-left: 4px solid var(--linje); padding-left: .8rem; line-height: 1.6; }
+.hi-steg { list-style: none; padding: 0; display: grid; gap: 1rem; margin-top: 1.4rem; max-width: 52rem; }
+.hi-trinn { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .2rem 1.1rem .8rem; font-family: var(--font-ui); }
+.hi-trinn h2 { font-size: 1.2rem; }
+.hi-trinn h2:focus { outline: none; }
+.hi-kontekst { font-family: var(--font-tekst); background: var(--gul-lys); border-radius: 10px; padding: .1rem 1rem; }
+.hi-sjekk { padding-left: 1.3rem; display: grid; gap: .6rem; }
+.hi-sjekk fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .25rem; }
+.hi-sjekk legend { font-weight: 700; margin-bottom: .2rem; }
+.hi-sjekk label { display: flex; gap: .4rem; align-items: flex-start; }
+.hi-sjekk input { margin-top: .25rem; }
+.hi-svar { margin: .2rem 0 0; }
+.hi-svar.ok { border-left: 4px solid var(--samfunnsfag); padding-left: .6rem; }
+.hi-svar.feil { border-left: 4px solid var(--aksent); padding-left: .6rem; }
+.hi-ordtittel { font-weight: 700; margin-bottom: .2rem; }
+.hi-ord li { font-family: var(--font-tekst); }
+
+/* ---------- Argumentkart ---------- */
+.ak-start { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: flex-end; font-family: var(--font-ui); margin-bottom: 1rem; max-width: 60rem; }
+.ak-start > label { display: grid; gap: .2rem; font-weight: 600; flex: 1 1 22rem; }
+.ak-start select { font: inherit; padding: .45rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--flate); color: var(--tekst); min-width: 0; max-width: 100%; }
+.ak-arbeid { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 1rem; align-items: start; }
+.ak-arbeid:has(.ak-ideer[hidden]) { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 860px) { .ak-arbeid { grid-template-columns: 1fr; } }
+.ak-skjema { display: grid; gap: .8rem; max-width: 52rem; }
+.ak-p textarea { font-size: 1.1rem; font-weight: 600; }
+.ak-grunn { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .4rem .9rem .8rem; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .8rem; min-width: 0; }
+.ak-grunn legend { font-family: var(--font-ui); font-weight: 700; padding: 0 .3rem; }
+@media (max-width: 640px) { .ak-grunn { grid-template-columns: 1fr; } }
+.ak-fjern { justify-self: start; }
+.ak-f-g span::before { content: "💡 "; } .ak-f-b span::before { content: "📊 "; } .ak-f-i span::before { content: "⚡ "; } .ak-f-s span::before { content: "🛡️ "; }
+.ak-ideer { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .3rem .9rem .8rem; font-family: var(--font-ui); position: sticky; top: 1rem; max-height: 80vh; overflow: auto; }
+.ak-ideer h2 { font-size: 1rem; }
+.ak-ideer h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tekst-dempet); margin: .6rem 0 .2rem; }
+.ak-ide { font: inherit; font-size: .88rem; text-align: left; width: 100%; padding: .35rem .5rem; margin-bottom: .3rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); cursor: pointer; }
+.ak-ide-for { border-left: 4px solid var(--samfunnsfag); }
+.ak-ide-mot { border-left: 4px solid var(--aksent); }
+.ak-kartdel { margin: 1.4rem 0; }
+.ak-kart { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem; font-family: var(--font-ui); overflow-x: auto; }
+.ak-topp { display: flex; justify-content: center; margin-bottom: 1.2rem; position: relative; }
+.ak-topp::after { content: ""; position: absolute; bottom: -1.2rem; left: 50%; height: 1.2rem; border-left: 3px solid var(--linje); }
+.ak-kolonner { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem; border-top: 3px solid var(--linje); padding-top: .9rem; }
+.ak-kol { display: grid; gap: .5rem; align-content: start; }
+.ak-boks { border: 2px solid; border-radius: 10px; padding: .4rem .6rem; font-size: .92rem; overflow-wrap: anywhere; background: var(--bakgrunn); }
+.ak-boks.tom em { color: var(--tekst-dempet); }
+.ak-etikett { display: block; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.ak-bx-p { max-width: 34rem; width: 100%; border-color: var(--lilla); background: var(--lilla-lys); font-size: 1.05rem; font-weight: 600; text-align: center; }
+.ak-bx-g { border-color: var(--engelsk); font-weight: 600; }
+.ak-bx-b { border-color: var(--samfunnsfag); border-style: dashed; margin-left: .8rem; }
+.ak-bx-i { border-color: var(--aksent); margin-left: .8rem; }
+.ak-bx-s { border-color: var(--gul); margin-left: 1.6rem; }
+.ak-knapper { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-family: var(--font-ui); }
+@media print { body:has(.ak-kart) main > *:not(.ak-kartdel) { display: none !important; } .ak-kart { overflow: visible; } }
