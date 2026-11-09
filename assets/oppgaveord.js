@@ -68,7 +68,7 @@
       '<label class="ov-pensel-valg ov-k-x"><input type="radio" name="ov-pensel" value=""> ' + T.fjern + "</label></div>" +
       '<ol class="ov-plukkliste">' + D.oppgaver[sp].map((o, i) => '<li class="ov-plukk" data-nr="' + i + '"><p class="ov-oppgtekst">' + o.map((d, j) => typeof d === "string" ? esc(d) : '<button type="button" class="ov-del" data-j="' + j + '" data-k="">' + esc(d[0]) + '<span class="skjult-visuelt"> (' + T.umerket + ")</span></button>").join("") + '</p><p class="ov-plukk-rad"><button type="button" class="knapp liten ov-sjekk">' + T.sjekk + '</button> <span class="ov-resultat" role="status" aria-live="polite"></span></p>' +
         '<label class="mu-notat" for="' + pre + "plukk" + i + '"><span>' + T.egneOrd + '</span><textarea id="' + pre + "plukk" + i + '" rows="2"></textarea></label></li>').join("") + "</ol></section>" +
-      '<p class="fo-merk">' + T.merk + "</p></div>";
+      '<p class="fo-merk">' + T.merk + ' <a href="ordverksted.html' + (sp === "en" ? "?sp=en" : "") + '">' + (sp === "en" ? "See also the Word Workshop →" : "Se også Ordverkstedet →") + "</a></p></div>";
 
     $("innhold").innerHTML = h;
 

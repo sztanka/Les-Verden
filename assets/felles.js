@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261109i";
+  LV.versjon = "20261109j";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -159,6 +159,7 @@ window.LV = window.LV || {};
         ["index.html?fag=samfunnsfag&trinn=10#temaer", "🔟", "10. trinn", "Krig, fred og verden i dag"],
         ["tidslinje.html?fag=samfunnsfag", "📅", "Tidslinje", "Alle hendelsene i rekkefølge"],
         ["samtidig.html", "🕰️", "Samtidig i verden", "Hva skjedde samme år?"],
+        ["endring.html", "⏳", "Kontinuitet og endring", "1814, 1914 og i dag"],
         ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
         ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"],
         ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
@@ -183,6 +184,7 @@ window.LV = window.LV || {};
         ["leseflyt.html", "⏱️", "Leseflyt", "Gjentatt lesing med tidtaking"],
         ["lesegruppe.html", "👥", "Lesegrupper", "Fire roller – les sammen"],
         ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
+        ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"],
         ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
         ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
         ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],

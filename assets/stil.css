@@ -3585,3 +3585,70 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .lgf-testsvar { font-weight: 700; min-height: 1.2em; margin: .3rem 0 0; }
 .lgf-testsvar.ok { color: var(--samfunnsfag); }
 .lgf-testsvar.feil { color: var(--aksent); }
+
+/* ---------- Ordverksted ---------- */
+.ow-gruppe h2 { margin-top: 1.4rem; }
+.ow-deler { list-style: none; padding: 0; display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); font-family: var(--font-ui); }
+.ow-del { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--samfunnsfag); border-radius: 10px; padding: .5rem .8rem; display: grid; gap: .15rem; }
+.ow-etter { border-left-color: var(--engelsk); }
+.ow-stamme { border-left-color: var(--lilla); }
+.ow-bit { font-size: 1.25rem; font-weight: 800; font-family: var(--font-tekst); }
+.ow-bet { font-size: .92rem; }
+.ow-eks { font-size: .85rem; color: var(--tekst-dempet); font-style: italic; }
+.ow-ordet { font-family: var(--font-tekst); font-size: 1.8rem; font-weight: 700; margin: .3rem 0 .6rem; overflow-wrap: anywhere; }
+.ow-betydning { font-size: 1.3rem; }
+.ow-valg { font-family: var(--font-tekst); font-size: 1.1rem; }
+.ow-skille { color: var(--aksent); font-weight: 800; padding: 0 .15rem; }
+.ow-valg.ok { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
+.ow-valg.feil { background: var(--aksent-lys); border-color: var(--aksent); color: var(--tekst); }
+.ow-byggrad { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-end; }
+.ow-byggrad label { display: grid; gap: .2rem; font-weight: 600; font-size: .9rem; }
+.ow-byggrad select { font: inherit; font-size: 1.05rem; padding: .4rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); min-width: 8rem; }
+.ow-pluss { font-size: 1.4rem; font-weight: 700; padding-bottom: .4rem; }
+
+/* ---------- Diamantrangering ---------- */
+.dm-kriterier { font-family: var(--font-ui); background: var(--gul-lys); border-radius: 12px; padding: .2rem 1rem .4rem; max-width: 52rem; }
+.dm-kriterier h2 { font-size: 1rem; }
+.dm-arbeid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; margin: 1rem 0; }
+@media (max-width: 860px) { .dm-arbeid { grid-template-columns: 1fr; } }
+.dm-diamant { display: grid; gap: .45rem; font-family: var(--font-ui); }
+.dm-rad { display: flex; justify-content: center; gap: .45rem; }
+.dm-topp, .dm-bunn { text-align: center; font-weight: 700; margin: 0; color: var(--tekst-dempet); }
+.dm-plass { font: inherit; font-size: .9rem; width: 9.5rem; min-height: 4.2rem; padding: .3rem .4rem; border: 2px dashed var(--linje); border-radius: 12px; background: var(--flate); color: var(--tekst); cursor: pointer; transform: rotate(0); }
+.dm-plass.fylt { border-style: solid; border-color: var(--lilla); background: var(--lilla-lys); font-weight: 600; }
+.dm-plass.valgt, .dm-plass[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--tekst); }
+.dm-rad:first-of-type .dm-plass.fylt { background: var(--gul-lys); border-color: var(--gul); }
+@media (max-width: 520px) { .dm-plass { width: 31%; font-size: .78rem; min-height: 3.8rem; } }
+.dm-bunke { font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .3rem 1rem .8rem; }
+.dm-bunke h2 { font-size: 1.1rem; }
+.dm-kortliste { display: grid; gap: .4rem; }
+.dm-kort { font: inherit; text-align: left; padding: .5rem .7rem; border: 2px solid var(--linje); border-radius: 10px; background: var(--bakgrunn); color: var(--tekst); cursor: pointer; }
+.dm-kort[aria-pressed="true"] { border-color: var(--tekst); box-shadow: 0 0 0 2px var(--tekst); }
+.dm-tilbake { margin-bottom: .5rem; }
+.dm-tom { font-weight: 700; color: var(--samfunnsfag); }
+@media print { .dm-bunke p, .dm-tilbake { display: none !important; } .dm-plass { border: 1px solid #555 !important; } }
+
+/* ---------- Kontinuitet og endring ---------- */
+.en-tabell { display: grid; gap: 1rem; }
+.en-blokk { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .3rem 1rem .8rem; }
+.en-aspekt { font-size: 1.15rem; margin: .4rem 0 .6rem; }
+.en-celler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 760px) { .en-celler { grid-template-columns: 1fr; } }
+.en-celle { margin: 0; border-radius: 10px; padding: .5rem .7rem; font-family: var(--font-tekst); line-height: 1.55; background: var(--bakgrunn); border-top: 5px solid var(--gul); }
+.en-t1 { border-top-color: var(--aksent); }
+.en-t2 { border-top-color: var(--samfunnsfag); }
+.en-tid { display: block; font-family: var(--font-ui); font-size: .85rem; margin-bottom: .2rem; }
+.en-vurder { font-family: var(--font-ui); border: 1px dashed var(--linje); border-radius: 10px; margin: .7rem 0 0; padding: .3rem .8rem .5rem; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
+.en-vurder legend { font-weight: 600; font-size: .92rem; padding: 0 .3rem; }
+.en-vurder label { display: flex; gap: .35rem; align-items: center; }
+.en-oversikt { font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .3rem 1rem .8rem; margin: 1.2rem 0; max-width: 40rem; }
+.en-oversikt h2 { font-size: 1.1rem; }
+.en-stolper { display: flex; gap: 1rem; align-items: flex-end; height: 9rem; }
+.en-stolpe { flex: 1; display: grid; grid-template-rows: 1fr auto auto; height: 100%; text-align: center; }
+.en-stolpe-fyll { align-self: end; display: block; border-radius: 6px 6px 0 0; background: var(--samfunnsfag); min-height: 2px; }
+.en-litt .en-stolpe-fyll { background: var(--gul); }
+.en-lite .en-stolpe-fyll { background: var(--engelsk); }
+.en-stolpe-tall { font-weight: 800; }
+.en-stolpe-navn { font-size: .8rem; color: var(--tekst-dempet); }
+.en-andre { font-family: var(--font-ui); }
+.dm-plass, .dm-kort { overflow-wrap: anywhere; hyphens: auto; }
