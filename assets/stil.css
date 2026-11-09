@@ -3250,3 +3250,103 @@ html[data-fokus] main p, html[data-fokus] main li { line-height: 1.85; }
 .sa-temaer a { font-size: .78rem; padding: .05rem .5rem; border-radius: 99px; background: var(--flate-2); color: var(--tekst); text-decoration: none; border: 1px solid var(--linje); }
 .sa-temaer a:hover, .sa-temaer a:focus-visible { text-decoration: underline; }
 .sa-tom { color: var(--tekst-dempet); font-size: .9rem; }
+
+/* ---------- Perspektivbytte ---------- */
+.pe-bakgrunn { font-family: var(--font-tekst); font-size: calc(1.1rem * var(--skala)); line-height: 1.7; max-width: 46rem; }
+.pe-roller { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .8rem; }
+.pe-rolle { background: var(--flate); border: 2px solid var(--linje); border-radius: var(--radius); padding: .6rem 1rem 1rem; display: flex; flex-direction: column; font-family: var(--font-ui); }
+.pe-rolle.valgt { border-color: var(--lilla); box-shadow: 0 0 0 2px var(--lilla); }
+.pe-rolle-ikon { font-size: 2.2rem; margin: 0; }
+.pe-rolle h3 { margin: .1rem 0; }
+.pe-hvem { color: var(--tekst-dempet); margin: 0 0 .4rem; font-size: .92rem; }
+.pe-rolle ul { padding-left: 1.1rem; margin: .2rem 0 .6rem; font-size: .92rem; }
+.pe-merke { font-weight: 700; margin: .2rem 0 0; font-size: .9rem; }
+.pe-tenk { background: var(--gul-lys); border-radius: 8px; padding: .4rem .6rem; font-size: .92rem; }
+.pe-velg { margin-top: auto; display: flex; gap: .5rem; align-items: center; font-weight: 700; padding: .45rem .6rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); cursor: pointer; }
+.pe-valgt { font-family: var(--font-ui); }
+.pe-startere { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; font-family: var(--font-ui); margin: .4rem 0; }
+.pe-startere > span { font-size: .88rem; color: var(--tekst-dempet); width: 100%; }
+.pe-bytt { font-family: var(--font-ui); border: 1px solid var(--linje); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; padding: .4rem .9rem .6rem; }
+.pe-bytt legend { font-weight: 700; padding: 0 .3rem; }
+.pe-bytt label { display: flex; gap: .4rem; align-items: center; }
+.pe-bytt input:disabled + * , .pe-bytt label:has(input:disabled) { opacity: .6; }
+
+/* ---------- Historisk intervju ---------- */
+.iv-levde { font-weight: 400; color: var(--tekst-dempet); font-size: .6em; }
+.iv-sted { font-family: var(--font-ui); }
+.iv-chat { display: grid; gap: .6rem; max-width: 44rem; margin: 1rem 0; font-family: var(--font-ui); }
+.iv-boble { border-radius: 16px; padding: .5rem .9rem; max-width: 90%; }
+.iv-boble p { margin: .2rem 0; }
+.iv-elev { justify-self: end; background: var(--lilla-lys); border-bottom-right-radius: 4px; }
+.iv-person { justify-self: start; background: var(--flate); border: 1px solid var(--linje); border-bottom-left-radius: 4px; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .6rem; }
+.iv-person > div > p:first-of-type { font-family: var(--font-tekst); font-size: 1.05rem; line-height: 1.6; }
+.iv-avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; background: var(--samfunnsfag); color: var(--bakgrunn); font-weight: 700; font-size: .85rem; }
+.iv-hvem { font-weight: 700; font-size: .85rem; }
+.iv-merk { font-size: .82rem; color: var(--tekst-dempet); }
+.iv-type { display: inline-block; padding: .05rem .5rem; border-radius: 99px; font-weight: 700; color: var(--tekst); margin-right: .2rem; }
+.iv-f { background: var(--samfunnsfag-lys); }
+.iv-t { background: var(--gul-lys); }
+.iv-sporsmal { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1rem .9rem; max-width: 44rem; font-family: var(--font-ui); }
+.iv-sporsmal h2 { font-size: 1.1rem; }
+.iv-knapper { display: flex; flex-wrap: wrap; gap: .4rem; }
+.iv-ferdig { font-weight: 600; }
+.iv-etter { background: var(--samfunnsfag-lys); border-radius: var(--radius); padding: .3rem 1rem .6rem; max-width: 44rem; margin-top: 1rem; font-family: var(--font-ui); }
+.iv-etter h2 { font-size: 1.1rem; }
+
+/* ---------- FN-rollespill ---------- */
+.fn-flagg { display: inline-block; width: 2.1rem; height: 1.4rem; border-radius: 3px; border: 1px solid var(--linje); vertical-align: middle; flex: none; }
+.fn-landliste { list-style: none; padding: 0; display: grid; gap: .5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); font-family: var(--font-ui); }
+.fn-landliste li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .1rem .7rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .8rem; }
+.fn-landliste li span:last-child { grid-column: 2; font-size: .88rem; color: var(--tekst-dempet); }
+.fn-gang { padding-left: 1.4rem; max-width: 46rem; font-family: var(--font-ui); }
+.fn-gang li { margin-bottom: .5rem; }
+.fn-gang p { margin: .1rem 0 0; }
+.fn-tid { font-size: .82rem; color: var(--tekst-dempet); }
+.fn-resolusjon { background: var(--flate); border: 2px solid var(--engelsk); border-radius: var(--radius); padding: .4rem 1.2rem .8rem; max-width: 46rem; font-family: var(--font-tekst); }
+.fn-resolusjon h2 { font-family: var(--font-ui); }
+.fn-res-intro { font-style: italic; }
+.fn-resolusjon li { margin-bottom: .4rem; }
+.fn-kortliste { list-style: none; padding: 0; display: grid; gap: .5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.fn-landkort { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .1rem .6rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .6rem .8rem; color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.fn-landkort span:last-child { grid-column: 2; font-size: .85rem; color: var(--tekst-dempet); text-decoration: underline; }
+.fn-landkort:hover, .fn-landkort:focus-visible { border-color: var(--tekst); }
+.fn-avstemning { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1.1rem 1rem; margin: 1.4rem 0; font-family: var(--font-ui); }
+.fn-punkt { border-top: 1px solid var(--linje); padding: .6rem 0; }
+.fn-punkt-tekst { margin: 0 0 .4rem; }
+.fn-tellere { display: flex; flex-wrap: wrap; gap: .5rem; }
+.fn-teller { display: flex; align-items: center; gap: .3rem; border: 1px solid var(--linje); border-radius: 10px; padding: .2rem .4rem; }
+.fn-teller > span { font-weight: 700; min-width: 3.6rem; }
+.fn-teller output { min-width: 1.8rem; text-align: center; font-size: 1.2rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fn-for { background: var(--samfunnsfag-lys); }
+.fn-mot { background: var(--aksent-lys); }
+.fn-utfall { font-weight: 700; margin: .4rem 0 0; }
+.fn-utfall.ok { color: var(--samfunnsfag); }
+.fn-utfall.nei { color: var(--aksent); }
+.fn-fraser { overflow-x: auto; max-width: 52rem; }
+.fn-fraser table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: .92rem; }
+.fn-fraser th, .fn-fraser td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--linje); vertical-align: top; }
+.fn-rolle { background: var(--flate); border: 1px solid var(--linje); border-top: 8px solid var(--fn1); border-radius: var(--radius); padding: .6rem 1.2rem 1rem; max-width: 46rem; font-family: var(--font-ui); }
+.fn-rolle-topp { display: flex; align-items: center; gap: .6rem; color: var(--tekst-dempet); font-size: .88rem; margin: .2rem 0; }
+.fn-rolle-navn { margin: .2rem 0 .4rem; }
+.fn-fakta { padding-left: 1.2rem; margin: .2rem 0 .6rem; }
+.fn-mal { background: var(--lilla-lys); border-radius: 8px; padding: .5rem .8rem; }
+.fn-st { padding-left: 1.4rem; display: grid; gap: .5rem; }
+.fn-st li { display: grid; gap: .1rem; }
+.fn-st-merke { font-weight: 700; font-size: .85rem; padding: .05rem .5rem; border-radius: 99px; justify-self: start; }
+.fn-st-for { background: var(--samfunnsfag-lys); }
+.fn-st-mot { background: var(--aksent-lys); }
+.fn-st-endre { background: var(--gul-lys); }
+.fn-st-punkt { font-size: .92rem; color: var(--tekst-dempet); }
+.fn-st-hvorfor { font-weight: 600; }
+.fn-rod { border-left: 5px solid var(--aksent); padding-left: .7rem; }
+.fn-tips { border-left: 5px solid var(--gul); padding-left: .7rem; }
+.fn-seddel { font-family: var(--font-ui); border: 1px solid var(--linje); border-radius: 10px; margin: 0 0 .5rem; padding: .3rem .9rem .5rem; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
+.fn-seddel legend { padding: 0 .3rem; font-weight: 600; }
+.fn-seddel label { display: flex; gap: .4rem; align-items: center; }
+.fn-utskrift { display: none; }
+@media print {
+  body.fn-skriv-alle main > *:not(.fn-utskrift) { display: none !important; }
+  body.fn-skriv-alle .fn-utskrift { display: block !important; }
+  body.fn-skriv-alle .fn-rolle { break-after: page; border: 1px solid #999; border-top: 8px solid var(--fn1); max-width: none; }
+  .fn-flagg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

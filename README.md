@@ -48,6 +48,9 @@ les-verden/
 ├── fortelling.html         Velg din vei: historiske fortellinger med valg (data i data/fortellinger.js)
 ├── tidsreise.html          Tidsreisen: gjett året (data i data/tidsreise.js, lages av verktoy/lag-sok.mjs)
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
+├── perspektiv.html         Perspektivbytte: én hendelse, fire rollekort (data i data/perspektiv.js)
+├── intervju.html           Historisk intervju, gjenskapt og merket fakta/tolkning (data i data/intervju.js)
+├── fn.html                 FN-rollespill (Model UN) med oppdiktede land (data i data/fn.js)
 ├── tekstpar.html           Tekstpar: to tekster side om side (data i data/tekstpar.js, tekstene hentes fra andre filer)
 ├── samtidig.html           Samtidig i verden: hendelser samme år i tre kolonner (fra temaenes tidslinjer)
 ├── lag.html                Lag selv: elevskapt quiz, tidslinje og ordkort – innholdet ligger i lenken (#)
@@ -442,7 +445,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261109e`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261109f`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
