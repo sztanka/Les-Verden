@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261110d";
+  LV.versjon = "20261110e";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -138,79 +138,146 @@ window.LV = window.LV || {};
     const k = LV.config || { navn: "Les verden" };
     const side = document.body.dataset.side || "";
     const fag = LV.param("fag");
-    const engelskSider = ["lesing", "sport", "grammatikk", "land", "uttale", "laere"];
-    const verktoySider = ["tidslinje", "begreper", "personer", "ordbok", "lesestrategier", "muntlig", "lesedagbok", "skriving", "sok"];
+    const fil = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "") || "index";
+    // Hvilken meny «eier» siden? Den første menyen som har en lenke til siden.
+    let eier = null;
     const aktiv = function (navn) {
-      if (navn === "samfunnsfag" || navn === "engelsk") return (side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn) || (navn === "engelsk" && engelskSider.includes(side));
-      if (navn === "verktoy") return verktoySider.includes(side);
-      if (navn === "spill") return side === "spill" || side === "kartspill" || side === "mysterium";
-      if (navn === "laerer") return side === "laerer" || (side === "planlegger" && LV.param("elev") !== "1");
+      if (navn === "samfunnsfag" || navn === "engelsk") { if ((side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn)) return true; }
+      if (navn === "laerer" && side === "planlegger" && LV.param("elev") === "1") return false;
+      if (eier === null) {
+        eier = "";
+        if (fil !== "index" && fil !== "tema") for (const m of ["samfunnsfag", "engelsk", "verktoy", "spill", "laerer"]) {
+          if (MENYER[m].grupper.some(g => g[1].some(l => l[0].split(/[?#]/)[0].replace(/\.html$/, "") === fil))) { eier = m; break; }
+        }
+      }
+      if (MENYER[navn]) return eier === navn;
       return side === navn;
     };
     const lenke = function (href, tekst, navn) {
       return '<a href="' + href + '"' + (aktiv(navn) ? ' aria-current="page"' : "") + ">" + tekst + "</a>";
     };
-    // Menyer med undersider. [lenke, ikon, tittel, kort tekst, språk]
+    // Menyer med undersider, delt i grupper. Lenke: [adresse, ikon, tittel, kort tekst, språk]
     const MENYER = {
-      samfunnsfag: { navn: "Samfunnsfag", lenker: [
-        ["index.html?fag=samfunnsfag#temaer", "📚", "Alle temaer", "Historie, geografi og samfunnskunnskap"],
-        ["index.html?fag=samfunnsfag&trinn=8#temaer", "8️⃣", "8. trinn", "Revolusjoner, 1814 og Norge i dag"],
-        ["index.html?fag=samfunnsfag&trinn=9#temaer", "9️⃣", "9. trinn", "Verden i endring 1800–1918"],
-        ["index.html?fag=samfunnsfag&trinn=10#temaer", "🔟", "10. trinn", "Krig, fred og verden i dag"],
-        ["tidslinje.html?fag=samfunnsfag", "📅", "Tidslinje", "Alle hendelsene i rekkefølge"],
-        ["samtidig.html", "🕰️", "Samtidig i verden", "Hva skjedde samme år?"],
-        ["endring.html", "⏳", "Kontinuitet og endring", "1814, 1914 og i dag"],
-        ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
-        ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"],
-        ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
-        ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter fra historien"],
-        ["skriving.html#nb", "✍️", "Skriveguider", "Fagtekst, drøfting, presentasjon"]
+      samfunnsfag: { navn: "Samfunnsfag", grupper: [
+        ["Temaer", [
+          ["index.html?fag=samfunnsfag#temaer", "📚", "Alle temaer", "Historie, geografi og samfunnskunnskap"],
+          ["index.html?fag=samfunnsfag&trinn=8#temaer", "8️⃣", "8. trinn", "Revolusjoner, 1814 og Norge i dag"],
+          ["index.html?fag=samfunnsfag&trinn=9#temaer", "9️⃣", "9. trinn", "Verden i endring 1800–1918"],
+          ["index.html?fag=samfunnsfag&trinn=10#temaer", "🔟", "10. trinn", "Krig, fred og verden i dag"]]],
+        ["Utforsk", [
+          ["tidslinje.html?fag=samfunnsfag", "📅", "Tidslinje", "Alle hendelsene i rekkefølge"],
+          ["samtidig.html", "🕰️", "Samtidig i verden", "Hva skjedde samme år?"],
+          ["endring.html", "⏳", "Kontinuitet og endring", "1814, 1914 og i dag"],
+          ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
+          ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"]]],
+        ["Kilder og metode", [
+          ["kilder.html", "📜", "Kildeanalyse", "Ekte historiske kilder"],
+          ["historiker.html", "🧐", "Les som en historiker", "Kilder som forteller ulikt"],
+          ["lateral.html", "↔️", "Lateral lesing", "Sjekk nettsider som en faktasjekker"],
+          ["grafleser.html", "📈", "Grafleseren", "Les og lag diagrammer"],
+          ["undersokelse.html", "🔬", "Undersøkelsesverkstedet", "Lag din egen undersøkelse"],
+          ["digitalespor.html", "👣", "Digitale spor", "Personvern og opphavsrett"]]],
+        ["Diskuter og drøft", [
+          ["debatt.html", "⚖️", "Debattduell", "Argumenter for og mot"],
+          ["argumentkart.html", "🗺️", "Argumentkart", "Bygg argumentasjonen"],
+          ["perspektiv.html", "🔄", "Perspektivbytte", "Én hendelse, fire mennesker"],
+          ["intervju.html", "🎙️", "Historisk intervju", "Spør Nansen, Gina Krog og flere"],
+          ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst?"]]]
       ] },
-      engelsk: { navn: "Engelsk", lenker: [
-        ["index.html?fag=engelsk#temaer", "📚", "Alle temaer", "Topics for 8th–10th grade", "en"],
-        ["lesing.html", "📖", "Reading Room", "Stories, speeches and non-fiction", "en"],
-        ["grammatikk.html", "🧩", "Grammar and vocabulary", "Parts of speech and more", "en"],
-        ["uttale.html", "👄", "Pronunciation", "Sounds, stress and accents", "en"],
-        ["laere-engelsk.html", "🧭", "How to learn English", "Learning strategies", "en"],
-        ["skriving.html", "✍️", "How to write", "Essays, short stories, presentations", "en"],
-        ["land.html", "🌍", "Landsider", "The English-speaking world"],
-        ["sport.html", "🏆", "Sport", "Sports in the English-speaking world", "en"],
-        ["film.html?fag=engelsk", "🎬", "Film", "Films and series with tasks"],
-        ["mysterium.html#cold-case", "🔎", "Cold Case Mysteries", "Logic puzzles in English", "en"],
-        ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"]
+      engelsk: { navn: "Engelsk", grupper: [
+        ["Topics", [
+          ["index.html?fag=engelsk#temaer", "📚", "All topics", "8th–10th grade", "en"],
+          ["index.html?fag=engelsk&trinn=8#temaer", "8️⃣", "8th grade", "Britain, identity, Wonder", "en"],
+          ["index.html?fag=engelsk&trinn=9#temaer", "9️⃣", "9th grade", "The Empire, Australia, India …", "en"],
+          ["index.html?fag=engelsk&trinn=10#temaer", "🔟", "10th grade", "Identity, power, the USA", "en"]], "en"],
+        ["Read and watch", [
+          ["lesing.html", "📖", "Reading Room", "Stories, poems and speeches", "en"],
+          ["land.html", "🌍", "Landsider", "The English-speaking world"],
+          ["sport.html", "🏆", "Sport", "Sports in the English-speaking world", "en"],
+          ["film.html?fag=engelsk", "🎬", "Film", "Films and series with tasks"]], "en"],
+        ["Language", [
+          ["grammatikk.html", "🧩", "Grammar and vocabulary", "Explanations and exercises", "en"],
+          ["uttale.html", "👄", "Pronunciation", "Sounds, stress and accents", "en"],
+          ["laere-engelsk.html", "🧭", "How to learn English", "Learning strategies", "en"],
+          ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"]], "en"],
+        ["Write and speak", [
+          ["skriving.html", "✍️", "How to write", "Essays, stories, presentations", "en"],
+          ["skrivom.html", "🔁", "Rewrite and improve", "Use feedback to improve", "en"],
+          ["skriftlig.html", "📝", "Skriftlig eksamen", "Videreformidling og samhandling"],
+          ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"]], "en"]
       ] },
-      verktoy: { navn: "Lese og skrive", lenker: [
-        ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
-        ["leseflyt.html", "⏱️", "Leseflyt", "Gjentatt lesing med tidtaking"],
-        ["lesegruppe.html", "👥", "Lesegrupper", "Fire roller – les sammen"],
-        ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
-        ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"],
-        ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
-        ["historiker.html", "🧐", "Les som en historiker", "Kilder som forteller ulikt"],
-        ["lateral.html", "↔️", "Lateral lesing", "Sjekk nettsider som en faktasjekker"],
-        ["digitalespor.html", "👣", "Digitale spor", "Personvern, sletting og opphavsrett"],
-        ["grafleser.html", "📈", "Grafleseren", "Les og lag diagrammer"],
-        ["undersokelse.html", "🔬", "Undersøkelsesverkstedet", "Lag din egen undersøkelse"],
-        ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
-        ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
-        ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
-        ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
-        ["uttale.html", "👄", "Pronunciation", "Uttale for nordmenn", "en"],
-        ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
-        ["kamerat.html", "🤝", "Kameratvurdering", "To stjerner og et ønske"],
-        ["opptak.html", "🎙️", "Ta opp deg selv", "Høytlesing, presentasjon og uttale"],
-        ["skrivom.html", "🔁", "Rewrite and improve", "Bearbeid teksten etter tilbakemelding", "en"],
-        ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
-        ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],
-        ["morsmal.html", "🌐", "Begreper på morsmål", "Arabisk, ukrainsk, tyrkisk, polsk"],
-        ["tidslinje.html", "📅", "Tidslinje", "Alle hendelsene"],
-        ["personer.html", "👤", "Personer", "Alle personene"],
-        ["sok.html", "🔍", "Søk", "Søk i hele nettstedet"]
+      verktoy: { navn: "Lese og skrive", grupper: [
+        ["Lese", [
+          ["lesestrategier.html", "🧠", "Lesestrategier", "Slik leser du smartere"],
+          ["leseflyt.html", "⏱️", "Leseflyt", "Gjentatt lesing med tidtaking"],
+          ["lesegruppe.html", "👥", "Lesegrupper", "Fire roller – les sammen"],
+          ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
+          ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
+          ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"]]],
+        ["Leselyst", [
+          ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
+          ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
+          ["bingo.html", "🎲", "Lesebingo", "5 × 5 leseoppgaver"],
+          ["svartut.html", "⬛", "Svarte-ut-dikt", "Lag et dikt av en tekst"]]],
+        ["Skrive", [
+          ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
+          ["skrivemal.html", "📮", "Skrivemaler", "Postkort, avisforside, plakat"],
+          ["kamerat.html", "🤝", "Kameratvurdering", "To stjerner og et ønske"],
+          ["skrivom.html", "🔁", "Rewrite and improve", "Bearbeid etter tilbakemelding", "en"]]],
+        ["Lytte og snakke", [
+          ["muntlig.html", "🗣️", "Muntlig og lytting", "Samtalekort og lytteøvelser"],
+          ["lytt.html", "🎧", "Lytteøkt", "Lytt del for del"],
+          ["opptak.html", "🎙️", "Ta opp deg selv", "Høytlesing og presentasjon"]]],
+        ["Ord og begreper", [
+          ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
+          ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],
+          ["morsmal.html", "🌐", "Begreper på morsmål", "Arabisk, ukrainsk, tyrkisk, polsk"]]]
+      ] },
+      spill: { navn: "Spill", alle: ["spill.html", "Se alle spillene →"], grupper: [
+        ["Øv på et tema", [
+          ["spill.html#tema", "🃏", "Ordspill", "Memory, Ordle, kryssord og mer"],
+          ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter i starten av timen"],
+          ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep"],
+          ["lag.html", "🛠️", "Lag selv", "Egen quiz, tidslinje eller ordkort"]]],
+        ["Rollespill og simuleringer", [
+          ["rettssak.html", "⚖️", "Rettssaken", "Spill en straffesak"],
+          ["valg.html", "🗳️", "Valgsimulatoren", "Fra stemmer til regjering"],
+          ["lov.html", "📜", "Lag en lov", "Fra høring til votering"],
+          ["kommune.html", "🏛️", "Ordfører for en dag", "Kommunebudsjettet"],
+          ["fn.html", "🇺🇳", "FN-rollespill", "Forhandle om en resolusjon"],
+          ["okonomi.html", "💰", "Første lønn", "Budsjett og lån"]]],
+        ["Historie", [
+          ["fortelling.html", "🧭", "Velg din vei", "Historiske fortellinger med valg"],
+          ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året"],
+          ["arsak.html", "🔗", "Årsak og virkning", "Sett kjeden i rekkefølge"],
+          ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter"],
+          ["escape.html", "🔐", "Escape room", "Svarene står i teksten"]]],
+        ["Kart, kilder og medier", [
+          ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
+          ["spill.html?spill=worldle", "🌍", "Worldle", "Gjett landet"],
+          ["kildedetektiv.html", "🔎", "Kildedetektiven", "Sant eller falskt?"],
+          ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Avslør desinformasjon"]]]
+      ] },
+      laerer: { navn: "For lærere", grupper: [
+        ["Planlegge", [
+          ["laerer.html", "👩‍🏫", "Lærerveiledning", "Alt innholdet forklart"],
+          ["planlegger.html", "🗓️", "Planleggeren", "Økter, perioder og kompetansemål"]]],
+        ["I klasserommet", [
+          ["klassequiz.html", "📺", "Klassequiz", "Spørsmål på storskjerm"],
+          ["hjorner.html", "🧭", "Fire hjørner", "Påstander og argumenter"],
+          ["exit.html", "🎟️", "Exit ticket", "Avslutningslapper"],
+          ["repetisjon.html", "🔁", "Repetisjonsstart", "Blandede spørsmål"]]],
+        ["Lag opplegg", [
+          ["leseloype.html", "📍", "QR-leseløype", "Poster med QR-koder"],
+          ["tegneserie.html", "💬", "Tegneseriemaker", "Fortell som tegneserie"],
+          ["lag.html", "🛠️", "Lag selv", "Quiz, tidslinje og ordkort"]]]
       ] }
     };
     const menyKnapp = id => '<button type="button" class="meny-knapp" id="meny-' + id + '" aria-expanded="false" aria-controls="panel-' + id + '"' + (aktiv(id) ? ' aria-current="page"' : "") + ">" + MENYER[id].navn + ' <span class="meny-pil" aria-hidden="true">▾</span></button>';
-    const menyPanel = id => '<div class="meny-panel" id="panel-' + id + '" hidden><ul>' + MENYER[id].lenker.map(([h, ikon, t, kort, sp]) =>
-      '<li><a href="' + h + '"' + (sp ? ' lang="' + sp + '"' : "") + '><span class="mp-ikon" aria-hidden="true">' + ikon + '</span><span><strong>' + LV.esc(t) + "</strong><small>" + LV.esc(kort) + "</small></span></a></li>").join("") + "</ul></div>";
+    const menyPanel = id => '<div class="meny-panel" id="panel-' + id + '" hidden><div class="mp-grupper">' + MENYER[id].grupper.map(([tittel, lenker, gsp], gi) =>
+      '<div class="mp-gruppe"><p class="mp-tittel" id="mp-' + id + "-" + gi + '"' + (gsp ? ' lang="' + gsp + '"' : "") + ">" + LV.esc(tittel) + '</p><ul aria-labelledby="mp-' + id + "-" + gi + '">' + lenker.map(([h, ikon, t, kort, sp]) =>
+      '<li><a href="' + h + '"' + (sp ? ' lang="' + sp + '"' : "") + '><span class="mp-ikon" aria-hidden="true">' + ikon + '</span><span><strong>' + LV.esc(t) + "</strong><small>" + LV.esc(kort) + "</small></span></a></li>").join("") + "</ul></div>").join("") + "</div>" +
+      (MENYER[id].alle ? '<p class="mp-alle"><a href="' + MENYER[id].alle[0] + '">' + LV.esc(MENYER[id].alle[1]) + "</a></p>" : "") + "</div>";
 
     const topp = document.createElement("header");
     topp.className = "topp";
@@ -219,16 +286,15 @@ window.LV = window.LV || {};
       '<div class="topp-indre">' +
         '<a class="logo" href="index.html"><span class="logo-merke" aria-hidden="true">' + LV.esc(k.forkortelse || "LV") + "</span>" + LV.esc(k.navn) + "</a>" +
         '<nav class="hovedmeny" aria-label="Hovedmeny">' +
-          menyKnapp("samfunnsfag") + menyKnapp("engelsk") + menyKnapp("verktoy") +
-          lenke("spill.html", "Spill", "spill") +
+          menyKnapp("samfunnsfag") + menyKnapp("engelsk") + menyKnapp("verktoy") + menyKnapp("spill") +
           lenke("eksamen.html", "Eksamen", "eksamen") +
-          lenke("laerer.html", "For lærere", "laerer") +
+          menyKnapp("laerer") +
         "</nav>" +
         (side === "sok" ? "" : '<form class="topp-sok" action="sok.html" role="search"><label class="skjult-visuelt" for="topp-sok-felt">Søk på Les verden</label><input id="topp-sok-felt" name="q" type="search" placeholder="Søk …" autocomplete="off"><button type="submit" class="topp-sok-knapp" aria-label="Søk">🔍</button></form>') +
         '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte" title="Lesestøtte: skrift, størrelse, farger og opplesing">' +
           '<span aria-hidden="true">Aa</span> <span class="ls-knapp-tekst">Lesestøtte</span></button>' +
       "</div>" +
-      '<div class="meny-paneler">' + menyPanel("samfunnsfag") + menyPanel("engelsk") + menyPanel("verktoy") + "</div>" +
+      '<div class="meny-paneler">' + ["samfunnsfag", "engelsk", "verktoy", "spill", "laerer"].map(menyPanel).join("") + "</div>" +
       '<div class="lesestotte" id="lesestotte" hidden>' +
         '<span class="etikett">Tekststørrelse:</span>' +
         '<button class="knapp" data-skala="-1" aria-label="Mindre tekst">A−</button>' +

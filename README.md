@@ -370,6 +370,12 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - `digitalespor.html` (`assets/digitalespor.js`, CSS-prefiks `dsp-`): Spordetektiven (seks innlegg fra en oppdiktet profil – hva kan en fremmed sammenstille?), en privat sjekkliste for eget fotavtrykk, slik får du slettet spor, og opphavsrett og Creative Commons med åtte «lov eller ikke lov?»-situasjoner. Dekker s14.
 - Faktaene står i `kontroller` nederst i hver temafil og bør sjekkes før bruk.
 
+### Ny meny- og sidestruktur (november 2026)
+
+- **Toppmenyen** har fem nedtrekksmenyer – Samfunnsfag, Engelsk, Lese og skrive, Spill og For lærere – pluss lenken Eksamen. Hver meny er delt i grupper med overskrifter (`MENYER` i `assets/felles.js`: `{ navn, grupper: [[tittel, [lenker], språk]], alle }`). Hvilken meny som markeres som aktiv, avgjøres av hvilken meny som først har en lenke til siden.
+- **Spill** (`spill.html`): delt i seksjoner – Øv på et tema, Rollespill og simuleringer, Historie og tenkning, Kart, kilder og medier, For hele klassen og Lag selv (`ANDRE` i `assets/spill.js`). Temavelgeren starter tom («Velg et tema …»), kan filtreres på fag og trinn, har «Tilfeldig tema», og velger temaet automatisk når man kommer fra en temaside (`?tema=`).
+- **Forsiden**: temaene vises gruppert etter fag og trinn (eller trinn og fag – knappen «Ordne etter»; `?vis=trinn`), med hurtiglenker til hver gruppe. Seksjonen «Mer å utforske» er flyttet under temaene, og «Kommer etter hvert» er fjernet.
+
 ### Runde R: arbeidsmåter
 
 - `rettssak.html` (`rs-`, data i `data/rettssak.js`): to oppdiktede straffesaker – «Sykkeltyveriet i Fjordvik» (tyveri, subsidiært heleri) og «Kommentaren» (trusler mot en lokalpolitiker i sosiale medier). Tiltale, lovtekst, bevis, rollekort (hver rolle har egen lenke `?sak=…&rolle=…`, og alle kan skrives ut ett per ark), dommerens manus, meddommerskjema med straffeutmåling og refleksjon.
@@ -500,7 +506,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

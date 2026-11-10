@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Les verden – samfunnsfag og engelsk</title>
   <meta name="description" content="Fagtekster med lese- og diskusjonsoppgaver i samfunnsfag og engelsk for 8.–10. trinn.">
-  <link rel="stylesheet" href="assets/stil.css?v=20261110d">
-  <script src="data/innstillinger.js?v=20261110d"></script>
-  <script src="data/temaer/oversikt.js?v=20261110d"></script>
-  <script src="data/land/oversikt.js?v=20261110d"></script>
-  <script src="data/grammatikk/oversikt.js?v=20261110d"></script>
-  <script src="data/lesing/oversikt.js?v=20261110d"></script>
-  <script src="data/kart.js?v=20261110d"></script>
-  <script src="assets/felles.js?v=20261110d"></script>
-  <script src="data/dagens-begrep.js?v=20261110d"></script>
-  <script src="assets/forside.js?v=20261110d"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261110e">
+  <script src="data/innstillinger.js?v=20261110e"></script>
+  <script src="data/temaer/oversikt.js?v=20261110e"></script>
+  <script src="data/land/oversikt.js?v=20261110e"></script>
+  <script src="data/grammatikk/oversikt.js?v=20261110e"></script>
+  <script src="data/lesing/oversikt.js?v=20261110e"></script>
+  <script src="data/kart.js?v=20261110e"></script>
+  <script src="assets/felles.js?v=20261110e"></script>
+  <script src="data/dagens-begrep.js?v=20261110e"></script>
+  <script src="assets/forside.js?v=20261110e"></script>
 </head>
 <body data-side="forside">
   <main id="innhold">
@@ -62,8 +62,36 @@
       <section class="dagens-begrep" id="dagens-begrep" hidden></section>
     </div>
 
+    <h2 id="temaer"><span id="liste-tittel">Alle temaer</span></h2>
+    <div class="emnevelger" id="emnevelger" role="group" aria-label="Velg del av samfunnsfag" hidden></div>
+    <p class="emne-intro" id="emne-intro" hidden></p>
+    <div class="landstripe" id="landstripe" lang="nb" hidden></div>
+    <div class="landstripe gr-stripe" id="grammatikkstripe" lang="nb" hidden></div>
+    <div class="landstripe lr-stripe" id="lesestripe" lang="nb" hidden></div>
+    <div class="tg-kontroller">
+      <div class="filter" role="group" aria-label="Velg fag">
+        <span class="etikett">Fag:</span>
+        <button class="knapp" data-fagvalg="">Begge</button>
+        <button class="knapp" data-fagvalg="samfunnsfag">Samfunnsfag</button>
+        <button class="knapp" data-fagvalg="engelsk">Engelsk</button>
+      </div>
+      <div class="filter" role="group" aria-label="Velg trinn">
+        <span class="etikett">Trinn:</span>
+        <button class="knapp" data-trinn="">Alle</button>
+        <button class="knapp" data-trinn="8">8.</button>
+        <button class="knapp" data-trinn="9">9.</button>
+        <button class="knapp" data-trinn="10">10.</button>
+      </div>
+      <div class="filter" role="group" aria-label="Sorter temaene">
+        <span class="etikett">Ordne etter:</span>
+        <button class="knapp" data-gruppering="fag">Fag</button>
+        <button class="knapp" data-gruppering="trinn">Trinn</button>
+      </div>
+    </div>
+    <div id="temaliste"></div>
+
     <section class="verktoyseksjon" aria-labelledby="verktoy-tittel">
-      <h2 id="verktoy-tittel">Les, repeter og øv</h2>
+      <h2 id="verktoy-tittel">Mer å utforske</h2>
       <div class="verktoykort-rad">
         <a class="verktoykort vk-tidslinje" href="tidslinje.html">
           <span class="vk-ikon" aria-hidden="true">
@@ -179,28 +207,6 @@
       </div>
     </section>
 
-    <h2 id="temaer"><span id="liste-tittel">Alle temaer</span></h2>
-    <div class="emnevelger" id="emnevelger" role="group" aria-label="Velg del av samfunnsfag" hidden></div>
-    <p class="emne-intro" id="emne-intro" hidden></p>
-    <div class="landstripe" id="landstripe" lang="nb" hidden></div>
-    <div class="landstripe gr-stripe" id="grammatikkstripe" lang="nb" hidden></div>
-    <div class="landstripe lr-stripe" id="lesestripe" lang="nb" hidden></div>
-    <div class="filter" role="group" aria-label="Velg trinn">
-      <span class="etikett">Trinn:</span>
-      <button class="knapp" data-trinn="">Alle</button>
-      <button class="knapp" data-trinn="8">8. trinn</button>
-      <button class="knapp" data-trinn="9">9. trinn</button>
-      <button class="knapp" data-trinn="10">10. trinn</button>
-    </div>
-    <ul class="temaliste" id="temaliste"></ul>
-
-    <section class="kommer">
-      <h2>Kommer etter hvert</h2>
-      <ul>
-        <li>Flere temaer for alle tre trinn – og flere steder på kartet</li>
-        <li>Flere spill: begrepsmemory og tidslinjesortering</li>
-      </ul>
-    </section>
   </main>
 </body>
 </html>

@@ -256,30 +256,59 @@
     });
   }
 
-  function temakort(t) {
+  function temakort(t, niva) {
+    const h = "h" + (niva || 3);
     return '<li><a class="temakort med-bilde fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' +
       (t.bilde ? '<span class="bilde"><img src="' + LV.esc(t.bilde) + '" alt="' + LV.esc(t.bildeAlt || "") + '" loading="lazy"></span>' : "") +
       '<span class="innhold">' + LV.merker(t) +
-      "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p>" +
+      "<" + h + ' class="tk-tittel">' + LV.esc(t.tittel) + "</" + h + "><p>" + LV.esc(t.kort) + "</p>" +
       (t.kreditt ? '<span class="kreditt">Foto: ' + LV.esc(t.kreditt) + (t.kilde ? " / " + LV.esc(t.kilde) : "") + "</span>" : "") +
       "</span></a></li>";
   }
 
+  let gruppering = "fag";
   function tegnListe() {
     const liste = document.getElementById("temaliste");
     const utvalg = LV.temaer
       .filter(t => !fag || t.fag === fag)
       .filter(t => !emne || t.emne === emne)
       .filter(t => !trinn || String(t.trinn) === trinn)
-      .sort((a, b) => a.trinn - b.trinn || a.fag.localeCompare(b.fag) || a.tittel.localeCompare(b.tittel, "nb"));
+      .sort((a, b) => a.tittel.localeCompare(b.tittel, "nb"));
 
     document.getElementById("liste-tittel").textContent =
       (fag ? LV.fagNavn[fag] : "Alle temaer") + (emne && LV.emner[emne] ? ": " + LV.emner[emne].navn.toLowerCase() : "") + (trinn ? " – " + trinn + ". trinn" : "");
     tegnEmnevelger();
-    liste.innerHTML = utvalg.length ? utvalg.map(temakort).join("") : '<li class="tom">Ingen temaer her ennå.</li>';
+
+    // Gruppér etter fag og trinn (eller trinn og fag)
+    const fagListe = ["samfunnsfag", "engelsk"].filter(f => utvalg.some(t => t.fag === f));
+    const trinnListe = [8, 9, 10].filter(tr => utvalg.some(t => t.trinn === tr));
+    const ytre = gruppering === "fag" ? fagListe : trinnListe, indre = gruppering === "fag" ? trinnListe : fagListe;
+    const navnY = y => gruppering === "fag" ? LV.fagNavn[y] : y + ". trinn";
+    const navnI = i => gruppering === "fag" ? i + ". trinn" : LV.fagNavn[i];
+    const passer = (t, y, i) => gruppering === "fag" ? t.fag === y && t.trinn === i : t.trinn === y && t.fag === i;
+    const id = (y, i) => "tg-" + y + (i != null ? "-" + i : "");
+    let hopp = "", h = "";
+    ytre.forEach(y => {
+      const iY = indre.filter(i => utvalg.some(t => passer(t, y, i)));
+      const antY = utvalg.filter(t => iY.some(i => passer(t, y, i))).length;
+      const fagKl = gruppering === "fag" ? " fag-" + y : "";
+      h += '<section class="tg-gruppe' + fagKl + '" id="' + id(y) + '" aria-labelledby="' + id(y) + '-h"><h3 id="' + id(y) + '-h" class="tg-tittel">' + LV.esc(navnY(y)) + ' <span class="tg-antall">' + antY + (antY === 1 ? " tema" : " temaer") + "</span></h3>";
+      iY.forEach(i => {
+        const t = utvalg.filter(x => passer(x, y, i));
+        const ik = gruppering === "trinn" ? " fag-" + i : "";
+        h += '<div class="tg-under' + ik + '" id="' + id(y, i) + '"><h4 class="tg-undertittel">' + LV.esc(navnI(i)) + ' <span class="tg-antall">' + t.length + '</span></h4><ul class="temaliste">' + t.map(x => temakort(x, 5)).join("") + "</ul></div>";
+        hopp += '<a href="#' + id(y, i) + '">' + LV.esc(navnY(y)) + " · " + LV.esc(navnI(i)) + " <small>(" + t.length + ")</small></a>";
+      });
+      h += "</section>";
+    });
+    liste.innerHTML = utvalg.length ? (ytre.length * indre.length > 1 ? '<nav class="tg-hopp" aria-label="Hopp til gruppe">' + hopp + "</nav>" : "") + h : '<p class="tom">Ingen temaer her ennå.</p>';
 
     document.querySelectorAll("[data-trinn]").forEach(b =>
       b.setAttribute("aria-pressed", String(b.dataset.trinn === trinn)));
+    document.querySelectorAll("[data-fagvalg]").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.fagvalg === fag)));
+    document.querySelectorAll("[data-gruppering]").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.gruppering === gruppering)));
     document.querySelectorAll(".fagkort").forEach(a =>
       a.setAttribute("aria-current", String(a.dataset.fag === fag)));
   }
@@ -291,6 +320,7 @@
 
     fag = LV.param("fag") || "";
     trinn = LV.param("trinn") || "";
+    if (LV.param("vis") === "trinn") gruppering = "trinn";
     emne = LV.emner[LV.param("emne")] ? LV.param("emne") : "";
     if (emne) fag = "samfunnsfag";
 
@@ -310,6 +340,16 @@
     document.querySelectorAll("[data-trinn]").forEach(b => b.addEventListener("click", function () {
       trinn = b.dataset.trinn;
       oppdaterAdresse();
+      tegnListe();
+    }));
+    document.querySelectorAll("[data-fagvalg]").forEach(b => b.addEventListener("click", function () {
+      fag = b.dataset.fagvalg;
+      if (fag !== "samfunnsfag") emne = "";
+      oppdaterAdresse();
+      tegnListe();
+    }));
+    document.querySelectorAll("[data-gruppering]").forEach(b => b.addEventListener("click", function () {
+      gruppering = b.dataset.gruppering;
       tegnListe();
     }));
 

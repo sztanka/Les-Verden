@@ -1171,57 +1171,97 @@
   // =========================================================
   // Oversikt
   // =========================================================
+  // Spill og aktiviteter som ikke lages fra et tema, sortert i grupper
+  const ANDRE = [
+    ["rollespill", "🎭", "Rollespill og simuleringer", "Ta en rolle, ta valg – og se hva som skjer.", [
+      ["rettssak.html", "⚖️", "Rettssaken", "Spill en straffesak i tingretten med dommer, aktor, forsvarer og vitner."],
+      ["valg.html", "🗳️", "Valgsimulatoren", "Gjør stemmer om til mandater – og sett sammen en regjering."],
+      ["lov.html", "📜", "Lag en lov", "Følg et lovforslag fra høring til votering på Stortinget."],
+      ["kommune.html", "🏛️", "Ordfører for en dag", "Fordel budsjettet i Fjordvik kommune – og møt velgerne."],
+      ["fn.html", "🇺🇳", "FN-rollespill", "Bli delegat, forhandle om en resolusjon og stem."],
+      ["okonomi.html", "💰", "Første lønn", "Få lønnen til å strekke til – og se hva lån koster."]]],
+    ["historie", "🏺", "Historie og tenkning", "Reis i tid, finn sammenhenger og løs gåter.", [
+      ["fortelling.html", "🧭", "Velg din vei", "Utvandrer, fyrstikkarbeiderske eller tjenestejente på Eidsvoll – du tar valgene."],
+      ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året for en historisk hendelse."],
+      ["arsak.html", "🔗", "Årsak og virkning", "Sett leddene i riktig rekkefølge."],
+      ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst? Rangér og begrunn."],
+      ["intervju.html", "🎙️", "Historisk intervju", "Still spørsmål til Nansen, Gina Krog og flere."],
+      ["perspektiv.html", "🔄", "Perspektivbytte", "Én hendelse, fire mennesker."],
+      ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter fra historien – og Cold Case Mysteries på engelsk."],
+      ["escape.html", "🔐", "Escape room", "Lås deg ut – svarene står i teksten."]]],
+    ["kart", "🗺️", "Kart, kilder og medier", "Finn fram i verden – og avslør det som ikke er sant.", [
+      ["kartspill.html", "🗺️", "Kartspill", "Land, hovedsteder, elver, landemerker og hendelser."],
+      ["spill.html?spill=worldle", "🌍", "Worldle", "Gjett landet ut fra omrisset."],
+      ["land.html", "🏴", "Country quiz", "Quiz og kartquiz om engelskspråklige land."],
+      ["kildedetektiv.html", "🔎", "Kildedetektiven", "Sant eller falskt? Undersøk avsender, dato og bilde."],
+      ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Lær seks triks for desinformasjon – og avslør dem."],
+      ["debatt.html", "⚖️", "Debattduell", "Argumenter for og mot – og argumentasjonsfeil."]]],
+    ["klassen", "📺", "For hele klassen", "Storskjerm, starter og avslutning.", [
+      ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla."],
+      ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter med blandede spørsmål fra tidligere temaer."],
+      ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep – samme gåte for hele klassen."],
+      ["hjorner.html", "🧭", "Fire hjørner", "Påstander – elevene velger hjørne og begrunner."],
+      ["bingo.html", "🎲", "Lesebingo", "5 × 5 leseoppgaver på norsk eller engelsk."],
+      ["personer.html", "👤", "Hvem er jeg?", "Gjett personen ut fra ledetråden."]]],
+    ["lag", "🛠️", "Lag selv", "Elevene lager innholdet.", [
+      ["lag.html", "🛠️", "Lag selv", "Egen quiz, tidslinje eller ordkort – del lenken."],
+      ["tegneserie.html", "💬", "Tegneseriemaker", "Fortell en hendelse som tegneserie."],
+      ["leseloype.html", "📍", "QR-leseløype", "For læreren: poster med QR-koder fra et tema."]]]
+  ];
+
   function oversikt() {
     document.title = "Spill – " + (LV.config ? LV.config.navn : "Les verden");
-    const valg = (fag) => [8, 9, 10].map(tr => {
-      const t = LV.temaer.filter(x => x.fag === fag && x.trinn === tr).sort((a, b) => a.tittel.localeCompare(b.tittel, "nb"));
-      return t.length ? '<optgroup label="' + LV.fagNavn[fag] + " – " + tr + '. trinn">' + t.map(x => '<option value="tema=' + x.id + '">' + LV.esc(x.tittel) + "</option>").join("") +
-        '<option value="fag=' + fag + "&trinn=" + tr + '">★ Bland alle temaene i ' + LV.fagNavn[fag].toLowerCase() + ", " + tr + ". trinn</option></optgroup>" : "";
-    }).join("");
-    let h = '<header class="sidehode"><h1>Spill</h1><p class="ingress">Øv på begreper, personer og hendelser fra temaene – med memory, gjett ordet, ordsøk, Ordle, Ordmiks og tidslinje. Spillene lages automatisk fra hvert tema. Ingenting lagres.</p></header>' +
-      '<section class="spill-velger"><label for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema">' + valg("samfunnsfag") + valg("engelsk") + "</select></section>" +
-      '<h2 class="spill-steg">2. Velg spill</h2><ul class="spillkort-rad">' + SPILL.map(s =>
-        '<li><a class="spillkort"' + (s.uavhengig ? ' href="spill.html?spill=' + s.id + '">' : ' data-spill="' + s.id + '" href="#">') + '<span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") +
-      '<li><a class="spillkort" href="klassequiz.html"><span class="spillkort-ikon" aria-hidden="true">📺</span><strong>Klassequiz på storskjerm</strong><span>For læreren: vis spørsmål fra et tema, en tekst eller et land stort på tavla. Elevene svarer med fingrene.</span></a></li>' +
-      '<li><a class="spillkort" href="kildedetektiv.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Kildedetektiven</strong><span>Er innlegget sant eller falskt? Undersøk avsender, dato og bilde – og avslør falske nyheter.</span></a></li>' +
-      '<li><a class="spillkort" href="fortelling.html"><span class="spillkort-ikon" aria-hidden="true">🧭</span><strong>Velg din vei</strong><span>Gå inn i historien som utvandrer, fyrstikkarbeiderske eller tjenestejente på Eidsvoll – og ta valgene selv.</span></a></li>' +
-      '<li><a class="spillkort" href="kommune.html"><span class="spillkort-ikon" aria-hidden="true">🏛️</span><strong>Ordfører for en dag</strong><span>Fordel budsjettet i Fjordvik kommune, ta vanskelige valg – og se om velgerne vil ha deg igjen.</span></a></li>' +
-      '<li><a class="spillkort" href="lov.html"><span class="spillkort-ikon" aria-hidden="true">⚖️</span><strong>Lag en lov</strong><span>Følg et lovforslag fra høring til votering. Klarer du å få flertall på Stortinget?</span></a></li>' +
-      '<li><a class="spillkort" href="rettssak.html"><span class="spillkort-ikon" aria-hidden="true">⚖️</span><strong>Rettssaken</strong><span>Spill en straffesak i tingretten – med dommer, aktor, forsvarer, vitner og meddommere.</span></a></li>' +
-      '<li><a class="spillkort" href="okonomi.html"><span class="spillkort-ikon" aria-hidden="true">💰</span><strong>Første lønn</strong><span>Få lønnen til å strekke til – og se hva det koster å kjøpe nå og betale senere.</span></a></li>' +
-      '<li><a class="spillkort" href="valg.html"><span class="spillkort-ikon" aria-hidden="true">🗳️</span><strong>Valgsimulatoren</strong><span>Gjør stemmer om til mandater – og sett sammen en regjering med flertall.</span></a></li>' +
-      '<li><a class="spillkort" href="hjorner.html"><span class="spillkort-ikon" aria-hidden="true">🧭</span><strong>Fire hjørner</strong><span>For storskjerm: Vis en påstand, elevene går til hjørnet som passer – og begrunner synet sitt.</span></a></li>' +
-      '<li><a class="spillkort" href="escape.html"><span class="spillkort-ikon" aria-hidden="true">🔐</span><strong>Escape room</strong><span>Lås deg ut av Bastillen, et viktoriansk arbeidshus eller et låst bibliotek. Svarene står i teksten – les nøye!</span></a></li>' +
-      '<li><a class="spillkort" href="begrepsgata.html"><span class="spillkort-ikon" aria-hidden="true">🧩</span><strong>Begrepsgåta</strong><span>Dagens fagbegrep: gjett ordet ut fra forklaringen. Samme gåte for hele klassen.</span></a></li>' +
-      '<li><a class="spillkort" href="diamant.html"><span class="spillkort-ikon" aria-hidden="true">💎</span><strong>Diamantrangering</strong><span>Hva var viktigst? Plasser ni kort fra viktigst til minst viktig – og begrunn.</span></a></li>' +
-      '<li><a class="spillkort" href="lognfabrikk.html"><span class="spillkort-ikon" aria-hidden="true">🏭</span><strong>Løgnfabrikken</strong><span>Bli skurken: Lær seks triks som brukes for å spre desinformasjon – og avslør dem.</span></a></li>' +
-      '<li><a class="spillkort" href="repetisjon.html"><span class="spillkort-ikon" aria-hidden="true">🔁</span><strong>Repetisjonsstart</strong><span>Fem minutter i starten av timen: blandede spørsmål fra temaer dere har hatt før.</span></a></li>' +
-      '<li><a class="spillkort" href="tegneserie.html"><span class="spillkort-ikon" aria-hidden="true">💬</span><strong>Tegneseriemaker</strong><span>Fortell en hendelse eller forklar et begrep som tegneserie – last ned som bilde.</span></a></li>' +
-      '<li><a class="spillkort" href="leseloype.html"><span class="spillkort-ikon" aria-hidden="true">📍</span><strong>QR-leseløype</strong><span>For læreren: Lag en leseløype med QR-poster fra et tema, med svarark og løsningsord.</span></a></li>' +
-      '<li><a class="spillkort" href="perspektiv.html"><span class="spillkort-ikon" aria-hidden="true">🔄</span><strong>Perspektivbytte</strong><span>Én hendelse, fire mennesker. Skriv fra én rolle – og bytt så perspektiv.</span></a></li>' +
-      '<li><a class="spillkort" href="intervju.html"><span class="spillkort-ikon" aria-hidden="true">🎙️</span><strong>Historisk intervju</strong><span>Still spørsmål til Nansen, Gina Krog, Douglass og flere. Hva er fakta, og hva er tolkning?</span></a></li>' +
-      '<li><a class="spillkort" href="fn.html"><span class="spillkort-ikon" aria-hidden="true">🇺🇳</span><strong>FN-rollespill</strong><span>Bli delegat for et land, forhandle om en resolusjon og stem. Model UN for klassen.</span></a></li>' +
-      '<li><a class="spillkort" href="lag.html"><span class="spillkort-ikon" aria-hidden="true">🛠️</span><strong>Lag selv</strong><span>Lag din egen quiz, tidslinje eller ordkort – og del lenken med klassen.</span></a></li>' +
-      '<li><a class="spillkort" href="tidsreise.html"><span class="spillkort-ikon" aria-hidden="true">⏳</span><strong>Tidsreisen</strong><span>Du havner i en historisk hendelse uten årstall. Gjett året – jo nærmere, jo flere poeng.</span></a></li>' +
-      '<li><a class="spillkort" href="arsak.html"><span class="spillkort-ikon" aria-hidden="true">🔗</span><strong>Årsak og virkning</strong><span>Sett leddene i riktig rekkefølge – fra den første årsaken til den siste følgen.</span></a></li>' +
-      '<li><a class="spillkort" href="debatt.html"><span class="spillkort-ikon" aria-hidden="true">⚖️</span><strong>Debattduell</strong><span>Sorter argumenter for og mot, avslør argumentasjonsfeil og skriv ditt eget innlegg.</span></a></li>' +
-      '<li><a class="spillkort" href="bingo.html"><span class="spillkort-ikon" aria-hidden="true">📚</span><strong>Lesebingo</strong><span>5 × 5 leseoppgaver – på norsk eller engelsk. Del samme brett med hele klassen.</span></a></li>' +
-      '<li><a class="spillkort spillkort-kart" href="kartspill.html"><span class="spillkort-ikon" aria-hidden="true">🗺️</span><strong>Kartspill</strong><span>Finn land, hovedsteder, delstater, elver, landemerker og historiske hendelser på kartet.</span></a></li>' +
-      '<li><a class="spillkort" href="personer.html"><span class="spillkort-ikon" aria-hidden="true">🕵️</span><strong>Hvem er jeg?</strong><span>Gjett personen ut fra ledetråden – på personsiden.</span></a></li>' +
-      '<li><a class="spillkort" href="land.html"><span class="spillkort-ikon" aria-hidden="true">🌍</span><strong>Country quiz</strong><span>Quiz og kartquiz om engelskspråklige land – på landsidene.</span></a></li></ul>' +
-      '<a class="spillkort-mysterium" href="mysterium.html">' +
-        '<span class="spm-ikon" aria-hidden="true">🕵️</span>' +
-        '<span class="spm-tekst"><span class="spm-merke">Detektivgåter · uavhengig av temaet over</span>' +
-        '<strong>Kalde spor i historien</strong>' +
-        '<span>Logikkgåter med ekte personer, steder og gjenstander fra historien – fra Eidsvoll 1814 og Titanic til Berlinmuren. I de vanskeligste sakene lyver én av de mistenkte.</span>' +
-        '<span class="spm-under"><strong>+ Cold Case Mysteries</strong> – nye engelske gåter hver gang, i fem vanskelighetsgrader.</span></span>' +
-        '<span class="spm-knapp" aria-hidden="true">Åpne sakene →</span></a>';
+    const ordspill = SPILL.filter(s => !s.uavhengig);
+    let h = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › Spill</nav>' +
+      '<header class="sidehode"><h1>🎮 Spill og aktiviteter</h1><p class="ingress">Øv på begrepene fra temaene, spill rollespill og simuleringer, reis i tid – eller lag spill selv. Ingenting lagres.</p></header>' +
+      '<nav class="sp-hopp" aria-label="Hopp til"><a href="#tema">🃏 Øv på et tema</a>' + ANDRE.map(([id, ikon, navn]) => '<a href="#' + id + '"><span aria-hidden="true">' + ikon + "</span> " + navn + "</a>").join("") + "</nav>" +
+      '<section class="sp-seksjon" id="tema" aria-labelledby="sp-tema-h"><h2 id="sp-tema-h">🃏 Øv på et tema</h2><p class="mu-intro">Spillene lages automatisk fra begrepene, personene og hendelsene i temaet du velger.</p>' +
+      '<div class="spill-velger"><div class="sp-filter" role="group" aria-label="Fag"><span class="etikett">Fag:</span>' + [["", "Begge"], ["samfunnsfag", "Samfunnsfag"], ["engelsk", "Engelsk"]].map(([v, t]) => '<button type="button" class="knapp liten" data-sp-fag="' + v + '">' + t + "</button>").join("") + "</div>" +
+      '<div class="sp-filter" role="group" aria-label="Trinn"><span class="etikett">Trinn:</span>' + [["", "Alle"], ["8", "8."], ["9", "9."], ["10", "10."]].map(([v, t]) => '<button type="button" class="knapp liten" data-sp-trinn="' + v + '">' + t + "</button>").join("") + "</div>" +
+      '<label class="sp-temalabel" for="spill-tema"><strong>1. Velg tema</strong></label><select id="spill-tema"></select><button type="button" class="knapp liten" id="sp-tilfeldig">🎲 Tilfeldig tema</button></div>' +
+      '<p class="sp-melding" id="sp-melding" role="status" aria-live="polite"></p>' +
+      '<h3 class="spill-steg">2. Velg spill</h3><ul class="spillkort-rad sp-ordspill">' + ordspill.map(s => '<li><a class="spillkort" data-spill="' + s.id + '" href="#"><span class="spillkort-ikon" aria-hidden="true">' + s.ikon + "</span><strong>" + s.navn + "</strong><span>" + s.tekst + "</span></a></li>").join("") + "</ul></section>" +
+      ANDRE.map(([id, ikon, navn, intro, liste]) => '<section class="sp-seksjon" id="' + id + '" aria-labelledby="sp-' + id + '-h"><h2 id="sp-' + id + '-h"><span aria-hidden="true">' + ikon + "</span> " + navn + '</h2><p class="mu-intro">' + intro + '</p><ul class="spillkort-rad sp-kompakt">' +
+        liste.map(([href, i, n, t]) => '<li><a class="spillkort" href="' + href + '"><span class="spillkort-ikon" aria-hidden="true">' + i + "</span><strong>" + n + "</strong><span>" + t + "</span></a></li>").join("") + "</ul></section>").join("");
     $("innhold").innerHTML = h;
+
+    let fag = "", trinn = "";
+    const fra = LV.param("tema"), fraKat = fra && LV.temaer.find(x => x.id === fra);
+    if (fraKat) { fag = fraKat.fag; trinn = String(fraKat.trinn); }
     const sel = $("spill-tema");
-    const fra = LV.param("tema");
-    if (fra) sel.value = "tema=" + fra;
+    const fyll = (behold) => {
+      const gammel = behold ? sel.value : "";
+      const fagListe = fag ? [fag] : ["samfunnsfag", "engelsk"];
+      let o = '<option value="">Velg et tema …</option>';
+      fagListe.forEach(f => [8, 9, 10].forEach(tr => {
+        if (trinn && String(tr) !== trinn) return;
+        const t = LV.temaer.filter(x => x.fag === f && x.trinn === tr).sort((a, b) => a.tittel.localeCompare(b.tittel, "nb"));
+        if (t.length) o += '<optgroup label="' + LV.fagNavn[f] + " – " + tr + '. trinn">' + t.map(x => '<option value="tema=' + x.id + '">' + LV.esc(x.tittel) + "</option>").join("") +
+          '<option value="fag=' + f + "&trinn=" + tr + '">★ Bland alle temaene i ' + LV.fagNavn[f].toLowerCase() + ", " + tr + ". trinn</option></optgroup>";
+      }));
+      sel.innerHTML = o;
+      if (gammel && sel.querySelector('option[value="' + gammel + '"]')) sel.value = gammel;
+      document.querySelectorAll("[data-sp-fag]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.spFag === fag)));
+      document.querySelectorAll("[data-sp-trinn]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.spTrinn === trinn)));
+      oppdater();
+    };
+    const oppdater = () => {
+      const valgt = !!sel.value;
+      document.querySelector(".sp-ordspill").classList.toggle("sp-ikke-valgt", !valgt);
+      $("sp-melding").textContent = valgt ? "Valgt: " + sel.options[sel.selectedIndex].text.replace(/^★ /, "") + ". Velg et spill." : "";
+    };
+    document.querySelectorAll("[data-sp-fag]").forEach(b => b.addEventListener("click", () => { fag = b.dataset.spFag; fyll(true); }));
+    document.querySelectorAll("[data-sp-trinn]").forEach(b => b.addEventListener("click", () => { trinn = b.dataset.spTrinn; fyll(true); }));
+    sel.addEventListener("change", oppdater);
+    $("sp-tilfeldig").addEventListener("click", () => {
+      const v = [...sel.options].filter(o => o.value.startsWith("tema="));
+      if (v.length) { sel.value = v[Math.floor(Math.random() * v.length)].value; oppdater(); }
+    });
+    fyll(false);
+    if (fraKat) { sel.value = "tema=" + fra; oppdater(); }
     document.querySelectorAll("[data-spill]").forEach(a => a.addEventListener("click", e => {
       e.preventDefault();
+      if (!sel.value) { $("sp-melding").textContent = "Velg et tema først – eller trykk «Tilfeldig tema»."; sel.focus(); return; }
       location.href = "spill.html?spill=" + a.dataset.spill + "&" + sel.value;
     }));
   }
