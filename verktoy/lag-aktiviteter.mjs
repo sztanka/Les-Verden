@@ -1,0 +1,56 @@
+// Les verden – lager data/aktiviteter.js: alle aktiviteter som hører til hvert tema.
+// Brukes av boksen «Alt om temaet» på temasidene.
+// Kjør: node verktoy/lag-aktiviteter.mjs  (etter at spill, rollespill, kilder osv. er endret)
+// (lag-sok.mjs kjører dette skriptet automatisk til slutt.)
+import fs from "node:fs";
+import path from "node:path";
+import vm from "node:vm";
+import { fileURLToPath } from "node:url";
+
+const ROT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const ctx = { console };
+ctx.window = ctx; ctx.LV = {};
+vm.createContext(ctx);
+const last = f => vm.runInContext(fs.readFileSync(path.join(ROT, f), "utf8"), ctx, { filename: f });
+[
+  "data/temaer/oversikt.js", "data/arsak.js", "data/debatt.js", "data/diamant.js", "data/endring.js", "data/escape.js",
+  "data/fn.js", "data/fortellinger.js", "data/historiker.js", "data/intervju.js", "data/kilder.js", "data/perspektiv.js",
+  "data/skriftlig.js", "data/sport.js", "data/tekstpar.js", "data/kartspill.js", "data/mysterium/saker.js"
+].forEach(last);
+const LV = ctx.LV;
+const ider = new Set(LV.temaer.map(t => t.id));
+const ren = s => String(s || "").replace(/\*\*|\*|\[\[|\]\]/g, "").replace(/\s+/g, " ").trim();
+
+// Grupper: les = Les og lytt, ov = Spill og øv, tenk = Tenk, diskuter og rollespill, skriv = Snakk og skriv
+const A = {};
+const legg = (tema, gruppe, href, ikon, tittel, type) => {
+  if (!ider.has(tema)) return;
+  (A[tema] = A[tema] || []).push([gruppe, href, ikon || "•", ren(tittel), type]);
+};
+const enc = encodeURIComponent;
+
+LV.fortellinger.forEach(f => legg(f.tema, "tenk", "fortelling.html?id=" + enc(f.id), f.ikon, "Velg din vei: " + f.tittel, "Fortelling"));
+LV.kilder.forEach(k => legg(k.tema, "tenk", "kilder.html?id=" + enc(k.id), k.ikon, k.tittel + " (" + k.aar + ")", "Kildeanalyse"));
+LV.historiker.forEach(h => legg(h.tema, "tenk", "historiker.html?id=" + enc(h.id), h.ikon, h.tittel, "Tenk som en historiker"));
+LV.arsakskjeder.forEach(k => legg(k.tema, "tenk", "arsak.html?id=" + enc(k.id), "🔗", k.tittel, "Årsak og virkning"));
+LV.diamant.forEach(d => legg(d.tema, "tenk", "diamant.html?id=" + enc(d.id), d.ikon, d.sporsmal, "Rangering"));
+LV.perspektiv.forEach(p => legg(p.tema, "tenk", "perspektiv.html?id=" + enc(p.id), p.ikon, p.tittel, "Perspektiver"));
+LV.endring.temaer.forEach(e => legg(e.tema, "tenk", "endring.html?id=" + enc(e.id), e.ikon, e.tittel, "Endring og kontinuitet"));
+LV.intervju.forEach(i => legg(i.tema, "tenk", "intervju.html?id=" + enc(i.id), i.ikon, i.navn + " (" + i.levde + ")", "Intervju"));
+LV.debatt.pastander.forEach(p => legg(p.tema, "tenk", "debatt.html?id=" + enc(p.id), "⚖️", p.pastand, "Debatt"));
+LV.fn.saker.forEach(s => legg(s.tema, "tenk", "fn.html?sak=" + enc(s.id), s.ikon, "FN-rollespill: " + s.tittel, "Rollespill"));
+LV.escape.forEach(e => legg(e.tema, "ov", "escape.html?id=" + enc(e.id), e.ikon, e.tittel, "Escape room"));
+LV.mysteriumSaker.forEach(m => legg(m.tema, "ov", "mysterium.html?sak=" + enc(m.id), m.ikon, m.tittel, "Kalde spor"));
+LV.kartspill.forEach(s => [...new Set((s.elementer || []).map(e => e.tema).filter(Boolean))]
+  .forEach(t => legg(t, "ov", "kartspill.html?sett=" + enc(s.id), "🗺️", s.tittel, "Kartspill")));
+LV.tekstpar.forEach(p => [p.tema, p.a && p.a.type === "tema" && p.a.id, p.b && p.b.type === "tema" && p.b.id].filter(Boolean)
+  .filter((t, i, a) => a.indexOf(t) === i).forEach(t => legg(t, "les", "tekstpar.html?id=" + enc(p.id), p.ikon, p.tittel, "Tekstpar")));
+LV.skriftlig.forEach(s => legg(s.kobling, "skriv", "skriftlig.html?id=" + enc(s.id), s.ikon, s.tema, "Skriftlig eksamen"));
+(LV.sport.temaer || []).forEach(t => legg(t, "les", "sport.html", "⚽", "Sports in the English-speaking world", "Temaside"));
+
+const ut = "/* Lages automatisk av verktoy/lag-aktiviteter.mjs – ikke rediger for hånd.\n" +
+  "   For hvert tema: [gruppe, lenke, ikon, tittel, type]. Gruppe: les | ov | tenk | skriv */\n" +
+  "window.LV = window.LV || {};\nLV.aktiviteter = " + JSON.stringify(A, null, 0).replace(/\],\"/g, '],\n"') + ";\n";
+fs.writeFileSync(path.join(ROT, "data/aktiviteter.js"), ut);
+const n = Object.values(A).reduce((s, l) => s + l.length, 0);
+console.log("aktiviteter.js: " + n + " aktiviteter fordelt på " + Object.keys(A).length + " temaer");

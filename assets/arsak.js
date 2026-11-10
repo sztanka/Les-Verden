@@ -10,9 +10,12 @@
   const bland = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
   function bygg() {
-    const fag = LV.param("fag") || "";
+    const valgt = LV.arsakskjeder.find(k => k.id === LV.param("id"));
+    const fag = LV.param("fag") || (valgt ? valgt.fag : "");
     const kjeder = LV.arsakskjeder.filter(k => !fag || k.fag === fag);
     let rekke = bland(kjeder.map((_, i) => i)), n = 0, riktige = 0;
+    // ?id=<kjede> (fra «Alt om temaet»): start med den valgte kjeden
+    if (valgt) { const i = kjeder.indexOf(valgt); rekke = [i].concat(rekke.filter(x => x !== i)); }
     document.title = "Årsak og virkning – " + (LV.config ? LV.config.navn : "Les verden");
     $("innhold").innerHTML = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="spill.html">Spill</a> › Årsak og virkning</nav>' +
       '<header class="sidehode"><p class="overlinje">Spill</p><h1>🔗 Årsak og virkning</h1><p class="ingress">Historien henger sammen: Én hendelse fører til en annen. Sett leddene i riktig rekkefølge – fra den første årsaken til den siste følgen. Flytt kortene med pilene, eller dra dem.</p>' +

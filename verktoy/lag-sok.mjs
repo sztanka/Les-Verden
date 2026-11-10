@@ -164,3 +164,6 @@ fs.writeFileSync(path.join(ROT, "data", "tidsreise.js"), "/* Lages av verktoy/la
 console.log("data/tidsreise.js", hendelser.length, "hendelser");
 const teller = {}; I.forEach(e => { teller[e.k] = (teller[e.k] || 0) + 1; });
 console.log("data/sok.js", Math.round(ut.length / 1024) + " kB", JSON.stringify(teller));
+
+// Aktivitetene til «Alt om temaet» (data/aktiviteter.js)
+await import("./lag-aktiviteter.mjs");

@@ -4144,3 +4144,38 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .lv-innhold { padding: .2rem 1rem .6rem; }
 .lv-innhold .pl-laererbanner { margin: .5rem 0; }
 @media print { .lv-toc, .lv-verktoy { display: none; } .lv-del { border: 0; } .lv-del > summary::before { display: none; } }
+
+/* ---------- Alt om temaet (tema.html) ---------- */
+.at-snarvei { margin: .8rem 0 0; font-family: var(--font-ui); }
+.at-snarvei a { display: inline-flex; gap: .4rem; align-items: center; padding: .35rem .8rem; border-radius: 999px; background: var(--fag-lys); color: var(--tekst); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.at-snarvei a:hover { text-decoration: underline; }
+.alt-tema { background: var(--fag-lys); border-radius: var(--radius); padding: 1.1rem 1.2rem 1.3rem; margin: 2rem 0; scroll-margin-top: 5rem; }
+.alt-tema > h2 { margin-top: 0; }
+.at-intro { margin: .2rem 0 1rem; font-family: var(--font-ui); color: var(--tekst-dempet); }
+.at-grupper { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1rem; align-items: start; }
+.at-gruppe { background: var(--flate); border-radius: 12px; padding: .8rem .9rem 1rem; min-width: 0; }
+.at-gruppe h3 { margin: 0 0 .6rem; font-size: 1.05rem; font-family: var(--font-ui); }
+.at-gruppe .spillknapper { margin: 0 0 .6rem; }
+.at-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .15rem; }
+.at-liste a { display: flex; gap: .6rem; align-items: flex-start; padding: .4rem .45rem; border-radius: 8px; color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.at-liste a:hover, .at-liste a:focus-visible { background: var(--fag-lys); }
+.at-liste a:hover strong { text-decoration: underline; }
+.at-ikon { flex: none; width: 1.6rem; text-align: center; font-size: 1.2rem; line-height: 1.3; }
+.at-liste strong { display: block; font-weight: 600; line-height: 1.3; }
+.at-liste small { display: block; color: var(--tekst-dempet); font-size: .85rem; }
+@media print { .at-snarvei, .alt-tema { display: none; } }
+
+/* ---------- Hva vil du gjøre? (forsiden) ---------- */
+.hvd { margin: 1.6rem 0 1.4rem; }
+.hvd h2 { margin: 0 0 .7rem; font-size: 1.35rem; }
+.hvd-rad { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .75rem; }
+.hvd-kort { background: var(--flate); border: 1px solid var(--linje); border-top: 4px solid var(--hvd, var(--aksent)); border-radius: 12px; padding: .75rem .85rem .85rem; min-width: 0; }
+.hvd-les { --hvd: #2f6f8f; } .hvd-ov { --hvd: #a8460f; } .hvd-spill { --hvd: #6b4fa0; } .hvd-skriv { --hvd: #2e7d4f; } .hvd-eksamen { --hvd: #8a2d6b; }
+.hvd-kort h3 { margin: 0 0 .45rem; font-size: 1.02rem; font-family: var(--font-ui); }
+.hvd-kort ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .3rem; font-family: var(--font-ui); font-size: .92rem; line-height: 1.35; }
+.hvd-kort a { color: var(--tekst); text-decoration: underline; text-decoration-color: var(--linje); text-underline-offset: 3px; }
+.hvd-kort a:hover { text-decoration-color: currentColor; }
+@media (max-width: 1100px) { .hvd-rad { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .hvd-rad { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .hvd-rad { grid-template-columns: 1fr; } .hvd-kort ul { gap: .45rem; } }
+:root[data-tema="mork"] .hvd-les { --hvd: #6fb3d6; } :root[data-tema="mork"] .hvd-ov { --hvd: #f0965f; } :root[data-tema="mork"] .hvd-spill { --hvd: #b49be0; } :root[data-tema="mork"] .hvd-skriv { --hvd: #6cc392; } :root[data-tema="mork"] .hvd-eksamen { --hvd: #e08cc4; }

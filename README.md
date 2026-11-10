@@ -81,6 +81,7 @@ les-verden/
 ├── bingo.html              Lesebingo / Reading Room Bingo (oppgavene ligger i assets/bingo.js)
 ├── klassequiz.html         Klassequiz på storskjerm (spørsmål lages fra temaer, Reading Room-quiz og landquiz)
 ├── sok.html                Søk i hele nettstedet (indeks i data/sok.js, lages av verktoy/lag-sok.mjs)
+│                           (data/aktiviteter.js til «Alt om temaet» lages av verktoy/lag-aktiviteter.mjs)
 ├── grammatikk.html         Grammar and vocabulary (engelsk), data i data/grammatikk/
 ├── ordbok.html             Ordbok: Bokmålsordboka + norsk–engelsk (data i data/ordbok/)
 ├── spill.html              Læringsspill: memory, gjett ordet, ordsøk, tidslinje (lages automatisk)
@@ -376,6 +377,9 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Spill** (`spill.html`): delt i seksjoner – Øv på et tema, Rollespill og simuleringer, Historie og tenkning, Kart, kilder og medier, For hele klassen og Lag selv (`ANDRE` i `assets/spill.js`). Temavelgeren starter tom («Velg et tema …»), kan filtreres på fag og trinn, har «Tilfeldig tema», og velger temaet automatisk når man kommer fra en temaside (`?tema=`).
 - **Forsiden**: temaene vises gruppert etter fag og trinn (eller trinn og fag – knappen «Ordne etter»; `?vis=trinn`), med hurtiglenker til hver gruppe. Seksjonen «Mer å utforske» er flyttet under temaene, og «Kommer etter hvert» er fjernet.
 - **Lærersiden** (`laerer.html`): ordnet i ni kategorier (Kom i gang, Temaer og tekster, Lese, Skrive og snakke, Kilder og metode, Spill og rollespill, I klasserommet, Vurdering og eksamen, Personvern og vedlikehold). Hvert emne er en sammenleggbar boks med id `om-<emne>`, så lenker som `laerer.html#om-leseflyt` åpner riktig boks. Øverst er en innholdsoversikt, et søkefelt som filtrerer emnene og knappene «Åpne alle» / «Lukk alle». Nye emner legges inn som `<details class="lv-del" id="om-…">` i riktig `section.lv-kat`.
+- **Alt om temaet** (`assets/tema.js`, CSS `.alt-tema`/`.at-`): nederst på hver temaside samles alle aktivitetene i fem grupper (Les, lytt og se · Spill og øv · Tenk, diskuter og spill rollespill · Snakk og skriv · Med hele klassen). Den erstatter de gamle enkeltboksene (Spill og øv, film, Reading Room, landsider, Velg din vei, kildeanalyse, lytteøkt og muntlig). Under ingressen er en lenke «Alt om temaet: N aktiviteter». Aktiviteter fra andre sider hentes fra `data/aktiviteter.js` (lages av `node verktoy/lag-sok.mjs`), så en ny fortelling, kilde, debatt osv. med `tema: "<id>"` dukker opp av seg selv. `arsak.html?id=<kjede>` starter med en bestemt årsakskjede.
+- **Hva vil du gjøre?** (forsiden, CSS `.hvd`): fem kort med snarveier – Lese, Øve til prøve, Spille, Skrive og Forberede eksamen.
+- **Eksamen** er nå en nedtrekksmeny (Muntlig eksamen, Skriftlig eksamen i engelsk, Øv og forbered). `eksamen.html` og `skriftlig.html` markerer Eksamen-menyen.
 
 ### Runde R: arbeidsmåter
 
@@ -404,7 +408,7 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 
 ### Søk
 
-`sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
+`sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye. Skriptet kjører også `verktoy/lag-aktiviteter.mjs`, som lager `data/aktiviteter.js` – listen over aktiviteter (fortellinger, kildeanalyser, Tenk som en historiker, årsakskjeder, diamanter, perspektiver, endring, intervjuer, debatter, FN-saker, escape rom, Kalde spor, kartspill, tekstpar og skriftlig eksamen) som hører til hvert tema. Den brukes av boksen «Alt om temaet».
 
 ### Film i undervisningen
 
@@ -456,7 +460,7 @@ Lage ordboka på nytt (f.eks. når Bokmålsordboka er oppdatert): Legg kildefile
 - **Worldle:** hører ikke til et tema (`spill.html?spill=worldle`, valgfritt `&fag=engelsk` eller `&utvalg=europa|afrika|asia|amerika|oseania|engelsk|alle`). Dataene ligger i `data/worldle.js` (ca. 300 kB) og lages av `cd verktoy && node lag-worldle.mjs` fra Natural Earth og pakken `i18n-iso-countries` (landnavn på bokmål og engelsk). Krim regnes med til Ukraina, Nord-Kypros til Kypros og Somaliland til Somalia.
 - **Tidslinje:** seks hendelser fra `tidslinje`, sortert med `LV.tidsnokkel`. Krever minst fire datoer i temaet.
 
-Adresser: `spill.html?spill=memory|koble|hangman|ordsok|ordle|ordmiks|kryssord|rekkefolge&tema=<id>`, eller `&fag=<fag>&trinn=<n>` for å blande alle temaene på et trinn. Spill som et tema har for lite innhold til, vises ikke i «Spill og øv»-boksen. Jo flere begreper (`[[ord]]`) et tema har, jo bedre blir spillene – sikt på minst 6–8.
+Adresser: `spill.html?spill=memory|koble|hangman|ordsok|ordle|ordmiks|kryssord|rekkefolge&tema=<id>`, eller `&fag=<fag>&trinn=<n>` for å blande alle temaene på et trinn. Spill som et tema har for lite innhold til, vises ikke under «Spill og øv» i boksen «Alt om temaet». Jo flere begreper (`[[ord]]`) et tema har, jo bedre blir spillene – sikt på minst 6–8.
 
 ### Kartspillet
 
@@ -507,7 +511,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110g`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

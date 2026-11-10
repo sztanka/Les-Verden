@@ -109,7 +109,7 @@
       h += '<figure class="temabilde"><img src="' + LV.esc(kat.bilde) + '" alt="' + LV.esc(kat.bildeAlt || "") + '">' + kreditt + "</figure>";
     }
     h += '<header class="temahode">' + LV.merker({ fag: tema.fag, emne: kat.emne, trinn: tema.trinn }) +
-      "<h1>" + LV.esc(tema.tittel) + '</h1><p class="ingress">' + formater(tema.ingress) + "</p></header>";
+      "<h1>" + LV.esc(tema.tittel) + '</h1><p class="ingress">' + formater(tema.ingress) + "</p><!--AT-ANTALL--></header>";
 
     // Før du leser
     h += '<section class="boks for-du-leser" aria-labelledby="for-du-leser"><h2 id="for-du-leser">' + T.forDuLeser + "</h2>";
@@ -279,31 +279,6 @@
     });
     h += "</section>";
 
-    // Film
-    {
-      const en = tema.sprak === "en";
-      const filmer = (LV.filmer || []).filter(f => (f.temaer || []).includes(tema.id));
-      if (filmer.length) {
-        h += '<section class="fo-temaboks" aria-labelledby="film-tittel"><h2 id="film-tittel">🎬 ' + (en ? "Films about the topic" : "Film om temaet") + '</h2><ul class="fo-temaliste">' +
-          filmer.map(f => '<li><a href="film.html?id=' + encodeURIComponent(f.id) + '"><span class="fo-mini" style="--a:' + f.farger[0] + ";--b:" + f.farger[1] + '" aria-hidden="true">' + f.ikon + "</span><span><strong>" + LV.esc(f.tittel) + " (" + f.ar + ")</strong><small>" + LV.esc(f.kort) + "</small></span></a></li>").join("") + "</ul></section>";
-      }
-    }
-
-    // Sportssiden
-    if (["en8-sports", "en8-united-kingdom"].includes(tema.id)) {
-      h += '<a class="sp-banner" href="sport.html" lang="en"><span class="sp-banner-ikon" aria-hidden="true">⚽🏏🏉🏈</span><span><strong>Sports in the English-speaking world</strong><span>Which sports are big where, and why? Rules, key words, idioms, a quiz – and a section for every country.</span></span><span class="vk-cta">Explore →</span></a>';
-    }
-
-    // Reading Room
-    {
-      const en = tema.sprak === "en";
-      const tekster = (LV.lesetekster || []).filter(t => (t.temaer || []).includes(tema.id));
-      if (tekster.length) {
-        h += '<section class="fo-temaboks lr-temaboks" aria-labelledby="lr-tittel"><h2 id="lr-tittel">📚 ' + (en ? "Read a story – Reading Room" : "Les en tekst – Reading Room") + '</h2><ul class="fo-temaliste">' +
-          tekster.map(t => '<li><a href="lesing.html?id=' + encodeURIComponent(t.id) + '" lang="en"><span class="fo-mini" style="--a:' + t.farger[0] + ";--b:" + t.farger[0] + '" aria-hidden="true">' + t.ikon + "</span><span><strong>" + LV.esc(t.tittel) + "</strong> – " + LV.esc(t.forfatter) + " (" + t.ar + ")<small>" + LV.esc(t.kort) + "</small></span></a></li>").join("") + "</ul></section>";
-      }
-    }
-
     // Hva har jeg lært? Egenvurdering, avslutningslapp og vurderingskriterier
     {
       const en = tema.sprak === "en";
@@ -345,9 +320,10 @@
         E.rader.map(r => '<tr><th scope="row">' + r[0] + "</th>" + r.slice(1).map(c => "<td>" + LV.esc(c.replace("%B%", begreper || (en ? "the key terms" : "nøkkelbegrepene"))) + "</td>").join("") + "</tr>").join("") + "</tbody></table></div></details></section>";
     }
 
-    // Spill og øv
+    // Alt om temaet: alle aktiviteter som hører til temaet, samlet i grupper
+    // (data/aktiviteter.js lages av verktoy/lag-aktiviteter.mjs; resten hentes fra temaet selv)
     {
-      const en = tema.sprak === "en";
+      const en = tema.sprak === "en", id = encodeURIComponent(tema.id), harLett = tema.avsnitt.some(a => a.lett);
       const antOrd = Object.keys(tema.ord || {}).length, antPar = antOrd + (tema.personer || []).length + (tema.tidslinje || []).length;
       const enkelt = (k, min, maks) => !/[\s\-.'’]/.test(k) && k.length >= min && k.length <= maks;
       const enkle = Object.keys(tema.ord || {}).filter(k => enkelt(k, 4, 9)).length, enkle3 = Object.keys(tema.ord || {}).filter(k => enkelt(k, 3, 10)).length;
@@ -359,22 +335,39 @@
         ["kryssord", "✏️", en ? "Crossword" : "Kryssord", antOrd + (tema.personer || []).length >= 4],
         ["rekkefolge", "⏳", en ? "Timeline" : "Tidslinje", (tema.tidslinje || []).length >= 4]
       ].filter(x => x[3]);
-      if (spill.length) {
-        h += '<section class="spill-og-ov" aria-labelledby="spill-tittel"><h2 id="spill-tittel">' + (en ? "Play and practise" : "Spill og øv") + "</h2><p>" +
-          (en ? "Practise the terms, people and events from this topic." : "Øv på begrepene, personene og hendelsene fra dette temaet.") + '</p><ul class="spillknapper">' +
-          spill.map(x => '<li><a class="knapp" href="spill.html?spill=' + x[0] + "&tema=" + encodeURIComponent(tema.id) + '"><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a></li>").join("") + "</ul></section>";
-      }
-      // Velg din vei-fortellinger knyttet til temaet (holdes i takt med data/fortellinger.js)
-      const FORTELLING = { "sf9-utvandringen": ["utvandrer-1882", "🚢", "Utvandreren – Valdres–Amerika, 1882"], "sf9-arbeiderbevegelsen": ["fyrstikk-1889", "🔥", "Fyrstikkarbeidersken – Kristiania, 1889"], "sf8-1814-grunnloven": ["eidsvoll-1814", "📜", "Tjenestejenta på Eidsvoll – våren 1814"] };
-      const fo = FORTELLING[tema.id];
-      const KILDE = { "sf8-demokratiet-i-norge": "magna-carta", "sf8-amerikanske-revolusjonen": "uavhengighetserklaeringen", "sf8-opplysningstiden": "wollstonecraft", "sf9-arbeiderbevegelsen": "kommunistiske-manifest", "sf9-utvandringen": "riis-1890" };
-      if (KILDE[tema.id]) h += '<a class="mu-banner fo-banner" href="kilder.html?id=' + KILDE[tema.id] + '"><span class="mu-banner-ikon" aria-hidden="true">🔍</span><span><strong>Kildeanalyse: en ekte kilde fra historien</strong><span>Les og analyser kilden med ordhjelp og kildekritiske spørsmål.</span></span><span aria-hidden="true">→</span></a>';
-      h += '<a class="mu-banner fo-banner" href="lytt.html?tema=' + encodeURIComponent(tema.id) + (tema.avsnitt.some(a => a.lett) ? "&lett=1" : "") + '"><span class="mu-banner-ikon" aria-hidden="true">🎧</span><span><strong>' + (tema.sprak === "en" ? "Listening session with stops" : "Lytteøkt med stopp") + "</strong><span>" + (tema.sprak === "en" ? "Listen to the topic part by part, with a short task after each part." : "Lytt til temaet del for del, med en liten oppgave etter hver del.") + '</span></span><span aria-hidden="true">→</span></a>';
-      if (fo) h += '<a class="mu-banner fo-banner" href="fortelling.html?id=' + fo[0] + '"><span class="mu-banner-ikon" aria-hidden="true">' + fo[1] + "</span><span><strong>Velg din vei: " + LV.esc(fo[2]) + "</strong><span>Gå inn i historien som en ung person og ta valgene selv.</span></span><span aria-hidden=\"true\">→</span></a>";
-      h += '<a class="mu-banner" href="muntlig.html?id=' + encodeURIComponent(tema.id) + '"><span class="mu-banner-ikon" aria-hidden="true">🗣️</span><span><strong>' + (en ? "Speaking and listening" : "Muntlig og lytting") + "</strong><span>" +
-        (en ? "Talk cards with a timer, a listening task and the hot seat for this topic." : "Samtalekort med tidtaker, lytteøvelse og «den varme stolen» til dette temaet.") + "</span></span><span aria-hidden=\"true\">→</span></a>";
+      // [gruppe, lenke, ikon, tittel, type]
+      const G = { les: [], ov: [], tenk: [], skriv: [], klasse: [] };
+      (LV.lesetekster || []).filter(t => (t.temaer || []).includes(tema.id)).forEach(t => G.les.push(["les", "lesing.html?id=" + encodeURIComponent(t.id), t.ikon, t.tittel, "Reading Room · " + t.forfatter + " (" + t.ar + ")", "en"]));
+      (LV.filmer || []).filter(f => (f.temaer || []).includes(tema.id)).forEach(f => G.les.push(["les", "film.html?id=" + encodeURIComponent(f.id), f.ikon, f.tittel + " (" + f.ar + ")", en ? "Film" : "Film med oppgaver", f.sprak === "en" ? "en" : ""]));
+      (LV.landliste || []).filter(l => (l.temaer || []).includes(tema.id)).forEach(l => G.les.push(["les", "land.html?id=" + encodeURIComponent(l.id), l.flagg, l.navn, en ? "Country page" : "Landside", "en"]));
+      G.les.push(["les", "lytt.html?tema=" + id + (harLett ? "&lett=1" : ""), "🎧", en ? "Listening session with stops" : "Lytteøkt med stopp", en ? "Listen part by part" : "Lytt del for del"]);
+      G.les.push(["les", "leseflyt.html?tema=" + id, "⏱️", en ? "Reading fluency" : "Leseflyt", en ? "Read aloud and record yourself" : "Les høyt og ta opp deg selv"]);
+      G.skriv.push(["skriv", "muntlig.html?id=" + id, "🗣️", en ? "Speaking and listening" : "Muntlig og lytting", en ? "Talk cards, listening task, hot seat" : "Samtalekort, lytteøvelse, den varme stolen"]);
+      G.skriv.push(["skriv", "kamerat.html?kilde=tema:" + id, "🤝", en ? "Peer feedback" : "Kameratvurdering", en ? "Criteria from the learning goals" : "Kriterier fra læringsmålene"]);
+      G.klasse.push(["klasse", "klassequiz.html?kilde=tema:" + id, "📺", en ? "Class quiz" : "Klassequiz", en ? "On the big screen" : "På storskjerm"]);
+      G.klasse.push(["klasse", "lesegruppe.html?tema=" + id, "👥", en ? "Reading group with roles" : "Lesegruppe med roller", en ? "Read together in groups" : "Les sammen i grupper"]);
+      G.klasse.push(["klasse", "exit.html?v=maal&tema=" + id, "🎫", en ? "Exit ticket" : "Exit ticket", en ? "For the whole class" : "For hele klassen"]);
+      ((LV.aktiviteter || {})[tema.id] || []).forEach(a => (G[a[0]] || G.tenk).push(a));
+      const grupper = [
+        ["les", "📖", en ? "Read, listen and watch" : "Les, lytt og se"],
+        ["ov", "🎮", en ? "Play and practise" : "Spill og øv"],
+        ["tenk", "🧠", en ? "Think, discuss and role-play" : "Tenk, diskuter og spill rollespill"],
+        ["skriv", "✍️", en ? "Speak and write" : "Snakk og skriv"],
+        ["klasse", "👩‍🏫", en ? "With the whole class" : "Med hele klassen"]
+      ];
+      const antall = Object.values(G).reduce((s, l) => s + l.length, 0) + spill.length;
+      const lenke = a => '<li><a href="' + a[1] + '"><span class="at-ikon" aria-hidden="true">' + a[2] + '</span><span><strong' + (a[5] ? ' lang="' + a[5] + '"' : "") + ">" + LV.esc(a[3]) + "</strong><small>" + LV.esc(a[4]) + "</small></span></a></li>";
+      h += '<section class="alt-tema" id="alt-om-temaet" aria-labelledby="at-tittel"><h2 id="at-tittel">🧭 ' + (en ? "Everything for this topic" : "Alt om temaet") + '</h2><p class="at-intro">' +
+        (en ? antall + " activities on Les verden that go with «" + LV.esc(tema.tittel) + "»." : antall + " aktiviteter på Les verden som hører til «" + LV.esc(tema.tittel) + "».") + '</p><div class="at-grupper">' +
+        grupper.map(g => {
+          const liste = G[g[0]];
+          if (!liste.length && !(g[0] === "ov" && spill.length)) return "";
+          return '<div class="at-gruppe at-' + g[0] + '"><h3><span aria-hidden="true">' + g[1] + "</span> " + g[2] + "</h3>" +
+            (g[0] === "ov" && spill.length ? '<ul class="spillknapper">' + spill.map(x => '<li><a class="knapp liten" href="spill.html?spill=' + x[0] + "&amp;tema=" + id + '"><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a></li>").join("") + "</ul>" : "") +
+            (liste.length ? '<ul class="at-liste">' + liste.map(lenke).join("") + "</ul>" : "") + "</div>";
+        }).join("") + "</div></section>";
+      h = h.replace("<!--AT-ANTALL-->", '<p class="at-snarvei"><a href="#alt-om-temaet"><span aria-hidden="true">🧭</span> ' + (en ? "Everything for this topic: " + antall + " activities" : "Alt om temaet: " + antall + " aktiviteter") + ' <span aria-hidden="true">↓</span></a></p>');
     }
-
     // Koblet til
     const koblet = (tema.kobletTil || []).map(id => LV.temaer.find(t => t.id === id)).filter(Boolean);
     if (koblet.length) {
@@ -382,13 +375,6 @@
         koblet.map(t => '<li><a class="temakort fag-' + t.fag + '" href="tema.html?id=' + encodeURIComponent(t.id) + '">' +
           LV.merker(t) +
           "<h3>" + LV.esc(t.tittel) + "</h3><p>" + LV.esc(t.kort) + "</p></a></li>").join("") + "</ul></section>";
-    }
-
-    // Landsider som hører til temaet
-    const landsider = (LV.landliste || []).filter(l => (l.temaer || []).includes(tema.id));
-    if (landsider.length) {
-      h += '<section class="landstripe"><h3>' + (tema.sprak === "en" ? "Country pages" : "Landsider") + "</h3><ul>" +
-        landsider.map(l => '<li><a href="land.html?id=' + encodeURIComponent(l.id) + '" lang="en"><span aria-hidden="true">' + l.flagg + "</span>" + LV.esc(l.navn) + " →</a></li>").join("") + "</ul></section>";
     }
 
     // Kilder

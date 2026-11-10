@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261110f";
+  LV.versjon = "20261110g";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -145,8 +145,8 @@ window.LV = window.LV || {};
       if (navn === "samfunnsfag" || navn === "engelsk") { if ((side === "forside" && fag === navn) || (side === "tema" && document.body.dataset.fag === navn)) return true; }
       if (navn === "laerer" && side === "planlegger" && LV.param("elev") === "1") return false;
       if (eier === null) {
-        eier = "";
-        if (fil !== "index" && fil !== "tema") for (const m of ["samfunnsfag", "engelsk", "verktoy", "spill", "laerer"]) {
+        eier = (fil === "eksamen" || fil === "skriftlig") ? "eksamen" : "";
+        if (!eier && fil !== "index" && fil !== "tema") for (const m of ["samfunnsfag", "engelsk", "verktoy", "spill", "laerer"]) {
           if (MENYER[m].grupper.some(g => g[1].some(l => l[0].split(/[?#]/)[0].replace(/\.html$/, "") === fil))) { eier = m; break; }
         }
       }
@@ -258,6 +258,22 @@ window.LV = window.LV || {};
           ["kildedetektiv.html", "🔎", "Kildedetektiven", "Sant eller falskt?"],
           ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Avslør desinformasjon"]]]
       ] },
+      eksamen: { navn: "Eksamen", alle: ["eksamen.html", "Gå til eksamenssonen →"], grupper: [
+        ["Muntlig eksamen", [
+          ["eksamen.html?fag=samfunnsfag", "🌍", "Muntlig i samfunnsfag", "Slik foregår eksamen"],
+          ["eksamen.html?fag=engelsk", "💬", "Muntlig i engelsk", "Oral exam step by step"],
+          ["eksamen.html#problemstilling", "❓", "Lag en problemstilling", "Med eksempler og sjekk"],
+          ["eksamen.html#presentasjon", "⏱️", "Øv på presentasjonen", "Med tidtaker"],
+          ["eksamen.html#samtale", "💭", "Øv på samtalen", "Trekk spørsmål"]]],
+        ["Skriftlig eksamen i engelsk", [
+          ["skriftlig.html", "📝", "Skriftlig eksamen", "Videreformidling og samhandling"],
+          ["skrivom.html", "🔁", "Rewrite and improve", "Bruk tilbakemeldingen", "en"],
+          ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"]]],
+        ["Øv og forbered", [
+          ["opptak.html", "🎙️", "Ta opp deg selv", "Hør hvordan du høres ut"],
+          ["eksamen.html#fraser", "🗨️", "Nyttige fraser", "Til presentasjon og samtale"],
+          ["eksamen.html#sjekkliste", "✅", "Sjekkliste", "Er du klar?"]]]
+      ] },
       laerer: { navn: "For lærere", grupper: [
         ["Planlegge", [
           ["laerer.html", "👩‍🏫", "Lærerveiledning", "Alt innholdet forklart"],
@@ -287,14 +303,14 @@ window.LV = window.LV || {};
         '<a class="logo" href="index.html"><span class="logo-merke" aria-hidden="true">' + LV.esc(k.forkortelse || "LV") + "</span>" + LV.esc(k.navn) + "</a>" +
         '<nav class="hovedmeny" aria-label="Hovedmeny">' +
           menyKnapp("samfunnsfag") + menyKnapp("engelsk") + menyKnapp("verktoy") + menyKnapp("spill") +
-          lenke("eksamen.html", "Eksamen", "eksamen") +
+          menyKnapp("eksamen") +
           menyKnapp("laerer") +
         "</nav>" +
         (side === "sok" ? "" : '<form class="topp-sok" action="sok.html" role="search"><label class="skjult-visuelt" for="topp-sok-felt">Søk på Les verden</label><input id="topp-sok-felt" name="q" type="search" placeholder="Søk …" autocomplete="off"><button type="submit" class="topp-sok-knapp" aria-label="Søk">🔍</button></form>') +
         '<button class="knapp" id="lesestotte-knapp" aria-expanded="false" aria-controls="lesestotte" title="Lesestøtte: skrift, størrelse, farger og opplesing">' +
           '<span aria-hidden="true">Aa</span> <span class="ls-knapp-tekst">Lesestøtte</span></button>' +
       "</div>" +
-      '<div class="meny-paneler">' + ["samfunnsfag", "engelsk", "verktoy", "spill", "laerer"].map(menyPanel).join("") + "</div>" +
+      '<div class="meny-paneler">' + ["samfunnsfag", "engelsk", "verktoy", "spill", "eksamen", "laerer"].map(menyPanel).join("") + "</div>" +
       '<div class="lesestotte" id="lesestotte" hidden>' +
         '<span class="etikett">Tekststørrelse:</span>' +
         '<button class="knapp" data-skala="-1" aria-label="Mindre tekst">A−</button>' +
