@@ -1384,6 +1384,7 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .gr-tabell tbody tr:last-child > * { border-bottom: 0; }
 .gr-tabell tbody tr:nth-child(even) { background: color-mix(in srgb, var(--flate-2) 45%, transparent); }
 .gr-tabell s { color: #b3261e; }
+:root[data-tema="mork"] .gr-tabell s, :root[data-tema="mork"] .gr-sml-liste s { color: #ff9b8f; }
 .gr-tabell-note { font-size: .9rem; color: var(--tekst-dempet); margin: .4rem 0 0; }
 
 /* Sammenlignet med norsk */
@@ -3941,3 +3942,34 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .vl-rull { overflow-x: auto; max-width: 100%; }
 .vl-sammen th, .vl-sammen td { white-space: normal; }
 @media (max-width: 34rem) { .vl-tabell { font-size: .82rem; } .vl-tabell th, .vl-tabell td { padding: .2rem .25rem; } }
+
+/* ---------- Rewrite and improve (skrivom.html) ---------- */
+.so-koder { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: .6rem; }
+.so-kodekort { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .55rem .8rem; font-family: var(--font-ui); }
+.so-velg { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; cursor: pointer; }
+.so-kodekort details { margin-top: .3rem; }
+.so-kodekort summary { cursor: pointer; color: var(--tekst-dempet); font-size: .9rem; }
+.so-kodekort p { margin: .4rem 0; }
+.so-merke { display: inline-block; min-width: 2.2rem; text-align: center; background: var(--aksent); color: #fff; border-radius: 6px; padding: 0 .35rem; font-weight: 800; font-family: var(--font-ui); }
+:root[data-tema="mork"] .so-merke { color: #15181d; }
+.so-nb { color: var(--tekst-dempet); font-size: .9rem; }
+.so-eks { margin: .3rem 0; padding-left: 1.2rem; }
+.so-rader { list-style: none; padding: 0; display: grid; gap: .8rem; counter-reset: so; }
+.so-rad { counter-increment: so; display: grid; grid-template-columns: 1fr auto 1fr 11rem; gap: .5rem; align-items: end; }
+.so-rad::before { content: counter(so) "."; font-family: var(--font-ui); font-weight: 700; grid-column: 1 / -1; }
+.so-pil { font-size: 1.4rem; padding-bottom: .6rem; color: var(--tekst-dempet); }
+.so-kode select { font: inherit; padding: .4rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); width: 100%; }
+.so-to { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.so-under { margin: -.4rem 0 .4rem; color: var(--tekst-dempet); font-family: var(--font-ui); }
+.so-sjekk { list-style: none; padding: 0; display: grid; gap: .45rem; font-family: var(--font-ui); }
+.so-sjekk label { display: flex; gap: .45rem; align-items: flex-start; }
+.so-sjekk input { margin-top: .3rem; }
+.so-bokstav { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--samfunnsfag); color: #fff; font-weight: 800; flex: none; }
+:root[data-tema="mork"] .so-bokstav { color: #15181d; }
+.so-min { font-family: var(--font-ui); display: grid; gap: .4rem; max-width: 46rem; }
+.so-tom { font-family: var(--font-ui); color: var(--tekst-dempet); }
+@media (max-width: 46rem) { .so-rad { grid-template-columns: 1fr; } .so-pil { display: none; } .so-to { grid-template-columns: 1fr; } }
+@media print { body.so-skriv-liste #innhold > div > *:not(#so-4) { display: none !important; } body.so-skriv-liste #so-4 button { display: none; } }
+
+.lr-vers.lr-drama, .lr-vers.lr-drama p { font-style: normal; }
+.lr-vers.lr-drama em { font-style: italic; }

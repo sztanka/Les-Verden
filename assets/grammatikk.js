@@ -218,7 +218,7 @@
       '<aside class="gr-husk"><h3>💡 Remember</h3><ul>' + g.husk.map(x => "<li>" + fmt(x) + "</li>").join("") + "</ul></aside></section>";
     if (g.tabeller) {
       h += '<section id="tabeller"><h2>Tables</h2>' + g.tabeller.map(t => '<figure class="gr-tabell"><figcaption>' + fmt(t.tittel) + "</figcaption>" + (t.tekst ? '<p class="gr-gruppetekst">' + fmt(t.tekst) + "</p>" : "") +
-        '<div class="gr-tabell-rull"><table><thead><tr>' + t.kolonner.map(k => '<th scope="col">' + fmt(k) + "</th>").join("") + "</tr></thead><tbody>" +
+        '<div class="gr-tabell-rull" tabindex="0" role="region" aria-label="' + esc(t.tittel ? t.tittel.replace(/[*~]/g, "") : "Tabell") + '"><table><thead><tr>' + t.kolonner.map(k => '<th scope="col">' + fmt(k) + "</th>").join("") + "</tr></thead><tbody>" +
         t.rader.map(r => "<tr>" + r.map((c, i) => (i === 0 ? '<th scope="row">' : "<td>") + fmt(c) + (i === 0 ? "</th>" : "</td>")).join("") + "</tr>").join("") + "</tbody></table></div>" +
         (t.note ? '<p class="gr-tabell-note">' + fmt(t.note) + "</p>" : "") + "</figure>").join("") + "</section>";
     }

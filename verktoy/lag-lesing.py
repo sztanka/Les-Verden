@@ -9,7 +9,8 @@ Vi bruker bare tekster der forfatteren døde for mer enn 70 år siden.
 Bruk:
   cd verktoy && mkdir -p kilder && cd kilder
   git clone --depth 1 https://github.com/standardebooks/<repo>   (se KILDER under)
-  cd ../.. && python3 verktoy/lag-lesing.py
+  cd ../.. && python3 verktoy/lag-lesing.py            (alle)
+             python3 verktoy/lag-lesing.py drovers-wife   (bare én eller noen få)
 
 Skriptet legger originalteksten nederst i data/lesing/<id>.js (etter merket under).
 Alt over merket (ordliste, oppgaver osv.) er skrevet for hånd og blir ikke endret.
@@ -41,7 +42,17 @@ KILDER = {
     "nellie-bly": ("txt", [("bly/59899-0.txt", r"^On the 22d of September I was asked", r"not soon forget\.$"),
                            ("bly/59899-0.txt", r"^A few more songs and we were told to go with Miss Grupe", r"^tale of horror never equaled")], None),
     "atlanta-address": ("booker-t-washington_up-from-slavery", "chapter-14", {"fra": r"^Mr\. President and Gentlemen", "til": r"^In conclusion"}),
+    # Runde Q
+    "drovers-wife": ("henry-lawson_while-the-billy-boils", "the-drovers-wife", None),
+    "garden-party": ("txt", [("The-Garden-Party-and-Other-Stories_1429/1429-0.txt", r"^And after all the weather was ideal", r"Isn't it, darling")], None),
+    # ("dikt", repo, fil, [(artikkel-id, overskrift), …]) – utvalgte dikt fra en diktsamling
+    "gitanjali": ("dikt", ("rabindranath-tagore_gitanjali", "gitanjali", [("song-35", "XXXV – Where the mind is without fear"), ("song-36", "XXXVI – This is my prayer to thee"), ("song-11", "XI – Leave this chanting and singing")]), None),
+    # ("drama", repo, fil, scene-id, til-regex) – replikker fra et skuespill (Standard Ebooks-tabell)
+    "julius-caesar": ("drama", ("william-shakespeare_julius-caesar", "act-3", "scene-3-2", r"Take thou what course thou wilt"), None),
 }
+# Runde Q: git clone https://github.com/standardebooks/henry-lawson_while-the-billy-boils ·
+#   …/standardebooks/rabindranath-tagore_gitanjali · …/standardebooks/william-shakespeare_julius-caesar ·
+#   https://github.com/GITenberg/The-Garden-Party-and-Other-Stories_1429
 # Kloner: git clone https://github.com/GITenberg/Gettysburg-Address_4 gettysburg ·
 #   …/My-Bondage-and-My-Freedom_202 bondage · …/My-Own-Story_34856 pankhurst ·
 #   …/Ten-Days-in-a-Mad-House-or-Nellie-Bly-s-Experience-on-Blackwell-s-Island-Feigning-Insanity-in__59899 bly
@@ -166,8 +177,54 @@ def les(repo, fil, maks):
     return ut
 
 
+def les_dikt(repo, fil, valg):
+    x = open(os.path.join(KILDEMAPPE, repo, "src", "epub", "text", fil + ".xhtml"), encoding="utf8").read()
+    ut = []
+    for aid, tittel in valg:
+        m = re.search(r'<article[^>]*id="%s"[^>]*>(.*?)</article>' % re.escape(aid), x, re.S)
+        ut.append({"h": tittel})
+        ut += [ren(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", m.group(1), re.S) if ren(p)]
+    return ut
+
+
+def les_drama(repo, fil, scene, til):
+    """Replikker fra en scene: prosa blir «**NAVN** tekst», vers blir {"vers": "**NAVN**\nlinje …"}."""
+    x = open(os.path.join(KILDEMAPPE, repo, "src", "epub", "text", fil + ".xhtml"), encoding="utf8").read()
+    s = x[x.find('id="%s"' % scene):]
+    s = s[:s.find("</section>")]
+    def r(t):
+        t = re.sub(r'<i epub:type="z3998:stage-direction">(.*?)</i>', lambda m: "*" + re.sub(r"<[^>]+>", "", m.group(1)) + "*", t, flags=re.S)
+        t = re.sub(r"<[^>]+>", "", t)
+        return re.sub(r"\s+", " ", html.unescape(t).replace("\u2060", "").replace("\xa0", " ")).strip()
+    ut, forrige = [], None
+    for tr in re.findall(r"<tr>(.*?)</tr>", s, re.S):
+        tr = tr.replace("<td/>", "")
+        m = re.search(r'<td epub:type="z3998:persona">(.*?)</td>', tr, re.S)
+        body = re.findall(r'<td(?! epub:type="z3998:persona")[^>]*>(.*?)</td>', tr, re.S)
+        if not body:
+            continue
+        b = body[-1]
+        retning = not m and b.strip().startswith("<i") and b.strip().endswith("</i>")
+        hvem = r(m.group(1)).upper() if m else (None if retning else forrige)
+        if m:
+            forrige = hvem
+        if "<br" in b:
+            strofer = ["\n".join(l for l in (r(x) for x in re.split(r"<br\s*/>", p)) if l) for p in re.findall(r"<p>(.*?)</p>", b, re.S)]
+            ut.append({"vers": ("**" + hvem + "**\n" if hvem else "") + "\n\n".join(strofer)})
+        else:
+            ut.append(("**" + hvem + "** " if hvem else "") + r(b))
+        siste = ut[-1] if isinstance(ut[-1], str) else ut[-1]["vers"]
+        if re.search(til, siste):
+            break
+    return ut
+
+
 def hent(id_):
     repo, fil, maks = KILDER[id_]
+    if repo == "dikt":
+        return les_dikt(*fil)
+    if repo == "drama":
+        return les_drama(*fil)
     if repo == "txt":
         tekst = []
         for (f, fra, til) in fil:
@@ -187,7 +244,8 @@ if __name__ != "__main__":
     raise SystemExit  # brukt som modul: stopp her
 
 feil = 0
-for id_, (repo, fil, maks) in KILDER.items():
+valgte = sys.argv[1:] or list(KILDER)  # python3 verktoy/lag-lesing.py id1 id2 … gir bare disse
+for id_, (repo, fil, maks) in [(k, KILDER[k]) for k in valgte]:
     sti = os.path.join(ROT, "data", "lesing", id_ + ".js")
     if not os.path.exists(sti):
         print("  (hopper over %s – ingen datafil ennå)" % id_); continue

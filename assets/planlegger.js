@@ -41,6 +41,7 @@
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],
     ["exit", "Exit ticket", "exit.html", "Avslutningslapper: 3–2–1, klart og uklart, jeg trodde – nå tenker jeg, ett ord og læringsmål-sjekk. Storskjerm, utskrift (4 per ark) og digital elevversjon.", ["samfunnsfag", "engelsk"]],
     ["lateral", "Lateral lesing", "lateral.html", "Fem oppdiktede nettsider: forlat siden, søk på avsenderen, les søketreffene og konkluder.", ["samfunnsfag", "engelsk"]],
+    ["skrivom", "Rewrite and improve", "skrivom.html", "Bearbeide egen tekst etter tilbakemelding: rettekoder med forklaring, før og etter, ARMS og CUPS og personlig sjekkliste.", ["engelsk"]],
     ["grafleser", "Grafleseren", "grafleser.html", "Velg riktig diagram, les av grafer, avslør fire villedende grafer og lag eget diagram (oppdiktede tall).", ["samfunnsfag"]],
     ["undersokelse", "Undersøkelsesverkstedet", "undersokelse.html", "Egen undersøkelse fra problemstilling til presentasjon: spørsmålsvaskeri, opptelling med diagram, gyldighet og utkast. Lagres i lenken.", ["samfunnsfag"]],
     ["valg", "Valgsimulatoren", "valg.html", "Fra stemmer til mandater (justert Sainte-Laguë, ren Sainte-Laguë, d’Hondt, sperregrense) og koalisjonsbyggeren – oppdiktede partier.", ["samfunnsfag"]],

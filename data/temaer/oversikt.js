@@ -1005,6 +1005,25 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "en9-canada",
+    fag: "engelsk",
+    trinn: 9,
+    sprak: "en",
+    tittel: "Canada and the First Nations",
+    kort: "Two languages, Viking ruins, residential schools – and the road to reconciliation.",
+    sted: { navn: "Ottawa", lat: 45.42, lon: -75.70 },
+    bilde: "https://images.unsplash.com/photo-1610141353646-14306dc6a9ab?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "The Canadian flag in front of the Three Sisters mountains in Canmore, Alberta",
+    kreditt: "Igor Kyryliuk & Tetiana Kravchenko",
+    kredittUrl: "https://unsplash.com/@igor_and_teti?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Vikings built a settlement in Newfoundland around the year 1000.",
+      "Since 2021, 30 September has been Canada’s National Day for Truth and Reconciliation."
+    ]
+  },
+  {
     id: "en9-india",
     fag: "engelsk",
     trinn: 9,

@@ -78,7 +78,22 @@ LV.lesetekster = [
     tags: ["Poetry", "War", "History"], temaer: ["en9-poetry", "sf9-forste-verdenskrig"] },
   { id: "dunbar", tittel: "We Wear the Mask", forfatter: "Paul Laurence Dunbar", levde: "1872–1906", ar: 1895, sjanger: "Poetry", nivaa: 2, trinn: "9–10", ord: 290, kilde: "gutenberg",
     ikon: "🎭", farger: ["#2a2433", "#c8a96a"], kort: "A smile that hides the pain, and a caged bird that sings for freedom: two poems about life after slavery.",
-    tags: ["Poetry", "Civil rights", "Short texts"], temaer: ["en10-oppression", "en9-poetry"] }
+    tags: ["Poetry", "Civil rights", "Short texts"], temaer: ["en10-oppression", "en9-poetry"] },
+  { id: "drovers-wife", tittel: "The Drover’s Wife", forfatter: "Henry Lawson", levde: "1867–1922", ar: 1892, sjanger: "Short story", nivaa: 2, trinn: "9–10", ord: 3190,
+    ikon: "🐍", farger: ["#5b3a1e", "#e7c27d"], kort: "Alone in the Australian bush with four children, a woman sits up all night waiting for a snake – and remembers.",
+    tags: ["Australia", "Courage", "The bush"], temaer: ["en9-australia", "en10-narrated-stories"] },
+  { id: "garden-party", tittel: "The Garden Party", forfatter: "Katherine Mansfield", levde: "1888–1923", ar: 1922, sjanger: "Short story", nivaa: 3, trinn: "9–10", ord: 5300, kilde: "gutenberg",
+    ikon: "🎩", farger: ["#2f4a3a", "#f2d7d9"], kort: "A perfect day for a party in a rich family’s garden – until news comes of a death in the poor cottages below.",
+    tags: ["New Zealand", "Rich and poor", "Coming of age"], temaer: ["en9-new-zealand", "en10-narrated-stories"] },
+  { id: "gitanjali", tittel: "Where the Mind Is Without Fear", forfatter: "Rabindranath Tagore", levde: "1861–1941", ar: 1912, sjanger: "Poetry", nivaa: 2, trinn: "9–10", ord: 320,
+    ikon: "🪔", farger: ["#5a1e2e", "#f0c46a"], kort: "Three prose poems from «Gitanjali» by India’s Nobel Prize winner – a dream of a free country, a prayer for strength, and God among the workers.",
+    tags: ["Poetry", "India", "Freedom"], temaer: ["en9-india", "en9-poetry", "en9-british-empire"] },
+  { id: "julius-caesar", tittel: "Friends, Romans, Countrymen", forfatter: "William Shakespeare", levde: "1564–1616", ar: 1599, sjanger: "Drama", nivaa: 3, trinn: "10", ord: 2200,
+    ikon: "🗡️", farger: ["#3d1414", "#d8c08a"], kort: "Caesar is dead. Brutus explains why – then Mark Antony takes the stage and turns the crowd. (From «Julius Caesar», Act 3, Scene 2.)",
+    tags: ["Drama", "Rhetoric", "Power"], temaer: ["en10-leading-following", "en10-group-think", "en9-media-advertising"] },
+  { id: "animal-farm", tittel: "Animal Farm", forfatter: "George Orwell", levde: "1903–1950", ar: 1945, sjanger: "Novel", nivaa: 2, trinn: "9–10", ord: 30000, utenTekst: true,
+    ikon: "🐷", farger: ["#3b2a1a", "#e8b4a0"], kort: "The animals throw out the farmer and promise that all animals are equal. Then the pigs take over … A reading guide. (Book from your teacher.)",
+    tags: ["Novel", "Power", "Propaganda"], temaer: ["en10-leading-following", "sf9-russiske-revolusjonen", "en10-group-think"] }
 ];
 
 LV.lesenivaer = { 1: "Easier", 2: "Medium", 3: "Challenging" };

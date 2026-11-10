@@ -69,6 +69,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] The British Empire and the Spread of English (`en9-british-empire`) ↔ *Kolonialisme*
 - [x] Australia and the Stolen Generations (`en9-australia`) ↔ *Fornorskingen*
 - [x] New Zealand and the Māori (`en9-new-zealand`)
+- [x] Canada and the First Nations (`en9-canada`) ↔ *Fornorskingen*
 - [x] India (`en9-india`)
 - [x] British and American English (`en9-british-american-english`)
 - [x] Media and Advertising (`en9-media-advertising`) ↔ *Medier og påvirkning*
@@ -114,7 +115,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ---
 
-Totalt: 83 temasider (15 + 10 + 20 + 9 + 19 + 10).
+Totalt: 84 temasider (15 + 10 + 20 + 10 + 19 + 10).
 
 ---
 

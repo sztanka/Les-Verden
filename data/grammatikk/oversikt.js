@@ -39,6 +39,14 @@ LV.grammatikkGrupper = [
     ikon: "🛠️",
     ingress: "Good writing is built from good sentences. Here you learn the parts of a sentence, English **word order**, how to join ideas into longer sentences, and how to fix the most common sentence mistakes. At the end, you practise **editing** – checking and improving a text, just like you do with your own writing.",
     emner: ["sentence-parts", "word-order", "sentence-types", "run-ons", "editing"]
+  },
+  {
+    id: "correct",
+    tittel: "Getting it right",
+    norsk: "Riktig skriving",
+    ikon: "✅",
+    ingress: "Some mistakes come up again and again in texts written by Norwegian students: the missing **-s** on verbs, small letters on *Monday* and *English*, apostrophes in the wrong place and words that look Norwegian but mean something else. Learn these, and your writing will improve quickly.",
+    emner: ["agreement", "punctuation", "norwegian-errors"]
   }
 ];
 LV.grammatikkListe = [
@@ -56,6 +64,9 @@ LV.grammatikkListe = [
   { id: "sentence-types", tittel: "Simple, compound and complex sentences", ikon: "🔗", kort: "Join short sentences into longer ones with and, but, because, although and who.", norsk: "Enkle og sammensatte setninger" },
   { id: "run-ons", tittel: "Run-ons and fragments", ikon: "✂️", kort: "Sentences that go on too long, or stop too early – and how to fix them.", norsk: "Setninger som renner over, og halve setninger" },
   { id: "editing", tittel: "Fix the text: editing your writing", ikon: "🔍", kort: "Check and improve a text step by step – and find the typical mistakes.", norsk: "Bearbeide og rette egen tekst" },
+  { id: "agreement", tittel: "Subject–verb agreement", ikon: "🤝", kort: "She works, they work. There is one, there are many. People are – the news is.", norsk: "Samsvar mellom subjekt og verbal" },
+  { id: "punctuation", tittel: "Capital letters, commas and apostrophes", ikon: "❝", kort: "Monday, English and I with capital letters – and the right place for commas and apostrophes.", norsk: "Stor forbokstav, komma og apostrof" },
+  { id: "norwegian-errors", tittel: "Typical mistakes Norwegians make", ikon: "🇳🇴", kort: "False friends, information without -s, I agree and other traps.", norsk: "Typiske feil nordmenn gjør på engelsk" },
   { id: "homophones", tittel: "Homophones", ikon: "👂", kort: "Words that sound the same but have different meanings – like their, there and they're.", norsk: "Ord som uttales likt, men betyr noe forskjellig" },
   { id: "homographs", tittel: "Homographs", ikon: "✍️", kort: "Words that are spelled the same but have different meanings – like bat and lead.", norsk: "Ord som skrives likt, men betyr noe forskjellig" },
   { id: "homonyms", tittel: "Homonyms", ikon: "🦇", kort: "Words that are spelled and pronounced the same but have different meanings – like bank and bear.", norsk: "Ord som skrives og uttales likt, men betyr noe forskjellig" },

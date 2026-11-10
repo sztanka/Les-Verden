@@ -50,6 +50,7 @@ les-verden/
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
+├── skrivom.html            Rewrite and improve: rettekoder, før og etter, ARMS/CUPS, sjekkliste
 ├── grafleser.html          Grafleseren: lese og lage diagrammer (bruker assets/diagram.js)
 ├── undersokelse.html       Undersøkelsesverkstedet, innholdet i lenken (#)
 ├── valg.html               Valgsimulatoren: mandatfordeling og koalisjoner (partier fra data/lov.js)
@@ -365,6 +366,15 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - `digitalespor.html` (`assets/digitalespor.js`, CSS-prefiks `dsp-`): Spordetektiven (seks innlegg fra en oppdiktet profil – hva kan en fremmed sammenstille?), en privat sjekkliste for eget fotavtrykk, slik får du slettet spor, og opphavsrett og Creative Commons med åtte «lov eller ikke lov?»-situasjoner. Dekker s14.
 - Faktaene står i `kontroller` nederst i hver temafil og bør sjekkes før bruk.
 
+### Runde Q: engelsk
+
+- Reading Room: `drovers-wife` (Henry Lawson, Australia), `garden-party` (Katherine Mansfield, New Zealand), `gitanjali` (Rabindranath Tagore, India – tre prosadikt) og `julius-caesar` (Shakespeare, akt 3 scene 2). Originaltekstene lages med `python3 verktoy/lag-lesing.py drovers-wife garden-party gitanjali julius-caesar` (se klonelista øverst i skriptet). Skriptet har fått to nye kildetyper: `dikt` (utvalgte dikt fra en samling) og `drama` (replikker fra en scene). Skuespill vises uten kursiv (`sjanger: "Drama"`).
+- `animal-farm`: leseguide uten originaltekst (som Carver). Teksten er fri i Norge, men vernet i USA, der GitHub Pages ligger. `utenTekst.norsk` gir egen tekst i boksen.
+- Hylla i Reading Room har fått filteret «Poems and plays», og romaner, fabler og skuespill regnes nå som fiction.
+- Nytt tema `en9-canada` (Canada and the First Nations). Bildet peker til Unsplash til «Hent bilder lokalt» er kjørt.
+- Grammatikk: ny gruppe «Getting it right» med `agreement`, `punctuation` og `norwegian-errors`. Tabeller i grammatikken kan nå rulles med tastatur.
+- `skrivom.html` (`so-`): Rewrite and improve – rettekoder med forklaring og lenke til grammatikk, før og etter, ARMS og CUPS og en personlig sjekkliste som kan skrives ut.
+
 ### Runde P: geografi og tall
 
 - Nytt tema `sf8-naturkrefter` (Naturkrefter og naturfare): platetektonikk, jordskjelv, tsunamier, vulkaner, skred og flom i Norge, klimatilpasning og sårbarhet. Bildet peker til Unsplash til «Hent bilder lokalt» er kjørt.
@@ -478,7 +488,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110b`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110c`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
