@@ -60,6 +60,7 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Exit ticket", "exit.html", "Avslutningslapper for slutten av timen.", "exit ticket avslutningslapp utgangsbillett 3-2-1 oppsummering vurdering for læring slutten av timen"],
   ["Lesehefte og forklar hvorfor", "tema.html?id=sf10-apartheid&hvorfor=1", "Forklar hvorfor-kort i temaene og lesehefte ved utskrift.", "forklar hvorfor elaborering lesehefte utskrift marg notater papir"],
   ["Lateral lesing", "lateral.html", "Sjekk nettsider som en faktasjekker.", "lateral lesing faktasjekk kildekritikk nettside avsender søk hvem står bak lateral reading fact check"],
+  ["Digitale spor", "digitalespor.html", "Hva avslører innleggene dine – og hvem eier det du finner på nettet?", "digitale spor fotavtrykk personvern sletting slettmeg gdpr datatilsynet opphavsrett creative commons cc lisens bilder deling passord digital footprint copyright privacy"],
   ["Les som en historiker", "historiker.html", "Kilder som forteller ulikt om samme hendelse.", "historiker kilder opphav kontekst sammenligning nærlesing fyrstikkstreiken torgslaget peterloo reading like a historian"],
   ["Argumentkart", "argumentkart.html", "Bygg argumentasjonen som et kart.", "argumentkart argumentasjon påstand grunn belegg innvending motargument argument map claim evidence"],
   ["Ordverksted", "ordverksted.html", "Forstavelser, endelser og ordstammer.", "ordverksted morfologi forstavelse endelse ordstamme prefiks suffiks sammensatte ord prefix suffix root word parts vocabulary"],

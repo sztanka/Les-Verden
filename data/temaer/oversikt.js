@@ -537,6 +537,25 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf10-rasisme-diskriminering",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 10,
+    tittel: "Rasisme og diskriminering",
+    kort: "Fordommer, rasetenkning, drapet på Benjamin Hermansen og loven mot diskriminering.",
+    sted: { navn: "Holmlia", lat: 59.84, lon: 10.80 },
+    bilde: "https://images.unsplash.com/photo-1495667496513-9068843d7679?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "Mange tente stearinlys i mørket",
+    kreditt: "Nicola Fioravanti",
+    kredittUrl: "https://unsplash.com/@nicolafioravanti?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "1. februar 2001 gikk rundt 40 000 mennesker i fakkeltog mot rasisme i Oslo.",
+      "Benjaminprisen deles ut hvert år til en skole som arbeider mot rasisme."
+    ]
+  },
+  {
     id: "sf10-konfliktlosning",
     fag: "samfunnsfag",
     emne: "samfunnskunnskap",
@@ -664,6 +683,25 @@ window.LV.temaer = [
     fakta: [
       "Samefolkets dag 6. februar er til minne om det første samiske landsmøtet i Trondheim i 1917.",
       "I 1997 ba kong Harald samene om unnskyldning for den uretten staten hadde gjort."
+    ]
+  },
+  {
+    id: "sf9-nasjonale-minoriteter",
+    fag: "samfunnsfag",
+    emne: "historie",
+    trinn: 9,
+    tittel: "Nasjonale minoriteter",
+    kort: "Jøder, kvener/norskfinner, rom, romanifolket/taterne og skogfinner – historien om urett og rettigheter.",
+    sted: { navn: "Finnskogen", lat: 60.55, lon: 12.45 },
+    bilde: "https://images.unsplash.com/photo-1544009520-e2ea9189f15e?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "Hus i skogkledde fjell",
+    kreditt: "Michael Fousert",
+    kredittUrl: "https://unsplash.com/@michaelfousert?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Norge har fem nasjonale minoriteter. Alle har bodd i landet i mer enn hundre år.",
+      "Fram til 1851 sto det i Grunnloven at jøder ikke fikk komme til Norge."
     ]
   },
   {
@@ -872,6 +910,24 @@ window.LV.temaer = [
     fakta: [
       "Åtte timers arbeidsdag ble innført ved lov i Norge i 1919.",
       "Fra du er 13 år, kan du gjøre lett arbeid, som å bære ut aviser."
+    ]
+  },
+  {
+    id: "sf9-likestilling",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 9,
+    tittel: "Likestilling – fra stemmerett til i dag",
+    kort: "Kvinnesaken, stemmeretten i 1913, kvinneregjeringen og fedrekvoten – og det som gjenstår.",
+    bilde: "https://images.unsplash.com/photo-1488942446680-85dd7de440ef?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "En stor folkemengde med plakater i et demonstrasjonstog",
+    kreditt: "Vlad Tchompalov",
+    kredittUrl: "https://unsplash.com/@tchompalov?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Kvinner i Norge fikk alminnelig stemmerett i 1913.",
+      "I 1986 var åtte av atten statsråder kvinner – «kvinneregjeringen»."
     ]
   },
   {
@@ -1285,6 +1341,24 @@ window.LV.temaer = [
     fakta: [
       "Sosialiseringen starter den dagen vi blir født, og varer hele livet.",
       "Normer er uskrevne regler – som at man står i kø og sier takk for maten."
+    ]
+  },
+  {
+    id: "sf8-grenser-press",
+    fag: "samfunnsfag",
+    emne: "samfunnskunnskap",
+    trinn: 8,
+    tittel: "Grenser, kropp og press",
+    kort: "Om egne grenser, samtykke, gruppepress, kroppspress og deling av bilder – og hvor du får hjelp.",
+    bilde: "https://images.unsplash.com/photo-1593733925160-6f78dc0be8b6?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "En person i hvit genser holder en mobiltelefon",
+    kreditt: "Kelli McClintock",
+    kredittUrl: "https://unsplash.com/@kelli_mcclintock?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Alarmtelefonen for barn og unge, 116 111, er gratis og åpen hele døgnet.",
+      "Siden 2022 må reklame med retusjerte kropper merkes i Norge."
     ]
   },
   {

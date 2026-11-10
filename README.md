@@ -50,6 +50,7 @@ les-verden/
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
+├── digitalespor.html       Digitale spor: personvern, sletting og opphavsrett
 ├── historiker.html         Les som en historiker (gjenskapte kilder, data i data/historiker.js)
 ├── argumentkart.html       Argumentkart, innholdet i lenken (#)
 ├── ordverksted.html        Ordverksted: forstavelser, endelser og ordstammer (data i data/ordverksted.js)
@@ -354,6 +355,13 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - `sf10-folkemord` (Folkemordene i Rwanda og Srebrenica), `sf9-digital-dommekraft` (Digital dømmekraft) og `en8-norwegian-and-english` (Norwegian and English).
 - Bildene til de tre temaene peker til Unsplash til GitHub-jobben «Hent bilder lokalt» er kjørt. Kjør den én gang etter at filene er lastet opp.
 
+### Runde O: nye temaer og Digitale spor
+
+- Fire nye temaer som dekker kompetansemål som var svakt dekket: `sf9-nasjonale-minoriteter` (s10 – jøder, kvener/norskfinner, rom, romanifolket/taterne, skogfinner), `sf10-rasisme-diskriminering` (Benjamin Hermansen og fakkeltoget, loven mot diskriminering – gjerningspersonene navngis ikke), `sf8-grenser-press` (s15 – grenser, samtykke, gruppepress, kroppspress, deling av bilder og hvor man får hjelp) og `sf9-likestilling` (fra kvinnesaken og stemmeretten til fedrekvoten og i dag).
+- Bildene til de fire temaene peker til Unsplash til GitHub-jobben «Hent bilder lokalt» er kjørt. Kjør den én gang etter at filene er lastet opp.
+- `digitalespor.html` (`assets/digitalespor.js`, CSS-prefiks `dsp-`): Spordetektiven (seks innlegg fra en oppdiktet profil – hva kan en fremmed sammenstille?), en privat sjekkliste for eget fotavtrykk, slik får du slettet spor, og opphavsrett og Creative Commons med åtte «lov eller ikke lov?»-situasjoner. Dekker s14.
+- Faktaene står i `kontroller` nederst i hver temafil og bør sjekkes før bruk.
+
 ### Søk
 
 `sok.html` + `assets/sok.js` søker i `data/sok.js`, som lages av `node verktoy/lag-sok.mjs`. Skriptet leser temaer, begreper, personer, Reading Room, filmer, skriveguider, lesestrategier, grammatikk, landsider, sport og kartsett. **Kjør det på nytt etter hver endring i innholdet**, ellers finner ikke søket det nye.
@@ -459,7 +467,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261109l`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110a`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

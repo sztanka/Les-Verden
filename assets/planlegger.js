@@ -41,6 +41,7 @@
     ["arsak", "Årsak og virkning", "arsak.html", "Spill: sett årsaker og følger i riktig rekkefølge (15 kjeder).", ["samfunnsfag", "engelsk"]],
     ["exit", "Exit ticket", "exit.html", "Avslutningslapper: 3–2–1, klart og uklart, jeg trodde – nå tenker jeg, ett ord og læringsmål-sjekk. Storskjerm, utskrift (4 per ark) og digital elevversjon.", ["samfunnsfag", "engelsk"]],
     ["lateral", "Lateral lesing", "lateral.html", "Fem oppdiktede nettsider: forlat siden, søk på avsenderen, les søketreffene og konkluder.", ["samfunnsfag", "engelsk"]],
+    ["digitalespor", "Digitale spor", "digitalespor.html", "Spordetektiven (hva avslører seks innlegg?), privat sjekkliste, slik får du slettet spor, og opphavsrett og Creative Commons med åtte situasjoner.", ["samfunnsfag"]],
     ["historiker", "Les som en historiker", "historiker.html", "Tre kildesett (fyrstikkstreiken 1889, Torgslaget 1829, Peterloo 1819): opphav, kontekst, sammenligning, nærlesing og egen konklusjon.", ["samfunnsfag", "engelsk"]],
     ["argumentkart", "Argumentkart", "argumentkart.html", "Påstand, grunner, belegg, innvendinger og svar som visuelt kart – med tekstutkast og ideer fra Debattduell.", ["samfunnsfag", "engelsk"]],
     ["ordverksted", "Ordverksted", "ordverksted.html", "Forstavelser, endelser og greske/latinske ordstammer på norsk og engelsk, med tre øvinger.", ["samfunnsfag", "engelsk"]],

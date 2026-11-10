@@ -20,6 +20,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Naturressurser (`sf8-naturressurser`)
 - [x] Befolkning og urbanisering (`sf8-befolkning-urbanisering`)
 - [x] Identitet og sosialisering (`sf8-identitet-sosialisering`) – inkl. kjønnsroller ↔ *Identity and Friendship*
+- [x] Grenser, kropp og press (`sf8-grenser-press`) – samtykke, gruppepress, kroppspress, deling av bilder
 - [x] Demokratiet i Norge (`sf8-demokratiet-i-norge`) – Storting, regjering, kommune, valg
 - [x] Rettsstaten (`sf8-rettsstaten`)
 - [x] Kildekritikk og kritisk tenkning (`sf8-kildekritikk`) ↔ *Group Think*
@@ -47,6 +48,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Kolonialisme og imperialisme (`sf9-kolonialisme`) – delingen av Afrika ↔ *The British Empire*
 - [x] Nasjonalisme (`sf9-nasjonalisme`)
 - [x] Fornorskingen av samene (`sf9-fornorskingen`) ↔ *Australia / Indigenous Peoples*
+- [x] Nasjonale minoriteter (`sf9-nasjonale-minoriteter`) – jøder, kvener/norskfinner, rom, romanifolket/taterne, skogfinner
 - [x] Første verdenskrig (`sf9-forste-verdenskrig`)
 - [x] Den russiske revolusjonen (`sf9-russiske-revolusjonen`)
 - [x] Næringsveier (`sf9-naeringsveier`)
@@ -56,6 +58,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] FNs bærekraftsmål (`sf9-baerekraftsmaal`)
 - [x] Økonomi og personlig økonomi (`sf9-okonomi`)
 - [x] Arbeidsliv (`sf9-arbeidsliv`)
+- [x] Likestilling – fra stemmerett til i dag (`sf9-likestilling`)
 - [x] Kriminalitet og straff (`sf9-kriminalitet-straff`)
 - [x] Medier og påvirkning (`sf9-medier-pavirkning`) ↔ *Media and Advertising*
 - [x] Digital dømmekraft (`sf9-digital-dommekraft`) – digitale spor, personvern, algoritmer, nettvett
@@ -88,6 +91,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Midtøsten-konflikten (`sf10-midtosten`)
 - [x] Norge etter 1945 (`sf10-norge-etter-1945`) – velferdsstaten, oljen
 - [x] Ekstremisme og terror (`sf10-ekstremisme-terror`) – 22. juli, 11. september, IS, Taliban ↔ *9/11*
+- [x] Rasisme og diskriminering (`sf10-rasisme-diskriminering`) – Benjamin Hermansen, diskrimineringsloven ↔ *Oppression*
 - [x] Klimaendringer (`sf10-klimaendringer`)
 - [x] Internasjonalt samarbeid (`sf10-internasjonalt-samarbeid`) – EU, NATO
 - [x] Demokrati og diktatur (`sf10-demokrati-diktatur`) ↔ *Democracy and Citizenship*
@@ -109,7 +113,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ---
 
-Totalt: 78 temasider (13 + 10 + 18 + 9 + 18 + 10).
+Totalt: 82 temasider (14 + 10 + 20 + 9 + 19 + 10).
 
 ---
 
