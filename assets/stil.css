@@ -4119,3 +4119,28 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .tg-under .temakort p { font-size: .9rem; }
 .tg-under .temakort .merke:not(.merke-emne) { display: none; }
 .tg-under .temakort .merker:not(:has(.merke-emne)) { display: none; }
+
+/* ---------- Lærerveiledningen (laerer.html) ---------- */
+.lv-toc ul { list-style: none; padding: 0; margin: 1.2rem 0; display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr)); }
+.lv-toc a { display: grid; grid-template-columns: auto 1fr; gap: 0 .6rem; align-items: center; height: 100%; box-sizing: border-box; padding: .6rem .8rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; color: var(--tekst); text-decoration: none; font-family: var(--font-ui); }
+.lv-toc a:hover, .lv-toc a:focus-visible { border-color: var(--tekst); }
+.lv-toc a > span { grid-row: span 2; font-size: 1.5rem; }
+.lv-toc small { color: var(--tekst-dempet); }
+.lv-verktoy { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: end; margin: 0 0 1.6rem; font-family: var(--font-ui); }
+.lv-verktoy label { display: grid; gap: .2rem; flex: 1 1 18rem; font-weight: 600; }
+.lv-verktoy input { font: inherit; font-weight: 400; padding: .5rem .7rem; border: 1px solid var(--linje); border-radius: 10px; background: var(--flate); color: var(--tekst); }
+.lv-verktoy .ak-knapper { margin: 0; }
+.lv-treff { flex-basis: 100%; margin: 0; min-height: 1.2em; font-weight: 600; }
+.lv-kat { margin: 0 0 2.2rem; scroll-margin-top: 5rem; }
+.lv-kat > h2 { border-bottom: 2px solid var(--linje); padding-bottom: .3rem; margin-bottom: .3rem; }
+.lv-kat-intro { color: var(--tekst-dempet); font-family: var(--font-ui); margin: 0 0 .7rem; }
+.lv-del { border: 1px solid var(--linje); border-radius: 10px; background: var(--flate); margin: 0 0 .45rem; scroll-margin-top: 5rem; }
+.lv-del > summary { cursor: pointer; padding: .55rem .9rem; list-style: none; display: flex; align-items: center; gap: .6rem; }
+.lv-del > summary::-webkit-details-marker { display: none; }
+.lv-del > summary::before { content: "▸"; color: var(--tekst-dempet); transition: transform .15s; }
+.lv-del[open] > summary::before { transform: rotate(90deg); }
+.lv-del > summary h3 { margin: 0; font-size: 1.05rem; font-family: var(--font-ui); }
+.lv-del[open] > summary { border-bottom: 1px solid var(--linje); }
+.lv-innhold { padding: .2rem 1rem .6rem; }
+.lv-innhold .pl-laererbanner { margin: .5rem 0; }
+@media print { .lv-toc, .lv-verktoy { display: none; } .lv-del { border: 0; } .lv-del > summary::before { display: none; } }

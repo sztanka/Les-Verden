@@ -375,6 +375,7 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Toppmenyen** har fem nedtrekksmenyer – Samfunnsfag, Engelsk, Lese og skrive, Spill og For lærere – pluss lenken Eksamen. Hver meny er delt i grupper med overskrifter (`MENYER` i `assets/felles.js`: `{ navn, grupper: [[tittel, [lenker], språk]], alle }`). Hvilken meny som markeres som aktiv, avgjøres av hvilken meny som først har en lenke til siden.
 - **Spill** (`spill.html`): delt i seksjoner – Øv på et tema, Rollespill og simuleringer, Historie og tenkning, Kart, kilder og medier, For hele klassen og Lag selv (`ANDRE` i `assets/spill.js`). Temavelgeren starter tom («Velg et tema …»), kan filtreres på fag og trinn, har «Tilfeldig tema», og velger temaet automatisk når man kommer fra en temaside (`?tema=`).
 - **Forsiden**: temaene vises gruppert etter fag og trinn (eller trinn og fag – knappen «Ordne etter»; `?vis=trinn`), med hurtiglenker til hver gruppe. Seksjonen «Mer å utforske» er flyttet under temaene, og «Kommer etter hvert» er fjernet.
+- **Lærersiden** (`laerer.html`): ordnet i ni kategorier (Kom i gang, Temaer og tekster, Lese, Skrive og snakke, Kilder og metode, Spill og rollespill, I klasserommet, Vurdering og eksamen, Personvern og vedlikehold). Hvert emne er en sammenleggbar boks med id `om-<emne>`, så lenker som `laerer.html#om-leseflyt` åpner riktig boks. Øverst er en innholdsoversikt, et søkefelt som filtrerer emnene og knappene «Åpne alle» / «Lukk alle». Nye emner legges inn som `<details class="lv-del" id="om-…">` i riktig `section.lv-kat`.
 
 ### Runde R: arbeidsmåter
 
@@ -506,7 +507,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110e`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110f`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
