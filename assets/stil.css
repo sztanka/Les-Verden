@@ -3802,7 +3802,9 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 @media print { body.ex-skriv-lapper main { padding: 0 !important; margin: 0 !important; } body.ex-skriv-lapper .fot, body.ex-skriv-lapper header.topp, body.ex-skriv-lapper .topp, body.ex-skriv-lapper .svarlinje { display: none !important; } body.ex-skriv-lapper .le-del { margin: 0 !important; padding: 0 !important; border: 0 !important; } }
 
 /* ---------- Digitale spor (digitalespor.html) ---------- */
-.dsp-innhold ol { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; padding-left: 1.2rem; font-family: var(--font-ui); }
+.dsp-innhold ol { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; padding-left: 0; list-style: none; counter-reset: dspi; font-family: var(--font-ui); }
+.dsp-innhold li { counter-increment: dspi; }
+.dsp-innhold li::before { content: counter(dspi) ". "; }
 .dsp-feed { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
 .dsp-innlegg article { background: var(--flate); border: 1px solid var(--linje); border-radius: 14px; padding: .6rem .9rem .4rem; height: 100%; box-sizing: border-box; }
 .dsp-topp { display: flex; align-items: center; gap: .5rem; margin: 0 0 .5rem; font-family: var(--font-ui); }
@@ -3837,8 +3839,8 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 @media print { .dsp-sjekk, .dsp-innhold { display: none !important; } .dsp-innlegg article { break-inside: avoid; } }
 
 /* ---------- Diagrammer (assets/diagram.js) ---------- */
-:root { --dg-1: #2f6b58; --dg-2: #2c4f8f; --dg-3: #b5541c; --dg-4: #6a3d9a; --dg-5: #8a6a00; --dg-6: #a8324f; --dg-7: #2f7f9e; --dg-8: #5b6068; }
-:root[data-tema="mork"] { --dg-1: #6cc3a5; --dg-2: #8fb0ef; --dg-3: #f0965f; --dg-4: #c9a6f0; --dg-5: #f1cf68; --dg-6: #f08aa5; --dg-7: #7fcbe6; --dg-8: #a7abb3; }
+:root { --dg-1: #2f6b58; --dg-2: #2c4f8f; --dg-3: #b5541c; --dg-4: #6a3d9a; --dg-5: #8a6a00; --dg-6: #a8324f; --dg-7: #2f7f9e; --dg-8: #5b6068; --dg-9: #7a5c3e; --dg-10: #3d7a2f; }
+:root[data-tema="mork"] { --dg-1: #6cc3a5; --dg-2: #8fb0ef; --dg-3: #f0965f; --dg-4: #c9a6f0; --dg-5: #f1cf68; --dg-6: #f08aa5; --dg-7: #7fcbe6; --dg-8: #a7abb3; --dg-9: #d9b38c; --dg-10: #9fd28a; }
 .dg { margin: 1rem 0; max-width: 44rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .8rem .5rem; }
 .dg-tittel { font-family: var(--font-ui); font-weight: 700; margin-bottom: .3rem; }
 .dg svg { width: 100%; height: auto; display: block; }
@@ -3973,3 +3975,102 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 
 .lr-vers.lr-drama, .lr-vers.lr-drama p { font-style: normal; }
 .lr-vers.lr-drama em { font-style: italic; }
+
+/* ---------- Lydopptaker (assets/opptak.js) og Ta opp deg selv (opptak.html) ---------- */
+.opp { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .7rem 1rem; max-width: 40rem; font-family: var(--font-ui); }
+.opp-knapper { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 0; }
+.opp-tid { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--aksent); }
+.opp-status { margin: .4rem 0; min-height: 1.2em; }
+.opp-resultat audio { width: 100%; margin: .3rem 0 .5rem; }
+.ot-formal { border: 0; padding: 0; margin: 1rem 0; display: flex; flex-wrap: wrap; gap: .5rem; font-family: var(--font-ui); }
+.ot-formal legend { font-weight: 700; margin-bottom: .4rem; width: 100%; }
+.ot-formal label { display: flex; gap: .4rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-radius: 999px; padding: .35rem .9rem; cursor: pointer; }
+.ot-formal label:has(input:checked) { border-color: var(--tekst); background: var(--samfunnsfag-lys); font-weight: 700; }
+.ot-tips { font-family: var(--font-ui); }
+.ot-sjekk { border: 0; padding: 0; margin: 0; display: grid; gap: .4rem; font-family: var(--font-ui); max-width: 44rem; }
+.ot-sjekk label { display: flex; gap: .45rem; align-items: flex-start; }
+.ot-sjekk input { margin-top: .3rem; }
+
+/* ---------- Rettssaken (rettssak.html) ---------- */
+.rs-tiltale { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--samfunnsfag); border-radius: 10px; padding: .2rem 1.1rem; max-width: 50rem; }
+.rs-lov { display: grid; gap: .6rem; max-width: 50rem; font-family: var(--font-ui); }
+.rs-lov dt { font-weight: 700; }
+.rs-lov dd { margin: .1rem 0 0; }
+.rs-bevis { list-style: none; padding: 0; display: grid; gap: .6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.rs-bevis li { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .9rem; font-family: var(--font-ui); }
+.rs-bevis p { margin: .3rem 0 0; }
+.rs-rolleliste { list-style: none; padding: 0; display: grid; gap: .4rem; max-width: 50rem; }
+.rs-rolleliste summary { cursor: pointer; font-family: var(--font-ui); font-weight: 700; padding: .5rem .8rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; }
+.rs-kortboks { padding: .5rem 0 .3rem; }
+.rs-kort { background: var(--flate); border: 2px solid var(--tekst); border-radius: 14px; padding: .4rem 1.2rem .6rem; max-width: 46rem; margin: .4rem 0; }
+.rs-kort h3 { font-size: 1.25rem; }
+.rs-kort h4 { font-family: var(--font-ui); font-size: .95rem; margin: .8rem 0 .2rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-dempet); }
+.rs-hvem { font-weight: 600; }
+.rs-sak { font-family: var(--font-ui); font-size: .8rem; color: var(--tekst-dempet); border-top: 1px dashed var(--linje); padding-top: .3rem; }
+.rs-utskrift { display: none; }
+.rs-gang, .rs-manus { max-width: 50rem; display: grid; gap: .4rem; font-family: var(--font-ui); }
+.rs-manus label { display: flex; gap: .5rem; align-items: flex-start; }
+.rs-manus input { margin-top: .3rem; }
+.rs-skyld, .rs-straff { border: 1px solid var(--linje); border-radius: 12px; padding: .5rem .9rem .7rem; margin: .8rem 0; display: grid; gap: .35rem; font-family: var(--font-ui); max-width: 50rem; background: var(--flate); }
+.rs-skyld legend, .rs-straff legend { font-weight: 700; padding: 0 .3rem; }
+.rs-skyld label, .rs-straff label { display: flex; gap: .45rem; align-items: flex-start; }
+.rs-skyld input, .rs-straff input { margin-top: .3rem; }
+.rs-dom p { background: var(--gul-lys); border-radius: 10px; padding: .6rem 1rem; font-family: var(--font-ui); max-width: 50rem; }
+@media print { body.rs-skriv-kort #innhold > *:not(.le-del), body.rs-skriv-kort .le-del:not([aria-labelledby="rs-r"]), body.rs-skriv-kort [aria-labelledby="rs-r"] > :not(.rs-utskrift) { display: none !important; } body.rs-skriv-kort .rs-utskrift { display: block !important; } body.rs-skriv-kort .rs-utskrift .rs-kort { break-after: page; border-width: 1px; } }
+
+/* ---------- Første lønn (okonomi.html) ---------- */
+.fl-lonn { display: flex; flex-wrap: wrap; gap: .6rem; font-family: var(--font-ui); margin: .6rem 0 1rem; }
+.fl-lonn > div { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .4rem .9rem; min-width: 10rem; }
+.fl-lonn dt { font-size: .85rem; color: var(--tekst-dempet); }
+.fl-lonn dd { margin: 0; font-size: 1.2rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.fl-lonn .fl-netto { border-color: var(--samfunnsfag); border-width: 2px; }
+.fl-budsjett { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+.fl-poster { display: grid; gap: .6rem; font-family: var(--font-ui); }
+.fl-poster fieldset { border: 1px solid var(--linje); border-radius: 10px; padding: .4rem .8rem .6rem; margin: 0; display: grid; gap: .25rem; background: var(--flate); }
+.fl-poster legend { font-weight: 700; padding: 0 .3rem; }
+.fl-poster fieldset label { display: flex; gap: .4rem; align-items: center; }
+.fl-post { display: grid; grid-template-columns: minmax(0, 1fr) 6.5rem; gap: .1rem .6rem; align-items: center; }
+.fl-post label { grid-column: 1 / -1; font-weight: 600; font-size: .92rem; }
+.fl-post input { width: 100%; accent-color: var(--samfunnsfag); }
+.fl-post output { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.fl-resultat { position: sticky; top: 5rem; }
+.fl-igjen { display: flex; justify-content: space-between; gap: .5rem; align-items: baseline; border-radius: 10px; padding: .6rem .9rem; font-family: var(--font-ui); margin: 0 0 .4rem; }
+.fl-igjen strong { font-size: 1.4rem; }
+.fl-igjen.pluss { background: var(--samfunnsfag-lys); }
+.fl-igjen.minus { background: var(--aksent-lys); }
+#fl-sum p { font-family: var(--font-ui); }
+.fl-varsel { font-weight: 600; }
+.fl-hendelse { border: 1px solid var(--linje); border-radius: 12px; padding: .5rem 1rem .7rem; margin: 0 0 .9rem; display: grid; gap: .3rem; font-family: var(--font-ui); max-width: 46rem; background: var(--flate); }
+.fl-hendelse legend { font-weight: 700; padding: 0 .3rem; font-size: 1.05rem; }
+.fl-hendelse p { margin: .1rem 0 .3rem; }
+.fl-hendelse label { display: flex; gap: .45rem; align-items: flex-start; }
+.fl-hendelse input { margin-top: .3rem; }
+.fl-konsekvens:empty { display: none; }
+.fl-konsekvens { border-left: 4px solid var(--samfunnsfag); padding-left: .6rem; margin-top: .4rem !important; }
+.fl-hsum p { background: var(--gul-lys); border-radius: 10px; padding: .6rem 1rem; font-family: var(--font-ui); max-width: 46rem; }
+.fl-kalk { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: .8rem; max-width: 40rem; }
+.fl-ord { display: grid; gap: .4rem; max-width: 46rem; font-family: var(--font-ui); }
+.fl-ord div { display: grid; grid-template-columns: 11rem 1fr; gap: .6rem; }
+.fl-ord dt { font-weight: 700; }
+.fl-ord dd { margin: 0; }
+@media (max-width: 52rem) { .fl-budsjett { grid-template-columns: 1fr; } .fl-resultat { position: static; } .fl-ord div { grid-template-columns: 1fr; gap: 0; } }
+
+/* ---------- Kameratvurdering (kamerat.html) ---------- */
+.kv-oppsett fieldset { border: 1px solid var(--linje); border-radius: 12px; padding: .6rem 1rem .4rem; display: grid; gap: .7rem; max-width: 40rem; background: var(--flate); }
+.kv-oppsett legend { font-weight: 700; font-family: var(--font-ui); padding: 0 .3rem; }
+.kv-oppsett select { font: inherit; padding: .4rem; border: 1px solid var(--linje); border-radius: 8px; background: var(--bakgrunn); color: var(--tekst); }
+.kv-lenke { font-family: var(--font-ui); display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; }
+.kv-kriterier { list-style: none; padding: 0; display: grid; gap: .7rem; max-width: 46rem; counter-reset: kv; }
+.kv-kriterier li { counter-increment: kv; }
+.kv-kriterier fieldset { border: 1px solid var(--linje); border-radius: 12px; padding: .5rem .9rem .6rem; margin: 0; background: var(--flate); font-family: var(--font-ui); }
+.kv-kriterier legend { font-weight: 700; padding: 0 .3rem; }
+.kv-kriterier legend::before { content: counter(kv) ". "; }
+.kv-niva { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin: .2rem 0 .4rem; }
+.kv-niva label { display: flex; gap: .35rem; align-items: center; }
+.kv-hvor { display: grid; gap: .15rem; font-size: .9rem; color: var(--tekst-dempet); }
+.kv-hvor input { font: inherit; color: var(--tekst); padding: .3rem .45rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--bakgrunn); }
+.kv-startere p { font-family: var(--font-ui); font-weight: 600; margin-bottom: .3rem; }
+.kv-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+@media print { .kv-lenke, .kv-startere { display: none !important; } .kv-kriterier fieldset { break-inside: avoid; } }
+.kv-oppsett fieldset { min-width: 0; }
+.kv-oppsett select { width: 100%; max-width: 100%; min-width: 0; }

@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261110c";
+  LV.versjon = "20261110d";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -197,6 +197,8 @@ window.LV = window.LV || {};
         ["laere-engelsk.html", "🧭", "How to learn English", "Strategier for språklæring", "en"],
         ["uttale.html", "👄", "Pronunciation", "Uttale for nordmenn", "en"],
         ["skriving.html", "✍️", "Skriveverksted", "Skriveguider og skriverammer"],
+        ["kamerat.html", "🤝", "Kameratvurdering", "To stjerner og et ønske"],
+        ["opptak.html", "🎙️", "Ta opp deg selv", "Høytlesing, presentasjon og uttale"],
         ["skrivom.html", "🔁", "Rewrite and improve", "Bearbeid teksten etter tilbakemelding", "en"],
         ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
         ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],

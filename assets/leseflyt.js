@@ -26,7 +26,7 @@
       '<p class="lf-viktig"><strong>Viktig:</strong> Målet er ikke å lese fortest mulig, men å lese jevnt, riktig og med innlevelse – og forstå det du leser. Sammenlign deg bare med deg selv.</p>' +
       '<form class="ly-velg" id="lf-velg"><label for="lf-tema">Samfunnsfag- eller engelsktema</label><select id="lf-tema"><option value="">Velg et tema …</option>' +
       ["samfunnsfag", "engelsk"].map(f => '<optgroup label="' + (f === "engelsk" ? "Engelsk" : "Samfunnsfag") + '">' + tema.filter(t => t.fag === f).map(t => '<option value="tema:' + t.id + '">' + t.trinn + ". trinn – " + esc(t.tittel) + "</option>").join("") + "</optgroup>").join("") +
-      '</select><label for="lf-tekst"><span lang="en">Reading Room</span></label><select id="lf-tekst"><option value="">Velg en tekst …</option>' + (LV.lesetekster || []).map(t => '<option value="tekst:' + t.id + '" lang="en">' + esc(t.tittel) + " – " + esc(t.forfatter) + "</option>").join("") + "</select>" +
+      '</select><label for="lf-tekst"><span lang="en">Reading Room</span></label><select id="lf-tekst"><option value="">Velg en tekst …</option>' + (LV.lesetekster || []).filter(t => !t.utenTekst).map(t => '<option value="tekst:' + t.id + '" lang="en">' + esc(t.tittel) + " – " + esc(t.forfatter) + "</option>").join("") + "</select>" +
       '<label class="ly-lett"><input type="checkbox" id="lf-lett"> Bruk lettere tekst når den finnes</label><button class="knapp hoved" type="submit">Start →</button></form>' +
       '<p class="mu-intro">Tips: Les i par. Den ene leser, den andre tar tiden og markerer feil. Bytt etter tre runder. Velg en kort del av teksten – det er bedre å lese en kort tekst godt enn en lang tekst dårlig.</p>';
     $("lf-tema").addEventListener("change", () => { if ($("lf-tema").value) $("lf-tekst").value = ""; });
@@ -90,11 +90,14 @@
       '</tbody></table></div><p class="lf-fremgang" id="lf-fremgang" role="status" aria-live="polite"></p><button type="button" class="knapp liten" id="lf-nullstill">↻ Nullstill rundene</button></section>' +
 
       '<section class="le-del"><h2>3. Les med innlevelse</h2><p class="mu-intro">God leseflyt er mer enn fart. Kryss av for det som stemte i siste runde – gjerne sammen med makkeren.</p><ul class="lf-prosodi">' +
-      ["Jeg tok pause ved punktum og komma.", "Jeg leste i et passe tempo – ikke for fort.", "Jeg la trykk på de viktige ordene.", "Jeg rettet meg selv når jeg leste feil.", "Stemmen min passet til det teksten handler om."].map((s, i) => '<li><label><input type="checkbox" id="lf-p' + i + '"> ' + s + "</label></li>").join("") + "</ul></section>" +
+      ["Jeg tok pause ved punktum og komma.", "Jeg leste i et passe tempo – ikke for fort.", "Jeg la trykk på de viktige ordene.", "Jeg rettet meg selv når jeg leste feil.", "Stemmen min passet til det teksten handler om."].map((s, i) => '<li><label><input type="checkbox" id="lf-p' + i + '"> ' + s + "</label></li>").join("") + "</ul>" +
+      '<h3>🎙️ Ta opp lesingen din</h3><p class="mu-intro">Ta opp første og siste runde og hør forskjellen. Hør etter pauser, tempo og trykk. Opptaket lagres ikke – last det ned hvis du vil ta vare på det eller levere det.</p><div id="lf-opptak"></div></section>' +
 
       '<section class="le-del"><h2>4. Forstod du teksten?</h2>' +
       [["lf-f1", "Hva handlet teksten om? Skriv to–tre setninger med egne ord."], ["lf-f2", "Hvilke ord eller setninger var vanskelige å lese?"], ["lf-f3", "Hva gjorde du annerledes i siste runde enn i første?"]].map(([fid, l]) => '<label class="mu-notat" for="' + fid + '"><span>' + l + '</span><textarea id="' + fid + '" rows="3"></textarea></label>').join("") +
       (n < T.deler.length - 1 ? '<p><a class="knapp" href="' + url(n + 1) + '">Neste del →</a></p>' : "") + "</section>";
+
+    if (LV.opptaker) LV.opptaker($("lf-opptak"), { id: "lf-opp", filnavn: "leseflyt" });
 
     // ---------- Tekst ----------
     const feil = new Set();

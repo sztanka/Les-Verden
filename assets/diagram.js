@@ -8,7 +8,7 @@
 (function () {
   const LV = window.LV = window.LV || {};
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const FARGER = ["var(--dg-1)", "var(--dg-2)", "var(--dg-3)", "var(--dg-4)", "var(--dg-5)", "var(--dg-6)", "var(--dg-7)", "var(--dg-8)"];
+  const FARGER = ["var(--dg-1)", "var(--dg-2)", "var(--dg-3)", "var(--dg-4)", "var(--dg-5)", "var(--dg-6)", "var(--dg-7)", "var(--dg-8)", "var(--dg-9)", "var(--dg-10)"];
   const tall = v => (Math.round(v * 10) / 10).toLocaleString("nb-NO");
   let teller = 0;
 

@@ -50,6 +50,10 @@ les-verden/
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
+├── rettssak.html           Rettssaken: rollespill i tingretten (data i data/rettssak.js)
+├── okonomi.html            Første lønn: budsjett, hendelser og lånekalkulator
+├── kamerat.html            Kameratvurdering: to stjerner og et ønske
+├── opptak.html             Ta opp deg selv (felles opptaker i assets/opptak.js)
 ├── skrivom.html            Rewrite and improve: rettekoder, før og etter, ARMS/CUPS, sjekkliste
 ├── grafleser.html          Grafleseren: lese og lage diagrammer (bruker assets/diagram.js)
 ├── undersokelse.html       Undersøkelsesverkstedet, innholdet i lenken (#)
@@ -366,6 +370,14 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - `digitalespor.html` (`assets/digitalespor.js`, CSS-prefiks `dsp-`): Spordetektiven (seks innlegg fra en oppdiktet profil – hva kan en fremmed sammenstille?), en privat sjekkliste for eget fotavtrykk, slik får du slettet spor, og opphavsrett og Creative Commons med åtte «lov eller ikke lov?»-situasjoner. Dekker s14.
 - Faktaene står i `kontroller` nederst i hver temafil og bør sjekkes før bruk.
 
+### Runde R: arbeidsmåter
+
+- `rettssak.html` (`rs-`, data i `data/rettssak.js`): to oppdiktede straffesaker – «Sykkeltyveriet i Fjordvik» (tyveri, subsidiært heleri) og «Kommentaren» (trusler mot en lokalpolitiker i sosiale medier). Tiltale, lovtekst, bevis, rollekort (hver rolle har egen lenke `?sak=…&rolle=…`, og alle kan skrives ut ett per ark), dommerens manus, meddommerskjema med straffeutmåling og refleksjon.
+- `okonomi.html` (`fl-`): Første lønn – budsjett med glidebrytere og sektordiagram, fire hendelser («kjøp nå, betal senere», kredittkort, avbetaling, forbrukslån) og en lånekalkulator (annuitet). Forenklede tall.
+- `kamerat.html` (`kv-`): kameratvurdering med kriterier fra et tema (læringsmålene), en skrivesjanger (fagtekst, drøftende, presentasjon, essay, short story) eller egne kriterier (`?kilde=tema:…|sjanger:…|egne:…`), «to stjerner og et ønske» og setningsstartere som settes inn med ett trykk.
+- `assets/opptak.js`: felles lydopptaker `LV.opptaker(element, { id, filnavn })` med MediaRecorder – ta opp, lytt, last ned, slett. Ingenting lastes opp. Brukes i `opptak.html` (`ot-`: høytlesing, presentasjon, uttale, samtale med sjekkliste) og i Leseflyt.
+- `diagram.js` har fått to farger til (`--dg-9`, `--dg-10`).
+
 ### Runde Q: engelsk
 
 - Reading Room: `drovers-wife` (Henry Lawson, Australia), `garden-party` (Katherine Mansfield, New Zealand), `gitanjali` (Rabindranath Tagore, India – tre prosadikt) og `julius-caesar` (Shakespeare, akt 3 scene 2). Originaltekstene lages med `python3 verktoy/lag-lesing.py drovers-wife garden-party gitanjali julius-caesar` (se klonelista øverst i skriptet). Skriptet har fått to nye kildetyper: `dikt` (utvalgte dikt fra en samling) og `drama` (replikker fra en scene). Skuespill vises uten kursiv (`sjanger: "Drama"`).
@@ -488,7 +500,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
