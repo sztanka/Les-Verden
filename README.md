@@ -381,6 +381,14 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Hva vil du gjøre?** (forsiden, CSS `.hvd`): fem kort med snarveier – Lese, Øve til prøve, Spille, Skrive og Forberede eksamen.
 - **Eksamen** er nå en nedtrekksmeny (Muntlig eksamen, Skriftlig eksamen i engelsk, Øv og forbered). `eksamen.html` og `skriftlig.html` markerer Eksamen-menyen.
 
+### Runde S: Velg din vei og Escape room
+
+- **Velg din vei** (`assets/fortelling.js`, data i `data/fortellinger.js`): fortellingene kan ha `sprak: "en"` (engelsk grensesnitt), `lett` (lettere tekst per node, `rolleLett`, `kilde.lett`; knappen «🌱 Lettere tekst», `?lett=1`), `etterpaa.ekte` (`[[true, "ekte"], [false, "oppdiktet"]]` – boksen «Hva var ekte?») og `kontroller` (vises med `?laerer=1`). Etter en slutt vises et kart over alle veiene (SVG, beregnet fra nodene) og en liste over sluttene. Oversikten er gruppert etter språk.
+- Nye fortellinger: `krigsseiler-1917` (Første verdenskrig), `bergen-1940` (Okkupasjonen), `berlin-1961` (Den kalde krigen) og `montgomery-1955` (engelsk, Oppression).
+- **Escape room** (`assets/escape.js`, data i `data/escape.js`): nye låstyper `rutenett` (kartlås), `feil` (finn feilen i kilden) og `par` (koble sammen). Lagmodus med roterende roller (leser, detektiv, skriver, tidsvokter). Papirversjon `escape.html?id=…&papir=1` med én side per lås, hintkort og fasit. Rommene kan ha `kontroller`.
+- Nye rom: `forbudt-bok` (Opplysningstiden), `telegrammet-1905` (Unionen 1905), `illegal-avis` (Okkupasjonen) og `votes-for-women` (engelsk, Democracy in Britain).
+- Runde S2: fortellingene `paris-1789` (Den franske revolusjonen), `akerselva-1870` (Industrialiseringen), `petrograd-1917` (Den russiske revolusjonen), `ellis-1907` (engelsk, The American Dream) og `transported-1833` (engelsk, Australia). Rommene `faktasjekkerne` (Kildekritikk), `skyttergraven-1916` (Første verdenskrig), `bunkeren-1962` (Den kalde krigen) og `bletchley-1941` (engelsk, Andre verdenskrig). De tre første fortellingene har også fått lettere tekst og «Hva var ekte?». Papirversjonen av rommene viser `kontroller` nederst i fasiten.
+
 ### Runde R: arbeidsmåter
 
 - `rettssak.html` (`rs-`, data i `data/rettssak.js`): to oppdiktede straffesaker – «Sykkeltyveriet i Fjordvik» (tyveri, subsidiært heleri) og «Kommentaren» (trusler mot en lokalpolitiker i sosiale medier). Tiltale, lovtekst, bevis, rollekort (hver rolle har egen lenke `?sak=…&rolle=…`, og alle kan skrives ut ett per ark), dommerens manus, meddommerskjema med straffeutmåling og refleksjon.
@@ -511,7 +519,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110g`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110i`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
