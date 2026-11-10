@@ -18,6 +18,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 - [x] Kart og kartlesing (`sf8-kart-og-kartlesing`)
 - [x] Klima- og vegetasjonssoner (`sf8-klima-og-vegetasjon`)
 - [x] Naturressurser (`sf8-naturressurser`)
+- [x] Naturkrefter og naturfare (`sf8-naturkrefter`) – platetektonikk, skred og flom
 - [x] Befolkning og urbanisering (`sf8-befolkning-urbanisering`)
 - [x] Identitet og sosialisering (`sf8-identitet-sosialisering`) – inkl. kjønnsroller ↔ *Identity and Friendship*
 - [x] Grenser, kropp og press (`sf8-grenser-press`) – samtykke, gruppepress, kroppspress, deling av bilder
@@ -113,7 +114,7 @@ Id-en i parentes er filnavnet i `data/temaer/`.
 
 ---
 
-Totalt: 82 temasider (14 + 10 + 20 + 9 + 19 + 10).
+Totalt: 83 temasider (15 + 10 + 20 + 9 + 19 + 10).
 
 ---
 

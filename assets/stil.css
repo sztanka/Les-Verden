@@ -3834,3 +3834,110 @@ html[data-morsmal="ar"] .mm-ar, html[data-morsmal="uk"] .mm-uk, html[data-morsma
 .dsp-lsvar.feil { border-left: 4px solid var(--aksent); padding-left: .6rem; }
 @media (max-width: 34rem) { .dsp-cc div { grid-template-columns: 1fr; } }
 @media print { .dsp-sjekk, .dsp-innhold { display: none !important; } .dsp-innlegg article { break-inside: avoid; } }
+
+/* ---------- Diagrammer (assets/diagram.js) ---------- */
+:root { --dg-1: #2f6b58; --dg-2: #2c4f8f; --dg-3: #b5541c; --dg-4: #6a3d9a; --dg-5: #8a6a00; --dg-6: #a8324f; --dg-7: #2f7f9e; --dg-8: #5b6068; }
+:root[data-tema="mork"] { --dg-1: #6cc3a5; --dg-2: #8fb0ef; --dg-3: #f0965f; --dg-4: #c9a6f0; --dg-5: #f1cf68; --dg-6: #f08aa5; --dg-7: #7fcbe6; --dg-8: #a7abb3; }
+.dg { margin: 1rem 0; max-width: 44rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .8rem .5rem; }
+.dg-tittel { font-family: var(--font-ui); font-weight: 700; margin-bottom: .3rem; }
+.dg svg { width: 100%; height: auto; display: block; }
+.dg-tekst { fill: var(--tekst); font-family: var(--font-ui); font-size: 14px; }
+.dg-verdi { font-weight: 700; font-size: 13px; }
+.dg-rutenett { stroke: var(--linje); stroke-width: 1; }
+.dg-akse { stroke: var(--tekst-dempet); stroke-width: 1.5; }
+.dg-forklaring { list-style: none; padding: 0; margin: .3rem 0; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-family: var(--font-ui); font-size: .9rem; }
+.dg-forklaring span { display: inline-block; width: .9rem; height: .9rem; border-radius: 3px; margin-right: .35rem; vertical-align: -.1rem; }
+.dg-kilde { font-family: var(--font-ui); font-size: .82rem; color: var(--tekst-dempet); margin: .2rem 0; }
+.dg-tabell { font-family: var(--font-ui); font-size: .9rem; margin-top: .3rem; }
+.dg-tabell summary { cursor: pointer; color: var(--tekst-dempet); }
+.dg-tabell table { border-collapse: collapse; margin-top: .4rem; }
+.dg-tabell th, .dg-tabell td { border: 1px solid var(--linje); padding: .2rem .6rem; text-align: right; }
+.dg-tabell th[scope="row"] { text-align: left; }
+@media print { .dg { break-inside: avoid; } .dg-tabell { display: none; } }
+
+/* ---------- Grafleseren (grafleser.html) ---------- */
+.gf-typer { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: .8rem; margin-bottom: 1rem; }
+.gf-typer > div { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .2rem 1rem .4rem; font-family: var(--font-ui); }
+.gf-typer h3 { font-size: 1.05rem; margin: .5rem 0 .2rem; }
+.gf-runde { display: grid; gap: .8rem; max-width: 44rem; padding-left: 0; list-style: none; }
+.gf-runde fieldset, .gf-lure fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .3rem; font-family: var(--font-ui); }
+.gf-runde legend, .gf-lure legend { font-weight: 700; margin-bottom: .2rem; }
+.gf-runde label, .gf-lure label { display: flex; gap: .45rem; align-items: flex-start; }
+.gf-runde input, .gf-lure input[type="radio"] { margin-top: .25rem; }
+.gf-svar { margin: .3rem 0 0; font-family: var(--font-ui); min-height: 0; }
+.gf-svar.ok { border-left: 4px solid var(--samfunnsfag); padding-left: .6rem; }
+.gf-svar.feil { border-left: 4px solid var(--aksent); padding-left: .6rem; }
+.gf-lure { border-top: 1px solid var(--linje); padding-top: .4rem; margin-top: 1.2rem; max-width: 44rem; }
+.gf-aerlig { font-family: var(--font-ui); font-weight: 700; margin: .8rem 0 0; }
+.gf-lag { display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+.gf-lag .dg { margin-top: 0; }
+.gf-tabell { border-collapse: collapse; width: 100%; font-family: var(--font-ui); margin-top: .6rem; }
+.gf-tabell th { text-align: left; font-size: .9rem; padding: .2rem .3rem; }
+.gf-tabell td { padding: .15rem .3rem; }
+.gf-tabell input { width: 100%; box-sizing: border-box; font: inherit; padding: .3rem .4rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--flate); color: var(--tekst); }
+.gf-skjema .lg-felt select { font: inherit; padding: .35rem .4rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--flate); color: var(--tekst); }
+@media (max-width: 52rem) { .gf-lag { grid-template-columns: 1fr; } }
+
+/* ---------- Undersøkelsesverkstedet (undersokelse.html) ---------- */
+.uv-steg { list-style: none; padding: 0; counter-reset: uv; max-width: 48rem; }
+.uv-steg > li { counter-increment: uv; border-left: 4px solid var(--samfunnsfag); padding: .1rem 0 .8rem 1rem; margin-bottom: 1.4rem; }
+.uv-steg > li > h2::before { content: counter(uv) ". "; color: var(--samfunnsfag); }
+.uv-metoder { border: 0; padding: 0; margin: 0; display: grid; gap: .6rem; font-family: var(--font-ui); }
+.uv-metoder legend { font-weight: 700; margin-bottom: .3rem; }
+.uv-metoder label { display: flex; gap: .55rem; align-items: flex-start; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .5rem .7rem; }
+.uv-metoder input { margin-top: .3rem; }
+.uv-sp { border: 1px solid var(--linje); border-radius: 12px; padding: .4rem .9rem .3rem; margin: 0 0 .8rem; background: var(--flate); font-family: var(--font-ui); }
+.uv-sp legend { font-weight: 700; padding: 0 .3rem; }
+.uv-alt { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); gap: .4rem .8rem; margin-top: .5rem; }
+.uv-knapper { display: flex; flex-wrap: wrap; gap: .4rem; }
+.uv-tell { margin-bottom: 1.2rem; }
+.uv-tell h3 { font-size: 1.05rem; }
+.uv-tell-liste { list-style: none; padding: 0; display: grid; gap: .35rem; font-family: var(--font-ui); max-width: 34rem; }
+.uv-tell-liste li { display: grid; grid-template-columns: minmax(0, 1fr) auto 5rem 3.2rem; gap: .5rem; align-items: center; }
+.uv-tell-liste input { font: inherit; width: 100%; box-sizing: border-box; padding: .3rem .4rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--flate); color: var(--tekst); }
+.uv-pst { color: var(--tekst-dempet); text-align: right; }
+.uv-sum, .uv-tom { font-family: var(--font-ui); color: var(--tekst-dempet); }
+
+/* ---------- Valgsimulatoren (valg.html) ---------- */
+.vl-scen { display: flex; flex-wrap: wrap; gap: .4rem; }
+.vl-scenario[aria-pressed="true"] { background: var(--tekst); color: var(--bakgrunn); border-color: var(--tekst); }
+.vl-oppsett { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; font-family: var(--font-ui); margin: .8rem 0 1rem; }
+.vl-stemmer { border: 1px solid var(--linje); border-radius: 12px; padding: .4rem .9rem .7rem; margin: 0; display: grid; gap: .35rem; background: var(--flate); }
+.vl-stemmer legend, .vl-regler legend { font-weight: 700; padding: 0 .3rem; }
+.vl-stemmer label { display: grid; grid-template-columns: auto minmax(0, 1fr) 7rem; gap: .5rem; align-items: center; }
+.vl-stemmer input, .vl-regler input[type="number"] { font: inherit; width: 100%; box-sizing: border-box; padding: .3rem .45rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--bakgrunn); color: var(--tekst); }
+.vl-prikk { display: inline-block; width: .85rem; height: .85rem; border-radius: 50%; margin-right: .35rem; vertical-align: -.05rem; }
+.vl-regler { display: grid; gap: .8rem; }
+.vl-regler fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .3rem; }
+.vl-regler label, .vl-sperre { display: flex; gap: .45rem; align-items: flex-start; }
+.vl-regler .lg-felt { display: grid; }
+.vl-regler small, .vl-sperre small { color: var(--tekst-dempet); }
+.vl-res-topp { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 1rem; align-items: center; }
+.vl-sal { width: 100%; height: auto; }
+.vl-tabell { border-collapse: collapse; font-family: var(--font-ui); font-size: .92rem; width: 100%; }
+.vl-tabell caption { text-align: left; font-weight: 700; padding-bottom: .3rem; }
+.vl-tabell th, .vl-tabell td { border-bottom: 1px solid var(--linje); padding: .25rem .4rem; text-align: right; }
+.vl-tabell th[scope="row"], .vl-tabell thead th:first-child { text-align: left; }
+.vl-sammen { margin-top: 1rem; max-width: 40rem; }
+.vl-valgt { background: var(--samfunnsfag-lys); font-weight: 700; }
+.vl-logg { font-family: var(--font-ui); margin: .8rem 0; max-width: 44rem; }
+.vl-logg summary { cursor: pointer; font-weight: 700; }
+.vl-logg ol { padding-left: 1.6rem; }
+.vl-oppg { padding-left: 1.2rem; max-width: 46rem; }
+.vl-partier { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: .5rem; }
+.vl-parti { font: inherit; font-family: var(--font-ui); text-align: left; width: 100%; height: 100%; display: grid; gap: .15rem; background: var(--flate); color: var(--tekst); border: 1px solid var(--linje); border-left: 8px solid var(--vl-f); border-radius: 10px; padding: .5rem .7rem; cursor: pointer; }
+.vl-parti:hover, .vl-parti:focus-visible { border-color: var(--tekst); border-left-color: var(--vl-f); }
+.vl-parti[aria-pressed="true"] { background: var(--samfunnsfag-lys); outline: 3px solid var(--samfunnsfag); outline-offset: -1px; }
+.vl-parti[aria-pressed="true"] .vl-navn::before { content: "✔ "; }
+.vl-navn { font-weight: 700; }
+.vl-plasser { font-weight: 600; color: var(--tekst-dempet); }
+.vl-om { font-size: .85rem; }
+.vl-akse { display: flex; justify-content: space-between; font-family: var(--font-ui); font-size: .85rem; color: var(--tekst-dempet); border-top: 2px solid var(--linje); padding-top: .2rem; max-width: 100%; }
+.vl-maaler { position: relative; height: 1.4rem; background: var(--flate-2); border-radius: 8px; overflow: hidden; margin: .8rem 0 .3rem; max-width: 40rem; }
+.vl-maaler span { position: absolute; inset: 0 auto 0 0; background: var(--samfunnsfag); }
+.vl-maaler i { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--tekst); }
+#vl-koal-res p { font-family: var(--font-ui); font-weight: 600; max-width: 44rem; }
+@media (max-width: 52rem) { .vl-oppsett, .vl-res-topp { grid-template-columns: 1fr; } }
+.vl-rull { overflow-x: auto; max-width: 100%; }
+.vl-sammen th, .vl-sammen td { white-space: normal; }
+@media (max-width: 34rem) { .vl-tabell { font-size: .82rem; } .vl-tabell th, .vl-tabell td { padding: .2rem .25rem; } }

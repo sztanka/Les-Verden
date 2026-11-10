@@ -1307,6 +1307,25 @@ window.LV.temaer = [
     ]
   },
   {
+    id: "sf8-naturkrefter",
+    fag: "samfunnsfag",
+    emne: "geografi",
+    trinn: 8,
+    tittel: "Naturkrefter og naturfare",
+    kort: "Platetektonikk, jordskjelv, vulkaner og tsunamier – og skred og flom i Norge.",
+    sted: { navn: "Åknes", lat: 62.18, lon: 6.98 },
+    bilde: "https://images.unsplash.com/photo-1619266465172-02a857c3556d?w=800&q=80&auto=format&fit=crop",
+    bildeAlt: "Glødende lava renner fra vulkanen Fagradalsfjall på Island",
+    kreditt: "Tetiana GRY",
+    kredittUrl: "https://unsplash.com/@tetiana_gry?utm_source=les_verden&utm_medium=referral",
+    kilde: "Unsplash",
+    kildeUrl: "https://unsplash.com/?utm_source=les_verden&utm_medium=referral",
+    fakta: [
+      "Kontinentalplatene beveger seg omtrent like fort som neglene dine vokser.",
+      "Skred er den største naturfaren i Norge."
+    ]
+  },
+  {
     id: "sf8-befolkning-urbanisering",
     fag: "samfunnsfag",
     emne: "geografi",

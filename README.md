@@ -50,6 +50,9 @@ les-verden/
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
+├── grafleser.html          Grafleseren: lese og lage diagrammer (bruker assets/diagram.js)
+├── undersokelse.html       Undersøkelsesverkstedet, innholdet i lenken (#)
+├── valg.html               Valgsimulatoren: mandatfordeling og koalisjoner (partier fra data/lov.js)
 ├── digitalespor.html       Digitale spor: personvern, sletting og opphavsrett
 ├── historiker.html         Les som en historiker (gjenskapte kilder, data i data/historiker.js)
 ├── argumentkart.html       Argumentkart, innholdet i lenken (#)
@@ -326,7 +329,7 @@ Alle temaer får automatisk «🎯 Hva har jeg lært?» etter oppgavene: én ege
 
 ### Bilder lokalt (personvern)
 
-Temabildene lå før som lenker til Unsplash, slik at elevenes nettlesere kontaktet Unsplash. GitHub-jobben **Hent bilder lokalt** (`.github/workflows/hent-bilder.yml`) kjører `verktoy/hent-bilder.mjs`, som laster ned bildene til `assets/bilder/` og bytter lenkene i `data/temaer/oversikt.js` og `data/land/oversikt.js`. Kjør den én gang: GitHub → Actions → «Hent bilder lokalt» → Run workflow. Hent deretter endringene i GitHub Desktop (Fetch/Pull) før du jobber videre. Jobben er kjørt (november 2026), og datafilene peker nå på de lokale filene. Legger du til et nytt tema med en Unsplash-lenke, kjører du jobben på nytt – den henter bare bildene som mangler. Krediteringen av fotografene beholdes.
+Temabildene lå før som lenker til Unsplash, slik at elevenes nettlesere kontaktet Unsplash. GitHub-jobben **Hent bilder lokalt** (`.github/workflows/hent-bilder.yml`) kjører `verktoy/hent-bilder.mjs`, som laster ned bildene til `assets/bilder/` og bytter lenkene i `data/temaer/oversikt.js` og `data/land/oversikt.js`. Kjør den én gang: GitHub → Actions → «Hent bilder lokalt» → Run workflow. Hent deretter endringene i GitHub Desktop (Fetch/Pull) før du jobber videre. Jobben er kjørt (november 2026), og datafilene peker nå på de lokale filene. Legger du til et nytt tema med en Unsplash-lenke, kjører du jobben på nytt – den henter bare bildene som mangler. Bilder som ikke kan hentes (for eksempel fordi fotografen har fjernet dem), beholder Unsplash-lenken og står i oppsummeringen nederst på jobbens side (Summary) – jobben feiler ikke av den grunn, og de andre bildene blir lagret. Krediteringen av fotografene beholdes.
 
 ### Lenkesjekk
 
@@ -361,6 +364,14 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - Bildene til de fire temaene peker til Unsplash til GitHub-jobben «Hent bilder lokalt» er kjørt. Kjør den én gang etter at filene er lastet opp.
 - `digitalespor.html` (`assets/digitalespor.js`, CSS-prefiks `dsp-`): Spordetektiven (seks innlegg fra en oppdiktet profil – hva kan en fremmed sammenstille?), en privat sjekkliste for eget fotavtrykk, slik får du slettet spor, og opphavsrett og Creative Commons med åtte «lov eller ikke lov?»-situasjoner. Dekker s14.
 - Faktaene står i `kontroller` nederst i hver temafil og bør sjekkes før bruk.
+
+### Runde P: geografi og tall
+
+- Nytt tema `sf8-naturkrefter` (Naturkrefter og naturfare): platetektonikk, jordskjelv, tsunamier, vulkaner, skred og flom i Norge, klimatilpasning og sårbarhet. Bildet peker til Unsplash til «Hent bilder lokalt» er kjørt.
+- `assets/diagram.js`: felles hjelper `LV.diagram({ type: "soyle" | "linje" | "sektor", … })` som lager et SVG-diagram (role="img") med en tabell over tallene. Fargene står som `--dg-1` … `--dg-8` i stil.css (egne verdier i mørk modus).
+- `grafleser.html` (`gf-`): velg riktig diagram, les av tre grafer, avslør fire villedende grafer (avkuttet akse, utplukket periode, ujevn x-akse, samvariasjon og årsak) og lag eget diagram. Oppdiktede tall om Fjellvik.
+- `undersokelse.html` (`uv-`): problemstilling, hypotese, metode og utvalg, spørsmålsvaskeriet, egne spørsmål, opptelling med diagram, gyldighet og utkast til rapport. Hele undersøkelsen ligger komprimert i lenken (#), som i Lag selv.
+- `valg.html` (`vl-`): mandatfordeling i et oppdiktet valgdistrikt med justert Sainte-Laguë, ren Sainte-Laguë og d’Hondt, valgfri sperregrense, kvotienttabell og sammenligning – og koalisjonsbyggeren med partiene fra `data/lov.js`.
 
 ### Søk
 
@@ -467,7 +478,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261110b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
