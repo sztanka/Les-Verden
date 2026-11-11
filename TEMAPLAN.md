@@ -132,3 +132,38 @@ Totalt: 84 temasider (15 + 10 + 20 + 10 + 19 + 10).
 - [x] Canada (`canada`)
 - [x] Jamaica and the Caribbean (`jamaica`) – med kartspill over Karibia
 - [x] Nigeria (`nigeria`)
+
+---
+
+## Nye tilbud – runde T til W (planlagt 11.11.2026)
+
+Hver ny side skal integreres: menyen (`assets/felles.js`), «Alt om temaet» der det passer (`verktoy/lag-aktiviteter.mjs`), søket (`verktoy/lag-sok.mjs`), planleggeren (`assets/planlegger.js`), kompetansemål (`data/kompetansemal.js`), lærerveiledningen (`laerer.html`), README og Spill-siden (`assets/spill.js`) når det er et spill.
+
+### Runde T
+- [x] Hverdagsbilder – ny modus i Tidsreisen: gjett året ut fra en tekst om hverdagen
+- [x] Feeden fra fortiden – sosiale medier fra en historisk hendelse, med oppdiktede personer
+- [x] Ord som har reist – lånord, handel og historie på kart
+- [x] Tenkerutiner – Se–tenk–undre, Påstand–støtte–spørsmål m.fl. på bilder og kilder
+- [x] Fredskonferansen – forhandlingsrollespill (Wien 1815 / Versailles 1919)
+
+### Runde U – historie
+- [ ] Hva om …? – kontrafaktisk historie med støttestruktur
+- [ ] Museet vårt – virtuell monter, elevene skriver museumsskilt
+- [ ] Historien der du bor – lokalhistorie og intervjuguide
+- [ ] Tidslinjeduellen – plasser hendelser mellom kort som ligger
+- [ ] Historiske kort – utskrivbare personkort i Top Trumps-stil
+
+### Runde V – språk, lesing og skriving
+- [ ] Falske venner – norsk/engelsk
+- [ ] Idiomdetektiven – engelske uttrykk og opphavet deres
+- [ ] Modelltekster med margkommentarer
+- [ ] Spørsmålsstudioet (QFT)
+- [ ] Ekspertgrupper (jigsaw) fra et tema
+
+### Runde W – samfunn
+- [ ] Klimatoppmøtet – forhandlingsrollespill med grafer
+- [ ] Menneskerettighetsdomstolen – oppdiktede saker
+- [ ] Byen vokser – simulering av industrialiseringen
+
+### Senere
+- [ ] Englishes of the world (når ElevenLabs-lyd er på plass)

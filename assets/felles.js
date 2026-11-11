@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261110i";
+  LV.versjon = "20261111a";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -174,6 +174,7 @@ window.LV = window.LV || {};
           ["kilder.html", "📜", "Kildeanalyse", "Ekte historiske kilder"],
           ["historiker.html", "🧐", "Les som en historiker", "Kilder som forteller ulikt"],
           ["lateral.html", "↔️", "Lateral lesing", "Sjekk nettsider som en faktasjekker"],
+          ["feed.html", "📱", "Feeden fra fortiden", "Fakta, mening, rykte eller propaganda?"],
           ["grafleser.html", "📈", "Grafleseren", "Les og lag diagrammer"],
           ["undersokelse.html", "🔬", "Undersøkelsesverkstedet", "Lag din egen undersøkelse"],
           ["digitalespor.html", "👣", "Digitale spor", "Personvern og opphavsrett"]]],
@@ -182,7 +183,8 @@ window.LV = window.LV || {};
           ["argumentkart.html", "🗺️", "Argumentkart", "Bygg argumentasjonen"],
           ["perspektiv.html", "🔄", "Perspektivbytte", "Én hendelse, fire mennesker"],
           ["intervju.html", "🎙️", "Historisk intervju", "Spør Nansen, Gina Krog og flere"],
-          ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst?"]]]
+          ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst?"],
+          ["fred.html", "🕊️", "Fredskonferansen", "Rollespill: Wien 1815 og Paris 1919"]]]
       ] },
       engelsk: { navn: "Engelsk", grupper: [
         ["Topics", [
@@ -199,7 +201,8 @@ window.LV = window.LV || {};
           ["grammatikk.html", "🧩", "Grammar and vocabulary", "Explanations and exercises", "en"],
           ["uttale.html", "👄", "Pronunciation", "Sounds, stress and accents", "en"],
           ["laere-engelsk.html", "🧭", "How to learn English", "Learning strategies", "en"],
-          ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"]], "en"],
+          ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"],
+          ["ordreise.html", "🧳", "Ord som har reist", "Lånord og historien bak dem"]], "en"],
         ["Write and speak", [
           ["skriving.html", "✍️", "How to write", "Essays, stories, presentations", "en"],
           ["skrivom.html", "🔁", "Rewrite and improve", "Use feedback to improve", "en"],
@@ -213,7 +216,8 @@ window.LV = window.LV || {};
           ["lesegruppe.html", "👥", "Lesegrupper", "Fire roller – les sammen"],
           ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
           ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
-          ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"]]],
+          ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"],
+          ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre og flere"]]],
         ["Leselyst", [
           ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
           ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],
@@ -231,7 +235,8 @@ window.LV = window.LV || {};
         ["Ord og begreper", [
           ["ordbok.html", "📘", "Ordbok", "Slå opp ord"],
           ["begreper.html", "🔤", "Begrepsbank", "Alle begrepene fra temaene"],
-          ["morsmal.html", "🌐", "Begreper på morsmål", "Arabisk, ukrainsk, tyrkisk, polsk"]]]
+          ["morsmal.html", "🌐", "Begreper på morsmål", "Arabisk, ukrainsk, tyrkisk, polsk"],
+          ["ordreise.html", "🧳", "Ord som har reist", "Hvor kommer ordene fra?"]]]
       ] },
       spill: { navn: "Spill", alle: ["spill.html", "Se alle spillene →"], grupper: [
         ["Øv på et tema", [
@@ -245,10 +250,11 @@ window.LV = window.LV || {};
           ["lov.html", "📜", "Lag en lov", "Fra høring til votering"],
           ["kommune.html", "🏛️", "Ordfører for en dag", "Kommunebudsjettet"],
           ["fn.html", "🇺🇳", "FN-rollespill", "Forhandle om en resolusjon"],
+          ["fred.html", "🕊️", "Fredskonferansen", "Skriv freden i 1815 eller 1919"],
           ["okonomi.html", "💰", "Første lønn", "Budsjett og lån"]]],
         ["Historie", [
           ["fortelling.html", "🧭", "Velg din vei", "Historiske fortellinger med valg"],
-          ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året"],
+          ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året – hendelser og hverdagsbilder"],
           ["arsak.html", "🔗", "Årsak og virkning", "Sett kjeden i rekkefølge"],
           ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter"],
           ["escape.html", "🔐", "Escape room", "Svarene står i teksten"]]],
@@ -256,7 +262,8 @@ window.LV = window.LV || {};
           ["kartspill.html", "🗺️", "Kartspill", "Land, byer og steder"],
           ["spill.html?spill=worldle", "🌍", "Worldle", "Gjett landet"],
           ["kildedetektiv.html", "🔎", "Kildedetektiven", "Sant eller falskt?"],
-          ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Avslør desinformasjon"]]]
+          ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Avslør desinformasjon"],
+          ["feed.html", "📱", "Feeden fra fortiden", "Sosiale medier i 1789, 1814 og 1940"]]]
       ] },
       eksamen: { navn: "Eksamen", alle: ["eksamen.html", "Gå til eksamenssonen →"], grupper: [
         ["Muntlig eksamen", [
@@ -281,6 +288,7 @@ window.LV = window.LV || {};
         ["I klasserommet", [
           ["klassequiz.html", "📺", "Klassequiz", "Spørsmål på storskjerm"],
           ["hjorner.html", "🧭", "Fire hjørner", "Påstander og argumenter"],
+          ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre på storskjerm"],
           ["exit.html", "🎟️", "Exit ticket", "Avslutningslapper"],
           ["repetisjon.html", "🔁", "Repetisjonsstart", "Blandede spørsmål"]]],
         ["Lag opplegg", [

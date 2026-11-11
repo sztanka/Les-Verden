@@ -153,7 +153,11 @@ LV.kompetansemal = {
     // Andre sider
     "side:kildedetektiv": ["s2", "s17", "e12", "e13"],
     "side:klassequiz": ["s3", "e10"],
-    "side:tidsreise": ["s3"],
+    "side:tidsreise": ["s3", "s4"],
+    "side:feed": ["s2", "s3", "s17", "e12", "e13"],
+    "side:ordreise": ["e7", "e16", "s13"],
+    "side:tenkerutiner": ["s1", "e1", "e10"],
+    "side:fred": ["s7", "s16", "e6"],
     "side:fortelling": ["s3", "s5", "s6"],
     "side:skriftlig": ["e4", "e10", "e6", "e14", "e15"],
     "side:kilder": ["s2", "s3", "s4", "e12"],

@@ -346,6 +346,8 @@
       G.skriv.push(["skriv", "kamerat.html?kilde=tema:" + id, "🤝", en ? "Peer feedback" : "Kameratvurdering", en ? "Criteria from the learning goals" : "Kriterier fra læringsmålene"]);
       G.klasse.push(["klasse", "klassequiz.html?kilde=tema:" + id, "📺", en ? "Class quiz" : "Klassequiz", en ? "On the big screen" : "På storskjerm"]);
       G.klasse.push(["klasse", "lesegruppe.html?tema=" + id, "👥", en ? "Reading group with roles" : "Lesegruppe med roller", en ? "Read together in groups" : "Les sammen i grupper"]);
+      const harBilde = !!(LV.temaer.find(t => t.id === tema.id) || {}).bilde;
+      G.klasse.push(["klasse", "tenkerutiner.html?rutine=" + (harBilde ? "se-tenk-undre" : "tenk-lur-utforsk") + "&tema=" + id + "&vis=storskjerm", "💭", en ? "Thinking routine on the big screen" : "Tenkerutine på storskjerm", harBilde ? (en ? "See – Think – Wonder with the topic image" : "Se – tenk – undre med temabildet") : (en ? "Think – Puzzle – Explore" : "Tenk – lur – utforsk")]);
       G.klasse.push(["klasse", "exit.html?v=maal&tema=" + id, "🎫", en ? "Exit ticket" : "Exit ticket", en ? "For the whole class" : "For hele klassen"]);
       ((LV.aktiviteter || {})[tema.id] || []).forEach(a => (G[a[0]] || G.tenk).push(a));
       const grupper = [

@@ -40,16 +40,18 @@ les-verden/
 ├── lytt.html               Lytteøkt med stopp (talesyntese) for temaer og Reading Room-tekster
 ├── svartut.html            Svarte-ut-dikt / blackout poetry fra tekstene i Reading Room
 ├── skrivemal.html          Skrivemaler: postkort, avisforside, Wanted, bokomslag, booktrailer (malene står i assets/skrivemal.js)
-├── escape.html             Escape room – tre rom med låser (data i data/escape.js)
+├── escape.html             Escape room – elleve rom med låser, lagmodus og papirversjon (data i data/escape.js)
 ├── begrepsgata.html        Begrepsgåta – gjett begrepet (bruker data/dagens-begrep.js)
 ├── kommune.html            Ordfører for en dag (data i data/kommune.js)
 ├── lov.html                Lag en lov – oppdiktede partier (data i data/lov.js)
 ├── hjorner.html            Fire hjørner – storskjerm (påstander fra data/debatt.js + lista i assets/hjorner.js)
 ├── fortelling.html         Velg din vei: historiske fortellinger med valg (data i data/fortellinger.js)
 ├── tidsreise.html          Tidsreisen: gjett året (data i data/tidsreise.js, lages av verktoy/lag-sok.mjs)
+│                           ?modus=hverdag: Hverdagsbilder (data i data/hverdagsbilder.js)
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
+├── feed.html               Feeden fra fortiden – sosiale medier fra historien (data i data/feed.js)
 ├── rettssak.html           Rettssaken: rollespill i tingretten (data i data/rettssak.js)
 ├── okonomi.html            Første lønn: budsjett, hendelser og lånekalkulator
 ├── kamerat.html            Kameratvurdering: to stjerner og et ønske
@@ -68,12 +70,15 @@ les-verden/
 ├── lesegruppe.html         Lesegrupper med roller (gjensidig undervisning)
 ├── lognfabrikk.html        Løgnfabrikken: prebunking-spill om desinformasjon
 ├── morsmal.html            Begreper på morsmål: arabisk, ukrainsk, tyrkisk, polsk (data i data/morsmal.js)
+├── ordreise.html           Ord som har reist – lånord og historien bak dem (data i data/ordreise.js)
+├── tenkerutiner.html       Tenkerutiner med temabildene (data i data/tenkerutiner.js)
 ├── tegneserie.html         Tegneseriemaker (SVG → PNG), innholdet i lenken (#)
 ├── leseloype.html          QR-leseløype: plakater, poster og svarark (QR: assets/vendor/qrcode.js, MIT)
 ├── lesepass.html           Lesepass med 20 stempler (lagres med svarfil)
 ├── perspektiv.html         Perspektivbytte: én hendelse, fire rollekort (data i data/perspektiv.js)
 ├── intervju.html           Historisk intervju, gjenskapt og merket fakta/tolkning (data i data/intervju.js)
 ├── fn.html                 FN-rollespill (Model UN) med oppdiktede land (data i data/fn.js)
+├── fred.html               Fredskonferansen – Wien 1815 og Paris 1919 (data i data/fred.js)
 ├── tekstpar.html           Tekstpar: to tekster side om side (data i data/tekstpar.js, tekstene hentes fra andre filer)
 ├── samtidig.html           Samtidig i verden: hendelser samme år i tre kolonner (fra temaenes tidslinjer)
 ├── lag.html                Lag selv: elevskapt quiz, tidslinje og ordkort – innholdet ligger i lenken (#)
@@ -381,6 +386,15 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Hva vil du gjøre?** (forsiden, CSS `.hvd`): fem kort med snarveier – Lese, Øve til prøve, Spille, Skrive og Forberede eksamen.
 - **Eksamen** er nå en nedtrekksmeny (Muntlig eksamen, Skriftlig eksamen i engelsk, Øv og forbered). `eksamen.html` og `skriftlig.html` markerer Eksamen-menyen.
 
+### Runde T: nye måter å lese og tenke på
+
+- **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
+- **Feeden fra fortiden** (`feed.html`, `assets/feed.js`, `data/feed.js`, CSS `.fd-`): fire feeder i den oppdiktede appen Pip. Innleggene sorteres i fakta/mening/rykte/propaganda med forklaring; eleven skriver eget innlegg og svar. Ekte historiske personer skriver aldri innlegg.
+- **Ord som har reist** (`ordreise.html`, `assets/ordreise.js`, `data/ordreise.js`, CSS `.or-`): ca. 50 lånord med rute, tid, kategori, region og historie. Utforsk (filter/søk, `?ord=` og `?k=`), ordquiz, reisebrev og «ord fra ditt språk». Lenket fra og til Begreper på morsmål.
+- **Tenkerutiner** (`tenkerutiner.html`, `assets/tenkerutiner.js`, `data/tenkerutiner.js`, CSS `.tu-`): åtte rutiner, `?rutine=&tema=` og `&vis=storskjerm`. Bruker temabildene fra `data/temaer/oversikt.js`; Zoom inn skalerer bildet i tre trinn.
+- **Fredskonferansen** (`fred.html`, `assets/fred.js`, `data/fred.js`, CSS `.fk-`): Wien 1815 og Paris 1919 med rollekort (`&del=`), utskrift (`&utskrift=1`), forhandlingsbord med skjulte poeng og risikomåler, overraskelser og sammenligning med virkeligheten.
+- Alt er lagt inn i menyene, Spill-siden, søket, planleggeren, kompetansemålene og lærerveiledningen. «Alt om temaet» får feeder, fredskonferanser, hverdagsbilder, ord og en tenkerutine på storskjerm (via `verktoy/lag-aktiviteter.mjs` og `assets/tema.js`).
+
 ### Runde S: Velg din vei og Escape room
 
 - **Velg din vei** (`assets/fortelling.js`, data i `data/fortellinger.js`): fortellingene kan ha `sprak: "en"` (engelsk grensesnitt), `lett` (lettere tekst per node, `rolleLett`, `kilde.lett`; knappen «🌱 Lettere tekst», `?lett=1`), `etterpaa.ekte` (`[[true, "ekte"], [false, "oppdiktet"]]` – boksen «Hva var ekte?») og `kontroller` (vises med `?laerer=1`). Etter en slutt vises et kart over alle veiene (SVG, beregnet fra nodene) og en liste over sluttene. Oversikten er gruppert etter språk.
@@ -519,7 +533,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261110i`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261111a`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
