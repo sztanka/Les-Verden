@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261112b";
+  LV.versjon = "20261112c";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {

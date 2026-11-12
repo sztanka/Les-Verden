@@ -4864,3 +4864,48 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .by-folk { font-size: 1.05rem; }
 .by-logg { display: grid; gap: .6rem; }
 @media (max-width: 480px) { .by-maal { grid-template-columns: 6.2rem minmax(0, 1fr) 4.8rem; gap: .4rem; font-size: .92rem; } }
+
+/* ---------- Planleggeren: faner og øktplanlegger (forlop.js) ---------- */
+.fl-faner { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1.4rem; font-family: var(--font-ui); }
+.fl-faner a { display: flex; flex-direction: column; padding: .6rem 1.1rem; border: 2px solid var(--linje); border-radius: 12px; background: var(--flate); color: var(--tekst); text-decoration: none; font-weight: 700; }
+.fl-faner a small { font-weight: 400; color: var(--tekst-dempet); font-size: .82rem; }
+.fl-faner a[aria-current="page"] { border-color: var(--tekst); background: var(--gul-lys); }
+.fl-valg { display: grid; gap: .7rem; grid-template-columns: repeat(3, minmax(0, 1fr)); font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: 14px; padding: .9rem 1rem; max-width: 60rem; }
+.fl-valg label { display: flex; flex-direction: column; gap: .2rem; font-size: .85rem; font-weight: 600; color: var(--tekst-dempet); min-width: 0; }
+.fl-valg .fl-bred { grid-column: 1 / -1; }
+.fl-valg select, .fl-bytt select, .fl-type select { font: inherit; font-size: .95rem; color: var(--tekst); background: var(--flate); border: 1.5px solid var(--linje); border-radius: 8px; padding: .4rem .5rem; font-weight: 400; max-width: 100%; min-width: 0; }
+@media (max-width: 640px) { .fl-valg { grid-template-columns: minmax(0, 1fr); } }
+.fl-tom { max-width: 52rem; font-family: var(--font-ui); margin-top: 1.2rem; }
+.fl-oversikt { max-width: 60rem; margin-top: 1.6rem; font-family: var(--font-ui); }
+.fl-tidslinje { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; counter-reset: none; }
+.fl-tidslinje a { display: flex; flex-direction: column; padding: .4rem .8rem; border-radius: 10px; background: var(--fag-lys); color: var(--tekst); text-decoration: none; font-weight: 700; font-size: .92rem; }
+.fl-tidslinje small { font-weight: 400; font-size: .78rem; }
+.fl-knapper { display: flex; flex-wrap: wrap; gap: .5rem; }
+.fl-okt { max-width: 60rem; margin-top: 1.4rem; background: var(--flate); border: 1px solid var(--linje); border-left: 8px solid var(--fl, var(--tekst)); border-radius: 14px; padding: .6rem 1.2rem 1rem; font-family: var(--font-ui); scroll-margin-top: 8rem; }
+.fl-I { --fl: #c2410c; } .fl-L { --fl: #1d4ed8; } .fl-F { --fl: #7e22ce; } .fl-O { --fl: #15803d; } .fl-U { --fl: #a16207; } .fl-A { --fl: #be123c; }
+.fl-okt-hode { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; justify-content: space-between; }
+.fl-okt-hode h2 { margin: .3rem 0; font-size: 1.25rem; }
+.fl-type { display: flex; gap: .4rem; align-items: center; font-size: .85rem; color: var(--tekst-dempet); }
+.fl-hva { color: var(--tekst-dempet); margin: .2rem 0 .4rem; }
+.fl-maal, .fl-les { margin: .3rem 0; }
+.fl-plasser { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; gap: .5rem; }
+.fl-plass { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) minmax(0, 15rem); gap: .7rem; align-items: start; border-top: 1px solid var(--linje); padding-top: .55rem; }
+.fl-tid strong { display: block; }
+.fl-tid small, .fl-akt small { display: block; color: var(--tekst-dempet); font-size: .85rem; }
+.fl-akt a { color: var(--tekst); }
+.fl-merker { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .25rem; }
+.fl-merke { font-size: .75rem; border-radius: 999px; padding: .05rem .5rem; background: var(--fag-lys); }
+.fl-fokus { background: var(--gul-lys); }
+.fl-bytt select { width: 100%; font-size: .85rem; }
+.fl-okt-knapper { margin: .7rem 0 0; }
+.fl-km { max-width: 60rem; margin-top: 1.4rem; font-family: var(--font-ui); background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem 1rem; }
+.fl-km summary { cursor: pointer; font-weight: 600; }
+.fl-elevokt { max-width: 52rem; margin-top: 1.4rem; font-family: var(--font-ui); }
+.fl-klasse { border-style: dashed !important; }
+@media (max-width: 760px) { .fl-plass { grid-template-columns: minmax(0, 1fr); gap: .3rem; } .fl-tid { display: flex; gap: .5rem; align-items: baseline; } }
+@media print {
+  .fl-faner, .fl-valg, .fl-knapper, .fl-bytt, .fl-type, .fl-okt-knapper, #fl-status { display: none !important; }
+  .fl-okt { break-inside: avoid; border: 1px solid #999; border-left: 8px solid var(--fl); }
+  .fl-plass { grid-template-columns: 6rem minmax(0, 1fr); }
+}
+.fl-bytt-tekst { display: block; font-size: .78rem; color: var(--tekst-dempet); margin-bottom: .15rem; }

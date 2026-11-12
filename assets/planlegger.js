@@ -152,6 +152,7 @@
   }
   function skrivAdresse() {
     const p = new URLSearchParams();
+    p.set("modus", "finn");
     ["fag", "trinn", "type", "mal", "q"].forEach(k => { if (S[k]) p.set(k, S[k]); });
     if (S.valgt.length) p.set("r", S.valgt.join(","));
     if (S.tittel) p.set("t", S.tittel);
@@ -166,7 +167,7 @@
     document.title = "Planlegger – " + navn();
     const malValg = ["samfunnsfag", "engelsk"].map(f => '<optgroup label="' + K()[f].navn + " (" + K()[f].kode + ')">' + K()[f].mal.map(m => '<option value="' + m.id + '">' + esc(m.kort) + "</option>").join("") + "</optgroup>").join("");
     $("innhold").innerHTML = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="laerer.html">For lærere</a> › Planlegger</nav>' +
-      '<header class="sidehode"><p class="overlinje">For lærere</p><h1>Planlegger</h1><p class="ingress">Finn innhold etter fag, trinn og kompetansemål, sett sammen en økt eller en periode, og del en ferdig lenke med elevene. Ingenting lagres – valgene dine ligger i adressen, så du kan bokmerke den eller sende den til en kollega.</p></header>' +
+      '<header class="sidehode"><p class="overlinje">For lærere</p><h1>Planlegger</h1><p class="ingress">Finn innhold etter fag, trinn og kompetansemål, sett sammen en økt eller en periode, og del en ferdig lenke med elevene. Ingenting lagres – valgene dine ligger i adressen, så du kan bokmerke den eller sende den til en kollega.</p></header>' + faner("finn") +
       '<div class="pl-oppsett">' +
       '<section class="pl-finn" aria-labelledby="pl-finn-t"><h2 id="pl-finn-t">1. Finn innhold</h2>' +
       '<div class="pl-filter"><label>Fag<select id="pl-fag"><option value="">Begge fag</option><option value="samfunnsfag">Samfunnsfag</option><option value="engelsk">Engelsk</option></select></label>' +
@@ -255,6 +256,12 @@
     tegnOversikt(); oppdater();
   }
 
+  // ---------- Faner: forløp eller finn innhold ----------
+  function faner(aktiv) {
+    return '<nav class="fl-faner" aria-label="Velg verktøy"><a href="planlegger.html"' + (aktiv === "forlop" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🗓️</span> Planlegg et forløp<small>Økt for økt fra et tema</small></a>' +
+      '<a href="planlegger.html?modus=finn"' + (aktiv === "finn" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🔎</span> Finn innhold<small>Filtrer og lag en arbeidsplan</small></a></nav>';
+  }
+
   // ---------- Elevvisning ----------
   function elev(R) {
     const valgt = S.valgt.map(k => R.find(r => r.key === k)).filter(Boolean);
@@ -270,6 +277,10 @@
     if (!LV.kompetansemal) { $("innhold").innerHTML = '<p class="melding">Fant ikke kompetansemålene.</p>'; return; }
     lesAdresse();
     const R = lagRessurser();
-    if (LV.param("elev") === "1") elev(R); else laerer(R);
+    const p = new URLSearchParams(location.search);
+    if (p.get("elev") === "1") elev(R);
+    else if (p.get("elev") === "forlop" && LV.forlopElev) LV.forlopElev($("innhold"));
+    else if (p.get("modus") === "finn" || ["fag", "trinn", "type", "mal", "q", "r"].some(k => p.get(k)) || !LV.forlop) laerer(R);
+    else LV.forlop($("innhold"), faner("forlop"));
   });
 })();

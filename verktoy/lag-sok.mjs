@@ -106,7 +106,7 @@ const legg = (k, t, u, s, x, f) => I.push({ k, t: ren(t), u, s: kort(s), x: ren(
   ["Lesedagbok", "lesedagbok.html", "Leselogg, lesekort og bokpresentasjon for bøker du velger selv.", "lesedagbok leselogg reading log selvvalgte tekster bok bokpresentasjon book talk lesekort"],
   ["How to learn English", "laere-engelsk.html", "Strategier for å lære ord, skrive tekster og klare seg i samtaler.", "språklæring strategier learning strategies vocabulary false friends falske venner explain the word kommunikasjonsstrategier"],
   ["Pronunciation for Norwegians", "uttale.html", "Vanskelige engelske lyder, ordtrykk, stumme bokstaver og aksenter.", "uttale pronunciation th w v word stress ordtrykk silent letters stumme bokstaver accent aksent british american"],
-  ["Planlegger for lærere", "planlegger.html", "Finn innhold etter fag, trinn og kompetansemål, og del en arbeidsplan med elevene.", "planlegger kompetansemål læreplan lk20 saf01-05 eng01-06 arbeidsplan ukeplan økt"]
+  ["Planlegger for lærere", "planlegger.html", "Lag et undervisningsforløp økt for økt fra et tema, eller finn innhold etter fag, trinn og kompetansemål.", "planlegger forløp øktplan periodeplan undervisningsopplegg kompetansemål læreplan lk20 saf01-05 eng01-06 arbeidsplan ukeplan økt"]
 ].forEach(([t, u, s, x]) => legg("side", t, u, s, x));
 
 // Temaer, begreper og personer
