@@ -12,7 +12,7 @@ LV.bildeFigurer = function (sted, sprak) {
     const lis = (window.LV.lisenser || {})[b.lisens] || [b.lisens, ""];
     const kilde = b.kilde || "https://commons.wikimedia.org/w/index.php?search=" + encodeURIComponent(b.sok || b.id) + "&title=Special:MediaSearch&type=image";
     const tekst = (en ? b.en : b.nb) || b.nb || b.en || "";
-    return '<figure class="tekstbilde"><a class="tb-bilde" href="' + esc("assets/bilder/commons/" + b.fil) + '" target="_blank" rel="noopener"><img src="' + esc("assets/bilder/commons/" + b.fil) + '" alt="' + esc(b.alt || "") + '" loading="lazy"></a>' +
+    return '<figure class="tekstbilde"' + (b.bredde ? ' style="max-width:' + (+b.bredde) + 'px"' : "") + '><a class="tb-bilde" href="' + esc("assets/bilder/commons/" + b.fil) + '" target="_blank" rel="noopener"><img src="' + esc("assets/bilder/commons/" + b.fil) + '" alt="' + esc(b.alt || "") + '" loading="lazy"></a>' +
       "<figcaption" + (en ? ' lang="en"' : "") + '><span class="tb-tekst">' + esc(tekst) + '</span> <span class="tb-kreditt" lang="nb">' + esc(b.kreditt) + ", " +
       (lis[1] ? '<a href="' + esc(lis[1]) + '" target="_blank" rel="noopener">' + esc(lis[0]) + "</a>" : esc(lis[0])) +
       ', via <a href="' + esc(kilde) + '" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure>';

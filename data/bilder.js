@@ -234,5 +234,9 @@ LV.bilder = [
   { id: "snublesteiner", fil: "snublesteiner-tromso.jpg", kreditt: "Kimberli Mäkäräinen", lisens: "bysa4", kilde: "https://commons.wikimedia.org/wiki/File:Stolpersteine_for_the_Caplan_family_Troms%C3%B8_JUL2019.jpg",
     steder: ["tema:sf9-nasjonale-minoriteter:Jøder i Norge – fra forbud til folkemord"],
     alt: "Fire små messingplater i gatebelegget med navnene til medlemmer av familien Caplan, når de ble deportert og hvor de ble drept.",
-    nb: "Snublesteiner i Tromsø for fire medlemmer av familien Caplan, som ble deportert og drept under Holocaust. Snublesteinene ligger utenfor husene der de bodde." }
+    nb: "Snublesteiner i Tromsø for fire medlemmer av familien Caplan, som ble deportert og drept under Holocaust. Snublesteinene ligger utenfor husene der de bodde." },
+  { id: "gina-krog", fil: "gina-krog.jpg", bredde: 250, kreditt: "Bain News Service", lisens: "pd", kilde: "https://commons.wikimedia.org/wiki/File:Gina_Krog.jpg",
+    steder: ["tema:sf9-likestilling:Kampen for stemmerett"],
+    alt: "Gammelt portrettfoto av en kvinne med oppsatt hår og mørk kjole.",
+    nb: "Gina Krog (1847–1916) var en av lederne i kampen for kvinners stemmerett i Norge. Hun var med på å stifte Kvindestemmeretsforeningen i 1885." }
 ];
