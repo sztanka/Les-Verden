@@ -2159,13 +2159,15 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .pl-oppsett { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); align-items: start; }
 .pl-filter { display: grid; gap: .6rem; grid-template-columns: repeat(3, minmax(0, 1fr)); font-family: var(--font-ui); margin-bottom: .6rem; }
 .pl-filter label { display: flex; flex-direction: column; gap: .2rem; font-size: .85rem; color: var(--tekst-dempet); font-weight: 600; }
+.pl-filter label, .pl-filter select { min-width: 0; max-width: 100%; }
+.pl-oppsett > * { min-width: 0; }
 .pl-filter .pl-bred { grid-column: span 3; }
 .pl-filter select, .pl-filter input, .pl-felt input, .pl-felt textarea { font: inherit; font-size: .95rem; color: var(--tekst); background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; padding: .45rem .6rem; font-weight: 400; }
 .pl-malinfo p { font-family: var(--font-ui); background: var(--lilla-lys); border-radius: 10px; padding: .6rem .8rem; margin: .4rem 0; }
 .lenkeknapp { background: none; border: 0; padding: 0; font: inherit; color: var(--tekst); text-decoration: underline; cursor: pointer; }
 .pl-antall { font-family: var(--font-ui); color: var(--tekst-dempet); }
-.pl-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
-.pl-kort { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .7rem .9rem; font-family: var(--font-ui); }
+.pl-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; grid-template-columns: minmax(0, 1fr); }
+.pl-kort { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .7rem .9rem; font-family: var(--font-ui); min-width: 0; overflow-wrap: anywhere; }
 .pl-kort.valgt { border-color: var(--samfunnsfag); box-shadow: inset 4px 0 0 var(--samfunnsfag); }
 .pl-kort-hode { display: flex; gap: .6rem; align-items: flex-start; }
 .pl-kort-hode > div { flex: 1; min-width: 0; }
@@ -2217,7 +2219,7 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .pl-elevkort small { display: block; color: var(--tekst-dempet); }
 .pl-beskjed { background: var(--gul-lys); border-radius: 12px; padding: .8rem 1rem; }
 @media (max-width: 900px) {
-  .pl-oppsett { grid-template-columns: 1fr; }
+  .pl-oppsett { grid-template-columns: minmax(0, 1fr); }
   .pl-plan { position: static; order: -1; }
 }
 @media (max-width: 640px) {
@@ -4734,3 +4736,131 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
   .eg-kort, .eg-hjem { break-after: page; border: 1px solid #999; border-top: 8px solid var(--eg, #000); max-width: none; }
   .eg-bokstav { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ---------- Klimatoppmøtet (klima.html) ---------- */
+.kl-del { max-width: 60rem; margin-top: 1.8rem; font-family: var(--font-ui); }
+.kl-del > label, .kl-tilbud label { display: block; font-weight: 600; margin: .7rem 0 .25rem; }
+:is(.kl-del, .kl-tilbud) :is(textarea, input[type=text]) { width: 100%; box-sizing: border-box; font: inherit; line-height: 1.5; color: var(--tekst); background: var(--flate); border: 1.5px solid var(--linje); border-radius: 10px; padding: .5rem .7rem; }
+:is(.kl-del, .kl-tilbud) :is(textarea, input[type=text]):focus { border-color: var(--tekst); outline: 3px solid var(--gul-lys); }
+.kl-start { justify-content: flex-start; }
+.kl-delegasjoner { list-style: none; padding: 0; display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.kl-dkort { display: flex; gap: .7rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--kl); border-radius: 12px; padding: .7rem .9rem; color: var(--tekst); text-decoration: none; height: 100%; box-sizing: border-box; }
+.kl-dkort:hover { border-color: var(--tekst); }
+.kl-dkort small { display: block; color: var(--tekst-dempet); font-size: .85rem; margin-top: .15rem; }
+.kl-tabell { border-collapse: collapse; width: 100%; font-size: .95rem; }
+.kl-tabell caption { text-align: left; font-weight: 700; margin-bottom: .4rem; }
+.kl-tabell :is(th, td) { padding: .4rem .6rem; border-bottom: 1px solid var(--linje); text-align: left; }
+.kl-tabell td { text-align: right; }
+.kl-merk { color: var(--tekst-dempet); }
+.kl-laerer { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem 1rem; margin-top: 1rem; max-width: 60rem; font-family: var(--font-ui); }
+.kl-laerer summary { cursor: pointer; font-weight: 600; }
+.kl-type { color: var(--tekst-dempet); margin: 0 0 .4rem; }
+.kl-fakta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: .5rem; margin: .8rem 0; }
+.kl-fakta div { background: var(--fag-lys); border-radius: 10px; padding: .5rem .7rem; }
+.kl-fakta dt { font-size: .82rem; color: var(--tekst-dempet); }
+.kl-fakta dd { margin: 0; font-weight: 700; }
+.kl-tips { background: var(--gul-lys); border-radius: 10px; padding: .5rem .8rem; }
+.kl-ark { max-width: 46rem; }
+.kl-tilbud { border: 2px solid var(--linje); border-radius: 12px; padding: .4rem 1rem 1rem; margin-top: 1rem; min-width: 0; }
+.kl-tilbud legend { font-weight: 700; padding: 0 .3rem; }
+.kl-modell { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); font-family: var(--font-ui); }
+@media (min-width: 1100px) { .kl-modell { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; } }
+.kl-valg { border-collapse: collapse; width: 100%; }
+.kl-valg :is(th, td) { padding: .35rem .4rem; border-bottom: 1px solid var(--linje); text-align: left; }
+.kl-modell > * { min-width: 0; }
+.kl-valg tbody th { font-weight: 600; }
+.kl-valg select, .kl-valg input { font: inherit; color: var(--tekst); background: var(--flate); border: 1.5px solid var(--linje); border-radius: 8px; padding: .3rem .4rem; }
+.kl-valg input { width: 4.6rem; }
+.kl-prikk { display: inline-block; width: .8rem; height: .8rem; border-radius: 50%; background: var(--kl); margin-right: .4rem; vertical-align: middle; }
+.kl-resultat { display: grid; gap: .8rem; }
+.kl-termo { border-radius: 14px; padding: .8rem 1.1rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; align-items: baseline; color: #10151c; }
+.kl-grader { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; line-height: 1; }
+.kl-gronn { background: #b7e4c7; } .kl-gul { background: #ffe8a3; } .kl-oransje { background: #ffc49b; } .kl-rod { background: #f4a7a7; }
+.kl-konsekvens, .kl-fond, .kl-hendelse { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .6rem 1rem; }
+.kl-konsekvens h2, .kl-fond h2, .kl-hendelse h2 { font-size: 1.1rem; margin: .2rem 0 .3rem; }
+.kl-konsekvens p, .kl-fond p, .kl-hendelse p { margin: .2rem 0; }
+.kl-fondbar { height: .9rem; background: var(--linje); border-radius: 999px; overflow: hidden; margin: .4rem 0; }
+.kl-fondbar span { display: block; height: 100%; background: #2d6a4f; }
+.kl-varsel { font-weight: 600; }
+.kl-hendelse { background: var(--gul-lys); max-width: 60rem; margin-top: .8rem; font-family: var(--font-ui); }
+.kl-graf { margin: 1.2rem 0 0; max-width: 60rem; font-family: var(--font-ui); }
+.kl-graf figcaption { font-size: .88rem; color: var(--tekst-dempet); }
+.kl-svg { width: 100%; height: auto; display: block; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; }
+.kl-svg text { font: 12px var(--font-ui); fill: var(--tekst-dempet); }
+.kl-rutenett { stroke: var(--linje); stroke-width: 1; }
+.kl-bau { fill: none; stroke: var(--tekst); stroke-width: 2.5; stroke-dasharray: 7 5; }
+.kl-forklaring { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .88rem; margin: .5rem 0; }
+.kl-forklaring span { display: inline-block; width: .9rem; height: .9rem; border-radius: 3px; margin-right: .3rem; vertical-align: middle; }
+.kl-forklaring .kl-bau-tegn { border-top: 3px dashed var(--tekst); border-radius: 0; height: 0; }
+.kl-runder { font-family: var(--font-ui); display: grid; gap: .4rem; }
+@media print { .kl-rolle { break-after: page; } .kl-ark textarea, .kl-ark input { min-height: 2.4rem; } }
+
+/* ---------- Menneskerettighetsdomstolen (domstol.html) ---------- */
+.dm-del { max-width: 52rem; margin-top: 1.8rem; font-family: var(--font-ui); }
+.dm-del > label, .dm-dom label:not(.dm-valg label) { display: block; font-weight: 600; margin: .7rem 0 .25rem; }
+:is(.dm-del) :is(textarea, input[type=text]) { width: 100%; box-sizing: border-box; font: inherit; line-height: 1.5; color: var(--tekst); background: var(--flate); border: 1.5px solid var(--linje); border-radius: 10px; padding: .5rem .7rem; }
+:is(.dm-del) :is(textarea, input[type=text]):focus { border-color: var(--tekst); outline: 3px solid var(--gul-lys); }
+.dm-saker { list-style: none; padding: 0; display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.dm-sakkort { display: flex; gap: .8rem; align-items: flex-start; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .8rem 1rem; color: var(--tekst); text-decoration: none; height: 100%; box-sizing: border-box; }
+.dm-sakkort:hover { border-color: var(--tekst); }
+.dm-sakkort small { display: block; color: var(--tekst-dempet); margin-top: .15rem; }
+.dm-sakkort .dm-art { color: var(--tekst); font-weight: 600; }
+.dm-ikon { font-size: 1.8rem; line-height: 1; }
+.dm-fakta { font-family: var(--font-tekst); font-size: 1.08rem; line-height: 1.65; }
+.dm-artikkel { margin: 0; background: var(--fag-lys); border-left: 6px solid var(--tekst); border-radius: 10px; padding: .6rem 1.1rem; font-family: var(--font-tekst); font-size: 1.08rem; }
+.dm-unntak { font-size: .98rem; }
+.dm-merk { font-size: .85rem; color: var(--tekst-dempet); }
+.dm-parter, .dm-roller { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.dm-part, .dm-rolle { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .5rem 1rem; }
+.dm-klager { border-top: 6px solid #2d6a4f; } .dm-staten { border-top: 6px solid #5b2a86; }
+.dm-part h3, .dm-rolle h3 { margin: .3rem 0; font-size: 1.05rem; }
+.dm-part ul, .dm-rolle ul { padding-left: 1.2rem; margin: .3rem 0; }
+.dm-test { padding-left: 1.6rem; display: grid; gap: .8rem; }
+.dm-test fieldset, .dm-dom { border: 1.5px solid var(--linje); border-radius: 12px; padding: .5rem 1rem .8rem; margin: 0; min-width: 0; background: var(--flate); }
+.dm-dom legend { padding: 0 .3rem; }
+.dm-test legend { float: left; width: 100%; padding: .3rem 0 0; }
+.dm-test legend + * { clear: both; }
+.dm-dom { margin-top: 1rem; border-width: 2px; border-color: var(--tekst); }
+.dm-dom legend { font-weight: 700; font-size: 1.1rem; }
+.dm-valg { display: flex; flex-wrap: wrap; gap: .4rem; margin: .5rem 0; }
+.dm-valg label { display: inline-flex; gap: .35rem; align-items: center; padding: .3rem .7rem; border: 1.5px solid var(--linje); border-radius: 999px; cursor: pointer; }
+.dm-valg label:has(input:checked) { background: var(--gul-lys); border-color: var(--tekst); }
+.dm-ekte { background: var(--flate); border: 2px solid var(--tekst); border-radius: 12px; padding: .5rem 1rem 1rem; margin-top: .8rem; }
+.dm-ekte h3 { margin: .3rem 0; }
+.dm-ekte label { display: block; font-weight: 600; margin: .7rem 0 .25rem; }
+.dm-utfall { margin: .2rem 0; }
+
+/* ---------- Byen vokser (byen.html) ---------- */
+.by-panel { background: var(--flate); border: 1px solid var(--linje); border-radius: 14px; padding: .8rem 1rem; max-width: 52rem; font-family: var(--font-ui); margin-top: 1rem; }
+.by-nokkel { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); gap: .5rem; }
+.by-nokkel div { background: var(--fag-lys); border-radius: 10px; padding: .4rem .7rem; }
+.by-nokkel span { display: block; font-size: .8rem; color: var(--tekst-dempet); }
+.by-nokkel strong { font-size: 1.3rem; }
+.by-maalliste { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; gap: .35rem; }
+.by-maal { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 6.2rem; gap: .6rem; align-items: center; }
+.by-bar { height: .9rem; background: var(--linje); border-radius: 999px; overflow: hidden; }
+.by-fyll { display: block; height: 100%; border-radius: 999px; }
+.by-lav { background: #c0392b; } .by-mid { background: #d4a017; } .by-hoy { background: #2d6a4f; }
+.by-tall { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.by-endring { font-size: .82rem; font-weight: 600; }
+.by-endring.by-opp { color: var(--samfunnsfag); } .by-endring.by-ned { color: var(--aksent); }
+.by-merke { margin: .6rem 0 0; font-size: .9rem; }
+.by-runde { max-width: 52rem; margin-top: 1.4rem; font-family: var(--font-ui); }
+.by-runde > label { display: block; font-weight: 600; margin: .8rem 0 .25rem; }
+.by-hendelse { font-family: var(--font-tekst); font-size: 1.1rem; line-height: 1.65; }
+.by-valg { border: 0; padding: 0; margin: 0; display: grid; gap: .5rem; min-width: 0; }
+.by-valg legend { font-weight: 600; margin-bottom: .4rem; padding: 0; }
+.by-tiltak { display: flex; gap: .7rem; align-items: flex-start; background: var(--flate); border: 2px solid var(--linje); border-radius: 12px; padding: .6rem .8rem; cursor: pointer; }
+.by-tiltak:has(input:checked) { border-color: var(--tekst); background: var(--gul-lys); }
+.by-tiltak:has(input:disabled) { opacity: .6; cursor: not-allowed; }
+.by-tiltak input { margin-top: .3rem; width: 1.15rem; height: 1.15rem; flex: none; }
+.by-tiltak small { display: block; color: var(--tekst-dempet); margin-top: .15rem; }
+.by-kost { font-size: .88rem; font-weight: 600; white-space: nowrap; }
+.by-status { font-weight: 600; min-height: 1.4em; }
+:is(.by-runde, .by-logg) textarea { width: 100%; box-sizing: border-box; font: inherit; line-height: 1.5; color: var(--tekst); background: var(--flate); border: 1.5px solid var(--linje); border-radius: 10px; padding: .5rem .7rem; margin-top: .3rem; }
+:is(.by-runde, .by-logg) textarea:focus { border-color: var(--tekst); outline: 3px solid var(--gul-lys); }
+.by-ekte { background: var(--gul-lys); border-radius: 12px; padding: .5rem 1rem; margin-top: 1rem; }
+.by-ekte h3 { margin: .3rem 0; font-size: 1.05rem; }
+.by-folk { font-size: 1.05rem; }
+.by-logg { display: grid; gap: .6rem; }
+@media (max-width: 480px) { .by-maal { grid-template-columns: 6.2rem minmax(0, 1fr) 4.8rem; gap: .4rem; font-size: .92rem; } }

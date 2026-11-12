@@ -161,9 +161,9 @@ Hver ny side skal integreres: menyen (`assets/felles.js`), «Alt om temaet» der
 - [x] Ekspertgrupper (jigsaw) fra et tema
 
 ### Runde W – samfunn
-- [ ] Klimatoppmøtet – forhandlingsrollespill med grafer
-- [ ] Menneskerettighetsdomstolen – oppdiktede saker
-- [ ] Byen vokser – simulering av industrialiseringen
+- [x] Klimatoppmøtet – forhandlingsrollespill med grafer
+- [x] Menneskerettighetsdomstolen – oppdiktede saker
+- [x] Byen vokser – simulering av industrialiseringen
 
 ### Senere
 - [ ] Englishes of the world (når ElevenLabs-lyd er på plass)

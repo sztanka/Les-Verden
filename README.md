@@ -87,6 +87,9 @@ les-verden/
 ├── idiomer.html            Idiomdetektiven – engelske idiomer (data i data/idiomer.js)
 ├── sporsmal.html           Spørsmålsstudioet – elevene lager egne spørsmål (QFT)
 ├── ekspertgrupper.html     Ekspertgrupper (jigsaw) fra et tema
+├── klima.html              Klimatoppmøtet – forhandlingsspill med klimamodell (data/klima.js)
+├── domstol.html            Menneskerettighetsdomstolen – oppdiktede saker (data/domstol.js)
+├── byen.html               Byen vokser – industribyen 1840–1910 (data/byen.js)
 ├── tekstpar.html           Tekstpar: to tekster side om side (data i data/tekstpar.js, tekstene hentes fra andre filer)
 ├── samtidig.html           Samtidig i verden: hendelser samme år i tre kolonner (fra temaenes tidslinjer)
 ├── lag.html                Lag selv: elevskapt quiz, tidslinje og ordkort – innholdet ligger i lenken (#)
@@ -413,6 +416,13 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - Spørsmålsstudioet og Ekspertgrupper ligger i «Alt om temaet» (gruppen «For hele klassen»).
 - `svarfil.js` gir svarlinja `role="region"` når den ligger utenfor `main`.
 
+### Runde W: samfunn
+
+- **Klimatoppmøtet** (`klima.html`, `assets/klima.js`, `data/klima.js`, CSS `.kl-`): seks delegasjoner (samme land som `data/fn.js`), `?rolle=<id>` gir rollekort og forhandlingsark, `?vis=modell` gir lærerens modell. Tilbud og runder ligger i hashen: `#t=toppår.kutt.fond_…&r=runde~runde`. Modell: 1,3 °C + 0,45 °C per 1000 mrd. tonn CO₂ 2025–2100; «resten av verden» følger snittet.
+- **Menneskerettighetsdomstolen** (`domstol.html`, `assets/domstol.js`, `data/domstol.js`, CSS `.dm-`): seks saker med `test` = `begrens | absolutt | tid | diskr`, roller, dommertest og `ekte` (ekte EMD-sak, vises etter dommen).
+- **Byen vokser** (`byen.html`, `assets/byen.js`, `data/byen.js`, CSS `.by-`): sju runder 1840–1900, to tiltak per runde innenfor bykassa. Valgene i hashen (`#v=AB-C-0-…`, `&vis=1` viser resultatet av siste runde), så simuleringen spilles av på nytt fra starten.
+- Alle tre ligger i «Alt om temaet» for relevante temaer (via `lag-aktiviteter.mjs`), i Spill-menyen og på spillsiden. FN-rollespillet og Rettssaken lenker videre.
+
 ### Runde T: nye måter å lese og tenke på
 
 - **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
@@ -560,7 +570,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261112a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261112b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

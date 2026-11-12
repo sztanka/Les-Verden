@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261112a";
+  LV.versjon = "20261112b";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -252,11 +252,14 @@ window.LV = window.LV || {};
           ["lag.html", "🛠️", "Lag selv", "Egen quiz, tidslinje eller ordkort"]]],
         ["Rollespill og simuleringer", [
           ["rettssak.html", "⚖️", "Rettssaken", "Spill en straffesak"],
+          ["domstol.html", "🏛️", "Menneskerettighetsdomstolen", "Saker om rettighetene våre"],
           ["valg.html", "🗳️", "Valgsimulatoren", "Fra stemmer til regjering"],
           ["lov.html", "📜", "Lag en lov", "Fra høring til votering"],
           ["kommune.html", "🏛️", "Ordfører for en dag", "Kommunebudsjettet"],
           ["fn.html", "🇺🇳", "FN-rollespill", "Forhandle om en resolusjon"],
           ["fred.html", "🕊️", "Fredskonferansen", "Skriv freden i 1815 eller 1919"],
+          ["klima.html", "🌍", "Klimatoppmøtet", "Forhandle om utslippene"],
+          ["byen.html", "🏭", "Byen vokser", "Industribyen 1840–1910"],
           ["okonomi.html", "💰", "Første lønn", "Budsjett og lån"]]],
         ["Historie", [
           ["fortelling.html", "🧭", "Velg din vei", "Historiske fortellinger med valg"],

@@ -1175,11 +1175,14 @@
   const ANDRE = [
     ["rollespill", "🎭", "Rollespill og simuleringer", "Ta en rolle, ta valg – og se hva som skjer.", [
       ["rettssak.html", "⚖️", "Rettssaken", "Spill en straffesak i tingretten med dommer, aktor, forsvarer og vitner."],
+      ["domstol.html", "🏛️", "Menneskerettighetsdomstolen", "Seks oppdiktede saker om ytringsfrihet, privatliv, diskriminering og mer – med dommertest og ekte søstersaker fra EMD."],
       ["valg.html", "🗳️", "Valgsimulatoren", "Gjør stemmer om til mandater – og sett sammen en regjering."],
       ["lov.html", "📜", "Lag en lov", "Følg et lovforslag fra høring til votering på Stortinget."],
       ["kommune.html", "🏛️", "Ordfører for en dag", "Fordel budsjettet i Fjordvik kommune – og møt velgerne."],
       ["fn.html", "🇺🇳", "FN-rollespill", "Bli delegat, forhandle om en resolusjon og stem."],
       ["fred.html", "🕊️", "Fredskonferansen", "Skriv freden etter Napoleon (1815) eller første verdenskrig (1919)."],
+      ["klima.html", "🌍", "Klimatoppmøtet", "Seks delegasjoner forhandler om utslipp og penger – en klimamodell viser temperaturen i 2100."],
+      ["byen.html", "🏭", "Byen vokser", "Styr en industriby fra 1840 til 1910: kolera, jernbane, barnearbeid og streik."],
       ["okonomi.html", "💰", "Første lønn", "Få lønnen til å strekke til – og se hva lån koster."]]],
     ["historie", "🏺", "Historie og tenkning", "Reis i tid, finn sammenhenger og løs gåter.", [
       ["fortelling.html", "🧭", "Velg din vei", "Tolv historiske fortellinger på norsk og engelsk – du tar valgene."],

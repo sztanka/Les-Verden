@@ -25,14 +25,14 @@
       '<h2>Velg en sak</h2><ul class="fo-liste">' + D().saker.map(s => '<li><a class="fo-kort" href="fn.html?sak=' + s.id + '" style="--fo-a:var(--engelsk)"><span class="fo-kort-topp"><span class="fo-ikon" aria-hidden="true">' + s.ikon + "</span><span>" + s.punkter.length + " punkter · " + D().land.length + " land</span></span><strong>" + esc(s.tittel) + "</strong><span>" + esc(s.bakgrunn.split(". ")[0]) + ".</span></a></li>").join("") + "</ul>" +
       '<h2>Landene</h2><ul class="fn-landliste">' + D().land.map(l => "<li>" + flagg(l) + "<strong>" + esc(l.navn) + "</strong><span>" + esc(l.fakta.join(" · ")) + "</span></li>").join("") + "</ul>" +
       "<h2>Slik foregår møtet</h2>" + gangHtml() +
-      '<p class="fo-merk">Til læreren: Passer for 6–30 elever. Med mange elever kan to–fire elever dele et land som en delegasjon. Læreren eller en elev er ordstyrer (<span lang="en">Chair</span>). Rollespillet kan gjennomføres på norsk eller engelsk – frasebanken har begge. Rollekortene kan deles ut som lenker eller skrives ut.</p>';
+      '<p class="fo-merk">Til læreren: Passer for 6–30 elever. Med mange elever kan to–fire elever dele et land som en delegasjon. Læreren eller en elev er ordstyrer (<span lang="en">Chair</span>). Rollespillet kan gjennomføres på norsk eller engelsk – frasebanken har begge. Rollekortene kan deles ut som lenker eller skrives ut. De samme landene er med i <a href="klima.html">Klimatoppmøtet</a>, der delegasjonene forhandler med tall og en klimamodell.</p>';
   }
 
   function sakSide(s) {
     document.title = s.tittel + " – FN-rollespill";
     const tema = LV.temaer.find(t => t.id === s.tema);
     $("innhold").innerHTML = hode(s) +
-      '<header class="sidehode"><p class="overlinje">🇺🇳 FN-rollespill</p><h1>' + s.ikon + " " + esc(s.tittel) + '</h1><p class="ingress">' + esc(s.bakgrunn) + "</p>" + (tema ? '<p><a href="tema.html?id=' + tema.id + '">Les bakgrunnen i temaet «' + esc(tema.tittel) + "» →</a></p>" : "") + "</header>" +
+      '<header class="sidehode"><p class="overlinje">🇺🇳 FN-rollespill</p><h1>' + s.ikon + " " + esc(s.tittel) + '</h1><p class="ingress">' + esc(s.bakgrunn) + "</p>" + (s.id === "klima" ? '<p>🌍 Vil dere forhandle med tall og se hvor varmt det blir? Prøv <a href="klima.html">Klimatoppmøtet</a>.</p>' : "") + (tema ? '<p><a href="tema.html?id=' + tema.id + '">Les bakgrunnen i temaet «' + esc(tema.tittel) + "» →</a></p>" : "") + "</header>" +
       '<section class="fn-resolusjon"><h2>Forslag til resolusjon</h2><p class="fn-res-intro">Generalforsamlingen …</p><ol>' + s.punkter.map(p => "<li>" + esc(p) + "</li>").join("") + "</ol></section>" +
       '<h2>Rollekort</h2><p class="mu-intro">Hvert land (eller hver delegasjon) åpner sitt eget rollekort. Ikke vis rollekortet til de andre landene!</p><ul class="fn-kortliste">' + D().land.map(l => '<li><a class="fn-landkort" href="fn.html?sak=' + s.id + "&land=" + l.id + '">' + flagg(l) + "<strong>" + esc(l.navn) + '</strong><span>Åpne rollekortet →</span></a></li>').join("") + '</ul><p><button type="button" class="knapp" id="fn-skriv">🖨️ Skriv ut alle rollekortene</button></p>' +
       "<h2>Slik foregår møtet</h2>" + gangHtml() +

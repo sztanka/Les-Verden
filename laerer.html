@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For lærere – Les verden</title>
-  <link rel="stylesheet" href="assets/stil.css?v=20261112a">
-  <script src="data/innstillinger.js?v=20261112a"></script>
-  <script src="data/temaer/oversikt.js?v=20261112a"></script>
-  <script src="data/kart.js?v=20261112a"></script>
-  <script src="assets/felles.js?v=20261112a"></script>
+  <link rel="stylesheet" href="assets/stil.css?v=20261112b">
+  <script src="data/innstillinger.js?v=20261112b"></script>
+  <script src="data/temaer/oversikt.js?v=20261112b"></script>
+  <script src="data/kart.js?v=20261112b"></script>
+  <script src="assets/felles.js?v=20261112b"></script>
 </head>
 <body data-side="laerer">
   <main id="innhold" class="smal">
     <h1>For lærere</h1>
     <p class="ingress" style="font-family:var(--font-tekst);font-size:1.2rem">
       Her finner du alt innholdet på Les verden forklart – sortert etter hva du vil gjøre. Trykk på et emne for å lese mer, eller søk i veiledningen.</p>
-    <nav class="lv-toc" aria-label="Innholdet i lærerveiledningen"><ul><li><a href="#lv-start"><span aria-hidden="true">🚀</span><strong>Kom i gang</strong><small>6 emner</small></a></li><li><a href="#lv-temaer"><span aria-hidden="true">📚</span><strong>Temaer og tekster</strong><small>9 emner</small></a></li><li><a href="#lv-lese"><span aria-hidden="true">📖</span><strong>Lese</strong><small>13 emner</small></a></li><li><a href="#lv-skrive"><span aria-hidden="true">✍️</span><strong>Skrive og snakke</strong><small>5 emner</small></a></li><li><a href="#lv-kilder"><span aria-hidden="true">🔎</span><strong>Kilder, metode og tenkning</strong><small>8 emner</small></a></li><li><a href="#lv-spill"><span aria-hidden="true">🎮</span><strong>Spill og rollespill</strong><small>8 emner</small></a></li><li><a href="#lv-klasserom"><span aria-hidden="true">📺</span><strong>I klasserommet</strong><small>6 emner</small></a></li><li><a href="#lv-vurdering"><span aria-hidden="true">🎯</span><strong>Vurdering og eksamen</strong><small>4 emner</small></a></li><li><a href="#lv-drift"><span aria-hidden="true">🔧</span><strong>Personvern, kontroll og vedlikehold</strong><small>3 emner</small></a></li></ul></nav>
+    <nav class="lv-toc" aria-label="Innholdet i lærerveiledningen"><ul><li><a href="#lv-start"><span aria-hidden="true">🚀</span><strong>Kom i gang</strong><small>6 emner</small></a></li><li><a href="#lv-temaer"><span aria-hidden="true">📚</span><strong>Temaer og tekster</strong><small>9 emner</small></a></li><li><a href="#lv-lese"><span aria-hidden="true">📖</span><strong>Lese</strong><small>13 emner</small></a></li><li><a href="#lv-skrive"><span aria-hidden="true">✍️</span><strong>Skrive og snakke</strong><small>5 emner</small></a></li><li><a href="#lv-kilder"><span aria-hidden="true">🔎</span><strong>Kilder, metode og tenkning</strong><small>8 emner</small></a></li><li><a href="#lv-spill"><span aria-hidden="true">🎮</span><strong>Spill og rollespill</strong><small>11 emner</small></a></li><li><a href="#lv-klasserom"><span aria-hidden="true">📺</span><strong>I klasserommet</strong><small>6 emner</small></a></li><li><a href="#lv-vurdering"><span aria-hidden="true">🎯</span><strong>Vurdering og eksamen</strong><small>4 emner</small></a></li><li><a href="#lv-drift"><span aria-hidden="true">🔧</span><strong>Personvern, kontroll og vedlikehold</strong><small>3 emner</small></a></li></ul></nav>
     <div class="lv-verktoy"><label for="lv-finn"><span>Finn i veiledningen</span><input type="search" id="lv-finn" placeholder="For eksempel «leseflyt» eller «storskjerm»" autocomplete="off"></label><p class="ak-knapper"><button type="button" class="knapp liten" id="lv-apne">Åpne alle</button> <button type="button" class="knapp liten" id="lv-lukk">Lukk alle</button></p><p id="lv-treff" class="lv-treff" role="status" aria-live="polite"></p></div>
 
     <section class="lv-kat" id="lv-start" aria-labelledby="lv-start-h">
@@ -301,6 +301,18 @@
           <li><strong>Virkeligheten:</strong> Sammenlign avtalen med den som faktisk ble inngått, og se hvilke poeng og hvilken risiko den virkelige avtalen gir. Spill gjerne begge og diskuter hvorfor freden etter 1815 varte lenger enn freden etter 1919.</li>
           <li>Rollekort: <code>fred.html?konf=…&amp;del=…</code>, alle på utskrift: <code>&amp;utskrift=1</code>. Faktasjekk for læreren: <code>&amp;laerer=1</code>. Poengene er en forenkling laget for spillet.</li>
         </ul>
+        </div></details>
+      <details class="lv-del" id="om-klimatoppmotet"><summary><h3>Klimatoppmøtet</h3></summary>
+        <div class="lv-innhold">
+        <p><a href="klima.html">Klimatoppmøtet</a> er et forhandlingsrollespill for 10. trinn. Seks oppdiktede delegasjoner, ledet av landene fra <a href="fn.html">FN-rollespillet</a>, har hvert sitt rollekort med utslipp i dag, utslipp per person og andel av utslippene siden 1850 – tre måter å regne rettferdighet på. Etter hver runde leverer delegasjonene et tilbud: toppår, kutt per år og penger til eller fra klimafondet. Du legger tilbudene inn i modellen (<code>klima.html?vis=modell</code>) på storskjermen, og grafen og temperaturen i 2100 oppdateres med en gang. Tilbudene og rundene ligger i adressen, så du kan laste siden på nytt. Uten tiltak gir modellen ca. 3,2 °C; for å nå 1,5 °C må alle kutte svært raskt. Modellen er bevisst forenklet (bare CO₂, fast sammenheng mellom utslipp og temperatur) – det er et godt utgangspunkt for å snakke om hva modeller kan og ikke kan. Fem hendelseskort kan leses mellom rundene.</p>
+        </div></details>
+      <details class="lv-del" id="om-menneskerettighetsdomstolen"><summary><h3>Menneskerettighetsdomstolen</h3></summary>
+        <div class="lv-innhold">
+        <p><a href="domstol.html">Menneskerettighetsdomstolen</a> har seks oppdiktede saker mot den tenkte staten Velland: ytringsfrihet (en 17-åring blogger om ordføreren), demonstrasjon (veisperring), privatliv (DNA-register), umenneskelig behandling (overfylt fengsel), diskriminering (egne klasser for en minoritet) og rettssak innen rimelig tid. Hver sak har fakta, en forenklet EMK-artikkel, argumenter fra begge sider, roller og en <strong>dommertest</strong> som passer artikkelen (inngrep – lov – formål – forholdsmessighet, eller testene for absolutte rettigheter, diskriminering og saksbehandlingstid). Etter dommen kan klassen sammenligne med en ekte, lignende sak fra EMD – ikke alle endte med krenkelse. Fakta om de ekte sakene er merket for kontroll. Se også <a href="rettssak.html">Rettssaken</a> for en straffesak i tingretten.</p>
+        </div></details>
+      <details class="lv-del" id="om-byen-vokser"><summary><h3>Byen vokser</h3></summary>
+        <div class="lv-innhold">
+        <p><a href="byen.html">Byen vokser</a> er en simulering for 9. trinn. Gruppa er bystyret i den oppdiktede Elvebyen fra 1840 til 1910 og velger to tiltak hvert tiår med en begrenset bykasse: fabrikker ved fossen, boliger, vannverk under koleraen, jernbanestasjon, forbud mot barnearbeid, streiken, kraftstasjon, kommunale boliger og kvinners stemmerett. Fem verdier (boliger, helse, ren elv, skole og tillit), folketall, fabrikker og dødelighet endrer seg etter valgene – og etter hvor raskt byen vokser. Etter hver runde står det hva som skjedde i virkeligheten i Norge, og til slutt vises utviklingen som graf. Valgene lagres i adressen, begrunnelsene kan lastes ned. Passer godt sammen med temaet <a href="tema.html?id=sf9-industrialiseringen">Industrialiseringen</a> og fortellingen <a href="fortelling.html?id=akerselva-1870">Akerselva 1870</a>.</p>
         </div></details>
       <details class="lv-del" id="om-tidslinjeduellen-og-historiske-kort"><summary><h3>Tidslinjeduellen og Historiske kort</h3></summary>
         <div class="lv-innhold">
