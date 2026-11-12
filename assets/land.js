@@ -130,7 +130,7 @@
     let stopp = 0;
     h += '<article class="fagtekst land-tekst">';
     land.seksjoner.forEach(s => {
-      h += '<section class="avsnitt" id="' + s.id + '"><h2>' + (s.ikon ? '<span class="land-ikon" aria-hidden="true">' + s.ikon + "</span> " : "") + LV.esc(s.tittel) + "</h2>" +
+      h += '<section class="avsnitt" id="' + s.id + '"><h2>' + (s.ikon ? '<span class="land-ikon" aria-hidden="true">' + s.ikon + "</span> " : "") + LV.esc(s.tittel) + "</h2>" + (LV.bildeFigurer ? LV.bildeFigurer("land:" + info.id + ":" + s.id, "en") : "") +
         s.tekst.map(p => "<p>" + formater(p) + "</p>").join("") + "</section>";
       if (s.stoppOgTenk) {
         stopp++;

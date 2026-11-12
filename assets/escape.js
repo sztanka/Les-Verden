@@ -81,7 +81,7 @@
 
     const intro = () => {
       status();
-      $("es-spill").innerHTML = '<section class="ko-kort es-kort"><p class="es-intro">' + fmt(r.intro) + '</p>' +
+      $("es-spill").innerHTML = '<section class="ko-kort es-kort">' + (LV.bildeFigurer ? LV.bildeFigurer("escape:" + r.id, r.sprak === "en" ? "en" : "nb") : "") + '<p class="es-intro">' + fmt(r.intro) + '</p>' +
         '<p class="es-lagvalg"><label><input type="checkbox" id="es-lag"' + (lag ? " checked" : "") + "> " + tx.lag + '</label><span class="es-laginfo">' + tx.lagInfo + "</span></p>" +
         '<button type="button" class="knapp hoved" id="es-start">' + tx.start2 + '</button></section>' +
         '<p class="es-papirlenke" lang="nb"><a href="escape.html?id=' + encodeURIComponent(r.id) + '&amp;papir=1">' + T.nb.papir + "</a> – " + T.nb.papirKort + "</p>";

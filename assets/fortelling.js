@@ -130,7 +130,7 @@
       '<div id="fo-scener" class="fo-scener" aria-live="polite"></div><div id="fo-etter"></div></div>';
 
     const rolle = () => {
-      $("fo-rolle").innerHTML = "<p>" + fmt((lett && f.rolleLett) || f.rolle, f.ord) + '</p><p class="fo-merk">' + tx.merk + "</p>";
+      $("fo-rolle").innerHTML = (LV.bildeFigurer ? LV.bildeFigurer("fortelling:" + f.id, f.sprak === "en" ? "en" : "nb") : "") + "<p>" + fmt((lett && f.rolleLett) || f.rolle, f.ord) + '</p><p class="fo-merk">' + tx.merk + "</p>";
       document.querySelectorAll("[data-fo-niva]").forEach(b => b.setAttribute("aria-pressed", String((b.dataset.foNiva === "lett") === lett)));
     };
 

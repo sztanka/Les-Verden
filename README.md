@@ -435,6 +435,13 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - Escape room `ellis-island` (en, «The Island of Tears», Ellis Island 1907) og `stasi-1983` (nb, «Den døde postkassa», Øst-Berlin 1983).
 - Velg din vei `titanic-1912` (en, «Third Class»): to norske søsken i tredje klasse, fire slutter.
 
+### Bilder inne i tekstene
+
+- `data/bilder.js` (`LV.bilder`, `LV.lisenser`) + `assets/bilder.js` (`LV.bildeFigurer(sted, språk)`), CSS `.tekstbilde`. Filene ligger i `assets/bilder/commons/`.
+- Steder: `tema:<id>:<avsnittstittel>` (vises rett under avsnittstittelen), `land:<id>:<seksjons-id>`, `escape:<id>` (introen), `fortelling:<id>` (rollekortet). Flere bilder på samme sted vises side om side.
+- Hvert bilde har kreditering, lisens med lenke og lenke til Commons (`kilde` = filsiden; uten `kilde` lenkes det til et søk på Commons).
+- `hadrians-mur-kart.png` er en bearbeiding (engelsk tekst) av et CC BY-SA 3.0-kart og deles på samme lisens.
+
 ### Runde T: nye måter å lese og tenke på
 
 - **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
@@ -582,7 +589,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261112d`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261112e`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

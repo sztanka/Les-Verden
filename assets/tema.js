@@ -188,6 +188,7 @@
       h += '<section class="avsnitt" id="avsnitt-' + i + '" data-avsnitt="' + i + '"><' + htag + ">" + LV.esc(a.tittel) +
         ("speechSynthesis" in window ? ' <button type="button" class="les-avsnitt" data-les="' + i + '" aria-label="' + T.lesAvsnitt + ": " + LV.esc(a.tittel) + '">▶ ' + T.lesAvsnitt + "</button>" : "") +
         "</" + htag + ">";
+      if (LV.bildeFigurer) h += LV.bildeFigurer("tema:" + tema.id + ":" + a.tittel, tema.sprak === "en" ? "en" : "nb");
       const aLett = !!(a.lett && a.lett.length), aUtf = !!(a.utfordring && a.utfordring.length), aVis = (niva === "lett" && aLett) ? "lett" : (niva === "utfordring" && aUtf) ? "utfordring" : "vanlig";
       if (aLett) h += '<div class="tekst-lett"' + (aVis === "lett" ? "" : " hidden") + ">" + a.lett.map(p => "<p>" + formater(p) + "</p>").join("") + "</div>";
       if (aUtf) h += '<div class="tekst-utfordring"' + (aVis === "utfordring" ? "" : " hidden") + ">" + a.utfordring.map(p => "<p>" + formater(p) + "</p>").join("") + "</div>";

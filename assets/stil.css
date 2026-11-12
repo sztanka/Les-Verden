@@ -4909,3 +4909,15 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
   .fl-plass { grid-template-columns: 6rem minmax(0, 1fr); }
 }
 .fl-bytt-tekst { display: block; font-size: .78rem; color: var(--tekst-dempet); margin-bottom: .15rem; }
+
+/* ---------- Bilder inne i tekstene (assets/bilder.js) ---------- */
+.tekstbilder { margin: .4rem 0 1.2rem; display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+.tekstbilder.flere { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); align-items: start; }
+.tekstbilde { margin: 0; }
+.tekstbilde img { display: block; width: 100%; height: auto; max-height: 28rem; object-fit: contain; background: var(--flate); border-radius: 10px; border: 1px solid var(--linje); }
+.tekstbilder.flere .tekstbilde img { max-height: 16rem; }
+.tekstbilde figcaption { font-family: var(--font-ui); font-size: .88rem; line-height: 1.45; margin-top: .35rem; color: var(--tekst); }
+.tb-kreditt { display: block; font-size: .78rem; color: var(--tekst-dempet); margin-top: .15rem; }
+.tb-kreditt a { color: inherit; }
+@media (min-width: 900px) { .tekstbilder:not(.flere) .tekstbilde { max-width: 40rem; } }
+@media print { .tekstbilde img { max-height: 10cm; } }
