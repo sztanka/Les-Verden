@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261111a";
+  LV.versjon = "20261111b";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -169,7 +169,9 @@ window.LV = window.LV || {};
           ["samtidig.html", "🕰️", "Samtidig i verden", "Hva skjedde samme år?"],
           ["endring.html", "⏳", "Kontinuitet og endring", "1814, 1914 og i dag"],
           ["personer.html?fag=samfunnsfag", "👤", "Personer", "Og quizen «Hvem er jeg?»"],
-          ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"]]],
+          ["film.html?fag=samfunnsfag", "🎬", "Film", "Filmer med oppgaver"],
+          ["museum.html", "🏛️", "Museet vårt", "Gjenstander og museumsskilt"],
+          ["lokalhistorie.html", "🏘️", "Historien der du bor", "Lokalhistorie og intervju"]]],
         ["Kilder og metode", [
           ["kilder.html", "📜", "Kildeanalyse", "Ekte historiske kilder"],
           ["historiker.html", "🧐", "Les som en historiker", "Kilder som forteller ulikt"],
@@ -184,6 +186,7 @@ window.LV = window.LV || {};
           ["perspektiv.html", "🔄", "Perspektivbytte", "Én hendelse, fire mennesker"],
           ["intervju.html", "🎙️", "Historisk intervju", "Spør Nansen, Gina Krog og flere"],
           ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst?"],
+          ["hvaom.html", "🔀", "Hva om …?", "Kontrafaktisk historie"],
           ["fred.html", "🕊️", "Fredskonferansen", "Rollespill: Wien 1815 og Paris 1919"]]]
       ] },
       engelsk: { navn: "Engelsk", grupper: [
@@ -255,6 +258,8 @@ window.LV = window.LV || {};
         ["Historie", [
           ["fortelling.html", "🧭", "Velg din vei", "Historiske fortellinger med valg"],
           ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året – hendelser og hverdagsbilder"],
+          ["tidslinjeduell.html", "⚔️", "Tidslinjeduellen", "Legg hendelsene på riktig plass"],
+          ["historiske-kort.html", "🃏", "Historiske kort", "Lag et kortspill med personene"],
           ["arsak.html", "🔗", "Årsak og virkning", "Sett kjeden i rekkefølge"],
           ["mysterium.html", "🕵️", "Kalde spor i historien", "Logikkgåter"],
           ["escape.html", "🔐", "Escape room", "Svarene står i teksten"]]],

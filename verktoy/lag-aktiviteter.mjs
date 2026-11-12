@@ -16,7 +16,7 @@ const last = f => vm.runInContext(fs.readFileSync(path.join(ROT, f), "utf8"), ct
   "data/temaer/oversikt.js", "data/arsak.js", "data/debatt.js", "data/diamant.js", "data/endring.js", "data/escape.js",
   "data/fn.js", "data/fortellinger.js", "data/historiker.js", "data/intervju.js", "data/kilder.js", "data/perspektiv.js",
   "data/skriftlig.js", "data/sport.js", "data/tekstpar.js", "data/kartspill.js", "data/mysterium/saker.js",
-  "data/hverdagsbilder.js", "data/feed.js", "data/ordreise.js", "data/fred.js"
+  "data/hverdagsbilder.js", "data/feed.js", "data/ordreise.js", "data/fred.js", "data/hvaom.js", "data/museum.js"
 ].forEach(last);
 const LV = ctx.LV;
 const ider = new Set(LV.temaer.map(t => t.id));
@@ -47,6 +47,8 @@ LV.kartspill.forEach(s => [...new Set((s.elementer || []).map(e => e.tema).filte
 LV.tekstpar.forEach(p => [p.tema, p.a && p.a.type === "tema" && p.a.id, p.b && p.b.type === "tema" && p.b.id].filter(Boolean)
   .filter((t, i, a) => a.indexOf(t) === i).forEach(t => legg(t, "les", "tekstpar.html?id=" + enc(p.id), p.ikon, p.tittel, "Tekstpar")));
 LV.skriftlig.forEach(s => legg(s.kobling, "skriv", "skriftlig.html?id=" + enc(s.id), s.ikon, s.tema, "Skriftlig eksamen"));
+LV.hvaom.forEach(s => legg(s.tema, "tenk", "hvaom.html?id=" + enc(s.id), s.ikon, s.sporsmal, "Hva om …?"));
+LV.museum.forEach(g => legg(g.tema, "les", "museum.html?id=" + enc(g.id), g.ikon, "Museet vårt: " + g.navn + " (" + g.tid + ")", "Skriv museumsskilt"));
 LV.feeder.forEach(f => legg(f.tema, "tenk", "feed.html?id=" + enc(f.id), f.ikon, "Feeden fra fortiden: " + f.tittel + " (" + f.dato + ")", "Sosiale medier fra historien"));
 LV.fred.konferanser.forEach(k => [k.tema].concat(k.koblet || []).forEach(t => legg(t, "tenk", "fred.html?konf=" + enc(k.id), k.ikon, "Fredskonferansen: " + k.tittel + " " + k.dato, "Rollespill")));
 LV.hverdagsbilder.forEach(b => legg(b.tema, "ov", "tidsreise.html?modus=hverdag&start=" + enc(b.id), "🏠", "Hverdagsbilde: Hvilket år er det?", "Tidsreisen – nærlesing"));

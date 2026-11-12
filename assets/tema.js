@@ -349,6 +349,8 @@
       const harBilde = !!(LV.temaer.find(t => t.id === tema.id) || {}).bilde;
       G.klasse.push(["klasse", "tenkerutiner.html?rutine=" + (harBilde ? "se-tenk-undre" : "tenk-lur-utforsk") + "&tema=" + id + "&vis=storskjerm", "💭", en ? "Thinking routine on the big screen" : "Tenkerutine på storskjerm", harBilde ? (en ? "See – Think – Wonder with the topic image" : "Se – tenk – undre med temabildet") : (en ? "Think – Puzzle – Explore" : "Tenk – lur – utforsk")]);
       G.klasse.push(["klasse", "exit.html?v=maal&tema=" + id, "🎫", en ? "Exit ticket" : "Exit ticket", en ? "For the whole class" : "For hele klassen"]);
+      if ((tema.tidslinje || []).length >= 8) G.ov.push(["ov", "tidslinjeduell.html?tema=" + id, "⚔️", en ? "Timeline duel" : "Tidslinjeduellen", en ? "Place the events on the timeline" : "Legg hendelsene på riktig plass"]);
+      if ((tema.personer || []).length >= 4) G.ov.push(["ov", "historiske-kort.html?tema=" + id, "🃏", en ? "Historical cards" : "Historiske kort", en ? "Make a card game with the people" : "Lag et kortspill med personene"]);
       ((LV.aktiviteter || {})[tema.id] || []).forEach(a => (G[a[0]] || G.tenk).push(a));
       const grupper = [
         ["les", "📖", en ? "Read, listen and watch" : "Les, lytt og se"],

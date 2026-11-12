@@ -1185,7 +1185,9 @@
       ["fortelling.html", "🧭", "Velg din vei", "Tolv historiske fortellinger på norsk og engelsk – du tar valgene."],
       ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året for en historisk hendelse."],
       ["tidsreise.html?modus=hverdag", "🏠", "Hverdagsbilder", "Gjett året ut fra en tekst om en helt vanlig dag."],
+      ["tidslinjeduell.html", "⚔️", "Tidslinjeduellen", "Legg hendelser på riktig plass på tidslinja – alene eller to lag."],
       ["arsak.html", "🔗", "Årsak og virkning", "Sett leddene i riktig rekkefølge."],
+      ["hvaom.html", "🔀", "Hva om …?", "Endre én årsak og tenk gjennom følgene."],
       ["diamant.html", "💎", "Diamantrangering", "Hva var viktigst? Rangér og begrunn."],
       ["intervju.html", "🎙️", "Historisk intervju", "Still spørsmål til Nansen, Gina Krog og flere."],
       ["perspektiv.html", "🔄", "Perspektivbytte", "Én hendelse, fire mennesker."],
@@ -1211,6 +1213,8 @@
     ["lag", "🛠️", "Lag selv", "Elevene lager innholdet.", [
       ["lag.html", "🛠️", "Lag selv", "Egen quiz, tidslinje eller ordkort – del lenken."],
       ["tegneserie.html", "💬", "Tegneseriemaker", "Fortell en hendelse som tegneserie."],
+      ["historiske-kort.html", "🃏", "Historiske kort", "Lag et kortspill i Top Trumps-stil med personene fra temaene."],
+      ["museum.html", "🏛️", "Museet vårt", "Skriv museumsskilt og lag en utstilling."],
       ["leseloype.html", "📍", "QR-leseløype", "For læreren: poster med QR-koder fra et tema."]]]
   ];
 

@@ -79,6 +79,11 @@ les-verden/
 ├── intervju.html           Historisk intervju, gjenskapt og merket fakta/tolkning (data i data/intervju.js)
 ├── fn.html                 FN-rollespill (Model UN) med oppdiktede land (data i data/fn.js)
 ├── fred.html               Fredskonferansen – Wien 1815 og Paris 1919 (data i data/fred.js)
+├── hvaom.html              Hva om …? – kontrafaktisk historie (data i data/hvaom.js)
+├── museum.html             Museet vårt – gjenstander og museumsskilt (data i data/museum.js)
+├── lokalhistorie.html      Historien der du bor – lokalhistorisk undersøkelse
+├── tidslinjeduell.html     Tidslinjeduellen (hendelser fra data/tidsreise.js)
+├── historiske-kort.html    Historiske kort – kortspill med personene fra temaene
 ├── tekstpar.html           Tekstpar: to tekster side om side (data i data/tekstpar.js, tekstene hentes fra andre filer)
 ├── samtidig.html           Samtidig i verden: hendelser samme år i tre kolonner (fra temaenes tidslinjer)
 ├── lag.html                Lag selv: elevskapt quiz, tidslinje og ordkort – innholdet ligger i lenken (#)
@@ -386,6 +391,15 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Hva vil du gjøre?** (forsiden, CSS `.hvd`): fem kort med snarveier – Lese, Øve til prøve, Spille, Skrive og Forberede eksamen.
 - **Eksamen** er nå en nedtrekksmeny (Muntlig eksamen, Skriftlig eksamen i engelsk, Øv og forbered). `eksamen.html` og `skriftlig.html` markerer Eksamen-menyen.
 
+### Runde U: historie
+
+- **Hva om …?** (`hvaom.html`, `assets/hvaom.js`, `data/hvaom.js`, CSS `.ho-`): åtte kontrafaktiske scenarioer i seks steg, `?id=`.
+- **Museet vårt** (`museum.html`, `assets/museum.js`, `data/museum.js`, CSS `.ms-`): 16 gjenstander uten bilder, museumsskilt med ordteller og forhåndsvisning, utstilling og `?id=egen`.
+- **Historien der du bor** (`lokalhistorie.html`, `assets/lokalhistorie.js`, CSS `.lh-`): lokalhistorisk undersøkelse med intervjuskjema og blått skilt (ingen datafil).
+- **Tidslinjeduellen** (`tidslinjeduell.html`, `assets/tidslinjeduell.js`, CSS `.td-`): bruker `data/tidsreise.js`; `?fag=&trinn=&tema=`.
+- **Historiske kort** (`historiske-kort.html`, `assets/historiske-kort.js`, CSS `.hk-`): henter personene fra temaene med `samle.js`; `?tema=` velger personene i et tema.
+- «Alt om temaet» får Hva om, museumsgjenstander (via `lag-aktiviteter.mjs`), Tidslinjeduellen (temaer med minst åtte hendelser) og Historiske kort (minst fire personer) (i `assets/tema.js`). Personsiden og tidslinjen lenker til de nye spillene.
+
 ### Runde T: nye måter å lese og tenke på
 
 - **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
@@ -533,7 +547,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261111a`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261111b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

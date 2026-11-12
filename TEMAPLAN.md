@@ -147,11 +147,11 @@ Hver ny side skal integreres: menyen (`assets/felles.js`), «Alt om temaet» der
 - [x] Fredskonferansen – forhandlingsrollespill (Wien 1815 / Versailles 1919)
 
 ### Runde U – historie
-- [ ] Hva om …? – kontrafaktisk historie med støttestruktur
-- [ ] Museet vårt – virtuell monter, elevene skriver museumsskilt
-- [ ] Historien der du bor – lokalhistorie og intervjuguide
-- [ ] Tidslinjeduellen – plasser hendelser mellom kort som ligger
-- [ ] Historiske kort – utskrivbare personkort i Top Trumps-stil
+- [x] Hva om …? – kontrafaktisk historie med støttestruktur
+- [x] Museet vårt – virtuell monter, elevene skriver museumsskilt
+- [x] Historien der du bor – lokalhistorie og intervjuguide
+- [x] Tidslinjeduellen – plasser hendelser mellom kort som ligger
+- [x] Historiske kort – utskrivbare personkort i Top Trumps-stil
 
 ### Runde V – språk, lesing og skriving
 - [ ] Falske venner – norsk/engelsk
