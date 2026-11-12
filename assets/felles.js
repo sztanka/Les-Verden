@@ -121,7 +121,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261111b";
+  LV.versjon = "20261112a";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -204,6 +204,7 @@ window.LV = window.LV || {};
           ["grammatikk.html", "🧩", "Grammar and vocabulary", "Explanations and exercises", "en"],
           ["uttale.html", "👄", "Pronunciation", "Sounds, stress and accents", "en"],
           ["laere-engelsk.html", "🧭", "How to learn English", "Learning strategies", "en"],
+          ["idiomer.html", "🕵️", "Idiomdetektiven", "Idioms and the stories behind them"],
           ["ordbok.html", "📘", "Ordbok", "Norsk–engelsk og synonymer"],
           ["ordreise.html", "🧳", "Ord som har reist", "Lånord og historien bak dem"]], "en"],
         ["Write and speak", [
@@ -220,7 +221,9 @@ window.LV = window.LV || {};
           ["tekstpar.html", "👯", "Tekstpar", "To tekster side om side"],
           ["oppgaveord.html", "🎯", "Oppgaveord", "Hva betyr «drøft» og «vurder»?"],
           ["ordverksted.html", "🧱", "Ordverksted", "Ordenes byggeklosser"],
-          ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre og flere"]]],
+          ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre og flere"],
+          ["sporsmal.html", "❓", "Spørsmålsstudioet", "Lag dine egne spørsmål"],
+          ["ekspertgrupper.html", "🧩", "Ekspertgrupper", "Bli ekspert og lær bort"]]],
         ["Leselyst", [
           ["lesepass.html", "🛂", "Lesepass", "Samle stempler for lesing"],
           ["lesedagbok.html", "📔", "Lesedagbok", "For bøker du velger selv"],

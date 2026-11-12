@@ -71,7 +71,7 @@
 
     // Idiomer
     const betydninger = bland(s.idiomer.map(x => x.betydning));
-    h += '<section id="idiomer" class="sp-del"><h2>Sports idioms</h2><p class="sp-forklar">Many everyday English expressions come from sport. Choose the right meaning for each idiom.</p><ol class="sp-idiomer">' +
+    h += '<section id="idiomer" class="sp-del"><h2>Sports idioms</h2><p class="sp-forklar">Many everyday English expressions come from sport. Choose the right meaning for each idiom. <a href="idiomer.html">More idioms – from ships, wars and theatres – in the Idiom Detective →</a></p><ol class="sp-idiomer">' +
       s.idiomer.map((x, i) => '<li><label for="idiom-' + i + '"><strong>' + esc(x.uttrykk) + '</strong> <span class="sp-fra">(' + esc(x.sport) + ')</span></label><select id="idiom-' + i + '"><option value="">– choose –</option>' +
         betydninger.map(b => '<option value="' + esc(b) + '">' + esc(b) + "</option>").join("") + '</select><span class="sp-idiom-svar" id="idiom-svar-' + i + '" aria-live="polite"></span></li>').join("") +
       '</ol><p><button class="knapp hoved" id="sjekk-idiomer" type="button">Check my answers</button> <button class="knapp" id="vis-idiomer" type="button">Show answers</button> <span id="idiom-poeng" class="sp-poeng" aria-live="polite"></span></p></section>';

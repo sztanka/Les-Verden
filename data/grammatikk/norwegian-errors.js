@@ -5,6 +5,7 @@ LV.grammatikk = {
   norskNavn: "typiske feil nordmenn gjør på engelsk",
   ikon: "🇳🇴",
   ingress: "Norwegian and English are related languages, so many words and structures are similar. That is a big help – but it also creates traps. Here are the mistakes examiners see most often in texts written by Norwegian students, and how to avoid them.",
+  ovMer: [["laere-engelsk.html#ove", "🔀 False friends quiz – 30 words, ten new ones each round"], ["idiomer.html", "🕵️ Idiomdetektiven – English idioms and the stories behind them"], ["ordreise.html", "🧳 Ord som har reist – loanwords in Norwegian and English"]],
   forklaring: [
     "**False friends** are words that look like Norwegian words but mean something else. *Eventually* means *til slutt*, not *eventuelt* (= *possibly*). *Actually* means *faktisk*, not *aktuelt* (= *relevant*). *Sensible* means *fornuftig*, not *sensibel* (= *sensitive*). *Become* means *bli* (= change into), not *få* (= *get*).",
     "**Uncountable nouns:** Some nouns have no plural in English: *information, advice, homework, furniture, equipment, news, knowledge*. ~~*informations*~~ → *information*, ~~*an advice*~~ → *a piece of advice / some advice*.",

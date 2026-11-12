@@ -154,11 +154,11 @@ Hver ny side skal integreres: menyen (`assets/felles.js`), «Alt om temaet» der
 - [x] Historiske kort – utskrivbare personkort i Top Trumps-stil
 
 ### Runde V – språk, lesing og skriving
-- [ ] Falske venner – norsk/engelsk
-- [ ] Idiomdetektiven – engelske uttrykk og opphavet deres
-- [ ] Modelltekster med margkommentarer
-- [ ] Spørsmålsstudioet (QFT)
-- [ ] Ekspertgrupper (jigsaw) fra et tema
+- [x] Falske venner – norsk/engelsk
+- [x] Idiomdetektiven – engelske uttrykk og opphavet deres
+- [x] Modelltekster med margkommentarer
+- [x] Spørsmålsstudioet (QFT)
+- [x] Ekspertgrupper (jigsaw) fra et tema
 
 ### Runde W – samfunn
 - [ ] Klimatoppmøtet – forhandlingsrollespill med grafer

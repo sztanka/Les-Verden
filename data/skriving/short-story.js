@@ -53,10 +53,10 @@ LV.skriveguide = {
   eksempel: {
     tittel: "The Group Chat",
     tekst: [
-      { del: 0, t: "The phone buzzed for the third time. Maya didn’t have to look at the screen to know who it was. She pulled the duvet over her head and counted to ten." },
-      { del: 1, t: "The messages had started a week ago. At first they were just jokes about her new haircut. Then someone made a group chat called “Maya’s Fan Club”. She had left it twice, but someone kept adding her back. At school, people giggled when she walked past. Her best friend, Sara, said it was “just for fun”. Maya didn’t think it was fun at all." },
-      { del: 2, t: "At lunch the next day, Maya stood up in the middle of the canteen. Her heart was pounding. “I know who made the group,” she said loudly. The room went silent." },
-      { del: 3, t: "Nobody said a word. Then, slowly, Jonas at the next table pulled out his phone and left the group. One by one, the others did the same. Maya sat down. Her hands were still shaking, but for the first time in a week, she was smiling." }
+      { m: "The story starts in the middle of the action (in medias res). We don’t know why the phone keeps buzzing – and we want to find out.", del: 0, t: "The phone buzzed for the third time. Maya didn’t have to look at the screen to know who it was. She pulled the duvet over her head and counted to ten." },
+      { m: "The background is told here: the problem grows step by step. Short details (the group chat name) show instead of telling.", del: 1, t: "The messages had started a week ago. At first they were just jokes about her new haircut. Then someone made a group chat called “Maya’s Fan Club”. She had left it twice, but someone kept adding her back. At school, people giggled when she walked past. Her best friend, Sara, said it was “just for fun”. Maya didn’t think it was fun at all." },
+      { m: "The climax is the turning point. Short sentences («The room went silent.») build tension.", del: 2, t: "At lunch the next day, Maya stood up in the middle of the canteen. Her heart was pounding. “I know who made the group,” she said loudly. The room went silent." },
+      { m: "The ending is quiet and open. Maya’s shaking hands show her feelings without the narrator saying «she was nervous» – show, don’t tell.", del: 3, t: "Nobody said a word. Then, slowly, Jonas at the next table pulled out his phone and left the group. One by one, the others did the same. Maya sat down. Her hands were still shaking, but for the first time in a week, she was smiling." }
     ],
     kommentar: "Notice how the story starts in the middle of the action, uses details (the duvet, the shaking hands) to show feelings, and has a clear climax where Maya makes a choice."
   },

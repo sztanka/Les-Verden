@@ -81,6 +81,8 @@
     const linje = document.querySelector(".svarlinje-indre");
     if (!linje) return false;
     if (linje.querySelector(".sf-ned")) return true;
+    const ytre = linje.closest(".svarlinje");
+    if (ytre && !ytre.closest("main, [role=region], aside, footer") && !ytre.hasAttribute("role")) { ytre.setAttribute("role", "region"); ytre.setAttribute("aria-label", "Svarene dine"); }
     const statusEl = linje.querySelector(".status") || (() => { const s = document.createElement("span"); s.className = "status"; s.setAttribute("role", "status"); linje.appendChild(s); return s; })();
     const status = t => { statusEl.textContent = t; };
     const ned = document.createElement("button");

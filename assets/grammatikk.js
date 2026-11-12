@@ -245,6 +245,7 @@
       '<li><p>' + fmt(o) + '</p><label class="skjult-visuelt" for="gr-svar' + i + '">Your answer</label><textarea id="gr-svar' + i + '" class="svar" rows="4" placeholder="Write here …"></textarea></li>').join("") +
       '</ol><div class="spill-knapper"><button type="button" class="knapp hoved" id="gr-kopier">Copy my answers</button><span id="gr-status" role="status" aria-live="polite"></span></div>' +
       '<p class="gr-hint" lang="nb">Svarene lagres ikke. Kopier dem og lim dem inn i et dokument før du lukker siden.</p></section>';
+    if (g.ovMer) h += '<section><h2>Practise more</h2><ul class="gr-mer">' + g.ovMer.map(([href, tekst]) => '<li><a href="' + esc(href) + '">' + esc(tekst) + " →</a></li>").join("") + "</ul></section>";
     const se = (g.se || []).map(x => LV.grammatikkListe.find(e => e.id === x)).filter(Boolean);
     if (se.length) h += '<section><h2>See also</h2><ul class="gr-kortliste">' + se.map(e => '<li><a class="gr-kort' + (e.farge ? " farget" : "") + '" href="grammatikk.html?id=' + e.id + '"' + fargeStil(e) + '><span class="gr-kort-ikon" aria-hidden="true">' + e.ikon + "</span><strong>" + esc(e.tittel) + "</strong><span>" + esc(e.kort) + "</span></a></li>").join("") + "</ul></section>";
     if (gruppe && gruppe.plakat) h += '<nav class="gr-naboer" aria-label="Andre ordklasser"><p lang="nb">Andre ordklasser:</p><ul>' + gruppe.emner.filter(x => x !== id).map(x => LV.grammatikkListe.find(e => e.id === x)).filter(Boolean).map(e =>

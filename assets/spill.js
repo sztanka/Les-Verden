@@ -1201,6 +1201,7 @@
       ["lognfabrikk.html", "🏭", "Løgnfabrikken", "Lær seks triks for desinformasjon – og avslør dem."],
       ["feed.html", "📱", "Feeden fra fortiden", "Sosiale medier i 1789, 1814, 1930 og 1940: fakta, mening, rykte eller propaganda?"],
       ["ordreise.html#quiz", "🧳", "Ordquiz", "Hvor i verden kommer ordene fra?"],
+      ["idiomer.html#quiz", "🕵️", "Idiomdetektiven", "Engelske idiomer: quiz og finn idiomene i teksten."],
       ["debatt.html", "⚖️", "Debattduell", "Argumenter for og mot – og argumentasjonsfeil."]]],
     ["klassen", "📺", "For hele klassen", "Storskjerm, starter og avslutning.", [
       ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla."],
@@ -1208,6 +1209,8 @@
       ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep – samme gåte for hele klassen."],
       ["hjorner.html", "🧭", "Fire hjørner", "Påstander – elevene velger hjørne og begrunner."],
       ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre, Zoom inn og flere – med temabildene på storskjerm."],
+      ["sporsmal.html", "❓", "Spørsmålsstudioet", "Elevene lager, sorterer og prioriterer egne spørsmål til et tema."],
+      ["ekspertgrupper.html", "🧩", "Ekspertgrupper", "Del et tema i 3–5 deler – hver elev blir ekspert og lærer bort."],
       ["bingo.html", "🎲", "Lesebingo", "5 × 5 leseoppgaver på norsk eller engelsk."],
       ["personer.html", "👤", "Hvem er jeg?", "Gjett personen ut fra ledetråden."]]],
     ["lag", "🛠️", "Lag selv", "Elevene lager innholdet.", [

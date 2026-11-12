@@ -15,10 +15,10 @@
 
   const T = {
     en: { hva: "What is it?", fakta: "Quick facts", for: "Before you write", oppbygging: "The structure", del: "Part", tips: "Tips", startere: "Sentence starters", eks: "Example", sprak: "Language tips", bindeord: "Linking words and phrases",
-      modell: "Model text", visDeler: "Show the parts", sjekk: "Checklist", sjekkTekst: "Tick off when you have checked your text. (Nothing is saved.)", vurdering: "Assessment", lav: "Low", middels: "Medium", hoy: "High",
+      modell: "Model text", visDeler: "Show the parts", visKomm: "💬 Show comments", komm: "Comment", sjekk: "Checklist", sjekkTekst: "Tick off when you have checked your text. (Nothing is saved.)", vurdering: "Assessment", lav: "Low", middels: "Medium", hoy: "High",
       ramme: "Writing frame", rammeTekst: "Write your text part by part. Click a sentence starter to add it to the box. Copy your text when you are finished – nothing is saved.", tittel: "Title", ord: "words", annen: "På norsk:", alle: "All writing guides", kopier: "Copy my text", slett: "Delete my text", kopiert: "Your text has been copied! Paste it into a document.", tom: "You have not written anything yet.", sikker: "Do you want to delete your text?", slettet: "Your text has been deleted." },
     nb: { hva: "Hva er det?", fakta: "Kort fortalt", for: "Før du skriver", oppbygging: "Oppbygging", del: "Del", tips: "Tips", startere: "Setningsstartere", eks: "Eksempel", sprak: "Språktips", bindeord: "Bindeord og overganger",
-      modell: "Eksempeltekst", visDeler: "Vis delene", sjekk: "Sjekkliste", sjekkTekst: "Kryss av når du har sjekket teksten din. (Ingenting lagres.)", vurdering: "Vurdering", lav: "Lav", middels: "Middels", hoy: "Høy",
+      modell: "Eksempeltekst", visDeler: "Vis delene", visKomm: "💬 Vis kommentarer", komm: "Kommentar", sjekk: "Sjekkliste", sjekkTekst: "Kryss av når du har sjekket teksten din. (Ingenting lagres.)", vurdering: "Vurdering", lav: "Lav", middels: "Middels", hoy: "Høy",
       ramme: "Skriveramme", rammeTekst: "Skriv teksten din del for del. Trykk på en setningsstarter for å sette den inn i feltet. Kopier teksten når du er ferdig – ingenting lagres.", tittel: "Tittel", ord: "ord", annen: "In English:", alle: "Alle skriveguidene", kopier: "Kopier teksten min", slett: "Slett teksten", kopiert: "Teksten er kopiert! Lim den inn i et dokument.", tom: "Du har ikke skrevet noe ennå.", sikker: "Vil du slette teksten din?", slettet: "Teksten er slettet." }
   };
 
@@ -78,19 +78,19 @@
     // Språk
     h += '<section id="sk-sprak" class="sk-del"><h2>' + t.sprak + '</h2><ul class="sk-tips sk-spraktips">' + g.sprak.map(x => "<li>" + fmt(x) + "</li>").join("") + "</ul>" +
       (g.bindeord ? "<h3>" + t.bindeord + '</h3><div class="sk-bindeord">' + g.bindeord.map(b => '<div class="sk-bo"><h4>' + esc(b.tittel) + "</h4><p>" + b.liste.map(esc).join(" · ") + "</p></div>").join("") + "</div>" : "") +
-      (g.ordliste ? '<div class="gr-tabell-rull"><table class="fo-ordtabell"><tbody>' + g.ordliste.map(([a, b]) => "<tr><td><strong>" + esc(a) + '</strong></td><td lang="nb">' + esc(b) + "</td></tr>").join("") + "</tbody></table></div>" : "") + "</section>";
+      (g.ordliste ? '<div class="gr-tabell-rull" tabindex="0" role="region" aria-label="' + t.sprak + '"><table class="fo-ordtabell"><tbody>' + g.ordliste.map(([a, b]) => "<tr><td><strong>" + esc(a) + '</strong></td><td lang="nb">' + esc(b) + "</td></tr>").join("") + "</tbody></table></div>" : "") + "</section>";
 
     // Modelltekst
-    h += '<section id="sk-modell" class="sk-del"><h2>' + t.modell + '</h2><p><label class="sk-bryter"><input type="checkbox" id="vis-deler" checked> ' + t.visDeler + "</label></p>" +
-      '<article class="sk-modell vis-deler" id="modelltekst">' + (g.eksempel.tittel ? "<h3>" + esc(g.eksempel.tittel) + "</h3>" : "") +
-      g.eksempel.tekst.map(p => '<div class="sk-mdel"' + (p.del != null ? ' data-del="' + p.del + '"' : "") + ">" + (p.del != null ? '<span class="sk-metikett">' + esc(g.deler[p.del].navn) + "</span>" : "") + "<p>" + fmt(p.t) + "</p></div>").join("") +
+    h += '<section id="sk-modell" class="sk-del"><h2>' + t.modell + '</h2><p><label class="sk-bryter"><input type="checkbox" id="vis-deler" checked> ' + t.visDeler + "</label>" + (g.eksempel.tekst.some(p => p.m) ? ' <label class="sk-bryter"><input type="checkbox" id="vis-komm" checked> ' + t.visKomm + "</label>" : "") + "</p>" +
+      '<article class="sk-modell vis-deler vis-komm" id="modelltekst">' + (g.eksempel.tittel ? "<h3>" + esc(g.eksempel.tittel) + "</h3>" : "") +
+      g.eksempel.tekst.map(p => '<div class="sk-mdel"' + (p.del != null ? ' data-del="' + p.del + '"' : "") + ">" + (p.del != null ? '<span class="sk-metikett">' + esc(g.deler[p.del].navn) + "</span>" : "") + "<p>" + fmt(p.t) + "</p>" + (p.m ? '<div class="sk-marg"><span class="skjult-visuelt">' + t.komm + ': </span>' + fmt(p.m) + "</div>" : "") + "</div>").join("") +
       (g.eksempel.kommentar ? '<p class="sk-kommentar">💡 ' + fmt(g.eksempel.kommentar) + "</p>" : "") + "</article></section>";
 
     // Sjekkliste
     h += '<section id="sk-sjekk" class="sk-del"><h2>' + t.sjekk + '</h2><p class="sk-liten">' + t.sjekkTekst + '</p><ul class="fo-sjekk sk-sjekk">' + g.sjekkliste.map(x => '<li><label><input type="checkbox"> ' + fmt(x) + "</label></li>").join("") + "</ul></section>";
 
     // Vurdering
-    if (g.vurdering) h += '<section class="sk-del"><h2>' + t.vurdering + '</h2><div class="gr-tabell-rull"><table class="fo-vurdering"><thead><tr><th scope="col"></th><th scope="col">' + t.lav + '</th><th scope="col">' + t.middels + '</th><th scope="col">' + t.hoy + "</th></tr></thead><tbody>" +
+    if (g.vurdering) h += '<section class="sk-del"><h2>' + t.vurdering + '</h2><div class="gr-tabell-rull" tabindex="0" role="region" aria-label="' + t.vurdering + '"><table class="fo-vurdering"><thead><tr><td></td><th scope="col">' + t.lav + '</th><th scope="col">' + t.middels + '</th><th scope="col">' + t.hoy + "</th></tr></thead><tbody>" +
       g.vurdering.map(r => '<tr><th scope="row">' + esc(r[0]) + "</th>" + r.slice(1).map(c => "<td>" + esc(c) + "</td>").join("") + "</tr>").join("") + "</tbody></table></div></section>";
 
     // Skriveramme
@@ -108,6 +108,7 @@
 
     // Interaksjon
     $("vis-deler").addEventListener("change", e => $("modelltekst").classList.toggle("vis-deler", e.target.checked));
+    if ($("vis-komm")) $("vis-komm").addEventListener("change", e => $("modelltekst").classList.toggle("vis-komm", e.target.checked));
     const tell = s => (s.trim().match(/\S+/g) || []).length;
     const oppdater = () => {
       let sum = 0;

@@ -44,7 +44,7 @@
       h += "</section>";
     });
 
-    h += '<p class="fo-merk">Til læreren: «Stopp og tenk»-boksene i tekstene har en liten merkelapp (🧠) som viser hvilken strategi spørsmålet trener, og lenker hit. Merkelappen settes automatisk ut fra ordene i spørsmålet.</p>';
+    h += '<p class="fo-merk">Til læreren: «Stopp og tenk»-boksene i tekstene har en liten merkelapp (🧠) som viser hvilken strategi spørsmålet trener, og lenker hit. Merkelappen settes automatisk ut fra ordene i spørsmålet. Vil du at elevene skal stille spørsmålene selv? Bruk <a href="sporsmal.html">Spørsmålsstudioet</a>. Vil du dele en tekst mellom elevene? Bruk <a href="ekspertgrupper.html">Ekspertgrupper</a>.</p>';
     $("innhold").innerHTML = h;
 
     // Velger

@@ -48,9 +48,9 @@ LV.skriveguide = {
   eksempel: {
     tittel: "Eksempel på kildebruk i en fagtekst",
     tekst: [
-      { del: 2, t: "Ifølge Store norske leksikon utvandret rundt 800 000 nordmenn til Amerika mellom 1825 og 1930. Mange reiste fordi det var vanskelig å få jord i Norge (Les verden, u.å.)." },
-      { del: 1, t: "*Vurdering:* Store norske leksikon er skrevet av fagfolk og blir oppdatert. Formålet er å informere. Jeg vurderer kilden som troverdig. De samme tallene står også i læreboka." },
-      { del: 3, t: "**Kilder**\nLes verden (u.å.). *Utvandringen til Amerika*. Hentet 3. november 2026 fra nettsiden Les verden.\nStore norske leksikon (2024). *Utvandringen fra Norge*. Hentet 3. november 2026 fra snl.no" }
+      { m: "«Ifølge …» viser hvem som sier dette. Parentesen bak den andre setningen viser kilden for den opplysningen. Slik ser leseren hva som kommer fra hvilken kilde.", del: 2, t: "Ifølge Store norske leksikon utvandret rundt 800 000 nordmenn til Amerika mellom 1825 og 1930. Mange reiste fordi det var vanskelig å få jord i Norge (Les verden, u.å.)." },
+      { m: "Kildevurderingen svarer på: Hvem står bak? Hva er formålet? Er den troverdig? Å sjekke at andre kilder sier det samme (sammenligning) er et sterkt argument.", del: 1, t: "*Vurdering:* Store norske leksikon er skrevet av fagfolk og blir oppdatert. Formålet er å informere. Jeg vurderer kilden som troverdig. De samme tallene står også i læreboka." },
+      { m: "Kildelisten står til slutt, i alfabetisk rekkefølge. Med nettkilder skriver du når du hentet dem – nettsider kan endre seg.", del: 3, t: "**Kilder**\nLes verden (u.å.). *Utvandringen til Amerika*. Hentet 3. november 2026 fra nettsiden Les verden.\nStore norske leksikon (2024). *Utvandringen fra Norge*. Hentet 3. november 2026 fra snl.no" }
     ],
     kommentar: "Spør læreren din om skolen bruker en bestemt mal for kildehenvisning, for eksempel APA. Det viktigste er at leseren kan finne kilden."
   },

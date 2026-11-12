@@ -40,9 +40,16 @@
     vis();
 
     // Falske venner
-    const q = bland(D.falske).map(x => Object.assign({}, x, { rekke: bland(x.valg.map((v, n) => n)) }));
-    let poeng = 0, svart = 0;
+    // 10 tilfeldige av alle de falske vennene – «Nye ord» trekker ti nye
+    let q, poeng = 0, svart = 0;
+    const nyQuiz = () => {
+    q = bland(D.falske).slice(0, 10).map(x => Object.assign({}, x, { rekke: bland(x.valg.map((v, n) => n)) }));
+    poeng = 0; svart = 0; $("le-poeng").textContent = "";
     $("le-quiz").innerHTML = q.map((x, n) => '<li class="lr-qs" data-i="' + n + '"><fieldset><legend lang="en">' + fmt(x.s) + '</legend><div class="lr-qvalg">' + x.rekke.map((j, pos) => '<button type="button" class="lr-qknapp" data-j="' + j + '"><span class="lr-qbokstav" aria-hidden="true">' + "ABC"[pos] + "</span> " + esc(x.valg[j]) + "</button>").join("") + '</div><div class="lr-qsvar" role="status"></div></fieldset></li>').join("");
+    };
+    nyQuiz();
+    $("le-quiz").insertAdjacentHTML("afterend", '<p><button type="button" class="knapp" id="le-nye">🔀 Ti nye ord (' + D.falske.length + ' i alt)</button> <a href="idiomer.html">🔎 Idiomdetektiven →</a></p>');
+    $("le-nye").addEventListener("click", nyQuiz);
     $("le-quiz").addEventListener("click", e => {
       const b = e.target.closest(".lr-qknapp"); if (!b) return;
       const li = b.closest(".lr-qs"); if (li.classList.contains("ferdig")) return;

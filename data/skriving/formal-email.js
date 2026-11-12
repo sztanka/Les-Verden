@@ -48,12 +48,12 @@ LV.skriveguide = {
   eksempel: {
     tittel: "",
     tekst: [
-      { del: 0, t: "Subject: Application for the summer job as a camp assistant" },
-      { del: 0, t: "Dear Ms Taylor," },
-      { del: 1, t: "My name is Sofie Larsen, and I am a 15-year-old student from Norway. I am writing to apply for the summer job as a camp assistant, which I saw advertised on your website." },
-      { del: 2, t: "I have been a volunteer football coach for younger children for two years, and I am used to taking responsibility. I am also a first-aid trainer at my school. I speak English, Norwegian and some German, and I would describe myself as patient, creative and reliable." },
-      { del: 3, t: "I would be very grateful for the opportunity to work at your camp, and I am available for an interview online at any time. I look forward to hearing from you." },
-      { del: 3, t: "Yours sincerely,  \nSofie Larsen" }
+      { m: "The subject line is short and tells the reader exactly what the e-mail is about.", del: 0, t: "Subject: Application for the summer job as a camp assistant" },
+      { m: "«Dear Ms Taylor,» – formal greeting with the person’s surname. If you don’t know the name, write «Dear Sir or Madam,».", del: 0, t: "Dear Ms Taylor," },
+      { m: "Say who you are and why you are writing in the first paragraph. «I am writing to …» is a classic formal phrase.", del: 1, t: "My name is Sofie Larsen, and I am a 15-year-old student from Norway. I am writing to apply for the summer job as a camp assistant, which I saw advertised on your website." },
+      { m: "Concrete details (two years as a coach, first-aid trainer) show that you are a good fit. No contractions – «I am», not «I’m».", del: 2, t: "I have been a volunteer football coach for younger children for two years, and I am used to taking responsibility. I am also a first-aid trainer at my school. I speak English, Norwegian and some German, and I would describe myself as patient, creative and reliable." },
+      { m: "A polite request and a closing phrase. «I look forward to hearing from you» is standard in formal e-mails.", del: 3, t: "I would be very grateful for the opportunity to work at your camp, and I am available for an interview online at any time. I look forward to hearing from you." },
+      { m: "«Yours sincerely» is used when you know the person’s name (British English). Then your full name.", del: 3, t: "Yours sincerely,  \nSofie Larsen" }
     ],
     kommentar: "An invented example. Notice the clear purpose in the first paragraph, the concrete details and the polite closing."
   },

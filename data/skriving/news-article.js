@@ -47,11 +47,11 @@ LV.skriveguide = {
   eksempel: {
     tittel: "Ninth-graders Turn Old School Yard into Wildflower Meadow",
     tekst: [
-      { del: 1, t: "**On Friday, 25 ninth-graders at Bakken School finished turning a grey corner of their school yard into a meadow full of wildflowers – to help bees and butterflies.**" },
-      { del: 2, t: "The idea came from the students’ science lessons, where they learned that many wild bees are endangered. “We wanted to do something real, not just talk about it,” says Lisa Berg (15), one of the students." },
-      { del: 2, t: "The students removed old gravel, planted 40 different kinds of wild plants and built three insect hotels. The work took four weeks." },
-      { del: 2, t: "“I am very proud of them. They planned everything themselves,” says their teacher, Ahmed Hassan." },
-      { del: 3, t: "Next spring, the students will count the insects in the meadow to see if the project has worked." }
+      { m: "The lead answers who, what, when and where in one sentence. It is in bold so readers can get the main news quickly.", del: 1, t: "**On Friday, 25 ninth-graders at Bakken School finished turning a grey corner of their school yard into a meadow full of wildflowers – to help bees and butterflies.**" },
+      { m: "The background (why) comes next. A quote with name and age makes the article lively and trustworthy.", del: 2, t: "The idea came from the students’ science lessons, where they learned that many wild bees are endangered. “We wanted to do something real, not just talk about it,” says Lisa Berg (15), one of the students." },
+      { m: "Short paragraph with facts and numbers: what they did and how long it took. No opinions from the journalist.", del: 2, t: "The students removed old gravel, planted 40 different kinds of wild plants and built three insect hotels. The work took four weeks." },
+      { m: "A second quote from another person (the teacher) gives a new voice. Note: «says» – simple and neutral.", del: 2, t: "“I am very proud of them. They planned everything themselves,” says their teacher, Ahmed Hassan." },
+      { m: "The ending is about what happens next. If an editor needs to cut the article, this is the paragraph that can go – the most important facts come first.", del: 3, t: "Next spring, the students will count the insects in the meadow to see if the project has worked." }
     ],
     kommentar: "This is an invented example. Notice that the most important facts come first, the paragraphs are short, and the journalist’s own opinion is not in the text."
   },

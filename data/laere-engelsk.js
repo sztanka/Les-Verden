@@ -75,7 +75,27 @@ LV.laereEngelsk = {
     { s: "What does *undertaker* mean?", valg: ["begravelsesbyrå", "underleverandør", "en som påtar seg en jobb"], forklaring: "*Undertaker* = begravelsesagent." },
     { s: "What does *brave* mean?", valg: ["modig", "snill og flink (bra)", "bråkete"], forklaring: "*Brave* = modig. *Snill* = *kind*, *well-behaved*." },
     { s: "What does *rare* mean?", valg: ["sjelden", "rar", "rå"], forklaring: "*Rare* = sjelden (eller lite stekt kjøtt). *Rar* = *strange* / *weird*." },
-    { s: "What does *chef* mean?", valg: ["kokk", "sjef", "kelner"], forklaring: "*Chef* = kokk. *Sjef* = *boss*." }
+    { s: "What does *chef* mean?", valg: ["kokk", "sjef", "kelner"], forklaring: "*Chef* = kokk. *Sjef* = *boss*." },
+    { s: "What is a *barn*?", valg: ["en låve", "et barn", "en bar"], forklaring: "*Barn* = låve. Et barn = *a child*. *The cows sleep in the barn.*" },
+    { s: "Which English word means *time* (60 minutter)?", valg: ["hour", "time", "while"], forklaring: "En time = *an hour*. *Time* = tid: *What time is it?* = Hva er klokka? *I waited for an hour.*" },
+    { s: "What does *become* mean?", valg: ["bli", "få", "bekomme"], forklaring: "*Become* = bli: *She became a doctor.* «Jeg får en sykkel» = *I get a bike* – ikke *I become a bike*!" },
+    { s: "What does *genial* mean?", valg: ["vennlig og hyggelig", "genial, kjempesmart", "gammeldags"], forklaring: "*Genial* = vennlig, hyggelig. Genial (kjempesmart) = *brilliant*. *Our genial host welcomed us.*" },
+    { s: "What does *sympathetic* mean?", valg: ["medfølende, forståelsesfull", "sympatisk, hyggelig", "slapp"], forklaring: "*Sympathetic* = medfølende. Sympatisk = *nice*, *likeable*. *The teacher was sympathetic when I was ill.*" },
+    { s: "What is a *novel*?", valg: ["en roman", "en novelle", "en nyhet"], forklaring: "*A novel* = en roman (lang fortelling). En novelle = *a short story*." },
+    { s: "What does *mist* mean?", valg: ["tåke", "mistet", "møkk"], forklaring: "*Mist* = lett tåke. Mistet = *lost*: *I lost my keys.*" },
+    { s: "What does *slim* mean?", valg: ["slank", "slimete", "smal sjanse"], forklaring: "*Slim* = slank (også: liten – *a slim chance*). Slimete = *slimy*." },
+    { s: "What is a *brand*?", valg: ["et merke (varemerke)", "en brann", "en brannbil"], forklaring: "*Brand* = (vare)merke: *a famous brand of shoes*. Brann = *fire*." },
+    { s: "What does *mean* mean in *He is so mean*?", valg: ["slem, gjerrig", "han mener mye", "middels"], forklaring: "Som adjektiv er *mean* = slem eller gjerrig. Som verb er *mean* = bety/mene: *What do you mean?*" },
+    { s: "What is a *spare* tyre?", valg: ["et reservedekk", "et dekk du sparer penger på", "et punktert dekk"], forklaring: "*Spare* = ekstra, reserve: *a spare key*. Å spare penger = *to save money*." },
+    { s: "What is a *recipe*?", valg: ["en oppskrift", "en resept fra legen", "en kvittering"], forklaring: "*Recipe* = matoppskrift. Resept fra legen = *a prescription*. Kvittering = *a receipt*." },
+    { s: "What does *hell* mean in English?", valg: ["helvete", "hell, flaks", "lys"], forklaring: "*Hell* = helvete – så ikke si «Hell!» når du ønsker noen lykke til. Flaks = *luck*: *Good luck!*" },
+    { s: "What is a *stool*?", valg: ["en krakk", "en stol", "en stall"], forklaring: "*Stool* = krakk (stol uten rygg). Stol = *chair*." },
+    { s: "In Britain, what are *chips*?", valg: ["pommes frites", "potetgull", "databrikker"], forklaring: "I britisk engelsk er *chips* = pommes frites (*fish and chips*). Potetgull = *crisps* i Storbritannia, men *chips* i USA!" },
+    { s: "What does *smoking* mean?", valg: ["røyking", "en smoking (dress)", "røykvarsler"], forklaring: "*Smoking* = røyking: *No smoking*. En smoking = *a dinner jacket* (britisk) eller *a tuxedo* (amerikansk)." },
+    { s: "How much is *a billion*?", valg: ["en milliard (1 000 000 000)", "en billion", "en million"], forklaring: "*A billion* = én milliard. En norsk billion er tusen ganger mer – *a trillion*." },
+    { s: "What is *a dress*?", valg: ["en kjole", "en dress", "en drakt"], forklaring: "*A dress* = en kjole. En dress = *a suit*." },
+    { s: "What is *a lecture*?", valg: ["en forelesning", "lektyre, noe å lese", "en lekse"], forklaring: "*Lecture* = forelesning: *a lecture at the university*. Lektyre = *reading*. Lekse = *homework*." },
+    { s: "What does *engaged* mean in *They are engaged*?", valg: ["forlovet", "engasjert", "ansatt"], forklaring: "*Engaged* = forlovet (eller opptatt: *The line is engaged*). Engasjert = *committed*, *involved*." }
   ],
 
   // Forklar ordet (sirkumlokusjon) – ord å forklare uten å si dem

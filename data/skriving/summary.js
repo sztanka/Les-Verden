@@ -42,9 +42,9 @@ LV.skriveguide = {
   eksempel: {
     tittel: "Summary of “To Build a Fire” by Jack London",
     tekst: [
-      { del: 0, t: "The short story “To Build a Fire” by Jack London is about a man who tries to survive alone in extreme cold in the Yukon." },
-      { del: 1, t: "The man ignores an old-timer’s warning not to travel alone when it is colder than fifty below zero. Only his dog, which understands the danger better than he does, follows him. When he breaks through the ice and gets his feet wet, he builds a fire to dry them, but snow falls from a tree and puts it out. His hands are now too frozen to build a new fire, and he even thinks of killing the dog to warm his hands. In the end, he slowly freezes to death, while the dog leaves to find other people." },
-      { del: 2, t: "The story shows how dangerous nature can be when people overestimate themselves." }
+      { m: "The opening sentence gives title, author and what the story is about – in one sentence.", del: 0, t: "The short story “To Build a Fire” by Jack London is about a man who tries to survive alone in extreme cold in the Yukon." },
+      { m: "Only the most important events, in the right order, in your own words. No quotes, no opinions, no small details.", del: 1, t: "The man ignores an old-timer’s warning not to travel alone when it is colder than fifty below zero. Only his dog, which understands the danger better than he does, follows him. When he breaks through the ice and gets his feet wet, he builds a fire to dry them, but snow falls from a tree and puts it out. His hands are now too frozen to build a new fire, and he even thinks of killing the dog to warm his hands. In the end, he slowly freezes to death, while the dog leaves to find other people." },
+      { m: "The closing sentence states the main message of the text, still without «I think».", del: 2, t: "The story shows how dangerous nature can be when people overestimate themselves." }
     ],
     kommentar: "The original story is about 7,000 words – this summary is about 140. You can read the story in Reading Room."
   },

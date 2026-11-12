@@ -16,7 +16,7 @@ const last = f => vm.runInContext(fs.readFileSync(path.join(ROT, f), "utf8"), ct
   "data/temaer/oversikt.js", "data/arsak.js", "data/debatt.js", "data/diamant.js", "data/endring.js", "data/escape.js",
   "data/fn.js", "data/fortellinger.js", "data/historiker.js", "data/intervju.js", "data/kilder.js", "data/perspektiv.js",
   "data/skriftlig.js", "data/sport.js", "data/tekstpar.js", "data/kartspill.js", "data/mysterium/saker.js",
-  "data/hverdagsbilder.js", "data/feed.js", "data/ordreise.js", "data/fred.js", "data/hvaom.js", "data/museum.js"
+  "data/hverdagsbilder.js", "data/feed.js", "data/ordreise.js", "data/fred.js", "data/hvaom.js", "data/museum.js", "data/idiomer.js"
 ].forEach(last);
 const LV = ctx.LV;
 const ider = new Set(LV.temaer.map(t => t.id));
@@ -54,6 +54,9 @@ LV.fred.konferanser.forEach(k => [k.tema].concat(k.koblet || []).forEach(t => le
 LV.hverdagsbilder.forEach(b => legg(b.tema, "ov", "tidsreise.html?modus=hverdag&start=" + enc(b.id), "🏠", "Hverdagsbilde: Hvilket år er det?", "Tidsreisen – nærlesing"));
 { const per = {}; LV.ordreise.filter(w => w.tema).forEach(w => (per[w.tema] = per[w.tema] || []).push(w.o));
   Object.entries(per).forEach(([t, l]) => legg(t, "les", "ordreise.html?ord=" + enc(l[0]), "🧳", "Ord som har reist: " + l.map(o => "«" + o + "»").join(", "), "Ordenes historie")); }
+// Idiomdetektiven: idiomer med temakobling
+{ const per = {}; LV.idiomer.filter(x => x.tema).forEach(x => (per[x.tema] = per[x.tema] || []).push(x.i));
+  Object.entries(per).forEach(([t, l]) => legg(t, "les", "idiomer.html#i-" + l[0].toLowerCase().replace(/[’']/g, "").replace(/[^a-z]+/g, "-").replace(/^-|-$/g, ""), "🕵️", "Idiom: " + l.map(o => "«" + o + "»").join(", "), "Idiomdetektiven")); }
 (LV.sport.temaer || []).forEach(t => legg(t, "les", "sport.html", "⚽", "Sports in the English-speaking world", "Temaside"));
 
 const ut = "/* Lages automatisk av verktoy/lag-aktiviteter.mjs – ikke rediger for hånd.\n" +

@@ -84,6 +84,9 @@ les-verden/
 ├── lokalhistorie.html      Historien der du bor – lokalhistorisk undersøkelse
 ├── tidslinjeduell.html     Tidslinjeduellen (hendelser fra data/tidsreise.js)
 ├── historiske-kort.html    Historiske kort – kortspill med personene fra temaene
+├── idiomer.html            Idiomdetektiven – engelske idiomer (data i data/idiomer.js)
+├── sporsmal.html           Spørsmålsstudioet – elevene lager egne spørsmål (QFT)
+├── ekspertgrupper.html     Ekspertgrupper (jigsaw) fra et tema
 ├── tekstpar.html           Tekstpar: to tekster side om side (data i data/tekstpar.js, tekstene hentes fra andre filer)
 ├── samtidig.html           Samtidig i verden: hendelser samme år i tre kolonner (fra temaenes tidslinjer)
 ├── lag.html                Lag selv: elevskapt quiz, tidslinje og ordkort – innholdet ligger i lenken (#)
@@ -400,6 +403,16 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - **Historiske kort** (`historiske-kort.html`, `assets/historiske-kort.js`, CSS `.hk-`): henter personene fra temaene med `samle.js`; `?tema=` velger personene i et tema.
 - «Alt om temaet» får Hva om, museumsgjenstander (via `lag-aktiviteter.mjs`), Tidslinjeduellen (temaer med minst åtte hendelser) og Historiske kort (minst fire personer) (i `assets/tema.js`). Personsiden og tidslinjen lenker til de nye spillene.
 
+### Runde V: språk, lesing og skriving
+
+- **Falske venner** (`data/laere-engelsk.js` → `falske`, `assets/laere-engelsk.js`): 30 ord, quizen trekker ti nye hver runde. Lenket fra grammatikkemnet «Typical mistakes Norwegians make» (feltet `ovMer` i `data/grammatikk/*.js` gir en «Practise more»-liste).
+- **Idiomdetektiven** (`idiomer.html`, `assets/idiomer.js`, `data/idiomer.js`, CSS `.id-`): 30 idiomer med `{i, m, nb, k, o, e, sikker, tema}` og tre detektivtekster (`LV.idiomTekster`, `idiomer: [[tekst, idiom]]`). `?k=<kategori>` filtrerer, `#i-<idiom>` åpner et kort. Idiomer med `tema` vises i «Alt om temaet».
+- **Modelltekster med margkommentarer** (`data/skriving/*.js` → `eksempel.tekst[].m`, `assets/skriving.js`, CSS `.sk-marg`): bryter «💬 Vis kommentarer»; i margen på brede skjermer, under avsnittet på mobil.
+- **Spørsmålsstudioet** (`sporsmal.html`, `assets/sporsmal.js`, CSS `.ss-`): `?tema=` eller `?fokus=<påstand>`, `&vis=storskjerm`. Engelske temaer får engelsk tekst.
+- **Ekspertgrupper** (`ekspertgrupper.html`, `assets/ekspertgrupper.js`, CSS `.eg-`): `?tema=&grupper=3–5&lett=1`; `&ekspert=A` gir elevens kort med lær bort-skjema, `&hjem=1` hjemmegruppas ark. Avsnittene fordeles etter antall ord. Utskrift: ett kort per side.
+- Spørsmålsstudioet og Ekspertgrupper ligger i «Alt om temaet» (gruppen «For hele klassen»).
+- `svarfil.js` gir svarlinja `role="region"` når den ligger utenfor `main`.
+
 ### Runde T: nye måter å lese og tenke på
 
 - **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
@@ -547,7 +560,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261111b`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261112a`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

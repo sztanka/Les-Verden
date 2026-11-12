@@ -348,6 +348,8 @@
       G.klasse.push(["klasse", "lesegruppe.html?tema=" + id, "👥", en ? "Reading group with roles" : "Lesegruppe med roller", en ? "Read together in groups" : "Les sammen i grupper"]);
       const harBilde = !!(LV.temaer.find(t => t.id === tema.id) || {}).bilde;
       G.klasse.push(["klasse", "tenkerutiner.html?rutine=" + (harBilde ? "se-tenk-undre" : "tenk-lur-utforsk") + "&tema=" + id + "&vis=storskjerm", "💭", en ? "Thinking routine on the big screen" : "Tenkerutine på storskjerm", harBilde ? (en ? "See – Think – Wonder with the topic image" : "Se – tenk – undre med temabildet") : (en ? "Think – Puzzle – Explore" : "Tenk – lur – utforsk")]);
+      G.klasse.push(["klasse", "sporsmal.html?tema=" + id, "❓", en ? "Question studio" : "Spørsmålsstudioet", en ? "Students ask their own questions" : "Elevene lager egne spørsmål"]);
+      if ((tema.avsnitt || []).length >= 3) G.klasse.push(["klasse", "ekspertgrupper.html?tema=" + id + "&grupper=" + Math.min(4, tema.avsnitt.length), "🧩", en ? "Expert groups (jigsaw)" : "Ekspertgrupper", en ? "Become an expert and teach the others" : "Bli ekspert og lær bort"]);
       G.klasse.push(["klasse", "exit.html?v=maal&tema=" + id, "🎫", en ? "Exit ticket" : "Exit ticket", en ? "For the whole class" : "For hele klassen"]);
       if ((tema.tidslinje || []).length >= 8) G.ov.push(["ov", "tidslinjeduell.html?tema=" + id, "⚔️", en ? "Timeline duel" : "Tidslinjeduellen", en ? "Place the events on the timeline" : "Legg hendelsene på riktig plass"]);
       if ((tema.personer || []).length >= 4) G.ov.push(["ov", "historiske-kort.html?tema=" + id, "🃏", en ? "Historical cards" : "Historiske kort", en ? "Make a card game with the people" : "Lag et kortspill med personene"]);
