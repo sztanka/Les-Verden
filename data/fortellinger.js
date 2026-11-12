@@ -2326,5 +2326,230 @@ LV.fortellinger = [
       "Port Arthur 1830–1877; Separate Prison med hetter og taushet ble bygd rundt 1850.",
       "«The great Australian silence» – uttrykket er fra W. E. H. Stanner (1968)."
     ]
+  },
+
+  {
+    id: "titanic-1912", sprak: "en", tittel: "Third Class", undertittel: "RMS Titanic, April 1912", ikon: "🧊", farger: ["#14283d", "#d9e6f2"],
+    tema: "en10-american-dream", trinn: 9, ar: 1912,
+    kort: "You are Nils, 16, from the west coast of Norway. You and your little sister are emigrating to America on the biggest ship in the world. On the fifth night, at 11.40 pm, you feel a strange bump.",
+    rolle: "You are **Nils Berg**, 16 years old, from a small island near Stavanger. Your uncle runs a farm in Minnesota and has sent money for two tickets: one for you and one for your sister **Kari**, who is 10. You have travelled by boat to England and by train to Southampton. Now you are boarding a brand-new ship that everyone is talking about: the **Titanic**.",
+    rolleLett: "You are **Nils**, 16. You come from Norway. You and your sister **Kari**, 10, are going to America. Your ship is the Titanic. It is April 1912.",
+    start: "boarding",
+    ord: {
+      "third class": "The cheapest tickets on the ship. Third-class passengers lived on the lower decks.",
+      "steward": "A man who works on a ship and helps the passengers.",
+      "iceberg": "A huge piece of ice floating in the sea. Most of it is under the water.",
+      "lifeboat": "A small boat on a big ship, used to save people if the ship sinks.",
+      "deck": "A floor on a ship. The boat deck is the top deck, where the lifeboats are.",
+      "collapsible": "A lifeboat with sides made of canvas that can be folded up.",
+      "wireless": "Radio messages sent in Morse code. In 1912 it was new technology.",
+      "survivor": "A person who is still alive after a disaster."
+    },
+    noder: {
+      boarding: {
+        tekst: [
+          "Wednesday, 10 April 1912. The ship is so big that it looks like a street of houses lying on its side. Four huge funnels rise into the sky. Kari holds your coat with both hands and does not say a word.",
+          "A [[steward]] checks your tickets and sends you down, down, down – to [[third class]] near the back of the ship. Your cabin has four bunks, a washbasin and white sheets. Kari touches the sheets carefully. «Is this really for us?» On the ship you took to England, you slept on wooden benches.",
+          "Two Swedish girls share the cabin with you. They are going to Chicago to work as maids."
+        ],
+        lett: [
+          "The Titanic is huge. It has four big funnels.",
+          "Your cabin is in third class, deep down in the ship. It has beds with white sheets. Kari has never seen anything like it.",
+          "Two girls from Sweden share the cabin with you."
+        ],
+        kilde: { tittel: "Fact: the Titanic", tekst: "RMS Titanic was the largest ship in the world in 1912. She left Southampton in England on 10 April and stopped in Cherbourg in France and Queenstown in Ireland before heading for New York. There were about 2,200 people on board: about 325 in first class, 285 in second class, more than 700 in third class – and about 900 crew. Many of the third-class passengers were emigrants from Scandinavia, Ireland, Eastern Europe and the Middle East.", lett: "The Titanic was the biggest ship in the world. About 2,200 people were on board. More than 700 travelled in third class. Many of them were emigrants." },
+        valg: [
+          { t: "Go up on deck to watch England disappear.", til: "deck" },
+          { t: "Stay in the cabin and help Kari unpack.", til: "dinner" }
+        ]
+      },
+      deck: {
+        tekst: [
+          "The third-class [[deck]] is at the back of the ship. From there you can look up at the first-class decks. Ladies in long dresses and big hats walk slowly. A man walks a small dog. A gate and a sign separate you from them: *Third class passengers not allowed.*",
+          "An Irish boy your age stands next to you. «They say a ticket up there costs more than my father earns in ten years», he says. «But we are all on the same ship, aren’t we?»"
+        ],
+        lett: [
+          "From the third-class deck you can see the rich passengers above. There is a gate between you.",
+          "An Irish boy says: «We are all on the same ship, aren’t we?»"
+        ],
+        valg: [ { t: "Go down for dinner.", til: "dinner" } ]
+      },
+      dinner: {
+        tekst: [
+          "In the third-class dining room, you sit at long tables with people from all over Europe. There is soup, roast beef, potatoes and bread – more food than you usually eat in a day at home. Kari eats until she can hardly move.",
+          "In the evenings, people gather in the general room. Someone plays the piano, and an Irishman plays the bagpipes. The Swedish girls teach Kari a dance. For the first time since you left home, Kari laughs.",
+          "On Sunday 14 April, it is suddenly very cold on deck. A sailor tells you that the [[wireless]] operators have received messages from other ships about ice."
+        ],
+        lett: [
+          "The food is good, and there is a lot of it.",
+          "In the evening, people play music and dance. Kari laughs for the first time on the trip.",
+          "On Sunday it gets very cold. A sailor says other ships have seen ice."
+        ],
+        kilde: { tittel: "Fact: the ice warnings", tekst: "On 14 April the Titanic received several radio warnings about ice from other ships. Not all of them reached the captain. The ship kept going at high speed, about 22 knots (40 km per hour). There was no moon that night, and the sea was completely calm, which made icebergs harder to see.", lett: "Other ships sent warnings about ice. But the Titanic kept going fast. The night was dark and calm." },
+        valg: [ { t: "Go to bed.", til: "bump" } ]
+      },
+      bump: {
+        tekst: [
+          "You wake up. Something has happened – a long scraping sound and a small shake, as if the ship has brushed against something. Then the engines stop. It is suddenly very quiet. The clock in the corridor says 11.40.",
+          "In the corridor, men in their underwear are talking in many languages. Somebody says the ship has hit an [[iceberg]]. Somebody else laughs: «This ship cannot sink!»"
+        ],
+        lett: [
+          "You wake up. You hear a scraping sound. Then the engines stop. It is 11.40 at night.",
+          "People say the ship has hit an iceberg. Someone laughs: «This ship cannot sink!»"
+        ],
+        valg: [
+          { t: "Go back to sleep. Kari is tired, and the crew will tell you if there is danger.", til: "water" },
+          { t: "Go up on deck to find out what happened.", til: "ice" }
+        ]
+      },
+      ice: {
+        tekst: [
+          "On the deck at the front of the ship, there is ice everywhere – broken pieces from the iceberg. Some young men are kicking ice around like a football. Nobody seems worried.",
+          "But then you see a sailor running. His face is white. On the way back down, you notice that the floor in the corridor is not quite flat any more. It tilts – just a little – towards the front of the ship."
+        ],
+        lett: [
+          "There is ice on the deck. Some young men play football with it.",
+          "But a sailor runs past. He looks afraid. The floor is not flat any more."
+        ],
+        valg: [ { t: "Wake Kari and get dressed.", til: "corridors" } ]
+      },
+      water: {
+        tekst: [
+          "You try to sleep, but at about half past midnight someone bangs on the door. «Lifebelts on! Everybody up!» When you put your feet on the floor, they are wet. There is water in the corridor on the lowest deck.",
+          "You pull Kari out of bed and put a big white lifebelt over her head. She is crying. You have lost almost an hour."
+        ],
+        lett: [
+          "Later, someone bangs on the door: «Lifebelts on!» There is water on the floor.",
+          "You put a lifebelt on Kari. You have lost almost one hour."
+        ],
+        valg: [ { t: "Go out into the corridors.", til: "corridors" } ]
+      },
+      corridors: {
+        tekst: [
+          "The corridors in third class are long and confusing. There are hundreds of people with bags and children, and many do not understand English. A steward stands at the bottom of a staircase. «Wait here! Women and children will be taken up soon!»",
+          "Some families sit down on their suitcases and wait. Others are praying. The Irish boy from the deck pulls your arm. «I know another way up – through the crew stairs. Come on!»"
+        ],
+        lett: [
+          "There are many people in the corridors. Many do not understand English.",
+          "A steward says: «Wait here!» Some families sit down and wait.",
+          "The Irish boy says: «I know another way up. Come on!»"
+        ],
+        kilde: { tittel: "Fact: the gates and the stairs", tekst: "Third-class passengers lived far from the boat deck. There were gates between the classes, partly because of American immigration rules. Survivors later said that some gates were closed for a long time, and that stewards told people to wait. Many third-class passengers did not understand the instructions in English, and many did not know the way up.", lett: "There were gates between the classes. Some survivors said the gates were closed and that people were told to wait. Many did not understand English." },
+        valg: [
+          { t: "Do as the steward says and wait.", til: "wait" },
+          { t: "Follow the Irish boy up the crew stairs.", til: "boatdeck" }
+        ]
+      },
+      boatdeck: {
+        tekst: [
+          "You climb steep metal stairs and come out on the [[deck]] where the [[lifeboat]]s hang. It is freezing cold. Rockets explode in white stars above the ship. The band is playing cheerful music. Officers shout: «Women and children only!»",
+          "An officer lifts Kari into Lifeboat 15. Then he puts his hand on your chest. «Not you, son. You’re a man.» Kari screams your name and holds out her arms."
+        ],
+        lett: [
+          "You come up to the boat deck. It is very cold. The band is playing.",
+          "An officer puts Kari in a lifeboat. «Women and children only!» he says. «Not you. You are a man.»",
+          "Kari cries and holds out her arms."
+        ],
+        kilde: { tittel: "Fact: the lifeboats", tekst: "The Titanic had 20 lifeboats with room for about 1,178 people – barely half of those on board. This was enough according to the British rules of the time, which were based on the size of the ship, not the number of people. The first boats were lowered half empty, because many people did not believe the ship would sink. On one side of the ship, officers only let women and children into the boats; on the other side, men were allowed in if there was room.", lett: "There were 20 lifeboats. They had room for only about half of the people on board. The first boats left half empty." },
+        valg: [
+          { t: "Run to the other side of the ship, where men are sometimes allowed into the boats.", til: "otherside" },
+          { t: "Stay and help other women and children into the boats.", til: "collapsible" }
+        ]
+      },
+      otherside: {
+        slutt: "Lifeboat 13",
+        tekst: [
+          "On the other side of the ship, an officer is filling Lifeboat 13. There are a few empty places. «Any more women? Any more children?» Nobody comes. «All right – you, boy. Jump!»",
+          "You land in the boat as it is lowered down the side of the ship. Below you, Lifeboat 15 is coming down at the same time – right on top of you! Men shout, someone cuts the ropes, and your boat moves away just in time. In the other boat you see a small figure in a white lifebelt. Kari.",
+          "From the boat, you watch the Titanic sink at 2.20 in the morning. The ship breaks in two. Then there are terrible sounds from the water for a long time, and then it is silent. At dawn, the ship Carpathia picks you up. On deck, you find Kari wrapped in a blanket. You hold each other and do not say anything for a long time.",
+          "**What happened next:** In Minnesota, Nils and Kari never talked much about that night. Like many [[survivor]]s, they felt guilty for being alive when so many others had died."
+        ],
+        lett: [
+          "On the other side, there is room in a boat. «You, boy. Jump!» says the officer.",
+          "From the boat you see the Titanic sink at 2.20 at night. In the morning, the ship Carpathia saves you. You find Kari on board.",
+          "**What happened next:** Nils and Kari reached America. But they never forgot that night."
+        ]
+      },
+      collapsible: {
+        slutt: "The overturned boat",
+        tekst: [
+          "You help a mother with two small children into a [[collapsible]] boat. When it is lowered, there are almost no boats left. The front of the ship is under water now. You hear the band still playing.",
+          "Then the deck tilts, and the sea comes up to meet you. You are in the water. It is so cold that it feels like knives. In the dark, you see a boat floating upside down – one of the collapsibles that was washed off the deck. You and about thirty men climb up on it and stand there, holding each other, all night.",
+          "At dawn, the Carpathia arrives. On deck, Kari runs towards you. «They said you were dead!»",
+          "**What happened next:** About 30 men survived on the overturned Collapsible B. Most of the people who went into the water died within half an hour. The water was –2 °C."
+        ],
+        lett: [
+          "You help a mother and her children into a boat. Soon there are no more boats.",
+          "The ship sinks, and you are in the ice-cold water. You climb up on a boat that is upside down. You stand there all night.",
+          "In the morning the Carpathia saves you. Kari is there. «They said you were dead!»"
+        ]
+      },
+      wait: {
+        tekst: [
+          "You wait. Ten minutes. Thirty minutes. An hour. Kari falls asleep on your lap. Some people go back to their cabins to get warm. The floor tilts more and more. At last, after one o’clock, a steward leads a group of women and children up the stairs. You go with them.",
+          "On the boat deck, most of the lifeboats are gone. Only a few are left at the front. Officers have formed a ring around the last boat to stop people from rushing in."
+        ],
+        lett: [
+          "You wait for a long time. Kari falls asleep. The floor tilts more and more.",
+          "After one o’clock a steward takes you up. Most of the lifeboats are gone."
+        ],
+        kilde: { tittel: "Fact: who survived?", tekst: "About 1,500 people died and about 700 survived. The chance of surviving depended a lot on class: about six in ten first-class passengers survived, but only about one in four in third class. In second class, all the children survived. In third class, only about one in three children did. About one in five men survived, compared with about three in four women.", lett: "About 1,500 people died. About 700 survived. Most first-class passengers survived. Most third-class passengers did not." },
+        valg: [
+          { t: "Push Kari through the ring of officers towards the last boat.", til: "lastboat" },
+          { t: "Look for another boat further back on the ship.", til: "toolate" }
+        ]
+      },
+      lastboat: {
+        slutt: "The last boat",
+        tekst: [
+          "You push Kari forward. «Please! She’s ten!» An officer grabs her and lifts her over the side into Collapsible D – the last boat to be lowered, at 2.05. There is still a place. The officer looks at you for a long second. «Get in. Quickly.»",
+          "Fifteen minutes later, the Titanic is gone. In the boat, Kari asks: «Where are the Swedish girls? Where is the Irish boy?» You do not know what to answer.",
+          "**What happened next:** In New York, reporters wanted stories from the rich survivors. Almost nobody asked the emigrants in third class what they had seen. Many of their stories were only collected many years later, by their children and grandchildren."
+        ],
+        lett: [
+          "An officer lifts Kari into the last lifeboat. «Get in. Quickly», he says to you.",
+          "Fifteen minutes later, the Titanic is gone. Kari asks: «Where are our friends?»",
+          "**What happened next:** Reporters talked to the rich survivors. Few asked the poor emigrants what they had seen."
+        ]
+      },
+      toolate: {
+        slutt: "Too late",
+        tekst: [
+          "You run towards the back of the ship, but the boats there are gone. The deck is tilting so much that people are holding on to the railings. Someone gives Kari a deck chair to hold on to in the water. A priest is praying with a group of people.",
+          "Nils and Kari did not survive. Like most of the passengers in third class, they never reached a lifeboat in time.",
+          "**Think about it:** The story of Nils and Kari is made up. But more than 1,500 real people died that night – many of them emigrants on their way to a new life. What could have saved them? Who should have made different choices – the passengers, the crew, the shipping company or the government?"
+        ],
+        lett: [
+          "You run to find another boat, but they are all gone.",
+          "Nils and Kari did not survive. Like most people in third class, they did not reach a lifeboat in time.",
+          "**Think about it:** More than 1,500 real people died. What could have saved them?"
+        ]
+      }
+    },
+    etterpaa: {
+      sporsmal: [
+        "Why were Nils and Kari going to America? Find push and pull factors.",
+        "Why did more first-class passengers survive than third-class passengers? Find at least three reasons in the story.",
+        "«Women and children first.» Was that a fair rule? Discuss.",
+        "After the disaster, new rules said that every ship must have lifeboats for everyone, and that the radio must be on 24 hours a day. Why do you think it took a disaster to change the rules?"
+      ],
+      skriv: "Write a letter from Kari or Nils to their parents in Norway, a week after arriving in Minnesota.",
+      ekte: [
+        [true, "The dates and times: 10 April, 11.40 pm on 14 April, the sinking at 2.20 am on 15 April."],
+        [true, "The number of lifeboats, the ice warnings, the gates and the difference in survival between the classes."],
+        [true, "Lifeboats 13 and 15, Collapsible B and Collapsible D, and the rescue by the Carpathia."],
+        [false, "Nils, Kari, the Swedish girls and the Irish boy are made up – but there were Norwegian, Swedish and Irish emigrants on board."],
+        [false, "Exactly what the officers and stewards said to the passengers."]
+      ]
+    },
+    kontroller: [
+      "Avgang Southampton 10. april 1912, stopp i Cherbourg og Queenstown; kollisjon ca. kl. 23.40 14. april; sank ca. kl. 02.20 15. april.",
+      "Ca. 2 200 om bord, ca. 1 500 omkom, ca. 700 overlevde. Fordeling per klasse er avrundet.",
+      "20 livbåter med plass til ca. 1 178. Livbåt 13 og 15 holdt på å kollidere under senkingen. Collapsible D var den siste som ble senket (ca. kl. 02.05). Ca. 30 overlevde på den kantrede Collapsible B.",
+      "Overlevelsesandeler: ca. 60 % i første klasse, ca. 25 % i tredje klasse; alle barna i andre klasse overlevde, ca. en tredjedel av barna i tredje klasse.",
+      "Sjøtemperatur ca. –2 °C. SOLAS-konvensjonen (1914) og den internasjonale isovervåkingen ble innført etter ulykken.",
+      "Nils, Kari og de andre personene er oppdiktet. Norske utvandrere reiste ofte via England (Newcastle/Hull) og tog til Southampton eller Liverpool."
+    ]
   }
+
 ];

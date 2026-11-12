@@ -384,5 +384,86 @@ LV.escape = [
       "Hemmeligholdet til 1970-tallet (1974). Turing dømt 1952, døde 1954, benådet 2013.",
       "Kartet og meldingene er oppdiktet og forenklet. Rommet handler om andre verdenskrig, men er på engelsk."
     ]
+  },
+  {
+    id: "ellis-island", sprak: "en", ikon: "🗽", farger: ["#1f4e5a", "#e8d9a8"], tema: "en10-american-dream", trinn: 9,
+    tittel: "The Island of Tears", sted: "Ellis Island, New York, April 1907",
+    kort: "You have crossed the Atlantic in steerage. Now you are stuck in a waiting room on Ellis Island – and the last ferry to Manhattan leaves soon. Can you get through all five stations?",
+    intro: "It is April 1907, the busiest year ever at Ellis Island. You are 15 and have travelled for two weeks in steerage, the cheapest part of the ship, with your mother and your little sister Anna. Your father is waiting for you in New York. But at the top of the stairs, a guard sends you into a small waiting room and closes the door. «Your papers are not in order», he says in English you only half understand. Through the window you can see the Statue of Liberty and the ferry to Manhattan. You have five problems to solve before the last ferry leaves.",
+    laser: [
+      { tittel: "Lock 1: The ship’s manifest", type: "kode",
+        tekst: ["Before you could leave the ship, the shipping company wrote the name of every passenger in a big list called the **manifest**. Each person got a line number. The inspector uses the list to check your answers.", "On the table lies a copy of page 12. Your family travelled together and is listed in this order: mother first, then you, then Anna.", "> Line 14: Rossi, Giuseppe – 34 – farmer\n> Line 15: Kowalski, Maria – 41 – housewife\n> Line 16: Kowalski, Jan – 15 – none\n> Line 17: Kowalski, Anna – 8 – child\n> Line 18: Lindqvist, Erik – 22 – sailor", "A note on the door says: *Write the line number of the YOUNGEST member of the Kowalski family.*"],
+        oppgave: "What is the line number?", svar: ["17", "seventeen"], hint: "Find all the Kowalskis. Who has the lowest age?", forklaring: "Anna is 8 and is on line 17. The manifests were made in the European ports. Inspectors at Ellis Island asked the same questions again to see if the answers matched – it was a way to catch lies, but also a source of mistakes." },
+      { tittel: "Lock 2: The way through the building", type: "rekke",
+        tekst: ["On the wall hangs a sign for new arrivals, in five languages:", "> **Welcome to Ellis Island.** First, leave your large bags in the Baggage Room on the ground floor. Then climb the stairs to the Registry Room. Doctors at the top of the stairs will watch you as you walk. In the Registry Room, wait for your turn at the inspector’s desk. When you are approved, walk down the «Stairs of Separation»: one way to the ferry to Manhattan, one to the trains, one to detention. Families meet at the «kissing post» at the bottom.", "The door has a lock with five buttons. You must press them in the right order."],
+        oppgave: "Put the stations in the right order.",
+        rekke: ["Leave bags in the Baggage Room", "Climb the stairs while doctors watch", "Wait in the Registry Room", "Answer questions at the inspector’s desk", "Walk down the Stairs of Separation"],
+        hint: "Read the sign one sentence at a time. Words like «first» and «then» help.", forklaring: "Most people got through Ellis Island in three to seven hours. The doctors on the stairs looked for people who were out of breath or limping – people called it the «six-second exam»." },
+      { tittel: "Lock 3: The chalk marks", type: "par",
+        tekst: ["Anna has a white letter on her coat. A kind interpreter whispers to you in Polish and writes the doctors’ code on a piece of paper:", "> **E** = we must check the eyes\n> **H** = we must check the heart\n> **L** = the person limps\n> **X** = we think the mind is ill", "«Anna only has red eyes from the ship», the interpreter says. «But you must know what the letters mean.»"],
+        oppgave: "Match each chalk mark with what it means.",
+        par: [["E", "Eyes"], ["H", "Heart"], ["L", "Limping"], ["X", "Mind"]],
+        hint: "Read the interpreter’s note.", forklaring: "The most feared mark was «E», because the eye disease trachoma could lead to deportation. Only about two in a hundred immigrants were sent back, but for those families it was a disaster." },
+      { tittel: "Lock 4: The letter from America", type: "feil",
+        tekst: ["Your mother shows you the letter your father sent last year, the one that made the family decide to come:", "> Dear Maria, America is hard, but there is work. I live in two small rooms on the Lower East Side with three other men. I work ten hours a day in a sugar factory and earn more than I could at home. On Sundays we go to a Polish church. Do not believe the stories in the village – the streets here are not made of gold. Bring warm clothes. Your Jan.", "Under the letter, the guard has put a form with five sentences about your father. If one of them is wrong, you can prove that the guard has mixed up your papers."],
+        oppgave: "Which sentence does NOT match the letter?",
+        setninger: ["Your father lives on the Lower East Side.", "Your father works in a sugar factory.", "Your father lives alone in a big apartment.", "Your father goes to a Polish church.", "Your father says the streets are not made of gold."], riktig: 2,
+        hint: "How many rooms does he have, and who does he live with?", forklaring: "Letters from relatives – often called «America letters» – were one of the main reasons people emigrated. Some exaggerated, but many were honest about how hard life in the new country was." },
+      { tittel: "Lock 5: The address", type: "rutenett",
+        tekst: ["The guard comes back. «Your papers are fine now. But where will you go?» You must show the address on a map of Lower Manhattan. The back of your father’s letter says:", "> From the ferry, go to the square with the big market. Our house is one square east of the market and one square north."],
+        oppgave: "Where does your father live?",
+        kart: { kolonner: ["A", "B", "C", "D", "E"], rader: ["1", "2", "3", "4"], vann: ["A4", "B4", "E3", "E4"],
+          celler: { A1: "🏭 Factories", B1: "🏠 Houses", C1: "🏠 Houses", D1: "⛪ Church", A2: "🏛️ City Hall", B2: "🛒 Market", C2: "🏠 Houses", D2: "🏫 School", A3: "🏦 Wall Street", B3: "🏠 Houses", C3: "🌉 Bridge", D3: "🏠 Houses", C4: "⛴️ Ferry" } },
+        svar: "C1", hint: "Find the market (B2). Go one square right (east), then one square up (north).", forklaring: "The market is in B2. One square east is C2, and one square north of that is C1. The Lower East Side was one of the most crowded places in the world around 1900." }
+    ],
+    slutt: "The guard opens the door and stamps your card. You run down the Stairs of Separation, past the kissing post, and onto the last ferry. On the pier in Manhattan stands your father, waving his hat. Between 1892 and 1954, about 12 million people came through Ellis Island. Today, around four in ten Americans have at least one ancestor who passed through it.",
+    kontroller: [
+      "Ellis Island 1892–1954, ca. 12 millioner; 1907 var toppåret med over én million.",
+      "Rekkefølgen gjennom bygningen (Baggage Room, trappa, Registry Room, inspektøren, «Stairs of Separation», «kissing post»).",
+      "Krittmerkene E, H, L og X, og at ca. 2 % ble sendt tilbake.",
+      "«Rundt fire av ti amerikanere har minst én forfar som kom via Ellis Island» – et ofte gjengitt anslag.",
+      "Familien, brevet, manifestet og kartet er oppdiktet og forenklet."
+    ]
+  },
+  {
+    id: "stasi-1983", sprak: "nb", ikon: "🕵️", farger: ["#2e3138", "#c9a227"], tema: "sf10-kalde-krigen", trinn: 10,
+    tittel: "Den døde postkassa", sted: "Øst-Berlin, november 1983",
+    kort: "Naboen din er hentet av Stasi. Hun har gjemt en melding til deg i en bibliotekbok. Klarer du å forstå den – og levere den – før de kommer tilbake?",
+    intro: "Det er november 1983. Du er 15 år og bor i en blokk i Øst-Berlin, hovedstaden i DDR. I går ble naboen din, Frau Weber, hentet av to menn i grå frakker. Alle i blokka vet hvem de var: Stasi, det hemmelige politiet. Frau Weber lånte deg alltid bøker. I dag ligger det en bibliotekbok på dørmatta di – og inni den en lapp: *Ikke stol på noen i oppgangen. Følg sporene. Lever filmen.* Du låser døra til rommet ditt. Du har fem spor å følge.",
+    laser: [
+      { tittel: "Lås 1: Bokstavene i boka", type: "kode",
+        tekst: ["Noen ord i boka er streket under med blyant. Hvis du tar den første bokstaven i hvert understreket ord, får du et stedsnavn:", "> Hun gikk langs elva. Det var **Allerede** mørkt, og **Lyktene** var tent. Hun tenkte på **Eplene** i hagen hjemme og på alt hun ikke kunne si høyt. En **Xylofon** spilte i et vindu. Hun stoppet ikke."],
+        oppgave: "Hvilket sted er det?", svar: ["alex", "alexanderplatz"], hint: "Ta den første bokstaven i hvert ord med fet skrift.", forklaring: "Alex er kallenavnet på Alexanderplatz, den store plassen i Øst-Berlin der Fjernsynstårnet står. Hemmelige meldinger ble ofte gjemt i vanlige ting, som bøker, så de ikke skulle vekke mistanke." },
+      { tittel: "Lås 2: Ordene i mappa", type: "par",
+        tekst: ["I boka ligger også en lapp med ord Frau Weber har skrevet ned, med forklaringer:", "> **Stasi:** Departementet for statssikkerhet – DDRs hemmelige politi.\n> **IM:** «uoffisiell medarbeider» – en vanlig person som i hemmelighet melder fra til Stasi om naboer, venner eller familie.\n> **Republikkflukt:** å prøve å flykte fra DDR. Det var straffbart.\n> **Muren:** grensen som delte Berlin fra 1961.\n> **Død postkasse:** et hemmelig gjemmested der én person legger fra seg noe som en annen henter senere, uten at de møtes."],
+        oppgave: "Koble hvert ord til riktig forklaring.",
+        par: [["Stasi", "DDRs hemmelige politi"], ["IM", "Vanlig person som i hemmelighet melder fra"], ["Republikkflukt", "Å prøve å flykte fra DDR"], ["Død postkasse", "Gjemmested der man ikke trenger å møtes"]],
+        hint: "Les lappen én linje om gangen.", forklaring: "Stasi hadde et enormt nett av angivere. Folk visste aldri sikkert hvem som meldte fra – en nabo, en kollega eller til og med en ektefelle." },
+      { tittel: "Lås 3: Rapporten om deg", type: "feil",
+        tekst: ["Under sengen finner du en kopi av en Stasi-rapport som Frau Weber må ha fått tak i. Den handler om deg! Du vet at én av setningene er feil – og det beviser at rapporten er skrevet av noen som ikke kjenner deg godt.", "> Du er 15 år, bor i Øst-Berlin og går i niende klasse. Du har aldri vært i Vest-Berlin – ingen i familien din har fått lov til å reise dit."],
+        oppgave: "Hvilken setning i rapporten er feil?",
+        setninger: ["Objektet bor i en blokk i Øst-Berlin.", "Objektet lånte bøker av naboen Weber.", "Objektet besøker ofte slektninger i Vest-Berlin.", "Objektet hører på musikk fra vestlige radiokanaler.", "Objektet er 15 år gammelt."], riktig: 2,
+        hint: "Se på det du vet om deg selv i teksten over rapporten.", forklaring: "Stasi samlet opplysninger om millioner av mennesker. Mange av rapportene inneholdt feil, rykter og misforståelser. Etter at DDR falt, kunne folk søke om å lese mappene sine – og mange fikk vite at venner hadde meldt fra om dem." },
+      { tittel: "Lås 4: Gjemmestedet", type: "rutenett",
+        tekst: ["På baksiden av lappen har Frau Weber tegnet et lite kart over sentrum av Berlin. Under står det:", "> Filmen ligger i den døde postkassa. Start ved Fjernsynstårnet. Gå to felt sør. Gjemmestedet er ved kirken – ikke gå mot vest, der står muren."],
+        oppgave: "Hvor er den døde postkassa?",
+        kart: { kolonner: ["A", "B", "C", "D", "E"], rader: ["1", "2", "3", "4"], vann: ["B1", "B2"],
+          celler: { A1: "🌳 Vest", A2: "🌳 Vest", A3: "🌳 Vest", A4: "🌳 Vest", C1: "🏛️ Museum", D1: "🗼 Fjernsynstårnet", E1: "🚉 Stasjon", C2: "🏢 Blokker", D2: "🛍️ Varehus", E2: "🏢 Blokker", B3: "🧱 Muren", C3: "🏫 Skole", D3: "⛪ Kirke", E3: "🌳 Park", B4: "🧱 Muren", C4: "🏢 Blokker", D4: "🚏 Trikk", E4: "🏭 Fabrikk" } },
+        svar: "D3", hint: "Finn Fjernsynstårnet (D1). Gå to felt ned (sør).", forklaring: "Fjernsynstårnet ble åpnet i 1969 og skulle vise hvor moderne DDR var. Kirkene ble viktige i 1980-årene: Der kunne folk møtes og snakke litt friere, og mange av protestene i 1989 startet i kirker." },
+      { tittel: "Lås 5: Filmen", type: "rekke",
+        tekst: ["I den døde postkassa ligger en filmrull og en liten lapp med årstall. Filmen viser bilder fra et protestmøte i en kirke. På lappen står det:", "> 1945: Berlin deles i fire sektorer etter krigen. 1948–1949: Sovjetunionen stenger veiene til Vest-Berlin, og vestmaktene flyr inn mat med luftbroen. 1961: Muren bygges over natta. 1963: Kennedy holder tale i Vest-Berlin. 1989: Muren åpnes.", "For å åpne den siste låsen på filmboksen må du sette hendelsene i riktig rekkefølge."],
+        oppgave: "Sett hendelsene i riktig rekkefølge.",
+        rekke: ["Berlin deles i fire sektorer", "Luftbroen til Vest-Berlin", "Muren bygges", "Kennedy holder tale i Vest-Berlin", "Muren åpnes"],
+        hint: "Bruk årstallene på lappen.", forklaring: "Berlin var et av de viktigste stedene i den kalde krigen. Muren sto i 28 år, fra 13. august 1961 til 9. november 1989." }
+    ],
+    slutt: "Du gjemmer filmrullen i et skolepenalhus og gir den til en vestlig journalist som besøker kirken – slik Frau Weber ba om. Noen uker senere vises bildene på vesttysk TV, som mange i Øst-Berlin så i hemmelighet. Frau Weber kommer hjem etter et halvt år. Hun snakker aldri om hva som skjedde. Seks år senere åpnes muren. I 1989 hadde Stasi rundt 90 000 ansatte og om lag 170 000–190 000 uoffisielle medarbeidere. Fra 1992 kunne folk lese mappene Stasi hadde laget om dem.",
+    kontroller: [
+      "Stasi i 1989: ca. 91 000 ansatte og anslagsvis 170 000–190 000 IM-er (tallene varierer mellom kilder).",
+      "Stasi-arkivene åpnet for innsyn i 1992 (Stasi-Unterlagen-Gesetz, desember 1991).",
+      "Fjernsynstårnet åpnet 1969. Kirkenes rolle i opposisjonen (f.eks. mandagsdemonstrasjonene i Leipzig 1989).",
+      "Berlin delt i sektorer 1945, blokaden og luftbroen 1948–49, muren 13. august 1961, Kennedys tale 26. juni 1963, muren åpnet 9. november 1989.",
+      "Frau Weber, kartet og hendelsene i rommet er oppdiktet."
+    ]
   }
+
 ];

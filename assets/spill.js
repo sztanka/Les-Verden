@@ -1185,7 +1185,7 @@
       ["byen.html", "🏭", "Byen vokser", "Styr en industriby fra 1840 til 1910: kolera, jernbane, barnearbeid og streik."],
       ["okonomi.html", "💰", "Første lønn", "Få lønnen til å strekke til – og se hva lån koster."]]],
     ["historie", "🏺", "Historie og tenkning", "Reis i tid, finn sammenhenger og løs gåter.", [
-      ["fortelling.html", "🧭", "Velg din vei", "Tolv historiske fortellinger på norsk og engelsk – du tar valgene."],
+      ["fortelling.html", "🧭", "Velg din vei", "Tretten historiske fortellinger på norsk og engelsk – du tar valgene."],
       ["tidsreise.html", "⏳", "Tidsreisen", "Gjett året for en historisk hendelse."],
       ["tidsreise.html?modus=hverdag", "🏠", "Hverdagsbilder", "Gjett året ut fra en tekst om en helt vanlig dag."],
       ["tidslinjeduell.html", "⚔️", "Tidslinjeduellen", "Legg hendelser på riktig plass på tidslinja – alene eller to lag."],

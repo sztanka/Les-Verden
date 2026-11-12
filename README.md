@@ -40,7 +40,7 @@ les-verden/
 ├── lytt.html               Lytteøkt med stopp (talesyntese) for temaer og Reading Room-tekster
 ├── svartut.html            Svarte-ut-dikt / blackout poetry fra tekstene i Reading Room
 ├── skrivemal.html          Skrivemaler: postkort, avisforside, Wanted, bokomslag, booktrailer (malene står i assets/skrivemal.js)
-├── escape.html             Escape room – elleve rom med låser, lagmodus og papirversjon (data i data/escape.js)
+├── escape.html             Escape room – tretten rom med låser, lagmodus og papirversjon (data i data/escape.js)
 ├── begrepsgata.html        Begrepsgåta – gjett begrepet (bruker data/dagens-begrep.js)
 ├── kommune.html            Ordfører for en dag (data i data/kommune.js)
 ├── lov.html                Lag en lov – oppdiktede partier (data i data/lov.js)
@@ -430,6 +430,11 @@ Alle hovedsidene er sjekket med axe-core (WCAG 2.1 AA) i lyst og mørkt tema ute
 - Adresse: `?tema=&n=2–8&min=45|60|90&vurd=skriftlig|muntlig|quiz|ingen&fokus=<mål>&o=<økttyper I L F O U A>&v=<økt.plass.valg,…>`. `&elev=forlop[&okt=N]` gir elevvisning.
 - Temasiden har fått ankrene `#oppgaver` og `#sammendrag`.
 
+### Nye rom og fortellinger
+
+- Escape room `ellis-island` (en, «The Island of Tears», Ellis Island 1907) og `stasi-1983` (nb, «Den døde postkassa», Øst-Berlin 1983).
+- Velg din vei `titanic-1912` (en, «Third Class»): to norske søsken i tredje klasse, fire slutter.
+
 ### Runde T: nye måter å lese og tenke på
 
 - **Hverdagsbilder** (`tidsreise.html?modus=hverdag`, data i `data/hverdagsbilder.js`): ny modus i Tidsreisen med faner øverst. 21 tekster om en vanlig dag (1624–2020, norsk og engelsk), tre ledetråder fra vanskelig til lett (−15 poeng per ekstra ledetråd), forklaring og refleksjonsspørsmål. `&start=<id>` starter med et bestemt bilde.
@@ -577,7 +582,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261112c`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261112d`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
