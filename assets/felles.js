@@ -98,17 +98,74 @@ window.LV = window.LV || {};
   };
 
   // Engelske aksenter for opplesing. Gir bare de variantene nettleseren har stemmer til.
-  LV.AKSENTER = [["en-GB", "British English"], ["en-US", "American English"], ["en-AU", "Australian English"], ["en-IN", "Indian English"], ["en-IE", "Irish English"], ["en-ZA", "South African English"], ["en-NZ", "New Zealand English"], ["en-CA", "Canadian English"], ["en-SG", "Singapore English"], ["en-JM", "Jamaican English"], ["en-NG", "Nigerian English"]];
+  // [kode, navn, landside-id, flagg]
+  LV.AKSENTER = [["en-GB", "British English", "uk", "🇬🇧"], ["en-US", "American English", "usa", "🇺🇸"], ["en-AU", "Australian English", "australia", "🇦🇺"], ["en-IN", "Indian English", "india", "🇮🇳"], ["en-IE", "Irish English", "ireland", "🇮🇪"], ["en-ZA", "South African English", "southafrica", "🇿🇦"], ["en-NZ", "New Zealand English", "newzealand", "🇳🇿"], ["en-CA", "Canadian English", "canada", "🇨🇦"], ["en-SG", "Singapore English", "singapore", "🇸🇬"], ["en-JM", "Jamaican English", "jamaica", "🇯🇲"], ["en-NG", "Nigerian English", "nigeria", "🇳🇬"]];
+  // Lytteteksten på landsidene («Listen to the accent»), én per aksent
+  LV.AKSENTPROVE = {
+    "en-GB": "Hello! I live just outside Manchester. On Saturdays I usually take the bus into the city centre, grab a cup of tea with my mates and watch the football. It often rains, but we're used to that.",
+    "en-US": "Hey! I live in Ohio, in the Midwest. I take the school bus every morning, and after class I have soccer practice. On weekends my family likes to drive to the lake and have a barbecue.",
+    "en-AU": "G'day! I live in Brisbane. It's warm most of the year, so after school we often go to the beach. This arvo I'm meeting my mates for a swim, and then we'll have a barbie at my place.",
+    "en-IN": "Namaste! I live in Mumbai, one of the biggest cities in India. Every morning I take the local train to school, and it is always very crowded. In the evening I play cricket with my cousins.",
+    "en-IE": "Hi there! I'm from a small town in County Clare, not far from the Cliffs of Moher. Tourists come from all over the world to see them. In the evening there's often live music in the pub, and everyone joins in.",
+    "en-ZA": "Hello! I live in Cape Town, right below Table Mountain. On weekends we like to hike up the mountain or have a braai with friends. It's summer here now, so it's very hot.",
+    "en-NZ": "Kia ora! I'm from Wellington, the capital of New Zealand. It's a windy city by the sea. On Fridays my family gets fish and chips, and we eat them down by the harbour.",
+    "en-CA": "Hi! I live in Toronto. The winters here are really cold, so we go skating on outdoor rinks. In the summer we drive up north to a cabin by the lake. It's beautiful, eh?",
+    "en-SG": "Hello! I stay in a flat in Singapore with my parents and my grandmother. After school I go to the hawker centre near my block to eat chicken rice. Very nice, lah!",
+    "en-JM": "Wah gwaan! I live in Kingston, Jamaica. After school I like to play football on the beach with my friends. In the evening my grandmother cooks ackee and saltfish, and everything is irie.",
+    "en-NG": "Good afternoon! I live in Lagos, the biggest city in Nigeria. The traffic here is very heavy, so I leave home early for school. On Sundays my whole family meets, and we eat jollof rice together."
+  };
+
+  // ---------- Innspilte lydklipp (audio/lyd.js) ----------
+  // Lydgeneratoren (egen fil utenfor nettstedet) lager mp3-filer i audio/ og en liste
+  // i audio/lyd.js. Finnes et klipp for teksten og aksenten, spilles det
+  // i stedet for nettleserens stemme. Uten audio/lyd.js virker alt som før.
+  LV.lydHash = function (tekst) {
+    const s = String(tekst || "").trim().replace(/\s+/g, " ");
+    let h = 0x811c9dc5;
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    return h.toString(16).padStart(8, "0");
+  };
+  LV.lydNokkel = (tekst, kode) => String(kode || "en-GB").toLowerCase() + "|" + LV.lydHash(tekst);
+  LV.lydFil = function (tekst, kode) {
+    const f = LV.lyd && LV.lyd.filer && LV.lyd.filer[LV.lydNokkel(tekst, kode)];
+    return f ? "audio/" + f : null;
+  };
+  LV.lydAksenter = function () {
+    const har = new Set(Object.keys((LV.lyd && LV.lyd.filer) || {}).map(k => k.split("|")[0]));
+    return LV.AKSENTER.filter(([k]) => har.has(k.toLowerCase()));
+  };
+  let lydSpiller = null;
+  LV.stoppLyd = function () { if (lydSpiller) { lydSpiller.pause(); lydSpiller = null; } };
+  LV.spillLyd = function (tekst, kode, ferdig) {
+    const f = LV.lydFil(tekst, kode); if (!f) return false;
+    LV.stoppLyd();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    const a = new Audio(f); lydSpiller = a;
+    const slutt = () => { if (lydSpiller === a) lydSpiller = null; if (ferdig) ferdig(); };
+    a.addEventListener("ended", slutt); a.addEventListener("error", slutt);
+    a.play().catch(slutt);
+    return true;
+  };
+  if (!document.querySelector("script[data-lv-lyd]")) {
+    const s = document.createElement("script");
+    s.src = "audio/lyd.js"; s.dataset.lvLyd = "1";
+    s.onload = () => document.dispatchEvent(new Event("lv-lyd"));
+    (document.head || document.documentElement).appendChild(s);
+  }
   LV.aksentStemme = function (kode) {
     if (!("speechSynthesis" in window)) return null;
     const alle = speechSynthesis.getVoices(), k = String(kode || "en-GB").toLowerCase().replace("_", "-");
     return alle.find(v => v.lang && v.lang.toLowerCase().replace("_", "-") === k) || null;
   };
   LV.tilgjengeligeAksenter = function () {
-    return LV.AKSENTER.filter(([k]) => LV.aksentStemme(k));
+    const lyd = new Set(LV.lydAksenter().map(a => a[0]));
+    return LV.AKSENTER.filter(([k]) => lyd.has(k) || LV.aksentStemme(k));
   };
-  // Leser engelsk tekst med valgt aksent (faller tilbake til en engelsk stemme)
+  // Leser engelsk tekst med valgt aksent: innspilt klipp hvis det finnes,
+  // ellers nettleserens stemme (faller tilbake til en engelsk stemme)
   LV.lesEngelsk = function (tekst, kode, fart, ferdig) {
+    LV.stoppLyd();
+    if (LV.spillLyd(tekst, kode || "en-GB", ferdig)) return true;
     if (!("speechSynthesis" in window)) return false;
     const u = new SpeechSynthesisUtterance(tekst);
     u.lang = kode || "en-GB"; u.rate = fart || 0.9;
@@ -121,7 +178,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261112i";
+  LV.versjon = "20261124b";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {

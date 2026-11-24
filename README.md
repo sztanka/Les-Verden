@@ -30,7 +30,8 @@ les-verden/
 ├── planlegger.html         Planlegger for lærere: filtrer på kompetansemål og del elevlenker (data i data/kompetansemal.js)
 ├── muntlig.html            Muntlig og lytting: samtalekort, lytteøvelse og den varme stolen per tema (data i data/muntlig.js)
 ├── laere-engelsk.html      How to learn English: strategier for språklæring (data i data/laere-engelsk.js)
-├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter og opptak (data i data/uttale.js)
+├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter, «Guess the accent» og opptak (data i data/uttale.js)
+├── audio/                  Lydklipp og audio/lyd.js, laget av den frittstående lydgeneratoren (ikke en del av nettstedet)
 ├── lesedagbok.html         Lesedagbok for selvvalgte tekster (assets/lesedagbok.js)
 ├── kildedetektiv.html      Kildedetektiven: kildekritikk-spill (data i data/kildedetektiv.js)
 ├── skriftlig.html          Skriftlig eksamen i engelsk: videreformidling og samhandling (data i data/skriftlig.js)
@@ -335,6 +336,8 @@ Et avsnitt i en temafil kan ha `lett: ["…"]` i tillegg til `tekst`. Når minst
 
 `uttale.html` + `assets/uttale.js`, data i `data/uttale.js` (`lyder` med tips, eksempelord og minimale par til lyttequizen, `trykk` med stavelser og indeksen til trykkstavelsen, `trykkPar`, `stumme`, `vanskelige`, `aksentord`). Opplesingen bruker `LV.lesEngelsk(tekst, aksent)` i felles.js, og aksentlista viser bare stemmene nettleseren faktisk har (`LV.tilgjengeligeAksenter()`). «Ta opp deg selv» bruker mikrofonen og MediaRecorder; opptaket ligger bare i minnet og blir aldri lagret eller sendt. Merk: Mikrofonen virker bare på https (GitHub Pages) eller localhost, ikke når filen åpnes rett fra disken.
 
+**Lydklipp (ElevenLabs):** Den frittstående fila `lydgenerator-les-verden.html` (ligger ikke i repoet) lager mp3-klipp med KI-stemmer via ElevenLabs-API-et (nøkkelen ligger bare i minnet). Klippene lagres i `audio/<gruppe>/<aksentkode>/<slug>-<hash>.mp3`, enten rett i repo-mappen (File System Access API, Chrome/Edge) eller som zip. `audio/lyd.js` (`LV.lyd.filer`, nøkkel `aksentkode|hash`) lastes automatisk av felles.js. `LV.lesEngelsk` spiller klippet hvis teksten og aksenten finnes der, ellers brukes nettleserens stemme. Hashen er FNV-1a av teksten (`LV.lydHash`), så endret tekst krever nytt klipp. Nye tekster legges til i `GRUPPER` i generatoren, og tekstene der må være identiske med tekstene på nettstedet. Lyttetekstene på landsidene ligger i `LV.AKSENTPROVE` i felles.js. «Guess the accent» på uttalesiden vises når minst tre aksenter har klipp.
+
 Landsidene har en boks «🎧 Listen to the accent» med opplesing i landets aksent (hvis nettleseren har stemmen) og lenker til ekte opptak. Lenkene ligger i `LYTT` i `assets/land.js`. Lytteøvelsen på muntlig-sidene har aksentvalg for engelske temaer.
 
 ### Lagre og fortsette med fil
@@ -589,7 +592,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261112i`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261124b`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

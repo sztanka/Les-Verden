@@ -45,6 +45,7 @@
     // Aksenter
     h += '<section class="le-del" id="aksenter"><h2>🌍 Aksenter <span class="ls-en" lang="en">Varieties of English</span></h2><p class="mu-intro">Engelsk uttales forskjellig i Storbritannia, USA, Australia, India og andre land. Ingen aksent er «riktigere» enn en annen – det viktigste er at du blir forstått. Velg aksent øverst på siden, og lytt til setningene.</p>' +
       '<div class="ut-vanskelige">' + D.aksentord.map(a => '<div class="ut-vansk ut-aksentkort"><strong lang="en">' + esc(a.ord) + "</strong>" + knapp(a.tekst) + '<div class="ut-aksentknapper"></div><span>' + fmt(a.forskjell) + "</span></div>").join("") + "</div>" +
+      '<div class="ut-gjett" id="gjett" hidden><h3>🎧 Guess the accent</h3><p>Du hører en setning. Hvilken engelsk aksent er det? Ti runder.</p><p class="ut-kimerk">Stemmene er laget med kunstig intelligens (ElevenLabs). De er ikke ekte personer, men de er laget for å høres ut som folk fra landet.</p><div id="ut-gjett-inn"><button type="button" class="knapp hoved" id="ut-gjett-start">▶ Start</button></div></div>' +
       '<p class="mu-intro">Vil du høre ekte stemmer fra hele verden? Se landsidene: <a href="land.html">The English-speaking world</a>.</p></section>';
 
     // Opptak
@@ -53,7 +54,7 @@
       '<div class="mu-knapper"><button class="knapp" type="button" id="ut-hor">🔊 Hør setningen</button><button class="knapp hoved" type="button" id="ut-ta">⏺ Ta opp</button><button class="knapp" type="button" id="ut-stopp" hidden>⏹ Stopp</button><span class="status" id="ut-status" role="status"></span></div><audio id="ut-lyd" controls hidden></audio></section>';
 
     $("innhold").innerHTML = h;
-    kobleAksent(); kobleQuiz(); kobleTrykk(); kobleOpptak();
+    kobleAksent(); kobleGjett(); kobleQuiz(); kobleTrykk(); kobleOpptak();
     document.addEventListener("click", e => { const b = e.target.closest(".ut-les"); if (b) les(b.dataset.les); });
   }
 
@@ -62,7 +63,7 @@
       const liste = LV.tilgjengeligeAksenter();
       const sel = $("ut-aksent");
       sel.innerHTML = (liste.length ? liste : [["en-GB", "British English"]]).map(([k, n]) => '<option value="' + k + '"' + (k === aksent ? " selected" : "") + ">" + n + "</option>").join("");
-      $("ut-info").textContent = !kanLese ? "Nettleseren din kan ikke lese opp tekst." : liste.length < 2 ? "Nettleseren din har bare én engelsk stemme. Prøv Chrome eller Edge for flere aksenter." : "";
+      $("ut-info").textContent = LV.lydAksenter().length ? "Setningene under «Aksenter» er spilt inn med KI-stemmer (ElevenLabs). Andre ord leses av nettleserens stemme." : !kanLese ? "Nettleseren din kan ikke lese opp tekst." : liste.length < 2 ? "Nettleseren din har bare én engelsk stemme. Prøv Chrome eller Edge for flere aksenter." : "";
       document.querySelectorAll(".ut-aksentknapper").forEach((el, i) => {
         const a = LV.uttale.aksentord[i];
         el.innerHTML = liste.filter(([k]) => k === "en-GB" || k === "en-US").map(([k, n]) => '<button type="button" class="knapp liten ut-aksentles" data-k="' + k + '" data-t="' + esc(a.tekst) + '">' + (k === "en-GB" ? "🇬🇧" : "🇺🇸") + " " + n.split(" ")[0] + "</button>").join("");
@@ -70,8 +71,43 @@
     };
     fyll();
     if (kanLese) speechSynthesis.addEventListener("voiceschanged", fyll);
+    document.addEventListener("lv-lyd", fyll);
     $("ut-aksent").addEventListener("change", e => { aksent = e.target.value; });
     document.addEventListener("click", e => { const b = e.target.closest(".ut-aksentles"); if (b) { speechSynthesis.cancel(); LV.lesEngelsk(b.dataset.t, b.dataset.k, 0.9); } });
+  }
+
+  // Guess the accent – bare med innspilte klipp (audio/lyd.js)
+  function kobleGjett() {
+    const RUNDER = 10, boks = $("gjett"), inn = $("ut-gjett-inn");
+    const klipp = () => { const ut = []; LV.uttale.aksentord.forEach(a => LV.AKSENTER.forEach(ak => { if (LV.lydFil(a.tekst, ak[0])) ut.push({ t: a.tekst, ak }); })); return ut; };
+    const vis = () => { boks.hidden = new Set(klipp().map(x => x.ak[0])).size < 3; };
+    vis(); document.addEventListener("lv-lyd", vis);
+    let runde = 0, poeng = 0, naa = null, sist = null;
+    const stokk = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const spill = () => { if (sist) LV.lesEngelsk(sist.t, sist.ak[0]); };
+    const ny = () => {
+      const alle = klipp(); let k; do { k = alle[Math.floor(Math.random() * alle.length)]; } while (alle.length > 1 && sist && k.t === sist.t && k.ak[0] === sist.ak[0]);
+      naa = sist = k; runde++;
+      const aksenter = [...new Map(alle.map(x => [x.ak[0], x.ak])).values()].filter(a => a[0] !== k.ak[0]);
+      const valg = stokk([k.ak].concat(stokk(aksenter).slice(0, 3)));
+      inn.innerHTML = '<p class="ut-poeng">Runde ' + runde + " av " + RUNDER + " · " + poeng + " riktige</p>" +
+        '<p><button type="button" class="knapp" id="ut-gjett-hor">🔁 Hør igjen</button></p><div class="ut-valg">' +
+        valg.map(a => '<button type="button" class="knapp ut-gjett-valg" data-k="' + a[0] + '" lang="en">' + a[3] + " " + esc(a[1]) + "</button>").join("") +
+        '</div><p class="ut-tilbake" aria-live="polite" id="ut-gjett-svar"></p>';
+      spill();
+    };
+    inn.addEventListener("click", e => {
+      if (e.target.closest("#ut-gjett-start")) { runde = 0; poeng = 0; ny(); return; }
+      if (e.target.closest("#ut-gjett-hor")) { spill(); return; }
+      if (e.target.closest("#ut-gjett-neste")) { ny(); return; }
+      const b = e.target.closest(".ut-gjett-valg"); if (!b || !naa) return;
+      const ok = b.dataset.k === naa.ak[0]; if (ok) poeng++;
+      inn.querySelectorAll(".ut-gjett-valg").forEach(k => { k.disabled = true; if (k.dataset.k === naa.ak[0]) k.classList.add("riktig-svar"); });
+      $("ut-gjett-svar").innerHTML = (ok ? "✔ Riktig! " : "✘ Det var ") + '<a href="land.html?id=' + naa.ak[2] + '" lang="en">' + esc(naa.ak[1]) + "</a>." + ' Setningen var: <em lang="en">' + esc(naa.t) + "</em>" +
+        (runde < RUNDER ? ' <button type="button" class="knapp liten hoved" id="ut-gjett-neste">Neste →</button>' : "<br><strong>Ferdig! Du fikk " + (poeng) + " av " + RUNDER + ' riktige.</strong> <button type="button" class="knapp liten hoved" id="ut-gjett-start">Spill igjen</button>');
+      inn.querySelector(".ut-poeng").textContent = "Runde " + runde + " av " + RUNDER + " · " + poeng + " riktige";
+      naa = null;
+    });
   }
 
   function kobleQuiz() {

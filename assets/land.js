@@ -221,12 +221,13 @@
     };
     const ly = LYTT[info.id];
     if (ly) {
-      const harTale = "speechSynthesis" in window;
+      const harTale = "speechSynthesis" in window || !!LV.lydFil(LV.AKSENTPROVE[ly[0]], ly[0]);
       h += '<section class="land-lytt"><h2>🎧 Listen to the accent</h2><p>' + formater(ly[2]) + "</p>" +
-        (harTale ? '<p><button type="button" class="knapp" id="land-lytt-knapp" data-k="' + ly[0] + '">🔊 Hear a computer voice in ' + ly[1] + '</button> <span class="land-lytt-info" id="land-lytt-info"></span></p>' : "") +
+        '<p><button type="button" class="knapp" id="land-lytt-knapp" data-k="' + ly[0] + '" data-n="' + LV.esc(ly[1]) + '"' + (harTale ? "" : " hidden") + '>🔊 Hear a computer voice in ' + ly[1] + '</button> <span class="land-lytt-info" id="land-lytt-info"></span></p>' +
+        '<details class="land-lytt-tekst"><summary>Show the text</summary><p lang="en">' + LV.esc(LV.AKSENTPROVE[ly[0]] || "") + "</p></details>" +
         '<p>Real voices are much better than computer voices. Listen to people from the country:</p><ul class="kilder">' + ly[3].map(([t, u]) => '<li><a href="' + u + '" target="_blank" rel="noopener">' + LV.esc(t) + "</a></li>").join("") +
         '<li><a href="https://www.dialectsarchive.com/" target="_blank" rel="noopener">IDEA – International Dialects of English Archive</a> (choose the country)</li></ul>' +
-        '<p lang="nb" class="land-lytt-tips">Lytteoppgave: Hør på et opptak i ett minutt. Skriv ned tre ord som uttales annerledes enn du er vant til. Se også <a href="uttale.html#aksenter">uttalesiden</a>.</p></section>';
+        '<p lang="nb" class="land-lytt-tips">Lytteoppgave: Hør på et opptak i ett minutt. Skriv ned tre ord som uttales annerledes enn du er vant til. Se også <a href="uttale.html#aksenter">uttalesiden</a>, der du kan øve på å kjenne igjen aksenter.</p></section>';
     }
 
     if (land.kilder) {
@@ -259,11 +260,22 @@
   // ---------- Ordforklaringer ----------
   function kobleLytt() {
     const b = document.getElementById("land-lytt-knapp"); if (!b) return;
+    const tekst = LV.AKSENTPROVE[b.dataset.k];
+    const info = document.getElementById("land-lytt-info");
+    const merk = () => {
+      if (LV.lydFil(tekst, b.dataset.k)) {
+        b.hidden = false;
+        b.textContent = "🔊 Listen to an AI voice in " + b.dataset.n;
+        info.textContent = "The voice is made with artificial intelligence (ElevenLabs). It is not a real person.";
+      }
+    };
+    merk(); document.addEventListener("lv-lyd", merk);
     b.addEventListener("click", () => {
+      if (LV.lydFil(tekst, b.dataset.k)) { LV.lesEngelsk(tekst, b.dataset.k); return; }
       speechSynthesis.cancel();
       const har = LV.aksentStemme(b.dataset.k);
-      document.getElementById("land-lytt-info").textContent = har ? "" : "Your browser has no voice for this accent, so you hear another English voice.";
-      LV.lesEngelsk("Hello! Welcome to our country. I hope you enjoy your visit, and that you learn a lot about how we live and talk here.", b.dataset.k, 0.95);
+      info.textContent = har ? "" : "Your browser has no voice for this accent, so you hear another English voice.";
+      LV.lesEngelsk(tekst, b.dataset.k, 0.95);
     });
   }
   function kobleOrd() {

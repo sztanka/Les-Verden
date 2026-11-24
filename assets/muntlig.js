@@ -130,7 +130,7 @@
 
     // Aksentvalg (engelske temaer): bare stemmene nettleseren har
     if ($("mu-aksent")) {
-      const fyll = () => { const l = LV.tilgjengeligeAksenter(); if (!l.length) return; const valgt = $("mu-aksent").value; $("mu-aksent").innerHTML = l.map(([k, n]) => '<option value="' + k + '"' + (k === valgt ? " selected" : "") + ">" + n + "</option>").join(""); };
+      const fyll = () => { const l = LV.AKSENTER.filter(([k]) => LV.aksentStemme(k)); if (!l.length) return; const valgt = $("mu-aksent").value; $("mu-aksent").innerHTML = l.map(([k, n]) => '<option value="' + k + '"' + (k === valgt ? " selected" : "") + ">" + n + "</option>").join(""); };
       fyll(); if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", fyll);
     }
 

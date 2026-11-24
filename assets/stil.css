@@ -2343,6 +2343,12 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .ut-les s { color: var(--aksent); }
 .ut-ord { font-family: var(--font-ui); background: var(--flate-2); border-radius: 999px; padding: .25rem .7rem; }
 .ut-quiz { margin-top: .5rem; }
+.ut-gjett { background: var(--flate); border: 1px solid var(--linje); border-left: 6px solid var(--engelsk); border-radius: 12px; padding: .8rem 1rem; margin: 1rem 0; font-family: var(--font-ui); }
+.ut-gjett h3 { margin: 0 0 .3rem; }
+.ut-kimerk { color: var(--tekst-dempet); font-size: .88rem; }
+.ut-gjett-valg.riktig-svar { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
+.land-lytt-tekst { margin: .3rem 0 .8rem; }
+.land-lytt-tekst summary { cursor: pointer; font-family: var(--font-ui); }
 .ut-valg { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
 .ut-velg.riktig-svar { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
 .ut-tilbake { margin: .4rem 0 0; } .ut-poeng { margin: .2rem 0 0; color: var(--tekst-dempet); font-size: .85rem; }
@@ -4921,3 +4927,4 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .tb-kreditt a { color: inherit; }
 @media (min-width: 900px) { .tekstbilder:not(.flere) .tekstbilde { max-width: 40rem; } }
 @media print { .tekstbilde img { max-height: 10cm; } }
+
