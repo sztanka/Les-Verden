@@ -83,10 +83,54 @@
       status();
       $("es-spill").innerHTML = '<section class="ko-kort es-kort">' + (LV.bildeFigurer ? LV.bildeFigurer("escape:" + r.id, r.sprak === "en" ? "en" : "nb") : "") + '<p class="es-intro">' + fmt(r.intro) + '</p>' +
         '<p class="es-lagvalg"><label><input type="checkbox" id="es-lag"' + (lag ? " checked" : "") + "> " + tx.lag + '</label><span class="es-laginfo">' + tx.lagInfo + "</span></p>" +
+        '<div class="es-romvalg" lang="nb"><p><strong>📱 Delte ledetråder:</strong> Hvert lagmedlem får bare noen av tekstbitene på sin egen mobil og må lese dem høyt for de andre. Denne skjermen brukes til å svare.</p>' + (ES ? '<p class="rv-merk">Rommet er åpent – se romkoden over.</p>' : '<p><button type="button" class="knapp" id="es-romstart">📱 Åpne rom for laget</button></p>') + "</div>" +
         '<button type="button" class="knapp hoved" id="es-start">' + tx.start2 + '</button></section>' +
         '<p class="es-papirlenke" lang="nb"><a href="escape.html?id=' + encodeURIComponent(r.id) + '&amp;papir=1">' + T.nb.papir + "</a> – " + T.nb.papirKort + "</p>";
       $("es-start").addEventListener("click", () => { lag = $("es-lag").checked; start(); las(); });
+      const rs = $("es-romstart"); if (rs) rs.addEventListener("click", apneRom);
+      if (ES) sendEs({ fase: "venter" });
     };
+
+    // ---------- Delte ledetråder (romkode) ----------
+    let ES = null, apen = false;
+    const medlemmer = () => ES ? [...ES.rom.spillere.values()].filter(x => x.tilkoblet).sort((a, b) => a.id.localeCompare(b.id, "nb", { numeric: true })) : [];
+    const fordeling = () => { const m = medlemmer(), l = r.laser[n], f = new Map(m.map(x => [x.id, []])); if (l && m.length) l.tekst.forEach((t, i) => f.get(m[(i + n) % m.length].id).push(t)); return f; };
+    function sendEs(ekstra) {
+      if (!ES) return;
+      const l = r.laser[Math.min(n, r.laser.length - 1)], f = fordeling();
+      medlemmer().forEach(x => ES.rom.send(x.id, Object.assign({ t: "es", en: sp === "en", rom: r.tittel, ikon: r.ikon, nr: Math.min(n + 1, r.laser.length), av: r.laser.length, tittel: l.tittel, oppgave: l.oppgave, biter: f.get(x.id) || [] }, ekstra)));
+    }
+    function tegnEs() {
+      if (!ES) return;
+      const m = medlemmer(), f = fordeling();
+      $("es-rom").innerHTML = '<div class="rkl-linje"><div class="rkl-kodedel"><span class="rkl-ledetekst">Romkode for laget</span><span class="rkl-kode">' + ES.rom.kode + '</span><span class="rkl-lenke">' + esc(ES.rom.lenke.replace(/^https?:\/\//, "").replace(/\?.*$/, "")) + '</span></div><div class="rkl-qr" aria-hidden="true">' + ES.qr + '</div><p class="rkl-tall">' +
+        (m.length ? m.map(x => esc(x.navn) + (es() ? " (" + (f.get(x.id) || []).length + " " + (sp === "en" ? ((f.get(x.id) || []).length === 1 ? "clue" : "clues") : ((f.get(x.id) || []).length === 1 ? "ledetråd" : "ledetråder")) + ")" : "")).join(" · ") : "Ingen er med ennå.") + "</p></div>";
+      const note = $("es-ledenote"); if (note) note.innerHTML = ledeNote();
+    }
+    const es = () => !!document.querySelector(".es-las");
+    const ledeNote = () => { const m = medlemmer(); return m.length ? "📱 " + (sp === "en" ? "The clues are split between " + m.map(x => esc(x.navn)).join(", ") + ". Read them aloud to each other!" : "Ledetrådene er fordelt på mobilene til " + m.map(x => esc(x.navn)).join(", ") + ". Les dem høyt for hverandre!") : ""; };
+    async function apneRom() {
+      const knapp = $("es-romstart"); if (knapp) knapp.disabled = true;
+      if (!$("es-rom")) $("es-spill").insertAdjacentHTML("beforebegin", '<div id="es-rom" lang="nb"></div>');
+      try {
+        await LV.lastSkript("assets/rom.js");
+        const rom = await LV.rom.vert({ spill: "escape",
+          onBli: () => { tegnEs(); sendEs(apen ? { fase: "apen" } : es() ? { fase: "las" } : { fase: "venter" }); visLedetrader(); },
+          onForlat: () => { tegnEs(); if (es() && !apen) { sendEs({ fase: "las" }); visLedetrader(); } },
+          onMelding: () => {} });
+        ES = { rom, qr: await LV.rom.qr(rom.lenke).catch(() => "") };
+        tegnEs(); intro();
+      } catch (er) { $("es-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); if (knapp) knapp.disabled = false; }
+    }
+    // Skjul tekstbitene på fellesskjermen når de ligger på mobilene
+    function visLedetrader() {
+      const k = $("es-spill").querySelector(".es-kort"); if (!k || !es()) return;
+      const har = medlemmer().length > 0;
+      k.querySelectorAll(":scope > p:not(.es-ledenote), :scope > blockquote").forEach(x => { x.hidden = har; });
+      let note = $("es-ledenote");
+      if (!note) { k.querySelector(".es-las").insertAdjacentHTML("beforebegin", '<p class="es-ledenote" id="es-ledenote"></p>'); note = $("es-ledenote"); }
+      note.innerHTML = ledeNote(); note.hidden = !har;
+    }
 
     const rolleRad = () => {
       if (!lag) return "";
@@ -106,6 +150,8 @@
         '<p class="es-melding" id="es-melding" role="status" aria-live="assertive"></p><button type="button" class="knapp liten" id="es-hint">' + tx.hint + '</button><p class="es-hinttekst" id="es-hinttekst" hidden></p></div></section>';
       $("es-spill").querySelector("h2").focus({ preventScroll: true });
       $("es-status").scrollIntoView({ behavior: "smooth", block: "start" });
+      apen = false;
+      if (ES) { visLedetrader(); sendEs({ fase: "las" }); tegnEs(); }
 
       const tegnRekke = () => {
         $("es-rekke").innerHTML = orden.map((j, pos) => '<li class="av-ledd" data-pos="' + pos + '"><span class="av-nr" aria-hidden="true">' + (pos + 1) + '</span><span class="av-tekst">' + esc(l.rekke[j]) + '</span><span class="av-pil"><button type="button" data-opp="' + pos + '" aria-label="' + tx.flytt[0] + '"' + (pos ? "" : " disabled") + '>↑</button><button type="button" data-ned="' + pos + '" aria-label="' + tx.flytt[1] + '"' + (pos < orden.length - 1 ? "" : " disabled") + ">↓</button></span></li>").join("");
@@ -141,6 +187,11 @@
       $("es-spill").querySelectorAll(".es-las button, .es-las input, .es-las select").forEach(x => { x.disabled = true; });
       m.className = "es-melding ok";
       m.innerHTML = tx.apen + " " + fmt(l.forklaring);
+      if (ES) {
+        apen = true;
+        medlemmer().forEach(x => ES.rom.send(x.id, { t: "es", fase: "apen", en: sp === "en", nr: n, av: r.laser.length, tittel: l.tittel, oppgave: l.oppgave, forklaring: l.forklaring, biter: [] }));
+        $("es-spill").querySelectorAll(".es-kort > [hidden]").forEach(x => { x.hidden = false; });
+      }
       m.insertAdjacentHTML("afterend", '<button type="button" class="knapp hoved" id="es-videre">' + (n < r.laser.length ? tx.videre : tx.ut) + "</button>");
       $("es-videre").addEventListener("click", () => (n < r.laser.length ? las() : ferdig()));
       $("es-videre").focus();
@@ -148,6 +199,7 @@
 
     const ferdig = () => {
       clearInterval(tikk);
+      if (ES) medlemmer().forEach(x => ES.rom.send(x.id, { t: "es", fase: "ferdig", en: sp === "en", tekst: (sp === "en" ? "Time: " : "Tid: ") + mmss(sek + straff) }));
       status();
       $("es-spill").innerHTML = '<section class="ko-kort es-kort es-ferdig"><p class="kd-merke" aria-hidden="true">🗝️</p><h2 tabindex="-1">' + tx.fri + "</h2><p>" + fmt(r.slutt) + '</p><p class="es-resultat">' + tx.bruktTid + ": <strong>" + mmss(sek + straff) + "</strong> · " + hint + " " + tx.hintBrukt + "</p>" +
         '<p><button type="button" class="knapp hoved" id="es-igjen">' + tx.igjen + '</button> <a class="knapp" href="escape.html">' + tx.andre + "</a>" + (tema ? ' <a class="knapp" href="tema.html?id=' + encodeURIComponent(tema.id) + '">' + tx.les + " «" + esc(tema.tittel) + "» →</a>" : "") + "</p></section>";

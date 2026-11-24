@@ -38,7 +38,8 @@
       "<h2>Slik foregår møtet</h2>" + gangHtml() +
       '<section class="fn-avstemning" aria-labelledby="fn-av-h"><h2 id="fn-av-h">🗳️ Avstemning</h2><p class="mu-intro">Ordstyreren teller stemmene for hvert punkt. Et punkt er vedtatt hvis det får flere for-stemmer enn mot-stemmer.</p>' +
       s.punkter.map((p, i) => '<div class="fn-punkt" data-i="' + i + '"><p class="fn-punkt-tekst"><strong>Punkt ' + (i + 1) + ":</strong> " + esc(p) + '</p><div class="fn-tellere">' + [["for", "For"], ["mot", "Mot"], ["av", "Avstår"]].map(([k, n]) => '<div class="fn-teller fn-' + k + '" role="group" aria-label="' + n + ", punkt " + (i + 1) + '"><span>' + n + '</span><button type="button" class="knapp liten" data-k="' + k + '" data-d="-1" aria-label="Én stemme mindre ' + n.toLowerCase() + '">−</button><output id="fn-' + i + "-" + k + '">0</output><button type="button" class="knapp liten" data-k="' + k + '" data-d="1" aria-label="Én stemme mer ' + n.toLowerCase() + '">+</button></div>').join("") + '</div><p class="fn-utfall" id="fn-u' + i + '" aria-live="polite">Ingen stemmer ennå.</p></div>').join("") +
-      '<button type="button" class="knapp liten" id="fn-null">↻ Nullstill stemmene</button></section>' +
+      '<button type="button" class="knapp liten" id="fn-null">↻ Nullstill stemmene</button>' +
+      '<div class="fn-romdel" lang="nb"><h3>📱 Delegasjonene på egne enheter</h3><p class="mu-intro">Åpne et rom, så velger delegasjonene land på mobilen eller PC-en og ser det hemmelige rollekortet der. Når du starter avstemningen, leverer hvert land én stemmeseddel, og stemmene telles opp her.</p><p id="fn-romknapp"><button type="button" class="knapp" id="fn-romstart">📱 Åpne rom for delegasjonene</button></p><div id="fn-rom"></div></div></section>' +
       "<h2>Nyttige fraser</h2>" + fraserHtml() +
       '<section class="le-del"><h2>Etter rollespillet</h2>' + [["fn-e1", "Hvilke punkter ble vedtatt? Hvorfor tror du det gikk slik?"], ["fn-e2", "Var det vanskelig å mene noe du kanskje ikke er enig i selv? Hva lærte du av det?"], ["fn-e3", "Generalforsamlingens resolusjoner er anbefalinger og ikke bindende for landene. Hva betyr det for hvor mye FN kan få gjort?"]].map(([id, l]) => '<label class="mu-notat" for="' + id + '"><span>' + l + '</span><textarea id="' + id + '" rows="3"></textarea></label>').join("") + "</section>" +
       '<div class="fn-utskrift" aria-hidden="true">' + D().land.map(l => rollekort(s, l, true)).join("") + "</div>";
@@ -56,6 +57,27 @@
       tall[i][b.dataset.k] = Math.max(0, tall[i][b.dataset.k] + +b.dataset.d); vis(i);
     }));
     $("fn-null").addEventListener("click", () => { s.punkter.forEach((_, i) => { tall[i] = { for: 0, mot: 0, av: 0 }; vis(i); }); });
+    // ---------- Delegasjonene på egne enheter (romkode) ----------
+    $("fn-romstart").addEventListener("click", async () => {
+      $("fn-romknapp").hidden = true;
+      const VALG = [{ id: "for", tekst: "For" }, { id: "mot", tekst: "Mot" }, { id: "av", tekst: "Avstår" }];
+      const tell = st => { s.punkter.forEach((_, i) => { tall[i] = { for: 0, mot: 0, av: 0 }; st.forEach(v => { if (v["p" + i]) tall[i][v["p" + i]]++; }); vis(i); }); };
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romvert.js"); await LV.lastSkript("assets/romdelegasjon.js");
+        await LV.romDelegasjon.apne($("fn-rom"), {
+          tittel: s.tittel,
+          delegasjoner: D().land.map(l => ({ id: l.id, navn: l.navn, ikon: "🏳️", farge: l.farger[0], kanStemme: true })),
+          rolle: id => { const l = D().land.find(x => x.id === id), r = s.roller[id]; return { navn: "Delegasjonen fra " + l.navn, ikon: "🏳️", farge: l.farger[0], seksjoner: [
+            { tittel: "Fakta om landet", liste: l.fakta }, { tittel: "🎯 Målet ditt", tekst: r.mal },
+            { tittel: "Hva mener dere om punktene?", liste: s.punkter.map((p, i) => ST[r.st[i][0]][0] + " " + ST[r.st[i][0]][1] + " – punkt " + (i + 1) + ": " + p + " (" + r.st[i][1] + ")") },
+            { tittel: "🛑 Rød linje", tekst: r.rod }, { tittel: "💡 Tips", tekst: r.tips }] }; },
+          sporsmal: s.punkter.map((p, i) => ({ id: "p" + i, tekst: "Punkt " + (i + 1) + ": " + p, valg: VALG })),
+          onStemmer: st => tell(st),
+          onStopp: st => { tell(st); return s.punkter.map((_, i) => "Punkt " + (i + 1) + ": " + $("fn-u" + i).textContent); },
+          onLukket: () => { $("fn-romknapp").hidden = false; }
+        });
+      } catch (er) { $("fn-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("fn-romknapp").hidden = false; }
+    });
     $("fn-skriv").addEventListener("click", () => { document.body.classList.add("fn-skriv-alle"); window.print(); setTimeout(() => document.body.classList.remove("fn-skriv-alle"), 500); });
   }
 

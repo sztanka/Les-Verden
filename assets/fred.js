@@ -42,7 +42,8 @@
       '<section id="bordet"><h2>🪑 Forhandlingsbordet</h2><p>Ordstyreren tar sakene én etter én. Når delegasjonene ved bordet er enige (eller har stemt), velger dere alternativet her. Poengene er hemmelige til dere trykker «Vis resultatet».</p>' +
       '<details class="fk-hendelser"><summary>⚡ Overraskelser læreren kan lese opp underveis</summary>' + k.hendelser.map(h => "<h3>" + esc(h.tittel) + "</h3><p>" + esc(h.tekst) + "</p>").join("") + "</details>" +
       '<form id="fk-skjema">' + k.saker.map((s, i) => '<fieldset class="fk-sak"><legend><span class="fk-nr">' + (i + 1) + "</span> " + esc(s.tittel) + "</legend><p>" + esc(s.sporsmal) + "</p>" + s.valg.map(v => '<label class="fk-valg"><input type="radio" name="' + s.id + '" value="' + v.id + '"> <span>' + esc(v.tekst) + "</span></label>").join("") + "</fieldset>").join("") +
-      '<p><button type="submit" class="knapp hoved">📊 Vis resultatet</button> <span id="fk-mangler" role="status" aria-live="polite"></span></p></form><div id="fk-resultat"></div></section>' +
+      '<p><button type="submit" class="knapp hoved">📊 Vis resultatet</button> <span id="fk-mangler" role="status" aria-live="polite"></span></p></form><div id="fk-resultat"></div>' +
+      '<div class="fn-romdel"><h3>📱 Delegasjonene på egne enheter</h3><p class="mu-intro">Åpne et rom, så velger delegasjonene hvem de er på mobilen eller PC-en og ser det hemmelige rollekortet der. Når du starter avstemningen, stemmer delegasjonene ved bordet over hver sak. Alternativet med flest stemmer krysses av i skjemaet over – så trykker du «Vis resultatet».</p><p id="fk-romknapp"><button type="button" class="knapp" id="fk-romstart">📱 Åpne rom for delegasjonene</button></p><div id="fk-rom"></div></div></section>' +
       '<section id="virkeligheten"><h2>🌍 Virkeligheten</h2><p>Når dere har laget avtalen deres: Hva ble faktisk bestemt – og hva skjedde etterpå?</p><button type="button" class="knapp" id="fk-ekte">Vis hva som skjedde i virkeligheten</button><div id="fk-ekteboks" hidden></div></section>' +
       '<section class="fd-snakk"><h2>💬 Snakk og skriv</h2><ol>' + k.sporsmal.map((q, i) => '<li><label for="fk-q-' + i + '">' + esc(q) + '</label><textarea id="fk-q-' + i + '" rows="3"></textarea></li>').join("") + "</ol>" +
       "<p>" + [tema].concat(koblet).filter(Boolean).map(t => '<a class="knapp" href="tema.html?id=' + encodeURIComponent(t.id) + '">Les temaet «' + esc(t.tittel) + "» →</a>").join(" ") + "</p></section>";
@@ -74,6 +75,33 @@
       $("fk-resultat").innerHTML = tabell(resultat(valgt), "Resultatet av deres avtale") + '<p class="tr-tenk">💭 Hvem vant mest? Hvem tapte? Hvorfor tror dere delegasjonene i lobbyen fikk så lite?</p>';
       $("fk-resultat").querySelector("h3").setAttribute("tabindex", "-1"); $("fk-resultat").querySelector("h3").focus();
       window.__fkValgt = valgt;
+    });
+    // ---------- Delegasjonene på egne enheter (romkode) ----------
+    $("fk-romstart").addEventListener("click", async () => {
+      $("fk-romknapp").hidden = true;
+      const flertall = st => k.saker.map(sak => {
+        const n = {}; st.forEach(v => { if (v[sak.id]) n[v[sak.id]] = (n[v[sak.id]] || 0) + 1; });
+        const maks = Math.max(0, ...Object.values(n)), beste = Object.keys(n).filter(x => n[x] === maks);
+        return { sak, n, vinner: beste.length === 1 ? beste[0] : null, sum: Object.values(n).reduce((a, b) => a + b, 0) };
+      });
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romvert.js"); await LV.lastSkript("assets/romdelegasjon.js");
+        await LV.romDelegasjon.apne($("fk-rom"), {
+          tittel: k.tittel,
+          delegasjoner: k.delegasjoner.map(d => ({ id: d.id, navn: d.navn, ikon: d.ikon, farge: d.farge, kanStemme: !!d.stemme })),
+          rolle: id => { const d = k.delegasjoner.find(x => x.id === id); return { navn: d.navn, ikon: d.ikon, farge: d.farge, seksjoner: [
+            { tittel: "Leder", tekst: d.leder + (d.stemme ? " – dere sitter ved forhandlingsbordet og har stemme." : " – dere er i lobbyen og har ikke stemme.") },
+            { tittel: "Hvem er dere?", tekst: d.hvem }, { tittel: "Målene deres", tekst: d.mal }, { tittel: "🤫 Hemmelig mål", tekst: d.hemmelig }]
+            .concat(k.saker.map(sak => ({ tittel: "Saken: " + sak.tittel, liste: sak.valg.map(v => stjerner(v.poeng[d.id] || 0) + ": " + v.tekst) }))) }; },
+          sporsmal: k.saker.map(sak => ({ id: sak.id, tekst: sak.tittel + ": " + sak.sporsmal, valg: sak.valg.map((v, i) => ({ id: v.id, tekst: String.fromCharCode(65 + i) + ") " + v.tekst })) })),
+          onStopp: st => flertall(st).map(x => {
+            if (x.vinner) { const r = $("fk-skjema").querySelector('input[name="' + x.sak.id + '"][value="' + x.vinner + '"]'); if (r) r.checked = true; }
+            const i = x.sak.valg.findIndex(v => v.id === x.vinner);
+            return x.sak.tittel + ": " + (x.vinner ? "alternativ " + String.fromCharCode(65 + i) + " vant (" + x.n[x.vinner] + " av " + x.sum + " stemmer)" : x.sum ? "uavgjort – ordstyreren må avgjøre" : "ingen stemmer");
+          }),
+          onLukket: () => { $("fk-romknapp").hidden = false; }
+        });
+      } catch (er) { $("fk-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("fk-romknapp").hidden = false; }
     });
     $("fk-ekte").addEventListener("click", () => {
       const ekte = {}; k.saker.forEach(s => { ekte[s.id] = s.ekte; });

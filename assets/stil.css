@@ -5211,3 +5211,18 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .klr-status-liste { list-style: none; padding: 0; display: grid; gap: .4rem; font-family: var(--font-ui); }
 .klr-status-liste li { display: grid; grid-template-columns: minmax(10rem, 1.2fr) 2fr minmax(8rem, 1fr); gap: .6rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-left: 8px solid var(--kl); border-radius: 10px; padding: .4rem .8rem; }
 @media (max-width: 640px) { .klr-status-liste li { grid-template-columns: 1fr; gap: .1rem; } }
+
+/* ---------- Escape room med delte ledetråder ---------- */
+.es-romvalg { border: 2px dashed var(--linje); border-radius: 12px; padding: .5rem .9rem; margin: .8rem 0; font-family: var(--font-ui); }
+.es-ledenote { font-family: var(--font-ui); font-weight: 600; background: var(--flate-2); border-radius: 10px; padding: .5rem .8rem; }
+.esr-las { color: var(--tekst-dempet); margin: 0 0 .4rem; }
+.esr-h { font-size: 1.1rem; margin: 1rem 0 .4rem; }
+.esr-biter { text-align: left; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .4rem .9rem; }
+.esr-ingen { font-style: italic; }
+.fn-romdel { border: 2px dashed var(--linje); border-radius: 12px; padding: .5rem 1rem; margin: 1rem 0; }
+.fn-romdel h3 { margin-top: .3rem; }
+.rdl-seddel { display: grid; gap: .7rem; text-align: left; background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .8rem 1rem; margin: .8rem 0; }
+.rdl-seddel h2 { margin: 0; font-size: 1.2rem; }
+.rdl-sp { flex-direction: column; }
+.rdl-sp label { display: flex; gap: .4rem; align-items: flex-start; }
+.rdl-seddel .knapp { justify-self: start; }

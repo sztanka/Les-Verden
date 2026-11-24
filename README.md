@@ -33,6 +33,8 @@ les-verden/
 ├── bombe.html              Pass the Bomb – romspill (assets/bombe.js; vert via assets/romvert.js)
 ├── passord.html            Password – romspill i lag (assets/passord.js)
 ├── (assets/romklasse.js)   LV.romKlasse: klassesvar med romkode, brukt i valg.html, hjorner.html og exit.html
+├── (assets/romdelegasjon.js) LV.romDelegasjon: delegasjonsrom med rollekort og stemmesedler (fn.html, fred.html)
+├── (assets/*-klient.js)    Visninger på elevenes enheter for tidslinjeduell, klima og escape (lastes i rom.html)
 ├── rom.html                Bli med i et rom med romkode (assets/rom.js = LV.rom, assets/romklient.js; PeerJS i assets/vendor/)
 ├── dypdykk.html            Dypdykk: kategorispill der sjeldne svar gir mest (data i data/dypdykk.js)
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter, «Guess the accent» og opptak (data i data/uttale.js)
@@ -597,7 +599,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261124k`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261124l`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
