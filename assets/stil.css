@@ -5168,3 +5168,22 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .dd-klasseliste { list-style: none; padding: 0; display: grid; gap: .3rem; }
 .dd-klasseliste li { display: flex; justify-content: space-between; gap: .8rem; flex-wrap: wrap; border-radius: 10px; padding: .35rem .8rem; }
 .dd-klasseliste li.dd-ingen { background: var(--flate-2); }
+
+/* ---------- Tidslinjeduellen i rom ---------- */
+.tdr-kolonner { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin: 1rem 0; }
+.tdr-kolonne { background: var(--flate); border: 1px solid var(--linje); border-top: 6px solid var(--tdr-f); border-radius: 12px; padding: .6rem .8rem; font-family: var(--font-ui); min-width: 0; }
+.tdr-kolonne h3 { margin: 0 0 .3rem; display: flex; justify-content: space-between; gap: .5rem; }
+.tdr-p { font-weight: 800; }
+.tdr-folk { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0 0 .4rem; }
+.tdr-person { font: inherit; font-size: .85rem; border: 1px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); border-radius: 999px; padding: .1rem .6rem; cursor: pointer; }
+.tdr-person:hover, .tdr-person:focus-visible { border-color: var(--tdr-f); }
+.tdr-status { font-weight: 700; margin: 0 0 .3rem; }
+.tdr-mini { list-style: none; padding: 0; margin: 0; display: grid; gap: .2rem; font-size: .85rem; }
+.tdr-mini li { border-left: 3px solid var(--tdr-f); padding-left: .4rem; overflow-wrap: anywhere; }
+.tdr-mini li.tdr-ny { background: var(--gul-lys); color: #222; }
+.tdr-tavlekort .td-tekst { font-size: clamp(1.2rem, 2.6vw, 1.8rem); }
+.tdr-fasit { font-size: 1.3rem; margin: .4rem 0 0; }
+.tdr-lag { font-family: var(--font-ui); font-weight: 600; border-left: 6px solid var(--tdr-f); padding-left: .5rem; text-align: left; }
+.tdr-stilling { font-family: var(--font-ui); }
+.td-plass.td-valgt { border-style: solid; border-color: var(--tekst); background: var(--gul-lys); color: #222; }
+.td-plass:disabled:not(.td-valgt) { opacity: .45; background: transparent; cursor: default; }
