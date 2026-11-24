@@ -53,7 +53,8 @@
       '<a class="knapp liten" href="https://www.britannica.com/search?query=' + enc(q) + '" target="_blank" rel="noopener" lang="en">📕 Britannica</a>' +
       '<a class="knapp liten" href="' + ddg("history.com", q) + '" target="_blank" rel="noopener" lang="en">📺 History.com</a>' +
       '<a class="knapp liten" href="' + ddg("fn.no", q) + '" target="_blank" rel="noopener">🇺🇳 FN-sambandet</a>' +
-      '<a class="knapp liten" href="' + ddg("snl.no", q) + '" target="_blank" rel="noopener">📘 Mer fra SNL</a></p>' +
+      '<a class="knapp liten" href="' + ddg("snl.no", q) + '" target="_blank" rel="noopener">📘 Mer fra SNL</a>' +
+      '<a class="knapp liten" href="ordbok.html?q=' + enc(q) + '">📖 Ordboka</a></p>' +
       '<p class="ks-merk">Britannica åpner sitt eget søk. For History.com, FN-sambandet og flere SNL-treff brukes et søk i DuckDuckGo som bare viser sider fra det nettstedet. Lenkene åpnes i ny fane.</p>';
     $("ks-resultater").innerHTML = ["lille", "snl", "wiki"].map(k => '<section class="ks-kilde" id="ks-' + k + '"><h2>' + OM[k].ikon + " " + OM[k].navn + (k === "wiki" ? (en ? " (English)" : " (norsk)") : "") + '</h2><p class="ks-laster">Søker …</p></section>').join("");
     const vis = (k, html) => { if (nr === teller) $("ks-" + k).innerHTML = "<h2>" + OM[k].ikon + " " + OM[k].navn + (k === "wiki" ? (en ? " (English)" : " (norsk)") : "") + "</h2>" + html; };

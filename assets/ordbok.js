@@ -290,7 +290,8 @@
       res.innerHTML = '<p class="ob-laster">Slår opp …</p>';
       const r = await LV.ordbok.finn(ord);
       res.innerHTML = '<h2 class="ob-tittel">' + esc(ord) + "</h2>" + LV.ordbok.html(r, { forst: "no" }) +
-        (r.no.length ? '<p class="ob-mer"><a href="' + lenkeOrdboken(r.no[0].lemma) + '" target="_blank" rel="noopener">Se «' + esc(r.no[0].lemma) + "» i ordbøkene.no ↗</a></p>" : "");
+        (r.no.length ? '<p class="ob-mer"><a href="' + lenkeOrdboken(r.no[0].lemma) + '" target="_blank" rel="noopener">Se «' + esc(r.no[0].lemma) + "» i ordbøkene.no ↗</a></p>" : "") +
+        '<p class="ob-mer"><a href="kildesok.html?q=' + encodeURIComponent(ord) + '">🔎 Les om «' + esc(ord) + "» i leksikon og Wikipedia (Kildesøk) →</a></p>";
       document.title = ord + " – Ordbok – " + (LV.config ? LV.config.navn : "Les verden");
       if (skrivAdresse) history.replaceState(null, "", "ordbok.html?q=" + encodeURIComponent(ord));
     }

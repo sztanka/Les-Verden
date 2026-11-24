@@ -1277,7 +1277,9 @@ textarea.svar:focus { border-color: var(--fag); outline: none; box-shadow: 0 0 0
 .forside-ordbok label { font-family: var(--font-ui); font-weight: 700; white-space: nowrap; }
 .forside-ordbok input { flex: 1 1 260px; min-width: 0; font: inherit; font-family: var(--font-ui); font-size: 1.05rem; padding: .6rem .9rem; border-radius: 999px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); }
 .forside-ordbok input:focus { border-color: var(--aksent); outline: none; }
-@media (max-width: 600px) { .forside-ordbok label { width: 100%; } .forside-ordbok input { flex: 1 1 0; font-size: 1rem; } .forside-ordbok .knapp { flex: none; } }
+.forside-sokknapper { display: flex; gap: .4rem; flex-wrap: wrap; }
+.forside-sokhjelp { flex-basis: 100%; margin: 0; font-family: var(--font-ui); font-size: .88rem; color: var(--tekst-dempet); }
+@media (max-width: 600px) { .forside-ordbok label { width: 100%; } .forside-ordbok input { flex: 1 1 100%; font-size: 1rem; } .forside-sokknapper { flex: 1 1 100%; } .forside-sokknapper .knapp { flex: 1 1 0; } }
 
 /* =========================================================
    Grammar and vocabulary
