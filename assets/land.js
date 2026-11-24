@@ -113,6 +113,8 @@
     deler.push(["fakta", T.fakta]);
     if (land.nasjoner) deler.push(["nasjoner", land.nasjonerTittel || T.nasjoner]);
     land.seksjoner.forEach(s => deler.push([s.id, s.tittel]));
+    const uttrykk = LV.landUttrykk && LV.landUttrykk[info.id];
+    if (uttrykk) deler.push(["uttrykk", "Words and expressions"]);
     const sport = LV.sport && LV.sport.land[info.id];
     if (sport) deler.push(["sport", "Sport"]);
     if (land.severdigheter) deler.push(["severdigheter", T.severdigheter]);
@@ -147,6 +149,20 @@
       }
     });
     h += "</article>";
+
+    // Words and expressions
+    if (uttrykk) {
+      const ak = LV.AKSENTER.find(a => a[2] === info.id);
+      h += '<section class="land-uttrykk" id="uttrykk" aria-labelledby="uttrykk-t"><h2 id="uttrykk-t"><span class="land-ikon" aria-hidden="true">💬</span> Words and expressions</h2>' +
+        "<p>Here are some common words and expressions you may hear in " + LV.esc(info.navn.split(" and ")[0].replace(/^The /, "the ")) + ". Many of them are informal or slang, so use them when you talk with friends – not in a formal text or a test!</p>" +
+        '<p><button type="button" class="knapp liten" id="uttrykk-test" aria-pressed="false">🙈 Hide the meanings – test yourself</button></p>' +
+        '<ul class="uttrykk-liste" id="uttrykk-liste">' + uttrykk.map((u, i) =>
+          '<li class="uttrykk-kort"><p class="uttrykk-ord" lang="en"><strong>' + LV.esc(u.o) + "</strong>" + (u.r ? ' <span class="uttrykk-sted">' + LV.esc(u.r) + "</span>" : "") + "</p>" +
+          '<div class="uttrykk-betyr" id="uttrykk-b-' + i + '"><p lang="en">' + LV.esc(u.b) + '</p><p class="uttrykk-norsk" lang="nb">🇳🇴 ' + LV.esc(u.n) + "</p></div>" +
+          '<button type="button" class="knapp liten uttrykk-vis" aria-controls="uttrykk-b-' + i + '" aria-expanded="false">Show the meaning</button>' +
+          '<p class="uttrykk-eks" lang="en"><em>' + LV.esc(u.e) + "</em>" + (ak ? ' <button type="button" class="knapp liten uttrykk-hor" data-i="' + i + '" aria-label="Listen to the example: ' + LV.esc(u.e) + '">🔊</button>' : "") + "</p></li>").join("") +
+        "</ul></section>";
+    }
 
     // Sport (fra data/sport.js)
     if (sport) {
@@ -260,6 +276,7 @@
     kobleOrd();
     kobleLytt();
     if (aksent) kobleOpplesing(aksent[0], taleDeler);
+    kobleUttrykk();
     kobleSvar();
     if (land.quiz) startQuiz();
     const kq = document.getElementById("ks-innebygd");
@@ -321,6 +338,30 @@
         LV.spillLyd(LV.taleTekst(tekster[i++]), kode, neste);
       };
       neste();
+    });
+  }
+
+  function kobleUttrykk() {
+    const liste = document.getElementById("uttrykk-liste"); if (!liste) return;
+    const data = LV.landUttrykk[info.id], ak = LV.AKSENTER.find(a => a[2] === info.id);
+    const test = document.getElementById("uttrykk-test");
+    test.addEventListener("click", () => {
+      const pa = test.getAttribute("aria-pressed") !== "true";
+      test.setAttribute("aria-pressed", String(pa));
+      test.textContent = pa ? "👀 Show all the meanings" : "🙈 Hide the meanings – test yourself";
+      liste.classList.toggle("test", pa);
+      liste.querySelectorAll(".uttrykk-kort").forEach(k => k.classList.remove("vist"));
+      liste.querySelectorAll(".uttrykk-vis").forEach(b => { b.setAttribute("aria-expanded", "false"); b.textContent = "Show the meaning"; });
+    });
+    liste.addEventListener("click", e => {
+      const vis = e.target.closest(".uttrykk-vis");
+      if (vis) {
+        const kort = vis.closest(".uttrykk-kort"), apen = kort.classList.toggle("vist");
+        vis.setAttribute("aria-expanded", String(apen)); vis.textContent = apen ? "Hide the meaning" : "Show the meaning";
+        return;
+      }
+      const hor = e.target.closest(".uttrykk-hor");
+      if (hor && ak) { document.dispatchEvent(new Event("lv-stopp-opplesing")); LV.lesEngelsk(data[+hor.dataset.i].e, ak[0], 0.95); }
     });
   }
 

@@ -2348,6 +2348,17 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .ut-kimerk { color: var(--tekst-dempet); font-size: .88rem; }
 .ut-gjett-valg.riktig-svar { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
 .land-lytt-tekst { margin: .3rem 0 .8rem; }
+.land-uttrykk { margin: 2rem 0; }
+.uttrykk-liste { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.uttrykk-kort { background: var(--flate); border: 1px solid var(--linje); border-top: 4px solid var(--engelsk); border-radius: 12px; padding: .7rem .9rem; font-family: var(--font-ui); min-width: 0; }
+.uttrykk-kort p { margin: 0 0 .35rem; overflow-wrap: anywhere; }
+.uttrykk-ord { font-size: 1.1rem; }
+.uttrykk-sted { display: inline-block; font-size: .75rem; font-weight: 400; background: var(--engelsk-lys); border-radius: 999px; padding: .05rem .5rem; vertical-align: middle; }
+.uttrykk-norsk { color: var(--tekst-dempet); font-size: .92rem; }
+.uttrykk-eks { margin-top: .5rem !important; padding-top: .4rem; border-top: 1px dashed var(--linje); }
+.uttrykk-vis { display: none; margin-bottom: .4rem; }
+.uttrykk-liste.test .uttrykk-vis { display: inline-block; }
+.uttrykk-liste.test .uttrykk-kort:not(.vist) .uttrykk-betyr { display: none; }
 .land-lesrad { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .2rem 0 .8rem; font-family: var(--font-ui); }
 .land-lesinfo { font-size: .85rem; color: var(--tekst-dempet); }
 .land-leses { background: var(--engelsk-lys); box-shadow: 0 0 0 .4rem var(--engelsk-lys); border-radius: 4px; }
