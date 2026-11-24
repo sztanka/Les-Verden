@@ -95,11 +95,19 @@
       h += '<aside class="laerer-boks" lang="nb"><h2>For læreren: kontroller disse opplysningene</h2><ul>' +
         land.kontroller.map(k => "<li>" + LV.esc(k) + "</li>").join("") + "</ul></aside>";
     }
+    // Opplesing av fagtekstene med innspilte klipp i landets aksent (audio/lyd.js)
+    const aksent = LV.AKSENTER.find(a => a[2] === info.id);
+    const taleDeler = { ingress: [land.ingress] };
+    land.seksjoner.forEach(s => { taleDeler[s.id] = s.tekst; });
+    function lesKnapp(del, etikett) {
+      return aksent ? '<p class="land-lesrad" data-del="' + del + '" hidden><button type="button" class="knapp liten land-les" data-etikett="' + LV.esc(etikett) + '">' + etikett + '</button> <span class="land-lesinfo">' + LV.esc(aksent[1]) + " · AI voice</span></p>" : "";
+    }
+
     h += figur(info);
     h += '<header class="temahode land-hode"><span class="merker"><span class="merke">Engelsk</span><span class="merke">Country page</span></span>' +
       '<h1><span class="flagg" aria-hidden="true">' + info.flagg + "</span> " + LV.esc(info.navn) + "</h1>" +
       '<p class="land-norsk" lang="nb">' + T.norsk + ": <strong>" + LV.esc(info.norsk) + "</strong></p>" +
-      '<p class="ingress">' + formater(land.ingress) + "</p></header>";
+      '<p class="ingress" data-tale>' + formater(land.ingress) + "</p>" + lesKnapp("ingress", "🔊 Listen to the introduction") + "</header>";
 
     // Innhold (snarveier)
     deler.push(["fakta", T.fakta]);
@@ -130,8 +138,8 @@
     let stopp = 0;
     h += '<article class="fagtekst land-tekst">';
     land.seksjoner.forEach(s => {
-      h += '<section class="avsnitt" id="' + s.id + '"><h2>' + (s.ikon ? '<span class="land-ikon" aria-hidden="true">' + s.ikon + "</span> " : "") + LV.esc(s.tittel) + "</h2>" + (LV.bildeFigurer ? LV.bildeFigurer("land:" + info.id + ":" + s.id, "en") : "") +
-        s.tekst.map(p => "<p>" + formater(p) + "</p>").join("") + "</section>";
+      h += '<section class="avsnitt" id="' + s.id + '"><h2>' + (s.ikon ? '<span class="land-ikon" aria-hidden="true">' + s.ikon + "</span> " : "") + LV.esc(s.tittel) + "</h2>" + lesKnapp(s.id, "🔊 Listen") + (LV.bildeFigurer ? LV.bildeFigurer("land:" + info.id + ":" + s.id, "en") : "") +
+        s.tekst.map(p => "<p data-tale>" + formater(p) + "</p>").join("") + "</section>";
       if (s.stoppOgTenk) {
         stopp++;
         h += '<aside class="stopp"><div class="tittel"><span aria-hidden="true">✋</span> Stop and think' + LV.stoppMerke(s.stoppOgTenk, true) + '</div><p>' + formater(s.stoppOgTenk) + "</p>" +
@@ -251,6 +259,7 @@
 
     kobleOrd();
     kobleLytt();
+    if (aksent) kobleOpplesing(aksent[0], taleDeler);
     kobleSvar();
     if (land.quiz) startQuiz();
     const kq = document.getElementById("ks-innebygd");
@@ -271,6 +280,7 @@
     };
     merk(); document.addEventListener("lv-lyd", merk);
     b.addEventListener("click", () => {
+      document.dispatchEvent(new Event("lv-stopp-opplesing"));
       if (LV.lydFil(tekst, b.dataset.k)) { LV.lesEngelsk(tekst, b.dataset.k); return; }
       speechSynthesis.cancel();
       const har = LV.aksentStemme(b.dataset.k);
@@ -278,6 +288,42 @@
       LV.lesEngelsk(tekst, b.dataset.k, 0.95);
     });
   }
+  // Leser en del av teksten avsnitt for avsnitt og markerer avsnittet som leses
+  function kobleOpplesing(kode, taleDeler) {
+    let aktiv = null;
+    const harKlipp = t => !!LV.lydFil(LV.taleTekst(t), kode);
+    const avsnitt = del => del === "ingress" ? [document.querySelector(".land-hode .ingress")] : [...document.querySelectorAll("#" + del + " p[data-tale]")];
+    const vis = () => document.querySelectorAll(".land-lesrad").forEach(r => { r.hidden = !(taleDeler[r.dataset.del] || []).some(harKlipp); });
+    const stopp = () => {
+      if (!aktiv) return;
+      LV.stoppLyd();
+      aktiv.knapp.textContent = aktiv.knapp.dataset.etikett;
+      document.querySelectorAll(".land-leses").forEach(p => p.classList.remove("land-leses"));
+      aktiv = null;
+    };
+    vis(); document.addEventListener("lv-lyd", vis);
+    document.addEventListener("lv-stopp-opplesing", stopp);
+    document.addEventListener("click", e => {
+      const b = e.target.closest(".land-les"); if (!b) return;
+      if (aktiv && aktiv.knapp === b) { stopp(); return; }
+      stopp();
+      const del = b.closest(".land-lesrad").dataset.del, tekster = taleDeler[del] || [], ps = avsnitt(del);
+      const meg = aktiv = { knapp: b };
+      b.textContent = "⏹ Stop reading";
+      let i = 0;
+      const neste = () => {
+        if (aktiv !== meg) return;
+        ps.forEach(p => p && p.classList.remove("land-leses"));
+        while (i < tekster.length && !harKlipp(tekster[i])) i++;
+        if (i >= tekster.length) { stopp(); return; }
+        const p = ps[i];
+        if (p) { p.classList.add("land-leses"); p.scrollIntoView({ block: "nearest" }); }
+        LV.spillLyd(LV.taleTekst(tekster[i++]), kode, neste);
+      };
+      neste();
+    });
+  }
+
   function kobleOrd() {
     const lukk = unntak => document.querySelectorAll(".ord[aria-expanded='true']").forEach(b => {
       if (b === unntak) return;

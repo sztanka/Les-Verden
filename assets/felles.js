@@ -125,6 +125,8 @@ window.LV = window.LV || {};
     for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
     return h.toString(16).padStart(8, "0");
   };
+  // Tekst slik den leses opp: uten **fet**, *kursiv* og [[ordforklaringer]]
+  LV.taleTekst = t => String(t || "").replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g, "$1").replace(/\s+/g, " ").trim();
   LV.lydNokkel = (tekst, kode) => String(kode || "en-GB").toLowerCase() + "|" + LV.lydHash(tekst);
   LV.lydFil = function (tekst, kode) {
     const f = LV.lyd && LV.lyd.filer && LV.lyd.filer[LV.lydNokkel(tekst, kode)];
@@ -178,7 +180,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261124b";
+  LV.versjon = "20261124c";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {

@@ -2348,6 +2348,9 @@ a.sp-landmerke:hover { outline: 2px solid var(--engelsk); }
 .ut-kimerk { color: var(--tekst-dempet); font-size: .88rem; }
 .ut-gjett-valg.riktig-svar { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
 .land-lytt-tekst { margin: .3rem 0 .8rem; }
+.land-lesrad { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .2rem 0 .8rem; font-family: var(--font-ui); }
+.land-lesinfo { font-size: .85rem; color: var(--tekst-dempet); }
+.land-leses { background: var(--engelsk-lys); box-shadow: 0 0 0 .4rem var(--engelsk-lys); border-radius: 4px; }
 .land-lytt-tekst summary { cursor: pointer; font-family: var(--font-ui); }
 .ut-valg { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
 .ut-velg.riktig-svar { background: var(--samfunnsfag-lys); border-color: var(--samfunnsfag); color: var(--tekst); }
