@@ -58,6 +58,8 @@
 
     peer.on("connection", conn => {
       conn.on("open", () => {
+        if (conn._lvKoblet) return;   // «open» kan komme mer enn én gang
+        conn._lvKoblet = true;
         const navn = rensNavn(conn.metadata && conn.metadata.navn) || "Spiller";
         // Gjenkobling: samme navn, frakoblet spiller → ta over plassen
         const ledig = x => !x.tilkoblet || !(x.conn && x.conn.open) || Date.now() - x.sist > 9000;

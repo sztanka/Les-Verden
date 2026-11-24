@@ -33,6 +33,7 @@
     $("innhold").innerHTML = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="spill.html">Spill</a> › Fire hjørner</nav>' +
       '<header class="sidehode"><p class="overlinje">Storskjerm · muntlig</p><h1>🧭 Fire hjørner</h1><p class="ingress">Vis en påstand på tavla. Elevene går til hjørnet som passer best, snakker sammen og begrunner synet sitt. Merk de fire hjørnene i klasserommet med fargene.</p>' +
       '<div class="kd-filter" role="group" aria-label="Språk"><a class="knapp liten" href="hjorner.html"' + (sp === "nb" ? ' aria-current="true"' : "") + '>Norsk</a><a class="knapp liten" href="hjorner.html?sprak=en"' + (sp === "en" ? ' aria-current="true"' : "") + ">English</a></div></header>" +
+      '<div class="hj-romvalg"><p id="hj-romknapp"><button type="button" class="knapp" id="hj-romstart">📱 La elevene velge hjørne på mobilen (romkode)</button></p><div id="hj-rom"></div></div>' +
       '<section class="hj-scene" id="hj-scene"' + (sp === "en" ? ' lang="en"' : "") + '></section>' +
       '<form class="hj-egen" id="hj-egen"><label for="hj-tekst">Skriv din egen påstand</label><input id="hj-tekst" type="text" autocomplete="off" placeholder="' + (sp === "en" ? "Your statement …" : "Din påstand …") + '"><button class="knapp" type="submit">Vis</button></form>';
 
@@ -40,13 +41,35 @@
       const p = liste[n];
       $("hj-scene").innerHTML = '<div class="hj-hjorner" aria-hidden="true">' + HJ[sp].map(([t, f], i) => '<span class="hj-hjorne h' + i + '"><span>' + f + "</span>" + esc(t) + "</span>").join("") + "</div>" +
         '<p class="hj-nr">' + (n + 1) + " / " + liste.length + '</p><p class="hj-pastand">' + esc(p) + "</p>" +
+        (K ? '<div class="hj-fordeling" id="hj-fordeling" aria-live="polite"></div>' : "") +
         '<ol class="hj-gang">' + GANG[sp].map((g, i) => '<li class="' + (i === fase ? "aktiv" : i < fase ? "ferdig" : "") + '">' + esc(g) + "</li>").join("") + "</ol>" +
         '<div class="hj-knapper"><button type="button" class="knapp" id="hj-forrige"' + (n ? "" : " disabled") + '>← ' + (sp === "en" ? "Previous" : "Forrige") + '</button><button type="button" class="knapp hoved" id="hj-fase">' + (fase < 3 ? (sp === "en" ? "Next step" : "Neste trinn") + " ▸" : (sp === "en" ? "Next statement" : "Ny påstand") + " →") + '</button><button type="button" class="knapp" id="hj-tid">⏱ ' + (tikk ? fmtTid(tid) : "2:00") + '</button><button type="button" class="knapp" id="hj-full">⛶ ' + (sp === "en" ? "Full screen" : "Fullskjerm") + "</button></div>";
+      if (K && sendtFor !== n + "|" + liste[n]) { sendtFor = n + "|" + liste[n]; visFordeling = false; K.spor({ id: "p" + (++sporNr), type: "valg", tekst: liste[n], en: sp === "en", valg: HJ[sp].map(([t, f], i) => ({ id: String(i), tekst: t, ikon: f, farge: FARGER[i] })) }); }
+      fordeling();
       $("hj-forrige").addEventListener("click", () => { n = Math.max(0, n - 1); fase = 0; tegn(); });
       $("hj-fase").addEventListener("click", () => { if (fase < 3) fase++; else { n = (n + 1) % liste.length; fase = 0; } tegn(); });
       $("hj-tid").addEventListener("click", startTid);
       $("hj-full").addEventListener("click", () => { const s = $("hj-scene"); if (document.fullscreenElement) document.exitFullscreen(); else if (s.requestFullscreen) s.requestFullscreen(); });
     };
+    // ---------- Romkode: elevene velger hjørne på mobilen ----------
+    let K = null, sendtFor = "", sporNr = 0, visFordeling = false;
+    const FARGER = ["#23703f", "#8a6a00", "#a0521b", "#a32626"];
+    const fordeling = () => {
+      const el = $("hj-fordeling"); if (!el || !K) return;
+      const ant = [0, 0, 0, 0]; K.svar.forEach(v => { ant[+v]++; });
+      const sum = K.svar.size;
+      el.innerHTML = '<p class="hj-ftekst">📱 <strong>' + sum + "</strong> " + (sp === "en" ? "of " + K.antall() + " have chosen" : "av " + K.antall() + " har valgt") + ' <button type="button" class="knapp liten" id="hj-visford" aria-pressed="' + visFordeling + '">' + (visFordeling ? (sp === "en" ? "Hide" : "Skjul") : (sp === "en" ? "Show the result" : "Vis fordelingen")) + "</button></p>" +
+        (visFordeling ? '<ul class="hj-stolper">' + HJ[sp].map(([t, f], i) => '<li><span class="hj-stolpenavn">' + f + " " + esc(t) + '</span><span class="hj-stolpe"><span style="width:' + (sum ? ant[i] / sum * 100 : 0) + "%;background:" + FARGER[i] + '"></span></span><strong>' + ant[i] + "</strong></li>").join("") + "</ul>" : "");
+    };
+    $("hj-scene").addEventListener("click", e => { if (e.target.closest("#hj-visford")) { visFordeling = !visFordeling; fordeling(); } });
+    $("hj-romstart").addEventListener("click", async () => {
+      $("hj-romknapp").hidden = true;
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romklasse.js");
+        K = await LV.romKlasse.apne($("hj-rom"), { tittel: sp === "en" ? "Four corners" : "Fire hjørner", onSvar: fordeling, onEndret: fordeling, onLukket: () => { K = null; sendtFor = ""; $("hj-romknapp").hidden = false; tegn(); } });
+        tegn();
+      } catch (er) { $("hj-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("hj-romknapp").hidden = false; }
+    });
     const fmtTid = s => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
     const startTid = () => {
       if (tikk) { clearInterval(tikk); tikk = null; $("hj-tid").textContent = "⏱ 2:00"; return; }

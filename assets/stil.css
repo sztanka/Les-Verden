@@ -5122,3 +5122,40 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .pw-logg li.lag-c { background: #def3df; color: #0f3d16; }
 .pw-lagmerke { font-size: .8rem; font-weight: 700; margin-right: .3rem; }
 .pw-fasit { border-radius: 14px; padding: .8rem 1rem; color: #fff; margin: 1rem 0; }
+
+/* ---------- Klassesvar med romkode (romklasse.js) ---------- */
+.rkl-linje { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .6rem 1rem; margin: .6rem 0; font-family: var(--font-ui); }
+.rkl-kodedel { display: flex; flex-direction: column; }
+.rkl-ledetekst { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--tekst-dempet); }
+.rkl-kode { font-size: 2.2rem; font-weight: 800; letter-spacing: .12em; line-height: 1.1; }
+.rkl-lenke { font-size: .85rem; color: var(--tekst-dempet); overflow-wrap: anywhere; }
+.rkl-qr { width: 96px; background: #fff; padding: .25rem; border-radius: 8px; }
+.rkl-qr svg { display: block; width: 100%; height: auto; }
+.rkl-tall { margin: 0; flex: 1 1 10rem; }
+.rkl-tekst { font-size: 1.3rem; font-weight: 700; margin: .5rem 0 1rem; }
+.rkl-valgliste { display: grid; gap: .6rem; }
+.rkl-valg { display: flex; flex-direction: column; align-items: flex-start; gap: .2rem; text-align: left; font: inherit; border: 3px solid var(--rkl-f); border-left-width: 12px; background: var(--flate); color: var(--tekst); border-radius: 14px; padding: .7rem 1rem; cursor: pointer; }
+.rkl-valg[aria-pressed="true"] { background: var(--rkl-f); color: #fff; }
+.rkl-valg[aria-pressed="true"] .rkl-valgtekst::after { content: "  ✔"; }
+.rkl-valg:focus-visible { outline: 3px solid var(--tekst); outline-offset: 3px; }
+.rkl-valgtekst { font-size: 1.2rem; font-weight: 700; }
+.rkl-merk { font-size: .9rem; opacity: .9; }
+.rkl-status { font-weight: 600; min-height: 1.2em; }
+.rkl-skjema { display: grid; gap: .8rem; text-align: left; }
+.rkl-felt { display: grid; gap: .3rem; font-weight: 600; }
+.rkl-felt textarea { font: inherit; font-weight: 400; padding: .5rem .7rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); width: 100%; box-sizing: border-box; }
+.rkl-skala { border: 1px solid var(--linje); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+.rkl-skala legend { font-weight: 600; }
+.rkl-skjema > .knapp { justify-self: start; }
+.vl-klassevalg { background: var(--flate); border: 2px dashed var(--linje); border-radius: var(--radius); padding: .6rem 1rem; margin: 1rem 0; }
+.vl-klassevalg h3 { margin-top: .3rem; }
+.hj-romvalg { margin: .5rem 0; }
+.hj-fordeling { margin: .5rem auto; max-width: 560px; font-family: var(--font-ui); }
+.hj-ftekst { text-align: center; }
+.hj-stolper { list-style: none; padding: 0; display: grid; gap: .4rem; }
+.hj-stolper li { display: grid; grid-template-columns: minmax(7rem, 11rem) 1fr 2rem; gap: .5rem; align-items: center; }
+.hj-stolpe { display: block; height: 1.3rem; background: var(--flate-2); border-radius: 999px; overflow: hidden; }
+.hj-stolpe span { display: block; height: 100%; transition: width .4s; }
+.ex-svarvisning h3 { font-size: 1.05rem; margin: 1rem 0 .3rem; }
+.ex-svarliste { display: grid; gap: .35rem; padding-left: 1.1rem; }
+.ex-svarliste li { background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; padding: .3rem .6rem; overflow-wrap: anywhere; }

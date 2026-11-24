@@ -88,6 +88,7 @@
       '<section class="le-del" aria-labelledby="vl-1h"><h2 id="vl-1h">1. Fra stemmer til mandater</h2>' +
       '<div class="ka-metode"><h3>Slik fungerer stortingsvalget</h3><ul><li>Stortinget har <strong>169 representanter</strong>. Landet er delt i <strong>valgdistrikter</strong>, og hvert distrikt velger et bestemt antall.</li><li>Plassene fordeles <strong>forholdsmessig</strong>: Et parti med 20 prosent av stemmene skal få omtrent 20 prosent av plassene.</li><li>Norge bruker en <strong>justert Sainte-Laguës metode</strong>, der første deletall er 1,4. Det gjør det litt vanskeligere for de minste partiene å få sin første plass.</li><li>I tillegg finnes <strong>utjevningsmandater</strong>, som skal rette opp skjevheter. For å få dem må et parti ha minst 4 prosent av stemmene i hele landet – <strong>sperregrensen</strong>.</li></ul></div>' +
       '<p class="mu-intro">Her simulerer du ett oppdiktet valgdistrikt, Fjordland. Velg et utgangspunkt, eller skriv inn egne tall.</p>' +
+      '<div class="vl-klassevalg"><h3>🗳️ Klassevalget</h3><p class="mu-intro">La klassen stemme hemmelig på mobilen. Når du teller opp, blir klassens stemmer valgresultatet i Fjordland.</p><p id="vl-kv-knapp"><button type="button" class="knapp hoved" id="vl-kv-start">📱 Hold et klassevalg med romkode</button></p><div id="vl-kv-rom"></div><div id="vl-kv-kontroll" aria-live="polite"></div></div>' +
       '<p class="vl-scen">' + Object.entries(SCENARIER).map(([k, s]) => '<button type="button" class="knapp liten vl-scenario" data-k="' + k + '" aria-pressed="' + (k === "jevnt") + '">' + esc(s.navn) + "</button>").join(" ") + "</p>" +
       '<div class="vl-oppsett"><fieldset class="vl-stemmer"><legend>Stemmer i Fjordland</legend>' + P.map(p => '<label for="vl-s-' + p.id + '"><span class="vl-prikk" style="background:' + p.farge + '"></span><span>' + esc(p.navn) + '</span><input type="number" min="0" max="999999" step="50" inputmode="numeric" id="vl-s-' + p.id + '" data-id="' + p.id + '" value="' + st[p.id] + '"></label>').join("") + "</fieldset>" +
       '<div class="vl-regler"><label class="lg-felt" for="vl-mandater"><span>Antall mandater i distriktet</span><input type="number" id="vl-mandater" min="1" max="60" value="' + mandater + '"></label>' +
@@ -118,6 +119,42 @@
       b.setAttribute("aria-pressed", String(koal.has(id))); koalisjon();
     }));
     regn(); koalisjon();
+    kobleKlassevalg();
+  }
+
+  // ---------- Klassevalget (romkode) ----------
+  function kobleKlassevalg() {
+    let K = null, nr = 0;
+    const kontroll = () => {
+      if (!K) { $("vl-kv-kontroll").innerHTML = ""; return; }
+      $("vl-kv-kontroll").innerHTML = K.aapen
+        ? '<p><strong>' + K.svar.size + "</strong> " + (K.svar.size === 1 ? "stemme" : "stemmer") + ' er avgitt. <button type="button" class="knapp hoved" id="vl-kv-tell">🗳️ Tell opp stemmene</button></p>'
+        : '<p>Klassens valg er telt opp: <strong>' + K.svar.size + ' stemmer</strong>. Resultatet står under. <button type="button" class="knapp" id="vl-kv-ny">🔁 Nytt valg</button></p>';
+    };
+    const nyttValg = () => {
+      nr++;
+      K.spor({ id: "valg" + nr, type: "valg", tekst: "Hvilket parti stemmer du på? Valget er hemmelig – ingen ser hva du stemmer.", valg: [...P].sort((a, b) => POS[a.id] - POS[b.id]).map(p => ({ id: p.id, tekst: p.navn, farge: p.farge, merk: p.om })) });
+      kontroll();
+    };
+    $("vl-kv-start").addEventListener("click", async () => {
+      $("vl-kv-knapp").hidden = true;
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romklasse.js");
+        K = await LV.romKlasse.apne($("vl-kv-rom"), { tittel: "Klassevalget", onSvar: kontroll, onEndret: kontroll, onLukket: () => { K = null; kontroll(); $("vl-kv-knapp").hidden = false; } });
+        nyttValg();
+      } catch (e) { $("vl-kv-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(e) : ""); $("vl-kv-knapp").hidden = false; }
+    });
+    $("vl-kv-kontroll").addEventListener("click", e => {
+      if (e.target.closest("#vl-kv-tell")) {
+        if (!K.svar.size) { $("vl-kv-kontroll").insertAdjacentHTML("beforeend", '<p class="rv-feil">Ingen har stemt ennå.</p>'); return; }
+        K.lukkSporsmal("Valget er avsluttet. Se resultatet på tavla!");
+        st = Object.fromEntries(P.map(p => [p.id, 0])); K.svar.forEach(v => { st[v] = (st[v] || 0) + 1; });
+        P.forEach(p => { $("vl-s-" + p.id).value = st[p.id]; });
+        document.querySelectorAll(".vl-scenario").forEach(x => x.setAttribute("aria-pressed", "false"));
+        regn(); kontroll();
+        $("vl-resultat").scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (e.target.closest("#vl-kv-ny")) nyttValg();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
