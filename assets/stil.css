@@ -5226,3 +5226,21 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .rdl-sp { flex-direction: column; }
 .rdl-sp label { display: flex; gap: .4rem; align-items: flex-start; }
 .rdl-seddel .knapp { justify-self: start; }
+
+/* ---------- Kildesøk ---------- */
+.ks-skjema { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; font-family: var(--font-ui); margin: 1rem 0; }
+.ks-skjema input[type="search"] { flex: 1 1 18rem; min-width: 0; font: inherit; font-size: 1.15rem; padding: .6rem .9rem; border-radius: 12px; border: 2px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.ks-sprak { border: 0; padding: 0; margin: 0; display: flex; gap: .7rem; }
+.ks-videre { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-family: var(--font-ui); }
+.ks-merk { color: var(--tekst-dempet); font-size: .85rem; font-family: var(--font-ui); }
+.ks-resultater { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); margin: 1rem 0; }
+.ks-kilde { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .6rem 1rem; min-width: 0; }
+.ks-kilde h2 { font-size: 1.15rem; margin: .3rem 0 .5rem; }
+.ks-treff { padding-left: 1.2rem; display: grid; gap: .6rem; margin: 0; }
+.ks-treff p { margin: .15rem 0 0; font-size: .93rem; overflow-wrap: anywhere; }
+.ks-pres { color: var(--tekst-dempet); font-weight: 400; }
+.ks-laster, .ks-ingen { color: var(--tekst-dempet); }
+.ks-om { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.ks-om li { display: flex; gap: .7rem; align-items: flex-start; }
+.ks-om p { margin: .1rem 0 0; }
+.ks-ikon { font-size: 1.6rem; line-height: 1; }

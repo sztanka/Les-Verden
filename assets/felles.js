@@ -180,7 +180,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261124l";
+  LV.versjon = "20261124m";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -234,6 +234,7 @@ window.LV = window.LV || {};
         ["Kilder og metode", [
           ["kilder.html", "📜", "Kildeanalyse", "Ekte historiske kilder"],
           ["historiker.html", "🧐", "Les som en historiker", "Kilder som forteller ulikt"],
+          ["kildesok.html", "🔎", "Kildesøk", "Leksikon, Wikipedia og FN-sambandet"],
           ["lateral.html", "↔️", "Lateral lesing", "Sjekk nettsider som en faktasjekker"],
           ["feed.html", "📱", "Feeden fra fortiden", "Fakta, mening, rykte eller propaganda?"],
           ["grafleser.html", "📈", "Grafleseren", "Les og lag diagrammer"],

@@ -58,6 +58,7 @@ les-verden/
 │                           ?modus=hverdag: Hverdagsbilder (data i data/hverdagsbilder.js)
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
+├── kildesok.html          Kildesøk: Lille/Store norske leksikon og Wikipedia via åpne API-er, lenker til Britannica, History.com og FN-sambandet (assets/kildesok.js)
 ├── lateral.html            Lateral lesing (oppdiktede nettsider og søk)
 ├── feed.html               Feeden fra fortiden – sosiale medier fra historien (data i data/feed.js)
 ├── rettssak.html           Rettssaken: rollespill i tingretten (data i data/rettssak.js)
@@ -599,7 +600,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261124l`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261124m`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.
