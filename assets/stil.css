@@ -4942,3 +4942,66 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 @media (min-width: 900px) { .tekstbilder:not(.flere) .tekstbilde { max-width: 40rem; } }
 @media print { .tekstbilde img { max-height: 10cm; } }
 
+
+/* ---------- Dypdykk ---------- */
+.dd-moduser { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin: 1rem 0; }
+.dd-modus { display: flex; flex-direction: column; gap: .3rem; text-align: left; font: inherit; font-family: var(--font-ui); color: #fff; text-decoration: none; cursor: pointer; border: 0; border-radius: var(--radius); padding: 1rem 1.1rem; background: linear-gradient(160deg, #1d6f8c, #0b2a4a); }
+.dd-modus:nth-child(2) { background: linear-gradient(160deg, #175e7a, #091d36); }
+.dd-modus:nth-child(3) { background: linear-gradient(160deg, #124a66, #050f22); }
+.dd-modus strong { font-size: 1.15rem; }
+.dd-modus span { opacity: .92; font-size: .95rem; }
+.dd-modus:hover, .dd-modus:focus-visible { filter: brightness(1.15); }
+.dd-modus:focus-visible { outline: 3px solid var(--fokus, #f2b705); outline-offset: 3px; }
+.dd-tidvalg { font-family: var(--font-ui); }
+.dd-tidvalg select, .dd-tavle-valg select { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); max-width: 100%; }
+.dd-info { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.dd-info section { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .8rem 1.1rem; }
+.dd-info h2 { font-size: 1.15rem; margin-top: .2rem; }
+.dd-nivaaliste { list-style: none; padding: 0; display: grid; gap: .35rem; font-family: var(--font-ui); }
+.dd-niv { display: inline-block; border-radius: 999px; padding: .05rem .6rem; font-weight: 600; }
+.dd-niv-1, .dd-niv-bg-1 { background: #cdeefa; color: #0b2a4a; }
+.dd-niv-2, .dd-niv-bg-2 { background: #8fd3c1; color: #0b2a4a; }
+.dd-niv-3, .dd-niv-bg-3 { background: #1d6f8c; color: #fff; }
+.dd-niv-4, .dd-niv-bg-4 { background: #123d66; color: #fff; }
+.dd-niv-5, .dd-niv-bg-5 { background: #050f22; color: #fff; box-shadow: inset 0 0 0 2px #3fb7d9; }
+.dd-spill { max-width: 760px; margin: 0 auto; font-family: var(--font-ui); }
+.dd-merke { color: var(--tekst-dempet); font-size: .9rem; margin: .5rem 0 .3rem; }
+.dd-maaler { height: .9rem; border-radius: 999px; background: var(--flate-2); border: 1px solid var(--linje); overflow: hidden; }
+.dd-maaler-fyll { height: 100%; background: linear-gradient(90deg, #8fd3c1, #1d6f8c, #123d66); transition: width .6s; }
+.dd-dybde { text-align: right; margin: .2rem 0 .6rem; }
+.dd-dybde-tall { font-weight: 700; font-size: 1.1rem; }
+.dd-kort { background: var(--flate); border: 1px solid var(--linje); border-top: 6px solid #1d6f8c; border-radius: var(--radius); padding: 1.2rem 1.3rem; }
+.dd-kat { font-size: clamp(1.5rem, 4.5vw, 2.3rem); margin: .2rem 0 .4rem; line-height: 1.2; }
+.dd-hint { color: var(--tekst-dempet); margin: 0 0 .8rem; }
+.dd-tid { height: .6rem; border-radius: 999px; background: var(--flate-2); overflow: hidden; }
+.dd-tid-fyll { height: 100%; width: 100%; background: #1d6f8c; transition: width .2s linear; }
+.dd-tid-fyll.lite { background: #c0392b; }
+.dd-sek { font-size: .9rem; color: var(--tekst-dempet); margin: .3rem 0 .8rem; }
+.dd-skjema { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .5rem 0; }
+.dd-skjema input { flex: 1 1 14rem; min-width: 0; font: inherit; font-size: 1.15rem; padding: .55rem .8rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); }
+.dd-skjema input:focus-visible { outline: 3px solid #1d6f8c; outline-offset: 1px; }
+.dd-melding { min-height: 1.5em; font-weight: 600; }
+.dd-resultat { border-radius: 12px; padding: .8rem 1rem; margin: .5rem 0 1rem; }
+.dd-resultat p { margin: .15rem 0; }
+.dd-res-niv { font-size: 1.4rem; font-weight: 700; }
+.dd-eks { padding-left: 1.2rem; display: grid; gap: .35rem; }
+.dd-eks li { list-style: none; margin-left: -1.2rem; }
+.dd-eks .dd-niv { padding: 0 .35rem; }
+.dd-giopp-rad { margin: .5rem 0 0; }
+.dd-oppsum-topp { text-align: center; margin: 1rem 0; }
+.dd-oppsum-topp h1 { margin: .2rem 0; }
+.dd-total { font-size: 2rem; font-weight: 700; margin: .3rem 0; }
+.dd-ruter { font-size: 1.7rem; letter-spacing: .15em; margin: .2rem 0 .8rem; }
+.dd-oppsum { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.dd-oppsum-rad { background: var(--flate); border: 1px solid var(--linje); border-radius: 12px; padding: .7rem .9rem; }
+.dd-oppsum-hode { display: flex; gap: .7rem; align-items: flex-start; }
+.dd-oppsum-ikon { font-size: 1.6rem; line-height: 1; }
+.dd-oppsum-rad details { margin-top: .4rem; }
+.dd-oppsum-rad summary { cursor: pointer; }
+.dd-alle-niv h4 { margin: .6rem 0 .2rem; font-size: .95rem; }
+.dd-alle-niv p { margin: 0; overflow-wrap: anywhere; }
+.dd-tavle { font-family: var(--font-ui); }
+.dd-tavle-valg { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+.dd-tavle-kort .dd-kat { font-size: clamp(1.8rem, 6vw, 3.4rem); }
+.dd-tavle-sek { font-size: clamp(2rem, 7vw, 4rem); font-weight: 700; margin: .2rem 0; min-height: 1.2em; }
+.dd-tavle-alle { margin-top: 1rem; }

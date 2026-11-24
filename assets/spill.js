@@ -1210,6 +1210,7 @@
       ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla."],
       ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter med blandede spørsmål fra tidligere temaer."],
       ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep – samme gåte for hele klassen."],
+      ["dypdykk.html", "🤿", "Dypdykk", "Kategorispill: jo sjeldnere svar, jo dypere dykker du. Også på tavla."],
       ["hjorner.html", "🧭", "Fire hjørner", "Påstander – elevene velger hjørne og begrunner."],
       ["tenkerutiner.html", "💭", "Tenkerutiner", "Se – tenk – undre, Zoom inn og flere – med temabildene på storskjerm."],
       ["sporsmal.html", "❓", "Spørsmålsstudioet", "Elevene lager, sorterer og prioriterer egne spørsmål til et tema."],

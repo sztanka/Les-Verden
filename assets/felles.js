@@ -180,7 +180,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261124d";
+  LV.versjon = "20261124e";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -308,6 +308,7 @@ window.LV = window.LV || {};
           ["spill.html#tema", "🃏", "Ordspill", "Memory, Ordle, kryssord og mer"],
           ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter i starten av timen"],
           ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep"],
+          ["dypdykk.html", "🤿", "Dypdykk", "Finn det sjeldneste svaret"],
           ["lag.html", "🛠️", "Lag selv", "Egen quiz, tidslinje eller ordkort"]]],
         ["Rollespill og simuleringer", [
           ["rettssak.html", "⚖️", "Rettssaken", "Spill en straffesak"],
