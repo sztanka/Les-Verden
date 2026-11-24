@@ -5005,3 +5005,45 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .dd-tavle-kort .dd-kat { font-size: clamp(1.8rem, 6vw, 3.4rem); }
 .dd-tavle-sek { font-size: clamp(2rem, 7vw, 4rem); font-weight: 700; margin: .2rem 0; min-height: 1.2em; }
 .dd-tavle-alle { margin-top: 1rem; }
+
+/* ---------- Fellesrom (rom.html og romvisning i Klassequiz) ---------- */
+.kq-lobby-rad { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; margin: 1.5rem 0; }
+.kq-lobby-info { font-family: var(--font-ui); font-size: clamp(1rem, 2vw, 1.5rem); text-align: center; }
+.kq-romkode { font-family: var(--font-ui); font-size: clamp(3rem, 10vw, 7rem); font-weight: 800; letter-spacing: .12em; margin: .2rem 0; line-height: 1; }
+.kq-qr { width: min(240px, 60vw); background: #fff; padding: .5rem; border-radius: 12px; }
+.kq-qr svg { display: block; width: 100%; height: auto; }
+.kq-lobby-antall { text-align: center; font-family: var(--font-ui); }
+.kq-lobby-status { font-family: var(--font-ui); font-size: 1.3rem; text-align: center; margin-top: 3rem; }
+.kq-lobby-merk { text-align: center; color: var(--tekst-dempet); font-family: var(--font-ui); font-size: .9rem; }
+.kq-deltakere { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; font-family: var(--font-ui); }
+.kq-deltakere li { background: var(--flate); border: 1px solid var(--linje); border-radius: 999px; padding: .3rem .4rem .3rem .9rem; font-size: 1.15rem; display: flex; align-items: center; gap: .3rem; }
+.kq-deltakere li.frakoblet { opacity: .5; text-decoration: line-through; }
+.kq-kast { border: 0; background: transparent; color: var(--tekst-dempet); cursor: pointer; font-size: .9rem; border-radius: 50%; width: 1.8rem; height: 1.8rem; }
+.kq-kast:hover, .kq-kast:focus-visible { background: var(--flate-2); color: var(--tekst); }
+.kq-svarteller, .kq-romkode-liten { font-family: var(--font-ui); font-weight: 600; }
+.kq-romkode-liten { opacity: .75; }
+.kq-antall-svar { margin-left: auto; background: rgba(0, 0, 0, .3); border-radius: 999px; padding: .1rem .8rem; font-size: .9em; }
+.kq-toppliste { list-style: none; padding: 0; margin: 1rem auto; max-width: 520px; display: grid; gap: .35rem; font-family: var(--font-ui); font-size: clamp(1rem, 2vw, 1.4rem); }
+.kq-toppliste li { display: flex; justify-content: space-between; gap: 1rem; background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: .35rem .9rem; }
+.kq-pall li:first-child { font-size: 1.25em; border-color: #c9a227; }
+.rk-skjema { display: grid; gap: .4rem; max-width: 420px; font-family: var(--font-ui); }
+.rk-skjema input { width: 100%; min-width: 0; box-sizing: border-box; font: inherit; font-size: 1.2rem; padding: .6rem .8rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--flate); color: var(--tekst); }
+.rk-skjema .knapp { margin-top: .6rem; justify-self: start; font-size: 1.1rem; }
+.rk-kodefelt { text-transform: uppercase; letter-spacing: .25em; font-weight: 700; font-size: 1.8rem !important; }
+.rk-merk { color: var(--tekst-dempet); font-size: .9rem; font-family: var(--font-ui); margin: 0; }
+.rk-spill { font-family: var(--font-ui); max-width: 640px; margin: 0 auto; }
+.rk-topp { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; padding: .5rem 0 1rem; color: var(--tekst-dempet); }
+.rk-flate { text-align: center; }
+.rk-stor { font-size: 1.8rem; font-weight: 700; margin: 1rem 0 .4rem; }
+.rk-nr { color: var(--tekst-dempet); margin: 0; }
+.rk-sporsmal { font-size: 1.25rem; font-weight: 600; margin: .3rem 0 1rem; }
+.rk-valg { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.rk-alt { display: flex; align-items: center; gap: .8rem; text-align: left; border: 0; border-radius: 16px; color: #fff; font: inherit; font-size: 1.15rem; font-weight: 600; min-height: 5rem; padding: .8rem 1rem; cursor: pointer; }
+.rk-alt:focus-visible { outline: 4px solid var(--tekst); outline-offset: 3px; }
+.rk-form { font-size: 1.6rem; }
+.rk-alt:disabled { opacity: .35; cursor: default; }
+.rk-alt.valgt { opacity: 1; box-shadow: 0 0 0 5px var(--tekst); }
+.rk-sendt { margin-top: 1rem; font-weight: 600; }
+.rk-fasit { border-radius: 16px; padding: 1rem; color: #fff; }
+.rk-riktig { background: #23703f; }
+.rk-feil { background: #7a2a24; }

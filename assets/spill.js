@@ -1207,7 +1207,8 @@
       ["idiomer.html#quiz", "🕵️", "Idiomdetektiven", "Engelske idiomer: quiz og finn idiomene i teksten."],
       ["debatt.html", "⚖️", "Debattduell", "Argumenter for og mot – og argumentasjonsfeil."]]],
     ["klassen", "📺", "For hele klassen", "Storskjerm, starter og avslutning.", [
-      ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla."],
+      ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla – elevene kan svare på mobilen med romkode."],
+      ["rom.html", "🔑", "Bli med i et rom", "For elevene: skriv romkoden fra tavla."],
       ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter med blandede spørsmål fra tidligere temaer."],
       ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep – samme gåte for hele klassen."],
       ["dypdykk.html", "🤿", "Dypdykk", "Kategorispill: jo sjeldnere svar, jo dypere dykker du. Også på tavla."],
