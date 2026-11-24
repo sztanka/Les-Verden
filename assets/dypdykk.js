@@ -290,5 +290,7 @@
   // Til testing i konsollen: LV.dypdykkSjekk(id, svar)
   LV.dypdykkSjekk = (id, svar) => { const k = LV.dypdykk.kategorier.find(x => x.id === id); const r = k && sjekk(k, svar); return r ? (r.feil ? "FEIL: " + r.feil : r.treff.navn + " (" + r.treff.nivaa + ")") : null; };
 
-  document.addEventListener("DOMContentLoaded", bygg);
+  LV.dypdykkMatch = sjekk;
+  // På andre sider (f.eks. Pass the Bomb) brukes bare matchingen
+  document.addEventListener("DOMContentLoaded", () => { if (!document.querySelector('meta[name="lv-vert"]')) bygg(); });
 })();

@@ -1209,6 +1209,8 @@
     ["klassen", "📺", "For hele klassen", "Storskjerm, starter og avslutning.", [
       ["klassequiz.html", "📺", "Klassequiz", "Spørsmål fra et tema, en tekst eller et land på tavla – elevene kan svare på mobilen med romkode."],
       ["rom.html", "🔑", "Bli med i et rom", "For elevene: skriv romkoden fra tavla."],
+      ["bombe.html", "💣", "Pass the Bomb", "Romspill i grupper: svar på oppgaven før bomben smeller."],
+      ["passord.html", "🔐", "Password", "Romspill i lag: ett ords hint, og laget gjetter ordet."],
       ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter med blandede spørsmål fra tidligere temaer."],
       ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep – samme gåte for hele klassen."],
       ["dypdykk.html", "🤿", "Dypdykk", "Kategorispill: jo sjeldnere svar, jo dypere dykker du. Også på tavla."],

@@ -30,6 +30,8 @@ les-verden/
 ├── planlegger.html         Planlegger for lærere: filtrer på kompetansemål og del elevlenker (data i data/kompetansemal.js)
 ├── muntlig.html            Muntlig og lytting: samtalekort, lytteøvelse og den varme stolen per tema (data i data/muntlig.js)
 ├── laere-engelsk.html      How to learn English: strategier for språklæring (data i data/laere-engelsk.js)
+├── bombe.html              Pass the Bomb – romspill (assets/bombe.js; vert via assets/romvert.js)
+├── passord.html            Password – romspill i lag (assets/passord.js)
 ├── rom.html                Bli med i et rom med romkode (assets/rom.js = LV.rom, assets/romklient.js; PeerJS i assets/vendor/)
 ├── dypdykk.html            Dypdykk: kategorispill der sjeldne svar gir mest (data i data/dypdykk.js)
 ├── uttale.html             Pronunciation for Norwegians: lyder, ordtrykk, aksenter, «Guess the accent» og opptak (data i data/uttale.js)
@@ -594,7 +596,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261124f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261124g`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

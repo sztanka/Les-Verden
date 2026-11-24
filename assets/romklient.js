@@ -65,7 +65,7 @@
     visning = LV.romKlient[api.spill] || { start: x => { x.innerHTML = "<p>Du er med i rommet.</p>"; }, melding() {} };
     $("innhold").innerHTML = '<div class="rk-spill"><div class="rk-topp"><span>Rom <strong>' + esc(sistKode) + "</strong> · " + esc(api.navn) + '</span><button type="button" class="knapp liten" id="rk-forlat">Forlat rommet</button></div><div id="rk-flate" class="rk-flate" aria-live="polite"></div></div>';
     el = $("rk-flate");
-    visning.start(el);
+    visning.start(el, x => api.send(x));
     $("rk-forlat").addEventListener("click", () => { api.lukk(); api = null; skjema("Du forlot rommet."); });
   }
 

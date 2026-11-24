@@ -5047,3 +5047,78 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .rk-fasit { border-radius: 16px; padding: 1rem; color: #fff; }
 .rk-riktig { background: #23703f; }
 .rk-feil { background: #7a2a24; }
+
+/* ---------- Romspill: felles vert (bombe.html, passord.html) ---------- */
+.rv-status { font-family: var(--font-ui); font-size: 1.2rem; }
+.rv-romkort { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 1rem; font-family: var(--font-ui); }
+.rv-romkort > div:first-child { flex: 1 1 240px; }
+.rv-ledetekst { margin: 0; color: var(--tekst-dempet); text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; }
+.rv-kode { font-size: clamp(2.6rem, 9vw, 4.5rem); font-weight: 800; letter-spacing: .12em; margin: 0; line-height: 1.1; }
+.rv-lenke { margin: .3rem 0 0; overflow-wrap: anywhere; }
+.rv-qr { width: 150px; background: #fff; padding: .4rem; border-radius: 10px; }
+.rv-qr svg { display: block; width: 100%; height: auto; }
+.rv-lobby h2 { font-family: var(--font-ui); font-size: 1.2rem; }
+.rv-lobby .kq-deltakere { justify-content: flex-start; }
+.rv-oppsett { display: grid; gap: .8rem; max-width: 560px; font-family: var(--font-ui); margin-top: 1rem; }
+.rv-felt { display: grid; gap: .25rem; }
+.rv-felt select, .rv-egen input[type="text"], .rv-egennavn input { font: inherit; padding: .45rem .6rem; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); max-width: 100%; min-width: 0; }
+.rv-egen { border: 1px solid var(--linje); border-radius: 12px; padding: .6rem .9rem; display: grid; gap: .4rem; }
+.rv-egennavn { display: grid; gap: .25rem; }
+.rv-merk { color: var(--tekst-dempet); font-size: .9rem; font-family: var(--font-ui); margin: .3rem 0; }
+.rv-feil { color: #b3261e; font-weight: 600; min-height: 1em; margin: 0; }
+:root[data-tema="mork"] .rv-feil { color: #ff9b94; }
+.rv-oppsett > .knapp { justify-self: start; font-size: 1.1rem; }
+.rv-spill { display: grid; gap: 1rem; }
+.rv-lokal { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: 1rem 1.2rem; text-align: center; font-family: var(--font-ui); min-width: 0; }
+.rv-kontroll { font-family: var(--font-ui); }
+.rv-kontrolltekst { color: var(--tekst-dempet); margin: 0 0 .4rem; }
+.rk-skjema-rad { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: center; margin: .8rem 0; }
+.rk-skjema-rad label { flex-basis: 100%; font-weight: 600; }
+.rk-skjema-rad input { flex: 1 1 12rem; min-width: 0; max-width: 24rem; font: inherit; font-size: 1.2rem; padding: .55rem .8rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); }
+
+/* ---------- Pass the Bomb ---------- */
+.bb-runde { color: var(--tekst-dempet); display: flex; justify-content: center; align-items: center; gap: .6rem; flex-wrap: wrap; margin: 0; }
+.bb-bombe { font-size: 4.5rem; line-height: 1.1; margin: .4rem 0; }
+.bb-bombe.bb-min { font-size: 7rem; animation: bb-puls .6s ease-in-out infinite; }
+@keyframes bb-puls { 50% { transform: scale(1.12) rotate(-6deg); } }
+@media (prefers-reduced-motion: reduce) { .bb-bombe.bb-min { animation: none; } }
+.bb-hos { font-size: 1.3rem; margin: .2rem 0; }
+.bb-oppgave { font-size: clamp(1.4rem, 5vw, 2rem); font-weight: 700; margin: .6rem 0 .2rem; }
+.bb-hint { color: var(--tekst-dempet); margin: 0 0 .6rem; }
+.bb-stor-knapp { font-size: 1.25rem; padding: .9rem 1.4rem; }
+.bb-melding { font-weight: 600; color: #b3261e; }
+:root[data-tema="mork"] .bb-melding { color: #ff9b94; }
+.bb-sist { font-weight: 600; }
+.bb-brukte-t { margin: .8rem 0 .1rem; color: var(--tekst-dempet); font-size: .9rem; }
+.bb-brukte { margin: 0; overflow-wrap: anywhere; }
+.bb-tabell { list-style: none; padding: 0; margin: 1rem auto 0; max-width: 360px; display: grid; gap: .3rem; text-align: left; }
+.bb-tabell li { display: flex; justify-content: space-between; gap: .5rem; border: 1px solid var(--linje); border-radius: 8px; padding: .25rem .7rem; }
+.bb-tabell li.bb-meg { font-weight: 700; border-width: 2px; }
+.bb-tabell li.frakoblet { opacity: .5; }
+.bb-boom { font-size: 6rem; line-height: 1; }
+
+/* ---------- Password ---------- */
+.pw-topp { color: var(--tekst-dempet); margin: 0 0 .5rem; }
+.pw-lagrad { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+.pw-lag { flex: 1 1 140px; max-width: 260px; border-radius: 12px; padding: .5rem .7rem; border: 2px solid transparent; }
+.pw-lag p { margin: 0; }
+.pw-lag.lag-a { background: #dbe8fb; color: #0e2a57; }
+.pw-lag.lag-b { background: #fbe1d6; color: #5a1a08; }
+.pw-lag.lag-c { background: #def3df; color: #0f3d16; }
+.pw-lag.pw-tur { border-color: currentColor; box-shadow: 0 0 0 3px rgba(0, 0, 0, .12); }
+.pw-lagnavn { font-weight: 700; }
+.pw-poeng { font-size: 1.8rem; font-weight: 800; }
+.pw-medl { font-size: .85rem; overflow-wrap: anywhere; }
+.pw-ordboks { margin: 1rem auto; max-width: 420px; border: 3px dashed var(--linje); border-radius: 14px; padding: .7rem 1rem; }
+.pw-ledetekst { margin: 0; color: var(--tekst-dempet); text-transform: uppercase; font-size: .8rem; letter-spacing: .08em; }
+.pw-ord { font-size: clamp(1.8rem, 7vw, 2.6rem); font-weight: 800; margin: .1rem 0; overflow-wrap: anywhere; }
+.pw-forkl { margin: 0; font-size: .95rem; }
+.pw-status { font-size: 1.15rem; margin: 1rem 0; }
+.pw-hintstor { font-size: clamp(1.6rem, 6vw, 2.4rem); font-weight: 800; margin: .8rem 0; }
+.pw-logg { list-style: none; padding: 0; margin: 1rem auto 0; max-width: 460px; display: grid; gap: .3rem; text-align: left; }
+.pw-logg li { border-radius: 8px; padding: .25rem .6rem; overflow-wrap: anywhere; }
+.pw-logg li.lag-a { background: #dbe8fb; color: #0e2a57; }
+.pw-logg li.lag-b { background: #fbe1d6; color: #5a1a08; }
+.pw-logg li.lag-c { background: #def3df; color: #0f3d16; }
+.pw-lagmerke { font-size: .8rem; font-weight: 700; margin-right: .3rem; }
+.pw-fasit { border-radius: 14px; padding: .8rem 1rem; color: #fff; margin: 1rem 0; }

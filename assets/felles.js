@@ -180,7 +180,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261124f";
+  LV.versjon = "20261124g";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -306,6 +306,8 @@ window.LV = window.LV || {};
       spill: { navn: "Spill", alle: ["spill.html", "Se alle spillene →"], grupper: [
         ["Øv på et tema", [
           ["rom.html", "🔑", "Bli med i et rom", "Skriv romkoden fra tavla"],
+          ["bombe.html", "💣", "Pass the Bomb", "Svar før bomben smeller – i gruppe"],
+          ["passord.html", "🔐", "Password", "Ett ords hint – lagspill"],
           ["spill.html#tema", "🃏", "Ordspill", "Memory, Ordle, kryssord og mer"],
           ["repetisjon.html", "🔁", "Repetisjonsstart", "Fem minutter i starten av timen"],
           ["begrepsgata.html", "🧩", "Begrepsgåta", "Dagens fagbegrep"],
