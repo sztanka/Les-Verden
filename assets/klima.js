@@ -105,7 +105,9 @@
       '</tbody></table></div><div class="kl-resultat" id="kl-resultat" aria-live="polite"></div></div>' +
       '<figure class="kl-graf"><div id="kl-graf"></div><figcaption>Utslipp av CO₂ per år, milliarder tonn. Den stiplede linja viser utslippene uten nye tiltak.</figcaption></figure>' +
       '<p class="mu-kontroll"><button type="button" class="knapp hoved" id="kl-lagre">📌 Lagre som runde</button> <button type="button" class="knapp" id="kl-hendelse">🎴 Trekk en hendelse</button> <button type="button" class="knapp" id="kl-null">↺ Nullstill tilbudene</button></p>' +
-      '<div id="kl-hendelsestekst" aria-live="polite"></div><section class="kl-del"><h2>Rundene</h2><ol class="kl-runder" id="kl-runder"></ol></section>' +
+      '<div id="kl-hendelsestekst" aria-live="polite"></div>' +
+      '<section class="kl-del" id="kl-romdel"><h2>📱 Delegasjonene på egne enheter</h2><p class="mu-intro">Åpne et rom, så velger elevene delegasjon på mobilen eller PC-en. Der ser de sitt hemmelige rollekort og leverer tilbudene sine – og modellen over oppdateres med en gang. Hendelser du trekker, sendes også til alle.</p><p id="kl-romknapp"><button type="button" class="knapp hoved" id="kl-romstart">📱 Åpne rom for delegasjonene</button></p><div id="kl-rom"></div></section>' +
+      '<section class="kl-del"><h2>Rundene</h2><ol class="kl-runder" id="kl-runder"></ol></section>' +
       '<details class="kl-laerer"><summary>Om modellen</summary><p>' + esc(D.kontroller) + '</p></details><p class="fo-merk"><a href="klima.html">← Tilbake til Klimatoppmøtet</a></p>';
 
     const sett = () => valg.forEach((v, i) => { $("kl-topp" + i).value = v.topp; $("kl-kutt" + i).value = v.kutt; $("kl-fond" + i).value = v.fond; });
@@ -133,6 +135,60 @@
       if (brukt.length === D.hendelser.length) brukt = [];
       const ledige = D.hendelser.map((x, i) => i).filter(i => !brukt.includes(i)); const n = ledige[Math.floor(Math.random() * ledige.length)]; brukt.push(n);
       $("kl-hendelsestekst").innerHTML = '<div class="kl-hendelse"><h2>🎴 ' + esc(D.hendelser[n].tittel) + "</h2><p>" + esc(D.hendelser[n].tekst) + "</p></div>";
+      if (rom) { R.hendelse = D.hendelser[n]; sendAlle(); }
+    });
+
+    // ---------- Delegasjonene på egne enheter (romkode) ----------
+    let rom = null, qr = "";
+    const R = { fase: "forberedelse", runde: 0, hendelse: null, resultat: null };
+    const delt = new Map(), levert = new Set();
+    const medlemmer = j => rom ? [...rom.spillere.values()].filter(x => x.tilkoblet && delt.get(x.id) === j) : [];
+    const rolleData = d => ({ id: d.id, navn: d.navn, ikon: d.ikon, farge: d.farge, type: d.type, hvem: d.hvem, vil: d.vil, grenser: d.grenser, kort: d.kort, e0: d.e0, folk: d.folk, hist: d.hist });
+    const meldingTil = x => {
+      const i = delt.has(x.id) ? delt.get(x.id) : -1;
+      return { t: "klima", fase: R.fase, runde: R.runde, hendelse: R.hendelse, resultat: R.resultat,
+        delegasjoner: D.delegasjoner.map((d, j) => ({ id: d.id, navn: d.navn, ikon: d.ikon, farge: d.farge, type: d.type, antall: medlemmer(j).length })),
+        min: i >= 0 ? D.delegasjoner[i].id : "", rolle: i >= 0 ? rolleData(D.delegasjoner[i]) : null, tilbud: i >= 0 ? valg[i] : null, levert: levert.has(i) };
+    };
+    const sendAlle = () => rom.spillere.forEach(x => { if (x.tilkoblet) rom.send(x.id, meldingTil(x)); });
+    const sendDel = j => rom.spillere.forEach(x => { if (x.tilkoblet && delt.get(x.id) === j) rom.send(x.id, meldingTil(x)); });
+    function tegnRom() {
+      if (!rom) return;
+      const knapp = R.fase === "tilbud" ? '<button type="button" class="knapp hoved" id="kl-laas">🔒 Lås runde ' + R.runde + " og lagre</button>" : '<button type="button" class="knapp hoved" id="kl-aapne">▶ Åpne runde ' + (R.runde + 1) + "</button>";
+      $("kl-rom").innerHTML = '<div class="rv-romkort"><div><p class="rv-ledetekst">Romkode</p><p class="rv-kode">' + rom.kode + '</p><p class="rv-lenke">Gå til <strong>' + esc(rom.lenke.replace(/^https?:\/\//, "").replace(/\?.*$/, "")) + '</strong> og skriv koden.</p></div><div class="rv-qr" aria-hidden="true">' + qr + "</div></div>" +
+        '<ul class="klr-status-liste">' + D.delegasjoner.map((d, j) => { const m = medlemmer(j); return '<li style="--kl:' + d.farge + '"><strong>' + d.ikon + " " + esc(d.navn) + "</strong><span>" + (m.length ? m.map(x => esc(x.navn)).join(", ") : "<em>ingen ennå</em>") + "</span><span>" + (R.fase === "tilbud" ? (levert.has(j) ? "✔ Tilbud levert" : "⏳ Venter på tilbud") : "") + "</span></li>"; }).join("") + "</ul>" +
+        (() => { const uten = [...rom.spillere.values()].filter(x => x.tilkoblet && !delt.has(x.id)); return uten.length ? '<p class="rv-merk">Har ikke valgt delegasjon: ' + uten.map(x => esc(x.navn)).join(", ") + "</p>" : ""; })() +
+        '<p class="mu-knapper">' + knapp + ' <button type="button" class="knapp" id="kl-romsteng">✕ Steng rommet</button></p>';
+    }
+    $("kl-romdel").addEventListener("click", async e => {
+      if (e.target.closest("#kl-romstart")) {
+        $("kl-romknapp").hidden = true;
+        try {
+          await LV.lastSkript("assets/rom.js");
+          rom = await LV.rom.vert({ spill: "klima",
+            onBli: x => { rom.send(x.id, meldingTil(x)); tegnRom(); },
+            onForlat: () => { tegnRom(); },
+            onMelding: (x, m) => {
+              if (m.t === "velg") {
+                const j = D.delegasjoner.findIndex(d => d.id === m.id);
+                if (j >= 0) delt.set(x.id, j); else delt.delete(x.id);
+                sendAlle(); tegnRom();
+              } else if (m.t === "tilbud" && R.fase === "tilbud" && delt.has(x.id)) {
+                const j = delt.get(x.id);
+                const topper = [2025, 2030, 2035, 2040, 2045, 2050, 2060, 2070, 2080, 2100];
+                valg[j] = { topp: topper.includes(+m.topp) ? +m.topp : 2100, kutt: Math.max(0, Math.min(8, Math.round(+m.kutt) || 0)), fond: Math.max(-200, Math.min(200, Math.round(+m.fond) || 0)) };
+                levert.add(j); sett(); tegn(); sendDel(j); tegnRom();
+              }
+            } });
+          qr = await LV.rom.qr(rom.lenke).catch(() => "");
+          tegnRom();
+        } catch (er) { $("kl-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("kl-romknapp").hidden = false; }
+      } else if (e.target.closest("#kl-aapne")) { R.runde++; R.fase = "tilbud"; levert.clear(); sendAlle(); tegnRom(); }
+      else if (e.target.closest("#kl-laas")) {
+        runder.push(valg.map(x => Object.assign({}, x))); visRunder(); lagreHash();
+        const r = beregn(valg); R.resultat = { runde: R.runde, temp: r.temp, fondInn: r.fondInn, fondMal: D.fondMal }; R.fase = "laast";
+        sendAlle(); tegnRom();
+      } else if (e.target.closest("#kl-romsteng") && confirm("Stenge rommet? Delegasjonene blir koblet fra.")) { rom.lukk(); rom = null; $("kl-rom").innerHTML = ""; $("kl-romknapp").hidden = false; }
     });
     sett(); tegn(); visRunder();
     window.addEventListener("hashchange", () => location.reload());
