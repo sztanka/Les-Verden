@@ -259,24 +259,63 @@
     let kat = alle[Math.floor(Math.random() * alle.length)], tavleKlokke = null;
     $("innhold").innerHTML = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="spill.html">Spill</a> › <a href="dypdykk.html' + (en ? "?fag=engelsk" : "") + '">Dypdykk</a> › ' + (en ? "On the board" : "På tavla") + "</nav>" +
       '<div class="dd-tavle"' + (en ? ' lang="en"' : "") + '><p class="mu-intro">' + T.tavleIntro + "</p>" +
+      '<div class="dd-romvalg" lang="nb"><p id="dd-romknapp"><button type="button" class="knapp" id="dd-romstart">📱 La elevene sende svarene fra mobilen (romkode)</button></p><div id="dd-rom"></div></div>' +
       '<div class="dd-tavle-valg"><label for="dd-tkat">' + T.tavleVelg + '</label> <select id="dd-tkat">' + alle.map(k => '<option value="' + k.id + '">' + esc(k.t) + "</option>").join("") + '</select> <button type="button" class="knapp" id="dd-tilf">' + T.tilfeldig + '</button> <label for="dd-ttid">' + T.tid + '</label> <select id="dd-ttid"><option value="25">25 s</option><option value="45">45 s</option><option value="60" selected>60 s</option><option value="90">90 s</option></select></div>' +
       '<section class="dd-kort dd-tavle-kort"><h1 class="dd-kat" id="dd-tk"></h1><p class="dd-hint" id="dd-th"></p><p class="dd-tavle-sek" id="dd-tsek" aria-live="off"></p>' +
       '<div class="mu-knapper"><button type="button" class="knapp hoved" id="dd-tstart">' + T.nedtelling + '</button><button type="button" class="knapp" id="dd-tvis" aria-expanded="false">' + T.visSvar + "</button></div>" +
       '<form class="dd-skjema" id="dd-tsjekk" autocomplete="off"><label for="dd-tsvar">' + T.sjekk + '</label><input id="dd-tsvar" type="text" spellcheck="false"><button type="submit" class="knapp">' + T.sjekkKnapp + '</button></form><p class="dd-melding" id="dd-tmeld" role="status" aria-live="polite"></p>' +
+      '<div class="dd-klasse" id="dd-klasse" aria-live="polite"></div>' +
       '<div class="dd-tavle-alle" id="dd-talle" hidden></div></section></div>';
     const vis = () => {
       if (tavleKlokke) { clearInterval(tavleKlokke); tavleKlokke = null; }
       $("dd-tkat").value = kat.id; $("dd-tk").textContent = kat.t; $("dd-th").textContent = kat.h || "";
       $("dd-tsek").textContent = ""; $("dd-tmeld").textContent = ""; $("dd-tsvar").value = "";
       $("dd-talle").hidden = true; $("dd-talle").innerHTML = alleSvar(kat); $("dd-tvis").textContent = T.visSvar; $("dd-tvis").setAttribute("aria-expanded", "false");
+      if (K) { avslort = false; K.spor({ id: "dd" + (++sporNr), type: "skjema", en, tekst: kat.t + (kat.h ? " – " + kat.h : ""), felt: [{ id: "s", tekst: en ? "Your answer – the rarer, the better!" : "Svaret ditt – jo sjeldnere, jo bedre!", type: "linje" }] }); }
+      klasse();
     };
+    // ---------- Svar fra mobilen (romkode) ----------
+    let K = null, sporNr = 0, avslort = false;
+    const totalt = new Map();   // kallenavn → poeng i denne økta
+    const vurder = () => [...K.svar.entries()].map(([id, v]) => { const tekst = String((v && v.s) || "").trim(); const r = tekst ? sjekk(kat, tekst) : null; return { id, navn: K.navn(id), tekst, treff: r && r.treff, feil: r && r.feil }; });
+    function klasse() {
+      const el = $("dd-klasse"); if (!el) return;
+      if (!K) { el.innerHTML = ""; return; }
+      let h = '<p>📱 <strong>' + K.svar.size + "</strong> " + (en ? "of " + K.antall() + " have answered." : "av " + K.antall() + " har svart.") + (avslort ? "" : ' <button type="button" class="knapp hoved" id="dd-avslor"' + (K.svar.size ? "" : " disabled") + ">" + (en ? "🤿 Reveal the dive" : "🤿 Avslør dykket") + "</button>") + "</p>";
+      if (avslort) {
+        const r = vurder().sort((a, b) => (b.treff ? b.treff.nivaa : 0) - (a.treff ? a.treff.nivaa : 0));
+        const like = {}; r.forEach(x => { if (x.treff) like[x.treff.navn] = (like[x.treff.navn] || 0) + 1; });
+        h += '<ol class="dd-klasseliste">' + r.map(x => '<li class="' + (x.treff ? "dd-niv-bg-" + x.treff.nivaa : "dd-ingen") + '"><span><strong>' + esc(x.navn) + "</strong>: " + esc(x.tekst || "–") + "</span><span>" + (x.treff ? NIV()[x.treff.nivaa - 1].ikon + " " + (en ? NIV()[x.treff.nivaa - 1].en : NIV()[x.treff.nivaa - 1].nb) + (like[x.treff.navn] > 1 ? " · " + like[x.treff.navn] + "×" : "") : x.feil ? "✋" : T.ikkeLista) + "</span></li>").join("") + "</ol>";
+        const topp = [...totalt.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+        if (topp.length) h += "<h3>" + (en ? "🏆 Deepest divers so far" : "🏆 Dypest så langt") + '</h3><ol class="kq-toppliste">' + topp.map(([n, p]) => "<li><span>" + esc(n) + "</span><strong>" + fmt(p * 10) + " m</strong></li>").join("") + "</ol>";
+      }
+      el.innerHTML = h;
+    }
+    const avslor = () => {
+      if (!K || avslort) return;
+      avslort = true;
+      const r = vurder();
+      r.forEach(x => { if (x.treff) totalt.set(x.navn, (totalt.get(x.navn) || 0) + NIV()[x.treff.nivaa - 1].p); else if (!totalt.has(x.navn)) totalt.set(x.navn, 0); });
+      K.lukkSporsmal(id => { const x = r.find(y => y.id === id); if (!x) return en ? "Time’s up! See the board." : "Tiden er ute! Se tavla."; return x.treff ? "«" + x.tekst + "» → " + nivaaNavn(x.treff.nivaa, en) + " (" + NIV()[x.treff.nivaa - 1].p + " " + T.poeng + ")" : x.feil ? "«" + x.tekst + "»: " + x.feil : T.ikkeFunnet(x.tekst); });
+      klasse();
+      $("dd-talle").hidden = false; $("dd-tvis").textContent = T.skjulSvar; $("dd-tvis").setAttribute("aria-expanded", "true");
+    };
+    $("dd-klasse").addEventListener("click", e => { if (e.target.closest("#dd-avslor")) avslor(); });
+    $("dd-romstart").addEventListener("click", async () => {
+      $("dd-romknapp").hidden = true;
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romklasse.js");
+        K = await LV.romKlasse.apne($("dd-rom"), { tittel: "Dypdykk", onSvar: klasse, onEndret: klasse, onLukket: () => { K = null; $("dd-romknapp").hidden = false; klasse(); } });
+        vis();
+      } catch (er) { $("dd-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("dd-romknapp").hidden = false; }
+    });
     vis();
     $("dd-tkat").addEventListener("change", e => { kat = alle.find(k => k.id === e.target.value); vis(); });
     $("dd-tilf").addEventListener("click", () => { const andre = alle.filter(k => k !== kat); kat = andre[Math.floor(Math.random() * andre.length)]; vis(); });
     $("dd-tstart").addEventListener("click", () => {
       if (tavleKlokke) clearInterval(tavleKlokke);
       const slutt = Date.now() + +$("dd-ttid").value * 1000;
-      tavleKlokke = setInterval(() => { const s = Math.max(0, Math.ceil((slutt - Date.now()) / 1000)); $("dd-tsek").textContent = s ? s + " s" : T.tidUte; if (!s) { clearInterval(tavleKlokke); tavleKlokke = null; } }, 250);
+      tavleKlokke = setInterval(() => { const s = Math.max(0, Math.ceil((slutt - Date.now()) / 1000)); $("dd-tsek").textContent = s ? s + " s" : T.tidUte; if (!s) { clearInterval(tavleKlokke); tavleKlokke = null; if (K && K.svar.size) avslor(); } }, 250);
     });
     $("dd-tvis").addEventListener("click", () => { const a = $("dd-talle").hidden; $("dd-talle").hidden = !a; $("dd-tvis").textContent = a ? T.skjulSvar : T.visSvar; $("dd-tvis").setAttribute("aria-expanded", String(a)); });
     $("dd-tsjekk").addEventListener("submit", e => {

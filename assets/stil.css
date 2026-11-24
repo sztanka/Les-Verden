@@ -5143,6 +5143,7 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .rkl-status { font-weight: 600; min-height: 1.2em; }
 .rkl-skjema { display: grid; gap: .8rem; text-align: left; }
 .rkl-felt { display: grid; gap: .3rem; font-weight: 600; }
+.rkl-felt input { font: inherit; font-size: 1.2rem; padding: .5rem .7rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); width: 100%; box-sizing: border-box; }
 .rkl-felt textarea { font: inherit; font-weight: 400; padding: .5rem .7rem; border-radius: 10px; border: 2px solid var(--linje); background: var(--bakgrunn); color: var(--tekst); width: 100%; box-sizing: border-box; }
 .rkl-skala { border: 1px solid var(--linje); border-radius: 10px; display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
 .rkl-skala legend { font-weight: 600; }
@@ -5159,3 +5160,11 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
 .ex-svarvisning h3 { font-size: 1.05rem; margin: 1rem 0 .3rem; }
 .ex-svarliste { display: grid; gap: .35rem; padding-left: 1.1rem; }
 .ex-svarliste li { background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; padding: .3rem .6rem; overflow-wrap: anywhere; }
+.fo-romvalg { margin: .5rem 0 1rem; }
+.fo-stemmer { margin-top: .4rem; padding: .5rem .8rem; border: 2px dashed var(--linje); border-radius: 12px; }
+.fo-stemmer .hj-stolper li { grid-template-columns: minmax(8rem, 1.4fr) 1fr 2rem; }
+.dd-romvalg { margin-bottom: .8rem; }
+.dd-klasse { margin-top: 1rem; }
+.dd-klasseliste { list-style: none; padding: 0; display: grid; gap: .3rem; }
+.dd-klasseliste li { display: flex; justify-content: space-between; gap: .8rem; flex-wrap: wrap; border-radius: 10px; padding: .35rem .8rem; }
+.dd-klasseliste li.dd-ingen { background: var(--flate-2); }

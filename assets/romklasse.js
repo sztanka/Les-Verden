@@ -39,7 +39,7 @@
     melding(d, el) {
       const lang = d.en ? ' lang="en"' : "";
       if (d.t === "venter") { el.innerHTML = '<p class="rk-stor">✅ Du er med!</p><p>Vent på spørsmålet fra læreren' + (d.tittel ? " – «" + esc(d.tittel) + "»" : "") + ".</p>"; return; }
-      if (d.t === "lukket") { el.innerHTML = '<p class="rk-stor">🙏 ' + (d.en ? "Thank you!" : "Takk!") + "</p><p" + lang + ">" + esc(d.tekst || "") + "</p>"; return; }
+      if (d.t === "lukket") { el.innerHTML = '<p class="rk-stor">🙏 ' + (d.en ? "Thank you!" : "Takk!") + "</p>" + String(d.tekst || "").split("\n").map(x => "<p" + lang + ">" + esc(x) + "</p>").join(""); return; }
       if (d.t !== "spor") return;
       el._sporId = d.id; el._en = !!d.en;
       let h = '<p class="rkl-tekst"' + lang + ">" + esc(d.tekst) + "</p>";
@@ -52,6 +52,7 @@
           const id = "rkl-" + d.id + "-" + i;
           if (f.type === "skala") return '<fieldset class="rkl-skala"><legend>' + esc(f.tekst) + "</legend>" + [1, 2, 3, 4, 5].map(k => '<label><input type="radio" name="' + id + '" value="' + k + '" data-felt="' + esc(f.id) + '"' + (m[f.id] === String(k) ? " checked" : "") + "> " + k + "</label>").join("") + "</fieldset>";
           if (f.type === "nivaa") return '<fieldset class="rkl-skala"><legend>' + esc(f.tekst) + "</legend>" + (d.en ? ["Not yet", "Partly", "Yes"] : ["Ikke ennå", "Delvis", "Ja"]).map((x, k) => '<label><input type="radio" name="' + id + '" value="' + k + '" data-felt="' + esc(f.id) + '"' + (m[f.id] === String(k) ? " checked" : "") + "> " + ["🌱", "🌿", "🌳"][k] + " " + x + "</label>").join("") + "</fieldset>";
+          if (f.type === "linje") return '<label class="rkl-felt" for="' + id + '"><span>' + esc(f.tekst) + '</span><input id="' + id + '" maxlength="80" spellcheck="false" autocapitalize="off" data-felt="' + esc(f.id) + '" value="' + esc(m[f.id] || "") + '"></label>';
           return '<label class="rkl-felt" for="' + id + '"><span>' + esc(f.tekst) + '</span><textarea id="' + id + '" rows="' + (f.rader || 2) + '" data-felt="' + esc(f.id) + '">' + esc(m[f.id] || "") + "</textarea></label>";
         }).join("") + '<button type="submit" class="knapp hoved">' + (d.mitt ? (d.en ? "Send again" : "Send på nytt") : (d.en ? "Send" : "Send")) + '</button><p class="rkl-status" role="status"></p>' + (d.anonym ? '<p class="rv-merk">' + (d.en ? "Your teacher sees the answers without your name." : "Læreren ser svarene uten navnet ditt.") + "</p>" : "") + "</form>";
       }
@@ -95,7 +96,7 @@
         },
         lukkSporsmal(tekst) {
           aapen = false;
-          rom.spillere.forEach(s => { if (s.tilkoblet) rom.send(s.id, { t: "lukket", tekst, en: sporsmal && sporsmal.en }); });
+          rom.spillere.forEach(s => { if (s.tilkoblet) rom.send(s.id, { t: "lukket", tekst: typeof tekst === "function" ? tekst(s.id) : tekst, en: sporsmal && sporsmal.en }); });
         },
         get aapen() { return aapen; },
         lukk() { rom.lukk(); el.innerHTML = ""; o.onLukket && o.onLukket(); }

@@ -127,6 +127,7 @@
       '<div class="fo-ramme-ytre"' + (sp === "en" ? ' lang="en"' : "") + '><header class="sidehode fo-hode" style="--fo-a:' + f.farger[0] + ";--fo-b:" + f.farger[1] + '"><p class="overlinje">' + (sp === "en" ? "Choose your path" : "Velg din vei") + " · " + esc(f.undertittel) + '</p><h1><span aria-hidden="true">' + f.ikon + "</span> " + esc(f.tittel) + "</h1>" +
       (harLett ? '<div class="tekstniva" role="group" aria-label="' + (sp === "en" ? "Text level" : "Tekstnivå") + '"><span class="etikett">' + tx.tekst + '</span><button type="button" class="knapp liten" data-fo-niva="lett">' + tx.lett + '</button><button type="button" class="knapp liten" data-fo-niva="vanlig">' + tx.vanlig + '</button><span class="tekstniva-info">' + tx.lettInfo + "</span></div>" : "") +
       '<div class="fo-rolle" id="fo-rolle"></div></header>' +
+      '<div class="fo-romvalg" lang="nb"><p id="fo-romknapp"><button type="button" class="knapp" id="fo-romstart">📱 La klassen stemme over valgene (romkode)</button></p><div id="fo-rom"></div></div>' +
       '<div id="fo-scener" class="fo-scener" aria-live="polite"></div><div id="fo-etter"></div></div>';
 
     const rolle = () => {
@@ -158,6 +159,7 @@
       const siste = ider[ider.length - 1];
       if (sti.length) $("fo-scener").insertAdjacentHTML("beforeend", '<p class="fo-tilbake"><button type="button" class="knapp liten" id="fo-angre">' + tx.tilbake + "</button></p>");
       if (!f.noder[siste].valg) { funnet.add(siste); etter(ider); } else $("fo-etter").innerHTML = "";
+      romOppdater(siste);
       if (fokus) {
         const s = $("fo-scener").querySelectorAll(".fo-scene");
         const h2 = s[s.length - 1].querySelector(".fo-nr");
@@ -185,7 +187,43 @@
       $("fo-igjen").addEventListener("click", () => { sti = []; tegn(true); window.scrollTo({ top: 0, behavior: "smooth" }); });
     };
 
+    // ---------- Klassestemme med romkode ----------
+    let K = null, sendtFor = "", visStemmer = false;
+    const stemmeTall = n => { const a = n.valg.map(() => 0); if (K) K.svar.forEach(v => { if (a[+v] != null) a[+v]++; }); return a; };
+    function romPanel() {
+      const el = $("fo-stemmer"); if (!el || !K) return;
+      const n = f.noder[el.dataset.node], a = stemmeTall(n), sum = a.reduce((x, y) => x + y, 0);
+      el.innerHTML = '<p>📱 <strong>' + sum + "</strong> av " + K.antall() + " har stemt. " +
+        '<button type="button" class="knapp liten" id="fo-visstemmer" aria-pressed="' + visStemmer + '">' + (visStemmer ? "Skjul stemmene" : "Vis stemmene") + '</button> <button type="button" class="knapp liten hoved" id="fo-flertall"' + (sum ? "" : " disabled") + ">✔ Gå videre med flertallet</button></p>" +
+        (visStemmer ? '<ul class="hj-stolper">' + n.valg.map((v, i) => '<li><span class="hj-stolpenavn">' + esc((lett && v.lett) || v.t) + '</span><span class="hj-stolpe"><span style="width:' + (sum ? a[i] / sum * 100 : 0) + '%;background:' + f.farger[0] + '"></span></span><strong>' + a[i] + "</strong></li>").join("") + "</ul>" : "");
+    }
+    function romOppdater(siste) {
+      if (!K) return;
+      const n = f.noder[siste];
+      if (!n.valg) { if (sendtFor !== "slutt:" + siste) { sendtFor = "slutt:" + siste; K.lukkSporsmal((sp === "en" ? "The end: " : "Slutt: ") + (n.slutt || "")); } return; }
+      const sc = $("fo-scener").querySelectorAll(".fo-scene"), sisteSc = sc[sc.length - 1];
+      sisteSc.querySelector(".fo-valg").insertAdjacentHTML("beforeend", '<div class="fo-stemmer" id="fo-stemmer" data-node="' + siste + '" lang="nb" aria-live="polite"></div>');
+      const nokkel = siste + "#" + sti.length;
+      if (sendtFor !== nokkel) { sendtFor = nokkel; visStemmer = false; K.spor({ id: "n" + sti.length + "-" + siste, type: "valg", en: sp === "en", tekst: (sp === "en" ? "Part " : "Del ") + (sti.length + 1) + " – " + tx.hvaGjor, valg: n.valg.map((v, i) => ({ id: String(i), tekst: (lett && v.lett) || v.t, farge: f.farger[0] })) }); }
+      romPanel();
+    }
+    $("fo-romstart").addEventListener("click", async () => {
+      $("fo-romknapp").hidden = true;
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romklasse.js");
+        K = await LV.romKlasse.apne($("fo-rom"), { tittel: f.tittel, onSvar: romPanel, onEndret: romPanel, onLukket: () => { K = null; sendtFor = ""; $("fo-romknapp").hidden = false; tegn(false); } });
+        tegn(false);
+      } catch (er) { $("fo-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); $("fo-romknapp").hidden = false; }
+    });
+
     $("innhold").addEventListener("click", e => {
+      if (e.target.closest("#fo-visstemmer")) { visStemmer = !visStemmer; romPanel(); return; }
+      const fl = e.target.closest("#fo-flertall");
+      if (fl && K) {
+        const node = $("fo-stemmer").dataset.node, a = stemmeTall(f.noder[node]), maks = Math.max(...a);
+        const beste = a.map((x, i) => [x, i]).filter(x => x[0] === maks).map(x => x[1]);
+        sti.push({ node, valg: beste[Math.floor(Math.random() * beste.length)] }); tegn(true); return;
+      }
       const o = e.target.closest(".fo-ord");
       if (o) { const sp = o.nextElementSibling; const apen = o.getAttribute("aria-expanded") === "true"; o.setAttribute("aria-expanded", String(!apen)); sp.hidden = apen; return; }
       const b = e.target.closest(".fo-valgknapp");

@@ -56,12 +56,17 @@
     if (sistKode.length !== 5 || !sistNavn) { const s = $("rk-status"); if (s) s.textContent = sistKode.length !== 5 ? "Romkoden har fem tegn." : "Skriv et kallenavn."; return; }
     const st = $("rk-status"); if (st) st.textContent = "Kobler til rom " + sistKode + " …";
     let el = null, visning = null;
-    try {
-      api = await LV.rom.bli(sistKode, sistNavn, {
-        onMelding: d => { if (visning && el) visning.melding(d, el, x => api.send(x)); },
-        onStatus: s => frakoblet(s)
-      });
-    } catch (e) { skjema(LV.rom.feilTekst(e)); return; }
+    const forsok = () => LV.rom.bli(sistKode, sistNavn, {
+      onMelding: d => { if (visning && el) visning.melding(d, el, x => api.send(x)); },
+      onStatus: s => frakoblet(s)
+    });
+    try { api = await forsok(); }
+    catch (e) {
+      // Koblingstjenesten kan være treg – prøv én gang til før vi gir opp
+      const st2 = $("rk-status"); if (st2) st2.textContent = "Prøver igjen …";
+      await new Promise(r => setTimeout(r, 1500));
+      try { api = await forsok(); } catch (e2) { skjema(LV.rom.feilTekst(e2)); return; }
+    }
     visning = LV.romKlient[api.spill] || { start: x => { x.innerHTML = "<p>Du er med i rommet.</p>"; }, melding() {} };
     $("innhold").innerHTML = '<div class="rk-spill"><div class="rk-topp"><span>Rom <strong>' + esc(sistKode) + "</strong> · " + esc(api.navn) + '</span><button type="button" class="knapp liten" id="rk-forlat">Forlat rommet</button></div><div id="rk-flate" class="rk-flate" aria-live="polite"></div></div>';
     el = $("rk-flate");

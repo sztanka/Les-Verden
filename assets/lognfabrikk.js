@@ -73,13 +73,47 @@
     let nr = -1, folgere = 0, trov = 50, merker = [], innlegg = [];
     const hode = '<nav class="brodsmuler" aria-label="Brødsmuler"><a href="index.html">Forside</a> › <a href="spill.html">Spill</a> › Løgnfabrikken</nav>';
 
+    // ---------- Klassen stemmer (romkode) ----------
+    let K = null, visKlasse = false;
+    const romBoks = document.createElement("div");
+    romBoks.className = "lgf-romvalg";
+    romBoks.innerHTML = '<p class="lgf-romknapp"><button type="button" class="knapp">📱 La klassen stemme over valgene (romkode)</button></p><div class="lgf-rom"></div>';
+    const plasserRom = () => { const pl = $("lgf-romplass"); if (pl) pl.replaceWith(romBoks); };
+    function klasse() {
+      const el = $("lgf-klasse"); if (!el || !K) return;
+      const N = NIVAER[nr]; if (!N) return;
+      const a = N.valg.map(() => 0); K.svar.forEach(v => { if (a[+v] != null) a[+v]++; });
+      const sum = a.reduce((x, y) => x + y, 0), valgt = !!document.querySelector(".lgf-valgknapp[disabled]");
+      el.innerHTML = '<p>📱 <strong>' + sum + "</strong> av " + K.antall() + " har stemt. " + '<button type="button" class="knapp liten" id="lgf-visklasse" aria-pressed="' + visKlasse + '">' + (visKlasse ? "Skjul stemmene" : "Vis stemmene") + "</button>" +
+        (valgt ? "" : ' <button type="button" class="knapp liten hoved" id="lgf-flertall"' + (sum ? "" : " disabled") + ">✔ Gå videre med flertallet</button>") + "</p>" +
+        (visKlasse ? '<ul class="hj-stolper">' + N.valg.map((v, i) => '<li><span class="hj-stolpenavn">' + esc(v.tekst.length > 60 ? v.tekst.slice(0, 57) + "…" : v.tekst) + '</span><span class="hj-stolpe"><span style="width:' + (sum ? a[i] / sum * 100 : 0) + '%;background:#5b2a86"></span></span><strong>' + a[i] + "</strong></li>").join("") + "</ul>" : "");
+    }
+    romBoks.querySelector("button").addEventListener("click", async () => {
+      romBoks.querySelector(".lgf-romknapp").hidden = true;
+      try {
+        await LV.lastSkript("assets/rom.js"); await LV.lastSkript("assets/romklasse.js");
+        K = await LV.romKlasse.apne(romBoks.querySelector(".lgf-rom"), { tittel: "Løgnfabrikken", onSvar: klasse, onEndret: klasse, onLukket: () => { K = null; romBoks.querySelector(".lgf-romknapp").hidden = false; const el = $("lgf-klasse"); if (el) el.remove(); } });
+        if (nr >= 0 && nr < NIVAER.length) niva();
+      } catch (er) { romBoks.querySelector(".lgf-rom").textContent = "Klarte ikke å åpne rommet. " + (LV.rom ? LV.rom.feilTekst(er) : ""); romBoks.querySelector(".lgf-romknapp").hidden = false; }
+    });
+    $("innhold").addEventListener("click", e => {
+      if (e.target.closest("#lgf-visklasse")) { visKlasse = !visKlasse; klasse(); }
+      else if (e.target.closest("#lgf-flertall") && K) {
+        const N = NIVAER[nr], a = N.valg.map(() => 0); K.svar.forEach(v => { if (a[+v] != null) a[+v]++; });
+        const maks = Math.max(...a), beste = a.map((x, i) => [x, i]).filter(x => x[0] === maks).map(x => x[1]);
+        const b = document.querySelector('.lgf-valgknapp[data-i="' + beste[Math.floor(Math.random() * beste.length)] + '"]'); if (b) b.click();
+      }
+    });
+
     function start() {
       $("innhold").innerHTML = hode +
         '<header class="sidehode"><p class="overlinje">Prebunking-spill</p><h1>🏭 Løgnfabrikken</h1><p class="ingress">I dette spillet er du skurken. Målet ditt er å få flest mulig følgere på det sosiale mediet «Pip» i den lille byen Fjordvik – uansett om det du skriver er sant. Underveis lærer du seks triks som brukes for å spre desinformasjon. Når du kjenner triksene innenfra, blir du mye flinkere til å avsløre dem.</p></header>' +
         '<div class="lp-viktig"><p><strong>Alt i spillet er oppdiktet:</strong> byen, personene, sakene og appen. Du lærer triksene for å kjenne dem igjen – ikke for å bruke dem.</p></div>' +
         '<ul class="lgf-teknikker">' + TEKNIKKER.map(t => '<li><span aria-hidden="true">' + t.ikon + "</span> " + esc(t.navn) + "</li>").join("") + "</ul>" +
+        '<div id="lgf-romplass"></div>' +
         '<p><button type="button" class="knapp hoved" id="lgf-start">Start spillet →</button></p>' +
         '<p class="fo-merk">Til læreren: Spillet bygger på forskning om «psykologisk vaksinering» (prebunking): Når man får prøve manipulasjonsteknikker i en trygg, svekket form, blir man flinkere til å oppdage dem senere. Kjente forskningsspill er <span lang="en">Bad News</span> og <span lang="en">Harmony Square</span> (Universitetet i Cambridge). Snakk med klassen etterpå om hvorfor de «beste» valgene i spillet er de verste i virkeligheten.</p>';
+      plasserRom();
       $("lgf-start").addEventListener("click", () => { nr = 0; folgere = 0; trov = 50; merker = []; innlegg = []; niva(); });
     }
 
@@ -94,7 +128,15 @@
       $("innhold").innerHTML = hode + '<div class="lgf-spill"><div class="lgf-hoved"><p class="lgf-nivå">Nivå ' + (nr + 1) + " av " + NIVAER.length + '</p><h1 class="lgf-tittel" tabindex="-1" id="lgf-h">' + T.ikon + " " + esc(T.navn) + '</h1><p class="lgf-scene">' + esc(N.scene) + '</p><div class="lgf-valg" role="group" aria-label="Velg">' +
         bland(N.valg).map(v => '<button type="button" class="lgf-valgknapp" data-i="' + N.valg.indexOf(v) + '">' + esc(v.tekst) + "</button>").join("") + '</div><div id="lgf-svar" aria-live="polite"></div></div><aside class="lgf-side">' + status() + feed() + "</aside></div>";
       $("lgf-h").focus();
+      $("lgf-h").insertAdjacentHTML("beforebegin", '<div id="lgf-romplass"></div>'); plasserRom();
+      if (K) {
+        document.querySelector(".lgf-valgknapp").parentElement.insertAdjacentHTML("afterend", '<div class="fo-stemmer" id="lgf-klasse" aria-live="polite"></div>');
+        visKlasse = false;
+        K.spor({ id: "niva" + nr, type: "valg", tekst: "Nivå " + (nr + 1) + ": " + N.scene, valg: N.valg.map((v, i) => ({ id: String(i), tekst: v.tekst, farge: "#5b2a86" })) });
+        klasse();
+      }
       document.querySelectorAll(".lgf-valgknapp").forEach(b => b.addEventListener("click", () => {
+        if (K) { K.lukkSporsmal("Klassen valgte: «" + N.valg[+b.dataset.i].tekst + "». Se hva som skjer på tavla!"); setTimeout(klasse, 0); }
         const v = N.valg[+b.dataset.i];
         document.querySelectorAll(".lgf-valgknapp").forEach(x => { x.disabled = true; x.classList.toggle("valgt", x === b); });
         folgere = Math.max(0, folgere + v.f); trov = Math.max(0, Math.min(100, trov + v.tr));
@@ -109,6 +151,7 @@
     }
 
     function avsloring() {
+      if (K) K.lukkSporsmal("Spillet er over. Se avsløringen på tavla!");
       const test = bland(TEST);
       $("innhold").innerHTML = hode + '<header class="sidehode"><p class="overlinje">🚨 Avsløringen</p><h1 tabindex="-1" id="lgf-h">Spillet er over</h1><p class="ingress">Du endte med <strong>' + folgere.toLocaleString("nb-NO") + " følgere</strong>. I virkeligheten er det ikke du som er skurken – men du har nå sett triksene innenfra. Her er de seks teknikkene, og hvordan du kjenner dem igjen:</p></header>" +
         '<ul class="lgf-oversikt">' + TEKNIKKER.map(t => '<li><span class="lgf-oversikt-ikon" aria-hidden="true">' + t.ikon + "</span><div><h2>" + esc(t.navn) + "</h2><p>" + esc(t.kjenn) + "</p></div></li>").join("") + "</ul>" +
