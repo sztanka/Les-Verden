@@ -5380,3 +5380,42 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
   body:has(#gt-resultat) .gt-oppsett, body:has(#gt-resultat) .le-del, .gt-topp .mu-knapper, .gt-byttinfo { display: none !important; }
   .gt-gruppe { break-inside: avoid; }
 }
+
+/* ---------- Navnehjulet (navnehjul.html) ---------- */
+.nh-flate { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 1.5rem; align-items: start; margin: 1rem 0 2rem; background: var(--bakgrunn); }
+@media (max-width: 760px) { .nh-flate { grid-template-columns: minmax(0, 1fr); } }
+.nh-hjuldel { display: grid; justify-items: center; gap: .5rem; min-width: 0; }
+.nh-hjul { position: relative; width: min(100%, 620px, calc(100vh - 120px)); aspect-ratio: 1; }
+.nh-hjul canvas { display: block; width: 100%; height: auto; cursor: pointer; border-radius: 50%; }
+.nh-snurrer .nh-hjul canvas { cursor: progress; }
+.nh-peker { position: absolute; right: -6px; top: 50%; width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-right: 40px solid #e0b100; filter: drop-shadow(0 2px 3px rgba(0,0,0,.35)); transform-origin: 100% 50%; transform: translateY(-50%); pointer-events: none; }
+.nh-midt { position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; border: 4px solid #fff; background: #1d1d1f; color: #fff; font: 800 clamp(.8rem, 2.4vw, 1.25rem) var(--font-ui); letter-spacing: .06em; cursor: pointer; box-shadow: 0 3px 10px rgba(0,0,0,.3); transition: transform .15s; }
+.nh-midt:hover { transform: translate(-50%, -50%) scale(1.05); }
+.nh-midt:focus-visible { outline: 4px solid #2a6f97; outline-offset: 3px; }
+.nh-snurrer .nh-midt { cursor: progress; }
+.nh-hint { font-family: var(--font-ui); font-size: .9rem; color: var(--tekst-dempet); margin: 0; text-align: center; }
+.nh-hint kbd { font: inherit; font-size: .8rem; border: 1px solid var(--linje); border-bottom-width: 2px; border-radius: 4px; padding: 0 .3rem; background: var(--flate); }
+.nh-panel { background: var(--flate); border: 1px solid var(--linje); border-radius: var(--radius); padding: .4rem 1rem 1rem; min-width: 0; }
+.nh-faner { display: flex; gap: .3rem; border-bottom: 1px solid var(--linje); margin-bottom: .7rem; }
+.nh-faner button { font: inherit; font-family: var(--font-ui); font-weight: 700; background: none; border: 0; border-bottom: 3px solid transparent; padding: .55rem .6rem; color: var(--tekst-dempet); cursor: pointer; }
+.nh-faner button[aria-selected="true"] { color: var(--tekst); border-bottom-color: currentColor; }
+.nh-tall { display: inline-block; min-width: 1.4em; padding: 0 .35em; border-radius: 999px; background: var(--tekst); color: var(--flate); font-size: .78rem; text-align: center; }
+.nh-verktoy { margin: 0 0 .5rem; }
+.nh-maler summary { cursor: pointer; font-family: var(--font-ui); font-weight: 600; padding: .2rem 0; }
+.nh-valg { border: 0; padding: 0; margin: .6rem 0; display: grid; gap: .45rem; }
+.nh-valg legend { font-family: var(--font-ui); font-weight: 700; padding: 0; margin-bottom: .3rem; }
+.nh-resultater { font-family: var(--font-ui); font-size: 1.05rem; padding-left: 1.6rem; max-height: 22rem; overflow: auto; }
+.nh-resultater .nh-ingen { list-style: none; margin-left: -1.6rem; color: var(--tekst-dempet); }
+.nh-flate:fullscreen { padding: 2rem; overflow: auto; align-items: center; }
+.nh-flate:fullscreen .nh-hjul { width: min(100%, 88vh); }
+.nh-dialog { border: 0; border-radius: 20px; padding: 1.8rem 2.6rem 1.4rem; text-align: center; background: var(--flate); color: var(--tekst); box-shadow: 0 20px 60px rgba(0,0,0,.35); max-width: min(92vw, 40rem); overflow: hidden; animation: nh-pop .35s cubic-bezier(.2,1.4,.5,1); }
+.nh-dialog::backdrop { background: rgba(0,0,0,.55); }
+.nh-dlabel { font-family: var(--font-ui); color: var(--tekst-dempet); margin: 0; }
+.nh-vinner { font-family: var(--font-ui); font-weight: 800; font-size: clamp(2.2rem, 8vw, 4.5rem); line-height: 1.1; margin: .4rem 0 1.2rem; overflow-wrap: anywhere; }
+.nh-dialog .mu-knapper { justify-content: center; }
+.nh-konfetti { position: absolute; inset: 0; pointer-events: none; }
+.nh-konfetti i { position: absolute; left: 50%; top: 40%; width: 8px; height: 14px; background: var(--f); border-radius: 2px; opacity: 0; animation: nh-konf 1.4s ease-out var(--d) forwards; }
+@keyframes nh-konf { 0% { opacity: 1; transform: translate(0, 0) rotate(0); } 100% { opacity: 0; transform: translate(calc(var(--x) * 3px), 160px) rotate(var(--r)); } }
+@keyframes nh-pop { from { transform: scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .nh-dialog { animation: none; } }
+.nh-dialog .mu-knapper, .nh-dialog .nh-vinner { position: relative; z-index: 1; }
