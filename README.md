@@ -59,7 +59,7 @@ les-verden/
 ├── arsak.html              Årsak og virkning: sett kjeder i rekkefølge (data i data/arsak.js)
 ├── exit.html               Exit ticket: avslutningslapper (storskjerm, utskrift, digital)
 ├── kildesok.html          Kildesøk: Lille/Store norske leksikon og Wikipedia via åpne API-er, lenker til Britannica, History.com og FN-sambandet (assets/kildesok.js)
-├── klassekart.html        Klassekart: oppsett (par, grupper, hestesko, rader, dobbel hestesko), regler, optimalisering, bytt/lås/fjern pulter, last ned/åpne fil (assets/klassekart.js)
+├── klassekart.html        Klassekart: oppsett (par, trio, grupper, hestesko, rader, blokker, dobbel hestesko), regler, optimalisering, dra og slipp av elever og pulter, lås/legg til/fjern pulter, last ned/åpne fil (assets/klassekart.js)
 ├── navnehjul.html         Navnehjulet: lykkehjul for tilfeldig trekning med tikkelyd, konfetti, fjern-trukket og fullskjerm (assets/navnehjul.js)
 ├── gruppetrekker.html     Gruppetrekker: tilfeldige grupper med fravær, regler, roller, bytte og fullskjerm, pluss «trekk en elev» (assets/gruppetrekker.js)
 ├── sosiogram.html         Sosiogram for lærere: positive valg via romkode eller lapper, nettverksdiagram, oppmerksomhetsliste og gruppeforslag (assets/sosiogram.js, elevvisning i assets/sosiogram-klient.js)
@@ -604,7 +604,7 @@ Et nytt land: Lag `data/land/<id>.js` etter mønster av de andre, legg landet in
 ### Versjonsnummer (når endringer ikke vises)
 
 Alle `.html`-filene henter CSS og JavaScript med et versjonsnummer, for eksempel
-`assets/stil.css?v=20261126f`. Det samme nummeret står i `LV.versjon` øverst i
+`assets/stil.css?v=20261126g`. Det samme nummeret står i `LV.versjon` øverst i
 `assets/felles.js`. Når nummeret endres, henter nettleseren nye filer i stedet for gamle
 kopier. Hvis du selv endrer CSS eller JavaScript og ikke ser endringen, kan du trykke
 **Ctrl + F5** (Windows) eller **Cmd + Shift + R** (Mac), eller endre versjonsnummeret.

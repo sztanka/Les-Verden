@@ -5477,3 +5477,15 @@ h1 .tu-en { display: block; font-size: 1rem; font-family: var(--font-ui); }
   .kk-rom { max-width: 100%; } .kk-sete { background: #fff !important; }
 }
 .kk-sete { position: absolute; } .kk-lasikon { position: absolute; top: -.1em; right: .05em; font-style: normal; font-size: .75em; }
+.kk-blokker { display: grid; grid-template-columns: minmax(7rem, 1.4fr) repeat(3, minmax(3.5rem, 1fr)); gap: .35rem .5rem; align-items: center; font-family: var(--font-ui); font-size: .9rem; margin: .3rem 0 .2rem; width: 100%; }
+.kk-blokker > span:nth-child(-n+4) { font-weight: 700; text-align: center; }
+.kk-blokker input { width: 100%; box-sizing: border-box; font: inherit; padding: .35rem .4rem; border: 1px solid var(--linje); border-radius: 6px; background: var(--flate); color: var(--tekst); text-align: center; }
+.kk-sete { touch-action: none; }
+.kk-redigerer .kk-sete { cursor: move; }
+.kk-redigerer .kk-flate { background-image: radial-gradient(color-mix(in srgb, var(--tekst) 18%, transparent) 1px, transparent 1px); background-size: 2.5% 2.5%; }
+.kk-sete.kk-drar { z-index: 10; box-shadow: 0 8px 20px rgba(0,0,0,.3); opacity: .9; cursor: grabbing; transition: none; }
+.kk-sete.kk-mal { outline: 3px dashed #2e8b57; outline-offset: 2px; background: #e3f5ea; }
+.kk-redigerlinje p { margin: .3rem 0; }
+.kk-redigerknapper { display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: center; }
+.kk-flyttvalg { display: inline-flex; gap: .6rem; align-items: center; padding: .2rem .6rem; border: 1px solid var(--linje); border-radius: 999px; background: var(--flate); }
+.kk-flyttvalg label { display: inline-flex; gap: .25rem; align-items: center; }
