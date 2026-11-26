@@ -180,7 +180,7 @@ window.LV = window.LV || {};
 
   // Versjonsnummer for datafilene. Endres ved hver oppdatering, slik at
   // nettleseren henter nye filer i stedet for gamle kopier.
-  LV.versjon = "20261126g";
+  LV.versjon = "20261126h";
 
   LV.lastSkript = function (src) {
     return new Promise(function (ok, feil) {
@@ -362,6 +362,8 @@ window.LV = window.LV || {};
           ["planlegger.html", "🗓️", "Planleggeren", "Økter, perioder og kompetansemål"]]],
         ["I klasserommet", [
           ["klassesvar.html", "📊", "Klassesvar", "Avstemning, ordsky og quiz på mobilen"],
+          ["tavleskjerm.html", "🖥️", "Tavleskjermen", "Timer, lydmåler, plan og mer på tavla"],
+          ["lesbarhet.html", "📏", "Lesbarhetsmåleren", "LIX, lange setninger og vanskelige ord"],
           ["klassekart.html", "🗺️", "Klassekart", "Hvem sitter hvor – med regler"],
           ["navnehjul.html", "🎡", "Navnehjulet", "Snurr hjulet og trekk med spenning"],
           ["gruppetrekker.html", "🎲", "Gruppetrekker", "Tilfeldige grupper og trekk en elev"],
